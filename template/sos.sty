@@ -1,39 +1,57 @@
-%generare il pdf con il comando: pdflatex main.tex
-\documentclass[a4paper, oneside, openany]{article}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%MACRO
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\Titolo}{Norme di Progetto}
-
-\newcommand{\Gruppo}{Sons Of Swe}
-
-\newcommand{\Redazione}{Caldart Federico, Cavallin Giovanni, Dalla Riva Giovanni, Favero Andrea, Menegon Lorenzo, Panozzo Stefano, Thiella Eleonora}
-
-\newcommand{\ACapoRedazione}{Caldart Federico \newline Cavallin Giovanni \newline Dalla Riva Giovanni \newline Favero Andrea \newline Menegon Lorenzo \newline Panozzo Stefano \newline Thiella Eleonora}
-
-\newcommand{\Verifica}{Caldart Federico}
-
-\newcommand{\Approvazione}{Cavallin Giovanni}
-
-\newcommand{\Distribuzione}{Vardanega Tullio}
-
-\newcommand{\Uso}{interno}
-
-\newcommand{\Data}{9 Marzo 2018}
-
-\newcommand{\NomeProgetto}{Progetto Marvin}
-
-\newcommand{\Mail}{sonsofswe.swe@gmail.com}
-
-\newcommand{\DescrizioneDoc}{Questo documento descrive le regole, gli strumenti e le convenzioni adottate dal gruppo 13 durante la realizzazione del progetto \dots}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%FINE MACRO
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%INIZIO INCLUDE PACCHETTI
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{sos}		%il nostro pacchetto per swe
 \usepackage{graphbox}
 % permette di modificare i margini
 \usepackage[top=3.1cm, bottom=3.1cm, left=2.2cm, right=2.2cm]{geometry}
+
+\newcommand{\copertina}{
+	\begin{titlepage}
+		\begin{center}
+			
+			\begin{center}
+				%sostituire con immagine copertina del gruppo
+				\centerline{\includegraphics[scale=0.24]{img/logo.png}}
+			\end{center}
+			
+			\vspace{1cm}
+			
+			\begin{Huge}
+				\textbf{\Titolo{}} \\
+			\end{Huge}
+			
+			\vspace{9pt}  
+			
+			\begin{large}
+				\textbf{\Gruppo{}}\ - \textbf{\NomeProgetto{}}\\%\Data{}
+				\vspace{6pt}
+				\Mail{}
+			\end{large}	  
+			
+			\vspace{15pt}
+			
+			\bgroup
+			\def\arraystretch{1.3}
+			\centering
+			\begin{tabular}{c|L{5cm}}
+				\multicolumn{2}{c}{\textbf{Informazioni sul documento} } \\ \hline
+				Versione &  1.0\\
+				Redazione & \ACapoRedazione{} \\
+				Verifica & \Verifica{} \\ 
+				Approvazione & \Approvazione{} \\
+				Uso & \Uso \\
+				Distribuzione & \Distribuzione{}
+			\end{tabular}
+			\egroup
+			
+			\vspace{15pt}
+			
+			\begin{center}
+				\textbf{Descrizione\\}
+				\DescrizioneDoc{}
+			\end{center}
+			
+		\end{center}
+	\end{titlepage}
+}
 
 \usepackage{lastpage} %info sul # dell'ultima pagina del documento
 \usepackage{fancyhdr} %per modificare dimensioni,margini, intestazioni e righe a piè di pagina
@@ -186,71 +204,3 @@ backgroundcolor=\color{lbcolor},
   commentstyle=\color{orange},
   stringstyle=\color{red}
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%FINE INCLUDE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%INIZIO DOCUMENTO
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%INIZIO COPERTINA
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{titlepage}
-  \begin{center}
-
-  \begin{center}
-    %sostituire con immagine copertina del gruppo
-    \centerline{\includegraphics[scale=0.24]{img/logo.png}}
-  \end{center}
-  
-  \vspace{1cm}
-
-  \begin{Huge}
-    \textbf{\Titolo{}} \\
-  \end{Huge}
-
-  \vspace{9pt}  
-  
-  \begin{large}
-  	\textbf{\Gruppo{}}\ - \textbf{\NomeProgetto{}}\\%\Data{}
-  	\vspace{6pt}
-  	\Mail{}
-  \end{large}	  
-  
-  \vspace{15pt}
-
-  \bgroup
-  \def\arraystretch{1.3}
-   \centering
-   \begin{tabular}{c|L{5cm}}
-      \multicolumn{2}{c}{\textbf{Informazioni sul documento} } \\ \hline
-      Versione &  1.0\\
-      Redazione & \ACapoRedazione{} \\
-      Verifica & \Verifica{} \\ 
-      Approvazione & \Approvazione{} \\
-      Uso & \Uso \\
-      Distribuzione & \Distribuzione{}
-    \end{tabular}
-  \egroup
-
-  \vspace{15pt}
-
-  \begin{center}
-    \textbf{Descrizione\\}
-    \DescrizioneDoc{}
-  \end{center}
-
-  \end{center}
-  \end{titlepage}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%FINE COPERTINA
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%SOMMARIO
-\tableofcontents
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%PARAGRAFI
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{sez/introduzione.tex}
-
-\end{document}
