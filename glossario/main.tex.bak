@@ -13,32 +13,45 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PARAGRAFI
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{A}
+\begin{itemize}
+\item \textbf{Apache Mahout}:
+\item \textbf{Apache Nutch}:
+\item \textbf{Apache PredictionIO}:
+\item \textbf{Apache Solr}:
+\item \textbf{APM}:
+\item \textbf{API}:
+\end{itemize}
+
 \section{B}
 \begin{itemize}
-\item \textbf{Back-end}:
-\item \textbf{Blockchain}:
-\item \textbf{Bootstrap}:
+\item \textbf{Back-end}: nell'ingegneria del software, il back-end si occupa di manipolare ed elaborare i dati ricevuti dal front-end.	
+\item \textbf{Blockchain}: blockchain è un database distribuito 
+\item \textbf{Bootstrap}: bootstrap è un insieme di stumenti open-source utilizzabili nello sviluppo dei siti web.  
 \end{itemize}
 
 \section{C}
 \begin{itemize}
-\item \textbf{Capitolato}:
-\item \textbf{Client}:
-
-\item \textbf{Committente}:
-\item \textbf{CSS3}:
+\item \textbf{Capitolato \color{red}{serve davvero?}}: 
+\item \textbf{Cassandra}: Cassandra è un sistema di gestione di database  open-source e gratuito, sviluppato per manipolare una grande mole di dati.
+\item \textbf{Client}: in informatica, un client è un computer o un programma (quindi hardware o software) che accede e sfrutta un servizio offerto da un server.
+\item \textbf{Committente \color{red}{serve davvero?}}: 
+\item \textbf{CSS3}: CSS è un linguaggio usato nel web per descrivere come vengono visualizzati gli elementi HTML in una pagina web. "3" indica l'ultima versione disponibile.
 \end{itemize}
 
 
 \section{D}
 \begin{itemize}
-\item \textbf{Dashboard}:
-\item \textbf{ÐApp}:
+\item \textbf{Dashboard}: dashboard è un termine che sta ad indicare un'interfaccia grafica attraverso la quale è possibile visualizzare dati e/o tenere traccia del loro avanzamento.
+\item \textbf{Database relazionale}:
+\item \textbf{ÐApp}: ÐApp è l'abbrevazione di applicazione decentralizzata
 \item \textbf{Data visualization}:
+\item \textbf{DevOps}:
 \end{itemize}
 
 \section{E}
 \begin{itemize}
+\item \textbf{Elasticsearch}:
 \item \textbf{Ethereum}: 
 \item \textbf{EVM}:
 \end{itemize}
@@ -46,6 +59,7 @@
 \section{F}
 \begin{itemize}
 \item \textbf{Framework}:
+\item \textbf{Front-end}:
 \end{itemize}
 
 \section{G}
@@ -59,22 +73,40 @@
 
 \section{H}
 \begin{itemize}
+\item \textbf{Hyperledger Fabric}:
 \item \textbf{HTML5}:
+\item \textbf{HTTPS}:
+\end{itemize}
+
+\section{I}
+\begin{itemize}
+\item \textbf{IT}:
 \end{itemize}
 
 \section{J}
 \begin{itemize}
+\item \textbf{Java}:
+\item \textbf{Java EE}:
 \item \textbf{JavaScript}:
+\end{itemize}
+
+\section{K}
+\begin{itemize}
+\item \textbf{Keycloak}:
+\item \textbf{Kibana}:
 \end{itemize}
 
 \section{L}
 \begin{itemize}
 \item \textbf{Linguaggi di markup}:
+\item \textbf{Lucene}:
 \end{itemize}
 
 \section{M}
 \begin{itemize}
 \item \textbf{Machine learning}:
+\item \textbf{Manutenzione}:
+\item \textbf{MongoDB}:
 \end{itemize}
 
 \section{N}
@@ -82,9 +114,15 @@
 \item \textbf{NodeJS}:
 \end{itemize}
 
+\section{O}
+\begin{itemize}
+\item \textbf{Open-source}:
+\end{itemize}
+
 \section{P}
 \begin{itemize}
 \item \textbf{Permissioned blockchain}:
+\item \textbf{Play}:
 \item \textbf{PoC}:
 \item \textbf{Proponente}:
 \item \textbf{Prototipo}:
@@ -94,21 +132,36 @@
 \begin{itemize}
 \item \textbf{React}:
 \item \textbf{Redux}:
+\item \textbf{Repository}:
 \item \textbf{Responsive}:
+\item \textbf{Robustness diagram}:
 \end{itemize}
 
 \section{S}
 \begin{itemize}
 \item \textbf{SCSS}:
 \item \textbf{Server}:
+\item \textbf{Sistemi di Raccomandazione}:
 \item \textbf{Smart Contracts}:
 \item \textbf{Solidity}:
 \item \textbf{Standup}:
 \end{itemize}
 
 \section{T}
+\begin{itemize}
 \item \textbf{Team}:
+\item \textbf{Tomcat}:
+\end{itemize}
 
+\section{U}
+\begin{itemize}
+\item \textbf{UML}:s
+\end{itemize}
+
+\section{V}
+\begin{itemize}
+\item \textbf{Vaadin Elements}:
+\end{itemize}
 
 
 
