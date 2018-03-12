@@ -1,0 +1,115 @@
+%generare il pdf con il comando: pdflatex main.tex
+\documentclass[a4paper, oneside, openany]{article}
+\usepackage{../template/sos}
+\input{comandi.tex}
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+\copertina{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%SOMMARIO
+\tableofcontents
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PARAGRAFI
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{B}
+\begin{itemize}
+\item \textbf{Back-end}:
+\item \textbf{Blockchain}:
+\item \textbf{Bootstrap}:
+\end{itemize}
+
+\section{C}
+\begin{itemize}
+\item \textbf{Capitolato}:
+\item \textbf{Client}:
+
+\item \textbf{Committente}:
+\item \textbf{CSS3}:
+\end{itemize}
+
+
+\section{D}
+\begin{itemize}
+\item \textbf{Dashboard}:
+\item \textbf{ÐApp}:
+\item \textbf{Data visualization}:
+\end{itemize}
+
+\section{E}
+\begin{itemize}
+\item \textbf{Ethereum}: 
+\item \textbf{EVM}:
+\end{itemize}
+
+\section{F}
+\begin{itemize}
+\item \textbf{Framework}:
+\end{itemize}
+
+\section{G}
+\begin{itemize}
+\item \textbf{Git}:
+\item \textbf{Google Cloud Datastore}:
+\item \textbf{Google SQL}:
+\item \textbf{Google Platform}:
+
+\end{itemize}
+
+\section{H}
+\begin{itemize}
+\item \textbf{HTML5}:
+\end{itemize}
+
+\section{J}
+\begin{itemize}
+\item \textbf{JavaScript}:
+\end{itemize}
+
+\section{L}
+\begin{itemize}
+\item \textbf{Linguaggi di markup}:
+\end{itemize}
+
+\section{M}
+\begin{itemize}
+\item \textbf{Machine learning}:
+\end{itemize}
+
+\section{N}
+\begin{itemize}
+\item \textbf{NodeJS}:
+\end{itemize}
+
+\section{P}
+\begin{itemize}
+\item \textbf{Permissioned blockchain}:
+\item \textbf{PoC}:
+\item \textbf{Proponente}:
+\item \textbf{Prototipo}:
+\end{itemize}
+
+\section{R}
+\begin{itemize}
+\item \textbf{React}:
+\item \textbf{Redux}:
+\item \textbf{Responsive}:
+\end{itemize}
+
+\section{S}
+\begin{itemize}
+\item \textbf{SCSS}:
+\item \textbf{Server}:
+\item \textbf{Smart Contracts}:
+\item \textbf{Solidity}:
+\item \textbf{Standup}:
+\end{itemize}
+
+\section{T}
+\item \textbf{Team}:
+
+
+
+
+\end{document}
