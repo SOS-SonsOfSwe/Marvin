@@ -3,24 +3,23 @@
 
 \subsubsection{Studio di Fattibilità}
 Si tratta del documento in cui vengono analizzati tutti i capitolati, valutandone pregi e difetti, allo scopo di scegliere quello di maggiore affinità per il gruppo.
-Dopo che il \emph{\RdP} avrà riunito il gruppo e discusso con esso di tutti i capitolati, gli \emph{\anas} avranno il compito di stilare lo \emph{\SdF} 
-seguendo le considerazioni emerse.\\
-Lo \emph{\SdF} sarà organizzato come segue:
+Dopo che il \RdP avrà riunito il team e discusso con esso di tutti i capitolati, gli \anas avranno il compito di stilare lo \SdF seguendo le considerazioni emerse.\\
+Lo \SdF sarà organizzato come segue:
 \begin{itemize}
-	\item \textbf{Informazioni sul capitolato}
-	Vengono ricordati il nome del progetto, il proponente e i committenti.
-	\item \textbf{Descrizione}
-	Si riassume lo scopo del capitolato.
-	\item \textbf{Dominio applicativo}
-	Si specifica il settore di utilizzo del prodotto finale.
-	\item \textbf{Dominio tecnologico}
-	Si elencano le tecnologie che dovranno essere utilizzate nello sviluppo del capitolato.
-	\item \textbf{Aspetti positivi}
-	Si elencano i motivi considerabili vantaggiosi per il gruppo.
-	\item \textbf{Aspetti negativi}
-	Si elencano le potenziali criticità che il gruppo dovrà tenere in considerazione nella scelta finale.
-	\item \textbf{Valutazione finale}
-	Si analizzano gli aspetti positivi e le criticità riscontrate e viene motivata l'eventuale approvazione o esclusione.
+	\item \textbf{Informazioni sul capitolato}:
+	Vengono ricordati il nome del progetto\ped{G}, il \textit{proponente}\ped{G} e i \textit{committenti}\ped{G};
+	\item \textbf{Descrizione}:
+	Si riassume lo scopo del capitolato;
+	\item \textbf{Dominio applicativo}:
+	Si specifica il settore di utilizzo del prodotto finale;
+	\item \textbf{Dominio tecnologico}:
+	Si elencano le tecnologie che dovranno essere utilizzate nello sviluppo del capitolato;
+	\item \textbf{Aspetti positivi}:
+	Si elencano i motivi che il gruppo potrebbe considerare vantaggiosi;
+	\item \textbf{Aspetti negativi}:
+	Si elencano le potenziali criticità che il gruppo dovrà tenere in considerazione nella scelta finale;
+	\item \textbf{Valutazione finale}:
+	Si analizzano gli aspetti positivi e quelli negativi riscontrati e si motiva l'eventuale approvazione o esclusione.
 \end{itemize}
 
 \begin{comment}
@@ -39,17 +38,17 @@ Confronto per le tecnologie da usare.
 \subsection{Processo di sviluppo}
 \subsubsection{Attività}
 \paragraph{Analisi dei Requisiti}
-	Gli \anas, una volta terminato lo \SdF, dovranno stilare l'\AdR, che si dovrà attenere alle seguenti regole:
+	~\\Gli \anas, una volta terminato lo \SdF, dovranno stilare l'\AdR, che si dovrà attenere alle seguenti regole:
 	\begin{itemize}
-	\item \textbf{Classificazione dei Requisiti}
-	\textit{Scrivere qui come poi saranno classificati}
-	\item \textbf{Classificazione dei casi d'uso}
-	\textit{Scrivere qui come poi saranno classificati}
+	\item \textbf{Classificazione dei Requisiti}:
+	\textit{Scrivere qui come poi saranno classificati};
+	\item \textbf{Classificazione dei casi d'uso}:
+	\textit{Scrivere qui come poi saranno classificati}.
 	\end{itemize}
 \paragraph{Progettazione}
-	I \progs dovranno delinerare i requisiti utili alla documentazione specifica e determinare le linee guida da seguire.
+	~\\I \progs{} dovranno delinerare i requisiti utili alla documentazione specifica e determinare le linee guida da seguire.
 	\subparagraph{UML}
-	Le tipologie di diagrammi UML che verranno adoperate per analizzare, descrivere e specificare le scelte progettuali adottate saranno:
+	~\\Le tipologie di diagrammi \emph{UML}\ped{G} che verranno adoperate per analizzare, descrivere e specificare le scelte progettuali adottate saranno:
 	\begin{itemize}
 		\item \textbf{Diagrammi di classe}
 		\item \textbf{Diagrammi di package\ped{G}}
@@ -59,39 +58,39 @@ Confronto per le tecnologie da usare.
 %	\subparagraph{Requisiti per i progettisti}
 	
 	\subparagraph{Obiettivi della progettazione}
-	La progettazione ha come scopo quello di soddisfare le peculiarità identificate durante l'\AdR.
-	Un altro obiettivo è quello di realizzare un prodotto manutenibile, ovvero che abbia una struttura che faciliti i cambiamenti futuri.
-	Infine deve realizzare al meglio i requisiti di qualità imposti dal committente.
+	~\\La progettazione ha come scopo quello di soddisfare le peculiarità identificate durante l'\AdR. Un altro obiettivo è quello di realizzare un prodotto manutenibile\ped{G}, ovvero che abbia una struttura che faciliti i cambiamenti futuri.
+	\newline Infine deve realizzare al meglio i requisiti di qualità imposti dal committente.
 	\paragraph{Codifica}
-	In questa fase i \progrs, seguendo le norme delineate nella progettazione, devono realizzare il passaggio dalla fase di pianificazione all'effettiva realizzazione del prodotto.
+	~\\In questa fase i \progrs, seguendo le norme delineate nella progettazione, devono realizzare il passaggio dalla fase di pianificazione all'effettiva realizzazione del prodotto.
 	Le norme qui presenti serviranno come strumento per realizzare un codice uniforme e di alta qualità. Inoltre, per mantenerne la manutenibilità, dovrà essere realizzato in inglese.
-	I \progrs si dovranno attenere ai seguenti standard di codifica:
+	I \progrs{} si dovranno attenere agli standard di codifica qui di seguito elencati.
 	\subparagraph{Nomi}
 	\begin{itemize}
 		\item Ogni elemento deve avere un nome rappresentativo e pertinente alla funzione da esso svolta;
-		\item Si dovrà utilizzare la notazione \emph{CamelCase}, ovvero la concatenazione di più parole, ognuna delle quali con lettera iniziale maiuscola. In caso di metodi e variabili, la prima lettera dovrà essere maiuscola, per le classi maiuscola;
+		\item Si dovrà utilizzare la notazione \emph{CamelCase}, ovvero la concatenazione di più parole, ognuna delle quali con lettera iniziale maiuscola. In caso di metodi e variabili la prima lettera dovrà essere minuscola, mentre per le classi maiuscola;
 		\item Si potranno utilizzare singole lettere esclusivamente per identificare gli indici dei cicli;
-		\item Saranno da evitare notazioni troppo simili tra di loro in significato ed denominazione;
-		\item Si dovranno evitare errori di ortografia;
+		\item Saranno da evitare notazioni troppo simili tra di loro in significato e denominazione;
+		\item Si dovranno evitare errori di ortografia.
 	\end{itemize}
 	\subparagraph{Commenti}
-	Sarà necessario che il codice contenga dei commenti esplicativi per facilitarne la comprensione. In particolare, si dovranno seguire queste linee guida:
+	~\\Sarà necessario che il codice contenga dei commenti esplicativi per facilitarne la comprensione.
+	\newline In particolare, si dovranno seguire queste linee guida:
 	\begin{itemize}
-		\item \textit{lista di linee guida per i commenti}
+		\item \textcolor{red}{lista di linee guida per i commenti}
 	\end{itemize}
 	\subparagraph{Formattazione}
-	\begin{itemize}
+	\begin{itemize} 
 		\item Il rientro predefinito dovrà essere di un \emph{Tab} per allineare le sezioni di codice;
-		\item La parentesi graffa di apertura sarà alla fine della riga, mentre quella di chiususa a capo;
+		\item La parentesi graffa di apertura sarà alla fine della riga, mentre quella di chiusura a capo;
 		\item Prima e dopo ogni operatore dovrà esserci uno spazio;
 		\item I blocchi saranno tra loro spaziati per una maggiore comprensione. \textcolor{red}{Da decidere: lasciamo spazio anche tra i blocchi dentro al metodo?}
-		\item Il codice sorgente dovrà essere quanto più suddiviso in file, e dovrà essere raggruppato in sottocartelle che dovranno rispecchiare il pattern utilizzato.
-		\item \textit{Se ce ne sono altre le inseriamo qui. Da pensare al pattern, }
+		\item Il codice sorgente dovrà essere quanto più suddiviso in file e dovrà essere raggruppato in sottocartelle che dovranno rispecchiare il pattern utilizzato.
+		\item \textcolor{red}{Se ce ne sono altre le inseriamo qui. Da pensare al pattern, }
 	\end{itemize}
 \subsubsection{Strumenti}
 Gli strumenti utilizzati durante la fase dei processi primari sono:
 \begin{itemize}
-	\item \textbf{TexStudio}
-	Il gruppo ha scelto \emph{TexStudio} come editor multipiattaforma per comporre i documenti in \LaTeX. \textcolor{red}{Serve una descrizione migliore?}
+	\item \textbf{TexStudio:}
+	\newline Il gruppo ha scelto \emph{TexStudio} come editor multipiattaforma per comporre i documenti in \LaTeX. \textcolor{red}{Serve una descrizione migliore?}
 \end{itemize}	
 
