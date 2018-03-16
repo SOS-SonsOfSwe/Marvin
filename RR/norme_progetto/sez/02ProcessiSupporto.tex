@@ -68,7 +68,7 @@ Per questo motivo, il team suddividerà i documenti in:
 	\paragraph{Piano di Progetto (PdP)}
 	~\\Il \PdP{} contiene le indicazioni sulle scadenze temporali e fornisce un preventivo dei costi da presentare al proponente. 
 	~\\Vengono inoltre individuati i rischi ed analizzate le loro ricorrenze.
-	~\\In questo documento vengono fatte emergere le \emph{milestone\ped{G}} legate ai punti critici e viene effettuata una pianificazione\ped{G} con l'uso di diagrammi di Gant\ped{G}.
+	~\\In questo documento vengono fatte emergere le \emph{milestone\ped{G}} legate ai punti critici e viene effettuata una \emph{pianificazione}\ped{G} con l'uso di diagrammi di \emph{Gant}\ped{G}.
 	\paragraph{Piano di Qualifica (PdQ)} 
 	~\\Il \PdQ{} deve fornire ai membri del gruppo tutte le informazioni con cui poter soddisfare gli obiettivi di qualità.
 	\paragraph{Analisi dei Requisiti (AdR)}
@@ -131,7 +131,7 @@ Per questo motivo, il team suddividerà i documenti in:
 	Tutti i documenti dovranno sottostare alle seguenti norme tipografiche ed ortografiche.
 	\paragraph{Formati}
 	\begin{itemize}
-		\item \textbf{Data}: il formato della data seguirà quello esplicato nell'\emph{ISO\ped{G} 8601:2004\ped{G}}, quindi sarà: 
+		\item \textbf{Data}: il formato della data seguirà quello esplicato nell'\emph{ISO}\ped{G} \emph{8601:2004}\ped{G}, quindi sarà: 
 		\begin{center}
 			\emph{YYYY-MM-DD}
 		\end{center}
@@ -243,9 +243,8 @@ Per questo motivo, il team suddividerà i documenti in:
 		\item \emph{comandi.tex}: contiene tutti i comandi relativi alla creazione della copertina. Questa modularità permette di usare lo stesso package per costruire copertine differenti, cambiando di volta in volta i valori al suo interno.
 		\item \emph{"img" folder}: conterrà il logo e le altre immagini utilizzate nel documento.
 	\end{itemize}
-	
 	\subsubsection{Versionamento}
-	Il \emph{versionamento\ped{G}} permette a ciascun membro del team di condividere il lavoro nello spazio comune e di lavorare su vecchi e nuovi \emph{CI\ped{G} \textcolor{red}{Configuration Item}} senza rischio di sovrascritture accidentali.
+	Il \emph{versionamento\ped{G}} permette a ciascun membro del team di condividere il lavoro nello spazio comune e di lavorare su vecchi e nuovi \emph{CI}\ped{G} \emph{\textcolor{red}{Configuration Item}} senza rischio di sovrascritture accidentali.
 	\\Avrà questa forma:
 	\begin{center}
 		\emph{vX.Y.Z}
@@ -271,7 +270,7 @@ Per questo motivo, il team suddividerà i documenti in:
 		\end{itemize}
 	\end{itemize}
 	\subsubsection{Strumenti}
-			\paragraph{\textbf{\LaTeX}}\ped{G}
+			\paragraph{\textbf{\emph{\LaTeX}}}\ped{G}
 			~\\Il team ha scelto di usufruire del linguaggio \LaTeX{} per questi motivi:
 			\begin{itemize}
 				\item Permette di rendere ogni sezione molto autonoma, mantenendo comunque lo stile coerente;
@@ -309,7 +308,7 @@ Le modalità sfruttate saranno elencate qui di seguito.
 	~\\Studia il codice sorgente e la documentazione e controlla che essi seguano le norme. Non richiede l'esecuzione del prodotto software in nessuna sua parte, ma si limita all'osservazione. Questo processo può essere visto come una verifica dinamica del comportamento del programma su un insieme finito di casi selezionati nel dominio di tutte le esecuzioni possibili. Ciascun caso di prova specifica i valori in ingresso e lo stato iniziale del sistema e deve produrre un esito decidibile verificato rispetto ad un comportamento atteso. 
 	\\Si può declinare in due maniere:
 	\begin{itemize}
-		\item \emph{\textbf{Walkthrough}}\ped{G}
+		\item \emph{\textbf{\emph{Walkthrough}}}\ped{G}
 		~\\Questa tecnica di analisi deve essere effettuata nella fase iniziale dello sviluppo del prodotto per trovare eventuali errori che possano essere riscontrati. Non sapendo che tipo di errori cercare, si effettua una lettura a largo spettro. Quando i \vers{} avranno stilato una \emph{checklist}\ped{G} di tutti gli errori più comuni, si passerà alla fase di \emph{Inspection}\ped{G}. Essendo un'analisi continua, la checklist tenderà ad aumentare costantemente di dimensione, rendendo più efficace ed efficiente l'Inspection.
 		\item \emph{\textbf{Inspection}}
 		~\\Basandosi sulla checklist redatta durante la Walkthrough, i \vers{} analizzeranno tutto il prodotto cercando, di volta in volta e in modo mirato, tutti gli errori ricorrenti in essa contenuti.
@@ -362,32 +361,32 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		Il test di validazione è un'attività supervisionata dal committente	\textcolor{red}{e/o} dal proponente come dimostrazione di conformità del prodotto sulla base 
 		di casi di prova specificati o implicati dal contratto.
 		Alla validazione segue il rilascio del prodotto con eventuale garanzia e la fine della
-		\emph{commessa\ped{G}},	con eventuale manutenzione.
+		\emph{commessa}\ped{G},	con eventuale manutenzione.
 	
 	\subsubsection{Strumenti}
 	\paragraph{Strumenti per l'analisi statica}
 	\begin{itemize}
-		\item \emph{\textbf{TexStudio}}\ped{G}\footnote{\href{https://www.texstudio.org/}{https://www.texstudio.org/}}
+		\item \emph{\textbf{\emph{TexStudio}}}\ped{G}\footnote{\href{https://www.texstudio.org/}{https://www.texstudio.org/}}
 		~\\Questo editor include il correttore ortografico automatico. Tuttavia non è preciso nell'individuazione di errori più sottili, quindi servirà comunque un'analisi più approfondita da parte dei \vers;
 		\item \textbf{Indice \emph{Gulpease}}\ped{G}
 		~\\Per i test di leggibilità il team ricorrà al calcolo dell'indice Gulpease;
 		\item 
-		\emph{\textbf{JSHint}}\ped{G}\footnote{\href{http://jshint.com/}{http://jshint.com/}}
+		\emph{\textbf{\emph{JSHint}}}\ped{G}\footnote{\href{http://jshint.com/}{http://jshint.com/}}
 		~\\È uno strumento \emph{OpenSource}\ped{G} funzionale alla rilevazione degli errori e possibili problemi nel codice \emph{JavaScript}\ped{G};
 		\item 
-		\emph{\textbf{W3C Markup Validator Service}}\ped{G}\footnote{\href{https://jigsaw.w3.org/css-validator/}{https://jigsaw.w3.org/css-validator/}}
+		\emph{\textbf{\emph{W3C Markup Validator Service}}}\ped{G}\footnote{\href{https://jigsaw.w3.org/css-validator/}{https://jigsaw.w3.org/css-validator/}}
 		~\\È uno strumento per la validazione dei fogli di stile \emph{CSS}\ped{G};
 		\item 
-		\emph{\textbf{Draw.io}}\ped{G}\footnote{\href{https://www.draw.io/}{https://www.draw.io/}}
+		\emph{\textbf{\emph{Draw.io}}}\ped{G}\footnote{\href{https://www.draw.io/}{https://www.draw.io/}}
 		\\È un software per la creazione di diagrammi di flusso, di processo, organigrammi, UML, ER e diagrammi di rete.
 	\end{itemize}
 	\paragraph{Strumenti per l'analisi dinamica}
 	\begin{itemize}
 		\item 
-		\emph{\textbf{\textcolor{red}{Karma}}}\ped{G}\footnote{\href{https://karma-runner.github.io/2.0/index.html}{https://karma-runner.github.io/2.0/index.html}}
+		\emph{\textbf{\emph{\textcolor{red}{Karma}}}}\ped{G}\footnote{\href{https://karma-runner.github.io/2.0/index.html}{https://karma-runner.github.io/2.0/index.html}}
 		~\\È uno strumento per effettuare test di unità sugli script realizzati, installabile come modulo per \emph{Node.js}\ped{G};
 		\item 
-		\emph{\textbf{\textcolor{red}{Mocha}}}\ped{G}\footnote{\href{https://mochajs.org/}{https://mochajs.org/}}
+		\emph{\textbf{\emph{\textcolor{red}{Mocha}}}}\ped{G}\footnote{\href{https://mochajs.org/}{https://mochajs.org/}}
 		~\\È un framework per l'esecuzione dei test asincroni e in serie di Javascript, scritto Node.js.
 	\end{itemize}
 	
