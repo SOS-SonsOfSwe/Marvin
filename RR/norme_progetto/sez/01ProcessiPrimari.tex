@@ -3,8 +3,8 @@
 
 \subsubsection{Studio di Fattibilità}
 Si tratta del documento in cui vengono analizzati tutti i capitolati, valutandone pregi e difetti, allo scopo di scegliere quello di maggiore affinità per il gruppo.
-Dopo che il \RdP avrà riunito il team e discusso con esso di tutti i capitolati, gli \anas avranno il compito di stilare lo \SdF seguendo le considerazioni emerse.\\
-Lo \SdF sarà organizzato come segue:
+Dopo che il \RdP{} avrà riunito il team e discusso con esso di tutti i capitolati, gli \anas{} avranno il compito di stilare lo \SdF{} seguendo le considerazioni emerse.\\
+Lo \SdF{} sarà organizzato come segue:
 \begin{itemize}
 	\item \textbf{Informazioni sul capitolato}:
 	Vengono ricordati il nome del progetto\ped{G}, il \textit{proponente}\ped{G} e i \textit{committenti}\ped{G};
@@ -22,18 +22,28 @@ Lo \SdF sarà organizzato come segue:
 	Si analizzano gli aspetti positivi e quelli negativi riscontrati e si motiva l'eventuale approvazione o esclusione.
 \end{itemize}
 
-\begin{comment}
 \subsubsection{Rapporti con il proponente}
-Una volta scelto il capitolato, ci si dovrà confrontare con il proponente come segue:
+Una volta scelto il capitolato, si intende instaurare un rapporto quanto più costante e profittevole con il \proponente{} allo scopo di:
 \begin{itemize}
-	\item \textbf{Primo contatto}
-	Sfruttando i contatti messi a disposizione nella descrizione del capitolato, si contatta il proponente per verificarne l'effettiva disponibilità.
-	\item \textbf{Definizione dei canali di comunicazione}
-	Si dovrà concordare un metodo di comunicazione adatto ad entrambe le parti, per un confronto facile ed immediato tra fornitore e proponente.
+	\item Stabilire un accordo in merito allo sviluppo, al mantenimento, al funzionamento e alla consegna del prodotto;
+	\item Realizzare un prodotto che soddisfi totalmente i requisiti obbligatori concordati e quanto più possibile quelli desiderabili;
+	\item Stimare i costi;
+	\item Concordare la qualifica del prodotto.
 \end{itemize}
-\\
-Confronto per le tecnologie da usare.
-\end{comment}
+
+\subsubsection{Documentazione fornita}
+Al \proponente{} e ai \committenti{} verranno forniti i seguenti documenti:
+\begin{itemize}
+	\item \textbf{\AdR}: contiene l'analisi dei casi d'uso e dei requisiti;
+	\item \textbf{\PdQ}: contiene l'attività di verifica, di validazione e la garanzia di qualità di processi e prodotto;
+	\item \textbf{\ST}: contiene l'attività di progettazione, che misura il conseguimento di una solida base tecnologica, e verrà consegnata nella fase di \RP;
+	\item \textbf{\DdP}: contiene l'attività di progettazione, che misura il conseguimento di una solida base architetturale, e verrà consegnata nella fase di \RQ.
+\end{itemize}
+
+\subsubsection{Collaudo e consegna del prodotto}
+Una volta terminate le fasi di sviluppo, verifica e validazione si effettuerà il collaudo al fine di dimostrare che tutti i requisiti obbligatori e, possibilmente, anche alcuni dei requisiti opzionali siano stati soddisfatti. 
+\\In questa fase inoltre si dovrà dimostrare che l'esecuzione di tutti i test di validazione abbia dato un'esito positivo.
+\\Il team consegnerà in ultima il prodotto finale su un supporto fisico a \committenti.
 
 \subsection{Processo di sviluppo}
 \subsubsection{Attività}
@@ -47,19 +57,30 @@ Confronto per le tecnologie da usare.
 	\end{itemize}
 \paragraph{Progettazione}
 	~\\I \progs{} dovranno delinerare i requisiti utili alla documentazione specifica e determinare le linee guida da seguire.
+	~\\La progettazione ha come scopo quello di soddisfare le peculiarità identificate durante l'\AdR. Un altro obiettivo è quello di realizzare un prodotto \emph{manutenibile}\ped{G}, ovvero che abbia una struttura che faciliti i cambiamenti futuri.
+	\\Infine deve realizzare al meglio i requisiti di qualità imposti dal committente.
+	\subparagraph{Linee guida per la progettazione}
+	Dopo aver completato l'\AdR{} i \progs{} dovranno sottostare alle seguenti linee guida per lo sviluppo dell'architettura logica del sistema:
+	\begin{itemize}
+		\item Si dovrà puntare ad una progettazione chiara e di immediata comprensione;
+		\item Le componenti progettate dovranno essere quanto più riutilizzabili e manutenibili;
+		\item La complessità non dovrà mai essere intrattabile;
+		\item I \progs{} dovranno rientrare nei costi e nelle risorse disponibili;
+		\item I \progs{} dovranno descrivere i \emph{design pattern}\ped{G} che intendono utilizzare per la realizzazione dell'architettura, fornendone una breve descrizione e un diagramma.
+	\end{itemize}
 	\subparagraph{UML}
 	~\\Le tipologie di diagrammi \emph{UML}\ped{G} che verranno adoperate per analizzare, descrivere e specificare le scelte progettuali adottate saranno:
 	\begin{itemize}
-		\item \textbf{Diagrammi di classe}
-		\item \textbf{Diagrammi di package\ped{G}}
-		\item \textbf{Diagrammi di attività}
-		\item \textbf{Diagrammi di sequenza}
+		\item \textbf{Diagrammi di classe}:
+		\item \textbf{Diagrammi di package}\ped{G}: documentano le dipendenze tra le classi ed è utile per controllare la complessità strutturale in sistemi medio-grandi;
+		\item \textbf{Diagrammi di attività}: modellano un processo e organizzano più entità in un sistema di azioni secondo un determinato flusso. I diagrammi delle attività sono un tipo particolare di \emph{diagramma di stato}\ped{G} che identifica la variazione di stato al verificarsi di alcune condizioni legate ad una o più entità;
+		\item \textbf{Diagrammi di sequenza}: descrivono la collaborazione di un gruppo di oggetti che devono implementare collettivamente un comportamento. Sono diagrammi molto semplici, ma che permettono di capire se l'architettura creata viene eseguita.
 	\end{itemize}
-%	\subparagraph{Requisiti per i progettisti}
+\begin{comment}
+	\subparagraph{Specifica Tecnica (ST)}
 	
-	\subparagraph{Obiettivi della progettazione}
-	~\\La progettazione ha come scopo quello di soddisfare le peculiarità identificate durante l'\AdR. Un altro obiettivo è quello di realizzare un prodotto manutenibile\ped{G}, ovvero che abbia una struttura che faciliti i cambiamenti futuri.
-	\newline Infine deve realizzare al meglio i requisiti di qualità imposti dal committente.
+	\subparagraph{Definizione di Prodotto (DP)}
+\end{comment}
 	\paragraph{Codifica}
 	~\\In questa fase i \progrs, seguendo le norme delineate nella progettazione, devono realizzare il passaggio dalla fase di pianificazione all'effettiva realizzazione del prodotto.
 	Le norme qui presenti serviranno come strumento per realizzare un codice uniforme e di alta qualità. Inoltre, per mantenerne la manutenibilità, dovrà essere realizzato in inglese.
