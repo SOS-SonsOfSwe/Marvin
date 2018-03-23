@@ -1,6 +1,6 @@
 \section{Obiettivi di qualità}
 Questa sezione ha l'obiettivo di definire le caratteristiche riguardanti la qualità di prodotto e di processo che dovranno essere perseguite durante lo sviluppo del progetto.
-Ogni caratteristica viene valutata da una metrica, una soglia di accettabilità, ed una possibile soglia di miglioramento che il team si prefigge di raggiungere e possibilmente superare.
+Ogni caratteristica viene valutata da una metrica, una soglia di accettabilità, ed una possibile soglia di miglioramento che il \textit{team}\ped{G} si prefigge di raggiungere e possibilmente superare.
 \subsection{Qualità di processo}
 La qualità di processo influenza direttamente il prodotto finale realizzato. E' necessario quindi sviluppare un processo in grado di produrre ciclicamente un prodotto di alta qualità. Per questo motivo si è deciso di stabilire le seguenti caratteristiche da rispettare per tutto lo sviluppo del progetto, contemporaneamente all'applicazione dei modelli \textit{Capability Maturity Model}\ped{G}, e \textit{Ciclo di Deming}\ped{G}.
 \subsubsection{Pianificazione}
@@ -8,7 +8,39 @@ La pianificazione temporale necessita di uno sguardo a ritroso a partire dagli o
 \begin{itemize}
 	\item \textbf{Metrica}: Si è deciso di utilizzare la \textit{\textbf{SV}}\ped{G}; (Sarebbe da aggiungere il link direttamente all'appendice per l'SV)
 	\item \textbf{Soglia di accettabilità}: Si è deciso di ritenere accettabile un ritardo di massimo 3 giorni lavorativi rispetto a quanto specificato nel "\textit{Piano di Progetto}".
-	\item \textbf{Soglia di miglioramento}: Si ritiene un miglioramento rispetto all'obiettivo prefissato il caso in cui un lavoro venga portato a termine almeno 2 giorni lavorativi prima del dovuto, in termini di guadagno di tempo complessivo.
+	\item \textbf{Soglia di ottimalità}: Si ritiene un miglioramento rispetto all'obiettivo prefissato il caso in cui un lavoro venga portato a termine almeno 2 giorni lavorativi prima del dovuto, in termini di guadagno di tempo complessivo.
 \end{itemize}
 \subsubsection{Miglioramento}
+Al fine di valutare e migliorare la qualità del lavoro svolto è stato assunto il modello Capability Maturity Model (CMM).
+\begin{itemize}
+	\item \textbf{Metrica}: L'unità di misura utilizzata è la struttura a 5 livelli che rappresenta la scala di Maturità.
+	\item \textbf{Soglia di accettabilità}: Il livello minimo di maturità della scala accettabile in riferimento ai processi considerati è il 2 (Repeatable), consistente nell'aver documentazione sufficiente per poter ripetere e migliorare il processo svolto.
+	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità verrà raggiunta con il livello 4 (Managed), corrispondente ad un'ottimizzazione tecnologica dei processi in base ai costi. (da cambiare).
+\end{itemize}
+\subsubsection{Costo}
+Per verificare se i costi sono stati rispettati con quanto concordato nel  \textit"{Piano di Progetto}", è stato deciso di utilizzare la \textit{\textbf{Cost Variance}}\ped{G} (CV).
+Qualora un processo non possieda la qualità minima concordata, necessiterà di lavoro aggiuntivo al fine di soddisfare i requisiti richiesti ma alzando il costo complessivo del progetto, che sarà valutato secondo i seguenti parametri:
+\begin{itemize}
+	\item \textbf{Metrica}: L'unità di misura scelta per valutare l'aumento dei costi stabiliti è la Cost Variance.
+	\item \textbf{Soglia di accettabilità}: Sarà accettabile un aumento dei costi superiore a quelli previsti nel \textit"{Piano di Progetto}" di un massimo del 10\%
+	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità verrà raggiunta nel caso in cui i costi non aumenteranno rispetto a quanto concordato nel \textit"{Piano di Progetto}", 
+\end{itemize}
+\subsection{Qualità di documento}
+Il team si impegna a redigere dei documenti di alta qualità, rispettando le carratestiche di forma e contenuto descritte di seguito.
+\subsubsection{Ortografia}
+Un documento poichè possa essere definito tale, deve essere prima di tutto privo di errori dal punto di vista grammaticale e ortografico. 
+Il primo controllo avverà proprio durante la stesura del documento stesso, tramite il sistema di autocontrollo dell'ambiente  \textit"{TexStudio}", per poi essere controllato dal  \textit{Verificatore}\ped{G}.
+\begin{itemize}
+	\item \textbf{Metrica}: L'unità di misura considerata è il numero di errori ortografici riscontrati dopo il primo controllo da parte del \textit{Verificatore};
+	\item \textbf{Soglia di accettabilità}: Si è accettata come tollerabile la presenza di massimo un 5\% di errori rispetto alla quantità totale segnalata dopo la prima analisi da parte del \textit{Verificatore}.
+	\item \textbf{Sogia di ottimalità}: La soglia di ottimalità verrà raggiunta nel caso in cui dopo la prima revisione del documento non vengano più riscontrati errori dal \textit{Verificatore} e dal \textit{Responsabile}.
+\end{itemize}
+L'argomento verrà trattato dettagliatamente nella sezione Errori ortografici (ci va il link) in appendice.
+\subsubsection{Comprensibilità e leggibilità}
+Poichè un documento venga considerato leggibile e scorrevole si è deciso di adottare l'\textit{Indice Gulpease}\ped{G}. 
+\begin{itemize}
+	\item \textbf{Metrica}: L'unità di misura utilizzata è l'\textit{Indice Gulpease};
+	\item \textbf{Soglia di accettabilità}: Verrà considerato come accettabile un valore di 45 sulla scala dell'\textit{Indice Gulpease}.
+\end{itemize}
+L'argomento verrà trattato dettagliatamente nella sezione Indice Gulpease (ci va il link) in appendice.
 
