@@ -61,6 +61,7 @@ Qualunque riferimento non attinente o in contrasto a quanto dichiarato verrà co
 	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità sarà raggiunta nel caso in cui non si riscontrino errori dopo la prima verifica del documento.
 \end{itemize}
 Per una precisa definizione degli errori in riferimento alle norme interne si veda la sezione Errori di forma (ci va il link) in appendice.
+
 \subsection{Qualità del software}
 Come detto in precedenza, è impossibile distinguere in maniera netta la qualità di processo dalla qualità del software, in quanto la prima influenza direttamente la seconda; è dunque fondamentale avere alla base una qualità di processo sufficientemente buona per garantire la qualità del prodotto. Nonostante ciò, è necessario stabilire degli obiettivi quantitativi di qualità del software oggettivi e misurabili. A tal fine verrà seguito lo standard ISO/IEC 9126, il quale si sostanzia nei sei punti seguenti:
 
@@ -74,18 +75,48 @@ Il prodotto dovrà soddisfare i requisiti emersi dall' \AdR .
 
 \paragraph{Affidabilità}
 Il prodotto dovrà mantenere un certo livello di prestazioni in qualsiasi condizione.
+
 \begin{itemize}
-	\item \textbf{Metrica}: La valutazione si baserà sul rapporto tra il numero di esecuzioni del prodotto aventi il risultato atteso sul numero totale di esse.
-	\item \textbf{Soglia di accettabilità}: Il prodotto verrà valutato come accettabile se il rapporto di cui sopra sarà maggiore o uguale a 97/100.
-	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità sarà raggiunta nel caso in cui il rapporto di cui sopra sarà uguale a 100/100.
+	\item \textbf{Metrica}: La valutazione si baserà sul numero di fallimenti durante la fase si test.
+	\item \textbf{Soglia di accettabilità}: Il prodotto verrà valutato come accettabile se i test falliti saranno inferiori o uguali al 2\%.
+	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità sarà raggiunta nel caso in cui il 100\% dei test darà l'esito desiderato.
 \end{itemize}
 
-\paragraph{Efficienza}
+\paragraph{Efficienza \color{red}{Oltre al tempo anche costo di ether???}}
 Tale punto identifica la necessità di minimizzare il più possibile le risorse disponibili.
-Al momento della redazione di questo documento, il team non è in grado di identificare una metrica adatta alla valutazione dell'efficienza del prodotto, nè di conseguenza le soglie di accettabilità e ottimalità.
+\begin{itemize}
+	\item \textbf{Metrica}: La valutazione si baserà sui secondi impiegati dal prodotto per eseguire le richieste dell'utente.
+	\item \textbf{Soglia di accettabilità}: La soglia di accettabilità è il periodo tra 0 e 10 secondi.
+	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità è 0 secondi.
+\end{itemize}
 
 \paragraph{Usabilità}
-L'usabilità indica la capacità del prodotto di essere capito e usato correttamente da parte dell'utente finale.
-MAGARI W3C ECC
+L'usabilità indica la capacità del software di essere capito e usato correttamente da parte dell'utente finale. Dato che il prodotto finale sarà per l'utente un portale web, è impossibile trovare una metrica quantificabile per valutarne l'usabilità: essa dipende da molteplici fattori che coinvolgono anche le capacità dell'utente stesso e gli strumenti a sua disposizione. Verrà dunque valutata basandosi sugli standard del web dichiarati dal \emph{W3C}\ped{G} e sugli strumenti che tale organizzazione mette a disposizione, al fine di creare un'interfaccia web il più accessibile possibile.
+
+\begin{itemize}
+	\item \textbf{Metrica}: La valutazione si baserà sul numero di errori trovati dagli strumenti del W3C.
+	\item \textbf{Soglia di accettabilità}: La soglia di accettabilità è di 7 errori rilevati.
+	\item \textbf{Soglia di ottimalità}: Il prodotto sarà dichiarato ottimo se saranno rilevati 0 errori.
+\end{itemize}
+
+Si rimanda alla sezione dell'appendice per maggiori informazioni sulla metrica utilizzata.
+
+\paragraph{Manutenibilità}
+La manutenibilità indica la capacità di un prodotto di essere evolvibile nel tempo attraverso correzioni, miglioramenti e aggiunte.
+
+Al momento della redazione del documento, il team non riesce ad identificare una metrica precisa per valutare la manutenibilità: si rimanda alla sezione dell'appendice per le informazioni sulle metriche e le soglie di accettabilità e ottimalità per quanto riguarda il codice, dato che esso influenza direttamente la manutenibilità del software.
+
+\paragraph{Portabilità}
+La portabilità è la capacità del prodotto di operare in ambienti diversi, cosa che nel prodotto in esame si correla all'usabilità.
+
+\begin{itemize}
+	\item Metrica: La valutazione si baserà sul numero di versioni di \emph{browser}\ped{G} e numero di browser stessi su cui il prodotto riesce a venire utilizzato e visualizzato correttamente.
+	\item Soglia di accettabilità: La soglia di accettabilità sarà raggiunta se il prodotto sarà supportato correttamente, offrendo la totalità delle sue funzionalità, dalla versione aggiornata dei browser \emph{Google Chrome}\ped{G}, \emph{Microsoft Edge}\ped{G}, \emph{Mozilla Firefox}\ped{G}, \emph{Safari}\ped{G} e \emph{Opera}\ped{G} su \emph{dekstop}\ped{G}.
+	\item Soglia di ottimalità: La soglia di ottimalità sarà raggiunta se il prodotto sarà supportato correttamente, offrendo la totalità delle sue funzionalità, in aggiunta ai sopra citati, da \emph{Internet Explorer 11}\ped{G} su desktop e da Google Chrome e Safari nelle versioni \emph{mobile}\ped{G} aggiornate.
+\end{itemize}
+
+~\\
+Per informazioni più approfondite riguardo lo standard ISO/IEC 9126, si rimanda alla sezione~\nameref{AppA:standardProd} dell'appendice A.
+
 
 
