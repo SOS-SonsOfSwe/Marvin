@@ -1,8 +1,14 @@
 \section{Obiettivi di qualità}
 Questa sezione ha l'obiettivo di definire le caratteristiche riguardanti la qualità di prodotto e di processo che dovranno essere perseguite durante lo sviluppo del progetto.
 Ogni caratteristica viene valutata da una metrica, una soglia di accettabilità, ed una possibile soglia di miglioramento che il \emph{team}\ped{G} si prefigge di raggiungere e possibilmente superare.
+
 \subsection{Qualità di processo}
-La qualità di processo influenza direttamente il prodotto finale realizzato. É necessario quindi sviluppare un processo in grado di produrre ciclicamente un prodotto di alta qualità. Per questo motivo si è deciso di stabilire le seguenti caratteristiche da rispettare per tutto lo sviluppo del progetto, contemporaneamente all'applicazione del \emph{Ciclo di Deming}\ped{G} e all'adesione allo standard ISO/IEC 15504, denominato \emph{SPICE}\ped{G}.
+La qualità di processo influenza direttamente il prodotto finale realizzato. É necessario quindi sviluppare un processo in grado di produrre ciclicamente un prodotto di alta qualità. Per questo motivo si è deciso di stabilire le seguenti caratteristiche da rispettare per tutto lo sviluppo del progetto, contemporaneamente a:
+\begin{itemize}
+\item L'applicazione del \emph{Ciclo di Deming}\ped{G}, o \emph{PDCA}, al fine di perseguire il miglioramente continuo delle attività di processo.
+\item L'adesione allo standard ISO/IEC 15504, denominato \emph{SPICE}\ped{G}, al fine di applicare una valutazione oggettiva sulla maturità dei processi.
+\end{itemize} 
+
 \subsubsection{Pianificazione}
 La pianificazione temporale necessita di uno sguardo a ritroso a partire dagli obiettivi prefissati per completare in tempo adeguato il lavoro previsto. Per un \emph{team}\ped{G} è fondamentale rispettare le scadenze previste, e nel caso in cui si verifichi una situazione di possibile ritardo si rischia di violare l'obiettivo di qualità prefissato, e andranno effettuati quindi dovuti controlli.
 \begin{itemize}
@@ -10,12 +16,13 @@ La pianificazione temporale necessita di uno sguardo a ritroso a partire dagli o
 	\item \textbf{Soglia di accettabilità}: Si è deciso di ritenere accettabile un ritardo di massimo 3 giorni lavorativi rispetto a quanto specificato nel "\emph{Piano di Progetto}".
 	\item \textbf{Soglia di ottimalità}: Si ritiene un miglioramento rispetto all'obiettivo prefissato il caso in cui un lavoro venga portato a termine almeno 2 giorni lavorativi prima del dovuto, in termini di guadagno di tempo complessivo.
 \end{itemize}
+
 \subsubsection{Miglioramento}
-Al fine di valutare e migliorare la qualità del lavoro svolto è stato assunto il modello Capability Maturity Model (CMM).
+Al fine di valutare e migliorare la qualità del lavoro svolto è stato assunto il modello di riferimentoper la valutazione del livello di maturità definito da SPICE.
 \begin{itemize}
-	\item \textbf{Metrica}: L'unità di misura utilizzata è la struttura a 5 livelli che rappresenta la scala di Maturità.
-	\item \textbf{Soglia di accettabilità}: Il livello minimo di maturità della scala accettabile in riferimento ai processi considerati è il 2 (Repeatable), consistente nell'aver documentazione sufficiente per poter ripetere e migliorare il processo svolto.
-	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità verrà raggiunta con il livello 4 (Managed), corrispondente ad un'ottimizzazione tecnologica dei processi in base ai costi. (da cambiare).
+	\item \textbf{Metrica}: Verrà utilizzata la struttura a 6 livelli che rappresenta la scala di maturità; la misura di ogni livello sarà effettuata con i 4 livelli N,P,L,F definiti dallo standard.
+	\item \textbf{Soglia di accettabilità}: Il livello minimo accettabile di maturità della scala in riferimento ai processi è il 2 (Managed); il processo deve cioè fornire i risultati conformi agli standard ed ai requisiti iniziali in maniera pianificata e tracciabile.
+	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità verrà raggiunta con il livello 4 (Predictable); il processo dovrà cioè essere eseguito in conformità ai principi dell'ingegneria del software e attuato all'interno di limiti ben definiti.
 \end{itemize}
 \subsubsection{Costo}
 Per verificare se i costi sono stati rispettati con quanto concordato nel  \emph{''Piano di Progetto''}, è stato deciso di utilizzare la \emph{\textbf{Cost Variance}}\ped{G} (CV).
@@ -25,6 +32,9 @@ Qualora un processo non possieda la qualità minima concordata, necessiterà di 
 	\item \textbf{Soglia di accettabilità}: Sarà accettabile un aumento dei costi superiore a quelli previsti nel \emph{''Piano di Progetto''} di un massimo del 10\%
 	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità verrà raggiunta nel caso in cui i costi non aumenteranno rispetto a quanto concordato nel \emph{''Piano di Progetto''}, 
 \end{itemize}
+
+Per informazioni più approfondite riguardo lo standard ISO/IEC 15504, si rimanda alla sezione~\nameref{AppA:standardProc} dell'appendice A.
+
 \subsection{Qualità di documento}
 Il team si impegna a redigere dei documenti di alta qualità, rispettando le carratestiche di forma e contenuto descritte di seguito.
 \subsubsection{Ortografia}
