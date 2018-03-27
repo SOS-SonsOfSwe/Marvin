@@ -31,6 +31,31 @@ I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilit
 	\item Inferiore a 60 sono difficili da leggere per chi ha la licenza media;
 	\item Inferiore a 40 sono difficili da leggere per chi ha un diploma superiore.
 \end{itemize}
+Giudizio dei risultati ottenibili rispetto ai requisiti prefissati:
+\begin{itemize}
+	\item Valore negativo: un valore inferiore a 45. 
+	\item Valore accettabile: un valore superiore o uguale a 45.
+	\item Valore ottimale: un valore compreso tra 75 e 100.
+\end{itemize}
+\paragraph{Errori contenutistici}
+Questa è la metrica necessaria ad esprimere la correttezza del contenuto di un documento. E' importante verificare che i concetti trattati siano corretti e coerenti con quanto prefissato. Il valore ottenuto da questa metrica rappresenta il numero di errori concettuali che non sono stati corretti dopo esser stati segnalati dal {Verificatore}\ped{G} durante la precedente verifica del documento.
+\newline La formula utilizzata per il calcolo degli errori è la seguente:
+\begin{displaymath}
+\mbox{Errori concettuali}=\frac{\mbox{numero errori non corretti}}{\mbox{numero totale errori segnalati}}*100
+\end{displaymath}
+Giudizio dei risultati ottenibili:
+\begin{itemize}
+	\item Valore negativo: un valore superiore al 5\%. 
+	\item Valore accettabile: un valore inferiore o uguale al 5\%.
+	\item Valore ottimale: un valore uguale allo 0\%.
+\end{itemize}
+\paragraph{Struttura del documento}
+Viene utilizzata questa unità di misura per verificare quanto un documento sia attinente alle regole strutturali descritte nel documento \textit{Norme di Progetto}.
+La metrica si basa sul numero di errori segnalati dal \textit{Verificatore} che non sono stati corretti successivamente.
+\newline La formula utilizzata per il calcolo degli errori è la seguente:
+\begin{displaymath}
+\mbox{Errori di forma}=\frac{\mbox{numero errori non corretti}}{\mbox{numero totale errori segnalati}}*100
+\end{displaymath}
 \subsection{Metriche per il prodotto software}
 \label{AppB:metricheProd}
 In questa sezione si descrivono le metriche che verranno usate dal gruppo per verificare e garantire la qualità dei prodotti software durante il periodo del progetto. Si sottolinea il fatto che questa sarà solo una prima stesura delle metriche e sarà raffinata nel corso delle varie revisioni, facendo frutto dell'esperienza che verrà acquisita negli intervalli di lavoro tra esse.
