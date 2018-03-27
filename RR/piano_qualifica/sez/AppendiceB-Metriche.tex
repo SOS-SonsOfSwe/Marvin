@@ -1,0 +1,29 @@
+\section{Metriche}
+\subsection{Metriche per il processo}
+\label{AppB:metricheProc}
+\subsection{Metriche per il prodotto software}
+\label{AppB:metricheProd}
+In questa sezione si descrivono le metriche che verranno usate dal gruppo per verificare e garantire la qualità dei prodotti software durante il periodo del progetto. Si sottolinea il fatto che questa sarà solo una prima stesura delle metriche e sarà raffinata nel corso delle varie revisioni, facendo frutto dell'esperienza che verrà acquisita negli intervalli di lavoro tra esse.
+
+\paragraph{Requisiti soddisfatti}
+	~\\Tale metrica verrà utilizzata per valutare la funzionalità del software prodotto attraverso una misurazione quantificativa dei requisiti soddisfatti; verranno effettuate due misurazioni differenti, una per i soli requisiti obbligatori e una per tutti.
+
+\begin{description}
+\item[Requisiti obbligatori]
+	~\\ \begin{displaymath}
+		\mbox{ROS}=\frac{\mbox{numero requisiti obbligatori soddisfatti}}{\mbox{numero totale requisiti obbligatori}}
+	\end{displaymath}
+	
+\item[Requisiti obbligatori e facoltativi]
+	~\\ \begin{displaymath}
+		\mbox{ROFS}=\frac{\mbox{numero requisiti obbligatori soddisfatti} + \mbox{numero requisiti facoltativi soddisfatti}}{\mbox{numero totale requisiti}}
+	\end{displaymath}
+\end{description}
+
+\subparagraph{Soglie}
+\begin{itemize}
+\item Accettabilità: il prodotto verrà considerato accettabile quando ROS = 1.
+\item Ottimalità: il prodotto verrà considerato ottimale quando ROSF = 1.
+\end{itemize}
+
+\paragraph{}
