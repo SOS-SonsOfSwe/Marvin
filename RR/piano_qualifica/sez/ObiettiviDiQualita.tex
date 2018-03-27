@@ -101,20 +101,28 @@ Tale punto identifica la necessità di minimizzare il più possibile le risorse 
 \end{itemize}
 
 \paragraph{Usabilità}
-L'usabilità indica la capacità del software di essere capito e usato correttamente da parte dell'utente finale. Dato che il prodotto finale sarà per l'utente un portale web, è impossibile trovare una metrica quantificabile per valutarne l'usabilità: essa dipende da molteplici fattori che coinvolgono anche le capacità dell'utente stesso e gli strumenti a sua disposizione. Verrà dunque valutata basandosi sugli standard del web dichiarati dal \emph{W3C}\ped{G} e sugli strumenti che tale organizzazione mette a disposizione, al fine di creare un'interfaccia web il più accessibile possibile.
+L'usabilità indica la capacità del software di essere capito e usato correttamente da parte dell'utente finale. Dato che il prodotto finale sarà per l'utente un portale web, è impossibile trovare una metrica quantificabile per valutarne l'usabilità: essa dipende da molteplici fattori che coinvolgono anche le capacità dell'utente stesso e gli strumenti a sua disposizione. Verrà dunque valutata in modo oggettivo basandosi sugli standard del web dichiarati dal \emph{W3C}\ped{G} e sugli strumenti che tale organizzazione mette a disposizione, al fine di creare un'interfaccia web il più accessibile possibile:
 
 \begin{itemize}
 	\item \textbf{Metrica}: La valutazione si baserà sul numero di errori trovati dagli strumenti del W3C.
-	\item \textbf{Soglia di accettabilità}: La soglia di accettabilità è di 7 errori rilevati.
+	\item \textbf{Soglia di accettabilità}: La soglia di accettabilità è di 2 errori rilevati.
 	\item \textbf{Soglia di ottimalità}: Il prodotto sarà dichiarato ottimo se saranno rilevati 0 errori.
 \end{itemize}
 
 Si rimanda alla sezione dell'appendice per maggiori informazioni sulla metrica utilizzata.
 
+Quanto detto non assicura però una valutazione completa dell'usabilità, la quale è soggettiva; sarà necessario dunque predisporre test specifici per la misurazione, coinvolgendo ad esempio persone esterne al gruppo al fine di stabilire quanto mediamente il software sia capibile. Al momento il team non è tuttavia in grado di stabilire con precisione una metrica adatta a misurare questo risultato.
+
 \paragraph{Manutenibilità}
 La manutenibilità indica la capacità di un prodotto di essere evolvibile nel tempo attraverso correzioni, miglioramenti e aggiunte.
 
-Al momento della redazione del documento, il team non riesce ad identificare una metrica precisa per valutare la manutenibilità: si rimanda alla sezione dell'appendice per le informazioni sulle metriche e le soglie di accettabilità e ottimalità per quanto riguarda il codice, dato che esso influenza direttamente la manutenibilità del software.
+\begin{itemize}
+\item \textbf{Metrica}: Saranno usate le metriche riguardanti il codice, dato che esso influenza direttamente la manutenibilità del software.
+\item \textbf{Soglia di accettabilità}: La soglia di accettabilità sarà raggiunta se il prodotto raggiungerà tale soglia in tutte le metriche utilizzate per il codice.
+\item \textbf{Soglia di ottimalità}: La soglia di ottimalità sarà raggiunta se il prodotto raggiungerà tale soglia in tutte le metriche utilizzate per il codice.
+\end{itemize}
+
+Si rimanda alla sezione dell'appendice per maggiori informazioni.
 
 \paragraph{Portabilità}
 La portabilità è la capacità del prodotto di operare in ambienti diversi, cosa che nel prodotto in esame si correla all'usabilità.
