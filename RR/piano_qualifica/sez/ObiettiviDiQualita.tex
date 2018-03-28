@@ -76,7 +76,8 @@ Per una precisa definizione degli errori in riferimento alle norme interne si ve
 Come detto in precedenza, è impossibile distinguere in maniera netta la qualità di processo dalla qualità del software, in quanto la prima influenza direttamente la seconda; è dunque fondamentale avere alla base una qualità di processo sufficientemente buona per garantire la qualità del prodotto. Nonostante ciò, è necessario stabilire degli obiettivi quantitativi di qualità del software oggettivi e misurabili. A tal fine verrà seguito lo standard ISO/IEC 9126, il quale si sostanzia nei sei punti seguenti:
 
 \paragraph{Funzionalità}
-Il prodotto dovrà soddisfare i requisiti emersi dall' \AdR .
+È un requisito funzionale che indica la capacità del software di soddisfare le esigenze esposte dal capitolato ed individuate durante l’ \AdR .
+Per valutare la funzionalità del software prenderemo in considerazione i seguenti parametri:
 \begin{itemize}
 	\item \textbf{Metrica}: La valutazione si baserà sul numero di requisiti soddisfatti.
 	\item \textbf{Soglia di accettabilità}: Il prodotto verrà valutato come accettabile se tutti i requisiti obbligatori saranno soddisfatti.
@@ -84,8 +85,8 @@ Il prodotto dovrà soddisfare i requisiti emersi dall' \AdR .
 \end{itemize}
 
 \paragraph{Affidabilità}
-Il prodotto dovrà mantenere un certo livello di prestazioni in qualsiasi condizione.
-
+È un requisito non funzionale che indica la capacità del software di svolgere correttamente il suo compito, mantenendo delle buone prestazioni anche al variare dell’ambiente nel tempo.
+Per valutare l'affidabilità del software prenderemo in considerazione i seguenti parametri:
 \begin{itemize}
 	\item \textbf{Metrica}: La valutazione si baserà sul numero di fallimenti durante la fase si test.
 	\item \textbf{Soglia di accettabilità}: Il prodotto verrà valutato come accettabile se i test falliti saranno inferiori o uguali al 2\%.
@@ -93,7 +94,7 @@ Il prodotto dovrà mantenere un certo livello di prestazioni in qualsiasi condiz
 \end{itemize}
 
 \paragraph{Efficienza \color{red}{Oltre al tempo anche costo di ether???}}
-Tale punto identifica la necessità di minimizzare il più possibile le risorse disponibili.
+È un requisito non funzionale che valuta la capacità di un prodotto software di realizzare le funzioni richieste nel minor tempo possibile e con l’uso minimo di risorse necessarie.
 \begin{itemize}
 	\item \textbf{Metrica}: La valutazione si baserà sui secondi impiegati dal prodotto per eseguire le richieste dell'utente.
 	\item \textbf{Soglia di accettabilità}: La soglia di accettabilità è il periodo tra 0 e 10 secondi.
@@ -101,8 +102,8 @@ Tale punto identifica la necessità di minimizzare il più possibile le risorse 
 \end{itemize}
 
 \paragraph{Usabilità}
-L'usabilità indica la capacità del software di essere capito e usato correttamente da parte dell'utente finale. Dato che il prodotto finale sarà per l'utente un portale web, è impossibile trovare una metrica quantificabile per valutarne l'usabilità: essa dipende da molteplici fattori che coinvolgono anche le capacità dell'utente stesso e gli strumenti a sua disposizione. Verrà dunque valutata in modo oggettivo basandosi sugli standard del web dichiarati dal \emph{W3C}\ped{G} e sugli strumenti che tale organizzazione mette a disposizione, al fine di creare un'interfaccia web il più accessibile possibile:
-
+L'usabilità è un requisito non funzionale che indica la capacità del software di essere capito e usato correttamente da parte dell'utente finale. Dato che il prodotto finale sarà per l'utente un portale web, è impossibile trovare una metrica quantificabile per valutarne l'usabilità: essa dipende da molteplici fattori che coinvolgono anche le capacità dell'utente stesso e gli strumenti a sua disposizione. Verrà dunque valutata in modo oggettivo basandosi sugli standard del web dichiarati dal \emph{W3C}\ped{G} e sugli strumenti che tale organizzazione mette a disposizione, al fine di creare un'interfaccia web il più accessibile possibile.
+Prenderemo in considerazione i seguenti parametri:
 \begin{itemize}
 	\item \textbf{Metrica}: La valutazione si baserà sul numero di errori trovati dagli strumenti del W3C.
 	\item \textbf{Soglia di accettabilità}: La soglia di accettabilità è di 2 errori rilevati.
@@ -114,7 +115,7 @@ Si rimanda alla sezione dell'appendice per maggiori informazioni sulla metrica u
 Quanto detto non assicura però una valutazione completa dell'usabilità, la quale è soggettiva; sarà necessario dunque predisporre test specifici per la misurazione, coinvolgendo ad esempio persone esterne al gruppo al fine di stabilire quanto mediamente il software sia capibile. Al momento il team non è tuttavia in grado di stabilire con precisione una metrica adatta a misurare questo risultato.
 
 \paragraph{Manutenibilità}
-La manutenibilità indica la capacità di un prodotto di essere evolvibile nel tempo attraverso correzioni, miglioramenti e aggiunte.
+La manutenibilità è un requisito non funzionale che indica la capacità di un prodotto di essere evolvibile nel tempo attraverso correzioni, miglioramenti e aggiunte.
 
 \begin{itemize}
 \item \textbf{Metrica}: Saranno usate le metriche riguardanti il codice, dato che esso influenza direttamente la manutenibilità del software.
@@ -125,8 +126,7 @@ La manutenibilità indica la capacità di un prodotto di essere evolvibile nel t
 Si rimanda alla sezione dell'appendice per maggiori informazioni.
 
 \paragraph{Portabilità}
-La portabilità è la capacità del prodotto di operare in ambienti diversi, cosa che nel prodotto in esame si correla all'usabilità.
-
+La portabilità è un requisito non funzionale che indica la capacità del prodotto di operare in \textit{ambienti}\ped{G} diversi, limitando le necessità di apportare cambiamenti.
 \begin{itemize}
 	\item Metrica: La valutazione si baserà sul numero di versioni di \emph{browser}\ped{G} e numero di browser stessi su cui il prodotto riesce a venire utilizzato e visualizzato correttamente.
 	\item Soglia di accettabilità: La soglia di accettabilità sarà raggiunta se il prodotto sarà supportato correttamente, offrendo la totalità delle sue funzionalità, dalla versione aggiornata dei browser \emph{Google Chrome}\ped{G}, \emph{Microsoft Edge}\ped{G}, \emph{Mozilla Firefox}\ped{G}, \emph{Safari}\ped{G} e \emph{Opera}\ped{G} su \emph{dekstop}\ped{G}.
