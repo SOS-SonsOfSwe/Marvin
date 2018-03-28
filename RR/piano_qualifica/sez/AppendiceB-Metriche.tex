@@ -93,4 +93,28 @@ In questa sezione si descrivono le metriche che verranno usate dal gruppo per ve
 \item Ottimalità: il prodotto verrà considerato ottimale quando ROSF = 1.
 \end{itemize}
 
+\paragraph{Successo dei test}
+	~\\Tale metrica verrà utilizzata per valutare in parte il livello di affidabilità del prodotto software tramite il calcolo della percentuale di test aventi successo nella fase di verifica.
+	\begin{displaymath}
+		\mbox{Successo dei test}=\frac{\mbox{numero test aventi successo}}{\mbox{numero totale dei test effettuati}} * 100
+	\end{displaymath}
+	
+	\subparagraph{Soglie}
+	\begin{itemize}
+	\item Accettabilità: valore maggiore o uguale al 98\%.
+	\item Ottimalità: valore uguale a 100\%; tale risultato non sarà comunque indice di affidabilità totale del software: arrivare ad un tale risultato esigerebbe un carico di lavoro troppo elevato.
+	\end{itemize}
+	
+\paragraph{Tempo di risposta}
+	~\\Tale metrica verrà utilizzata per valutare l'efficienza del prodotto basandosi sul tempo medio che intercorrà tra la richiesta di una certa funzionalità da parte dell'utente e la risposta del software. Con \textit{tempo medio} si intende la media tra i tempi medi di risposta di tutte le funzionalità: ognuna di esse dovrà essere testata almeno 5 volte ed in condizioni quanto più differenti.
+	
+	\begin{displaymath}
+		\mbox{$T_{rispostaF}$} =\frac{\sum_{k=1}^5 T_{test}k}{5}
+	\end{displaymath}
+	
+	\begin{displaymath}
+		\mbox{$T_{rispostaTOT}$} =\frac{\sum_{k=1}^n T_{rispostaF}k}{n}
+	\end{displaymath}
+	 
+
 \subsubsection{Metriche per il codice}
