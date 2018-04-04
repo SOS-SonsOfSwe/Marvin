@@ -1,0 +1,2 @@
+-Guarda al latex esempio e comandi
+-sostituire tutti gli hyperref con texorpdfstring
