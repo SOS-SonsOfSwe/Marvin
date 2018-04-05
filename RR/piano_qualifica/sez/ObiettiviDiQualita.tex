@@ -24,6 +24,9 @@ Al fine di valutare e migliorare la qualità del lavoro svolto è stato assunto 
 	\item \textbf{Soglia di accettabilità}: Il livello minimo accettabile di maturità della scala in riferimento ai processi è il 2 (Managed); il processo deve cioè fornire i risultati conformi agli standard ed ai requisiti iniziali in maniera pianificata e tracciabile.
 	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità verrà raggiunta con il livello 4 (Predictable); il processo dovrà cioè essere eseguito in conformità ai principi dell'ingegneria del software e attuato all'interno di limiti ben definiti.
 \end{itemize}
+
+Per informazioni più approfondite riguardo lo standard ISO/IEC 15504 o SPICE, si rimanda alla sezione~\nameref{AppA:standardProc} dell'appendice A.
+
 \subsubsection{Costo}
 Per verificare se i costi sono stati rispettati con quanto concordato nel  \emph{''Piano di Progetto''}, è stato deciso di utilizzare la \emph{\textbf{Cost Variance}}\ped{G} (CV).
 Qualora un processo non possieda la qualità minima concordata, necessiterà di lavoro aggiuntivo al fine di soddisfare i requisiti richiesti ma alzando il costo complessivo del progetto, che sarà valutato secondo i seguenti parametri:
@@ -32,8 +35,6 @@ Qualora un processo non possieda la qualità minima concordata, necessiterà di 
 	\item \textbf{Soglia di accettabilità}: Sarà accettabile un aumento dei costi superiore a quelli previsti nel \emph{''Piano di Progetto''} di un massimo del 10\%
 	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità verrà raggiunta nel caso in cui i costi non aumenteranno rispetto a quanto concordato nel \emph{''Piano di Progetto''}, 
 \end{itemize}
-
-Per informazioni più approfondite riguardo lo standard ISO/IEC 15504, si rimanda alla sezione~\nameref{AppA:standardProc} dell'appendice A.
 
 \subsection{Qualità di prodotto}
 \subsubsection{Qualità di documento}
@@ -47,6 +48,7 @@ Il primo controllo avverà proprio durante la stesura del documento stesso, tram
 	\item \textbf{Sogia di ottimalità}: La soglia di ottimalità verrà raggiunta nel caso in cui dopo la prima revisione del documento non vengano più riscontrati errori dal \emph{Verificatore} e dal \emph{Responsabile}.
 \end{itemize}
 L'argomento verrà trattato dettagliatamente nella sezione~\nameref{AppB:ErroriOrtografici} in appendice.
+
 \paragraph{Comprensibilità e leggibilità}
 Poichè un documento venga considerato leggibile e scorrevole si è deciso di adottare l'\emph{Indice Gulpease}\ped{G}, al fine di avere un parametro oggettivo e facilmente misurabile.
 \begin{itemize}
@@ -55,6 +57,7 @@ Poichè un documento venga considerato leggibile e scorrevole si è deciso di ad
 	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità verrà raggiunta nel caso in cui l'\emph{Indice Gulpease} sia maggiore di 60.
 \end{itemize}
 L'argomento verrà trattato dettagliatamente nella sezione~\nameref{AppB:IndiceGulpease} in appendice.
+
 \paragraph{Correttezza dei contenuti}
 Oltre che ad essere corretto nella forma, un documento necessita di un contenuto adeguato dal punto di vista argomentativo. Gli \emph{Analisti} saranno direttamente responsabili della qualità del contenuto, che poi verrà controllato e corretto dal \emph{Verificatore}.
 Per verificare la correttezza concettuale dei documenti prenderemo in esame i seguenti parametri:
@@ -63,6 +66,9 @@ Per verificare la correttezza concettuale dei documenti prenderemo in esame i se
 	\item \textbf{Soglia di accettabilità}: La soglia di accettabilità è fissata ad una quantità di errori pari al 5\% rispetto alla precedente verifica del documento.
 	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità sarà raggiunta nel caso in cui non si riscontrino errori dopo la prima verifica del documento.
 \end{itemize}
+
+Per maggiori informazioni sulla metrica utilizzata si veda la sezione~\nameref{AppB:ErroriCont} in appendice.
+
 \paragraph{Adesione alle norme interne}
 Al fine di ottenere un prodotto coerente ogni documento dovrà essere redatto rispettando strettamente quanto dichiarato nelle \emph{Norme di Progetto}.
 Qualunque riferimento non attinente o in contrasto a quanto dichiarato verrà considerato un errore.
@@ -71,6 +77,7 @@ Qualunque riferimento non attinente o in contrasto a quanto dichiarato verrà co
 	\item \textbf{Soglia di accettabilità}: La soglia di accettabilità massima è fissata ad una quantità di errori pari al 5\% rispetto alla precedente verifica del documento.
 	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità sarà raggiunta nel caso in cui non si riscontrino errori dopo la prima verifica del documento.
 \end{itemize}
+
 Per una precisa definizione degli errori in riferimento alle norme interne si veda la sezione~\nameref{AppB:ErroriForma} in appendice.
 
 \subsubsection{Qualità del software}
@@ -85,6 +92,9 @@ Per valutare la funzionalità del software prenderemo in considerazione i seguen
 	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità sarà raggiunta nel caso in cui siano soddisfatti sia i requisiti obbligatori che tutti i requisiti opzionali.
 \end{itemize}
 
+Per maggiori informazioni sulla metrica utilizzata si veda la sezione~\nameref{AppB:Funzionalita} in appendice.
+
+
 \paragraph{Affidabilità}
 È un requisito non funzionale che indica la capacità del software di svolgere correttamente il suo compito, mantenendo delle buone prestazioni anche al variare dell’ambiente nel tempo.
 Per valutare l'affidabilità del software prenderemo in considerazione i seguenti parametri:
@@ -94,13 +104,17 @@ Per valutare l'affidabilità del software prenderemo in considerazione i seguent
 	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità sarà raggiunta nel caso in cui il 100\% dei test darà l'esito desiderato.
 \end{itemize}
 
-\paragraph{Efficienza \color{red}{Oltre al tempo anche costo di ether???}}
+Per maggiori informazioni sulla metrica utilizzata si veda la sezione~\nameref{AppB:Affidabilita} in appendice.
+
+\paragraph{Efficienza}
 È un requisito non funzionale che valuta la capacità di un prodotto software di realizzare le funzioni richieste nel minor tempo possibile e con l’uso minimo di risorse necessarie.
 \begin{itemize}
 	\item \textbf{Metrica}: La valutazione si baserà sui secondi impiegati dal prodotto per eseguire le richieste dell'utente.
 	\item \textbf{Soglia di accettabilità}: La soglia di accettabilità è il periodo tra 0 e 10 secondi.
 	\item \textbf{Soglia di ottimalità}: La soglia di ottimalità è 1 secondo.
 \end{itemize}
+
+Per maggiori informazioni sulla metrica utilizzata si veda la sezione~\nameref{AppB:Efficienza} in appendice.
 
 \paragraph{Usabilità}
 L'usabilità è un requisito non funzionale che indica la capacità del software di essere capito e usato correttamente da parte dell'utente finale. Dato che il prodotto finale sarà per l'utente un portale web, è impossibile trovare una metrica quantificabile per valutarne l'usabilità: essa dipende da molteplici fattori che coinvolgono anche le capacità dell'utente stesso e gli strumenti a sua disposizione. Verrà dunque valutata in modo oggettivo basandosi sugli standard del web dichiarati dal \emph{W3C}\ped{G} e sugli strumenti che tale organizzazione mette a disposizione, al fine di creare un'interfaccia web il più accessibile possibile.
@@ -111,7 +125,7 @@ Prenderemo in considerazione i seguenti parametri:
 	\item \textbf{Soglia di ottimalità}: Il prodotto sarà dichiarato ottimo se saranno rilevati 0 errori.
 \end{itemize}
 
-Si rimanda alla sezione dell'appendice per maggiori informazioni sulla metrica utilizzata.
+Per maggiori informazioni sulla metrica utilizzata si veda la sezione~\nameref{AppB:Usabilita} in appendice.
 
 Quanto detto non assicura però una valutazione completa dell'usabilità, la quale è soggettiva; sarà necessario dunque predisporre test specifici per la misurazione, coinvolgendo ad esempio persone esterne al gruppo al fine di stabilire quanto mediamente il software sia capibile. Al momento il team non è tuttavia in grado di stabilire con precisione una metrica adatta a misurare questo risultato.
 
@@ -124,7 +138,7 @@ La manutenibilità è un requisito non funzionale che indica la capacità di un 
 \item \textbf{Soglia di ottimalità}: La soglia di ottimalità sarà raggiunta se il prodotto raggiungerà tale soglia in tutte le metriche utilizzate per il codice.
 \end{itemize}
 
-Si rimanda alla sezione dell'appendice per maggiori informazioni.
+Per maggiori informazioni sulle metrica per il codice utilizzate si veda la sezione~\nameref{AppB:metricheCod} in appendice.
 
 \paragraph{Portabilità}
 La portabilità è un requisito non funzionale che indica la capacità del prodotto di operare in \textit{ambienti}\ped{G} diversi, limitando le necessità di apportare cambiamenti.
