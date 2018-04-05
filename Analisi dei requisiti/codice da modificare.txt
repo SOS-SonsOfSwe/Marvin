@@ -1,5 +1,8 @@
 -Guarda al latex esempio e comandi
 -sostituire tutti gli hyperref con texorpdfstring
+-Le parentesi annidate nella descrizione del caso d'uso non sono digerite. Rimuoverle.
+-Il carattere ^ non viene digerito da Latex. Ne va fatto l'escape: \^
+-Tutti i pacchetti necessari sono sotto sos.sty, versione analisi dei requisiti.
 -Aggiungere le estensioni a mano su plantUML
   ESEMPIO: (si puo usare <. o .>)
   (UC1.8 - Conferma della registrazione) <. (UC1.9 - Visualizzazione errore di registrazione) : extends
