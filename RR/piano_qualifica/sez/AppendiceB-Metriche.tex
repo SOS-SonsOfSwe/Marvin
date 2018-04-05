@@ -51,6 +51,7 @@ I risultati possibili sono tre:
 \label{AppB:metricheDoc}
 In questa sezione vengono descritte le metriche che verranno utilizzate nel processo di verifica dei documenti prodotti.
 \paragraph{Errori ortografici}
+\label{AppB:ErroriOrtografici}
 	~\\Questa è la metrica che serve ad esprimere un giudizio di correttezza ortografica riguardo il documento prodotto. Gli errori saranno individuati secondo le seguenti modalità:
 il primo controllo avverrà a tempo di stesura del documento tramite lo strumento di autocorrezione dell'ambiente \emph{''TexStudio''}, mentre il secondo controllo avverrà dopo aver terminato la prima redazione del documento stesso, tramite una verifica manuale del \emph{Verificatore}\ped{G}.
 Questa metrica misura il numero di errori riscontrati, attraverso le due modalit`a di verifica, ma
@@ -67,6 +68,7 @@ non corretti immediatamente.
 \end{itemize}
 
 \paragraph{Indice Gulpease}
+\label{AppB:IndiceGulpease}
 	~\\L'{Indice Gulpease}\ped{G} è un indice di leggibilità di un testo tarato sulla lingua italiana, con il vantaggio rispetto ad altri indici di utilizzare la lunghezza delle parole in lettere anzichè in sillabe, semplificandone il calcolo automatico. L'indice utilizza due variabili linguistiche: la lunghezza della parola e la lunghezza della frase rispetto al numero delle lettere.
 \newline La formula per il suo calcolo è la seguente:
 \begin{displaymath}
@@ -86,6 +88,7 @@ I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilit
 \end{itemize}
 
 \paragraph{Errori contenutistici}
+\label{AppB:ErroriCont}
 	~\\Questa è la metrica necessaria ad esprimere la correttezza del contenuto di un documento. E' importante verificare che i concetti trattati siano corretti e coerenti con quanto prefissato. Il valore ottenuto da questa metrica rappresenta il numero di errori concettuali che non sono stati corretti dopo esser stati segnalati dal {Verificatore}\ped{G} durante la precedente verifica del documento.
 \newline La formula utilizzata per il calcolo degli errori è la seguente:
 \begin{displaymath}
@@ -99,6 +102,7 @@ I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilit
 \end{itemize}
 
 \paragraph{Struttura del documento}
+\label{AppB:ErroriForma}
 	~\\Viene utilizzata questa unità di misura per verificare quanto un documento sia attinente alle regole strutturali descritte nel documento \textit{Norme di Progetto}.
 La metrica si basa sul numero di errori segnalati dal \textit{Verificatore} che non sono stati corretti successivamente.
 \newline La formula utilizzata per il calcolo degli errori è la seguente:
