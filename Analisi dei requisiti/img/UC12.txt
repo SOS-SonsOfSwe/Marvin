@@ -1,0 +1,9 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor università
+rectangle UC12 {
+università -- (UC12.1 - Conferma della rimozione di un utente dal sistema)
+università -- (UC12.2 - Annullamento della rimozione di un utente dal sistema)
+}
+@enduml

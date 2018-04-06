@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor università
+rectangle UC3.6.9.11 {
+università -- (UC3.6.9.11.1 - Inserimento del codice dell’esame)
+università -- (UC3.6.9.11.2 - Inserimento della descrizione dell’esame)
+università -- (UC3.6.9.11.3 - Inserimento dell’intervallo di prenotazione per l’esame)
+università -- (UC3.6.9.11.4 - Inserimento della data dell’esame)
+università -- (UC3.6.9.11.5 - Inserimento della tipologia dell’esame)
+università -- (UC3.6.9.11.6 - Inserimento del luogo dell’esame)
+università -- (UC3.6.9.11.7 - Annullamento dell’aggiunta dell’esame)
+università -- (UC3.6.9.11.8 - Conferma dell’aggiunta dell’esame)
+università -- (UC3.6.9.11.9 - Visualizzazione errore relativo all’aggiunta di un esame non valido)
+}
+@enduml

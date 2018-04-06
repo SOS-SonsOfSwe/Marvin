@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor università
+rectangle UC4.7 {
+università -- (UC4.7.1 - Modifica del codice del corso di laurea)
+università -- (UC4.7.2 - Modifica del nome del corso di laurea)
+università -- (UC4.7.3 - Modifica della descrizione del corso di laurea)
+università -- (UC4.7.4 - Modifica della tipologia del corso di laurea)
+università -- (UC4.7.5 - Modifica della lista delle attività didattiche del corso di laurea)
+università -- (UC4.7.6 - Annullamento della modifica del corso di laurea)
+università -- (UC4.7.7 - Conferma della modifica del corso di laurea)
+}
+@enduml

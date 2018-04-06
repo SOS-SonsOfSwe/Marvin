@@ -1,0 +1,13 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor professore
+rectangle UC9 {
+professore -- (UC9.1 - Modifica dell'intervallo di prenotazione di un esame)
+professore -- (UC9.2 - Modifica della data di un esame)
+professore -- (UC9.3 - Modifica del luogo di un esame)
+professore -- (UC9.4 - Annullamento modifica esame)
+professore -- (UC9.5 - Conferma modifiche di un esame)
+professore -- (UC9.6 - Visualizzazione errore di modifica esame)
+}
+@enduml

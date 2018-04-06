@@ -1,0 +1,8 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor studente
+rectangle UC6 {
+studente -- (UC6.1 - Conferma dell'iscrizione ad un esame)
+}
+@enduml

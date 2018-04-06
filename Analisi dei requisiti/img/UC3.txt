@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor università
+rectangle UC3 {
+università -- (UC3.1 - Inserimento dell'inizio dell'anno accademico)
+università -- (UC3.2 - Inserimento della fine dell'anno accademico)
+università -- (UC3.3 - Annullamento dell'aggiunta dell'anno accademico)
+università -- (UC3.4 - Conferma dell'aggiunta di un anno accademico)
+università -- (UC3.5 - Visualizzazione errore relativo all'aggiunta di un anno accademico non valido)
+università -- (UC3.6 - Aggiunta di un corso di laurea)
+università -- (UC3.7 - Modifica di un corso di laurea)
+università -- (UC3.8 - Eliminazione del corso di laurea)
+}
+@enduml

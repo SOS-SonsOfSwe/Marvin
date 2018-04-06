@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor università
+rectangle UC3.6.9 {
+università -- (UC3.6.9.1 - Inserimento del codice del corso dell’attività didattica)
+università -- (UC3.6.9.10 - Visualizzazione errore relativo all’aggiunta di un’attività didattica non valida)
+università -- (UC3.6.9.11 - Aggiunta di un esame)
+università -- (UC3.6.9.12 - Modifica di un esame)
+università -- (UC3.6.9.13 - Eliminazione dell’esame)
+università -- (UC3.6.9.2 - Inserimento del nome dell’attività didattica)
+università -- (UC3.6.9.3 - Inserimento della descrizione dell’attività didattica)
+università -- (UC3.6.9.4 - Inserimento del professore associato all’attività didattica)
+università -- (UC3.6.9.5 - Inserimento dei crediti dell’attività didattica)
+università -- (UC3.6.9.6 - Inserimento del periodo dell’attività didattica)
+università -- (UC3.6.9.7 - Inserimento dell’esame associato all’attività didattica)
+università -- (UC3.6.9.8 - Annullamento dell’aggiunta dell’attività didattica)
+università -- (UC3.6.9.9 - Conferma dell’aggiunta dell’attività didattica)
+}
+@enduml
