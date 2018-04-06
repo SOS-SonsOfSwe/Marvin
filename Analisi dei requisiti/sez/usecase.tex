@@ -1,4 +1,4 @@
-\subsection{Caso d'uso \texorpdfstring{UC1}{UC1}: Registrazione }
+\subsection{Caso d'uso \hyperref{UC1}{UC1}: Registrazione }
 \begin{figure} [H]
 \centering
 \includegraphics[scale=0.45]{./img/UC1.png}
@@ -228,7 +228,7 @@
 \item Inserimento del nome del corso di laurea (UC3.6.2)
 \item Inserimento della descrizione del corso di laurea (UC3.6.3)
 \item Inserimento della tipologia del corso di laurea (UC3.6.4)
-\item Inserimento della lista delle attività didattiche del corso di laurea (UC3.6.5)
+\item Inserimento di un'attività didattica del corso di laurea (UC3.6.5)
 \item Annullamento dell'aggiunta del corso di laurea (UC3.6.6)
 \item Conferma dell’aggiunta del corso di laurea (UC3.6.7)
 \item Visualizzazione errore relativo all’aggiunta di corso di laurea non valido  (UC3.6.8)
@@ -271,16 +271,16 @@
 \item \textbf{Flusso principale degli eventi}: L'attore aggiunge la tipologia del corso di laurea;
 \item \textbf{Postcondizione}: L'attore ha impostato la tipologia del corso di laurea.
 \end{itemize}
-\subsection{Caso d'uso \texorpdfstring{UC3.6.5}{UC3.6.5}: Inserimento della lista delle attività didattiche del corso di laurea}
+\subsection{Caso d'uso \texorpdfstring{UC3.6.5}{UC3.6.5}: Inserimento di un'attività didattica del corso di laurea}
 \begin{itemize}
 \item \textbf{Attori}: università;
-\item \textbf{Descrizione}: L'attore compila il campo relativo alla  lista delle attività didattiche del corso di laurea;
+\item \textbf{Descrizione}: L'attore compila il campo relativo all'inserimento di un'attività didattica del corso di laurea;
 
-\item \textbf{Precondizione}: L'attore può aggiungere la  lista delle attività didattiche del corso di laurea;
+\item \textbf{Precondizione}: L'attore può aggiungere un'attività didattiche del corso di laurea;
 
-\item \textbf{Flusso principale degli eventi}: L'attore aggiunge la  lista delle attività didattiche del corso di laurea;
+\item \textbf{Flusso principale degli eventi}: L'attore aggiunge un'attività didattica del corso di laurea;
 
-\item \textbf{Postcondizione}: L'attore ha impostato la  lista delle attività didattiche del corso di laurea.
+\item \textbf{Postcondizione}: L'attore ha impostato un'attività didattica del corso di laurea.
 
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC3.6.6}{UC3.6.6}: Annullamento dell'aggiunta del corso di laurea}
@@ -325,7 +325,7 @@
 \item Codice del corso di laurea non valido o lasciato vuoto;
 \item Tipologia del corso di laurea non valido o lasciato vuoto;
 \item Codice dell'anno accademico non valido o lasciato vuoto;
-\item Lista delle attività del corso di laurea non valido o lasciato vuoto;
+\item Attività didattica del corso di laurea non valida o lasciata vuota;
 \end{itemize}
 
 \item \textbf{Postcondizione}: L'attore visualizza un messaggio d'errore riguardante l'aggiunta errata di uno o più campi del corso di laurea.
@@ -662,11 +662,10 @@
 \item Modifica dell’intervallo di prenotazione per l’esame (UC3.6.9.12.3)
 \item Modifica della data dell’esame (UC3.6.9.12.4)
 \item Modifica della tipologia dell’esame (UC3.6.9.12.5)
-\item Modifica del numero totale degli studenti iscritti all’esame (UC3.6.9.12.6)
-\item Modifica del luogo dell’esame (UC3.6.9.12.7)
-\item Annullamento della modifica dell’esame (UC3.6.9.12.8)
-\item Conferma della modifica dell’esame (UC3.6.9.12.9)
-\item Visualizzazione errore relativo alla modifica di un esame (UC3.6.9.12.10)
+\item Modifica del luogo dell’esame (UC3.6.9.12.6)
+\item Annullamento della modifica dell’esame (UC3.6.9.12.7)
+\item Conferma della modifica dell’esame (UC3.6.9.12.8)
+\item Visualizzazione errore relativo alla modifica di un esame (UC3.6.9.12.9)
 \end{itemize}
 \item \textbf{Postcondizione}: L'attore ha modificato un esame;
 
@@ -731,19 +730,7 @@
 \item \textbf{Postcondizione}: L'attore ha modificato la tipologia dell’esame;
 
 \end{itemize}
-\subsection{Caso d'uso \texorpdfstring{UC3.6.9.12.6}{UC3.6.9.12.6}: Modifica del numero totale degli studenti iscritti all’esame}
-\begin{itemize}
-\item \textbf{Attori}: università;
-\item \textbf{Descrizione}: L'attore modifica il numero totale degli studenti iscritti all’esame;
-
-\item \textbf{Precondizione}: L'attore può modificare il numero totale degli studenti iscritti all’esame;
-
-\item \textbf{Flusso principale degli eventi}: L'attore modifica il numero totale degli studenti iscritti all’esame;
-
-\item \textbf{Postcondizione}: L'attore ha modificato il numero totale degli studenti iscritti all’esame;
-
-\end{itemize}
-\subsection{Caso d'uso \texorpdfstring{UC3.6.9.12.7}{UC3.6.9.12.7}: Modifica del luogo dell’esame}
+\subsection{Caso d'uso \texorpdfstring{UC3.6.9.12.6}{UC3.6.9.12.6}: Modifica del luogo dell’esame}
 \begin{itemize}
 \item \textbf{Attori}: università;
 \item \textbf{Descrizione}: L'attore modifica il luogo dell’esame;
@@ -755,7 +742,7 @@
 \item \textbf{Postcondizione}: L'attore ha modificato il luogo dell’esame;
 
 \end{itemize}
-\subsection{Caso d'uso \texorpdfstring{UC3.6.9.12.8}{UC3.6.9.12.8}: Annullamento della modifica dell’esame}
+\subsection{Caso d'uso \texorpdfstring{UC3.6.9.12.7}{UC3.6.9.12.7}: Annullamento della modifica dell’esame}
 \begin{itemize}
 \item \textbf{Attori}: università;
 \item \textbf{Descrizione}: L'attore annulla la modifica dell'esame;
@@ -767,7 +754,7 @@
 \item \textbf{Postcondizione}: L'attore ha annullato la modifica dell'esame;
 
 \end{itemize}
-\subsection{Caso d'uso \texorpdfstring{UC3.6.9.12.9}{UC3.6.9.12.9}: Conferma della modifica dell’esame}
+\subsection{Caso d'uso \texorpdfstring{UC3.6.9.12.8}{UC3.6.9.12.8}: Conferma della modifica dell’esame}
 \begin{itemize}
 \item \textbf{Attori}: università;
 \item \textbf{Descrizione}: L'attore conferma la modifica relativa all'esame;
@@ -780,10 +767,10 @@
 
 \item \textbf{Estensioni}:
 \begin{itemize}
-\item Visualizzazione errore relativo alla modifica di un esame (UC3.6.9.12.10)
+\item Visualizzazione errore relativo alla modifica di un esame (UC3.6.9.12.9)
 \end{itemize}
 \end{itemize}
-\subsection{Caso d'uso \texorpdfstring{UC3.6.9.12.10}{UC3.6.9.12.10}: Visualizzazione errore relativo alla modifica di un esame}
+\subsection{Caso d'uso \texorpdfstring{UC3.6.9.12.9}{UC3.6.9.12.9}: Visualizzazione errore relativo alla modifica di un esame}
 \begin{itemize}
 \item \textbf{Attori}: università;
 \item \textbf{Descrizione}: Il sistema visualizza un messaggio d'errore riguardante l'impossibilità di modificare un esame.
@@ -1020,7 +1007,7 @@
 \item Modifica del nome del corso di laurea (UC3.7.2)
 \item Modifica della descrizione del corso di laurea (UC3.7.3)
 \item Modifica della tipologia del corso di laurea (UC3.7.4)
-\item Modifica della lista delle attività didattiche del corso di laurea (UC3.7.5)
+\item Modifica di un'attività didattiche del corso di laurea (UC3.7.5)
 \item Annullamento della modifica del corso di laurea (UC3.7.6)
 \item Conferma della modifica del corso di laurea (UC3.7.7)
 \item Visualizzazione errore relativo alla modifica di un corso di laurea non valido (UC3.7.8)
@@ -1076,16 +1063,16 @@
 \item \textbf{Postcondizione}: L'attore ha modificato la tipologia del corso di laurea.
 
 \end{itemize}
-\subsection{Caso d'uso \texorpdfstring{UC3.7.5}{UC3.7.5}: Modifica della lista delle attività didattiche del corso di laurea}
+\subsection{Caso d'uso \texorpdfstring{UC3.7.5}{UC3.7.5}: Modifica di un'attività didattiche del corso di laurea}
 \begin{itemize}
 \item \textbf{Attori}: università;
-\item \textbf{Descrizione}: L'attore modifica la lista delle attività didattiche del corso di laurea;
+\item \textbf{Descrizione}: L'attore modifica un'attività didattica del corso di laurea;
 
-\item \textbf{Precondizione}: L'attore può modificare la lista delle attività didattiche del corso di laurea;
+\item \textbf{Precondizione}: L'attore può modificare un'attività didattica del corso di laurea;
 
-\item \textbf{Flusso principale degli eventi}: L'attore modifica la lista delle attività didattiche del corso di laurea precedentemente inserita;
+\item \textbf{Flusso principale degli eventi}: L'attore modifica un'attività didattica del corso di laurea precedentemente inserita;
 
-\item \textbf{Postcondizione}: L'attore ha modificato la lista delle attività didattiche del corso di laurea;
+\item \textbf{Postcondizione}: L'attore ha modificato un'attività didattica del corso di laurea;
 
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC3.7.6}{UC3.7.6}: Annullamento della modifica del corso di laurea}
@@ -1123,7 +1110,7 @@
 
 \item \textbf{Precondizione}: L'attore cerca di modificare il corso di laurea;
 
-\item \textbf{Flusso principale degli eventi}: L'attore, modificando in maniera errata i campi del corso di laurea, può visualizzare uno dei seguenti errori: \begin{itemize} \item Codice del corso di laurea non valido o lasciato vuoto; \item Nome del corso di laurea non valido o lasciato vuoto; \item Descrizione del corso di laurea non valido o lasciato vuoto; \item Codice del corso di laurea non valido o lasciato vuoto; \item Tipologia del corso di laurea non valido o lasciato vuoto; \item Codice dell'anno accademico non valido o lasciato vuoto; \item Lista delle attività del corso di laurea non valido o lasciato vuoto; \end{itemize}
+\item \textbf{Flusso principale degli eventi}: L'attore, modificando in maniera errata i campi del corso di laurea, può visualizzare uno dei seguenti errori: \begin{itemize} \item Codice del corso di laurea non valido o lasciato vuoto; \item Nome del corso di laurea non valido o lasciato vuoto; \item Descrizione del corso di laurea non valido o lasciato vuoto; \item Codice del corso di laurea non valido o lasciato vuoto; \item Tipologia del corso di laurea non valido o lasciato vuoto; \item Codice dell'anno accademico non valido o lasciato vuoto; \item Attività didattica del corso di laurea non valida o lasciata vuota; \end{itemize}
 \item \textbf{Postcondizione}: L'attore visualizza un messaggio d'errore riguardante l'impossibilità di modificare un corso di laurea;
 
 
@@ -1270,6 +1257,7 @@
 \item \textbf{Flusso principale degli eventi}: L'attore si iscrive ad un esame;
 \begin{itemize}
 \item Conferma dell'iscrizione ad un esame (UC6.1)
+\item Annullamento dell'iscrizione ad un esame (UC6.2)
 \end{itemize}
 \item \textbf{Postcondizione}: L'attore si è iscritto ad un esame con successo;
 \end{itemize}
@@ -1280,6 +1268,14 @@
 \item \textbf{Precondizione}: L'attore ha selezionato l'esame a cui si vuole iscrivere;
 \item \textbf{Flusso principale degli eventi}: L'attore ha selezionato l'esame a cui iscriversi e può confermare l'azione.
 \item \textbf{Postcondizione}: Il sistema ha registrato la scelta dell'attore.
+\end{itemize}
+\subsection{Caso d'uso \texorpdfstring{UC6.2}{UC6.2}: Annullamento dell'iscrizione ad un esame}
+\begin{itemize}
+\item \textbf{Attori}: studente
+\item \textbf{Descrizione}: L'attore può annullare l'azione di iscrizione ad un esame
+\item \textbf{Precondizione}: L'attore ha selezionato l'esame a cui si vuole iscrivere
+\item \textbf{Flusso principale degli eventi}: L'attore può annullare l'iscrizione ad un esame dopo averlo selezionato.
+\item \textbf{Postcondizione}: L'esame non è più selezionato e l'attore non può confermare l'iscrizione all'esame
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC7}{UC7}: Eliminazione dell'iscrizione ad un esame}
 \begin{figure} [H]
@@ -1392,8 +1388,10 @@
 \item \textbf{Attori}: professore
 \item \textbf{Descrizione}: Il sistema visualizza un errore riguardante l'errata modifica dei campi dati di un esame;
 \item \textbf{Precondizione}: L'attore sta modificando un esame;
-\item \textbf{Flusso principale degli eventi}: L'attore, modificando in maniera errata i campi dell'esame, può visualizzare uno dei seguenti errori: 
-\begin{itemize} \item Intervallo di prenotazione per l’esame non valido o lasciato vuoto; \item Data dell’esame non valida o lasciato vuoto; \item Luogo d’esame non valido o lasciato vuoto; 
+\item \textbf{Flusso principale degli eventi}: L'attore, modificando in maniera errata i campi dell'esame, può visualizzare uno dei seguenti errori: \begin{itemize}
+\item Intervallo di prenotazione per l’esame non valido o lasciato vuoto;
+\item Data dell’esame non valida o lasciato vuoto;
+\item Luogo d’esame non valido o lasciato vuoto;
 \end{itemize}
 \item \textbf{Postcondizione}: L'attore visualizza un messaggio d'errore riguardante l'errata modifica dell'esame.
 \end{itemize}
