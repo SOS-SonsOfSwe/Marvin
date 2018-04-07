@@ -1,12 +1,18 @@
 @startuml
 left to right direction
 skinparam packageStyle rectangle
-actor università
+actor Amministratore
+actor Università
 rectangle UC4 {
-università -- (UC4.1 - Modifica dell'inizio dell'anno accademico)
-università -- (UC4.2 - Modifica della fine dell'anno accademico)
-università -- (UC4.3 - Annullamento della modifica dell'anno accademico)
-università -- (UC4.4 - Conferma della modifica di un anno accademico)
-università -- (UC4.5 - Visualizzazione errore relativo alla modifica di un anno accademico)
+Amministratore -- (UC4.1 - Modifica dell'inizio di un anno accademico)
+Amministratore -- (UC4.2 - Modifica della fine di un anno accademico)
+Amministratore -- (UC4.3 - Annullamento della modifica di un anno accademico)
+Amministratore -- (UC4.4 - Conferma della modifica di un anno accademico)
+Amministratore -- (UC4.5 - Visualizzazione dell'errore relativo alla modifica di un anno accademico)
+Università -- (UC4.1 - Modifica dell'inizio di un anno accademico)
+Università -- (UC4.2 - Modifica della fine di un anno accademico)
+Università -- (UC4.3 - Annullamento della modifica di un anno accademico)
+Università -- (UC4.4 - Conferma della modifica di un anno accademico)
+Università -- (UC4.5 - Visualizzazione dell'errore relativo alla modifica di un anno accademico)
 }
 @enduml
