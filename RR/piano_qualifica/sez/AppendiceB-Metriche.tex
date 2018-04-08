@@ -6,24 +6,24 @@
 In questa sezione verranno descritte le metriche che verranno utilizzate per garantire la qualità dei processi.
 
 \paragraph{Schedule Variance - SV}
-	~\\La Schedule Variance è un indicatore permette di capire se un processo è il linea con la scheduazione temporale indicata del \emph{Piano di Progetto} o in anticipo o ritardo. Viene calcolata come differenza tra BCWP (Budgeted Cost of Work Performed), cioè il valore, delle attività svolte fino al momento del calcolo e BCWS (Budgeted Cost of Work Scheduled), cioè il valore delle attività che dovrebbe essere state completate secondo la schedulazione preventivata:
+	~\\La Schedule Variance è un indicatore permette di capire se un processo è il linea, in anticipo o in ritardo con la schedulazione temporale indicata del \emph{Piano di Progetto}. Viene calcolata come percentuale di tempo speso, considerando le date di inizio e fine previste e la data di completamento effettiva:
 	
 	\begin{displaymath}
-\mbox{SV}= \mbox{BCWP}-\mbox{BCWS}
+\mbox{SV}= \frac{\mbox{Data di completamento effettiva - Data di completamento pianificata}} {\mbox{Data di completamento pianificata - Data di inizio pianificata}} * 100
 \end{displaymath}
 
 I risultati possibili sono tre:
 
 \begin{itemize}
-\item SV > 0, che indica un anticipo sui tempi pianificati.
+\item SV > 0, che indica un ritardo sui tempi pianificati.
 \item SV = 0, che indica l'essere in linea con i tempi pianificati.
-\item SV < 0, che indica un ritardo sui tempi pianificati.
+\item SV < 0, che indica un anticipo sui tempi pianificati.
 \end{itemize}
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: sarà accettato un valore SV $\ge$ 0.
-\item Ottimalità: sarà ottimo un valore SV > 0.
+\item Accettabilità: sarà accettato un valore SV $\le$ 0.
+\item Ottimalità: sarà ottimo un valore SV < 0.
 \end{itemize}
 	
 \paragraph{Cost Variance - CV}
