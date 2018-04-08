@@ -54,17 +54,15 @@ In questa sezione vengono descritte le metriche che verranno utilizzate nel proc
 \paragraph{Errori ortografici}
 \label{AppB:ErroriOrtografici}
 	~\\Questa è la metrica che serve ad esprimere un giudizio di correttezza ortografica riguardo il documento prodotto. Gli errori saranno individuati secondo le seguenti modalità:
-il primo controllo avverrà a tempo di stesura del documento tramite lo strumento di autocorrezione dell'ambiente \emph{''TexStudio''}, mentre il secondo controllo avverrà dopo aver terminato la prima redazione del documento stesso, tramite una verifica manuale del \emph{Verificatore}\ped{G}.
-Questa metrica misura il numero di errori riscontrati, attraverso le due modalit`a di verifica, ma
-non corretti immediatamente.
+il primo controllo avverrà a tempo di stesura del documento tramite lo strumento di autocorrezione dell'ambiente \emph{''TexStudio''}, mentre il secondo controllo avverrà dopo aver terminato la prima redazione del documento stesso. Esso avverrà tramite due verifiche manuali del \emph{Verificatore}\ped{G}: una temporanea dopo aver finito la stesura del documento, ed una definitiva prima dell'approvazione finale del documento stesso.
 \newline Formula:
 \begin{displaymath}
-\mbox{Errori ortografici}= \frac{\mbox{numero errori non corretti}}{\mbox{numero totale errori segnalati}}*100
+\mbox{Errori ortografici}= {\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
 \end{displaymath}
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: valore inferiore o uguale al 5\%.
+\item Accettabilità: valore inferiore o uguale a 3 errori ortografici.
 \item Ottimalità: un valore pari a 0.
 \end{itemize}
 
@@ -90,31 +88,31 @@ I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilit
 
 \paragraph{Errori contenutistici}
 \label{AppB:ErroriCont}
-	~\\Questa è la metrica necessaria ad esprimere la correttezza del contenuto di un documento. E' importante verificare che i concetti trattati siano corretti e coerenti con quanto prefissato. Il valore ottenuto da questa metrica rappresenta il numero di errori concettuali che non sono stati corretti dopo esser stati segnalati dal {Verificatore}\ped{G} durante la precedente verifica del documento.
+	~\\Questa è la metrica necessaria ad esprimere la correttezza del contenuto di un documento. E' importante verificare che i concetti trattati siano corretti e coerenti con quanto prefissato. Il valore ottenuto da questa metrica rappresenta il numero di errori concettuali riscontrati dal {Verificatore}\ped{G} durante la verifica definitiva del documento.
 \newline La formula utilizzata per il calcolo degli errori è la seguente:
 \begin{displaymath}
-\mbox{Errori concettuali}=\frac{\mbox{numero errori non corretti}}{\mbox{numero totale errori segnalati}}*100
+\mbox{Errori concettuali}={\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
 \end{displaymath}
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità:un valore inferiore o uguale al 5\%.
-\item Ottimalità: unun valore uguale allo 0\%.
+\item Accettabilità: un valore inferiore o uguale a 3 errori.
+\item Ottimalità: un valore pari a 0 .
 \end{itemize}
 
 \paragraph{Struttura del documento}
 \label{AppB:ErroriForma}
 	~\\Viene utilizzata questa unità di misura per verificare quanto un documento sia attinente alle regole strutturali descritte nel documento \textit{Norme di Progetto}.
-La metrica si basa sul numero di errori segnalati dal \textit{Verificatore} che non sono stati corretti successivamente.
+La metrica si basa sul numero di errori segnalati dal \textit{Verificatore} durante la verifica definitiva del documento.
 \newline La formula utilizzata per il calcolo degli errori è la seguente:
 \begin{displaymath}
-\mbox{Errori di forma}=\frac{\mbox{numero errori non corretti}}{\mbox{numero totale errori segnalati}}*100
+\mbox{Errori di forma}={\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
 \end{displaymath}
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità:un valore inferiore o uguale al 5\%.
-\item Ottimalità: unun valore uguale allo 0\%.
+\item Accettabilità:un valore inferiore o uguale a 3 errori.
+\item Ottimalità: un valore pari a 0.
 \end{itemize}
 
 \subsubsection{Metriche per il prodotto software}
