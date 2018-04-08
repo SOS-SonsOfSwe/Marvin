@@ -6,6 +6,7 @@
 In questa sezione verranno descritte le metriche che verranno utilizzate per garantire la qualità dei processi.
 
 \paragraph{Schedule Variance - SV}
+\label{AppB:SV}
 	~\\La Schedule Variance è un indicatore permette di capire se un processo è il linea, in anticipo o in ritardo con la schedulazione temporale indicata del \emph{Piano di Progetto}. Viene calcolata come percentuale di tempo speso, considerando le date di inizio e fine previste e la data di completamento effettiva:
 	
 	\begin{displaymath}
@@ -27,10 +28,11 @@ I risultati possibili sono tre:
 \end{itemize}
 	
 \paragraph{Cost Variance - CV}
-	~\\La Cost Variance è una metrica che permette di capire se i costi effettivi sono in linea o meno con i costi pianificati nel \emph{Piano di Progetto}. Viene calcolata come differanza tra BCWP (Budgeted Cost of Work Performed), cioè il valore delle attività svolte fino al momento del calcolo e ACWP (Actual Cost of Work Performed), cioè il costo effettivamente sostenuto. 
+\label{AppB:CV}
+	~\\La Cost Variance è una metrica che permette di capire se i costi effettivi sono in linea o meno con i costi pianificati nel \emph{Piano di Progetto}. Viene calcolata come percentuale di costo utilizzando BCWP (Budgeted Cost of Work Performed), cioè il valore delle attività svolte fino al momento del calcolo e ACWP (Actual Cost of Work Performed).
 	
 	\begin{displaymath}
-\mbox{SV}= \mbox{BCWP}-\mbox{ACWP}\end{displaymath}
+\mbox{CV}= \frac{\mbox{BCWP}-\mbox{ACWP}}{BCWP}*100\end{displaymath}
 
 I risultati possibili sono tre:
 
@@ -42,7 +44,7 @@ I risultati possibili sono tre:
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: sarà accettato un valore CV $\ge$ 0.
+\item Accettabilità: sarà accettato un valore CV $\ge$ -5\%.
 \item Ottimalità: sarà ottimo un valore CV > 0.
 \end{itemize}
 
