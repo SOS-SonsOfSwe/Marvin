@@ -11,8 +11,8 @@ Per questo motivo, il team suddividerà i documenti in:
 	\newline Tutti quei documenti che saranno visionati anche dai proponenti.
 	
 \end{itemize}
-	\subsubsection{Processo di garanzia della qualità}
-	\textcolor{red}{Cosa scriviamo qui? Nell'ISO 1995 è al paragrafo 6.3, da verificare nell'ISO aggiornato.}
+%	\subsubsection{Processo di garanzia della qualità}
+%	\textcolor{red}{Cosa scriviamo qui? Nell'ISO 1995 è al paragrafo 6.3, da verificare nell'ISO aggiornato.}
 	
 	\subsubsection{Ciclo di vita di un documento}
 	Un documento passerà attraverso tre stati:
@@ -72,17 +72,21 @@ Per questo motivo, il team suddividerà i documenti in:
 	\paragraph{Piano di Qualifica (PdQ)} 
 	~\\Il \PdQ{} deve fornire ai membri del gruppo tutte le informazioni con cui poter soddisfare gli obiettivi di qualità.
 	\paragraph{Analisi dei Requisiti (AdR)}
-	~\\L'\AdR{} fornisce la lista dei casi d'uso, i diagrammi delle utilità tra l'utente e il sistema sviluppato e tutti i servizi offerti dal prodotto. Lo scopo è quindi quello di dare una visione generale dei requisiti e dei casi d'uso. \textcolor{red}{Da ampliare quando avremo fatto il documento}
+	~\\L'\AdR{} descrive gli \emph{attori}\ped{G} del sistema, individua i \emph{casi d'uso}\ped{G} a partire dai \emph{requisiti}\ped{G} e fornisce una visione chiara ai \progs{} sul problema da trattare.
+	
+	\begin{comment}
 	\paragraph{Specifica Tecnica (ST)}
 	~\\La \ST{} si occupa di dare una descrizione ad alto livello del prodotto, descrivendo pregi e difetti delle sue tecnologie. \textcolor{red}{Da ampliare quando avremo fatto il documento}
 	\paragraph{Definizione di Prodotto (DdP)}
 	~\\La \DdP{} descrive i dettagli implementativi del prodotto, andando a definire anche le funzioni delle componenti terminali del sistema tramite diagrammi \emph{UML}.
+	\end{comment}
+	
 	\paragraph{Glossario (G)}
 	~\\Nel documento \G{} i termini tecnici, gli acronimi e le abbreviazioni sono definiti in modo chiaro e conciso, in modo tale da evitare ambiguità e massimizzare la comprensione dei documenti.
 	\paragraph{Manuale Utente (MU)}
 	~\\Il \MU{} è un manuale per aiutare l'utente nell'utilizzo del prodotto e cresce durante il suo sviluppo. Deve avere un approccio incentrato sulle funzionalità che esso offre.
-	\paragraph{Manuale Manutentore (MM)}
-	~\\\textcolor{red}{Dobbiamo vedere se inserirlo, in quanto non dovremmo occuparci di manutenzione.}
+%	\paragraph{Manuale Manutentore (MM)}
+%	~\\\textcolor{red}{Dobbiamo vedere se inserirlo, in quanto non dovremmo occuparci di manutenzione.}
 	\paragraph{Verbale Esterno}
 	~\\Il \VE{} è un documento in cui si tiene traccia delle discussioni del team con i committenti e i proponenti. Come struttura ricalca quella del \VI.
 	
@@ -107,17 +111,16 @@ Per questo motivo, il team suddividerà i documenti in:
 	\end{itemize}
 	\paragraph{Diario delle modifiche}
 	~\\In seconda pagina il documento conterrà il diario delle modifiche, che traccerà le modifiche del documento. Sarà organizzato in una tabella così strutturata:
-	\textcolor{red}{Capire se serve la descrizione. In caso negativo togliere il grassetto}
 	\begin{itemize}
-		\item \textbf{Versione}:
+		\item Versione:
 		indica la versione del documento;
-		\item \textbf{Descrizione}:
+		\item Descrizione:
 		descrive la modifica effettuata nella relativa versione;
-		\item \textbf{Autore}:
+		\item Autore:
 		indica il nome della persona che effettua la modifica;
-		\item \textbf{Ruolo}:
+		\item Ruolo:
 		indica il ruolo dell'autore;
-		\item \textbf{Data}:
+		\item Data:
 		indica la data in cui il documento è stato modificato.
 	\end{itemize}
 	\paragraph{Indice}
@@ -131,29 +134,30 @@ Per questo motivo, il team suddividerà i documenti in:
 	Tutti i documenti dovranno sottostare alle seguenti norme tipografiche ed ortografiche.
 	\paragraph{Formati}
 	\begin{itemize}
-		\item \textbf{Data}: il formato della data seguirà quello esplicato nell'\emph{ISO}\ped{G} \emph{8601:2004}\ped{G}, quindi sarà: 
+	\item \textbf{Data}: il formato della data seguirà quello esplicato nell'\emph{ISO}\ped{G} \emph{8601:2004}\ped{G}, quindi sarà: 
 		\begin{center}
 			\emph{YYYY-MM-DD}
 		\end{center}
-		dove i simboli stanno per:
+	dove i simboli stanno per:
 		\begin{itemize}
 			\item YYYY: anno;
 			\item MM: mese;
 			\item DD: giorno.
 		\end{itemize}
-		\item \textbf{Orario}: ci si atterrà allo standard europeo delle 24 ore:
+	\item \textbf{Orario}: ci si atterrà allo standard europeo delle 24 ore:
 		 \begin{center}
 		 	\emph{hh:mm}
 		 \end{center}
-	 	dove i simboli stanno per:
+	dove i simboli stanno per:
 	 	\begin{itemize}
 	 		\item hh: ore;
 	 		\item mm: minuti.
 	 	\end{itemize}
+ 	\begin{comment}
 		\item \textbf{Nome del documento}: \textcolor{red}{Dovremmo elaborare un comando che, una volta invocato, genera automaticamente il nome del documento e la sua versione}
 		\item \textbf{Nome del gruppo}: per riferirsi al nome del gruppo si dovrà
 		utilizzare il comando garantendo in questo modo la corretta sintassi;
-		\item \textbf{Nome del progetto}: per riferirsi al nome del progetto si dovrà
+		\item \textbf{Nome del progetto}: per iferirsi al nome del progetto si dovrà
 		utilizzare il comando garantendo in questo modo la corretta sintassi;
 		\item \textbf{Link sito del gruppo}: per riferirsi al link del sito del gruppo si dovrà
 		utilizzare il comando garantendo in questo modo la corretta sintassi;
@@ -162,6 +166,8 @@ Per questo motivo, il team suddividerà i documenti in:
 		\item \textbf{Nome del proponente}: per riferirsi al nome del proponente, ovvero del proponente, si dovrà
 		utilizzare il comando garantendo in questo modo la corretta
 		sintassi.
+	\end{comment}
+	
 	\end{itemize}
 	\paragraph{Composizione del testo}
 	\begin{itemize}
@@ -173,9 +179,9 @@ Per questo motivo, il team suddividerà i documenti in:
 	\paragraph{Stili di testo}
 	\begin{itemize}
 		\item \textbf{Grassetto}: il grassetto deve essere utilizzato per evidenziare parole
-		particolarmente importanti, negli elenchi puntati o nelle frasi; \textcolor{red}{controllare dovunque!}
+		particolarmente importanti, negli elenchi puntati o nelle frasi;
 		\item \textbf{Corsivo}: il corsivo deve essere utilizzato nelle seguenti
-		situazioni: \textcolor{red}{da controllare questi punti}
+		situazioni:
 		\begin{itemize}
 			\item Ruoli;
 			\item Documenti;
@@ -207,15 +213,15 @@ Per questo motivo, il team suddividerà i documenti in:
 		\item \textbf{RQ}: Revisione di Qualifica;
 		\item \textbf{RA}: Revisione di Accettazione.
 	\end{itemize}
-	%\begin{comment}
-	
+
+\begin{comment}
 	\subsubsection{Componenti grafiche}
 	\textcolor{red}{Da controllare, quando inizieremo ad usarle}
 	\begin{itemize}
 		\item Tabelle
 		\item Immagini
 	\end{itemize}
-	%\begin{comment}
+\end{comment}
 	\subsubsection{Nome del file \emph{.pdf}\ped{G}}
 	Ogni documento sarà stampato su .pdf utilizzando, per il nome, questa regola:
 	\begin{center}
@@ -233,7 +239,7 @@ Per questo motivo, il team suddividerà i documenti in:
 		\item \emph{"img" folder}: conterrà il logo e le altre immagini utilizzate nel documento.
 	\end{itemize}
 	\subsubsection{Versionamento}
-	Il \emph{versionamento\ped{G}} permette a ciascun membro del team di condividere il lavoro nello spazio comune e di lavorare su vecchi e nuovi \emph{CI}\ped{G} \emph{\textcolor{red}{Configuration Item}} senza rischio di sovrascritture accidentali.
+	Il \emph{versionamento\ped{G}} permette a ciascun membro del team di condividere il lavoro nello spazio comune e di lavorare su vecchi e nuovi \emph{Configuration Item}\ped{G} senza rischio di sovrascritture accidentali.
 	\\Avrà questa forma:
 	\begin{center}
 		\emph{vX.Y.Z}
@@ -266,7 +272,8 @@ Per questo motivo, il team suddividerà i documenti in:
 				\item Permette un versionamento più semplice e compatibile con \emph{Git}\ped{G};
 				\item Evita conflitti usando software ed envornment differenti.
 			\end{itemize}
-			\paragraph{\textcolor{red}{Da aggiungere qui eventuali altri strumenti che utilizzeremo per altro}}
+		
+		%	\paragraph{\textcolor{red}{Da aggiungere qui eventuali altri strumenti che utilizzeremo per altro}}
 	
 		\subsubsection{Gestione del \emph{repository}\ped{G}}
 		Per avere traccia di tutte le modifiche realizzate sui documenti e sul codice prodotti, il team ha deciso di utilizzare \emph{GitHub}, creando una \emph{repository}\ped{G}. Si seguiranno le norme dscritte qui di seguito.
@@ -276,7 +283,7 @@ Per questo motivo, il team suddividerà i documenti in:
 				\item Ogni \emph{branch}\ped{G} annidato sul master deve corrispondere solo alle \emph{revisioni}\ped{G};
 				\item Ogni branch annidato sui branch relativi alle revisioni corrispondono ai documenti ad esse corrispondenti;
 				\item Ogni membro del gruppo potrà modificare i files per ogni documento o codice o direttamente sul branch corrispondente oppure creandone uno parallelo a sua discrezione, a meno di direttive diverse da parte dei \progs{}.
-				\item \textcolor{red}{Capire come fare la repo quando si dovrà mettere dentro il codice}
+%				\item \textcolor{red}{Capire come fare la repo quando si dovrà mettere dentro il codice}
 			\end{itemize}
 			\paragraph{Tipi di file}
 			Tutti i file pertinenti verranno caricati nel repository e sottoposti a versionamento. Verranno tuttavia ignorati, quindi inseriti all'interno del file \emph{.gitignore}\ped{G}, tutte quelle estensioni dei file generati automaticamente durante le varie \emph{build}\ped{G}.
@@ -318,7 +325,6 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		\\La responsabilità della sua realizzazione è del \progr{} per le unità più semplici, altrimenti
 		di un \ver{} indipendente.
 		\\Le risorse consumate da questo tipo di test sono molto basse, poiché coinvolge piccole parti di codice con basso accoppiamento le une con le altre. 
-		\textcolor{red}{Serve una sintassi identificativa?}
 		\paragraph{\textbf{Test di integrazione (TI)}}
 		~\\Questi test verificano non solo il corretto comportamento di ogni singolo oggetto, 
 		ma anche le relazioni con gli altri componenti dell'applicazione.
@@ -332,13 +338,11 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		Questo tipo di test consuma molte risorse, poiché la grandezza del codice da controllare è 
 		significativa e	il grado di accoppiamento tra le varie parti da testare è massimo. 
 		Quindi il suo utilizzo deve essere ponderato e, in generale, da non preferire a quello di unità.
-		\textcolor{red}{Serve una sintassi identificativa?}
 		\paragraph{\textbf{Test di sistema (TS)}}
 		~\\Il test di sistema può essere visto come un'attività interna del fornitore
 		per accertare la copertura dei requisiti software.
 		\newline{}Questo tipo di test richiede molte risorse e, in generale, non va utilizzato per testare
 		unità singole.
-		\textcolor{red}{Serve una sintassi identificativa?}
 		\paragraph{\textbf{Test di \emph{regressione}}\ped{G} \textbf{(TR)}}
 		~\\Il test di regressione è l'insieme dei TU e TI necessari ad accertare che la modifica
 		di una parte del prodotto non causi errori nelle altre parti che hanno relazioni con essa.
@@ -347,7 +351,7 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		stata modificata.
 		\textcolor{red}{Serve una sintassi identificativa?}
 		\paragraph{\textbf{Test di validazione}}
-		Il test di validazione è un'attività supervisionata dal committente	\textcolor{red}{e/o} dal proponente come dimostrazione di conformità del prodotto sulla base 
+		Il test di validazione è un'attività supervisionata dal committente e dal proponente come dimostrazione di conformità del prodotto sulla base 
 		di casi di prova specificati o implicati dal contratto.
 		Alla validazione segue il rilascio del prodotto con eventuale garanzia e la fine della
 		\emph{commessa}\ped{G},	con eventuale manutenzione.
@@ -359,6 +363,7 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		~\\Questo editor include il correttore ortografico automatico. Tuttavia non è preciso nell'individuazione di errori più sottili, quindi servirà comunque un'analisi più approfondita da parte dei \vers;
 		\item \textbf{Indice \emph{Gulpease}}\ped{G}
 		~\\Per i test di leggibilità il team ricorrà al calcolo dell'indice Gulpease;
+		\begin{comment}
 		\item 
 		\emph{\textbf{\emph{JSHint}}}\ped{G}\footnote{\href{http://jshint.com/}{http://jshint.com/}}
 		~\\È uno strumento \emph{OpenSource}\ped{G} funzionale alla rilevazione degli errori e possibili problemi nel codice \emph{JavaScript}\ped{G};
@@ -368,10 +373,12 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		\item 
 		\emph{\textbf{\emph{W3C Markup Validation Service}}}\ped{G}\footnote{\href{https://validator.w3.org/}{https://validator.w3.org/}}
 		~\\È uno strumento per la validazione dei documenti \emph{HTML}\ped{G} e \emph{xHTML}\ped{G};
+		\end{comment}
 		\item 
 		\emph{\textbf{\emph{Draw.io}}}\ped{G}\footnote{\href{https://www.draw.io/}{https://www.draw.io/}}
 		\\È un software per la creazione di diagrammi di flusso, di processo, organigrammi, UML, ER e diagrammi di rete.
 	\end{itemize}
+\begin{comment}
 	\paragraph{Strumenti per l'analisi dinamica}
 	\begin{itemize}
 		\item 
@@ -381,4 +388,4 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		\emph{\textbf{\emph{\textcolor{red}{Mocha}}}}\ped{G}\footnote{\href{https://mochajs.org/}{https://mochajs.org/}}
 		~\\È un framework per l'esecuzione dei test asincroni e in serie di Javascript, scritto Node.js.
 	\end{itemize}
-	
+\end{comment}
