@@ -4,8 +4,8 @@
 \usepackage[top=3.1cm, bottom=3.1cm, left=2.2cm, right=2.2cm]{geometry}
 
 %aggiunti da Giovanni
-\usepackage{comment}
-\usepackage{color,soul}
+%\usepackage{comment}
+%\usepackage{color,soul}
 
 \newcommand{\copertina}{
 	\begin{titlepage}
@@ -158,6 +158,12 @@
     linkcolor=black, % colore dei link interni
     urlcolor=Maroon  % colore dei link interniesterni
 }
+
+%per alcune liste, permette di usare 'alligator' nei labeling 
+\usepackage{blindtext} 
+\usepackage{scrextend} 
+\addtokomafont{labelinglabel} 
+{\sffamily} 
 
 %impostazioni per il codice che deve finire dentro a
 %\begin{lstlisting}
