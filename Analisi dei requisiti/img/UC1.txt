@@ -4,7 +4,7 @@ skinparam packageStyle rectangle
 actor Metamask
 actor utenteNonAutenticato
 rectangle UC1 {
-Metamask -- (UC1.6 - Il sistema sfrutta l'interfaccia Metamask per l'identificazione utente)
+Metamask -- (UC1.6 - Identificazione utente tramite Metamask)
 utenteNonAutenticato -- (UC1.1 - Inserimento del nome)
 utenteNonAutenticato -- (UC1.10 - Inserimento della matricola)
 utenteNonAutenticato -- (UC1.2 - Inserimento del cognome)

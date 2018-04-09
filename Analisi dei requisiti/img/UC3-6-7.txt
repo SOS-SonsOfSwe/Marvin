@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Amministratore
+actor Università
+rectangle UC3.6.7 {
+Amministratore -- (UC3.6.7.1 - Inserimento del codice del corso di un'attività didattica)
+Amministratore -- (UC3.6.7.10 - Visualizzazione dell'errore relativo all’aggiunta di un’attività didattica non valida)
+Amministratore -- (UC3.6.7.2 - Inserimento del nome di un’attività didattica)
+Amministratore -- (UC3.6.7.3 - Inserimento della descrizione di un'attività didattica)
+Amministratore -- (UC3.6.7.4 - Inserimento del professore associato ad un'attività didattica)
+Amministratore -- (UC3.6.7.5 - Inserimento dei crediti di un’attività didattica)
+Amministratore -- (UC3.6.7.6 - Inserimento del periodo di un’attività didattica)
+Amministratore -- (UC3.6.7.7 - Annullamento dell’aggiunta di un’attività didattica)
+Amministratore -- (UC3.6.7.8 - Conferma dell’aggiunta di un’attività didattica)
+Amministratore -- (UC3.6.7.9 - Aggiunta di un esame)
+Università -- (UC3.6.7.1 - Inserimento del codice del corso di un'attività didattica)
+Università -- (UC3.6.7.10 - Visualizzazione dell'errore relativo all’aggiunta di un’attività didattica non valida)
+Università -- (UC3.6.7.2 - Inserimento del nome di un’attività didattica)
+Università -- (UC3.6.7.3 - Inserimento della descrizione di un'attività didattica)
+Università -- (UC3.6.7.4 - Inserimento del professore associato ad un'attività didattica)
+Università -- (UC3.6.7.5 - Inserimento dei crediti di un’attività didattica)
+Università -- (UC3.6.7.6 - Inserimento del periodo di un’attività didattica)
+Università -- (UC3.6.7.7 - Annullamento dell’aggiunta di un’attività didattica)
+Università -- (UC3.6.7.8 - Conferma dell’aggiunta di un’attività didattica)
+Università -- (UC3.6.7.9 - Aggiunta di un esame)
+}
+@enduml

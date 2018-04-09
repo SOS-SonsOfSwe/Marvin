@@ -1,8 +1,7 @@
 @startuml
 left to right direction
 skinparam packageStyle rectangle
-actor Amministratore
-actor Università
-rectangle UC5 {
+actor Professore
+rectangle UC16 {
 }
 @enduml
