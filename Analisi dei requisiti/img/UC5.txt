@@ -4,7 +4,5 @@ skinparam packageStyle rectangle
 actor Amministratore
 actor Università
 rectangle UC5 {
-Amministratore -- (UC5.1 - Visualizzazione dell'errore relativo all'eliminazione di un anno accademico)
-Università -- (UC5.1 - Visualizzazione dell'errore relativo all'eliminazione di un anno accademico)
 }
 @enduml
