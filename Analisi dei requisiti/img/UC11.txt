@@ -1,13 +1,20 @@
 @startuml
 left to right direction
 skinparam packageStyle rectangle
-actor università
+actor Amministratore
+actor Università
 rectangle UC11 {
-università -- (UC11.1 - Inserimento della matricola relativa all'utente)
-università -- (UC11.2 - Inserimento del codice univoco relativo all'utente)
-università -- (UC11.3 - Inserimento della tipologia dell'utente)
-università -- (UC11.4 - Conferma dell'inserimento dell'utente nel sistema)
-università -- (UC11.5 - Visualizzazione errore relativo all'inserimento di un utente nel sistema)
-università -- (UC11.6 - Annullamento dell'inserimento di un nuovo utente nel sistema)
+Amministratore -- (UC11.1 - Inserimento della matricola relativa ad un utente)
+Amministratore -- (UC11.2 - Inserimento del codice univoco relativo ad un utente)
+Amministratore -- (UC11.3 - Inserimento della tipologia di un utente )
+Amministratore -- (UC11.4 - Conferma dell'inserimento di un utente nel sistema)
+Amministratore -- (UC11.5 - Visualizzazione dell'errore relativo all'inserimento di un utente nel sistema)
+Amministratore -- (UC11.6 - Annullamento dell'inserimento di un nuovo utente nel sistema)
+Università -- (UC11.1 - Inserimento della matricola relativa ad un utente)
+Università -- (UC11.2 - Inserimento del codice univoco relativo ad un utente)
+Università -- (UC11.3 - Inserimento della tipologia di un utente )
+Università -- (UC11.4 - Conferma dell'inserimento di un utente nel sistema)
+Università -- (UC11.5 - Visualizzazione dell'errore relativo all'inserimento di un utente nel sistema)
+Università -- (UC11.6 - Annullamento dell'inserimento di un nuovo utente nel sistema)
 }
 @enduml

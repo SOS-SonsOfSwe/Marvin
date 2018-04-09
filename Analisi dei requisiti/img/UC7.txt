@@ -1,9 +1,9 @@
 @startuml
 left to right direction
 skinparam packageStyle rectangle
-actor studente
+actor Studente
 rectangle UC7 {
-professore -- (UC7.2 - Conferma dell'eliminazione dell'iscrizione ad un esame)
-studente -- (UC7.1 - Annullamento dell'eliminazione dell'iscrizione ad un esame)
+Studente -- (UC7.1 - Annullamento dell'eliminazione dell'iscrizione ad un esame)
+Studente -- (UC7.2 - Conferma dell'eliminazione dell'iscrizione ad un esame)
 }
 @enduml
