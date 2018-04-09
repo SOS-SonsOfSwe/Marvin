@@ -1,5 +1,5 @@
 %generare il pdf con il comando: pdflatex main.tex
-\documentclass[a4paper, oneside, openany]{article}
+\documentclass[a4paper, oneside, openany, dvipsnames, tablex]{article}
 \usepackage{../template/sos}
 \input{comandi.tex}
 
@@ -9,6 +9,8 @@
 \copertina{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %SOMMARIO
+\input{sez/RegistroModifiche.tex}
+\newpage
 \tableofcontents
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
