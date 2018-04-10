@@ -5,12 +5,8 @@
 
 %aggiunti da Giovanni
 \usepackage{comment}
-%\usepackage{color,soul}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{longtable}
-\usepackage{array}
-%\usepackage[table]{xcolor}
+\usepackage{color,soul}
+\usepackage{colortbl}
 
 \newcommand{\copertina}{
 	\begin{titlepage}
@@ -101,7 +97,7 @@
 \usepackage{caption}        %numerazione figure e loro descrizione testuale
 \usepackage{subcaption}     %sottofigure numerabili
 \usepackage{float}  %permette di inserire un # qualsiasi di figure fluttuanti
-\usepackage[table,dvipsnames]{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{rotating} %permette di ruotare le immagini
 %\usepackage{changepage} %utile se c'è bisogno di aggiustare margini per centrare figure
 
