@@ -1,5 +1,5 @@
 %generare il pdf con il comando: pdflatex main.tex
-\documentclass[a4paper, oneside, openany]{article}
+\documentclass[a4paper, oneside, openany, dvipsnames, table]{article}
 \usepackage{../template/sos}
 \input{comandi.tex}
 
@@ -7,12 +7,20 @@
 \copertina{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %SOMMARIO
+\input{sez/RegistroModifiche.tex}
+\newpage
 \tableofcontents
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PARAGRAFI
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{sez/Introduzione.tex}
+\newpage
+\input{sez/usecase.tex}
+\newpage
+\input{sez/requirement.tex}
+\newpage
+\input{sez/tracking.tex}
 
 
 \end{document}
