@@ -265,7 +265,7 @@ Per questo motivo, il team suddividerà i documenti in:
 		\end{itemize}
 	\end{itemize}
 	\subsubsection{Strumenti}
-			\paragraph{\textbf{\emph{\LaTeX}}}\ped{G}
+			\paragraph{\emph{\LaTeX}\ped{G}}
 			~\\Il team ha scelto di usufruire del linguaggio \LaTeX{} per questi motivi:
 			\begin{itemize}
 				\item Permette di rendere ogni sezione molto autonoma, mantenendo comunque lo stile coerente;
@@ -319,13 +319,13 @@ Le modalità sfruttate saranno elencate qui di seguito.
 	aumentandone il valore, identificandone e rimuovendone i difetti. Il suo inizio non va differito
 	al termine delle attività di codifica e le sue esigenze devono essere tenute in conto nella progettazione del sistema. Tutti i test devono essere rieseguibili e devono sempre produrre lo stesso esito. Devono essere eseguiti in condizioni controllate, diventando così deterministici.
 	~\\I test si possono dividere nelle categorie qui descritte.
-		\paragraph{\textbf{Test di \emph{unità}}\ped{G} \textbf{(TU)}}
+		\paragraph{Test di \emph{unità}\ped{G} (TU)}
 		~\\Il suo obiettivo è quello di verificare la correttezza del codice \emph{as implemented}, ovvero
 		puntando a controllare il codice in maniera microscopica.
 		\\La responsabilità della sua realizzazione è del \progr{} per le unità più semplici, altrimenti
 		di un \ver{} indipendente.
 		\\Le risorse consumate da questo tipo di test sono molto basse, poiché coinvolge piccole parti di codice con basso accoppiamento le une con le altre. 
-		\paragraph{\textbf{Test di integrazione (TI)}}
+		\paragraph{Test di integrazione (TI)}
 		~\\Questi test verificano non solo il corretto comportamento di ogni singolo oggetto, 
 		ma anche le relazioni con gli altri componenti dell'applicazione.
 		~\\Può rilevare questi problemi:
@@ -338,19 +338,18 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		Questo tipo di test consuma molte risorse, poiché la grandezza del codice da controllare è 
 		significativa e	il grado di accoppiamento tra le varie parti da testare è massimo. 
 		Quindi il suo utilizzo deve essere ponderato e, in generale, da non preferire a quello di unità.
-		\paragraph{\textbf{Test di sistema (TS)}}
+		\paragraph{Test di sistema (TS)}
 		~\\Il test di sistema può essere visto come un'attività interna del fornitore
 		per accertare la copertura dei requisiti software.
 		\newline{}Questo tipo di test richiede molte risorse e, in generale, non va utilizzato per testare
 		unità singole.
-		\paragraph{\textbf{Test di \emph{regressione}}\ped{G} \textbf{(TR)}}
+		\paragraph{Test di \emph{regressione}\ped{G} (TR)}
 		~\\Il test di regressione è l'insieme dei TU e TI necessari ad accertare che la modifica
 		di una parte del prodotto non causi errori nelle altre parti che hanno relazioni con essa.
 		\\Questo tipo di test consuma tante più risorse quanto la parte modificata è accoppiata con le altre, 
 		anche perché comporta la ripetizione di test già previsti ed effettuati per ogni parte che non è 
 		stata modificata.
-		\textcolor{red}{Serve una sintassi identificativa?}
-		\paragraph{\textbf{Test di validazione}}
+		\paragraph{Test di validazione}
 		Il test di validazione è un'attività supervisionata dal committente e dal proponente come dimostrazione di conformità del prodotto sulla base 
 		di casi di prova specificati o implicati dal contratto.
 		Alla validazione segue il rilascio del prodotto con eventuale garanzia e la fine della
