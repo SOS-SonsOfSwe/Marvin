@@ -7,7 +7,7 @@ In questa sezione verranno descritte le metriche che verranno utilizzate per gar
 
 \paragraph{Schedule Variance - SV}
 \label{AppB:SV}
-	~\\La Schedule Variance è un indicatore permette di capire se un processo è il linea, in anticipo o in ritardo con la schedulazione temporale indicata del \emph{Piano di Progetto}. Viene calcolata come percentuale di tempo speso, considerando le date di inizio e fine previste e la data di completamento effettiva:
+	~\\La Schedule Variance è un indicatore permette di capire se un processo è il linea, in anticipo o in ritardo con la schedulazione temporale indicata del \PdP{}. Viene calcolata come percentuale di tempo speso, considerando le date di inizio e fine previste e la data di completamento effettiva:
 	
 	\begin{displaymath}
 \mbox{SV}= \frac{\mbox{Data di completamento effettiva - Data di completamento pianificata}} {\mbox{Data di completamento pianificata - Data di inizio pianificata}} * 100
@@ -29,7 +29,7 @@ I risultati possibili sono tre:
 	
 \paragraph{Cost Variance - CV}
 \label{AppB:CV}
-	~\\La Cost Variance è una metrica che permette di capire se i costi effettivi sono in linea o meno con i costi pianificati nel \emph{Piano di Progetto}. Viene calcolata come percentuale di costo utilizzando BCWP (Budgeted Cost of Work Performed), cioè il valore delle attività svolte fino al momento del calcolo e ACWP (Actual Cost of Work Performed).
+	~\\La Cost Variance è una metrica che permette di capire se i costi effettivi sono in linea o meno con i costi pianificati nel \PdP{}. Viene calcolata come percentuale di costo utilizzando BCWP (Budgeted Cost of Work Performed), cioè il valore delle attività svolte fino al momento del calcolo e ACWP (Actual Cost of Work Performed).
 	
 	\begin{displaymath}
 \mbox{CV}= \frac{\mbox{BCWP}-\mbox{ACWP}}{BCWP}*100\end{displaymath}
@@ -56,7 +56,7 @@ In questa sezione vengono descritte le metriche che verranno utilizzate nel proc
 \paragraph{Errori ortografici}
 \label{AppB:ErroriOrtografici}
 	~\\Questa è la metrica che serve ad esprimere un giudizio di correttezza ortografica riguardo il documento prodotto. Gli errori saranno individuati secondo le seguenti modalità:
-il primo controllo avverrà a tempo di stesura del documento tramite lo strumento di autocorrezione dell'ambiente \emph{''TexStudio''}, mentre il secondo controllo avverrà dopo aver terminato la prima redazione del documento stesso. Esso avverrà tramite due verifiche manuali del \emph{Verificatore}\ped{G}: una temporanea dopo aver finito la stesura del documento, ed una definitiva prima dell'approvazione finale del documento stesso.
+il primo controllo avverrà a tempo di stesura del documento tramite lo strumento di autocorrezione dell'ambiente \emph{''TexStudio''}, mentre il secondo controllo avverrà dopo aver terminato la prima redazione del documento stesso. Esso avverrà tramite due verifiche manuali del \ver{}\ped{G}: una temporanea dopo aver finito la stesura del documento, ed una definitiva prima dell'approvazione finale del documento stesso.
 \newline Formula:
 \begin{displaymath}
 \mbox{Errori ortografici}= {\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
@@ -90,7 +90,7 @@ I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilit
 
 \paragraph{Errori contenutistici}
 \label{AppB:ErroriCont}
-	~\\Questa è la metrica necessaria ad esprimere la correttezza del contenuto di un documento. E' importante verificare che i concetti trattati siano corretti e coerenti con quanto prefissato. Il valore ottenuto da questa metrica rappresenta il numero di errori concettuali riscontrati dal {Verificatore}\ped{G} durante la verifica definitiva del documento.
+	~\\Questa è la metrica necessaria ad esprimere la correttezza del contenuto di un documento. E' importante verificare che i concetti trattati siano corretti e coerenti con quanto prefissato. Il valore ottenuto da questa metrica rappresenta il numero di errori concettuali riscontrati dal \ver{} durante la verifica definitiva del documento.
 \newline La formula utilizzata per il calcolo degli errori è la seguente:
 \begin{displaymath}
 \mbox{Errori concettuali}={\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
@@ -104,8 +104,8 @@ I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilit
 
 \paragraph{Struttura del documento}
 \label{AppB:ErroriForma}
-	~\\Viene utilizzata questa unità di misura per verificare quanto un documento sia attinente alle regole strutturali descritte nel documento \textit{Norme di Progetto}.
-La metrica si basa sul numero di errori segnalati dal \textit{Verificatore} durante la verifica definitiva del documento.
+	~\\Viene utilizzata questa unità di misura per verificare quanto un documento sia attinente alle regole strutturali descritte nel documento \NdP{}.
+La metrica si basa sul numero di errori segnalati dal \ver{} durante la verifica definitiva del documento.
 \newline La formula utilizzata per il calcolo degli errori è la seguente:
 \begin{displaymath}
 \mbox{Errori di forma}={\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
@@ -113,7 +113,7 @@ La metrica si basa sul numero di errori segnalati dal \textit{Verificatore} dura
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità:un valore inferiore o uguale a 3 errori.
+\item Accettabilità: un valore inferiore o uguale a 3 errori.
 \item Ottimalità: un valore pari a 0.
 \end{itemize}
 
@@ -176,7 +176,7 @@ In questa sezione si descrivono le metriche che verranno usate dal gruppo per ve
 	 
 \paragraph{Validazione pagine web}
 \label{AppB:Usabilita}
-	~\\Tale metrica verrà usata come tentativo di applicare una metrica oggettiva e misurabile per valutare l'usabilità del prodotto finale; si è usata la parola "tentativo" poichè in effetti l'usabilità e l'accessibilità di un sito web sono due cose distinte, anche se affini: pagine web con contenuto inaccessibile sarnno sicuramente poco usabili. Valutare l'accessibilità attraverso l'analisi del codice prodotto permetterà dunque di fornire una base allo sviluppo di pagine usabili.
+	~\\Tale metrica verrà usata come tentativo di applicare una metrica oggettiva e misurabile per valutare l'usabilità del prodotto finale; si è usata la parola "tentativo" poichè in effetti l'usabilità e l'accessibilità di un sito web sono due cose distinte, anche se affini: pagine web con contenuto inaccessibile saranno sicuramente poco usabili. Valutare l'accessibilità attraverso l'analisi del codice prodotto permetterà dunque di fornire una base allo sviluppo di pagine usabili.
 W3C offre uno strumento per valutare le pagine \emph{HTML}\ped{G} e uno per i i fogli di stle \emph{CSS}\ped{G}, come dichiarato nelle \emph{Norme di Progetto}: essi riportano il numero e il tipo di errori trovati nei documenti in esame.
 
 \subparagraph{Soglie}
