@@ -1,4 +1,25 @@
 \section{Casi d'uso}
+In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine ed analisi da parte dei membri del gruppo. Ognuno è identificato da un codice univoco e possiede una struttura interna accuratamente definita nel documento \NdP{}.
+\subsection{Attori dei casi d'uso}
+\textbf{Attori primari}
+	\begin{itemize}
+		\item \textbf{Utente non autenticato}: si riferisce all'utente del sistema che non ha ancora eseguito il login tramite \emph{Metamask}\ped{G};
+		\item \textbf{Università}: si riferisce all'attore che ha effettuato il login tramite Metamask ed è stato autenticato e riconosciuto nel ruolo di \emph{Università};
+		\item \textbf{Amministratore}: si riferisce all'attore che ha effettuato il login tramite Metamask ed è stato autenticato e riconosciuto nel ruolo di \emph\textbf{{Amministratore}}; possiede gli stessi privilegi di \emph{Università}, eccetto per la gestione dell'intera categoria di \emph{Amministratori};
+		\item \textbf{Professore}: si riferisce all'attore che ha effettuato il login tramite Metamask ed è stato autenticato e riconosciuto nel ruolo di \emph{Professore};
+		\item \textbf{Studente}: si riferisce all'attore che ha effettuato il login tramite Metamask ed è stato autenticato e riconosciuto nel ruolo di \emph{Studente}.
+	\end{itemize}
+
+\textbf{Attori secondari}
+	\begin{itemize}
+		\item \textbf{Metamask}: è un \emph{Ethereum Wallet}\ped{G} che permette di eseguire le DApp di Ethereum direttamente nel browser.
+	\end{itemize}
+\begin{figure} [H]
+	\centering
+	\includegraphics[scale=0.4]{./img/Attori.png}
+	\caption{Gerarchia degli attori del sistema }\label{}
+\end{figure}
+
 \subsection{Caso d'uso \texorpdfstring{UC0}{UC0}: Scenario principale }
 \begin{figure} [H]
 	\centering
@@ -43,7 +64,7 @@
 	\caption{Registrazione }\label{}
 \end{figure}
 \begin{itemize}
-	\item \textbf{Attori}: \emph{Metamask}\ped{G}, Utente non autenticato;
+	\item \textbf{Attori}: Metamask, Utente non autenticato;
 	\item \textbf{Descrizione}: Per accedere al sistema è necessario possedere un account;
 	\item \textbf{Precondizione}: L'attore non possiede una account per accedere al sistema;
 	\item \textbf{Flusso principale degli eventi}: L'attore si registra nel sistema attraverso i seguenti punti;
