@@ -12,7 +12,7 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 
 \textbf{Attori secondari}
 	\begin{itemize}
-		\item \textbf{Metamask}: è un \emph{Ethereum Wallet}\ped{G} che permette di eseguire le DApp di Ethereum direttamente nel browser.
+		\item \textbf{Metamask}: è un \emph{Ethereum Wallet}\ped{G} che permette di eseguire le ÐApp di Ethereum direttamente nel browser.
 	\end{itemize}
 \begin{figure} [H]
 	\centering
@@ -162,6 +162,7 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 		\item E-mail;
 		\item Codice fiscale;
 		\item Codice univoco;
+		\item Metamask non attiva;
 		\item Matricola.
 	\end{itemize}
 	\item \textbf{Postcondizione}: Il sistema fa visualizzare un messaggio d'errore riguardante il tentativo di registrazione con campi dati errati o vuoti.
@@ -193,7 +194,8 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 \subsection{Caso d'uso \texorpdfstring{UC2.1}{UC2.1}: Login automatico}
 \begin{itemize}
 	\item \textbf{Attori}: Metamask, Utente non autenticato;
-	\item \textbf{Descrizione}: Il sistema logga automaticamente l'attore se ha metamask attivo e la sua \emph{chiave pubblica}\ped{G} coincide con una presente all'interno del sistema;
+	\item \textbf{Descrizione}: Il sistema logga automaticamente l'attore se ha una sessione di Metamask valida e 
+	\item \textbf{Descrizione}: Il sistema logga automaticamente l'attore se ha Metamask attivo e la sua \emph{chiave pubblica}\ped{G} coincide con una presente all'interno del sistema;
 	\item \textbf{Precondizione}: Il sistema non riconosce l'attore;
 	\item \textbf{Flusso principale degli eventi}: L'attore con Metamask attivo e precedentemente registrato, entra nel sistema senza compiere alcuna azione;
 	\item \textbf{Postcondizione}: Il sistema riconosce l'attore.
