@@ -1,5 +1,41 @@
 \section{Casi d'uso}
-\subsection{•}
+\subsection{Caso d'uso \texorpdfstring{UC0}{UC0}: Scenario principale }
+\begin{figure} [H]
+	\centering
+	\includegraphics[scale=0.4]{./img/UC0.pdf}
+	\caption{Registrazione }\label{}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Attori}: Utente non autenticato, Amministratore, Università, Studente, Professore;
+	\item \textbf{Descrizione}: Nella pagina principale un utente non autenticato può registrarsi se non possiede un account o se non ha un account Metamask valido, altrimenti viene loggato automaticamente.
+	Un professore può vedere gli esami associati, modificare questi esami, inserire un voto e vedere gli studenti iscritti ai suoi esami.
+	Uno studente può: vedere il proprio libretto, iscriversi ad un esame, togliere l'iscrizione ad un esame e rifiutare un voto.
+	L'amministratore e l'Università invece possono: aggiungere, modificare ed eliminare un anno accademico e inserire o rimuovere un utente dal sistema;
+	\item \textbf{Precondizione}: Il sistema è avviato e mostra la pagina principale dell'applicazione;
+	\item \textbf{Flusso principale degli eventi}: 
+	\begin{itemize}
+		\item L'utente non autenticato può registrarsi (UC1);
+		\item L'utente non autenticato può loggarsi (UC2);
+		\item L'amministrazione e l'università possono aggiungere un anno accademico (UC3);
+		\item L'amministrazione e l'università possono modificare un anno accademico (UC4);
+		\item L'amministrazione e l'università possono eliminare un anno accademico (UC5);
+		\item L'amministrazione e l'università possono inserire un utente nel sistema (UC11);
+		\item L'amministrazione e l'università possono rimuovere un utente dal sistema (UC12);
+		\item Lo studente può visualizzare il libretto (UC14);
+		\item Lo studente può iscriversi ad un esame (UC6);
+		\item Lo studente può eliminare l'iscrizione ad un esame (UC7);
+		\item Lo studente può rifiutare il voto di un esame (UC8);
+		\item Il professore può visualizzare gli esami associati(UC15);
+		\item Il professore può modificare un esame (UC9);
+		\item Il professore può inserire un voto (UC10);
+		\item Il professore puòVisualizzare gli studenti iscritti ad un esame (UC16).
+	\end{itemize}
+	\item \textbf{Postcondizione}: Il sistema ha ricevuto tutte le informazioni dall’utente sulle operazioni che vuole eseguire;
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item Visualizzazione dell'errore relativo all'eliminazione di un anno accademico(UC13).
+	\end{itemize}
+\end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC1}{UC1}: Registrazione }
 \begin{figure} [H]
 	\centering
