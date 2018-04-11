@@ -1,0 +1,99 @@
+\documentclass{letter}
+\usepackage{eurosym}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\addtolength{\voffset}{-0.5in}
+\addtolength{\hoffset}{-0.3in}
+\addtolength{\textheight}{2cm}
+
+
+%Variabili per ruoli
+\newcommand{\ana}{\emph{Analista}}
+\newcommand{\anas}{\emph{Analisti}}
+\newcommand{\progs}{\emph{Progettisti}}
+\newcommand{\RdP}{\emph{Responsabile di Progetto}}
+\newcommand{\progr}{\emph{Programmatore}}
+\newcommand{\progrs}{\emph{Programmatori}}
+\newcommand{\ver}{\emph{Verificatore}}
+\newcommand{\vers}{\emph{Verificatori}}
+\newcommand{\gruppo}{\emph{SonsOfSwe}}
+%variabili per documenti
+\newcommand{\AdR}{\emph{Analisi dei Requisiti}}
+\newcommand{\SdF}{\emph{Studio di Fattibilità}}
+\newcommand{\VI}{\emph{Verbale Interno}}
+\newcommand{\NdP}{\emph{Norme di Progetto}}
+\newcommand{\PdP}{\emph{Piano di Progetto}}
+\newcommand{\PdPv}{\emph{Piano di Progetto v0.0.1}}
+\newcommand{\PdQ}{\emph{Piano di Qualifica}}
+\newcommand{\PdQv}{\emph{Piano di Qualifica v0.0.1}}
+\newcommand{\SP}{\emph{Specifica Tecnica}}
+\newcommand{\DdP}{\emph{Definizione di Prodotto}}
+\newcommand{\G}{\emph{Glossario}}
+\newcommand{\MU}{\emph{Manuale Utente}}
+\newcommand{\MM}{\emph{Manuale Manutentore}}
+\newcommand{\VE}{\emph{Verbale Esterno}}
+
+%Variabili generiche
+\newcommand{\indirizzo}{\emph{nome@cognome.it}}
+\newcommand{\emailgruppo}{sonsofswe.swe@gmail.com}
+
+\usepackage{xpatch}
+\xpatchcmd{\makeletterclosing}{[3em]}{[1em]}{}{}
+\patchcmd{\makeletterclosing}{[3em]}{[1em]}{}{}
+
+\fancypagestyle{firstpage}{
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0.0pt}
+	\renewcommand{\footrulewidth}{0.3pt}
+
+	\fancyhead[L]{
+		\includegraphics[height=3cm, keepaspectratio=true]{../template/img/logo.png}
+	}
+	\fancyhead[R]{
+		\Large{\textbf{Gruppo \\ \textbf{\gruppo{}}}} \\
+		\vspace{55pt}
+	}
+
+	\cfoot{ 
+		\small{
+			Gruppo: \gruppo{} \\ e-mail: \emailgruppo{}
+		}
+	}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+	
+\begin{letter} {   
+	\hfill Prof. Vardanega Tullio \\
+	\hfill Prof. Cardin Riccardo \\
+	\hfill Università degli Studi di Padova \\
+	\hfill Dipartimento di Matematica ''Tullio Levi Civita'' \\
+	\hfill Via Trieste 63 \\
+	\hfill 35121 Padova \\
+}
+
+\date{}
+\opening{Egregio Professore Vardanega Tulio,}
+	\begin{quotation}
+		\noindent Con la presente il gruppo \textit{\gruppo} intende comunicarLe ufficialmente che ha intenzione di partecipare alla gara d'appalto del prodotto \textbf{Marvin} commissionato dall'azienda \textit{RedBabel}.\\
+		Si allegano alla presente lettera i seguenti documenti:
+		\begin{itemize}
+			\item \textit{AnalisiDeiRequisiti\_v1\_0\_0};
+			\item \textit{Glossario\_v1\_0\_0};
+			\item \textit{NormeDiProgetto\_v1\_0\_0};
+			\item \textit{PianoDiProgetto\_v1\_0\_0};
+			\item \textit{PianoDiQualifica\_v1\_0\_0};
+			\item \textit{StudioDiFattibilità\_v1\_0\_0};
+		\end{itemize}
+		Il gruppo stima di consegnare il prodotto entro il 24 Agosto 2018, con un costo preventivato per lo sviluppo software di 4170\euro.
+	\end{quotation}
+\makeletterclosing{Cordiali saluti,\\}
+{
+	\setlength\parindent{24pt}
+	\indent i membri del gruppo \gruppo.
+}
+\end{letter}
+
+\end{document}
+%Metti come data della stesura il 9 aprile e come verifica/approvazione l'11
