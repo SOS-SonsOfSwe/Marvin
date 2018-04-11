@@ -1,0 +1,34 @@
+\definecolor{bluSOS}{RGB}{48, 84, 150}
+\definecolor{greySOS}{RGB}{209, 222, 223}
+\section*{Registro delle modifiche}
+{
+	\rowcolors{2}{greySOS}{white}
+	\renewcommand{\arraystretch}{1}
+	\centering
+	\begin{longtable}{| c| c | C{4cm} | c | c |}
+		\hline
+		\rowcolor{bluSOS}
+		\textcolor{white}{\textbf{Versione}} & \textcolor{white}{\textbf{Data}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Autore}} & \textcolor{white}{\textbf{Ruolo}}\\
+		\hline
+		1.0.0 & 16-03-2018 & Approvazione  & Stefano Panozzo & Responsabile\\
+		\hline
+		0.1.0 & 15-03-2018 & Effettuata verifica  & Lorenzo Menegon & Verificatore\\
+		%\hline
+		%0.1.0 & 14-03-2018 &   & Stefano Panozzo & Verificatore\\
+		\hline
+		0.0.4 & 12-03-2018 & Creazione e stesura delle sezione riguardante il capitolato scelto, \emph{C6 - Marvin}  & Giovanni Dalla Riva & Analista\\
+		\hline
+		0.0.2 & 11-03-2018 & Creazione e stesura delle sezioni riguardanti i capitolati \emph{C7} e \emph{C8}  & Federico Caldart & Analista\\
+		\hline
+		0.0.3 & 11-03-2018 & Creazione e stesura delle sezioni riguardanti i capitolati \emph{C1} e \emph{C4} & Giovanni Dalla Riva & Analista \\
+		\hline
+		0.0.1 & 10-03-2018 & Creazione scheletro del documento e stesura dell'\emph{introduzione} e delle sezioni riguardanti i capitolati \emph{C2}, \emph{C3}, \emph{C5},  & Eleonora Thiella & Analista\\
+		\hline
+	\end{longtable}
+
+}
+
+
+%dvipsnames, table
+%\input{sez/RegistroModifiche.tex}
+%\newpage
