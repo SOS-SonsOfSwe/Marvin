@@ -1,7 +1,7 @@
 %generare il pdf con il comando: pdflatex main.tex
 \documentclass[a4paper, oneside, openany]{article}
 \usepackage{../template/sos}
-\usepackage[dvipsnames]{xcolor}
+%\usepackage[dvipsnames]{xcolor}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %MACRO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -14,9 +14,9 @@
 
 \newcommand{\ACapoRedazione}{Caldart Federico \newline Cavallin Giovanni \newline Dalla Riva Giovanni \newline Favero Andrea \newline Menegon Lorenzo \newline Panozzo Stefano \newline Thiella Eleonora}
 
-\newcommand{\Verifica}{Caldart Federico}
+\newcommand{\Verifica}{Thiella Eleonora}
 
-\newcommand{\Approvazione}{Cavallin Giovanni}
+\newcommand{\Approvazione}{Stefano Panozzo}
 
 \newcommand{\Distribuzione}{Vardanega Tullio}
 
@@ -249,11 +249,13 @@ backgroundcolor=\color{lbcolor},
 %FINE COPERTINA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %SOMMARIO
-\tableofcontents
-\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PARAGRAFI
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sez/RegistroModifiche.tex}
+\newpage
+\tableofcontents
+\newpage
 \input{sez/E1.tex}
 
 \end{document}
