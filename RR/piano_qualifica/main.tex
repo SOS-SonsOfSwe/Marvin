@@ -1,6 +1,10 @@
 %generare il pdf con il comando: pdflatex main.tex
-\documentclass[a4paper, oneside, openany]{article}
+\documentclass[a4paper, oneside, openany,dvipsnames,table]{article}
 \usepackage{../../template/sos}
+\usepackage{eurosym}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\definecolor{bluSOS}{RGB}{48, 84, 150}
 \input{comandi.tex}
 
 
@@ -9,12 +13,13 @@
 \copertina{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %SOMMARIO
+\input{sez/RegistroModifiche.tex}
+\newpage
 \tableofcontents
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PARAGRAFI
-\definecolor{blulink}{rgb}{0.33, 0.41, 0.47}
-\hypersetup{linkcolor=blulink}
+\hypersetup{linkcolor=bluSOS}
 \input{sez/Introduzione.tex}
 \input{sez/ObiettiviDiQualita.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

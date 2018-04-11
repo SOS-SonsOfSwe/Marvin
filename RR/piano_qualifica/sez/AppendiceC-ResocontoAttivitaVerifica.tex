@@ -8,36 +8,21 @@ In seguito i documenti sono stati interamente verificati secondo le metriche des
 
 \subsection{Verifica dei processi}
 \subsubsection{Schedule Variance}
-Nella seguente tabella vengono riportati i valori ottenuti calcolando la Schedule Variance sui tempi di stesura di ogni documento rispetto ai tempi prefissati nel \PdP{}:
+Nel seguente grafico vengono riportati i valori ottenuti calcolando la Schedule Variance sui tempi di stesura di ogni documento rispetto ai tempi prefissati nel \PdP{}:
 
-{
-	\renewcommand{\arraystretch}{2}
+\begin{figure}[h!]
 	\centering
-	\begin{tabular}{| L{4cm} | R{0.5cm} | C{3cm} |}
-	\hline
-	Analisi dei Requisiti v1.0 & 0\% & Accettabile \\
-	\hline
-	Norme di Progetto v1.0 & +28,57\% & Non accettabile \\
-	\hline
-	Studio di Fattibilità v1.0 &  -50\% &  Ottimale \\
-	\hline
-	Piano di Progetto v1.0 &  0\% &  Accettabile\\
-	\hline
-	Piano di Qualifica v1.0 & 0\% & Accettabile \\
-	\hline
-	Glossario v1.0 & 0\% & Accettabile\\	
-	\hline
-	\end{tabular}
+	\includegraphics[scale=0.75]{img/Grafici/SV-Documenti.png}
+		\caption{Schedule Variance per la stesura di ogni documento; \textcolor{green}{\checkmark} indica il raggiungimento della soglia di ottimalità, mentre \textcolor{red}{x} indica il non raggiungimento della soglia di accettabilità.}
+	\label{fig:SV-Documenti}
+\end{figure}
+
+\begin{itemize}
+	\item Schedule Variance finale: 0. 
+	Il grafico evidenzia uno sforamento dei tempi riservati alla stesura delle \emph{Norme di Progetto}, il quale viene però compensato da un anticipo sui tempi di stesura dello \emph{Studio di fattibilità}: il ritardo si quantifica in 2 giorni, esattamente come l'anticipo, mentre per la stesura degli altri documenti si sono rispettati i tempi previsti. 
 	
-}
-
-Considerazioni sui risultati ottenuti:
-
-Schedule Variance finale: +1 giorno.
-Soglia raggiunta: accettabilità.
-
-\subsubsection{Modello SPICE}
-Aspetto la descrizione migliore per descrivere.
+	\item Soglia raggiunta: ottimalità.
+\end{itemize}
 
 \subsubsection{Cost Variance}
 Il calcolo della Cost Variance sul \emph{processo di documentazione} ha portato il seguente risultato: 
@@ -45,41 +30,35 @@ Il calcolo della Cost Variance sul \emph{processo di documentazione} ha portato 
 {
 \renewcommand{\arraystretch}{2}
 \centering
-\begin{tabular}{|c | c | c |}
+\begin{tabular}{| c | c | c | c | c |}
 	\hline
-	Processo & CV & Valutazione \\
+	\textbf{Processo} & \textbf{BCWP} & \textbf{ACWP} & \textbf{CV} & \textbf{Valutazione} \\
 	\hline
-	Documentazione & +7.48\% & Ottimale \\
+	Verifica & 3870\euro & 3840\euro & 0,78\% & Ottimale \\
 	\hline
 \end{tabular}
 
 }
 
-Cost Variance finale: +0%.
-Soglia raggiunta: ottimalità.
 
 \subsection{Verifica dei documenti}
 \subsubsection{Schedule Variance}
-Nella seguente tabella vengono riportati i valori ottenuti calcolando la Schedule Variance sui tempi di verifica di ogni documento rispetto ai tempi prefissati nel'\textit{Piano di Progetto}:
+Nels seguente grafico vengono riportati i valori ottenuti calcolando la Schedule Variance sui tempi di verifica di ogni documento rispetto ai tempi prefissati nel'\textit{Piano di Progetto}:
 
-{
-	\renewcommand{\arraystretch}{2}
+\begin{figure}[h!]
 	\centering
-	\begin{tabular}{| c | R{0.5cm} | C{3cm} |}
-		\hline
-		Analisi dei Requisiti v1.0 & +2 & Accettabile \\
-		Norme di Progetto v1.0 & -1 & Ottimale \\
-		Studio di Fattibilità v1.0 -1 &  0 &  Ottimale \\
-		Piano di Progetto v1.0 &  0 &  Ottimale\\
-		Piano di Qualifica v1.0 & -1 & Ottimale \\
-		Glossario v1.0 & +1 & Accettabile\\	
-		\hline
-	\end{tabular}
+	\includegraphics[scale=0.75]{img/Grafici/SV-VerDocumenti.png}
+	\caption{Schedule Variance per la verifica di ogni documento; \textcolor{green}{\checkmark} indica il raggiungimento della soglia di ottimalità, mentre \textcolor{red}{x} indica il non raggiungimento della soglia di accettabilità.}
+	\label{fig:SV-VerDocumenti}
+\end{figure}
 
-}
+\begin{itemize}
+	\item Schedule Variance finale: 0. 
+	Il processo di verifica è stato completato senza anticipi nè ritardi.
+	
+	\item Soglia raggiunta: ottimalità.
+\end{itemize}
 
-Schedule Variance finale: +1 giorno.
-Soglia raggiunta: accettabilità.
 
 \subsubsection{Cost Variance}
 Il calcolo della Cost Variance sul \emph{processo di verifica} ha portato il seguente risultato: 
@@ -87,11 +66,11 @@ Il calcolo della Cost Variance sul \emph{processo di verifica} ha portato il seg
 {
 	\renewcommand{\arraystretch}{2}
 	\centering
-	\begin{tabular}{|c | c | c |}
+	\begin{tabular}{| c | c | c | c | c |}
 		\hline
-		Processo & CV & Valutazione \\
+		\textbf{Processo} & \textbf{BCWP} & \textbf{ACWP} & \textbf{CV} & \textbf{Valutazione} \\
 		\hline
-		Verifica & 0\% & Accettabile \\
+		Verifica & 300\euro & 300\euro & 0\% & Ottimale \\
 		\hline
 	\end{tabular}
 
@@ -155,7 +134,7 @@ Soglia raggiunta:
 
 \subsubsection{Errori concettuali}
 
-Nella seguente tabella vengono riportati i valori ottenuti calcolando la percentuale degli errori concettuali tramite la formula presente nell'apendice in sezione ~\nameref{AppB:ErroriCont}
+Nella seguente tabella vengono riportati i valori ottenuti calcolando la percentuale degli errori concettuali tramite la formula presente nell'appendice in sezione ~\nameref{AppB:ErroriCont}.
 
 %Errori concettuali & 0\% & Ottimale   
 
