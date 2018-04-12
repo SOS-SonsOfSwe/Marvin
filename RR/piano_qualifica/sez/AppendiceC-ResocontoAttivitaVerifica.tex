@@ -34,7 +34,7 @@ Il calcolo della Cost Variance sul \emph{processo di documentazione} ha portato 
 	\hline
 	\textbf{Processo} & \textbf{BCWP} & \textbf{ACWP} & \textbf{CV} & \textbf{Valutazione} \\
 	\hline
-	Verifica & 3870\euro & 3840\euro & 0,78\% & Ottimale \\
+	Documentazione & 3870\euro & 3840\euro & 0,78\% & Ottimale \\
 	\hline
 \end{tabular}
 
@@ -73,70 +73,68 @@ Il calcolo della Cost Variance sul \emph{processo di verifica} ha portato il seg
 		Verifica & 300\euro & 300\euro & 0\% & Ottimale \\
 		\hline
 	\end{tabular}
-
+	
 }
+
+\newpage
 
 \subsubsection{Errori ortografici}
-Sono stati rilevati errori ortografici all'interno dei documenti analizzati secondo i seguenti parametri:
-{
-	\renewcommand{\arraystretch}{2}
+Durante l'ultima verifica, sono stati rilevati all'interno dei vari documenti alcuni errori ortografici, il cui numero è specificato nel seguente grafico:
+
+\begin{figure}[h!]
 	\centering
-	\begin{tabular}{| c | C{1cm} | C{3cm} |}
-			\hline
-		\AdR{} & 1\% & Accettabile \\
-			\hline
-		\NdP{} & 2\% & Accettabile\\
-			\hline
-		\SdF{} & 1\% &  Accettabile \\
-			\hline
-		\PdP{} & 1\% & Accettabile \\
-			\hline
-		\PdQ{} & 2\% & Accettabile\\
-			\hline
-		\G{} & 1\% & Accettabile\\
-			\hline
-	\end{tabular}
+	\includegraphics[scale=0.6]{img/Grafici/Errori_orto.png}
+	\caption{Errori ortografici trovati in ogni documento; più il numero di errori è elevato, più ci si allontana dall'ottimalità.}
+	\label{fig:Errori_orto}
+\end{figure}
 
-}
-
-Errori Ortografici calcolati: +2%.
-Soglia raggiunta: accettabilità.
-
-
-\subsubsection{Indice Gulpease}
-
-Tutti i documenti consegnati sono stati sottoposti al calcolo dell'Indice Gulpease per valutarne il grado di leggibilità.
-Sono stati rilevati i seguenti indici di leggibilità:
-
-{
-	\renewcommand{\arraystretch}{2}
-	\centering
-	\begin{tabular}{| c | C{3cm} | C{3cm} |}
-			\hline
-		\AdR{} &  mancanti & Accettabile \\
-			\hline
-		\NdP{} & mancanti & Accettabile\\
-			\hline
-		\SdF{} & mancanti & Accettabile\\ 
-			\hline
-		\PdP{} & mancanti & Accettabile \\
-			\hline
-		\PdQ{} & mancanti & Accettabile\\
-			\hline
-		\G{} & mancanti & Accettabile\\
-			\hline
-	 \end{tabular}
- 
-}
-
-Indice Gulpease:
-Soglia raggiunta:
+\begin{itemize}
+\item Errori ortografici totali: 9.
+\item Soglia raggiunta: con una media di 2 errori per documento, in generale si è rimasti dentro la soglia di accettabilità.
+\end{itemize}
 
 \subsubsection{Errori concettuali}
 
-Nella seguente tabella vengono riportati i valori ottenuti calcolando la percentuale degli errori concettuali tramite la formula presente nell'appendice in sezione ~\nameref{AppB:ErroriCont}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/Grafici/Errori_conce.png}
+	\caption{Errori di concetto trovati in ogni documento; più il numero di errori è elevato, più ci si allontana dall'ottimalità.}
+	\label{fig:Errori_conce}
+\end{figure}
 
-%Errori concettuali & 0\% & Ottimale   
+\begin{itemize}
+	\item Errori concettuali totali: 3.
+	\item Soglia raggiunta: con una media di 0,5 errori per documento, in generale si è rimasti ben dentro la soglia di accettabilità; in effetti la maggior parte dei documenti sono rimasti entro la soglia di ottimalità.
+\end{itemize}
 
-Errori concettuali calcolati:
-Soglia raggiunta:
+\subsubsection{Errori di forma}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/Grafici/Errori_forma.png}
+	\caption{Errori di forma trovati in ogni documento; più il numero di errori è elevato, più ci si allontana dall'ottimalità.}
+	\label{fig:Errori_forma}
+\end{figure}
+
+\begin{itemize}
+	\item Errori di forma totali: 3.
+	\item Soglia raggiunta: con una media di 0,33 errori per documento, in generale si è rimasti ben dentro la soglia di accettabilità; in effetti la maggior parte dei documenti sono rimasti entro la soglia di ottimalità.
+\end{itemize}
+
+\newpage
+
+\subsubsection{Indice Gulpease}
+
+Tutti i documenti consegnati sono stati sottoposti al calcolo dell'Indice Gulpease per valutarne il grado di leggibilità, il quale è riportato nel seguente grafico:
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/Grafici/Gulpease.png}
+	\caption{Indice Gulpease di ogni documento; più il valore è alto, più ci si avvicina all'ottimalità.}
+	\label{fig:Gulpease}
+\end{figure}
+
+\begin{itemize}
+	\item Soglia raggiunta: con una media di 73,84 punti, in generale si è rimasti dentro la soglia di accettabilità, arrivando poco sotto all'ottimalità.
+\end{itemize}
+
