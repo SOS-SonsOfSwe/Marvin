@@ -7,7 +7,7 @@ Dopo che il \RdP{} avrà riunito il team e discusso con esso di tutti i capitola
 Lo \SdF{} sarà organizzato come segue:
 \begin{itemize}
 	\item \textbf{Informazioni sul capitolato}:
-	Vengono ricordati il nome del `emph{progetto}\ped{G}, il \textit{proponente}\ped{G} e i \textit{committenti}\ped{G};
+	Vengono ricordati il nome del \emph{progetto}\ped{G}, il \textit{proponente}\ped{G} e i \textit{committenti}\ped{G};
 	\item \textbf{Descrizione}:
 	Si riassume lo scopo del capitolato;
 	\item \textbf{Dominio applicativo}:
@@ -48,13 +48,57 @@ Una volta terminate le fasi di sviluppo, verifica e validazione si effettuerà i
 \subsection{Processo di sviluppo}
 \subsubsection{Attività}
 \paragraph{Analisi dei Requisiti}
-	~\\Gli \anas, una volta terminato lo \SdF, dovranno stilare l'\AdR, che si dovrà attenere alle seguenti regole:
+	~\\Gli \anas, una volta terminato lo \SdF, dovranno stilare l'\AdR, che si dovrà attenere alle seguenti regole: \\
+	~\\ \textbf{Classificazione dei Requisiti}:
+	i requisiti saranno classificati secondo la seguente codifica:
+		\begin{center}
+			R[Importanza][Tipo][Codice]
+		\end{center}
+	dove:
 	\begin{itemize}
-	\item \textbf{Classificazione dei Requisiti}:
-	\textit{Scrivere qui come poi saranno classificati};
-	\item \textbf{Classificazione dei casi d'uso}:
-	\textit{Scrivere qui come poi saranno classificati}.
+		\item \textbf{Importanza} può assumere questi valori:
+			\begin{itemize}
+				\item F: indica un requisito funzionale;
+				\item Q: indica un requisito di qualità;
+				\item P: indica un requisito prestazionale;
+				\item V: indica un requisito di vincolo.
+			\end{itemize}
+		\item \textbf{Tipo} può assumere questi valori:
+			\begin{itemize}
+				\item O: indica un requisito obbligatorio;
+				\item D: indica un requisito desiderabile;
+				\item F: indica un requisito facoltativo.
+			\end{itemize}
+		\item \textbf{Codice} indica il codice identificativo del requisito, è univoco e deve essere indicato in
+		forma gerarchica.
 	\end{itemize}
+	Per ogni requisito si dovrà inoltre indicare una breve descrizione e la fonte, che può essere una tra le seguenti:
+		\begin{itemize}
+		\item Capitolato: deriva direttamente dal testo del capitolato;
+		\item Verbale: deriva da un incontro verbalizzato;
+		\item Interno: deriva da discussioni interne al team;
+		\end{itemize}
+	
+	~\\ \textbf{Classificazione dei casi d'uso}: i casi d’uso saranno classificati secondo la seguente codifica:
+		\begin{center}
+			UC[Codice padre].[Codice identificativo]
+		\end{center}
+	dove:
+		\begin{itemize}
+			\item Codice padre: indica il codice del caso d’uso padre di quello in esame, se non è identificabile è da omettere;
+			\item Codice identificativo: codice univoco e progressivo del caso d’uso in esame.
+		\end{itemize}
+	Per ogni caso d’uso saranno inoltre identificate le seguenti informazioni:
+		\begin{itemize}
+			\item \textbf{Attori}: indica gli attori coinvolti nel caso d’uso;
+			\item \textbf{Descrizione}: chiara, precisa e concisa descrizione del caso d’uso;
+			\item \textbf{Precondizione}: indica la situazione che deve essere vera prima dell’esecuzione del caso d’uso;
+			\item \textbf{Flusso principae degli eventi}: descrizione composta dal flusso dei casi d’uso figli;
+			\item \textbf{Postcondizione}: indica la situazione che deve essere vera dopo l’esecuzione del caso d’uso;
+			\item \textbf{Estensioni}: indica quali sono tutte le estensioni, se presenti;
+			\item \textbf{Generalizzazioni}: indica quali sono tutte le generalizzazioni, se presenti.
+		\end{itemize}
+	
 \paragraph{Progettazione}
 	~\\I \progs{} dovranno delinerare i requisiti utili alla documentazione specifica e determinare le linee guida da seguire.
 	~\\La progettazione ha come scopo quello di soddisfare le peculiarità identificate durante l'\AdR. Un altro obiettivo è quello di realizzare un prodotto \emph{manutenibile}\ped{G}, ovvero che abbia una struttura che faciliti i cambiamenti futuri.

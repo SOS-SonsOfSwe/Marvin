@@ -37,14 +37,14 @@ Per questo motivo, il team suddividerà i documenti in:
 		~\\Il \VI{} servirà al gruppo per documentare le discussioni e le decisioni prese durante le riunioni. 
 		La denominazione dovrà essere come segue:\\
 		\begin{center}
-			\textit{verbale\textunderscore{Numero del verbale}\textunderscore{Data del verbale}\textunderscore{Tipo del verbale}} 
+			\textit{verbale\textunderscore{Tipo del verbale}\textunderscore{Numero del verbale}\textunderscore{Data del verbale}} 
 		\end{center}
 		dove:
 		\begin{itemize}
+			\item \textbf{Tipo del verbale}:
+			specifica se Interno (I) o Esterno (E);
 			\item \textbf{Numero del verbale}:
 			numero univoco identificativo del verbale;
-			\item \textbf{Tipo del verbale}:
-			specifica se \emph{Interno} o \emph{Esterno};
 			\item \textbf{Data del verbale}:
 			identifica la data in cui la riunione si è svolta. Si utilizzerà il formato:
 			\begin{center}
@@ -288,7 +288,7 @@ Per questo motivo, il team suddividerà i documenti in:
 			\paragraph{Tipi di file}
 			Tutti i file pertinenti verranno caricati nel repository e sottoposti a versionamento. Verranno tuttavia ignorati, quindi inseriti all'interno del file \emph{.gitignore}\ped{G}, tutte quelle estensioni dei file generati automaticamente durante le varie \emph{build}\ped{G}.
 			\paragraph{Norme sui \emph{commit}\ped{G}}
-			~\\I membri del team dovranno registrare le modifiche apportate alla repository tramite commit. Questo genererà una \emph{pull request}\ped{G} che il responsabile dovrà approvare prima di unire le modifiche al branch di riferimento. Dovrà essere eseguito nella maniera più \emph{atomica}\ped{G} possibile; qualora non si riuscisse a concludere un'attività entro la giornata, si dovrà eseguire un commit alla fine di essa, per garantirne una copia offline.
+			~\\I membri del team dovranno registrare le modifiche apportate alla repository tramite commit. Questo genererà una \emph{pull request}\ped{G} che il responsabile dovrà approvare prima di unire le modifiche al branch di riferimento. Dovrà essere eseguito nella maniera più atomica possibile; qualora non si riuscisse a concludere un'attività entro la giornata, si dovrà eseguire un commit alla fine di essa, per garantirne una copia offline.
 \subsection{Processo di verifica}
 Il processo di verifica deve essere continuo e serve ad evitare che eventuali errori arrivino fino alla fase di validazione.
 Questa attività, che viene svolta in corso d'opera, deve essere:
@@ -304,9 +304,9 @@ Le modalità sfruttate saranno elencate qui di seguito.
 	~\\Studia il codice sorgente e la documentazione e controlla che essi seguano le norme. Non richiede l'esecuzione del prodotto software in nessuna sua parte, ma si limita all'osservazione. Questo processo può essere visto come una verifica dinamica del comportamento del programma su un insieme finito di casi selezionati nel dominio di tutte le esecuzioni possibili. Ciascun caso di prova specifica i valori in ingresso e lo stato iniziale del sistema e deve produrre un esito decidibile verificato rispetto ad un comportamento atteso. 
 	\\Si può declinare in due maniere:
 	\begin{itemize}
-		\item \emph{\textbf{\emph{Walkthrough}}}\ped{G}
+		\item \textbf{\emph{Walkthrough}}\ped{G}
 		~\\Questa tecnica di analisi deve essere effettuata nella fase iniziale dello sviluppo del prodotto per trovare eventuali errori che possano essere riscontrati. Non sapendo che tipo di errori cercare, si effettua una lettura a largo spettro. Quando i \vers{} avranno stilato una \emph{checklist}\ped{G} di tutti gli errori più comuni, si passerà alla fase di \emph{Inspection}\ped{G}. Essendo un'analisi continua, la checklist tenderà ad aumentare costantemente di dimensione, rendendo più efficace ed efficiente l'Inspection.
-		\item \emph{\textbf{Inspection}}
+		\item \textbf{Inspection}
 		~\\Basandosi sulla checklist redatta durante la Walkthrough, i \vers{} analizzeranno tutto il prodotto cercando, di volta in volta e in modo mirato, tutti gli errori ricorrenti in essa contenuti.
 	\end{itemize}
 	\paragraph{Analisi dinamica}
@@ -319,7 +319,7 @@ Le modalità sfruttate saranno elencate qui di seguito.
 	aumentandone il valore, identificandone e rimuovendone i difetti. Il suo inizio non va differito
 	al termine delle attività di codifica e le sue esigenze devono essere tenute in conto nella progettazione del sistema. Tutti i test devono essere rieseguibili e devono sempre produrre lo stesso esito. Devono essere eseguiti in condizioni controllate, diventando così deterministici.
 	~\\I test si possono dividere nelle categorie qui descritte.
-		\paragraph{Test di \emph{unità}\ped{G} (TU)}
+		\paragraph{Test di unità (TU)}
 		~\\Il suo obiettivo è quello di verificare la correttezza del codice \emph{as implemented}, ovvero
 		puntando a controllare il codice in maniera microscopica.
 		\\La responsabilità della sua realizzazione è del \progr{} per le unità più semplici, altrimenti
@@ -343,7 +343,7 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		per accertare la copertura dei requisiti software.
 		\newline{}Questo tipo di test richiede molte risorse e, in generale, non va utilizzato per testare
 		unità singole.
-		\paragraph{Test di \emph{regressione}\ped{G} (TR)}
+		\paragraph{Test di regressione (TR)}
 		~\\Il test di regressione è l'insieme dei TU e TI necessari ad accertare che la modifica
 		di una parte del prodotto non causi errori nelle altre parti che hanno relazioni con essa.
 		\\Questo tipo di test consuma tante più risorse quanto la parte modificata è accoppiata con le altre, 
