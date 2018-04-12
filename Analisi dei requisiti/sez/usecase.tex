@@ -30,8 +30,8 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 	\item \textbf{Attori}: Utente non autenticato, Amministratore, Università, Studente, Professore;
 	\item \textbf{Descrizione}: Nella pagina principale un utente non autenticato può registrarsi se non possiede un account o se non ha un account Metamask valido, altrimenti viene loggato automaticamente.
 	Un professore può vedere gli esami associati, modificare questi esami, inserire un voto e vedere gli studenti iscritti ai suoi esami.
-	Uno studente può: vedere il proprio libretto, iscriversi ad un esame, togliere l'iscrizione ad un esame e rifiutare un voto.
-	L'amministratore e l'Università invece possono: aggiungere, modificare ed eliminare un anno accademico e inserire o rimuovere un utente dal sistema;
+	Uno studente può vedere il proprio libretto, iscriversi ad un esame, togliere l'iscrizione ad un esame e rifiutare un voto.
+	L'amministratore e l'Università invece possono aggiungere, modificare ed eliminare un anno accademico e inserire o rimuovere un utente dal sistema;
 	\item \textbf{Precondizione}: Il sistema è avviato e mostra la pagina principale dell'applicazione;
 	\item \textbf{Flusso principale degli eventi}: 
 	\begin{itemize}
@@ -194,8 +194,7 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 \subsection{Caso d'uso \texorpdfstring{UC2.1}{UC2.1}: Login automatico}
 \begin{itemize}
 	\item \textbf{Attori}: Metamask, Utente non autenticato;
-	\item \textbf{Descrizione}: Il sistema logga automaticamente l'attore se ha una sessione di Metamask valida e 
-	\item \textbf{Descrizione}: Il sistema logga automaticamente l'attore se ha Metamask attivo e la sua \emph{chiave pubblica}\ped{G} coincide con una presente all'interno del sistema;
+	\item \textbf{Descrizione}: Il sistema logga automaticamente l'attore se ha una sessione Metamask attiva e valida;
 	\item \textbf{Precondizione}: Il sistema non riconosce l'attore;
 	\item \textbf{Flusso principale degli eventi}: L'attore con Metamask attivo e precedentemente registrato, entra nel sistema senza compiere alcuna azione;
 	\item \textbf{Postcondizione}: Il sistema riconosce l'attore.
@@ -219,7 +218,7 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 		\item Visualizzazione dell'errore relativo all'aggiunta di un anno accademico non valido (UC3.5);
 		\item Aggiunta di un corso di laurea (UC3.6).
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema può aver compilato dei campi relativi all'aggiunta di un nuovo anno accademico.
+	\item \textbf{Postcondizione}:È stato aggiunto un anno accademico o si è verificato un errore di inserimento.
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC3.1}{UC3.1}: Inserimento dell'inizio di un accademico}
 \begin{itemize}
@@ -291,7 +290,7 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 		\item Aggiunta di un'attività didattica (UC3.6.7);
 		\item Visualizzazione dell'errore relativo all’aggiunta di un corso di laurea non valido (UC3.6.8).
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema può aver compilato dei campi relativi all'aggiunta di un nuovo corso di laurea.
+	\item \textbf{Postcondizione}: È stato aggiunto un corso di laurea o si è verificato un errore di inserimento.
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC3.6.1}{UC3.6.1}: Inserimento del codice di un corso di laurea}
 \begin{itemize}
@@ -380,7 +379,7 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 		\item Aggiunta di un esame (UC3.6.7.9);
 		\item Visualizzazione dell'errore relativo all’aggiunta di un’attività didattica non valida (UC3.6.7.10).
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema può aver compilato dei campi relativi all'aggiunta di una nuova attività didattica.
+	\item \textbf{Postcondizione}: È stata aggiunta un'attività didattica o si è verificato un errore di inserimento.
 	
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC3.6.7.1}{UC3.6.7.1}: Inserimento del codice del corso di un'attività didattica}
@@ -505,7 +504,7 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 		\item Conferma dell’aggiunta di un esame (UC3.6.7.9.8);
 		\item Visualizzazione dell'errore relativo all’aggiunta di un esame non valido (UC3.6.7.9.9).
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema può aver compilato dei campi relativi all'aggiunta di un nuovo esame;
+	\item \textbf{Postcondizione}: È stato aggiunto un esame o si è verificato un errore di inserimento.
 	
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC3.6.7.9.1}{UC3.6.7.9.1}: Inserimento del codice di un esame}
@@ -1319,7 +1318,7 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 		\item Annullamento dell'eliminazione dell'iscrizione ad un esame (UC7.1);
 		\item Conferma dell'eliminazione dell'iscrizione ad un esame (UC7.2).
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema disiscrive l'attore a quell'esame.
+	\item \textbf{Postcondizione}: Il sistema disiscrive l'attore a quell'esame o l'operazione viene annullata.
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC7.1}{UC7.1}: Annullamento dell'eliminazione dell'iscrizione ad un esame}
 \begin{itemize}
@@ -1328,7 +1327,7 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore l'esame a cui esso è registrato;
 	
 	\item \textbf{Flusso principale degli eventi}: L'attore che sta eliminando l'iscrizione ad un esame decide di annullare l'operazione;
-	\item \textbf{Postcondizione}: Il sistema non disiscrive più l'attore a quell'esame in quanto esso ha annullato l'operazione.
+	\item \textbf{Postcondizione}: Il sistema non disiscrive l'attore a quell'esame in quanto esso ha annullato l'operazione.
 	
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC7.2}{UC7.2}: Conferma dell'eliminazione dell'iscrizione ad un esame}
@@ -1512,7 +1511,7 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 		\item Inserimento della tipologia Professore (UC11.8);
 		\item Inserimento della tipologia Amministratore (UC11.9).
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema può aver compilato dei campi relativi all'inserimento di un utente nel sistema.
+	\item \textbf{Postcondizione}: È stato aggiunto un utente o si è verificato un errore di inserimento.
 	
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC11.1}{UC11.1}: Inserimento della matricola relativa ad un utente}
@@ -1613,7 +1612,7 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 \end{figure}
 \begin{itemize}
 	\item \textbf{Attori}: Amministratore, Università;
-	\item \textbf{Descrizione}: L'attore può rimuovere un utente, cancellandone tutti i dati ad esso associati nonché rimuovendone l'accesso al sistema;
+	\item \textbf{Descrizione}: L'attore può rimuovere un utente, cancellando i dati ad esso associati nonché rimuovendone l'accesso al sistema;
 	\item \textbf{Precondizione}: Il sistema riconosce come registrato l'utente che l'attore ha selezionato;
 	\item \textbf{Flusso principale degli eventi}: L'attore, volendo rimuovere completamente un utente dal sistema, si troverà davanti alle seguenti scelte:
 	\begin{itemize}
