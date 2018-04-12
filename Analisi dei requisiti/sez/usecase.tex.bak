@@ -1,4 +1,25 @@
 \section{Casi d'uso}
+In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine ed analisi da parte dei membri del gruppo. Ognuno è identificato da un codice univoco e possiede una struttura interna accuratamente definita nel documento \NdP{}.
+\subsection{Attori dei casi d'uso}
+\textbf{Attori primari}
+	\begin{itemize}
+		\item \textbf{Utente non autenticato}: si riferisce all'utente del sistema che non ha ancora eseguito il login tramite \emph{Metamask}\ped{G};
+		\item \textbf{Università}: si riferisce all'attore che ha effettuato il login tramite Metamask ed è stato autenticato e riconosciuto nel ruolo di \emph{Università};
+		\item \textbf{Amministratore}: si riferisce all'attore che ha effettuato il login tramite Metamask ed è stato autenticato e riconosciuto nel ruolo di \emph\textbf{{Amministratore}}; possiede gli stessi privilegi di \emph{Università}, eccetto per la gestione dell'intera categoria di \emph{Amministratori};
+		\item \textbf{Professore}: si riferisce all'attore che ha effettuato il login tramite Metamask ed è stato autenticato e riconosciuto nel ruolo di \emph{Professore};
+		\item \textbf{Studente}: si riferisce all'attore che ha effettuato il login tramite Metamask ed è stato autenticato e riconosciuto nel ruolo di \emph{Studente}.
+	\end{itemize}
+
+\textbf{Attori secondari}
+	\begin{itemize}
+		\item \textbf{Metamask}: è un \emph{Ethereum Wallet}\ped{G} che permette di eseguire le ÐApp di Ethereum direttamente nel browser.
+	\end{itemize}
+\begin{figure} [H]
+	\centering
+	\includegraphics[scale=0.4]{./img/Attori.png}
+	\caption{Gerarchia degli attori del sistema }\label{}
+\end{figure}
+
 \subsection{Caso d'uso \texorpdfstring{UC0}{UC0}: Scenario principale }
 \begin{figure} [H]
 	\centering
@@ -9,8 +30,8 @@
 	\item \textbf{Attori}: Utente non autenticato, Amministratore, Università, Studente, Professore;
 	\item \textbf{Descrizione}: Nella pagina principale un utente non autenticato può registrarsi se non possiede un account o se non ha un account Metamask valido, altrimenti viene loggato automaticamente.
 	Un professore può vedere gli esami associati, modificare questi esami, inserire un voto e vedere gli studenti iscritti ai suoi esami.
-	Uno studente può: vedere il proprio libretto, iscriversi ad un esame, togliere l'iscrizione ad un esame e rifiutare un voto.
-	L'amministratore e l'Università invece possono: aggiungere, modificare ed eliminare un anno accademico e inserire o rimuovere un utente dal sistema;
+	Uno studente può vedere il proprio libretto, iscriversi ad un esame, togliere l'iscrizione ad un esame e rifiutare un voto.
+	L'amministratore e l'Università invece possono aggiungere, modificare ed eliminare un anno accademico e inserire o rimuovere un utente dal sistema;
 	\item \textbf{Precondizione}: Il sistema è avviato e mostra la pagina principale dell'applicazione;
 	\item \textbf{Flusso principale degli eventi}: 
 	\begin{itemize}
@@ -25,15 +46,15 @@
 		\item Lo studente può iscriversi ad un esame (UC6);
 		\item Lo studente può eliminare l'iscrizione ad un esame (UC7);
 		\item Lo studente può rifiutare il voto di un esame (UC8);
-		\item Il professore può visualizzare gli esami associati(UC15);
+		\item Il professore può visualizzare gli esami associati (UC15);
 		\item Il professore può modificare un esame (UC9);
 		\item Il professore può inserire un voto (UC10);
-		\item Il professore puòVisualizzare gli studenti iscritti ad un esame (UC16).
+		\item Il professore può visualizzare gli studenti iscritti ad un esame (UC16).
 	\end{itemize}
 	\item \textbf{Postcondizione}: Il sistema ha ricevuto tutte le informazioni dall’utente sulle operazioni che vuole eseguire;
 	\item \textbf{Estensioni}:
 	\begin{itemize}
-		\item Visualizzazione dell'errore relativo all'eliminazione di un anno accademico(UC13).
+		\item Visualizzazione dell'errore relativo all'eliminazione di un anno accademico (UC13).
 	\end{itemize}
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC1}{UC1}: Registrazione }
@@ -43,9 +64,9 @@
 	\caption{Registrazione }\label{}
 \end{figure}
 \begin{itemize}
-	\item \textbf{Attori}: \emph{Metamask}\ped{G}, Utente non autenticato;
+	\item \textbf{Attori}: Metamask, Utente non autenticato;
 	\item \textbf{Descrizione}: Per accedere al sistema è necessario possedere un account;
-	\item \textbf{Precondizione}: L'attore non possiede una account per accedere al sistema;
+	\item \textbf{Precondizione}: L'attore non possiede un account per accedere al sistema;
 	\item \textbf{Flusso principale degli eventi}: L'attore si registra nel sistema attraverso i seguenti punti;
 	\begin{itemize}
 		\item Inserimento del nome (UC1.1);
@@ -80,7 +101,7 @@
 \subsection{Caso d'uso \texorpdfstring{UC1.3}{UC1.3}: Inserimento della e-mail}
 \begin{itemize}
 	\item \textbf{Attori}: Utente non autenticato;
-	\item \textbf{Descrizione}: L'attore deve inserire la proprio e-mail per potersi registrare;
+	\item \textbf{Descrizione}: L'attore deve inserire la propria e-mail per potersi registrare;
 	\item \textbf{Precondizione}: Il sistema fa visualizzare il campo di inserimento dell'e-mail;
 	\item \textbf{Flusso principale degli eventi}: L'attore inserisce la propria e-mail per effettuare la registrazione;
 	\item \textbf{Postcondizione}: È stata inserita la e-mail dell'attore nel campo opportuno.
@@ -132,7 +153,7 @@
 \subsection{Caso d'uso \texorpdfstring{UC1.9}{UC1.9}: Visualizzazione dell'errore di registrazione}
 \begin{itemize}
 	\item \textbf{Attori}: Utente non autenticato;
-	\item \textbf{Descrizione}: L'attore può visualizzare un errore nel caso avessero inseriti dati errati;
+	\item \textbf{Descrizione}: L'attore può visualizzare un errore nel caso avesse inserito dati errati;
 	\item \textbf{Precondizione}: Il sistema ha ricevuto campi dati errati o vuoti;
 	\item \textbf{Flusso principale degli eventi}: L'attore visualizza un messaggio d'errore relativo all'inserimento mancato o non valido di:
 	\begin{itemize}
@@ -141,6 +162,7 @@
 		\item E-mail;
 		\item Codice fiscale;
 		\item Codice univoco;
+		\item Metamask non attiva;
 		\item Matricola.
 	\end{itemize}
 	\item \textbf{Postcondizione}: Il sistema fa visualizzare un messaggio d'errore riguardante il tentativo di registrazione con campi dati errati o vuoti.
@@ -172,7 +194,7 @@
 \subsection{Caso d'uso \texorpdfstring{UC2.1}{UC2.1}: Login automatico}
 \begin{itemize}
 	\item \textbf{Attori}: Metamask, Utente non autenticato;
-	\item \textbf{Descrizione}: Il sistema logga automaticamente l'attore se ha metamask attivo e la sua \emph{chiave pubblica}\ped{G} coincide con una presente all'interno del sistema;
+	\item \textbf{Descrizione}: Il sistema logga automaticamente l'attore se ha una sessione Metamask attiva e valida;
 	\item \textbf{Precondizione}: Il sistema non riconosce l'attore;
 	\item \textbf{Flusso principale degli eventi}: L'attore con Metamask attivo e precedentemente registrato, entra nel sistema senza compiere alcuna azione;
 	\item \textbf{Postcondizione}: Il sistema riconosce l'attore.
@@ -196,7 +218,7 @@
 		\item Visualizzazione dell'errore relativo all'aggiunta di un anno accademico non valido (UC3.5);
 		\item Aggiunta di un corso di laurea (UC3.6).
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema può aver compilato dei campi relativi all'aggiunta di un nuovo anno accademico.
+	\item \textbf{Postcondizione}:È stato aggiunto un anno accademico o si è verificato un errore di inserimento.
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC3.1}{UC3.1}: Inserimento dell'inizio di un accademico}
 \begin{itemize}
@@ -217,7 +239,7 @@
 \subsection{Caso d'uso \texorpdfstring{UC3.3}{UC3.3}: Annullamento dell'aggiunta di un anno accademico}
 \begin{itemize}
 	\item \textbf{Attori}: Amministratore, Università;
-	\item \textbf{Descrizione}: L'attore può voler più aggiungere un anno accademico alla lista degli anni accademici;
+	\item \textbf{Descrizione}: L'attore può non voler più aggiungere un anno accademico alla lista degli anni accademici;
 	\item \textbf{Precondizione}: Il sistema fa visualizzare la pagina relativa all'aggiunta di un anno accademico;
 	\item \textbf{Flusso principale degli eventi}: L'attore non inserisce più un anno accademico e quindi annulla l'operazione;
 	\item \textbf{Postcondizione}: Il sistema non aggiunge più un anno accademico in quanto l'attore ha annullato l'operazione.
@@ -266,9 +288,9 @@
 		\item Annullamento dell'aggiunta di un corso di laurea (UC3.6.5);
 		\item Conferma dell’aggiunta di un corso di laurea (UC3.6.6);
 		\item Aggiunta di un'attività didattica (UC3.6.7);
-		\item Visualizzazione dell'errore relativo all’aggiunta di corso di laurea non valido (UC3.6.8).
+		\item Visualizzazione dell'errore relativo all’aggiunta di un corso di laurea non valido (UC3.6.8).
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema può aver compilato dei campi relativi all'aggiunta di un nuovo corso di laurea.
+	\item \textbf{Postcondizione}: È stato aggiunto un corso di laurea o si è verificato un errore di inserimento.
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC3.6.1}{UC3.6.1}: Inserimento del codice di un corso di laurea}
 \begin{itemize}
@@ -308,7 +330,7 @@
 	\item \textbf{Attori}: Amministratore, Università;
 	\item \textbf{Descrizione}: L'attore non aggiunge più un corso di laurea alla lista dei corsi di laurea;
 	
-	\item \textbf{Precondizione}: l sistema fa visualizzare la pagina relativa all'aggiunta di un corso di laurea;
+	\item \textbf{Precondizione}: Il sistema fa visualizzare la pagina relativa all'aggiunta di un corso di laurea;
 	
 	\item \textbf{Flusso principale degli eventi}: L'attore non inserisce più un corso di laurea e quindi annulla l'operazione;
 	
@@ -318,7 +340,7 @@
 \subsection{Caso d'uso \texorpdfstring{UC3.6.6}{UC3.6.6}: Conferma dell’aggiunta di un corso di laurea}
 \begin{itemize}
 	\item \textbf{Attori}: Amministratore, Università;
-	\item \textbf{Descrizione}: L'attore conferma l'aggiunta di corso di laurea alla lista dei corsi di laurea;
+	\item \textbf{Descrizione}: L'attore conferma l'aggiunta di un corso di laurea alla lista dei corsi di laurea;
 	
 	\item \textbf{Precondizione}: Il sistema fa visualizzare la pagina relativa all'aggiunta di un corso di laurea;
 	
@@ -328,7 +350,7 @@
 	
 	\item \textbf{Estensioni}:
 	\begin{itemize}
-		\item Visualizzazione dell'errore relativo all’aggiunta di corso di laurea non valido (UC3.6.8).
+		\item Visualizzazione dell'errore relativo all’aggiunta di un corso di laurea non valido (UC3.6.8).
 	\end{itemize}
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC3.6.7}{UC3.6.7}: Aggiunta di un'attività didattica}
@@ -357,7 +379,7 @@
 		\item Aggiunta di un esame (UC3.6.7.9);
 		\item Visualizzazione dell'errore relativo all’aggiunta di un’attività didattica non valida (UC3.6.7.10).
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema può aver compilato dei campi relativi all'aggiunta di una nuova attività didattica.
+	\item \textbf{Postcondizione}: È stata aggiunta un'attività didattica o si è verificato un errore di inserimento.
 	
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC3.6.7.1}{UC3.6.7.1}: Inserimento del codice del corso di un'attività didattica}
@@ -482,7 +504,7 @@
 		\item Conferma dell’aggiunta di un esame (UC3.6.7.9.8);
 		\item Visualizzazione dell'errore relativo all’aggiunta di un esame non valido (UC3.6.7.9.9).
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema può aver compilato dei campi relativi all'aggiunta di un nuovo esame;
+	\item \textbf{Postcondizione}: È stato aggiunto un esame o si è verificato un errore di inserimento.
 	
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC3.6.7.9.1}{UC3.6.7.9.1}: Inserimento del codice di un esame}
@@ -795,7 +817,7 @@
 	\item \textbf{Attori}: Amministratore, Università;
 	\item \textbf{Descrizione}: L'attore annulla la modifica del corso di laurea;
 	
-	\item \textbf{Precondizione}: l sistema fa visualizzare la pagina relativa alla modifica di un corso di laurea;
+	\item \textbf{Precondizione}: Il sistema fa visualizzare la pagina relativa alla modifica di un corso di laurea;
 	
 	\item \textbf{Flusso principale degli eventi}: L'attore una volta iniziata la modifica desidera annullare il processo;
 	
@@ -949,7 +971,7 @@
 \subsection{Caso d'uso \texorpdfstring{UC4.6.8.7}{UC4.6.8.7}: Annullamento della modifica di un'attività didattica}
 \begin{itemize}
 	\item \textbf{Attori}: Amministratore, Università;
-	\item \textbf{Descrizione}: L'attore annulla la di un'attività didattica;
+	\item \textbf{Descrizione}: L'attore annulla la modifica di un'attività didattica;
 	
 	\item \textbf{Precondizione}: Il sistema fa visualizzare la pagina relativa alla modifica di un'attività didattica;
 	
@@ -979,7 +1001,7 @@
 \subsection{Caso d'uso \texorpdfstring{UC4.6.8.9}{UC4.6.8.9}: Visualizzazione dell'errore relativo alla modifica di un’attività didattica non valida}
 \begin{itemize}
 	\item \textbf{Attori}: Amministratore, Università;
-	\item \textbf{Descrizione}: Il sistema visualizza un messaggio d'errore riguardante l'impossibilità di modificare di un'attività didattica;
+	\item \textbf{Descrizione}: Il sistema visualizza un messaggio d'errore riguardante l'impossibilità di modificare un'attività didattica;
 	
 	\item \textbf{Precondizione}: Il sistema ha ricevuto campi dati errati o vuoti;
 	
@@ -1145,7 +1167,7 @@
 		\item Tipologia dell’esame non valida o lasciato vuoto; 
 		\item Luogo d’esame non valido o lasciato vuoto.
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema visualizza un messaggio d'errore relativo all'operazione di modifica di un esame
+	\item \textbf{Postcondizione}: Il sistema visualizza un messaggio d'errore relativo all'operazione di modifica di un esame.
 	
 	
 \end{itemize}
@@ -1322,7 +1344,7 @@
 \begin{itemize}
 	\item \textbf{Attori}: Studente;
 	\item \textbf{Descrizione}: L'attore può rifiutare il voto di un esame;
-	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore il voto relativo ad esame che esso ha sostenuto;
+	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore il voto relativo ad un esame che esso ha sostenuto;
 	\item \textbf{Flusso principale degli eventi}: L'attore dopo aver visualizzato il voto dell'esame decide di rifiutarne il voto;
 	\item \textbf{Postcondizione}: Il sistema non mostra alcun voto relativo a quell'esame in quanto l'attore l'ha rifiutato.
 \end{itemize}
@@ -1337,7 +1359,7 @@
 	\item \textbf{Descrizione}: L'attore ha accesso alla modifica di alcuni campi dati degli esami a cui sono assegnati;
 	\item \textbf{Precondizione}: Il sistema fa visualizzare un esame al professore;
 	
-	\item \textbf{Flusso principale degli eventi}: L'attore ha possibilità di modifica dei seguenti punti degli esami a cui è assegnato:
+	\item \textbf{Flusso principale degli eventi}: L'attore ha la possibilità di modifica i seguenti punti degli esami a cui è assegnato:
 	\begin{itemize}
 		\item Modifica dell'intervallo di prenotazione di un esame (UC9.1);
 		\item Modifica della data di un esame (UC9.2);
@@ -1489,7 +1511,7 @@
 		\item Inserimento della tipologia Professore (UC11.8);
 		\item Inserimento della tipologia Amministratore (UC11.9).
 	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema può aver compilato dei campi relativi all'inserimento di un utente nel sistema.
+	\item \textbf{Postcondizione}: È stato aggiunto un utente o si è verificato un errore di inserimento.
 	
 \end{itemize}
 \subsection{Caso d'uso \texorpdfstring{UC11.1}{UC11.1}: Inserimento della matricola relativa ad un utente}
@@ -1552,7 +1574,7 @@
 \begin{itemize}
 	\item \textbf{Attori}: Amministratore, Università;
 	\item \textbf{Descrizione}: L'attore non inserisce più un nuovo utente nel sistema;
-	\item \textbf{Precondizione}: l sistema fa visualizzare la pagina relativa all'inserimento di un nuovo utente nel sistema;
+	\item \textbf{Precondizione}: Il sistema fa visualizzare la pagina relativa all'inserimento di un nuovo utente nel sistema;
 	
 	\item \textbf{Flusso principale degli eventi}: L'attore non inserisce più un nuovo utente nel sistema e quindi annulla l'operazione;
 	\item \textbf{Postcondizione}: Il sistema non aggiunge più un nuovo utente in quanto l'attore ha annullato l'operazione.
@@ -1629,7 +1651,7 @@
 \subsection{Caso d'uso \texorpdfstring{UC14}{UC14}: Visualizzazione del libretto}
 \begin{itemize}
 	\item \textbf{Attori}: Studente;
-	\item \textbf{Descrizione}: L'attore può visualizzare la lista di tutti gli esami ha sostenuto o dovrà sostenere;
+	\item \textbf{Descrizione}: L'attore può visualizzare la lista di tutti gli esami che ha sostenuto o dovrà sostenere;
 	\item \textbf{Precondizione}: Il sistema ha registrati uno o più studenti;
 	\item \textbf{Flusso principale degli eventi}: L'attore può visualizzare il suo libretto;
 	\item \textbf{Postcondizione}: Il sistema fa visualizzare all'attore la lista degli esami sostenuti o che esso dovrà sostenere, che è il libretto.
