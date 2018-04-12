@@ -16,14 +16,14 @@ In questa sezione verranno descritte le metriche che verranno utilizzate per gar
 I risultati possibili sono tre:
 
 \begin{itemize}
-\item SV > 0, che indica un ritardo sui tempi pianificati.
-\item SV = 0, che indica l'essere in linea con i tempi pianificati.
+\item SV > 0, che indica un ritardo sui tempi pianificati;
+\item SV = 0, che indica l'essere in linea con i tempi pianificati;
 \item SV < 0, che indica un anticipo sui tempi pianificati.
 \end{itemize}
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: sarà accettato un valore SV $\le$ 10%.
+\item Accettabilità: sarà accettato un valore SV $\le$ 10%;
 \item Ottimalità: sarà ottimo un valore SV < 0.
 \end{itemize}
 	
@@ -37,14 +37,14 @@ I risultati possibili sono tre:
 I risultati possibili sono tre:
 
 \begin{itemize}
-\item CV > 0, che indica che il progetto sta producendo con un minor costo rispetto a quanto pianificato.
-\item CV = 0, che indica l'essere in linea con i costi preventivati.
+\item CV > 0, che indica che il progetto sta producendo con un minor costo rispetto a quanto pianificato;
+\item CV = 0, che indica l'essere in linea con i costi preventivati;
 \item CV < 0, che indica che il progetto sta producendo con un costo maggiore rispetto a quello pianificato.
 \end{itemize}
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: sarà accettato un valore CV $\ge$ -5\%.
+\item Accettabilità: sarà accettato un valore CV $\ge$ -5\%;
 \item Ottimalità: sarà ottimo un valore CV > 0.
 \end{itemize}
 
@@ -64,7 +64,7 @@ il primo controllo avverrà a tempo di stesura del documento tramite lo strument
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: valore inferiore o uguale a 3 errori ortografici.
+\item Accettabilità: valore inferiore o uguale a 3 errori ortografici;
 \item Ottimalità: un valore pari a 0.
 \end{itemize}
 
@@ -84,7 +84,7 @@ I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilit
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: un valore superiore o uguale a 45.
+\item Accettabilità: un valore superiore o uguale a 45;
 \item Ottimalità: un valore compreso tra 75 e 100.
 \end{itemize}
 
@@ -98,7 +98,7 @@ I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilit
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: un valore inferiore o uguale a 3 errori.
+\item Accettabilità: un valore inferiore o uguale a 3 errori;
 \item Ottimalità: un valore pari a 0 .
 \end{itemize}
 
@@ -113,7 +113,7 @@ La metrica si basa sul numero di errori segnalati dal \ver{} durante la verifica
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: un valore inferiore o uguale a 3 errori.
+\item Accettabilità: un valore inferiore o uguale a 3 errori;
 \item Ottimalità: un valore pari a 0.
 \end{itemize}
 
@@ -139,7 +139,7 @@ In questa sezione si descrivono le metriche che verranno usate dal gruppo per ve
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: il prodotto verrà considerato accettabile quando ROS = 1.
+\item Accettabilità: il prodotto verrà considerato accettabile quando ROS = 1;
 \item Ottimalità: il prodotto verrà considerato ottimale quando ROSF = 1.
 \end{itemize}
 
@@ -152,7 +152,7 @@ In questa sezione si descrivono le metriche che verranno usate dal gruppo per ve
 	
 	\subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: valore maggiore o uguale al 98\%.
+	\item Accettabilità: valore maggiore o uguale al 98\%;
 	\item Ottimalità: valore uguale a 100\%; tale risultato non sarà comunque indice di affidabilità totale del software: arrivare ad un tale risultato esigerebbe un carico di lavoro troppo elevato.
 	\end{itemize}
 	
@@ -170,18 +170,18 @@ In questa sezione si descrivono le metriche che verranno usate dal gruppo per ve
 	
 	\subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: T\ped{rispostaTOT} compreso tra 0 e 10.
+	\item Accettabilità: T\ped{rispostaTOT} compreso tra 0 e 10;
 	\item Ottimalità: T\ped{rispostaTOT} uguale o minore di 1.
 	\end{itemize}
 	 
 \paragraph{Validazione pagine web}
 \label{AppB:Usabilita}
 	~\\Tale metrica verrà usata come tentativo di applicare una metrica oggettiva e misurabile per valutare l'usabilità del prodotto finale; si è usata la parola "tentativo" poichè in effetti l'usabilità e l'accessibilità di un sito web sono due cose distinte, anche se affini: pagine web con contenuto inaccessibile saranno sicuramente poco usabili. Valutare l'accessibilità attraverso l'analisi del codice prodotto permetterà dunque di fornire una base allo sviluppo di pagine usabili.
-W3C offre uno strumento per valutare le pagine \emph{HTML}\ped{G} e uno per i i fogli di stle \emph{CSS}\ped{G}, come dichiarato nelle \emph{Norme di Progetto}: essi riportano il numero e il tipo di errori trovati nei documenti in esame.
+W3C offre uno strumento per valutare le pagine \emph{HTML}\ped{G} e uno per i i fogli di stle \emph{CSS}\ped{G}, come dichiarato nelle \NdP{}: essi riportano il numero e il tipo di errori trovati nei documenti in esame.
 
 \subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: Saranno accettati file HTML e CSS con un numero di errori minore o uguale a 5 ognuno. In relazione alla dimensione finale del progetto, si darà anche un limite al numero totale degli errori come somma degli errori di tutti i file; si prevedono inoltre modifiche del limite di 5 errori rilevati (aumento o diminuzione) in corso d'opera.
+	\item Accettabilità: Saranno accettati file HTML e CSS con un numero di errori minore o uguale a 5 ognuno. In relazione alla dimensione finale del progetto, si darà anche un limite al numero totale degli errori come somma degli errori di tutti i file; si prevedono inoltre modifiche del limite di 5 errori rilevati (aumento o diminuzione) in corso d'opera;
 	\item Ottimalità: Un numero di errori rilevati pari a 0 sarà indice di ottimalità per un file HTML o CSS.
 	\end{itemize}
 	
@@ -197,7 +197,7 @@ La misurazione si baserà su un indice numerico intero: valori troppo alti indic
 
 \subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: valore di complessità compreso tra 1 e 15, purchè per valori tra 10 e 15 sia specificato il motivo di tale complessità.
+	\item Accettabilità: valore di complessità compreso tra 1 e 15, purchè per valori tra 10 e 15 sia specificato il motivo di tale complessità;
  	\item Ottimalità: valore di complessità compreso tra 1 e 10.
 	\end{itemize}
 
@@ -210,7 +210,7 @@ La misurazione si baserà su un indice numerico intero: valori troppo alti indic
 
 \subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: sarà accettato un valore CxSLOC compreso tra 20 e 25.
+	\item Accettabilità: sarà accettato un valore CxSLOC compreso tra 20 e 25;
 	\item Ottimalità: sarà dichiarato ottimale un valore CxSLOC compreso tra 25 e 35.
 	\end{itemize}
 
@@ -219,7 +219,7 @@ La misurazione si baserà su un indice numerico intero: valori troppo alti indic
 
 \subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: saranno accettati metodi con un numero di parametri minore o uguale a 10.
+	\item Accettabilità: saranno accettati metodi con un numero di parametri minore o uguale a 10;
 	\item Ottimalità: saranno considerati ottimi metodi con un numero di parametri minore o uguale a 5.
 	\end{itemize}
 
@@ -229,7 +229,7 @@ Questa metrica sarà fortemente influenzata dall'esperienza che il team guadagne
 
 \subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: saranno accettati metodi con una lunghezza pari o inferiore alle  50 righe.
+	\item Accettabilità: saranno accettati metodi con una lunghezza pari o inferiore alle  50 righe;
 	\item Ottimalità: saranno considerati ottimi metodi di lunghezza pari o inferiore alle 30 righe.
 	\end{itemize}
 
@@ -242,7 +242,7 @@ Questa metrica sarà fortemente influenzata dall'esperienza che il team guadagne
 	
 \subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: sarà accettata un numero di statement testati pari al 70\%.
+	\item Accettabilità: sarà accettata un numero di statement testati pari al 70\%;
 	\item Ottimalità: sarà considerata ottima la capacità di testare almeno il 90\% degli statement.
 	\end{itemize}
 	
@@ -256,6 +256,6 @@ Questa metrica sarà fortemente influenzata dall'esperienza che il team guadagne
 	
 	\subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: sarà accettata un numero di rami testati pari al 75\%.
+	\item Accettabilità: sarà accettata un numero di rami testati pari al 75\%;
 	\item Ottimalità: sarà considerata ottima la capacità di testare almeno il 95\% dei rami per funzionalità non ancora testate, mentre per codice già testato l'ottimalità sara data dalla capacità di testarne l'80\%.
 	\end{itemize}
