@@ -33,10 +33,10 @@
 \newcommand{\VE}{\emph{VerbaleEsterno\_v1.0.0}}
 
 \newcommand{\VIuno}{\emph{Verbale\_I\_1\_2018.03.05}}
-\newcommand{\VEuno}{\emph{Verbale\_E\_1\_2018.03.07}}
-\newcommand{\VIdue}{\emph{Verbale\_I\_2\_2018.03.08}}
-\newcommand{\VEdue}{\emph{Verbale\_E\_2\_2018.03.28}}
-\newcommand{\VItre}{\emph{Verbale\_I\_3\_2018.04.05}}
+\newcommand{\VEuno}{\emph{Verbale\_E\_1\_2018.03.\_v1.0.0}}
+\newcommand{\VIdue}{\emph{Verbale\_I\_2\_2018.03.08\_v1.0.0}}
+\newcommand{\VEdue}{\emph{Verbale\_E\_2\_2018.03.28\_v1.0.0}}
+\newcommand{\VItre}{\emph{Verbale\_I\_3\_2018.04.05\_v1.0.0}}
 
 %Variabili generiche
 \newcommand{\indirizzo}{\emph{nome@cognome.it}}
