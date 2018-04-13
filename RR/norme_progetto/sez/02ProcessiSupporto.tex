@@ -2,7 +2,7 @@
 \newpage
 \section{Processi di Supporto}
 \subsection{Processo di documentazione}
-Durante lo svolgimento del capitolato, si dovrà rendere conto, tramite una documentazione dettagliata, di tutti i processi che saranno coinvolti. 
+Durante lo svolgimento del capitolato si dovrà rendere conto, tramite una documentazione dettagliata, di tutti i processi che saranno coinvolti. 
 Per questo motivo, il team suddividerà i documenti in:
 \begin{itemize}
 	\item \textbf{Documenti interni}
@@ -20,7 +20,7 @@ Per questo motivo, il team suddividerà i documenti in:
 		\item \textbf{In lavorazione}:
 		si tratta della fase di stesura del documento e non è consultabile;
 		\item \textbf{Da verificare}:
-		dopo che il documento è stato ultimato, passerà nelle mani del \ver, che dovrà esaminarlo;
+		dopo che il documento è stato ultimato, passerà nelle mani del \ver{} (il cui ruolo è descritto nel paragrafo \ref{verificatore}), che dovrà esaminarlo;
 		\item \textbf{Approvato}:
 		dopo la verifica, il documento dovrà essere approvato definitivamente dal \RdP.
 	\end{itemize}
@@ -68,7 +68,7 @@ Per questo motivo, il team suddividerà i documenti in:
 	\paragraph{Piano di Progetto (PdP)}
 	~\\Il \PdP{} contiene le indicazioni sulle scadenze temporali e fornisce un preventivo dei costi da presentare al proponente. 
 	~\\Vengono inoltre individuati i rischi ed analizzate le loro ricorrenze.
-	~\\In questo documento vengono fatte emergere le \emph{milestone\ped{G}} legate ai punti critici e viene effettuata una \emph{pianificazione}\ped{G} con l'uso di diagrammi di \emph{Gant}\ped{G}.
+	~\\In questo documento vengono fatte emergere le \emph{milestone\ped{G}} legate ai punti critici e viene effettuata una \emph{pianificazione}\ped{G} con l'uso di diagrammi di \emph{Gantt}\ped{G}.
 	\paragraph{Piano di Qualifica (PdQ)} 
 	~\\Il \PdQ{} deve fornire ai membri del gruppo tutte le informazioni con cui poter soddisfare gli obiettivi di qualità.
 	\paragraph{Analisi dei Requisiti (AdR)}
@@ -84,11 +84,11 @@ Per questo motivo, il team suddividerà i documenti in:
 	\paragraph{Glossario (G)}
 	~\\Nel documento \G{} i termini tecnici, gli acronimi e le abbreviazioni sono definiti in modo chiaro e conciso, in modo tale da evitare ambiguità e massimizzare la comprensione dei documenti.
 	\paragraph{Manuale Utente (MU)}
-	~\\Il \MU{} è un manuale per aiutare l'utente nell'utilizzo del prodotto e cresce durante il suo sviluppo. Deve avere un approccio incentrato sulle funzionalità che esso offre.
+	~\\Il \MU{} è un manuale pensato per aiutare l'utente ad utilizzare il prodotto, viene incrementato durante lo sviluppo di quest'ultimo. Deve avere un approccio incentrato sulle funzionalità che il prodotto offre.
 %	\paragraph{Manuale Manutentore (MM)}
 %	~\\\textcolor{red}{Dobbiamo vedere se inserirlo, in quanto non dovremmo occuparci di manutenzione.}
 	\paragraph{Verbale Esterno (VE)}
-	~\\Il \VE{} è un documento in cui si tiene traccia delle discussioni del team con i committenti e i proponenti. Come struttura ricalca quella del \VI.
+	~\\Il \VE{} è un documento in cui si tiene traccia delle discussioni del team con i committenti ed i proponenti. Come struttura ricalca quella del \VI.
 	
 	\subsubsection{Struttura del documento}
 	\paragraph{Prima pagina}
@@ -109,26 +109,26 @@ Per questo motivo, il team suddividerà i documenti in:
 		\end{itemize}
 		\item Descrizione del documento.
 	\end{itemize}
-	\paragraph{Diario delle modifiche}
-	~\\In seconda pagina il documento conterrà il diario delle modifiche, che traccerà le modifiche del documento. Sarà organizzato in una tabella così strutturata:
+	\paragraph{Registro delle modifiche}
+	~\\In seconda pagina il documento conterrà il registro delle modifiche che, traccerà le modifiche apportate al documento. Sarà organizzato in una tabella che conterrà le seguenti colonne:
 	\begin{itemize}
 		\item Versione:
 		indica la versione del documento;
+		\item Data:
+		indica la data in cui il documento è stato modificato;
 		\item Descrizione:
 		descrive la modifica effettuata nella relativa versione;
 		\item Autore:
-		indica il nome della persona che effettua la modifica;
+		indica il nome della persona che ha effettuato la modifica;
 		\item Ruolo:
-		indica il ruolo dell'autore;
-		\item Data:
-		indica la data in cui il documento è stato modificato.
+		indica il ruolo dell'autore.
 	\end{itemize}
 	\paragraph{Indice}
-	~\\Dopo il diario delle modifiche, il documento sarà correlato da un indice di tutte le sezioni. In alcuni documenti, se necessario, sarà aggiunto anche l'indice delle immagini, delle tabelle e dei riferimenti.
+	~\\Dopo il registro delle modifiche, il documento sarà correlato da un indice di tutte le sezioni. In alcuni documenti, se necessario, sarà aggiunto anche l'indice delle immagini, delle tabelle e dei riferimenti.
 	\paragraph{Formattazione generale della pagina}
-	~\\Ogni pagina del documento, fatta eccezione per prima, conterrà un'intestazione e un pié di pagina.
+	~\\Ogni pagina del documento, fatta eccezione per la prima, conterrà una intestazione ed un pié di pagina.
 	\\L'intestazione presenterà a sinistra il logo e a destra l'email del gruppo.
-	\\Nel pié di pagina ci sarà il nome del documento e il nome del gruppo e a destra il numero della pagina.
+	\\Nel pié di pagina saranno presenti a sinistra il nome del documento susseguito dal nome del gruppo e, a destra il numero della pagina.
 	%\begin{comment}
 	\subsubsection{Norme tipografiche}
 	Tutti i documenti dovranno sottostare alle seguenti norme tipografiche ed ortografiche.
@@ -171,16 +171,15 @@ Per questo motivo, il team suddividerà i documenti in:
 	\end{itemize}
 	\paragraph{Composizione del testo}
 	\begin{itemize}
-		\item \textbf{Elenchi puntati}: ogni punto dell'elenco deve terminare con "\emph{;}",
-		tranne l'ultimo che deve terminare con il ""\emph{.}". La prima parola deve avere la lettera
-		maiuscola;
-		\item \textbf{Glossario}: il pedice "\ped{G}" verrà utilizzato in corrispondenza di vocaboli presenti nel \textit{\G}.
+		\item \textbf{Elenchi puntati}: ogni punto dell'elenco deve terminare con ''\emph{;}''
+		tranne l'ultimo che deve terminare con  ''\emph{.}''. La prima parola deve iniziare con unla lettera maiuscola;
+		\item \textbf{Glossario}: il pedice ''\ped{G}'' verrà utilizzato in corrispondenza di vocaboli presenti nel \textit{\G}.
 	\end{itemize}
 	\paragraph{Stili di testo}
 	\begin{itemize}
 		\item \textbf{Grassetto}: il grassetto deve essere utilizzato per evidenziare parole
-		particolarmente importanti, negli elenchi puntati o nelle frasi;
-		\item \textbf{Corsivo}: il corsivo deve essere utilizzato nelle seguenti
+		particolarmente importanti negli elenchi puntati o nelle frasi;
+		\item \textbf{Corsivo}: il corsivo deve essere utilizzato con i seguenti termini:
 		situazioni:
 		\begin{itemize}
 			\item Ruoli;
@@ -193,7 +192,7 @@ Per questo motivo, il team suddividerà i documenti in:
 		\item \textbf{Maiuscolo}: il maiuscolo deve essere utilizzato solamente per gli acronimi.
 	\end{itemize}
 	\paragraph{Sintassi}
-	~\\Nei documenti i membri del team adotteranno la terza persona singolare per la stesura dei documenti.
+	~\\Per la stesura dei documenti i membri del team adotteranno la terza persona singolare.
 	\paragraph{Sigle}
 	\begin{itemize}
 		\item \textbf{AdR}: Analisi dei Requisiti;
@@ -223,20 +222,19 @@ Per questo motivo, il team suddividerà i documenti in:
 	\end{itemize}
 \end{comment}
 	\subsubsection{Nome del file \emph{.pdf}\ped{G}}
-	Ogni documento sarà stampato su .pdf utilizzando, per il nome, questa regola:
+	Ogni documento sarà generato come file con estensione .pdf ed avrà un nome che rispetti la seguente convenzione:
 	\begin{center}
 		\emph{NomeFile\_versione.pdf}
 	\end{center}
 	Il \emph{NomeFile} seguirà la notazione CamelCase già descritta, invece la \emph{versione} seguirà lo standard descritto qui di seguito.
 	
 	\subsubsection{Struttura dei file in \LaTeX}
-	Ogni file .pdf è la stampa di un insieme di file \LaTeX così strutturato:
+	Lo scheletro dei file necessari per generare un file .pdf di un documento è così strutturato:
 	\begin{itemize}
-		\item \emph{sos.sty}: contiene tutti i package e le variabili globali da utilizzarsi in tutti i documenti. Contiene uno script che genera la prima pagina e che viene invocato dal main. Si occupa inoltre di formattare il documento. Verrà usato in tutti i main.
-		\item \emph{main.tex} contiene l'inclusione del template e si occupa di generare la copertina, l'indice delle sezioni e di includere i file relativi alle sezioni;
-		\item \emph{sezione.tex}: ogni sezione, in maniera più atomica possibile, sarà inserita all'interno di un singolo file .tex. Questa scelta sarà adottata dal team per puntare all'assenza di conflitti durante modifiche contemporanee a più parti dello stesso documento, e per facilitare la revisione durante l'assemblaggio;
-		\item \emph{comandi.tex}: contiene tutti i comandi relativi alla creazione della copertina. Questa modularità permette di usare lo stesso package per costruire copertine differenti, cambiando di volta in volta i valori al suo interno.
-		\item \emph{"img" folder}: conterrà il logo e le altre immagini utilizzate nel documento.
+		\item \emph{sos.sty}: contiene tutti i package e le macro che possono trovare utilizzo in tutti i documenti. Contiene  anche anche la macro che genera la copertina della prima pagina e che viene invocata dal file \emph{main.tex};
+		\item \emph{main.tex}: Include il template e tutte le sezioni che compongono il documento. Il file non è monolitico perché include le sezioni (che quindi sono dei file \emph{.tex} che hanno vita propria), in questo modo si cerca di puntare all'assenza di conflitti durante modifiche contemporanee a più parti dello stesso documento e, di facilitare la revisione di singole parti del documento;
+		\item \emph{comandi.tex}: contiene delle macro specifiche per il documento che si sta creando;
+		\item \emph{"img" folder}: contiene il logo del gruppo e le altre immagini che sono incluse nel documento.
 	\end{itemize}
 	\subsubsection{Versionamento}
 	Il \emph{versionamento\ped{G}} permette a ciascun membro del team di condividere il lavoro nello spazio comune e di lavorare su vecchi e nuovi \emph{Configuration Item}\ped{G} senza rischio di sovrascritture accidentali.
@@ -255,53 +253,53 @@ Per questo motivo, il team suddividerà i documenti in:
 		\begin{itemize}
 			\item Inizia da 0;
 			\item Viene incrementato dal \ver{} una volta verificato il documento;
-			\item Quando viene incrementato \emph{Z} viene riportato a 0.
+			\item Quando viene incrementato, \emph{Z} viene riportato a 0.
 		\end{itemize}
 		\item \textbf{Z}:
 		\begin{itemize}
 			\item Alla creazione parte da 1;
-			\item Viene incrementato dal redattore del documento ogni volta che viene modificato.
+			\item Viene incrementato dal redattore del documento ogni volta che questo è viene modificato.
 			\item Quando vengono incrementati X o Y viene riportato a 0.
 		\end{itemize}
 	\end{itemize}
 	\subsubsection{Strumenti}
-			\paragraph{\emph{\LaTeX}\ped{G}}
+			\paragraph{\LaTeX}
 			~\\Il team ha scelto di usufruire del linguaggio \LaTeX{} per questi motivi:
 			\begin{itemize}
-				\item Permette di rendere ogni sezione molto autonoma, mantenendo comunque lo stile coerente;
+				%\item Permette di rendere ogni sezione molto autonoma, mantenendo comunque lo stile coerente;
 				\item Permette un versionamento più semplice e compatibile con \emph{Git}\ped{G};
-				\item Evita conflitti usando software ed envornment differenti.
+				\item Evita i conflitti che si possono creare usando software differenti (per esempio OpenOffice e Microsoft Word).
 			\end{itemize}
 		
 		%	\paragraph{\textcolor{red}{Da aggiungere qui eventuali altri strumenti che utilizzeremo per altro}}
 	
 		\subsubsection{Gestione del \emph{repository}\ped{G}}
-		Per avere traccia di tutte le modifiche realizzate sui documenti e sul codice prodotti, il team ha deciso di utilizzare \emph{GitHub}, creando una \emph{repository}\ped{G}. Si seguiranno le norme dscritte qui di seguito.
+		Per tenere traccia di tutte le modifiche apportate ai documenti ed al codice che sono stati prodotti, il team ha deciso di utilizzare \emph{GitHub}, creando una \emph{repository}\ped{G} dedicata. Si seguiranno le norme descritte qui di seguito.
 			\paragraph{Struttura}
 			\begin{itemize}
-				\item Il \emph{master}\ped{G} è annidato sulla repository \emph{origin}\ped{G} e deve contenere solo il \emph{template}\ped{G} per la scrittura di tutti i documenti;
+				\item Il \emph{master}\ped{G} è annidato nella repository \emph{origin}\ped{G} e deve contenere solo il \emph{template}\ped{G} per la scrittura di tutti i documenti;
 				\item Ogni \emph{branch}\ped{G} annidato sul master deve corrispondere solo alle \emph{revisioni}\ped{G};
-				\item Ogni branch annidato sui branch relativi alle revisioni corrispondono ai documenti ad esse corrispondenti;
-				\item Ogni membro del gruppo potrà modificare i files per ogni documento o codice o direttamente sul branch corrispondente oppure creandone uno parallelo a sua discrezione, a meno di direttive diverse da parte dei \progs{}.
+				\item Ogni branch annidato in branch relativi alle revisioni contiene dei documenti che le riguardano;
+				\item Ogni membro del gruppo potrà modificare i file di ogni documento o codice, o direttamente sul branch corrispondente oppure creandone uno parallelo a sua discrezione a meno di direttive diverse da parte dei \progs{}.
 %				\item \textcolor{red}{Capire come fare la repo quando si dovrà mettere dentro il codice}
 			\end{itemize}
 			\paragraph{Tipi di file}
-			Tutti i file pertinenti verranno caricati nel repository e sottoposti a versionamento. Verranno tuttavia ignorati, quindi inseriti all'interno del file \emph{.gitignore}\ped{G}, tutte quelle estensioni dei file generati automaticamente durante le varie \emph{build}\ped{G}.
+			Tutti i file pertinenti verranno caricati nel repository e saranno sottoposti a versionamento. Verranno tuttavia ignorati, quindi inseriti all'interno del file \emph{.gitignore}\ped{G}, tutti quelle quei file generati automaticamente durante le varie \emph{build}\ped{G} e che hanno estensioni indesiderate (ad esempio \emph{.log}, \emph{ .out}). 
 			\paragraph{Norme sui \emph{commit}\ped{G}}
-			~\\I membri del team dovranno registrare le modifiche apportate alla repository tramite commit. Questo genererà una \emph{pull request}\ped{G} che il responsabile dovrà approvare prima di unire le modifiche al branch di riferimento. Dovrà essere eseguito nella maniera più atomica possibile; qualora non si riuscisse a concludere un'attività entro la giornata, si dovrà eseguire un commit alla fine di essa, per garantirne una copia offline.
+			~\\I membri del team dovranno registrare le modifiche apportate alla repository tramite commit. Questo genererà una \emph{pull request}\ped{G} che il responsabile dovrà approvare prima di unire le modifiche al branch di riferimento. %Qualora non si riuscisse a concludere un'attività entro la giornata, si dovrà eseguire un commit alla fine di essa, per garantire una copia offline.
 \subsection{Processo di verifica}
-Il processo di verifica deve essere continuo e serve ad evitare che eventuali errori arrivino fino alla fase di validazione.
+Il processo di verifica deve essere continuo, questo serve ad evitare che eventuali errori arrivino fino alla fase di validazione.
 Questa attività, che viene svolta in corso d'opera, deve essere:
 \begin{itemize}
 	\item Tempestiva, cioè il dato deve esserci quando serve;
-	\item Accurata, cioè che vengano evitate scorrettezze;
-	\item Non intrusiva, cioè che non interrompa alcuna attività durante la sua esecuzione.
+	\item Accurata, devono essere evitate scorrettezze;
+	\item Non intrusiva, non deve interrompere alcuna attività durante la sua esecuzione.
 \end{itemize}
 Le modalità sfruttate saranno elencate qui di seguito.
 %\begin{comment}
 	\subsubsection{Analisi}
 	\paragraph{Analisi statica}
-	~\\Studia il codice sorgente e la documentazione e controlla che essi seguano le norme. Non richiede l'esecuzione del prodotto software in nessuna sua parte, ma si limita all'osservazione. Questo processo può essere visto come una verifica dinamica del comportamento del programma su un insieme finito di casi selezionati nel dominio di tutte le esecuzioni possibili. Ciascun caso di prova specifica i valori in ingresso e lo stato iniziale del sistema e deve produrre un esito decidibile verificato rispetto ad un comportamento atteso. 
+	~\\Studia il codice sorgente e la documentazione e controlla che essi seguano le norme. Non richiede l'esecuzione del prodotto software in nessuna sua parte, ma si limita all'osservazione. Questo processo può essere visto come una verifica dinamica del comportamento del programma su un insieme finito di casi selezionati nel dominio di tutte le esecuzioni possibili. Ciascun caso di prova, specifica i valori in ingresso e lo stato iniziale del sistema e deve produrre un esito decidibile, verificato rispetto ad un comportamento atteso. 
 	\\Si può declinare in due maniere:
 	\begin{itemize}
 		\item \textbf{\emph{Walkthrough}}\ped{G}
@@ -311,42 +309,41 @@ Le modalità sfruttate saranno elencate qui di seguito.
 	\end{itemize}
 	\paragraph{Analisi dinamica}
 	~\\L'analisi dinamica, al contrario di quella statica, richiede l'esecuzione del codice.
-	Viene effettuata tramite test e coinvolta sia nel processo di verifica che in quello di validazione.
+	Viene effettuata tramite test ed è coinvolta sia nel processo di verifica che in quello di validazione.
 	I test verranno descritti in un capitolo a parte.
 	%\begin{comment}
 	\subsubsection{Test}
-	Il test è una parte essenziale del processo di verifica: produce una misura della qualità del sistema
+	Il testing è una parte essenziale del processo di verifica: produce una misura della qualità del sistema
 	aumentandone il valore, identificandone e rimuovendone i difetti. Il suo inizio non va differito
 	al termine delle attività di codifica e le sue esigenze devono essere tenute in conto nella progettazione del sistema. Tutti i test devono essere rieseguibili e devono sempre produrre lo stesso esito. Devono essere eseguiti in condizioni controllate, diventando così deterministici.
 	~\\I test si possono dividere nelle categorie qui descritte.
 		\paragraph{Test di unità (TU)}
-		~\\Il suo obiettivo è quello di verificare la correttezza del codice \emph{as implemented}, ovvero
+		~\\Il loro obiettivo è quello di verificare la correttezza del codice \emph{as implemented}, ovvero
 		puntando a controllare il codice in maniera microscopica.
-		\\La responsabilità della sua realizzazione è del \progr{} per le unità più semplici, altrimenti
-		di un \ver{} indipendente.
-		\\Le risorse consumate da questo tipo di test sono molto basse, poiché coinvolge piccole parti di codice con basso accoppiamento le une con le altre. 
+		\\La responsabilità della loro realizzazione è del \progr{} per le unità più semplici, e di un \ver{} indipendente per le altre.
+		\\Le risorse consumate da questo tipo di test sono molto poche perché,  sono coinvolte piccole parti di codice che hanno basso accoppiamento le une con le altre. 
 		\paragraph{Test di integrazione (TI)}
 		~\\Questi test verificano non solo il corretto comportamento di ogni singolo oggetto, 
 		ma anche le relazioni con gli altri componenti dell'applicazione.
-		~\\Può rilevare questi problemi:
+		~\\Possono rilevare i seguenti problemi:
 		\begin{itemize}
 			\item Errori residui nella realizzazione dei componenti;
 			\item Modifica delle interfacce o cambiamenti nei requisiti;
 			\item Riuso di componenti dal comportamento oscuro o inadatto;
 			\item Integrazione con altre applicazioni non bene conosciute.
 		\end{itemize}
-		Questo tipo di test consuma molte risorse, poiché la grandezza del codice da controllare è 
-		significativa e	il grado di accoppiamento tra le varie parti da testare è massimo. 
-		Quindi il suo utilizzo deve essere ponderato e, in generale, da non preferire a quello di unità.
+		Un test di questo tipo consuma molte risorse dato che, la grandezza del codice da controllare è 
+		significativa ed il grado di accoppiamento tra le varie parti da testare è massimo. 
+		L'utilizzo di un test di questo tipo deve quindi essere ponderato e, in generale, da non preferire a quello di unità.
 		\paragraph{Test di sistema (TS)}
-		~\\Il test di sistema può essere visto come un'attività interna del fornitore
+		~\\I test di sistema possono essere visti come un'attività interna del fornitore
 		per accertare la copertura dei requisiti software.
 		\newline{}Questo tipo di test richiede molte risorse e, in generale, non va utilizzato per testare
 		unità singole.
 		\paragraph{Test di regressione (TR)}
-		~\\Il test di regressione è l'insieme dei TU e TI necessari ad accertare che la modifica
+		~\\I test di regressione sono l'insieme dei TU e TI necessari ad accertare che la modifica
 		di una parte del prodotto non causi errori nelle altre parti che hanno relazioni con essa.
-		\\Questo tipo di test consuma tante più risorse quanto la parte modificata è accoppiata con le altre, 
+		\\Un test di questo tipo consuma tante più risorse quanto la parte modificata è accoppiata con le altre, 
 		anche perché comporta la ripetizione di test già previsti ed effettuati per ogni parte che non è 
 		stata modificata.
 		\paragraph{Test di validazione}
@@ -359,7 +356,7 @@ Le modalità sfruttate saranno elencate qui di seguito.
 	\paragraph{Strumenti per l'analisi statica}
 	\begin{itemize}
 		\item \emph{\textbf{\emph{TexStudio}}}\ped{G}\footnote{\href{https://www.texstudio.org/}{https://www.texstudio.org/}}
-		~\\Questo editor include il correttore ortografico automatico. Tuttavia non è preciso nell'individuazione di errori più sottili, quindi servirà comunque un'analisi più approfondita da parte dei \vers;
+		~\\Questo editor include un correttore ortografico automatico che sarà utilizzato per verificare la corretta sintassi dei manuali in lingua inglese da fornire alla \proponente. Tuttavia tale strumento non è preciso nell'individuazione degli errori più sottili, quindi sarà comunque necessaria un'analisi più approfondita da parte dei \vers;
 		\item \textbf{Indice \emph{Gulpease}}\ped{G}
 		~\\Per i test di leggibilità il team ricorrà al calcolo dell'indice Gulpease;
 		\begin{comment}
@@ -368,11 +365,12 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		~\\È uno strumento \emph{OpenSource}\ped{G} funzionale alla rilevazione degli errori e possibili problemi nel codice \emph{JavaScript}\ped{G};
 		\item 
 		\emph{\textbf{\emph{W3C Markup Validation Service}}}\ped{G}\footnote{\href{https://validator.w3.org/}{https://validator.w3.org/}}
-		~\\È uno strumento per la validazione dei documenti \emph{HTML}\ped{G} e \emph{xHTML}\ped{G};
-		\end{comment}
+		~\\È uno strumento per la valid
 		\item 
 		\emph{\textbf{\emph{Draw.io}}}\ped{G}\footnote{\href{https://www.draw.io/}{https://www.draw.io/}}
 		\\È un software per la creazione di diagrammi di flusso, di processo, organigrammi, UML, ER e diagrammi di rete.
+		azione dei documenti \emph{HTML}\ped{G} e \emph{xHTML}\ped{G};
+		\end{comment}
 	\end{itemize}
 \begin{comment}
 	\paragraph{Strumenti per l'analisi dinamica}
