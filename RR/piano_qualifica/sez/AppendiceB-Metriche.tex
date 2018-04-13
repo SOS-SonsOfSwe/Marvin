@@ -7,7 +7,7 @@ In questa sezione verranno descritte le metriche che verranno utilizzate per gar
 
 \paragraph{Schedule Variance - SV}
 \label{AppB:SV}
-	~\\La Schedule Variance è un indicatore permette di capire se un processo è il linea, in anticipo o in ritardo con la schedulazione temporale indicata del \PdP{}. Viene calcolata come percentuale di tempo speso, considerando le date di inizio e fine previste e la data di completamento effettiva:
+	~\\La Schedule Variance è un indicatore che permette di capire se un processo è il linea, in anticipo o in ritardo con la schedulazione temporale indicata del \PdP{}. Viene calcolata come percentuale di tempo speso, considerando le date di inizio e di fine previste e la data di completamento effettiva:
 	
 	\begin{displaymath}
 \mbox{SV}= \frac{\mbox{Data di completamento effettiva - Data di completamento pianificata}} {\mbox{Data di completamento pianificata - Data di inizio pianificata}} * 100
@@ -23,13 +23,13 @@ I risultati possibili sono tre:
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: sarà accettato un valore SV $\le$ 10%;
+\item Accettabilità: sarà accettato un valore SV $\le$ 10;
 \item Ottimalità: sarà ottimo un valore SV < 0.
 \end{itemize}
 	
 \paragraph{Cost Variance - CV}
 \label{AppB:CV}
-	~\\La Cost Variance è una metrica che permette di capire se i costi effettivi sono in linea o meno con i costi pianificati nel \PdP{}. Viene calcolata come percentuale di costo utilizzando BCWP (Budgeted Cost of Work Performed), cioè il valore delle attività svolte fino al momento del calcolo e ACWP (Actual Cost of Work Performed).
+	~\\La Cost Variance è una metrica che permette di capire se i costi effettivi siano in linea o meno con i costi pianificati nel \PdP{}. Viene calcolata come percentuale di costo utilizzando BCWP (Budgeted Cost of Work Performed), cioè il valore delle attività svolte fino al momento del calcolo e ACWP (Actual Cost of Work Performed).
 	
 	\begin{displaymath}
 \mbox{CV}= \frac{\mbox{BCWP}-\mbox{ACWP}}{BCWP}*100\end{displaymath}
@@ -56,7 +56,7 @@ In questa sezione vengono descritte le metriche che verranno utilizzate nel proc
 \paragraph{Errori ortografici}
 \label{AppB:ErroriOrtografici}
 	~\\Questa è la metrica che serve ad esprimere un giudizio di correttezza ortografica riguardo il documento prodotto. Gli errori saranno individuati secondo le seguenti modalità:
-il primo controllo avverrà a tempo di stesura del documento tramite lo strumento di autocorrezione dell'ambiente \emph{''TexStudio''}, mentre il secondo controllo avverrà dopo aver terminato la prima redazione del documento stesso. Esso avverrà tramite due verifiche manuali del \ver{}: una temporanea dopo aver finito la stesura del documento, ed una definitiva prima dell'approvazione finale del documento stesso.
+il primo controllo, per quanto riguarda i documenti in lingua inglese, avverrà a tempo di stesura del documento tramite lo strumento di autocorrezione dell'ambiente \emph{''TexStudio''}, mentre il secondo controllo avverrà dopo aver terminato la prima redazione del documento stesso. Esso avverrà tramite due verifiche manuali del \ver{}: una temporanea dopo aver finito la stesura del documento ed una definitiva prima dell'approvazione finale del documento stesso.
 \newline Formula:
 \begin{displaymath}
 \mbox{Errori ortografici}= {\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
@@ -64,7 +64,7 @@ il primo controllo avverrà a tempo di stesura del documento tramite lo strument
 
 \subparagraph{Soglie}
 \begin{itemize}
-\item Accettabilità: valore inferiore o uguale a 3 errori ortografici;
+\item Accettabilità: un valore inferiore o uguale a 3 errori ortografici;
 \item Ottimalità: un valore pari a 0.
 \end{itemize}
 
@@ -90,7 +90,7 @@ I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilit
 
 \paragraph{Errori contenutistici}
 \label{AppB:ErroriCont}
-	~\\Questa è la metrica necessaria ad esprimere la correttezza del contenuto di un documento. E' importante verificare che i concetti trattati siano corretti e coerenti con quanto prefissato. Il valore ottenuto da questa metrica rappresenta il numero di errori concettuali riscontrati dal \ver{} durante la verifica definitiva del documento.
+	~\\Questa è la metrica necessaria per esprimere la correttezza del contenuto di un documento. È importante verificare che i concetti trattati siano corretti e coerenti con quanto prefissato. Il valore ottenuto da questa metrica rappresenta il numero di errori concettuali riscontrati dal \ver{} durante la verifica definitiva del documento.
 \newline La formula utilizzata per il calcolo degli errori è la seguente:
 \begin{displaymath}
 \mbox{Errori concettuali}={\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
@@ -152,8 +152,8 @@ In questa sezione si descrivono le metriche che verranno usate dal gruppo per ve
 	
 	\subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: valore maggiore o uguale al 98\%;
-	\item Ottimalità: valore uguale a 100\%; tale risultato non sarà comunque indice di affidabilità totale del software: arrivare ad un tale risultato esigerebbe un carico di lavoro troppo elevato.
+	\item Accettabilità: un valore maggiore o uguale al 98\%;
+	\item Ottimalità: un valore uguale a 100\%; tale risultato non sarà comunque indice di affidabilità totale del software: arrivare ad un tale risultato esigerebbe un carico di lavoro troppo elevato.
 	\end{itemize}
 	
 \paragraph{Tempo di risposta}
@@ -181,14 +181,14 @@ W3C offre uno strumento per valutare le pagine \emph{HTML}\ped{G} e uno per i i 
 
 \subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: Saranno accettati file HTML e CSS con un numero di errori minore o uguale a 5 ognuno. In relazione alla dimensione finale del progetto, si darà anche un limite al numero totale degli errori come somma degli errori di tutti i file; si prevedono inoltre modifiche del limite di 5 errori rilevati (aumento o diminuzione) in corso d'opera;
-	\item Ottimalità: Un numero di errori rilevati pari a 0 sarà indice di ottimalità per un file HTML o CSS.
+	\item Accettabilità: saranno accettati file HTML e CSS ciascuno con un numero di errori minore o uguale a 5. In relazione alla dimensione finale del progetto, si darà anche un limite al numero totale degli errori come somma degli errori di tutti i file; si prevedono inoltre modifiche del limite di 5 errori rilevati (aumento o diminuzione) in corso d'opera;
+	\item Ottimalità: un numero di errori rilevati pari a 0 sarà indice di ottimalità per un file HTML o CSS.
 	\end{itemize}
 	
 \pagebreak
 \subsubsection{Metriche per il codice}
 \label{AppB:metricheCod}
-In questa sezione si elencheranno e descriveranno le metriche utilizzate per valutare la qualità del codice sorgente prodotto; la loro applicazione servirà a valutare il grado di manutenibilità del prodotto software. Dato che il progetto è nella fase iniziale ed il team non ha ancora cominciato a produrre del codice e a prendere familiarità con i linguaggi e le tecnologie che verranno usate, ciò che segue è da considerarsi un' ipotesi delle metriche che verranno usate, le quali molto probabilmente verranno riviste, sostituite o incrementate con l'avanzare dello sviluppo del progetto.
+In questa sezione si elencheranno e descriveranno le metriche utilizzate per valutare la qualità del codice sorgente prodotto; la loro applicazione servirà a valutare il grado di manutenibilità del prodotto software. Dato che il progetto è nella fase iniziale ed il team non ha ancora cominciato a produrre codice e a prendere familiarità con i linguaggi e le tecnologie che verranno usate, ciò che segue è da considerarsi un'ipotesi delle metriche che verranno usate, le quali molto probabilmente verranno riviste, sostituite o incrementate con l'avanzare dello sviluppo del progetto.
 
 \paragraph{Complessità ciclomatica}
 	~\\La complessità ciclomatica è una metrica utilizzata per misurare la complessità di un software attraverso la valutazione dei suoi metodi, classi e algoritmi. Essa è calcolata utilizzando il grafo di flusso: in esso i nodi corrispondono a gruppi indivisibili di istruzioni, mentre gli archi connettono due nodi se le istruzioni del secondo possono essere eseguite immediatamente dopo quelle del primo.
@@ -197,8 +197,8 @@ La misurazione si baserà su un indice numerico intero: valori troppo alti indic
 
 \subparagraph{Soglie}
 	\begin{itemize}
-	\item Accettabilità: valore di complessità compreso tra 1 e 15, purchè per valori tra 10 e 15 sia specificato il motivo di tale complessità;
- 	\item Ottimalità: valore di complessità compreso tra 1 e 10.
+	\item Accettabilità: un valore di complessità compreso tra 1 e 15, purchè per valori tra 10 e 15 sia specificato il motivo di tale complessità;
+ 	\item Ottimalità: un valore di complessità compreso tra 1 e 10.
 	\end{itemize}
 
 \paragraph{Commenti per linee di codice}
@@ -230,11 +230,11 @@ Questa metrica sarà fortemente influenzata dall'esperienza che il team guadagne
 \subparagraph{Soglie}
 	\begin{itemize}
 	\item Accettabilità: saranno accettati metodi con una lunghezza pari o inferiore alle  50 righe;
-	\item Ottimalità: saranno considerati ottimi metodi di lunghezza pari o inferiore alle 30 righe.
+	\item Ottimalità: saranno considerati ottimi metodi con una lunghezza pari o inferiore alle 30 righe.
 	\end{itemize}
 
 \paragraph{Copertura del codice}
-	~\\Tale metrica è orientata alla valutazione della qualità dei test; essa misura infatti la capacità di coprire mediante test gli statement del codice, attraverso il loro conteggio in percentuale, al fine di fornire dei test che assicurino uan valutazione del software il più affidabile possibile. Verrà calcolata come segue:
+	~\\Tale metrica è orientata alla valutazione della qualità dei test; essa misura infatti la capacità di coprire mediante test gli statement del codice, attraverso il loro conteggio in percentuale, al fine di fornire dei test che assicurino una valutazione del software il più affidabile possibile. Verrà calcolata come segue:
 
 	\begin{displaymath}
 		\mbox{Copertura} =\frac{\mbox{Numero di statement testati}}{\mbox{Numero di statement totali}} * 100
