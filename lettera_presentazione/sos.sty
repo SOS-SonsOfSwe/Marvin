@@ -4,26 +4,12 @@
 \usepackage[top=3.1cm, bottom=3.1cm, left=2.2cm, right=2.2cm]{geometry}
 
 %aggiunti da Giovanni
-<<<<<<< HEAD:lettera_presentazione/sos.sty
-<<<<<<< HEAD:lettera_presentazione/sos.sty
 %\usepackage{comment}
-=======
-\usepackage{comment}
-%\usepackage{fancyref}
->>>>>>> norme_progetto:template/sos.sty
 %\usepackage{color,soul}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{longtable}
 \usepackage{array}
-<<<<<<< HEAD:lettera_presentazione/sos.sty
-=======
-%\usepackage[table]{xcolor}
->>>>>>> norme_progetto:template/sos.sty
-=======
-\usepackage{comment}
-%\usepackage{color,soul}
->>>>>>> piano_di_qualifica:template/sos.sty
 
 \newcommand{\copertina}{
 	\begin{titlepage}
@@ -31,7 +17,7 @@
 			
 			\begin{center}
 				%sostituire con immagine copertina del gruppo
-				\centerline{\includegraphics[scale=0.20]{../../template/img/logo.png}}
+				\centerline{\includegraphics[scale=0.24]{img/logo.png}}
 			\end{center}
 			
 			\vspace{1cm}
@@ -53,14 +39,14 @@
 			\bgroup
 			\def\arraystretch{1.3}
 			\centering
-			\begin{tabular}{r|L{5cm}}
+			\begin{tabular}{c|L{5cm}}
 				\multicolumn{2}{c}{\textbf{Informazioni sul documento} } \\ \hline
-				\textbf{Versione} &  1.0.0\\
-				\textbf{Redazione} & \ACapoRedazione{} \\
-				\textbf{Verifica} & \Verifica{} \\ 
-				\textbf{Approvazione} & \Approvazione{} \\
-				\textbf{Uso} & \Uso \\
-				\textbf{Distribuzione} & \Distribuzione{}
+				Versione &  1.0\\
+				Redazione & \ACapoRedazione{} \\
+				Verifica & \Verifica{} \\ 
+				Approvazione & \Approvazione{} \\
+				Uso & \Uso \\
+				Distribuzione & \Distribuzione{}
 			\end{tabular}
 			\egroup
 			
@@ -83,7 +69,7 @@
 
   \lhead{ %in alto a sx
   % da modificare quando avremo un logo
-  	\includegraphics[scale=0.02]{../../template/img/logo.png}
+  	Metterci un logo quando ne avremo uno
   }
 
   \rhead{
@@ -94,7 +80,7 @@
   \lfoot{ %piè di pagina a sx
     \Titolo{} \ - \textit{\Gruppo{}}
   }
-  \rfoot{Pagina \thepage{} di \pageref*{LastPage}} %es: pag: 4 di 10
+  \rfoot{Pagina \thepage{} di \pageref{LastPage}} %es: pag: 4 di 10
 
   %linea orizzontale alle posizioni top e bottom della pagina (se è 0, non c'è la linea)
   \renewcommand{\headrulewidth}{0.3pt}  
@@ -105,8 +91,7 @@
 %\usepackage{calc} %introduce la notazione infissa per le op. aritmetiche interne a LaTeX
 
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-%\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 \usepackage[italian]{babel} %il documento è in italiano
 %\usepackage{textcomp} %The pack­age sup­ports the Text Com­pan­ion fonts, which pro­vide many text sym­bols
 %(such as baht, bul­let, copy­right, mu­si­cal­note, onequar­ter, sec­tion, and yen), in the TS1 en­cod­ing.
@@ -115,7 +100,7 @@
 \usepackage{caption}        %numerazione figure e loro descrizione testuale
 \usepackage{subcaption}     %sottofigure numerabili
 \usepackage{float}  %permette di inserire un # qualsiasi di figure fluttuanti
-\usepackage[table,dvipsnames]{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{rotating} %permette di ruotare le immagini
 %\usepackage{changepage} %utile se c'è bisogno di aggiustare margini per centrare figure
 
@@ -166,9 +151,7 @@
 %\usepackage{titlesec} %\begin{paragraph} si può usare come subsubsubsection!
 
 
-%\usepackage{breakurl}%\url{...} può continare alla linea successiva. (si può andare a capo)
-\usepackage[hyphenbreaks]{breakurl}
-\usepackage[hyphens]{url}
+\usepackage{breakurl}%\url{...} può continare alla linea successiva. (si può andare a capo)
 
 
 \usepackage[colorlinks=true]{hyperref}
@@ -179,12 +162,6 @@
     linkcolor=black, % colore dei link interni
     urlcolor=Maroon  % colore dei link interniesterni
 }
-
-%per alcune liste, permette di usare 'alligator' nei labeling 
-\usepackage{blindtext} 
-\usepackage{scrextend} 
-\addtokomafont{labelinglabel} 
-{\sffamily} 
 
 %impostazioni per il codice che deve finire dentro a
 %\begin{lstlisting}
@@ -235,77 +212,3 @@ backgroundcolor=\color{lbcolor},
   commentstyle=\color{orange},
   stringstyle=\color{red}
 }
-<<<<<<< HEAD:lettera_presentazione/sos.sty
-<<<<<<< HEAD:lettera_presentazione/sos.sty
-=======
-=======
->>>>>>> piano_di_qualifica:template/sos.sty
-%Variabili per ruoli
-\newcommand{\ana}{\emph{Analista}}
-\newcommand{\anas}{\emph{Analisti}}
-\newcommand{\adm}{\emph{Amministratore}}
-\newcommand{\adms}{\emph{Amministratori}}
-\newcommand{\prog}{\emph{Progettista}}
-\newcommand{\progs}{\emph{Progettisti}}
-<<<<<<< HEAD:lettera_presentazione/sos.sty
-\newcommand{\RdP}{\emph{Responsabile}}
-=======
-\newcommand{\RdP}{\emph{Responsabile di Progetto}}
-\newcommand{\Res}{\emph{Responsabile}}
->>>>>>> piano_di_qualifica:template/sos.sty
-\newcommand{\progr}{\emph{Programmatore}}
-\newcommand{\progrs}{\emph{Programmatori}}
-\newcommand{\ver}{\emph{Verificatore}}
-\newcommand{\vers}{\emph{Verificatori}}
-<<<<<<< HEAD:lettera_presentazione/sos.sty
-\newcommand{\gruppo}{\emph{Sons Of SWE}}
-%variabili per documenti
-\newcommand{\AdR}{\emph{AnalisiDeiRequisiti\_v1.0.0}}
-\newcommand{\SdF}{\emph{StudioDiFattibilità\_v1.0.0}}
-\newcommand{\VI}{\emph{VerbaleInterno}}
-\newcommand{\NdP}{\emph{NormeDiProgetto\_v1.0.0}}
-\newcommand{\PdP}{\emph{PianoDiProgetto\_v1.0.0}}
-\newcommand{\PdQ}{\emph{PianoDiQualifica\_v1.0.0}}
-\newcommand{\G}{\emph{Glossario\_v1.0.0}}
-\newcommand{\MU}{\emph{ManualeUtente}}
-\newcommand{\MS}{\emph{ManualeSviluppatore}}
-\newcommand{\VE}{\emph{VerbaleEsterno}}
-
-
-\newcommand{\PdPv}{\emph{PianoDiProgetto\_v1.0.0}}
-\newcommand{\PdQv}{\emph{PianoDiQualifica\_v1.0.0}}
-\newcommand{\NdPv}{\emph{NormeDiProgetto\_v1.0.0}}
-\newcommand{\SdFv}{\emph{StudioDiFattibilità\_v1.0.0}}
-=======
-\newcommand{\gruppo}{\emph{SonsOfSwe}}
-%variabili per documenti
-\newcommand{\AdR}{\emph{AnalisiDeiRequisiti\_v1.0.0}}
-\newcommand{\SdF}{\emph{StudioDiFattibilità\_v1.0.0}}
-\newcommand{\VI}{\emph{VerbaleInterno\_v1.0.0}}
-\newcommand{\NdP}{\emph{NormeDiProgetto\_v1.0.0}}
-\newcommand{\PdP}{\emph{PianoDiProgetto\_v1.0.0}}
-\newcommand{\PdQ}{\emph{PianoDiQualifica\_v1.0.0}}
-\newcommand{\ST}{\emph{SpecificaTecnica\_v1.0.0}}
-\newcommand{\DdP}{\emph{DefinizioneDiProdotto\_v1.0.0}}
-\newcommand{\G}{\emph{Glossario\_v1.0.0}}
-\newcommand{\MU}{\emph{ManualeUtente\_v1.0.0}}
-\newcommand{\MM}{\emph{ManualeManutentore\_v1.0.0}}
-\newcommand{\VE}{\emph{VerbaleEsterno\_v1.0.0}}
->>>>>>> piano_di_qualifica:template/sos.sty
-
-%variabili per le fasi
-\newcommand{\RR}{\emph{Revisione dei Requisiti}}
-\newcommand{\RP}{\emph{Revisione di Progettazione}}
-\newcommand{\RQ}{\emph{Revisione di Qualifica}}
-\newcommand{\RA}{\emph{Revisione di Accettazione}}
-
-%Variabili generiche
-\newcommand{\indirizzo}{\emph{nome@cognome.it}}
-\newcommand{\emailgruppo}{\emph{sonsofswe.swe@gmail.com}}
-\newcommand{\committenti}{Prof. Tullio Vardanega e Prof. Riccardo Cardin}
-<<<<<<< HEAD:lettera_presentazione/sos.sty
-\newcommand{\proponente}{\emph{Red Babel}}
->>>>>>> norme_progetto:template/sos.sty
-=======
-\newcommand{\proponente}{\emph{Red Babel}}
->>>>>>> piano_di_qualifica:template/sos.sty
