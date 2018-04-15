@@ -5,6 +5,7 @@
 
 %aggiunti da Giovanni
 <<<<<<< HEAD:lettera_presentazione/sos.sty
+<<<<<<< HEAD:lettera_presentazione/sos.sty
 %\usepackage{comment}
 =======
 \usepackage{comment}
@@ -19,6 +20,10 @@
 =======
 %\usepackage[table]{xcolor}
 >>>>>>> norme_progetto:template/sos.sty
+=======
+\usepackage{comment}
+%\usepackage{color,soul}
+>>>>>>> piano_di_qualifica:template/sos.sty
 
 \newcommand{\copertina}{
 	\begin{titlepage}
@@ -89,7 +94,7 @@
   \lfoot{ %piè di pagina a sx
     \Titolo{} \ - \textit{\Gruppo{}}
   }
-  \rfoot{Pagina \thepage{} di \pageref{LastPage}} %es: pag: 4 di 10
+  \rfoot{Pagina \thepage{} di \pageref*{LastPage}} %es: pag: 4 di 10
 
   %linea orizzontale alle posizioni top e bottom della pagina (se è 0, non c'è la linea)
   \renewcommand{\headrulewidth}{0.3pt}  
@@ -161,7 +166,9 @@
 %\usepackage{titlesec} %\begin{paragraph} si può usare come subsubsubsection!
 
 
-\usepackage{breakurl}%\url{...} può continare alla linea successiva. (si può andare a capo)
+%\usepackage{breakurl}%\url{...} può continare alla linea successiva. (si può andare a capo)
+\usepackage[hyphenbreaks]{breakurl}
+\usepackage[hyphens]{url}
 
 
 \usepackage[colorlinks=true]{hyperref}
@@ -172,6 +179,12 @@
     linkcolor=black, % colore dei link interni
     urlcolor=Maroon  % colore dei link interniesterni
 }
+
+%per alcune liste, permette di usare 'alligator' nei labeling 
+\usepackage{blindtext} 
+\usepackage{scrextend} 
+\addtokomafont{labelinglabel} 
+{\sffamily} 
 
 %impostazioni per il codice che deve finire dentro a
 %\begin{lstlisting}
@@ -223,7 +236,10 @@ backgroundcolor=\color{lbcolor},
   stringstyle=\color{red}
 }
 <<<<<<< HEAD:lettera_presentazione/sos.sty
+<<<<<<< HEAD:lettera_presentazione/sos.sty
 =======
+=======
+>>>>>>> piano_di_qualifica:template/sos.sty
 %Variabili per ruoli
 \newcommand{\ana}{\emph{Analista}}
 \newcommand{\anas}{\emph{Analisti}}
@@ -231,11 +247,17 @@ backgroundcolor=\color{lbcolor},
 \newcommand{\adms}{\emph{Amministratori}}
 \newcommand{\prog}{\emph{Progettista}}
 \newcommand{\progs}{\emph{Progettisti}}
+<<<<<<< HEAD:lettera_presentazione/sos.sty
 \newcommand{\RdP}{\emph{Responsabile}}
+=======
+\newcommand{\RdP}{\emph{Responsabile di Progetto}}
+\newcommand{\Res}{\emph{Responsabile}}
+>>>>>>> piano_di_qualifica:template/sos.sty
 \newcommand{\progr}{\emph{Programmatore}}
 \newcommand{\progrs}{\emph{Programmatori}}
 \newcommand{\ver}{\emph{Verificatore}}
 \newcommand{\vers}{\emph{Verificatori}}
+<<<<<<< HEAD:lettera_presentazione/sos.sty
 \newcommand{\gruppo}{\emph{Sons Of SWE}}
 %variabili per documenti
 \newcommand{\AdR}{\emph{AnalisiDeiRequisiti\_v1.0.0}}
@@ -254,6 +276,22 @@ backgroundcolor=\color{lbcolor},
 \newcommand{\PdQv}{\emph{PianoDiQualifica\_v1.0.0}}
 \newcommand{\NdPv}{\emph{NormeDiProgetto\_v1.0.0}}
 \newcommand{\SdFv}{\emph{StudioDiFattibilità\_v1.0.0}}
+=======
+\newcommand{\gruppo}{\emph{SonsOfSwe}}
+%variabili per documenti
+\newcommand{\AdR}{\emph{AnalisiDeiRequisiti\_v1.0.0}}
+\newcommand{\SdF}{\emph{StudioDiFattibilità\_v1.0.0}}
+\newcommand{\VI}{\emph{VerbaleInterno\_v1.0.0}}
+\newcommand{\NdP}{\emph{NormeDiProgetto\_v1.0.0}}
+\newcommand{\PdP}{\emph{PianoDiProgetto\_v1.0.0}}
+\newcommand{\PdQ}{\emph{PianoDiQualifica\_v1.0.0}}
+\newcommand{\ST}{\emph{SpecificaTecnica\_v1.0.0}}
+\newcommand{\DdP}{\emph{DefinizioneDiProdotto\_v1.0.0}}
+\newcommand{\G}{\emph{Glossario\_v1.0.0}}
+\newcommand{\MU}{\emph{ManualeUtente\_v1.0.0}}
+\newcommand{\MM}{\emph{ManualeManutentore\_v1.0.0}}
+\newcommand{\VE}{\emph{VerbaleEsterno\_v1.0.0}}
+>>>>>>> piano_di_qualifica:template/sos.sty
 
 %variabili per le fasi
 \newcommand{\RR}{\emph{Revisione dei Requisiti}}
@@ -265,5 +303,9 @@ backgroundcolor=\color{lbcolor},
 \newcommand{\indirizzo}{\emph{nome@cognome.it}}
 \newcommand{\emailgruppo}{\emph{sonsofswe.swe@gmail.com}}
 \newcommand{\committenti}{Prof. Tullio Vardanega e Prof. Riccardo Cardin}
+<<<<<<< HEAD:lettera_presentazione/sos.sty
 \newcommand{\proponente}{\emph{Red Babel}}
 >>>>>>> norme_progetto:template/sos.sty
+=======
+\newcommand{\proponente}{\emph{Red Babel}}
+>>>>>>> piano_di_qualifica:template/sos.sty
