@@ -1,0 +1,3 @@
+Utilizzo dei verbi: deve essere sempre al futuro, in maniera imperativa.
+Controllare i paragrafi: alla fine ci deve essere sempre ;, a parte l'ultimo punto col .
+Nei paragrafi la descrizione in grassetto, i due punti fuori normali.

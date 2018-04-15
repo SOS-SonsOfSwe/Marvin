@@ -9,6 +9,7 @@
 *.lof
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 *.lot
 =======
 *.lot
@@ -16,3 +17,6 @@
 =======
 *.lot
 >>>>>>> piano_di_progetto
+=======
+*.lot
+>>>>>>> norme_progetto
