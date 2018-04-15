@@ -4,9 +4,18 @@
 \usepackage[top=3.1cm, bottom=3.1cm, left=2.2cm, right=2.2cm]{geometry}
 
 %aggiunti da Giovanni
+<<<<<<< HEAD:template/sos.sty.old
 \usepackage{comment}
 \usepackage{color,soul}
 \usepackage{colortbl}
+=======
+%\usepackage{comment}
+%\usepackage{color,soul}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{array}
+>>>>>>> analisi_dei_requisiti:template/sos.sty
 
 \newcommand{\copertina}{
 	\begin{titlepage}
@@ -88,6 +97,11 @@
 %\usepackage{calc} %introduce la notazione infissa per le op. aritmetiche interne a LaTeX
 
 \usepackage[utf8]{inputenc}
+<<<<<<< HEAD:template/sos.sty.old
+=======
+%\usepackage{cm-super}
+
+>>>>>>> analisi_dei_requisiti:template/sos.sty
 \usepackage{lmodern}
 %\usepackage[T1]{fontenc}
 \usepackage[italian]{babel} %il documento è in italiano
@@ -218,12 +232,14 @@ backgroundcolor=\color{lbcolor},
 \newcommand{\prog}{\emph{Progettista}}
 \newcommand{\progs}{\emph{Progettisti}}
 \newcommand{\RdP}{\emph{Responsabile di Progetto}}
+\newcommand{\Res}{\emph{Responsabile}}
 \newcommand{\progr}{\emph{Programmatore}}
 \newcommand{\progrs}{\emph{Programmatori}}
 \newcommand{\ver}{\emph{Verificatore}}
 \newcommand{\vers}{\emph{Verificatori}}
 \newcommand{\gruppo}{\emph{SonsOfSwe}}
 %variabili per documenti
+<<<<<<< HEAD:template/sos.sty.old
 \newcommand{\AdR}{\emph{Analisi dei Requisiti}}
 \newcommand{\SdF}{\emph{Studio di Fattibilità}}
 \newcommand{\VI}{\emph{Verbale Interno}}
@@ -238,6 +254,26 @@ backgroundcolor=\color{lbcolor},
 \newcommand{\MU}{\emph{Manuale Utente}}
 \newcommand{\MM}{\emph{Manuale Manutentore}}
 \newcommand{\VE}{\emph{Verbale Esterno}}
+=======
+\newcommand{\AdR}{\emph{AnalisiDeiRequisiti\_v1.0.0}}
+\newcommand{\SdF}{\emph{StudioDiFattibilità\_v1.0.0}}
+\newcommand{\VI}{\emph{VerbaleInterno\_v1.0.0}}
+\newcommand{\NdP}{\emph{NormeDiProgetto\_v1.0.0}}
+\newcommand{\PdP}{\emph{PianoDiProgetto\_v1.0.0}}
+\newcommand{\PdQ}{\emph{PianoDiQualifica\_v1.0.0}}
+\newcommand{\SP}{\emph{SpecificaTecnica\_v1.0.0}}
+\newcommand{\DdP}{\emph{DefinizionDiProdotto\_v1.0.0}}
+\newcommand{\G}{\emph{Glossario\_v1.0.0}}
+\newcommand{\MU}{\emph{ManualeUtente\_v1.0.0}}
+\newcommand{\MM}{\emph{ManualeManutentore\_v1.0.0}}
+\newcommand{\VE}{\emph{VerbaleEsterno\_v1.0.0}}
+
+
+\newcommand{\PdPv}{\emph{PianoDiProgetto\_v1.0.0}}
+\newcommand{\PdQv}{\emph{PianoDiQualifica\_v1.0.0}}
+\newcommand{\NdPv}{\emph{NormeDiProgetto\_v1.0.0}}
+\newcommand{\SdFv}{\emph{StudioDiFattibilità\_v1.0.0}}
+>>>>>>> analisi_dei_requisiti:template/sos.sty
 
 %variabili per le fasi
 \newcommand{\RR}{\emph{Revisione dei Requisiti}}
@@ -247,6 +283,10 @@ backgroundcolor=\color{lbcolor},
 
 %Variabili generiche
 \newcommand{\indirizzo}{\emph{nome@cognome.it}}
+<<<<<<< HEAD:template/sos.sty.old
 \newcommand{\emailgruppo}{\emph{sonsofswe.swe@gmail.com}}
 \newcommand{\committenti}{Prof. Tullio Vardanega e Prof. Riccardo Cardin}
 \newcommand{\proponente}{\emph{Red Babel}}
+=======
+\newcommand{\emailgruppo}{sonsofswe.swe@gmail.com}
+>>>>>>> analisi_dei_requisiti:template/sos.sty

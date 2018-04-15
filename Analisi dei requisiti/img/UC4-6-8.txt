@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Amministratore
+actor Università
+rectangle UC4.6.8 {
+Amministratore -- (UC4.6.8.1 - Modifica del codice di un corso di un'attività didattica)
+Amministratore -- (UC4.6.8.10 - Modifica di un esame)
+Amministratore -- (UC4.6.8.11 - Eliminazione di un esame)
+Amministratore -- (UC4.6.8.12 - Visualizzazione dell'errore relativo all'eliminazione di un esame)
+Amministratore -- (UC4.6.8.2 - Modifica del nome di un'attività didattica)
+Amministratore -- (UC4.6.8.3 - Modifica della descrizione di un'attività didattica)
+Amministratore -- (UC4.6.8.4 - Modifica del professore associato ad un'attività didattica)
+Amministratore -- (UC4.6.8.5 - Modifica dei crediti di un'attività didattica)
+Amministratore -- (UC4.6.8.6 - Modifica del periodo di un'attività didattica)
+Amministratore -- (UC4.6.8.7 - Annullamento della modifica di un'attività didattica)
+Amministratore -- (UC4.6.8.8 - Conferma della modifica di un'attività didattica)
+Amministratore -- (UC4.6.8.9 - Visualizzazione dell'errore relativo alla modifica di un’attività didattica non valida)
+Università -- (UC4.6.8.1 - Modifica del codice di un corso di un'attività didattica)
+Università -- (UC4.6.8.10 - Modifica di un esame)
+Università -- (UC4.6.8.11 - Eliminazione di un esame)
+Università -- (UC4.6.8.12 - Visualizzazione dell'errore relativo all'eliminazione di un esame)
+Università -- (UC4.6.8.2 - Modifica del nome di un'attività didattica)
+Università -- (UC4.6.8.3 - Modifica della descrizione di un'attività didattica)
+Università -- (UC4.6.8.4 - Modifica del professore associato ad un'attività didattica)
+Università -- (UC4.6.8.5 - Modifica dei crediti di un'attività didattica)
+Università -- (UC4.6.8.6 - Modifica del periodo di un'attività didattica)
+Università -- (UC4.6.8.7 - Annullamento della modifica di un'attività didattica)
+Università -- (UC4.6.8.8 - Conferma della modifica di un'attività didattica)
+Università -- (UC4.6.8.9 - Visualizzazione dell'errore relativo alla modifica di un’attività didattica non valida)
+}
+@enduml

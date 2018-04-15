@@ -1,0 +1,10 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Amministratore
+actor Università
+rectangle UC3.6.10 {
+Amministratore -- (UC3.6.10.1 - Visualizzazione dell'errore relativo all'eliminazione dell’attività didattica)
+Università -- (UC3.6.10.1 - Visualizzazione dell'errore relativo all'eliminazione dell’attività didattica)
+}
+@enduml
