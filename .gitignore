@@ -3,3 +3,8 @@
 *.out
 *.toc
 *.synctex.gz
+*.DS_Store
+*.Rhistory
+*.bak
+*.lof
+*.lot
