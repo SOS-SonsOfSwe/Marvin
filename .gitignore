@@ -8,7 +8,11 @@
 *.bak
 *.lof
 <<<<<<< HEAD
+<<<<<<< HEAD
 *.lot
 =======
 *.lot
 >>>>>>> studio_fattibilita
+=======
+*.lot
+>>>>>>> piano_di_progetto
