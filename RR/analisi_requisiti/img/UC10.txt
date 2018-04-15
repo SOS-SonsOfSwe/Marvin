@@ -1,0 +1,10 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Professore
+rectangle UC10 {
+Professore -- (UC10.1 - Annullamento della registrazione del voto, relativo ad uno specifico esame, di uno studente)
+Professore -- (UC10.2 - Conferma dell'inserimento di un voto)
+Professore -- (UC10.3 - Visualizzazione dell'errore di inserimento di un voto non valido)
+}
+@enduml

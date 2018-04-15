@@ -1,0 +1,34 @@
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.DS_Store
+*.Rhistory
+*.bak
+*.lof
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+*.lot
+=======
+*.lot
+>>>>>>> studio_fattibilita
+=======
+*.lot
+>>>>>>> piano_di_progetto
+=======
+*.lot
+>>>>>>> norme_progetto
+=======
+*.lot
+>>>>>>> Glossario
+=======
+*.lot
+>>>>>>> analisi_dei_requisiti
+=======
+*.lot
+>>>>>>> piano_di_qualifica

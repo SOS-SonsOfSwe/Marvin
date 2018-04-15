@@ -1,0 +1,261 @@
+\pagebreak
+\section{Metriche}
+\label{AppB:metric}
+\subsection{Metriche per il processo}
+\label{AppB:metricheProc}
+In questa sezione verranno descritte le metriche che verranno utilizzate per garantire la qualità dei processi.
+
+\paragraph{Schedule Variance - SV}
+\label{AppB:SV}
+	~\\La Schedule Variance è un indicatore che permette di capire se un processo è il linea, in anticipo o in ritardo con la schedulazione temporale indicata del \PdP{}. Viene calcolata come percentuale di tempo speso, considerando le date di inizio e di fine previste e la data di completamento effettiva:
+	
+	\begin{displaymath}
+\mbox{SV}= \frac{\mbox{Data di completamento effettiva - Data di completamento pianificata}} {\mbox{Data di completamento pianificata - Data di inizio pianificata}} * 100
+\end{displaymath}
+
+I risultati possibili sono tre:
+
+\begin{itemize}
+\item SV > 0, che indica un ritardo sui tempi pianificati;
+\item SV = 0, che indica l'essere in linea con i tempi pianificati;
+\item SV < 0, che indica un anticipo sui tempi pianificati.
+\end{itemize}
+
+\subparagraph{Soglie}
+\begin{itemize}
+\item Accettabilità: sarà accettato un valore SV $\le$ 10\%;
+\item Ottimalità: sarà ottimo un valore SV < 0.
+\end{itemize}
+	
+\paragraph{Cost Variance - CV}
+\label{AppB:CV}
+	~\\La Cost Variance è una metrica che permette di capire se i costi effettivi siano in linea o meno con i costi pianificati nel \PdP{}. Viene calcolata come percentuale di costo utilizzando BCWP (Budgeted Cost of Work Performed), cioè il valore delle attività svolte fino al momento del calcolo e ACWP (Actual Cost of Work Performed).
+	
+	\begin{displaymath}
+\mbox{CV}= \frac{\mbox{BCWP}-\mbox{ACWP}}{BCWP}*100\end{displaymath}
+
+I risultati possibili sono tre:
+
+\begin{itemize}
+\item CV > 0, che indica che il progetto sta producendo con un minor costo rispetto a quanto pianificato;
+\item CV = 0, che indica l'essere in linea con i costi preventivati;
+\item CV < 0, che indica che il progetto sta producendo con un costo maggiore rispetto a quello pianificato.
+\end{itemize}
+
+\subparagraph{Soglie}
+\begin{itemize}
+\item Accettabilità: sarà accettato un valore CV $\ge$ -5\%;
+\item Ottimalità: sarà ottimo un valore CV > 0.
+\end{itemize}
+
+\subsection{Metriche per il prodotto}
+\label{AppB:metricheProd}
+\subsubsection{Metriche per i documenti}
+\label{AppB:metricheDoc}
+In questa sezione vengono descritte le metriche che verranno utilizzate nel processo di verifica dei documenti prodotti.
+\paragraph{Errori ortografici}
+\label{AppB:ErroriOrtografici}
+	~\\Questa è la metrica che serve ad esprimere un giudizio di correttezza ortografica riguardo il documento prodotto. Gli errori saranno individuati secondo le seguenti modalità:
+il primo controllo, per quanto riguarda i documenti in lingua inglese, avverrà a tempo di stesura del documento tramite lo strumento di autocorrezione dell'ambiente \emph{''TexStudio''}, mentre il secondo controllo avverrà dopo aver terminato la prima redazione del documento stesso. Esso avverrà tramite due verifiche manuali del \ver{}: una temporanea dopo aver finito la stesura del documento ed una definitiva prima dell'approvazione finale del documento stesso.
+\newline Formula:
+\begin{displaymath}
+\mbox{Errori ortografici}= {\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
+\end{displaymath}
+
+\subparagraph{Soglie}
+\begin{itemize}
+\item Accettabilità: un valore inferiore o uguale a 3 errori ortografici;
+\item Ottimalità: un valore pari a 0.
+\end{itemize}
+
+\paragraph{Indice Gulpease}
+\label{AppB:IndiceGulpease}
+	~\\L'{Indice Gulpease} è un indice di leggibilità di un testo tarato sulla lingua italiana, con il vantaggio rispetto ad altri indici di utilizzare la lunghezza delle parole in lettere anzichè in sillabe, semplificandone il calcolo automatico. L'indice utilizza due variabili linguistiche: la lunghezza della parola e la lunghezza della frase rispetto al numero delle lettere.
+\newline La formula per il suo calcolo è la seguente:
+\begin{displaymath}
+\mbox{{Indice Gulpease}}= 89+\frac{300*\mbox{(numero delle frasi)}-10*\mbox{(numero delle lettere)}}{\mbox{numero delle parole}}
+\end{displaymath}
+I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilità più alta e "0" la leggibilità più bassa. In generale risulta che testi con un indice
+\begin{itemize}
+	\item Inferiori a 80 sono difficili da leggere per chi ha la licenza elementare;
+	\item Inferiore a 60 sono difficili da leggere per chi ha la licenza media;
+	\item Inferiore a 40 sono difficili da leggere per chi ha un diploma superiore.
+\end{itemize}
+
+\subparagraph{Soglie}
+\begin{itemize}
+\item Accettabilità: un valore superiore o uguale a 45;
+\item Ottimalità: un valore compreso tra 75 e 100.
+\end{itemize}
+
+\paragraph{Errori contenutistici}
+\label{AppB:ErroriCont}
+	~\\Questa è la metrica necessaria per esprimere la correttezza del contenuto di un documento. È importante verificare che i concetti trattati siano corretti e coerenti con quanto prefissato. Il valore ottenuto da questa metrica rappresenta il numero di errori concettuali riscontrati dal \ver{} durante la verifica definitiva del documento.
+\newline La formula utilizzata per il calcolo degli errori è la seguente:
+\begin{displaymath}
+\mbox{Errori concettuali}={\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
+\end{displaymath}
+
+\subparagraph{Soglie}
+\begin{itemize}
+\item Accettabilità: un valore inferiore o uguale a 3 errori;
+\item Ottimalità: un valore pari a 0 .
+\end{itemize}
+
+\paragraph{Struttura del documento}
+\label{AppB:ErroriForma}
+	~\\Viene utilizzata questa unità di misura per verificare quanto un documento sia attinente alle regole strutturali descritte nel documento \NdP{}.
+La metrica si basa sul numero di errori segnalati dal \ver{} durante la verifica definitiva del documento.
+\newline La formula utilizzata per il calcolo degli errori è la seguente:
+\begin{displaymath}
+\mbox{Errori di forma}={\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
+\end{displaymath}
+
+\subparagraph{Soglie}
+\begin{itemize}
+\item Accettabilità: un valore inferiore o uguale a 3 errori;
+\item Ottimalità: un valore pari a 0.
+\end{itemize}
+
+\subsubsection{Metriche per il prodotto software}
+\label{AppB:metricheSoft}
+In questa sezione si descrivono le metriche che verranno usate dal gruppo per verificare e garantire la qualità dei prodotti software durante il periodo del progetto. Si sottolinea il fatto che questa sarà solo una prima stesura delle metriche e sarà raffinata nel corso delle varie revisioni, facendo frutto dell'esperienza che verrà acquisita negli intervalli di lavoro tra esse.
+
+\paragraph{Requisiti soddisfatti}
+\label{AppB:Funzionalita}
+	~\\Tale metrica verrà utilizzata per valutare la funzionalità del software prodotto attraverso una misurazione quantificativa dei requisiti soddisfatti; verranno effettuate due misurazioni differenti, una per i soli requisiti obbligatori e una per tutti.
+
+\begin{description}
+\item[Requisiti obbligatori]
+	~\\ \begin{displaymath}
+		\mbox{ROS}=\frac{\mbox{numero requisiti obbligatori soddisfatti}}{\mbox{numero totale requisiti obbligatori}}
+	\end{displaymath}
+	
+\item[Requisiti obbligatori e facoltativi]
+	~\\ \begin{displaymath}
+		\mbox{ROFS}=\frac{\mbox{numero requisiti obbligatori soddisfatti} + \mbox{numero requisiti facoltativi soddisfatti}}{\mbox{numero totale requisiti}}
+	\end{displaymath}
+\end{description}
+
+\subparagraph{Soglie}
+\begin{itemize}
+\item Accettabilità: il prodotto verrà considerato accettabile quando ROS = 1;
+\item Ottimalità: il prodotto verrà considerato ottimale quando ROSF = 1.
+\end{itemize}
+
+\paragraph{Successo dei test}
+\label{AppB:Affidabilita}
+	~\\Tale metrica verrà utilizzata per valutare in parte il livello di affidabilità del prodotto software tramite il calcolo della percentuale di test aventi successo nella fase di verifica.
+	\begin{displaymath}
+		\mbox{Successo dei test}=\frac{\mbox{numero test aventi successo}}{\mbox{numero totale dei test effettuati}} * 100
+	\end{displaymath}
+	
+	\subparagraph{Soglie}
+	\begin{itemize}
+	\item Accettabilità: un valore maggiore o uguale al 98\%;
+	\item Ottimalità: un valore uguale a 100\%; tale risultato non sarà comunque indice di affidabilità totale del software: arrivare ad un tale risultato esigerebbe un carico di lavoro troppo elevato.
+	\end{itemize}
+	
+\paragraph{Tempo di risposta}
+\label{AppB:Efficienza}
+	~\\Tale metrica verrà utilizzata per valutare l'efficienza del prodotto basandosi sul tempo medio che intercorrà tra la richiesta di una certa funzionalità da parte dell'utente e la risposta del software. Con \textit{tempo medio} si intende la media tra i tempi medi di risposta di tutte le funzionalità: ognuna di esse dovrà essere testata almeno 5 volte ed in condizioni quanto più differenti.
+	
+	\begin{displaymath}
+		\mbox{T\ped{rispostaF}} =\frac{\sum_{k=1}^5 T\ped{test}k}{5}
+	\end{displaymath}
+	
+	\begin{displaymath}
+		\mbox{T\ped{rispostaTOT}} =\frac{\sum_{k=1}^n T\ped{rispostaF}k}{n}
+	\end{displaymath}
+	
+	\subparagraph{Soglie}
+	\begin{itemize}
+	\item Accettabilità: T\ped{rispostaTOT} compreso tra 0 e 10;
+	\item Ottimalità: T\ped{rispostaTOT} uguale o minore di 1.
+	\end{itemize}
+	 
+\paragraph{Validazione pagine web}
+\label{AppB:Usabilita}
+	~\\Tale metrica verrà usata come tentativo di applicare una metrica oggettiva e misurabile per valutare l'usabilità del prodotto finale; si è usata la parola "tentativo" poichè in effetti l'usabilità e l'accessibilità di un sito web sono due cose distinte, anche se affini: pagine web con contenuto inaccessibile saranno sicuramente poco usabili. Valutare l'accessibilità attraverso l'analisi del codice prodotto permetterà dunque di fornire una base allo sviluppo di pagine usabili.
+W3C offre uno strumento per valutare le pagine \emph{HTML}\ped{G}, come dichiarato nelle \NdP{}: esso riporta il numero e il tipo di errori trovati nel documento in esame.
+
+\subparagraph{Soglie}
+	\begin{itemize}
+	\item Accettabilità: saranno accettati file HTML ciascuno con un numero di errori minore o uguale a 5. In relazione alla dimensione finale del progetto, si darà anche un limite al numero totale degli errori come somma degli errori di tutti i file; si prevedono inoltre modifiche del limite di 5 errori rilevati (aumento o diminuzione) in corso d'opera;
+	\item Ottimalità: un numero di errori rilevati pari a 0 sarà indice di ottimalità per un file HTML
+	\end{itemize}
+	
+\pagebreak
+\subsubsection{Metriche per il codice}
+\label{AppB:metricheCod}
+In questa sezione si elencheranno e descriveranno le metriche utilizzate per valutare la qualità del codice sorgente prodotto; la loro applicazione servirà a valutare il grado di manutenibilità del prodotto software. Dato che il progetto è nella fase iniziale ed il team non ha ancora cominciato a produrre codice e a prendere familiarità con i linguaggi e le tecnologie che verranno usate, ciò che segue è da considerarsi un'ipotesi delle metriche che verranno usate, le quali molto probabilmente verranno riviste, sostituite o incrementate con l'avanzare dello sviluppo del progetto.
+
+\paragraph{Complessità ciclomatica}
+	~\\La complessità ciclomatica è una metrica utilizzata per misurare la complessità di un software attraverso la valutazione dei suoi metodi, classi e algoritmi. Essa è calcolata utilizzando il grafo di flusso: in esso i nodi corrispondono a gruppi indivisibili di istruzioni, mentre gli archi connettono due nodi se le istruzioni del secondo possono essere eseguite immediatamente dopo quelle del primo.
+Questa misurazione sarà utile nella fase di sviluppo per limitare la complessità delle singole parti del software e nella fase di test per capire quanti test diversi saranno necessari per testare adeguatamente il codice.
+La misurazione si baserà su un indice numerico intero: valori troppo alti indicano un'eccessiva complessità del codice con conseguente scarsa manutenibilità, mentre valori troppo bassi potrebbero indicare una scarsa efficienza.
+
+\subparagraph{Soglie}
+	\begin{itemize}
+	\item Accettabilità: un valore di complessità compreso tra 1 e 15, purchè per valori tra 10 e 15 sia specificato il motivo di tale complessità;
+ 	\item Ottimalità: un valore di complessità compreso tra 1 e 10.
+	\end{itemize}
+
+\paragraph{Commenti per linee di codice}
+	~\\Attraverso tale metrica si valuterà il rapporto commenti/linee di codice: una percentuale abbastanza alta di commenti aiuterà la comprensione del sorgente. Verrà misurata come segue:
+
+	\begin{displaymath}
+		\mbox{CxSLOC} =\frac{\mbox{Numero linee di commento}}{\mbox{Numero \emph{SLOC}\ped{G}}} * 100
+	\end{displaymath}
+
+\subparagraph{Soglie}
+	\begin{itemize}
+	\item Accettabilità: sarà accettato un valore CxSLOC compreso tra 20 e 25;
+	\item Ottimalità: sarà dichiarato ottimale un valore CxSLOC compreso tra 25 e 35.
+	\end{itemize}
+
+\paragraph{Parametri per metodo}
+	~\\Tale metrica si basa sul numero di parametri formali dei \emph{metodi}\ped{G} per valutare la complessità del codice: un numero elevato potrebbe infatti indicare un livello di complessità troppo alto per i singoli metodi.
+
+\subparagraph{Soglie}
+	\begin{itemize}
+	\item Accettabilità: saranno accettati metodi con un numero di parametri minore o uguale a 10;
+	\item Ottimalità: saranno considerati ottimi metodi con un numero di parametri minore o uguale a 5.
+	\end{itemize}
+
+\paragraph{Linee di codice per metodo}
+	~\\Tale metrica verrà utilizzata congiuntamente alla precedente (Parametri per metodo) per valutare il grado di complessità di un metodo: controllando il numero di \emph{statement}\ped{G} per ogni metodo è possibile facilitarne comprensione e verifica, spingendo verso una modularizzazione del codice il più ampia possibile. 
+Questa metrica sarà fortemente influenzata dall'esperienza che il team guadagnerà durante lo sviluppo del progetto, motivo per cui i valori che seguono saranno indicativi e molto probabilmente modificati in futuro.
+
+\subparagraph{Soglie}
+	\begin{itemize}
+	\item Accettabilità: saranno accettati metodi con una lunghezza pari o inferiore alle  50 righe;
+	\item Ottimalità: saranno considerati ottimi metodi con una lunghezza pari o inferiore alle 30 righe.
+	\end{itemize}
+
+\paragraph{Copertura del codice}
+	~\\Tale metrica è orientata alla valutazione della qualità dei test; essa misura infatti la capacità di coprire mediante test gli statement del codice, attraverso il loro conteggio in percentuale, al fine di fornire dei test che assicurino una valutazione del software il più affidabile possibile. Verrà calcolata come segue:
+
+	\begin{displaymath}
+		\mbox{Copertura} =\frac{\mbox{Numero di statement testati}}{\mbox{Numero di statement totali}} * 100
+	\end{displaymath}	
+	
+\subparagraph{Soglie}
+	\begin{itemize}
+	\item Accettabilità: sarà accettata un numero di statement testati pari al 70\%;
+	\item Ottimalità: sarà considerata ottima la capacità di testare almeno il 90\% degli statement.
+	\end{itemize}
+	
+
+\paragraph{Copertura dei branch}
+	~\\Tale metrica verrà utilizzata congiuntamente alla precedente (Copertura del codice) per valutare la qualità dei test. Essa indicherà la capacità dei test di valutare il maggior numero possibile di rami decisionali del grafo di flusso del software. Verrà calcolata come segue:
+
+	\begin{displaymath}
+		\mbox{Copertura\ped{branch}} =\frac{\mbox{Numero di rami raggiunti}}{\mbox{Numero di rami totali}} * 100
+	\end{displaymath}	
+	
+	\subparagraph{Soglie}
+	\begin{itemize}
+	\item Accettabilità: sarà accettata un numero di rami testati pari al 75\%;
+	\item Ottimalità: sarà considerata ottima la capacità di testare almeno il 95\% dei rami per funzionalità non ancora testate, mentre per codice già testato l'ottimalità sara data dalla capacità di testarne l'80\%.
+	\end{itemize}
