@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Amministratore
+actor Università
+rectangle UC3.6 {
+Amministratore -- (UC3.6.1 - Inserimento del codice di un corso di laurea)
+Amministratore -- (UC3.6.2 - Inserimento del nome di un corso di laurea)
+Amministratore -- (UC3.6.3 - Inserimento della descrizione di un corso di laurea)
+Amministratore -- (UC3.6.4 - Inserimento della tipologia di un corso di laurea)
+Amministratore -- (UC3.6.5 - Annullamento dell'aggiunta di un corso di laurea)
+Amministratore -- (UC3.6.6 - Conferma dell’aggiunta di un corso di laurea)
+Amministratore -- (UC3.6.7 - Aggiunta di un'attività didattica)
+Amministratore -- (UC3.6.8 - Visualizzazione dell'errore relativo all’aggiunta di corso di laurea non valido )
+Università -- (UC3.6.1 - Inserimento del codice di un corso di laurea)
+Università -- (UC3.6.2 - Inserimento del nome di un corso di laurea)
+Università -- (UC3.6.3 - Inserimento della descrizione di un corso di laurea)
+Università -- (UC3.6.4 - Inserimento della tipologia di un corso di laurea)
+Università -- (UC3.6.5 - Annullamento dell'aggiunta di un corso di laurea)
+Università -- (UC3.6.6 - Conferma dell’aggiunta di un corso di laurea)
+Università -- (UC3.6.7 - Aggiunta di un'attività didattica)
+Università -- (UC3.6.8 - Visualizzazione dell'errore relativo all’aggiunta di corso di laurea non valido )
+}
+@enduml

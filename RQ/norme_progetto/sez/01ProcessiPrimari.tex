@@ -1,0 +1,165 @@
+\section{Processi primari}
+\subsection{Processo di fornitura}
+
+\subsubsection{Studio di Fattibilità}
+Si tratta del documento in cui vengono analizzati tutti i capitolati, valutandone pregi e difetti, allo scopo di scegliere quello di maggiore affinità per il gruppo.
+Dopo che il \RdP{} (il cui ruolo è descritto nel paragrafo \ref{responsabile_progetto}) avrà riunito il team e discusso con esso di tutti i capitolati, gli \anas{} avranno il compito di stilare lo \SdF{} seguendo le considerazioni emerse.\\
+Lo \SdF{} sarà organizzato come segue:
+\begin{itemize}
+	\item \textbf{Informazioni sul capitolato}:
+	Vengono ricordati il nome del \emph{progetto}\ped{G}, il \textit{proponente}\ped{G} e i \textit{committenti}\ped{G};
+	\item \textbf{Descrizione}:
+	Si riassume lo scopo del capitolato;
+	\item \textbf{Dominio applicativo}:
+	Si specifica il settore di utilizzo del prodotto finale;
+	\item \textbf{Dominio tecnologico}:
+	Si elencano le tecnologie che dovranno essere utilizzate nello sviluppo del capitolato;
+	\item \textbf{Aspetti positivi}:
+	Si elencano i motivi che il gruppo potrebbe considerare vantaggiosi;
+	\item \textbf{Aspetti negativi}:
+	Si elencano le potenziali criticità che il gruppo dovrà tenere in considerazione nella scelta finale;
+	\item \textbf{Valutazione finale}:
+	Si analizzano gli aspetti positivi e quelli negativi riscontrati e si motiva l'eventuale approvazione o esclusione.
+\end{itemize}
+
+\subsubsection{Rapporti con il proponente}
+Una volta scelto il capitolato, si intende instaurare un rapporto quanto più costante e profittevole con la \proponente{} allo scopo di:
+\begin{itemize}
+	\item Stabilire un accordo in merito allo sviluppo, al mantenimento, al funzionamento e alla consegna del prodotto;
+	\item Realizzare un prodotto che soddisfi totalmente i requisiti obbligatori concordati e quanto più possibile quelli desiderabili;
+	\item Stimare i costi;
+	\item Concordare la qualifica del prodotto.
+\end{itemize}
+
+\subsubsection{Collaudo e consegna del prodotto}
+Una volta terminate le fasi di sviluppo, verifica e validazione si effettuerà il collaudo al fine di dimostrare che tutti i requisiti obbligatori e, possibilmente, anche alcuni dei requisiti opzionali siano stati soddisfatti. 
+\\In questa fase inoltre si dovrà dimostrare che l'esecuzione di tutti i test di validazione abbia dato un'esito positivo.
+\\Il team consegnerà in ultima il prodotto finale su un supporto fisico al \committenti.
+\\Il team consegnerà in ultima il prodotto finale su un supporto fisico ai \committenti.
+
+\subsection{Processo di sviluppo}
+\subsubsection{Attività}
+\paragraph{Analisi dei Requisiti}
+	~\\Gli \anas, una volta terminato lo \SdF, dovranno stilare l'\AdR, che si dovrà attenere alle seguenti regole: \\
+	~\\ \textbf{Classificazione dei Requisiti}:
+	i requisiti saranno classificati secondo la seguente codifica:
+		\begin{center}
+			R[Importanza][Tipo][Codice]
+		\end{center}
+	dove:
+	\begin{itemize}
+		\item \textbf{Importanza} può assumere questi valori:
+			\begin{itemize}
+				\item F: indica un requisito funzionale;
+				\item Q: indica un requisito di qualità;
+				\item P: indica un requisito prestazionale;
+				\item V: indica un requisito di vincolo.
+			\end{itemize}
+		\item \textbf{Tipo} può assumere questi valori:
+			\begin{itemize}
+				\item O: indica un requisito obbligatorio;
+				\item D: indica un requisito desiderabile;
+				\item F: indica un requisito facoltativo.
+			\end{itemize}
+		\item \textbf{Codice} indica il codice identificativo del requisito, è univoco e deve essere indicato in
+		forma gerarchica.
+	\end{itemize}
+	Per ogni requisito si dovrà inoltre indicare una breve descrizione e la fonte, che può essere una tra le seguenti:
+		\begin{itemize}
+		\item Capitolato: deriva direttamente dal testo del capitolato;
+		\item Verbale: deriva da un incontro verbalizzato;
+		\item Interno: deriva da discussioni interne al team.
+		\end{itemize}
+	
+	~\\ \textbf{Classificazione dei casi d'uso}: i casi d’uso saranno classificati secondo la seguente codifica:
+		\begin{center}
+			UC[Codice padre].[Codice identificativo]
+		\end{center}
+	dove:
+		\begin{itemize}
+			\item Codice padre: indica il codice del caso d’uso padre di quello in esame, se non è identificabile è da omettere;
+			\item Codice identificativo: codice univoco e progressivo del caso d’uso in esame.
+		\end{itemize}
+	Per ogni caso d’uso saranno inoltre identificate le seguenti informazioni:
+		\begin{itemize}
+			\item \textbf{Attori}: indica gli attori coinvolti nel caso d’uso;
+			\item \textbf{Descrizione}: chiara, precisa e concisa descrizione del caso d’uso;
+			\item \textbf{Precondizione}: indica la situazione che deve essere vera prima dell’esecuzione del caso d’uso;
+			\item \textbf{Flusso principale degli eventi}: descrizione composta dal flusso dei casi d’uso figli;
+			\item \textbf{Postcondizione}: indica la situazione che deve essere vera dopo l’esecuzione del caso d’uso;
+			\item \textbf{Estensioni}: indica quali sono tutte le estensioni, se presenti;
+			\item \textbf{Generalizzazioni}: indica quali sono tutte le generalizzazioni, se presenti.
+		\end{itemize}
+	
+\paragraph{Progettazione}
+	~\\I \progs{} (il cui ruolo è descritto nel paragrafo \ref{progettista}) dovranno delinerare i requisiti utili alla documentazione specifica e determinare le linee guida da seguire.
+	~\\La progettazione ha come scopo quello di soddisfare le peculiarità identificate durante l'\AdR. Un altro obiettivo è quello di realizzare un prodotto \emph{manutenibile}\ped{G} ovvero, un 
+	 che abbia una struttura in grado di facilitare i cambiamenti futuri.
+	\\Infine deve realizzare al meglio i requisiti di qualità imposti dal committente.
+	\subparagraph{Linee guida per la progettazione}
+	Dopo aver completato l'\AdR{} i \progs{} dovranno sottostare alle seguenti linee guida per lo sviluppo dell'architettura logica del sistema:
+	\begin{itemize}
+		\item Si dovrà puntare ad una progettazione chiara e di immediata comprensione;
+		\item Le componenti progettate dovranno essere quanto più riutilizzabili e manutenibili;
+		\item La complessità non dovrà mai essere intrattabile;
+		\item I \progs{} dovranno rientrare nei costi e nelle risorse disponibili;
+		\item I \progs{} dovranno descrivere i \emph{design pattern}\ped{G} che intendono utilizzare per la realizzazione dell'architettura, fornendone una breve descrizione e un diagramma.
+	\end{itemize}
+\begin{comment}
+	\subparagraph{UML}
+	~\\Le tipologie di diagrammi \emph{UML}\ped{G} che verranno adoperate per analizzare, descrivere e specificare le scelte progettuali adottate saranno:
+	\begin{itemize}
+		\item \textbf{Diagrammi di classe}:
+		\item \textbf{Diagrammi di } \emph{\textbf{package}}\ped{G}: documentano le dipendenze tra le classi ed è utile per controllare la complessità strutturale in sistemi medio-grandi;
+		\item \textbf{Diagrammi di attività}: modellano un processo e organizzano più entità in un sistema di azioni secondo un determinato flusso. I diagrammi delle attività sono un tipo particolare di \emph{diagramma di stato}\ped{G} che identifica la variazione di stato al verificarsi di alcune condizioni legate ad una o più entità;
+		\item \textbf{Diagrammi di sequenza}: descrivono la collaborazione di un gruppo di oggetti che devono implementare collettivamente un comportamento. Sono diagrammi molto semplici, ma che permettono di capire se l'architettura creata viene eseguita.
+	\end{itemize}
+
+	\paragraph{Codifica}
+	~\\In questa fase i \progrs{} (il cui ruolo è descritto nel paragrafo \ref{programmatore}), seguendo le norme delineate nella progettazione, devono realizzare il passaggio dalla fase di pianificazione all'effettiva realizzazione del prodotto.
+	Le norme qui presenti serviranno come strumento per realizzare un codice uniforme e di alta qualità. Inoltre, per mantenerne la manutenibilità, dovrà essere realizzato in inglese.
+	I \progrs{} si dovranno attenere agli standard di codifica qui di seguito elencati.
+	\subparagraph{Nomi}
+	\begin{itemize}
+		\item Ogni elemento deve avere un nome rappresentativo e pertinente alla funzione da esso svolta;
+		\item Si dovrà utilizzare la notazione \emph{CamelCase}, ovvero la concatenazione di più parole, ognuna delle quali con lettera iniziale maiuscola. In caso di metodi e variabili la prima lettera dovrà essere minuscola, mentre per le classi maiuscola;
+		\item Si potranno utilizzare singole lettere esclusivamente per identificare gli indici dei cicli;
+		\item Saranno da evitare notazioni troppo simili tra di loro in significato e denominazione;
+		\item Si dovranno evitare errori di ortografia.
+	\end{itemize}
+	\subparagraph{Commenti}
+	~\\Sarà necessario che il codice contenga dei commenti esplicativi per facilitarne la comprensione.
+	\newline In particolare, si dovranno seguire queste linee guida:
+	
+	\begin{comment}
+	\begin{itemize}
+		\item \textcolor{red}{lista di linee guida per i commenti}
+	\end{itemize}
+	\end{comment}
+	
+	\subparagraph{Formattazione}
+	\begin{itemize} 
+		\item Il rientro predefinito dovrà essere di un \emph{Tab} per allineare le sezioni di codice;
+		\item La parentesi graffa di apertura sarà alla fine della riga, mentre quella di chiusura a capo;
+		\item Prima e dopo ogni operatore dovrà esserci uno spazio);
+		\item I blocchi saranno tra loro spaziati per una maggiore comprensione;
+%		\item Il codice sorgente dovrà essere quanto più suddiviso in file e dovrà essere raggruppato in sottocartelle che dovranno rispecchiare il pattern utilizzato.
+%		\item \textcolor{red}{Se ce ne sono altre le inseriamo qui. Da pensare al pattern, }
+	\end{itemize}
+\subsubsection{Strumenti}
+Gli strumenti utilizzati durante la fase dei processi primari sono:
+\begin{itemize}
+	\item \textbf{TexStudio}
+	\newline Il gruppo ha scelto \emph{TexStudio} come editor multipiattaforma per comporre i documenti in \emph{\LaTeX}\ped{G};
+	\item \emph{\textbf{\emph{SWEgo}}}\ped{G}
+	~\\ Il gruppo ha scelto \emph{SWEgo}\footnote{\href{https://www.swego.it/}{https://www.swego.it/}} come database per la gestione dei casi d'uso, dei requisiti e del loro tracciamento per il documento \AdR{}. Dopo un'attenta analisi preliminare dello strumento il team ha deciso di utilizzarlo nonostante alcuni problemi rilevati nella generazione del codice \LaTeX{} perché, permette una stesura standardizzata e sempre aggiornata di alcuni capitoli importanti del documento, a fronte di correzioni minori e applicabili in maniera seriale e regolamentata;
+	\item \textbf{Astah}\ped{G}
+	~\\Il gruppo ha scelto l'utilizzo di \emph{Astah} per la generazione dei diagrammi dei casi d'uso dell'\AdR{};
+	\item \textbf{Microsoft Excel 365}
+	\newline Il gruppo ha scelto di utilizzare \emph{Microsoft Excel 365}\ped{G} per la generazione di grafici e di tabelle da poter inserire all'interno del \PdQ{} e \PdP{} perché di immediata realizzazione e visualizzazione;
+	
+	\item \textbf{Instagantt}
+	~\\Instagantt\footnote{\href{https://instagantt.com/}{https://instagantt.com/}} è un servizio web fortemente legato ad Asana (vedi descrizione negli strumenti dei \emph{processi organizzativi}), strumento con il quale si integra perfettamente, nonostante sia disponibile anche una versione \emph{standalone}\ped{G}. Esso permette di creare diagrammi di Gantt e gestire in maniera semplificata la timeline e la struttura di un progetto.
+	
+\end{itemize}	
+
