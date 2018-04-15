@@ -2,6 +2,7 @@
 \usepackage{graphbox}
 % permette di modificare i margini
 \usepackage[top=3.1cm, bottom=3.1cm, left=2.2cm, right=2.2cm]{geometry}
+<<<<<<< HEAD
 
 %aggiunti da Giovanni
 %\usepackage{comment}
@@ -11,13 +12,16 @@
 \usepackage{longtable}
 \usepackage{array}
 
+=======
+\usepackage{comment}
+>>>>>>> studio_fattibilita
 \newcommand{\copertina}{
 	\begin{titlepage}
 		\begin{center}
 			
 			\begin{center}
 				%sostituire con immagine copertina del gruppo
-				\centerline{\includegraphics[scale=0.24]{img/logo.png}}
+				\centerline{\includegraphics[scale=0.20]{../../template/img/logo.png}}
 			\end{center}
 			
 			\vspace{1cm}
@@ -39,14 +43,14 @@
 			\bgroup
 			\def\arraystretch{1.3}
 			\centering
-			\begin{tabular}{c|L{5cm}}
+			\begin{tabular}{r|L{5cm}}
 				\multicolumn{2}{c}{\textbf{Informazioni sul documento} } \\ \hline
-				Versione &  1.0\\
-				Redazione & \ACapoRedazione{} \\
-				Verifica & \Verifica{} \\ 
-				Approvazione & \Approvazione{} \\
-				Uso & \Uso \\
-				Distribuzione & \Distribuzione{}
+				\textbf{Versione} &  1.0.0\\
+				\textbf{Redazione} & \ACapoRedazione{} \\
+				\textbf{Verifica} & \Verifica{} \\ 
+				\textbf{Approvazione} & \Approvazione{} \\
+				\textbf{Uso} & \Uso \\
+				\textbf{Distribuzione} & \Distribuzione{}
 			\end{tabular}
 			\egroup
 			
@@ -69,7 +73,7 @@
 
   \lhead{ %in alto a sx
   % da modificare quando avremo un logo
-  	Metterci un logo quando ne avremo uno
+  	\includegraphics[scale=0.02]{../../template/img/logo.png}
   }
 
   \rhead{
@@ -91,7 +95,8 @@
 %\usepackage{calc} %introduce la notazione infissa per le op. aritmetiche interne a LaTeX
 
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage[T1]{fontenc}
 \usepackage[italian]{babel} %il documento è in italiano
 %\usepackage{textcomp} %The pack­age sup­ports the Text Com­pan­ion fonts, which pro­vide many text sym­bols
 %(such as baht, bul­let, copy­right, mu­si­cal­note, onequar­ter, sec­tion, and yen), in the TS1 en­cod­ing.
@@ -215,14 +220,24 @@ backgroundcolor=\color{lbcolor},
 %Variabili per ruoli
 \newcommand{\ana}{\emph{Analista}}
 \newcommand{\anas}{\emph{Analisti}}
+<<<<<<< HEAD
 \newcommand{\progs}{\emph{Progettisti}}
 \newcommand{\RdP}{\emph{Responsabile di Progetto}}
+=======
+\newcommand{\adm}{\emph{Amministratore}}
+\newcommand{\adms}{\emph{Amministratori}}
+\newcommand{\prog}{\emph{Progettista}}
+\newcommand{\progs}{\emph{Progettisti}}
+\newcommand{\RdP}{\emph{Responsabile di Progetto}}
+\newcommand{\Res}{\emph{Responsabile}}
+>>>>>>> studio_fattibilita
 \newcommand{\progr}{\emph{Programmatore}}
 \newcommand{\progrs}{\emph{Programmatori}}
 \newcommand{\ver}{\emph{Verificatore}}
 \newcommand{\vers}{\emph{Verificatori}}
 \newcommand{\gruppo}{\emph{SonsOfSwe}}
 %variabili per documenti
+<<<<<<< HEAD
 \newcommand{\AdR}{\emph{Analisi dei Requisiti}}
 \newcommand{\SdF}{\emph{Studio di Fattibilità}}
 \newcommand{\VI}{\emph{Verbale Interno}}
@@ -241,3 +256,31 @@ backgroundcolor=\color{lbcolor},
 %Variabili generiche
 \newcommand{\indirizzo}{\emph{nome@cognome.it}}
 \newcommand{\emailgruppo}{sonsofswe.swe@gmail.com}
+=======
+\newcommand{\AdR}{\emph{AnalisiDeiRequisiti\_v1.0.0}}
+\newcommand{\SdF}{\emph{StudioDiFattibilità\_v1.0.0}}
+\newcommand{\VI}{\emph{VerbaleInterno\_v1.0.0}}
+\newcommand{\NdP}{\emph{NormeDiProgetto\_v1.0.0}}
+\newcommand{\PdP}{\emph{PianoDiProgetto\_v1.0.0}}
+\newcommand{\PdPv}{\emph{PianoDiProgetto\_v1.0.0}}
+\newcommand{\PdQ}{\emph{PianoDiQualifica\_v1.0.0}}
+\newcommand{\PdQv}{\emph{PianoDiQualifica\_v1.0.0}}
+\newcommand{\ST}{\emph{SpecificaTecnica\_v1.0.0}}
+\newcommand{\DdP}{\emph{DefinizioneDiProdotto\_v1.0.0}}
+\newcommand{\G}{\emph{Glossario\_v1.0.0}}
+\newcommand{\MU}{\emph{ManualeUtente\_v1.0.0}}
+\newcommand{\MM}{\emph{ManualeManutentore\_v1.0.0}}
+\newcommand{\VE}{\emph{VerbaleEsterno\_v1.0.0}}
+
+%variabili per le fasi
+\newcommand{\RR}{\emph{Revisione dei Requisiti}}
+\newcommand{\RP}{\emph{Revisione di Progettazione}}
+\newcommand{\RQ}{\emph{Revisione di Qualifica}}
+\newcommand{\RA}{\emph{Revisione di Accettazione}}
+
+%Variabili generiche
+\newcommand{\indirizzo}{\emph{nome@cognome.it}}
+\newcommand{\emailgruppo}{\emph{sonsofswe.swe@gmail.com}}
+\newcommand{\committenti}{Prof. Tullio Vardanega e Prof. Riccardo Cardin}
+\newcommand{\proponente}{\emph{Red Babel}}
+>>>>>>> studio_fattibilita
