@@ -1,0 +1,47 @@
+\message{ !name(PianoDiQualifica_v1.0.0.tex)}%generare il pdf con il comando: pdflatex main.tex
+\documentclass[a4paper, oneside, openany,dvipsnames,table]{article}
+\usepackage{../template/sos}
+\usepackage{eurosym}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\definecolor{bluSOS}{RGB}{48, 84, 150}
+\input{comandi.tex}
+
+
+
+\begin{document}
+
+\message{ !name(PianoDiQualifica_v1.0.0.tex) !offset(-3) }
+
+\copertina{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%SOMMARIO
+\input{sez/RegistroModifiche.tex}
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PARAGRAFI
+\hypersetup{linkcolor=bluSOS}
+\input{sez/Introduzione.tex}
+\input{sez/ObiettiviDiQualita.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\pagebreak
+\input{sez/AppendiceA-Standard.tex}
+\pagebreak
+\input{sez/AppendiceB-Metriche.tex}
+\pagebreak
+\input{sez/AppendiceC-ResocontoAttivitaVerifica.tex}
+
+
+
+\end{document}
+
+
+
+\message{ !name(PianoDiQualifica_v1.0.0.tex) !offset(-47) }

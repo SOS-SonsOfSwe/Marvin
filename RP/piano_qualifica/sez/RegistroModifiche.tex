@@ -1,15 +1,16 @@
 \definecolor{greySOS}{RGB}{209, 222, 223}
 \section*{Registro delle modifiche}
-{
+\begin{center}
 	\rowcolors{2}{greySOS}{white}
 	\renewcommand{\arraystretch}{1}
 	\centering
 	\begin{longtable}{| c| c | C{4cm} | c | c |}
 		\hline
 		\rowcolor{bluSOS}
-		\textcolor{white}{\textbf{Versione}} & \textcolor{white}{\textbf{Data}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Autore}} & \textcolor{white}{\textbf{Ruolo}}\\
+		\multicolumn{1}{|c|}{\textcolor{white}{Versione}} & \multicolumn{1}{c|}{\textcolor{white}{Data}} & \multicolumn{1}{c|}{\textcolor{white}{Descrizione}} & \multicolumn{1}{c|}{\textcolor{white}{Autore}} & \multicolumn{1}{c|}{\textcolor{white}{Ruolo}} \parbox{0pt}{\rule{0pt}{2ex+\baselineskip}}\\ [1.5ex]
 		\hline
-		1.0.0 & 2018-04-11 & Approvazione & Stefano Panozzo & \Res{} \\
+                \endhead %ripete l'header in ogni pagina in cui è presente la tabella
+                1.0.0 & 2018-04-11 & Approvazione & Stefano Panozzo & \Res{} \\
 		\hline
 		0.2.0 & 2018-04-10 & Verificazione & Eleonora Thiella & \ver{} \\
 		\hline
@@ -39,7 +40,7 @@
 		\hline
 	\end{longtable}
 
-}
+\end{center}
 
 
 %dvipsnames, table
