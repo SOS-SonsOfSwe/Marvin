@@ -1,0 +1,13 @@
+%generare il pdf con il comando: pdflatex main.tex
+\documentclass[a4paper, oneside, openany]{article}
+\usepackage{../template/sos}
+\input{comandi.tex}
+\begin{document}
+	\copertina{}
+	\input{sez/RegistroModifiche.tex}
+	\newpage
+	\tableofcontents
+	\newpage
+	\input{sez/I4.tex}
+
+\end{document}
