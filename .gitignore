@@ -7,28 +7,21 @@
 *.Rhistory
 *.bak
 *.lof
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 *.lot
-=======
-*.lot
->>>>>>> studio_fattibilita
-=======
-*.lot
->>>>>>> piano_di_progetto
-=======
-*.lot
->>>>>>> norme_progetto
-=======
-*.lot
->>>>>>> Glossario
-=======
-*.lot
->>>>>>> analisi_dei_requisiti
-=======
-*.lot
->>>>>>> piano_di_qualifica
+
+
+
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build
+build_webpack
+
+# misc
+.env
+npm-debug.log
+.truffle-solidity-loader
