@@ -295,8 +295,73 @@ Questa attività, che viene svolta in corso d'opera, deve essere:
 	\item Accurata, devono essere evitate scorrettezze;
 	\item Non intrusiva, non deve interrompere alcuna attività durante la sua esecuzione.
 \end{itemize}
-Le modalità sfruttate saranno elencate qui di seguito.
+
+	\subsubsection{Qualità}
+	Nel documento \PdQ{} si devono descrivere le tecniche usate dai membri del gruppo con lo scopo di garantire la qualità del prodotto, in particolare:
+	\begin{itemize}
+		\item tutti gli standard adottati e che si occupano della qualità dei processi devono essere citati;
+		\item devono essere presentati tutti i processi rilevanti di tali standard.
+	\end{itemize}
+	Inoltre per ogni processo si devono descrivere:
+	\begin{itemize}
+		\item gli obbiettivi di qualità che derivano da esso;
+		\item le metodologie e le strategie considerate di utilità per raggiungerne gli obbiettivi;
+		\item le metriche da utilizzare per poter effettuare delle misurazioni oggettive e qualitative.
+	\end{itemize}
+
+		\paragraph{Metriche di qualità}
+		\subparagraph{Metriche per il processo}
+	Per la valutazione di qualità dei processi si è deciso di utilizzare le seguenti metriche, che verranno utilizzate all'interno del \PdQ{} per rendicontare le attività di verifica:
+	\begin{itemize}
+		\item \textbf{Schedule Variance - SV}: verrà utilizzata per valutare la pianificazione temporale prevista dal \PdP{} e per la valutazione dei rischi all'interno del Risk Management Process;
+		\item \textbf{Struttura a 6 livelli definita da SPICE}: verrà utilizzata per valutare e migliorare la qualità del lavoro svolto;
+		\item \textbf{Cost Variance - CV}: verrà utilizzata per verificare se i costi sono stati rispettati rispetto a quanto concordato nel \PdP{}.
+	\end{itemize}
+	\subparagraph{Metriche per i documenti}
+	Per la valutazione di qualità dei documenti si è deciso di utilizzare le seguenti metriche, che verranno utilizzate all'interno del \PdQ{} per rendicontare le attività di verifica:
+	\begin{itemize}
+		\item \textbf{Numero di errori ortografici}: verrà utilizzata per valutare la presenza di errori ortografici all'interno del documento verificato;
+		\item \textbf{Indice Gulpease}: verrà utilizzata per valutare l'indice di leggibilità del testo prodotto;
+		\item \textbf{Errori contenutistici:} verrà utilizzata per esprimere la correttezza di contenuto all'interno del documento;
+		\item \textbf{Errori di forma:} verrà utilizzata per valutare quanto il prodotto sia conforme alle regole strutturali definite.
+	\end{itemize}
+	\subparagraph{Metriche per il software}
+	Per la valutazione di qualità del software prodotto si è deciso di utilizzare le seguenti metriche, che verranno utilizzate all'interno del \PdQ{} per rendicontare le attività di verifica:
+	\begin{itemize}
+		\item \textbf{Requisiti soddisfatti}: verrà utilizzata per valutare la funzionalità software attraverso una misurazione quantitativa dei requisiti soddisfatti;
+		\item \textbf{Successo dei test}: verrà utilizzata per valutare il livello di affidabilità del prodotto software tramite il calcolo dei test aventi successo durante la fase di verifica;
+		\item \textbf{Tempo di risposta}: verrà utilizzata per valutare l'efficienza del prodotto basandosi sul tempo medio che intercorrerà tra la richiesta di una funzionalità da parte dell'utente e la risposta del software;
+		\item \textbf{Validazione di pagine web}: verrà utilizzata per valutare l'usabilità del prodotto finale.
+		\item \textbf{Metriche per il codice}: verranno utilizzate per valutare la manutenibilità del codice, e la sua proprietà di essere evolvibile nel tempo attraverso correzioni, miglioramenti ed aggiunte;
+		\item \textbf{Numero di browser supportati}: verrà utilizzata per valutare la portabilità del software prodotto, ossia la sua capacità di operare in ambienti\ped{G} diversi, limitando la necessità di apportare cambiamenti.
+	\end{itemize}
 %\begin{comment}
+	\paragraph{Verifica dei documenti}
+Il \RdP{} Ha il compito di dare inizio al processo di verifica della documentazione prodotta, assegnando i corrispettivi compiti ai \vers{}. Questi dovranno verificare che siano state rispettate in maniera rigida le seguenti regole, e in caso contrario segnalarlo per una successiva correzione:
+\begin{itemize}
+	\item Utilizzo di una sintassi corretta e semplice;
+	\item Utilizzo di brevi periodi, per evitare frasi troppo complesse;
+	\item Un corretto annidamento della struttura del documento, evitando gerarchie troppo profonde o estese;
+	\item Rispetto di tutte le norme precedentemente elencate in questo documento.
+\end{itemize}
+Per tutta la durata del progetto il team avrà inoltre l'obbligo di utilizzare il registro delle modifiche ogni qual volta deciderà di alterare il contenuto di un documento, al fine di tenere traccia dei cambiamenti effettuati e degli errori commessi.
+Un \ver{}, per un corretto svolgimento della sua attività, ha il compito di svolgere i task descritti nei paragrafi successivi secondo il seguente ordine:
+\begin{itemize}
+	\item Attività manuale di verifica;
+	\item Attività automatica di verifica;
+	\item Resoconto delle attività di verifica.
+\end{itemize}
+\subparagraph{Attività manuale di verifica}
+I \vers{} avranno il compito di eseguire l'attività manuale di verifica sui documenti in maniera attenta e minuziosa, accompagnando l'attività stessa da un elenco contenente il resoconto degli errori riscontrati secondo tutte le metriche presentate nelle \NdP{} e discusse nel \PdQ{}.
+
+\subparagraph{Attività automatica di verifica}
+Per ottenere una seconda verifica sui documenti prodotti, andando a consolidare già la prima verifica manuale effettuata, si è deciso di svolgere una verifica automatizzata tramite l'utilizzo del correttore automatico dell'editor di testo \emph{TeXstudio}, al fine di individuare eventuali errori tralasciati per motivi di distrazione.
+
+\subparagraph{Resoconto dell'attività di verifica}
+Al termine dello svolgimento dell'attività di verifica, il \ver{} è tenuto a consegnare al \RdP{}, il resoconto finale contenente tutti gli errori riscontrati durante lo svolgimento dell'attività, in modo che possano venire effettuate le opportune correzioni e discussi eventuali cambiamenti da entrambi i membri. Al termine della correzione dovrà quindi essere aggiornato il registro delle modifiche per tenere traccia dei cambiamenti effettuati e degli errori precedentemente commessi.
+Tutti gli errori riscontrati durante l'ultima attività di verifica, verranno inoltre impiegati in seguito per calcolare le metriche riguardanti gli obiettivi di qualità prefissati per i documenti redatti, e pubblicati nelle appendici del \PdQ{}.
+
+
 	\subsubsection{Analisi}
 	\paragraph{Analisi statica}
 	~\\Studia il codice sorgente e la documentazione e controlla che essi seguano le norme. Non richiede l'esecuzione del prodotto software in nessuna sua parte, ma si limita all'osservazione. Questo processo può essere visto come una verifica dinamica del comportamento del programma su un insieme finito di casi selezionati nel dominio di tutte le esecuzioni possibili. Ciascun caso di prova, specifica i valori in ingresso e lo stato iniziale del sistema e deve produrre un esito decidibile, verificato rispetto ad un comportamento atteso. 
@@ -316,12 +381,15 @@ Le modalità sfruttate saranno elencate qui di seguito.
 	Il testing è una parte essenziale del processo di verifica: produce una misura della qualità del sistema
 	aumentandone il valore, identificandone e rimuovendone i difetti. Il suo inizio non va differito
 	al termine delle attività di codifica e le sue esigenze devono essere tenute in conto nella progettazione del sistema. Tutti i test devono essere rieseguibili e devono sempre produrre lo stesso esito. Devono essere eseguiti in condizioni controllate, diventando così deterministici.
-	~\\I test si possono dividere nelle categorie qui descritte.
+	~\\Di seguito vengono descritte le tipologie di test, assieme alla sintassi relativa al modo in cui sono identificati all'interno del \PdQ.
 		\paragraph{Test di unità (TU)}
 		~\\Il loro obiettivo è quello di verificare la correttezza del codice \emph{as implemented}, ovvero
 		puntando a controllare il codice in maniera microscopica.
 		\\La responsabilità della loro realizzazione è del \progr{} per le unità più semplici, e di un \ver{} indipendente per le altre.
-		\\Le risorse consumate da questo tipo di test sono molto poche perché,  sono coinvolte piccole parti di codice che hanno basso accoppiamento le une con le altre. 
+		\\Le risorse consumate da questo tipo di test sono molto poche perché,  sono coinvolte piccole parti di codice che hanno basso accoppiamento le une con le altre. I test di unità sono classificati come segue:
+		\begin{center} TU[codice identificativo]\end{center}
+		dove il codice identificativo è numerico, incrementale (iniziando da 1) ed univoco per ogni test.		
+		
 		\paragraph{Test di integrazione (TI)}
 		~\\Questi test verificano non solo il corretto comportamento di ogni singolo oggetto, 
 		ma anche le relazioni con gli altri componenti dell'applicazione.
@@ -335,22 +403,33 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		Un test di questo tipo consuma molte risorse dato che, la grandezza del codice da controllare è 
 		significativa ed il grado di accoppiamento tra le varie parti da testare è massimo. 
 		L'utilizzo di un test di questo tipo deve quindi essere ponderato e, in generale, da non preferire a quello di unità.
+		I test di integrazione sono classificati come segue:
+		\begin{center} TI[codice identificativo]\end{center}
+		dove il codice identificativo è numerico, incrementale (iniziando da 1) ed univoco per ogni test.
+		
+		
 		\paragraph{Test di sistema (TS)}
 		~\\I test di sistema possono essere visti come un'attività interna del fornitore
 		per accertare la copertura dei requisiti software.
 		\newline{}Questo tipo di test richiede molte risorse e, in generale, non va utilizzato per testare
-		unità singole.
+		unità singole. I test di sistema sono classificati come segue:
+		\begin{center} TS[codice requisito]\end{center}
+		dove il codice requisito identifica	il codice univoco associato ad ogni requisito descritto nel documento \AdR.
+		
 		\paragraph{Test di regressione (TR)}
 		~\\I test di regressione sono l'insieme dei TU e TI necessari ad accertare che la modifica
 		di una parte del prodotto non causi errori nelle altre parti che hanno relazioni con essa.
 		\\Un test di questo tipo consuma tante più risorse quanto la parte modificata è accoppiata con le altre, 
 		anche perché comporta la ripetizione di test già previsti ed effettuati per ogni parte che non è 
 		stata modificata.
-		\paragraph{Test di validazione}
-		Il test di validazione è un'attività supervisionata dal committente e dal proponente come dimostrazione di conformità del prodotto sulla base 
+		
+		\paragraph{Test di validazione (TV)}
+		~\\Il test di validazione è un'attività supervisionata dal committente e dal proponente come dimostrazione di conformità del prodotto sulla base 
 		di casi di prova specificati o implicati dal contratto.
 		Alla validazione segue il rilascio del prodotto con eventuale garanzia e la fine della
-		\emph{commessa}\ped{G},	con eventuale manutenzione.
+		\emph{commessa}\ped{G},	con eventuale manutenzione. I test di validazione sono classificati come segue:
+		\begin{center} TV[codice requisito]\end{center}
+		dove il codice requisito identifica	il codice univoco associato ad ogni requisito descritto nel documento \AdR.
 	
 	\subsubsection{Strumenti}
 	\paragraph{Strumenti per l'analisi statica}
@@ -358,20 +437,45 @@ Le modalità sfruttate saranno elencate qui di seguito.
 		\item \emph{\textbf{\emph{TexStudio}}}\ped{G}\footnote{\href{https://www.texstudio.org/}{https://www.texstudio.org/}}
 		~\\Questo editor include un correttore ortografico automatico che sarà utilizzato per verificare la corretta sintassi dei manuali in lingua inglese da fornire alla \proponente. Tuttavia tale strumento non è preciso nell'individuazione degli errori più sottili, quindi sarà comunque necessaria un'analisi più approfondita da parte dei \vers;
 		\item \textbf{Indice \emph{Gulpease}}\ped{G}
-		~\\Per i test di leggibilità il team ricorrà al calcolo dell'indice Gulpease;
+		~\\Per i test di leggibilità il team ricorrerà al calcolo dell'indice Gulpease;
 		\begin{comment}
 		\item 
 		\emph{\textbf{\emph{JSHint}}}\ped{G}\footnote{\href{http://jshint.com/}{http://jshint.com/}}
 		~\\È uno strumento \emph{OpenSource}\ped{G} funzionale alla rilevazione degli errori e possibili problemi nel codice \emph{JavaScript}\ped{G};
 		\item 
-		\emph{\textbf{\emph{W3C Markup Validation Service}}}\ped{G}\footnote{\href{https://validator.w3.org/}{https://validator.w3.org/}}
-		~\\È uno strumento per la valid
-		\item 
 		\emph{\textbf{\emph{Draw.io}}}\ped{G}\footnote{\href{https://www.draw.io/}{https://www.draw.io/}}
 		\\È un software per la creazione di diagrammi di flusso, di processo, organigrammi, UML, ER e diagrammi di rete.
-		azione dei documenti \emph{HTML}\ped{G} e \emph{xHTML}\ped{G};
 		\end{comment}
+		
+		% AAAAAAAAAAAAAA PERCHE IL VALIDATORE ERA COMMENTATO?? Bisogna specificarlo nelle norme perchè se ne parla nel PdQ!!
+		
+		\item \textbf{\emph{W3C Markup Validation Service}}\ped{G}\footnote{\href{https://validator.w3.org/}{https://validator.w3.org/}}
+		~\\È uno strumento per la validazione rispetto agli standard dei documenti \emph{HTML}\ped{G} e \emph{xHTML}\ped{G};
+		
+		\item \textbf{Microsoft Excel}\ped{G}
+		~\\Tale programma verrà utilizzato per calcolare alcune metriche di qualità e fornirne i risultati in un formato grafico nel \PdQ.
+		
 	\end{itemize}
+
+\subsection{Validazione}
+Il processo di validazione ha i seguenti obiettivi:
+\begin{itemize}
+	\item verificare che il prodotto finale sia conforme con quanto specificato;
+	\item verificare che il prodotto finale sia in grado di minimizzare gli effetti degli errori commessi.
+\end{itemize}
+\subsubsection{Ruoli}
+I ruoli per il processo di validazione saranno divisi nel seguente modo:
+\begin{itemize}
+	\item i \vers{} avranno il compito di eseguire i test, tracciando i risultati e riportandone la valutazione;
+	\item il \RdP{} avrà il compito di revisionare i risultati dei test effettuati, e decidere se convalidarli o ripeterli. Egli sarà inoltre incaricato di fornire al committente i risultati dei test effettuati, accompagnati da una documentazione per poterli svolgere in maniera indipendente.
+\end{itemize}
+\subsubsection{Procedure di validazione}
+L'intera procedura di validazione dovrà quindi comprendere i seguenti punti:
+\begin{itemize}
+	\item La verifica da parte dei \vers{} sul prodotto finale, ed il tracciamento dei risultati ottenuti;
+	\item L'analisi dei risultati da parte del \RdP{}, con verdetto finale di accettazione o ripetizione dei test;
+	\item La consegna da parte del \RdP{} dei risultati accettati al proponente, informandolo dettagliatamente sulle modalità di validazione.
+\end{itemize}
 \begin{comment}
 	\paragraph{Strumenti per l'analisi dinamica}
 	\begin{itemize}
