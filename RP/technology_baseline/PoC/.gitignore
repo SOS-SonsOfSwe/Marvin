@@ -1,0 +1,14 @@
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build
+build_webpack
+
+# misc
+.env
+npm-debug.log
+.truffle-solidity-loader
