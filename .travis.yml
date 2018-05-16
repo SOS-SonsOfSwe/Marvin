@@ -5,9 +5,9 @@ node_js:
 cache:
   directories:
     - "node_modules"
-    
+env:
+  - SOLIDITY_COVERAGE=true
 install:
- - npm install
-
+  - npm install
 script:
- - truffle test
+  - truffle test
