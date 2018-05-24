@@ -1,12 +1,6 @@
-/*export App from './App/App';
-export Chat from './Chat/Chat';
-export Home from './Home/Home';
-export Widgets from './Widgets/Widgets';
-export About from './About/About';
-export Login from './Login/Login';
-export LoginSuccess from './LoginSuccess/LoginSuccess';
-export Survey from './Survey/Survey';
-export NotFound from './NotFound/NotFound';
-export Pagination from './Pagination/Pagination';*/
-
-// da usare dentro a index.js per le routes
+console.log('exporting from containers index')
+export {InsertUserFormContainer} from "./InsertUserForm/InsertUserFormContainer";
+export {LoginButtonContainer} from "./LoginButton/LoginButtonContainer";
+export {LogoutButtonContainer} from "./LogoutButton/LogoutButtonContainer";
+export {ProfileFormContainer} from "./ProfileForm/ProfileFormContainer";
+export {SignUpFormContainer} from "./SignUpForm/SignUpFormContainer";

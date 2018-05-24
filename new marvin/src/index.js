@@ -6,13 +6,25 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import { UserIsAuthenticated, UserIsNotAuthenticated, UniAdminIsAuthenticated } from './authentication/wrappers'
 import getWeb3 from '../api/utils/getWeb3'
 // Layouts
-import App from './containers/App/App'
-import Home from './containers/Home/Home'
-import Dashboard from './containers/AddUser/AddUser'
-import SignUp from './containers/SignUp/SignUp'
-import Profile from './containers/Profile/Profile'
-import NotFound from './containers/NotFound/NotFound'
-import Loading from './containers/Loading/Loading'
+ 
+import {App, Home, InsertUser, Loading, NotFound, Profile, SignUp} from './components/index'
+/*import App from './components'
+import Home from 'components'
+import InsertUser from 'components'
+import SignUp from 'components'
+import Profile from 'components'
+import NotFound from 'components'
+import Loading from 'components'*/
+
+
+/*import App from './components/App/App'
+import Home from './components/Home/Home'
+import InsertUser from './components/InsertUser/InsertUser'
+import SignUp from './components/SignUp/SignUp'
+import Profile from './components/Profile/Profile'
+import NotFound from './components/NotFound/NotFound'
+import Loading from './components/Loading/Loading'*/
+//import * as components from './components'
 
 import './index.scss'
 
@@ -36,7 +48,7 @@ ReactDOM.render((
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
-        <Route path="dashboard" component={UniAdminIsAuthenticated(Dashboard)} />
+        <Route path="insert-user" component={UniAdminIsAuthenticated(InsertUser)} />
         <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
         <Route path="profile" component={UserIsAuthenticated(Profile)} />
         <Route path="loading" component={UserIsAuthenticated(Loading)} />
