@@ -1,4 +1,11 @@
-export {LoginButtonAction} from './buttons/LoginButtonActions'
-export {LogoutButtonAction} from './buttons/LogoutButtonActions'
-export {insertUser} from './forms/InsertUserFormAction'
-export {SignUpFormAction} from './forms/SignUpFormActions'
+import LoginButtonAction from './buttons/LoginButtonActions'
+import LogoutButtonAction from './buttons/LogoutButtonActions'
+import insertUser from './forms/InsertUserFormAction'
+import SignUpFormAction from './forms/SignUpFormActions'
+
+export{
+    LoginButtonAction,
+    LogoutButtonAction,
+    insertUser,
+    SignUpFormAction
+}
