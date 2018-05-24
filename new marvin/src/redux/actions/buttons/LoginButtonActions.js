@@ -3,7 +3,7 @@ import {
   browserHistory
 } from 'react-router'
 import store from '../../../store'
-import * as utils from '../../../utils/validations'
+// import * as utils from '../../../utils/validations'
 
 import ipfsPromise from '../../../../api/utils/ipfsPromise'
 
@@ -29,16 +29,15 @@ function userLoggedIn(payload) {
   }
 }
 
-function doAwsomeStuff(dispatch, payload) {
-  console.log('Waiting 5s before logging the user')
-  setTimeout(() => dispatch(userLoggedIn({
+function doAwesomeStuff(dispatch, payload) {
+ dispatch(userLoggedIn({
     payload
-  })), 5000)
-  // var currentLocation = browserHistory.getCurrentLocation()
-  // if('redirect' in currentLocation.query) {
-  //   return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
-  // }
-  // return browserHistory.push('/profile') || alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
+  }))
+  var currentLocation = browserHistory.getCurrentLocation()
+  if('redirect' in currentLocation.query) {
+    return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
+  }
+  return browserHistory.push('/profile') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
 export function loginUser() {
@@ -89,6 +88,7 @@ export function loginUser() {
                 console.log("result[3]:", ipfsPromise.getIpfsHashFromBytes32(result[3]))
                 if(payload.tp !== 4) {
                   var ipfs = new ipfsPromise()
+                  console.log('Waiting for the data from IPFS...')
                   ipfs.getJSON(ipfsPromise.getIpfsHashFromBytes32(result[3]))
                     .then(jFile => {
                       //dispatch(userLoggingIn()) //dispatch waiting for data
@@ -96,7 +96,7 @@ export function loginUser() {
                       payload.name = jFile.name;
                       payload.surname = jFile.surname;
                       payload.email = jFile.email;
-                      return doAwsomeStuff(dispatch, payload)
+                      return doAwesomeStuff(dispatch, payload)
                     })
                     .catch(err => {
                       // HERE I CATCH THE ERROR OF THE getJSON METHOD. JUST FOR TESTING
@@ -105,7 +105,7 @@ export function loginUser() {
                     })
                   dispatch(userLoggingIn())
                 } else
-                  return doAwsomeStuff(dispatch, payload) //Repeating because of the asyncronous promises of the functions
+                  return doAwesomeStuff(dispatch, payload) //Repeating because of the asyncronous promises of the functions
               })
               .catch(function (result) {
                 // If error, go to signup page.

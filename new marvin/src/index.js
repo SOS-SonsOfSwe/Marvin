@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
-import { UserIsAuthenticated, UserIsNotAuthenticated, UniAdminIsAuthenticated } from './authentication/wrappers'
+import { UserIsAuthenticated, UserIsNotAuthenticated, UniAdminIsAuthenticated, UserIsWaiting } from './authentication/wrappers'
 import getWeb3 from '../api/utils/getWeb3'
 // Layouts
  
@@ -30,11 +30,10 @@ ReactDOM.render((
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={Home} />
+        <IndexRoute component={UserIsWaiting(Loading, Home)} />
         <Route path="insert-user" component={UniAdminIsAuthenticated(InsertUser)} />
         <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
         <Route path="profile" component={UserIsAuthenticated(Profile)} />
-        <Route path="loading" component={UserIsAuthenticated(Loading)} />
         <Route path="*" component={NotFound} />
       </Route>
     </Router>

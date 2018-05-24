@@ -15,10 +15,10 @@ const locationHelper = locationHelperBuilder({})
 // Layout Component Wrappers
 
 export const UserIsAuthenticated = connectedRouterRedirect({
-  redirectPath: '/login', //path in which it has to go if it's not authenticated
-  authenticatedSelector: state => state.user.data !== null,
+  redirectPath: '/signup', //path in which it has to go if it's not authenticated
+  authenticatedSelector: state => state.user.data !== null && state.user.data.payload.name !== null,
   authenticatingSelector: state => {
-    console.log("L'utente si sta loggando:", state.user.isLoading)
+    console.log("wrapper UserIsAuthenticated is loading:", state.user.isLoading)
     return state.user.isLoading
   },
   AuthenticatingComponent: Loading,
@@ -30,11 +30,11 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
   redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/profile', //where to go if it's authenticated
   // redirectPath: (state, ownProps) => ownProps.location.query.redirect || '/signup',
   authenticatedSelector: state => state.user.data === null,
-  // authenticatingSelector: state => {
-  //   console.log("L'utente si sta loggando", state.user.isLoading)
-  //   return state.user.isLoading
-  // },
-  // AuthenticatingComponent: Loading,
+  authenticatingSelector: state => {
+    console.log("wrapper UserIsNotAuthenticated is loading:", state.user.isLoading)
+    return state.user.isLoading
+  },
+  AuthenticatingComponent: Loading,
   redirectAction: routerActions.replace,
   wrapperDisplayName: 'UserIsNotAuthenticated',
   allowRedirectBack: false
@@ -60,6 +60,13 @@ export const UniAdminIsAuthenticated = connectedRouterRedirect({
   redirectAction: routerActions.replace,
   wrapperDisplayName: 'UniAdminIsAuthenticated'
 })
+
+//for managing the home page
+export const UserIsWaiting = (Component, FailureComponent) => connectedAuthWrapper({
+  authenticatedSelector: state => state.user.isLoading,
+  wrapperDisplayName: 'UserIsWaiting',
+  FailureComponent
+})(Component)
 
 //--------------------------------------------------------------------
 

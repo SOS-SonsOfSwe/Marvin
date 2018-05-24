@@ -18,18 +18,18 @@ import ProfileForm from './Profile/ProfileForm'
 import SignUp from './SignUp/SignUp';
 import SignUpForm from './SignUp/SignUpForm';
 
-/*export {App} from './App/App';
-export {LoginButton} from './Buttons/LoginButton';
-export {LogoutButtonButton} from './Buttons/LogoutButton';
-export {Home} from './Home/Home';
-export {InsertUserForm} from './InsertUser/InsertUserForm'
-export {InsertUser} from './InsertUser/InsertUser'
-export {Loading} from './Loading/Loading';
-export {NotFound} from './NotFound/NotFound';
-export {Profile} from './Profile/Profile';
-export {ProfileForm} from './Profile/ProfileForm'
-export {SignUp} from './SignUp/SignUp';
-export {SignUpForm} from './SignUp/SignUpForm';*/
+/*export App as App from './App/App';
+export {LoginButton as LoginButton} from './Buttons/LoginButton';
+export { LogoutButton as LogoutButtonButton} from './Buttons/LogoutButton';
+export { Home as Home} from './Home/Home';
+export { InsertUserForm as InsertUserForm} from './InsertUser/InsertUserForm'
+export { InsertUser as InsertUser} from './InsertUser/InsertUser'
+export { Loading as Loading} from './Loading/Loading';
+export { NotFound as NotFound} from './NotFound/NotFound';
+export { Profile as Profile} from './Profile/Profile';
+export { ProfileForm as ProfileForm} from './Profile/ProfileForm'
+export { SignUp as SignUp} from './SignUp/SignUp';
+export { SignUpForm as SignUpForm} from './SignUp/SignUpForm';*/
 
 export{
     App,
@@ -47,4 +47,16 @@ export{
 }
 
 
+/*export {App}
+export {LoginButton}
+export {LogoutButtonButton}
+export {Home}
+export {InsertUserForm}
+export {InsertUser} 
+export {Loading}
+export NotFound
+export Profile
+export ProfileForm
+export SignUp
+export SignUpForm*/
 
