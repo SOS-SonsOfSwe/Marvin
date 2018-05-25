@@ -16,6 +16,7 @@ import Loading from './components/Loading/Loading'
 import NotFound from './components/NotFound/NotFound'
 import Profile from './components/Profile/Profile'
 import SignUp from './components/SignUp/SignUp'
+import Help from './components/Help/Help'
 
 import './index.scss'
 
@@ -42,6 +43,7 @@ ReactDOM.render((
         <Route path="insert-user" component={UniAdminIsAuthenticated(InsertUser)} />
         <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
         <Route path="profile" component={UserIsAuthenticated(Profile)} />
+        <Route path="help" component={Help} />
         <Route path="*" component={NotFound} />
       </Route>
     </Router>
