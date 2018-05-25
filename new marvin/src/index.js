@@ -6,7 +6,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import { UserIsAuthenticated, UserIsNotAuthenticated, UniAdminIsAuthenticated, UserIsWaiting } from './authentication/wrappers'
 import getWeb3 from '../api/utils/getWeb3'
 // Layouts
- 
+
 //import { App, Home, InsertUser, Loading, NotFound, Profile, SignUp } from './components'
 
 import App from './components/App/App'
