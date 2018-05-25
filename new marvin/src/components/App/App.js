@@ -30,7 +30,7 @@ class App extends Component {
       <div className="float-right">
         <ul>
           <li className="pure-menu-item">
-            <Link to="/dashboard" className="pure-menu-link">Insert User</Link>
+            <Link to="/insert-user" className="pure-menu-link">Insert User</Link>
           </li>
           <li className="pure-menu-item">
             <Link to="/profile" className="pure-menu-link">Profile</Link>

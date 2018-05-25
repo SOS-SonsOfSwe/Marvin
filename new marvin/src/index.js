@@ -7,7 +7,15 @@ import { UserIsAuthenticated, UserIsNotAuthenticated, UniAdminIsAuthenticated, U
 import getWeb3 from '../api/utils/getWeb3'
 // Layouts
  
-import { App, Home, InsertUser, Loading, NotFound, Profile, SignUp } from './components'
+//import { App, Home, InsertUser, Loading, NotFound, Profile, SignUp } from './components'
+
+import App from './components/App/App'
+import Home from './components/Home/Home'
+import InsertUser from './components/InsertUser/InsertUser'
+import Loading from './components/Loading/Loading'
+import NotFound from './components/NotFound/NotFound'
+import Profile from './components/Profile/Profile'
+import SignUp from './components/SignUp/SignUp'
 
 import './index.scss'
 

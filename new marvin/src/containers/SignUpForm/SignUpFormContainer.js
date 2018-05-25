@@ -4,7 +4,7 @@ import {
 import SignUpForm from '../../components/SignUp/SignUpForm'
 import {
   signUpUser
-} from '../../redux/actions'
+} from '../../redux/actions/forms/SignUpFormActions'
 
 const mapStateToProps = (state, ownProps) => {
   return {}

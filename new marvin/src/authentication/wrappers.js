@@ -8,7 +8,7 @@ import {
   routerActions
 } from 'react-router-redux'
 
-import Loading from '../components'
+import Loading from '../components/Loading/Loading'
 
 const locationHelper = locationHelperBuilder({})
 

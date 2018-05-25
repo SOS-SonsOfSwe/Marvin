@@ -10,7 +10,7 @@ import ipfsPromise from '../../../../api/utils/ipfsPromise'
 import {
   USER_LOGGED_IN,
   USER_LOGGING_IN
-} from '../../reducers'
+} from '../../reducers/costants'
 
 const contract = require('truffle-contract')
 // export const USER_LOGGED_IN = 'USER_LOGGED_IN'
