@@ -50,7 +50,6 @@ code {
 .container {
   box-sizing: border-box;
   width: 100%;
-  padding: 15px 20px;
 }
 
 .pure-button-primary {
@@ -84,7 +83,6 @@ code {
   // position: fixed;
   background: #9C0015;
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
-  border-bottom: 1em solid #333;
   a {
     color: #fff;
     &:active, &:focus, &:hover {

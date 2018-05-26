@@ -1,6 +1,10 @@
 import * as utils from '../../utils/validations'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import SubNavBar from './SubNavBar'
+
+//stylesheet
+import './Profile.scss'
 
 class Profile extends Component {
   constructor(props, { authData }) {
@@ -11,6 +15,7 @@ class Profile extends Component {
   render() {
     return (
       <main className="container">
+        <SubNavBar />
         <div className="pure-u-1-1">
           <h1>Profile</h1>
           <p className="important-message"><strong>Congratulations {this.props.authData.payload.name} {this.props.authData.payload.surname}!</strong>

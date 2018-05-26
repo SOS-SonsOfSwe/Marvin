@@ -44,7 +44,7 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
 export const UniAdminIsAuthenticated = connectedRouterRedirect({
   redirectPath: '/',
   authenticatedSelector: state => {
-    if(state.user.data !== null && state.user.isAdmin) {
+    if (state.user.data !== null && state.user.isAdmin) {
       console.log("You can do whatever you want!")
       return true;
     } else {
@@ -90,6 +90,26 @@ export const VisibleOnlyUniAdmin = connectedAuthWrapper({
   wrapperDisplayName: 'VisibleOnlyUniAdmin',
   // FailureComponent: null // NOW OPTIONAL
 })
+
+export const VisibleOnlyUni = connectedAuthWrapper({
+  authenticatedSelector: state => state.user.isUni,
+  wrapperDisplayName: 'VisibleOnlyUni',
+  // FailureComponent: null // NOW OPTIONAL
+})
+
+export const VisibleOnlyProf = connectedAuthWrapper({
+  authenticatedSelector: state => state.user.isProf,
+  wrapperDisplayName: 'VisibleOnlyProf',
+  // FailureComponent: null // NOW OPTIONAL
+})
+
+export const VisibleOnlyStudent = connectedAuthWrapper({
+  authenticatedSelector: state => state.user.isStudent,
+  wrapperDisplayName: 'VisibleOnlyStudent',
+  // FailureComponent: null // NOW OPTIONAL
+})
+
+
 // Applying to a function component for simplicity but could be Class or createClass component
 // const AdminOnlyLink = VisibleOnlyAdmin(() => <Link to='/admin'>Admin Section</Link>)
 
