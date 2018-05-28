@@ -5,7 +5,9 @@ process.env.PUBLIC_URL = '';
 // if this file is missing. dotenv will never modify any environment variables
 // that have already been set.
 // https://github.com/motdotla/dotenv
-require('dotenv').config({silent: true});
+require('dotenv').config({
+  silent: false
+});
 
 const jest = require('jest');
 const argv = process.argv.slice(2);
@@ -20,7 +22,7 @@ if (!process.env.CI && argv.indexOf('--coverage') < 0) {
 // https://github.com/facebook/jest/pull/2230
 var realWrite = process.stdout.write;
 var CLEAR = process.platform === 'win32' ? '\x1Bc' : '\x1B[2J\x1B[3J\x1B[H';
-process.stdout.write = function(chunk, encoding, callback) {
+process.stdout.write = function (chunk, encoding, callback) {
   if (chunk === '\x1B[2J\x1B[H') {
     chunk = CLEAR;
   }
