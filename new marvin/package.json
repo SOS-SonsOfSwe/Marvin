@@ -19,7 +19,7 @@
     "css-loader": "^0.28.11",
     "detect-port": "1.0.1",
     "dotenv": "2.0.0",
-    "enzyme": "^3.3.0",
+    "enzyme": "^2.8.1",
     "eslint": "^4.1.1",
     "eslint-config-react-app": "^2.1.0",
     "eslint-loader": "^2.0.0",
@@ -73,7 +73,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=test"
+    "test": "node scripts/test.js"
   },
   "jest": {
     "collectCoverageFrom": [

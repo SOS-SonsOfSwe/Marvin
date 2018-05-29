@@ -133,8 +133,12 @@ module.exports = {
                 include: paths.appSrc,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
+                // options: {
+                //     presets: ['@babel/preset-env'],
+                // babelrc: false,
+                // },
                 query: {
-
+                    // presets: ['@babel/preset-env'],
                     // This is a feature of `babel-loader` for webpack (not Babel itself).
                     // It enables caching results in ./node_modules/.cache/babel-loader/
                     // directory for faster rebuilds.

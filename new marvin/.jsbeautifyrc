@@ -3,11 +3,18 @@
     // source file you're prettifying (or any directory above if it doesn't exist,
     // or in your home folder if everything else fails) and uses those options
     // along the default ones.
-
     // Details: https://github.com/victorporof/Sublime-HTMLPrettify#using-your-own-jsbeautifyrc-options
     // Documentation: https://github.com/einars/js-beautify/
     "html": {
-        "allowed_file_extensions": ["htm", "html", "xhtml", "shtml", "xml", "svg", "dust"],
+        "allowed_file_extensions": [
+            "htm",
+            "html",
+            "xhtml",
+            "shtml",
+            "xml",
+            "svg",
+            "dust"
+        ],
         "brace_style": "collapse", // [collapse|expand|end-expand|none] Put braces on the same line as control statements (default), or put braces on own line (Allman / ANSI style), or just put end braces on own line, or attempt to keep them where they are
         "end_with_newline": true, // End output with newline
         "indent_char": " ", // Indentation character
@@ -17,11 +24,39 @@
         "indent_size": 4, // Indentation size
         "max_preserve_newlines": 10, // Maximum number of line breaks to be preserved in one chunk (0 disables)
         "preserve_newlines": true, // Whether existing line breaks before elements should be preserved (only works before elements, not inside tags or for text)
-        "unformatted": ["a", "span", "img", "code", "pre", "sub", "sup", "em", "strong", "b", "i", "u", "strike", "big", "small", "pre", "h1", "h2", "h3", "h4", "h5", "h6"], // List of tags that should not be reformatted
+        "unformatted": [
+            "a",
+            "span",
+            "img",
+            "code",
+            "pre",
+            "sub",
+            "sup",
+            "em",
+            "strong",
+            "b",
+            "i",
+            "u",
+            "strike",
+            "big",
+            "small",
+            "pre",
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6"
+        ], // List of tags that should not be reformatted
         "wrap_line_length": 0 // Lines should wrap at next opportunity after this number of characters (0 disables)
     },
     "css": {
-        "allowed_file_extensions": ["css", "scss", "sass", "less"],
+        "allowed_file_extensions": [
+            "css",
+            "scss",
+            "sass",
+            "less"
+        ],
         "end_with_newline": true, // End output with newline
         "indent_char": " ", // Indentation character
         "indent_size": 4, // Indentation size
@@ -32,8 +67,13 @@
         "max_preserve_newlines": 10
     },
     "js": {
-        "allowed_file_extensions": ["js", "json", "jshintrc", "jsbeautifyrc"],
-        "brace_style": "collapse", // [collapse|expand|end-expand|none] Put braces on the same line as control statements (default), or put braces on own line (Allman / ANSI style), or just put end braces on own line, or attempt to keep them where they are
+        "allowed_file_extensions": [
+            "js",
+            "json",
+            "jshintrc",
+            "jsbeautifyrc"
+        ],
+        "brace_style": "collapse,preserve-inline", // [collapse|expand|end-expand|none] Put braces on the same line as control statements (default), or put braces on own line (Allman / ANSI style), or just put end braces on own line, or attempt to keep them where they are
         "break_chained_methods": true, // Break chained method calls across subsequent lines
         "e4x": false, // Pass E4X xml literals through untouched
         "end_with_newline": false, // End output with newline
@@ -53,5 +93,4 @@
         "unescape_strings": false, // Should printable characters in strings encoded in \xNN notation be unescaped, "example" vs "\x65\x78\x61\x6d\x70\x6c\x65"
         "wrap_line_length": 0 // Lines should wrap at next opportunity after this number of characters (0 disables)
     }
-
 }

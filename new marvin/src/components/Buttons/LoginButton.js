@@ -16,7 +16,9 @@ class LoginButton extends React.Component {
   render() {
     return (
       <li className="pure-menu-item">
-        <a href="null" className="pure-menu-link" onClick={(event) => this.props.onLoginUserClick(event)}>Login</a>
+        <a href="null" className="pure-menu-link"
+          onClick={(event) => this.props.onLoginUserClick(event)}
+        >Login</a>
       </li>
     )
   }
