@@ -4,15 +4,11 @@ import chai from 'chai';
 import sinon from 'sinon';
 import LoginButton from '../Buttons/LoginButton';
 
-console.log('LoginButton.test.js')
+// console.log('LoginButton.test.js')
 
-const wrapper = shallow(<LoginButton />);
-
-describe('LoginButton Component', () => {
-    it('change prova', () => {
-
-        chai.expect(wrapper.find('className')
-            .text())
-            .to.equal('pure-menu-link');
+describe('<LoginButton/>', () => {
+    it('renders without exploding', () => {
+        const wrapper = shallow(<LoginButton />);
+        chai.expect(wrapper.find(LoginButton).length).to.equal(0);
     });
 });
