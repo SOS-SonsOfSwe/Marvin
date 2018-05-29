@@ -1,33 +1,55 @@
+// setting the url for the environment: to change at build time
 process.env.NODE_ENV = 'test';
 process.env.PUBLIC_URL = '';
 
-// Load environment variables from .env file. Suppress warnings using silent
-// if this file is missing. dotenv will never modify any environment variables
-// that have already been set.
-// https://github.com/motdotla/dotenv
-require('dotenv').config({
-  silent: false
+// requiring Mocha files and other tools to iterate into the folder
+var Mocha = require('mocha'),
+    fs = require('fs-extra'),
+    path = require('path');
+
+var mocha = new Mocha({
+    reporter: 'spec', //put 'nyan' and see
+    useColors: true,
+    require: 'babel-register'
 });
 
-const jest = require('jest');
-const argv = process.argv.slice(2);
+//this is the folder in which we have to find the test files
+var testDir = 'src';
 
-// Watch unless on CI or in coverage mode
-if (!process.env.CI && argv.indexOf('--coverage') < 0) {
-  argv.push('--watch');
-}
-
-// A temporary hack to clear terminal correctly.
-// You can remove this after updating to Jest 18 when it's out.
-// https://github.com/facebook/jest/pull/2230
-var realWrite = process.stdout.write;
-var CLEAR = process.platform === 'win32' ? '\x1Bc' : '\x1B[2J\x1B[3J\x1B[H';
-process.stdout.write = function (chunk, encoding, callback) {
-  if (chunk === '\x1B[2J\x1B[H') {
-    chunk = CLEAR;
-  }
-  return realWrite.call(this, chunk, encoding, callback);
+// function to recursively and parallely look for spec.js files into the 'dir' folder
+var lookingForTest = function (dir) {
+    var results = [];
+    fs.readdir(dir, function (err, list) {
+        if(err) return
+        var pending = list.length;
+        if(!pending) return
+        list
+            .forEach(function (file) {
+                if(file.substr(-8) === '.test.js') {
+                    console.log(file) //it will list all tests files
+                    mocha.addFile(
+                        path.join(dir, file)
+                    );
+                }
+                file = path.resolve(dir, file);
+                fs.stat(file, function (err, stat) {
+                    if(stat && stat.isDirectory()) {
+                        lookingForTest(file, function (err, res) {
+                            results = results.concat(res);
+                            if(!--pending) return
+                        });
+                    } else {
+                        results.push(file);
+                        if(!--pending) return;
+                    }
+                });
+            });
+    });
 };
+// looking for spec files and adding them to mocha
+lookingForTest(testDir)
 
-
-jest.run(argv);
+// Run the tests.
+mocha.run(function (failures) {
+    process.exitCode = failures ? -1 : 0; // exit with non-zero status if there were failures
+});
