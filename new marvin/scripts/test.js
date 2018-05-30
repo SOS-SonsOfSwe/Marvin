@@ -1,3 +1,6 @@
+//useful for mounting pages
+require('jsdom-global/register')
+
 // const babel_register = require('babel-register')
 
 // setting the url for the environment: to change at build time
@@ -10,7 +13,7 @@ var Mocha = require('mocha'),
     path = require('path');
 
 var mocha = new Mocha({
-    reporter: 'spec', //put 'nyan' and see
+    reporter: 'nyan', //put 'nyan' and see
     useColors: true,
     require: require('babel-register')()
 });

@@ -1,5 +1,7 @@
+
 import React, { Component } from 'react'
 import * as util from '../../utils/validations'
+
 
 //import TickButton from './radio_button/components/Application'
 
@@ -116,6 +118,7 @@ class InsertUserForm extends Component {
     )
   }
 }
+
 
 export default InsertUserForm
 
