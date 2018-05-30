@@ -1,8 +1,7 @@
 
 import React, { Component } from 'react'
 import * as util from '../../utils/validations'
-import sinon from 'sinon'
-import {mount} from 'enzyme'
+
 
 //import TickButton from './radio_button/components/Application'
 
@@ -120,6 +119,6 @@ class InsertUserForm extends Component {
   }
 }
 
-const wrapper = mount(<InsertUserForm id="InsertUserForm" />);
+
 export default InsertUserForm
 

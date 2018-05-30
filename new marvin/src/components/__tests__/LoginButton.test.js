@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import chai from 'chai';
 import sinon from 'sinon';
 import LoginButton from '../Buttons/LoginButton';
