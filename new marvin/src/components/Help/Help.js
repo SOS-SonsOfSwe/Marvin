@@ -17,31 +17,31 @@ class Help extends React.Component{
                         <li><a href="#faq5">Domanda 5</a></li>
                     </ul>
 
-                    <h3 class="faq" id="faq1">
+                    <h3 className="faq" id="faq1">
                         <p>domanda1</p>
                         <br/>
                         <br/>
                         <br/>
                     </h3>
-                    <h3 class="faq" id="faq2">
+                    <h3 className="faq" id="faq2">
                         <p>domanda2</p>
                         <br/>
                         <br/>
                         <br/>
                     </h3>
-                    <h3 class="faq" id="faq3">
+                    <h3 className="faq" id="faq3">
                         <p>domanda3</p>
                         <br/>
                         <br/>
                         <br/>
                     </h3>
-                    <h3 class="faq" id="faq4">
+                    <h3 className="faq" id="faq4">
                         <p>domanda4</p>
                         <br/>
                         <br/>
                         <br/>
                     </h3>
-                    <h3 class="faq" id="faq5">
+                    <h3 className="faq" id="faq5">
                         <p>domanda5</p>
                         <br/>
                         <br/>
