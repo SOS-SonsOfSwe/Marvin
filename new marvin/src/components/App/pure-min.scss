@@ -69,11 +69,6 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
     font-style: italic;
   }
   
-  h1 {
-    font-size: 2em;
-    margin: .67em 0;
-  }
-  
   mark {
     background: #ff0;
     color: #000;
@@ -783,6 +778,10 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
       padding: .2em 0 .8em;
     }
   }
+
+  .pure-menu-list span {
+    float: right;
+  }
   
   .pure-menu-fixed {
     position: fixed;
@@ -800,6 +799,7 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
     list-style: none;
     margin: 0;
     padding: 0;
+    width: 100%;
   }
 
   .pure-menu-list span, .float-right ul {
@@ -927,12 +927,11 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
     background-color: #fff;
   }
   
-  .pure-menu-disabled, .pure-menu-heading, .pure-menu-link {
-    padding: 0.5em 0em .5em 1.5em;
+  .pure-menu-disabled, .pure-menu-link {
+    padding: 0.5em 0em .2em 1em;
   }
 
   .pure-menu-item a {
-    margin-top: 0.5em;
     font-size: 1.15em;
   }
   

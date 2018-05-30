@@ -21,6 +21,7 @@ const userReducer = (state = initialState, action) => {
         // https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
         // So it returns a new object - as redux works - with all the informations from state, with the new ones which are passed from action.payload
         console.log('Reducer: logged in')
+        console.log('Reducer: userType: ' + action.payload.payload.tp)
         return Object.assign({}, state, {
           data: action.payload,
           isLoading: false,
