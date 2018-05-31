@@ -1,6 +1,6 @@
 import * as utils from '../../utils/validations'
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+
 import SubNavBar from './SubNavBar'
 
 //stylesheet
@@ -34,6 +34,6 @@ class Profile extends Component {
   }
 }
 
-// export default Profile
-export default connect(state => ({ authData: state.user.data }))(Profile)
+export default Profile
+// export default connect(state => ({ authData: state.user.data }))(Profile)
 

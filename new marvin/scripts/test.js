@@ -8,7 +8,8 @@ var babel = require('babel-register')()
 var jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
-const { document } = (new JSDOM('')).window;
+const { document } = (new JSDOM(''))
+.window;
 global.document = document;
 
 // global.document = jsdom
@@ -19,7 +20,7 @@ var exposedProperties = ['window', 'navigator', 'document']
 
 Object.keys(document.defaultView)
     .forEach((property) => {
-        if (typeof global[property] === 'undefined') {
+        if(typeof global[property] === 'undefined') {
             exposedProperties.push(property)
             global[property] = document.defaultView[property]
         }
@@ -35,7 +36,8 @@ var Mocha = require('mocha'),
 // path = require('path');
 
 var mocha = new Mocha({
-    reporter: 'spec', //put 'nyan' and see
+    // reporter: 'spec', //put 'nyan' and see
+    reporter: 'nyan',
     useColors: true,
     require: babel
 });
@@ -47,7 +49,7 @@ var testDir = 'src';
 function lookingForTests(dir) {
     return new Promise(function (resolve, reject) {
         walk(dir, function (err, data) {
-            if (err !== null) return reject(err);
+            if(err !== null) return reject(err);
             resolve(data);
         })
     })
@@ -57,22 +59,22 @@ function lookingForTests(dir) {
 var walk = function (dir, done) {
     var results = [];
     fs.readdir(dir, function (err, list) {
-        if (err) return done(err);
+        if(err) return done(err);
         var i = 0;
         (function next() {
             var file = list[i++];
-            if (!file) return done(null, results);
+            if(!file) return done(null, results);
             file = dir + '/' + file;
             fs.stat(file, function (err, stat) {
-                if (stat && stat.isDirectory() && stat === 'node_modules') next()
+                if(stat && stat.isDirectory() && stat === 'node_modules') next()
                 else {
-                    if (stat && stat.isDirectory()) {
+                    if(stat && stat.isDirectory()) {
                         walk(file, function (err, res) {
                             results = results.concat(res);
                             next();
                         });
                     } else {
-                        if (file.substr(-8) === '.test.js') {
+                        if(file.substr(-8) === '.test.js') {
                             console.log(file) //it will list all tests files
                             mocha.addFile(file);
                         }
