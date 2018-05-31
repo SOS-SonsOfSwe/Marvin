@@ -54,7 +54,6 @@ ReactDOM.render((
         <Route path="insert-user" component={UniAdminIsAuthenticated(InsertUser)} />
         <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
         <Route path="profile" component={UserIsAuthenticated(Profile)} >
-
           <Route path="degree-courses" component={UserIsAuthenticated(DegreeCourses)} />
           <Route path="didactive-activities" component={UserIsAuthenticated(DidacticActivities)} />
           <Route path="administrators" component={UserIsAuthenticated(Administrators)} />
