@@ -3,7 +3,7 @@ node_js:
   - "6"
 cache:
   directories:
-    - "node_modules"
+    - "new marvin/node_modules"
 env:
   - SOLIDITY_COVERAGE=true
 before_script:
@@ -11,12 +11,12 @@ before_script:
 install:
   - cd Marvin
   - npm install -g truffle
-  - npm install ganache-cli
-  - npm install
+  - npm install -g ganache-cli
+  - ./new marvin/npm install
 script:
-  - chmod +x startBlockchain.ps1
-  - ./startBlockchain.ps1 > /dev/null &
+  - chmod +x. ./new marvin/startBlockchain.ps1
+  - ./new marvin/startBlockchain.ps1 > /dev/null &
   - sleep 5
-  - truffle compile
-  - truffle migrate
-  - npm test
+  - ./new marvin/truffle compile
+  - ./new marvin/truffle migrate
+  - ./new marvin/npm test
