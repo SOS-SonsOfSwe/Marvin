@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import students from '../../../public/media/students.jpg'
-// import webpack from 'webpack';
 
 class Home extends Component {
   render() {
