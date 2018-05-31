@@ -2,10 +2,11 @@ import React from 'react'
 import { VisibleOnlyUniAdmin, VisibleOnlyUni, VisibleOnlyProf, VisibleOnlyStudent } from '../../authentication/wrappers'
 import { Link } from 'react-router'
 
+
 const OnlyUniSubLinks = VisibleOnlyUni(() => {
     return (
         <li className="pure-menu-item">
-            <Link to="/administrators" className="pure-menu-link">Administrators</Link>
+            <Link to="/profile/administrators" className="pure-menu-link">Administrators</Link>
         </li>
     )
 })
@@ -17,10 +18,10 @@ const OnlyUniAdminSubLinks = VisibleOnlyUniAdmin(() => {
                 <ul>
                     <OnlyUniSubLinks />
                     <li className="pure-menu-item">
-                        <Link to="/professors" className="pure-menu-link">Professors</Link>
+                        <Link to="/profile/professors" className="pure-menu-link">Professors</Link>
                     </li>
                     <li className="pure-menu-item">
-                        <Link to="/students" className="pure-menu-link">Students</Link>
+                        <Link to="/profile/students" className="pure-menu-link">Students</Link>
                     </li>
                 </ul>
             </div>
@@ -28,13 +29,13 @@ const OnlyUniAdminSubLinks = VisibleOnlyUniAdmin(() => {
             <div className="float-left-links">
                 <ul>
                     <li className="pure-menu-item">
-                        <Link to="/academic-years" className="pure-menu-link">Academic years</Link>
+                        <Link to="/profile/academic-years" className="pure-menu-link">Academic years</Link>
                     </li>
                     <li className="pure-menu-item">
-                        <Link to="/degree-courses" className="pure-menu-link">Degree courses</Link>
+                        <Link to="/profile/degree-courses" className="pure-menu-link">Degree courses</Link>
                     </li>
                     <li className="pure-menu-item">
-                        <Link to="/didactive-activities" className="pure-menu-link">Didactic activities</Link>
+                        <Link to="/profile/didactive-activities" className="pure-menu-link">Didactic activities</Link>
                     </li>
                     {/* <li className="pure-menu-item">
                         <Link to="/exams" className="pure-menu-link">Exams</Link>
@@ -50,7 +51,7 @@ const OnlyProfSubLinks = VisibleOnlyProf(() => {
         <div>
             <ul>
                 <li className="pure-menu-item">
-                    <Link to="/exams-list" className="pure-menu-link">Exams list</Link>
+                    <Link to="/profile/exams-list" className="pure-menu-link">Exams list</Link>
                 </li>
             </ul>
         </div>
@@ -62,10 +63,10 @@ const OnlyStudentSubLinks = VisibleOnlyStudent(() => {
         <div>
             <ul>
                 <li className="pure-menu-item">
-                    <Link to="/exams-student-list" className="pure-menu-link">Your exams list</Link>
+                    <Link to="/profle/exams-student-list" className="pure-menu-link">Your exams list</Link>
                 </li>
                 <li className="pure-menu-item">
-                    <Link to="/school-records" className="pure-menu-link">School records</Link>
+                    <Link to="/profile/school-records" className="pure-menu-link">School records</Link>
                 </li>
             </ul>
         </div>

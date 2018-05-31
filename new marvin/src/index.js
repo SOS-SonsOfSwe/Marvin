@@ -14,7 +14,7 @@ import Home from './components/Home/Home'
 import InsertUser from './components/InsertUser/InsertUser'
 import Loading from './components/Loading/Loading'
 import NotFound from './components/NotFound/NotFound'
-import Profile from './components/Profile/Profile'
+import ProfileContainer from './containers/Profile/ProfileContainer'
 import SignUp from './components/SignUp/SignUp'
 import Help from './components/Help/Help'
 
@@ -53,7 +53,8 @@ ReactDOM.render((
         <IndexRoute component={UserIsWaiting(Loading, Home)} />
         <Route path="insert-user" component={UniAdminIsAuthenticated(InsertUser)} />
         <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
-        <Route path="profile" component={UserIsAuthenticated(Profile)} >
+        <Route path="profile">
+          <IndexRoute component={UserIsAuthenticated(ProfileContainer)} />
           <Route path="degree-courses" component={UserIsAuthenticated(DegreeCourses)} />
           <Route path="didactive-activities" component={UserIsAuthenticated(DidacticActivities)} />
           <Route path="administrators" component={UserIsAuthenticated(Administrators)} />
@@ -62,12 +63,11 @@ ReactDOM.render((
           <Route path="exams-list" component={(ExamsProfessorList)} />
           <Route path="exams-student-list" component={(ExamsStudentList)} />
           <Route path="school-records" component={(SchoolRecords)} />
-          <Route path="academic-years" component={UserIsAuthenticated(AcademicYears)} >
+          <Route path="academic-years">
+            <IndexRoute component={UserIsAuthenticated(AcademicYears)} />
             <Route path="insert-academic-year" component={UserIsAuthenticated(InsertAcademicYear)} />
           </Route>
-
         </Route>
-
         <Route path="help" component={Help} />
         <Route path="*" component={NotFound} />
       </Route>

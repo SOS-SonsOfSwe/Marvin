@@ -6,7 +6,7 @@ export default class SubNavBar extends Component {
         return (
             <div>
                 <nav className="navbar pure-menu pure-menu-horizontal subnav">
-                    <ul className="pure-menu-list">
+                    <ul className="pure-menu-list pure-menu-sublist">
                         <OnlyProfSubLinks />
                         <OnlyStudentSubLinks />
                         <OnlyUniAdminSubLinks>

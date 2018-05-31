@@ -22,7 +22,7 @@ code {
 .container {
   box-sizing: border-box;
   width: 100%;
-  padding: 15px 20px;
+  //padding: 15px 20px;
 }
 
 .pure-button-primary {
@@ -55,7 +55,7 @@ code {
 .navbar {
   background: #9C0015;
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
-  border-bottom: 1em solid #333;
+  border-bottom: 0.15em solid #FFF;
   a {
     color: #fff;
     &:active, &:focus, &:hover {
@@ -78,13 +78,18 @@ code {
   }
 
   .logo {
-    font-size: 2.3em;
+    padding-top: 0.3em;
     margin-left: 0.8em;
   }
 
   .pure-menu-heading {
     text-transform: none;
   }
+
+  .navbar-right { //è importante, non cancellare
+    float: right; 
+    padding-top: 1.5em;
+  } 
 
   .uport-logo {
     height: 16px;

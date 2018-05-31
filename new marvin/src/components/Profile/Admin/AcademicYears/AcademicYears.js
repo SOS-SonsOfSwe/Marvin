@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 
 var arrayData = [
     { year: "2017-2018" },
@@ -27,7 +28,11 @@ class AcademicYears extends React.Component {
             <main className='container'>
                 <h1>Academic years</h1>
                 <p className="text-center">Here there is the list of the academic years.</p>
-                <button className="float-right" href="/insert-academic-year">Insert academic year</button>
+                <ul>
+                    <li className="pure-menu-item">
+                        <Link to="/profile/academic-years/insert-academic-year" className="pure-menu-link"> Insert academic year </Link>
+                    </li>
+                </ul>
                 <table className="table table-striped">
                     <thead>
                         <tr>
