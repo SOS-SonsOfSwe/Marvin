@@ -14,8 +14,6 @@ install:
   - npm install -g ganache-cli
   - npm install
 script:
-  - cd "new marvin"
-  - chmod +x. startBlockchain.ps1
   - ./startBlockchain.ps1 > /dev/null &
   - sleep 5
   - truffle compile
