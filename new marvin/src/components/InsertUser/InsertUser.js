@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import InsertUserFormContainer from '../../containers/InsertUserForm/InsertUserFormContainer'
+import InsertUserFormContainer from '../../containers/InsertUser/InsertUserFormContainer'
 import { connect } from 'react-redux'
 
 // import store from '../store'

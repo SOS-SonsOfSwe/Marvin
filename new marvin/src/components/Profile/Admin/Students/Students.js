@@ -1,5 +1,5 @@
 import React from 'react';
-import Row from '../../Admin/UserList';
+import Row from '../../Commons/UserList';
 
 var arrayData = [
     { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },

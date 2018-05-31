@@ -1,8 +1,8 @@
 import React from 'react'
-import { HiddenOnlyAuth, VisibleOnlyAuth, VisibleOnlyUniAdmin } from '../../../src/authentication/wrappers'
+import { HiddenOnlyAuth, VisibleOnlyAuth, VisibleOnlyUniAdmin } from '../../authentication/wrappers'
 import { Link } from 'react-router'
-import LoginButtonContainer from '../../containers/LoginButton/LoginButtonContainer'
-import LogoutButtonContainer from '../../containers/LogoutButton/LogoutButtonContainer'
+import LoginButtonContainer from '../../containers/App/LoginButtonContainer'
+import LogoutButtonContainer from '../../containers/App/LogoutButtonContainer'
 
 const OnlyAuthLinks = VisibleOnlyAuth(() => {
     return (
