@@ -1,19 +1,22 @@
 language: node_js
-
 node_js:
-  - "0.12"
-  - "4.0"
-  - "4"
-  - "5"
-  - "stable"
-
-sudo: false
-
+  - "6"
+cache:
+  directories:
+    - "node_modules"
+env:
+  - SOLIDITY_COVERAGE=true
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
+  - truffle version
+install:
+  - cd Marvin
+  - npm install -g truffle
+  - npm install ganache-cli
+  - npm install
 script:
-  - npm run lint
+  - chmod +x startBlockchain.ps1
+  - ./startBlockchain.ps1 > /dev/null &
+  - sleep 5
+  - truffle compile
+  - truffle migrate
   - npm test
-  - npm run test-node
