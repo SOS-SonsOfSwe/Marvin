@@ -9,14 +9,15 @@ env:
 before_script:
   - truffle version
 install:
-  - cd Marvin
+  - cd "new marvin"
   - npm install -g truffle
   - npm install -g ganache-cli
-  - ./new marvin/npm install
+  - npm install
 script:
-  - chmod +x. ./new marvin/startBlockchain.ps1
-  - ./new marvin/startBlockchain.ps1 > /dev/null &
+  - cd "new marvin"
+  - chmod +x. startBlockchain.ps1
+  - ./startBlockchain.ps1 > /dev/null &
   - sleep 5
-  - ./new marvin/truffle compile
-  - ./new marvin/truffle migrate
-  - ./new marvin/npm test
+  - truffle compile
+  - truffle migrate
+  - npm test
