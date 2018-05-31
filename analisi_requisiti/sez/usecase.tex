@@ -57,9 +57,15 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 \subsection{Caso d'uso UC\ref{Scenario principale dell'universita e dell'amministratore}: Scenario principale dell'università e dell'amministratore}
 \begin{figure} [H]
 	\centering
-	\includegraphics[scale=0.4]{./img/UseCaseDiagram02.png}
-	\caption{Scenario principale }\label{}
+	\includegraphics[scale=0.5]{./img/UseCaseDiagram02A.png}
+	\caption{Scenario principale dell'amministrazione }\label{}
 \end{figure}
+	%\newpage
+\begin{figure} [H]
+	\centering
+	\includegraphics[scale=0.4]{./img/UseCaseDiagram02B.png}
+	\caption{Scenario principale dell'amministrazione }\label{}
+	\end{figure}
 \begin{itemize}
 	\item \textbf{Attori}: Università, Amministratore;
 	\item \textbf{Descrizione}: L'università e l'amministratore possono: aggiungere, modificare, eliminare e visualizzare un errore di eliminazione relativo ad un anno accademico, un corso di laurea, un'attività didattica e un esame e possono inserire o rimuovere un utente dal sistema, mentre solo l'università può anche scegliere amministratore come tipologia di utente;
@@ -1681,95 +1687,95 @@ In questa sezione sono catalogati i casi d'uso derivati da un'attenta indagine e
 
 
 
-%UC6
-\taskO{Iscrizione ad un esame}
-\subsection{Caso d'uso UC\ref{Iscrizione ad un esame}: Iscrizione ad un esame}
-\begin{figure} [H]
-	\centering
-	\includegraphics[scale=0.45]{./img/UseCaseDiagram023.png}
-	\caption{Iscrizione ad un esame}\label{}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Attori}: Studente;
-	\item \textbf{Descrizione}: L'attore vedendo la lista degli appelli disponibili si iscrive ad uno di essi;
-	\item \textbf{Precondizione}: Il sistema fa visualizzare la lista degli appelli disponibili per l'attore;
-	\item \textbf{Flusso principale degli eventi}: L'attore si iscrive ad un esame;
-	\begin{itemize}
-		\item Conferma dell'iscrizione ad un esame (UC\ref{Iscrizione ad un esame}.\ref{Conferma dell'iscrizione ad un esame});
-		\item Annullamento dell'iscrizione ad un esame (UC\ref{Iscrizione ad un esame}.\ref{Annullamento dell'iscrizione ad un esame}).
-	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema fa visualizzare l'appello che l'attore ha selezionato per l'iscrizione.
-\end{itemize}
+%%UC6
+%\taskO{Iscrizione ad un esame}
+%\subsection{Caso d'uso UC\ref{Iscrizione ad un esame}: Iscrizione ad un esame}
+%\begin{figure} [H]
+%	\centering
+%	\includegraphics[scale=0.45]{./img/UseCaseDiagram023.png}
+%	\caption{Iscrizione ad un esame}\label{}
+%\end{figure}
+%\begin{itemize}
+%	\item \textbf{Attori}: Studente;
+%	\item \textbf{Descrizione}: L'attore vedendo la lista degli appelli disponibili si iscrive ad uno di essi;
+%	\item \textbf{Precondizione}: Il sistema fa visualizzare la lista degli appelli disponibili per l'attore;
+%	\item \textbf{Flusso principale degli eventi}: L'attore si iscrive ad un esame;
+%	\begin{itemize}
+%		\item Conferma dell'iscrizione ad un esame (UC\ref{Iscrizione ad un esame}.\ref{Conferma dell'iscrizione ad un esame});
+%		\item Annullamento dell'iscrizione ad un esame (UC\ref{Iscrizione ad un esame}.\ref{Annullamento dell'iscrizione ad un esame}).
+%	\end{itemize}
+%	\item \textbf{Postcondizione}: Il sistema fa visualizzare l'appello che l'attore ha selezionato per l'iscrizione.
+%\end{itemize}
+%
+%%{UC6.1}
+%\taskOO{Conferma dell'iscrizione ad un esame}
+%\subsection{Caso d'uso UC\ref{Iscrizione ad un esame}.\ref{Conferma dell'iscrizione ad un esame}: Conferma dell'iscrizione ad un esame}
+%\begin{itemize}
+%	\item \textbf{Attori}: Studente;
+%	\item \textbf{Descrizione}: L'attore può confermare l'azione di iscrizione ad un esame;
+%	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore l'esame che ha selezionato per l'iscrizione;
+%	\item \textbf{Flusso principale degli eventi}: L'attore ha selezionato l'esame a cui iscriversi e può confermare l'azione;
+%	\item \textbf{Postcondizione}: Il sistema ha iscritto l'attore a quell'esame.
+%\end{itemize}
+%
+%%{UC6.2}
+%\taskOO{Annullamento dell'iscrizione ad un esame}
+%\subsection{Caso d'uso UC\ref{Iscrizione ad un esame}.\ref{Annullamento dell'iscrizione ad un esame}: Annullamento dell'iscrizione ad un esame}
+%\begin{itemize}
+%	\item \textbf{Attori}: Studente;
+%	\item \textbf{Descrizione}: L'attore può annullare l'azione di iscrizione ad un esame;
+%	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore l'esame che ha selezionato per l'iscrizione;
+%	
+%	\item \textbf{Flusso principale degli eventi}: L'attore può annullare l'iscrizione ad un esame dopo averlo selezionato;
+%	\item \textbf{Postcondizione}: Il sistema non ha iscritto l'attore a quell'esame in quanto esso ha annullato l'operazione.
+%	
+%\end{itemize}
 
-%{UC6.1}
-\taskOO{Conferma dell'iscrizione ad un esame}
-\subsection{Caso d'uso UC\ref{Iscrizione ad un esame}.\ref{Conferma dell'iscrizione ad un esame}: Conferma dell'iscrizione ad un esame}
-\begin{itemize}
-	\item \textbf{Attori}: Studente;
-	\item \textbf{Descrizione}: L'attore può confermare l'azione di iscrizione ad un esame;
-	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore l'esame che ha selezionato per l'iscrizione;
-	\item \textbf{Flusso principale degli eventi}: L'attore ha selezionato l'esame a cui iscriversi e può confermare l'azione;
-	\item \textbf{Postcondizione}: Il sistema ha iscritto l'attore a quell'esame.
-\end{itemize}
-
-%{UC6.2}
-\taskOO{Annullamento dell'iscrizione ad un esame}
-\subsection{Caso d'uso UC\ref{Iscrizione ad un esame}.\ref{Annullamento dell'iscrizione ad un esame}: Annullamento dell'iscrizione ad un esame}
-\begin{itemize}
-	\item \textbf{Attori}: Studente;
-	\item \textbf{Descrizione}: L'attore può annullare l'azione di iscrizione ad un esame;
-	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore l'esame che ha selezionato per l'iscrizione;
-	
-	\item \textbf{Flusso principale degli eventi}: L'attore può annullare l'iscrizione ad un esame dopo averlo selezionato;
-	\item \textbf{Postcondizione}: Il sistema non ha iscritto l'attore a quell'esame in quanto esso ha annullato l'operazione.
-	
-\end{itemize}
-
-%{UC7}
-\taskO{Eliminazione dell'iscrizione ad un esame}
-\subsection{Caso d'uso UC\ref{Eliminazione dell'iscrizione ad un esame}: Eliminazione dell'iscrizione ad un esame}
-\begin{figure} [H]
-	\centering
-	\includegraphics[scale=0.45]{./img/UseCaseDiagram024.png}
-	\caption{Eliminazione dell'iscrizione ad un esame}\label{}
-\end{figure}
-\begin{itemize}
-	\item \textbf{Attori}: Studente;
-	\item \textbf{Descrizione}: L'attore si è precedentemente iscritto ad un esame e può annullarne l'iscrizione;
-	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore l'esame a cui esso è registrato;
-	\item \textbf{Flusso principale degli eventi}: L'attore vuole eliminare l'iscrizione ad un esame a cui si è precedentemente registrato e può fare due scelte:
-	\begin{itemize}
-		\item Annullamento dell'eliminazione dell'iscrizione ad un esame (UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Annullamento dell'eliminazione dell'iscrizione ad un esame});
-		\item Conferma dell'eliminazione dell'iscrizione ad un esame (UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Conferma dell'eliminazione dell'iscrizione ad un esame}).
-	\end{itemize}
-	\item \textbf{Postcondizione}: Il sistema disiscrive l'attore a quell'esame.
-\end{itemize}
-
-%{UC7.1}
-\taskOO{Annullamento dell'eliminazione dell'iscrizione ad un esame}
-\subsection{Caso d'uso UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Annullamento dell'eliminazione dell'iscrizione ad un esame}: Annullamento dell'eliminazione dell'iscrizione ad un esame}
-\begin{itemize}
-	\item \textbf{Attori}: Studente;
-	\item \textbf{Descrizione}: L'attore sta eliminando l'iscrizione ad un esame ma decide di non farlo;
-	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore l'esame a cui esso è registrato;
-	
-	\item \textbf{Flusso principale degli eventi}: L'attore che sta eliminando l'iscrizione ad un esame decide di annullare l'operazione;
-	\item \textbf{Postcondizione}: Il sistema non disiscrive più l'attore a quell'esame in quanto esso ha annullato l'operazione.
-	
-\end{itemize}
-
-%{UC7.2}
-\taskOO{Conferma dell'eliminazione dell'iscrizione ad un esame}
-\subsection{Caso d'uso UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Conferma dell'eliminazione dell'iscrizione ad un esame}: Conferma dell'eliminazione dell'iscrizione ad un esame}
-\begin{itemize}
-	\item \textbf{Attori}: Studente;
-	\item \textbf{Descrizione}: L'attore che sta eliminando l'iscrizione ad un esame conferma tale scelta;
-	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore l'esame a cui esso vuole disiscriversi;
-	
-	\item \textbf{Flusso principale degli eventi}: L'attore conferma l'eliminazione di un'iscrizione ad un esame;
-	\item \textbf{Postcondizione}: Il sistema disiscrive l'attore a quell'esame.
-	
-\end{itemize}
+%%{UC7}
+%\taskO{Eliminazione dell'iscrizione ad un esame}
+%\subsection{Caso d'uso UC\ref{Eliminazione dell'iscrizione ad un esame}: Eliminazione dell'iscrizione ad un esame}
+%\begin{figure} [H]
+%	\centering
+%	\includegraphics[scale=0.45]{./img/UseCaseDiagram024.png}
+%	\caption{Eliminazione dell'iscrizione ad un esame}\label{}
+%\end{figure}
+%\begin{itemize}
+%	\item \textbf{Attori}: Studente;
+%	\item \textbf{Descrizione}: L'attore si è precedentemente iscritto ad un esame e può annullarne l'iscrizione;
+%	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore l'esame a cui esso è registrato;
+%	\item \textbf{Flusso principale degli eventi}: L'attore vuole eliminare l'iscrizione ad un esame a cui si è precedentemente registrato e può fare due scelte:
+%	\begin{itemize}
+%		\item Annullamento dell'eliminazione dell'iscrizione ad un esame (UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Annullamento dell'eliminazione dell'iscrizione ad un esame});
+%		\item Conferma dell'eliminazione dell'iscrizione ad un esame (UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Conferma dell'eliminazione dell'iscrizione ad un esame}).
+%	\end{itemize}
+%	\item \textbf{Postcondizione}: Il sistema disiscrive l'attore a quell'esame.
+%\end{itemize}
+%
+%%{UC7.1}
+%\taskOO{Annullamento dell'eliminazione dell'iscrizione ad un esame}
+%\subsection{Caso d'uso UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Annullamento dell'eliminazione dell'iscrizione ad un esame}: Annullamento dell'eliminazione dell'iscrizione ad un esame}
+%\begin{itemize}
+%	\item \textbf{Attori}: Studente;
+%	\item \textbf{Descrizione}: L'attore sta eliminando l'iscrizione ad un esame ma decide di non farlo;
+%	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore l'esame a cui esso è registrato;
+%	
+%	\item \textbf{Flusso principale degli eventi}: L'attore che sta eliminando l'iscrizione ad un esame decide di annullare l'operazione;
+%	\item \textbf{Postcondizione}: Il sistema non disiscrive più l'attore a quell'esame in quanto esso ha annullato l'operazione.
+%	
+%\end{itemize}
+%
+%%{UC7.2}
+%\taskOO{Conferma dell'eliminazione dell'iscrizione ad un esame}
+%\subsection{Caso d'uso UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Conferma dell'eliminazione dell'iscrizione ad un esame}: Conferma dell'eliminazione dell'iscrizione ad un esame}
+%\begin{itemize}
+%	\item \textbf{Attori}: Studente;
+%	\item \textbf{Descrizione}: L'attore che sta eliminando l'iscrizione ad un esame conferma tale scelta;
+%	\item \textbf{Precondizione}: Il sistema fa visualizzare all'attore l'esame a cui esso vuole disiscriversi;
+%	
+%	\item \textbf{Flusso principale degli eventi}: L'attore conferma l'eliminazione di un'iscrizione ad un esame;
+%	\item \textbf{Postcondizione}: Il sistema disiscrive l'attore a quell'esame.
+%	
+%\end{itemize}
 
 %{UC8}
 \taskO{Rifiuto del voto di un esame}
