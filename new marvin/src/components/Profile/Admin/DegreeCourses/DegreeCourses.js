@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-var arrayData = [
-    { year: "2017-2018", degreeCourse: "Informatica" },
-    { year: "2017-2018", degreeCourse: "Matematica" },
-    { year: "2017-2018", degreeCourse: "Psicologia" },
-    { year: "2017-2018", degreeCourse: "Ingegneria" },
-    { year: "2017-2018", degreeCourse: "Giurisprudenza" },
-    { year: "2016-2017", degreeCourse: "Informatica" },
-    { year: "2016-2017", degreeCourse: "Matematica" },
-    { year: "2016-2017", degreeCourse: "Psicologia" },
-]
+// var arrayData = [
+//     { year: "2017-2018", degreeCourse: "Informatica" },
+//     { year: "2017-2018", degreeCourse: "Matematica" },
+//     { year: "2017-2018", degreeCourse: "Psicologia" },
+//     { year: "2017-2018", degreeCourse: "Ingegneria" },
+//     { year: "2017-2018", degreeCourse: "Giurisprudenza" },
+//     { year: "2016-2017", degreeCourse: "Informatica" },
+//     { year: "2016-2017", degreeCourse: "Matematica" },
+//     { year: "2016-2017", degreeCourse: "Psicologia" },
+// ]
 
 const Row = ({ year, degreeCourse }) => (
     <tr className="clickable-row">
@@ -28,8 +28,16 @@ const Row = ({ year, degreeCourse }) => (
 );
 
 class DegreeCourses extends React.Component {
-    render() {
+    constructor(props) {
+        super(props)
+        this.state = {
+            degreeCoursesData: 'componentState'
+        }
+        this.props.readDegreeData()
 
+    }
+    render() {
+        var arrayData = Object.values(this.state.degreeCoursesData);
         const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
 
         return (

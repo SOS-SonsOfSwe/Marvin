@@ -1,1 +1,1 @@
-export const READ_ACADEMIC_YEAR_DATA = 'READ_ACADEMIC_YEAR_DATA'
+export const READ_DATA = 'READ_DATA'

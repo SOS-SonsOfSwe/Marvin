@@ -26,9 +26,7 @@ class DeleteStudent extends React.Component {
                     <p>Are you sure you want to delete this student? Once you canceled it, you can't go back.</p>
                     <form className="pure-form pure-form-stacked">
                         <fieldset>
-                            <body>
-                                {rows}
-                            </body>
+                            {rows}
                             <button>Delete</button>
                             <button>Cancel</button>
                         </fieldset>

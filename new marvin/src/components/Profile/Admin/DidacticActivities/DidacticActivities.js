@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-var arrayData = [
-    { year: "2017-2018", degreeCourse: "Informatica", didacticActivity: "Probabilità" },
-    { year: "2017-2018", degreeCourse: "Matematica", didacticActivity: "Calcolo" },
-    { year: "2017-2018", degreeCourse: "Psicologia", didacticActivity: "Comportamento" },
-    { year: "2017-2018", degreeCourse: "Ingegneria", didacticActivity: "Analisi" },
-    { year: "2017-2018", degreeCourse: "Giurisprudenza", didacticActivity: "Diritto" },
-    { year: "2016-2017", degreeCourse: "Informatica", didacticActivity: "Probabilità" },
-    { year: "2016-2017", degreeCourse: "Matematica", didacticActivity: "Calcolo" },
-    { year: "2016-2017", degreeCourse: "Psicologia", didacticActivity: "Comportamento" },
-]
+// var arrayData = [
+//     { year: "2017-2018", degreeCourse: "Informatica", didacticActivity: "Probabilità" },
+//     { year: "2017-2018", degreeCourse: "Matematica", didacticActivity: "Calcolo" },
+//     { year: "2017-2018", degreeCourse: "Psicologia", didacticActivity: "Comportamento" },
+//     { year: "2017-2018", degreeCourse: "Ingegneria", didacticActivity: "Analisi" },
+//     { year: "2017-2018", degreeCourse: "Giurisprudenza", didacticActivity: "Diritto" },
+//     { year: "2016-2017", degreeCourse: "Informatica", didacticActivity: "Probabilità" },
+//     { year: "2016-2017", degreeCourse: "Matematica", didacticActivity: "Calcolo" },
+//     { year: "2016-2017", degreeCourse: "Psicologia", didacticActivity: "Comportamento" },
+// ]
 
 const Row = ({ year, degreeCourse, didacticActivity }) => (
     <tr className="clickable-row">
@@ -29,8 +29,19 @@ const Row = ({ year, degreeCourse, didacticActivity }) => (
 );
 
 class DidacticActivities extends React.Component {
-    render() {
+    constructor(props) {
+        super(props)
 
+        this.state = {
+            didacticActivitiesData: 'nothing'
+        }
+
+        this.props.readDidacticActivitiesData()
+    }
+
+
+    render() {
+        var arrayData = Object.values(this.state.didacticActivitiesData);
         const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
 
         return (
