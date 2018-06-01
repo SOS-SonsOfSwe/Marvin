@@ -59,14 +59,12 @@ class InsertExam extends React.Component {
 
         return (
             <main className='container'>
-                <div class="pure-g">
+                <div className="pure-u-1-1">
                     <h1>Insert an exam</h1>
                     <p>Now you can insert a new exam.</p>
                     <form className="pure-form pure-form-stacked">
                         <fieldset>
-                            <body>
-                                {rows}
-                            </body>
+                            {rows}
                             <label>Tipology</label>
                             <input type="text" value={this.state.typology} onChange={this.handleChange3} placeholder="Insert a tipology" />
                             <label>Professor</label>
@@ -77,9 +75,10 @@ class InsertExam extends React.Component {
                             <input type="text" value={this.state.date} onChange={this.handleChange6} placeholder="Insert a date" />
                             <label>Time</label>
                             <input type="text" value={this.state.time} onChange={this.handleChange7} placeholder="Insert a time" />
-
-                            <input type="submit" value="Save" />
-                            <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
+                            <div className="div-buttons">
+                                <input type="submit" value="Save" />
+                                <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
+                            </div>
                         </fieldset>
                     </form>
                 </div>

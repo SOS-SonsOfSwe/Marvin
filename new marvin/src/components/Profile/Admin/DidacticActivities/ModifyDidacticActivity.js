@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ModifyDidacticActivity extends React.Component{
+class ModifyDidacticActivity extends React.Component {
 
     constructor(props) {
         super(props);
@@ -27,72 +27,74 @@ class ModifyDidacticActivity extends React.Component{
     }
 
     handleChange(event) {
-        this.setState({year: event.target.value});
+        this.setState({ year: event.target.value });
     }
 
     handleChange1(event) {
-        this.setState({degreeCourse: event.target.value});
+        this.setState({ degreeCourse: event.target.value });
     }
 
     handleChange2(event) {
-        this.setState({didacticActivity: event.target.value});
+        this.setState({ didacticActivity: event.target.value });
     }
 
     handleChange3(event) {
-        this.setState({typology: event.target.value});
+        this.setState({ typology: event.target.value });
     }
 
     handleChange4(event) {
-        this.setState({professor: event.target.value});
+        this.setState({ professor: event.target.value });
     }
 
     handleChange5(event) {
-        this.setState({place: event.target.value});
+        this.setState({ place: event.target.value });
     }
 
     handleChange6(event) {
-        this.setState({date: event.target.value});
+        this.setState({ date: event.target.value });
     }
 
     handleChange7(event) {
-        this.setState({time: event.target.value});
+        this.setState({ time: event.target.value });
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <main className='container'>
-                <div class="pure-g">
+                <div className="pure-u-1-1">
                     <h1>Modify didactic activity</h1>
                     <p>Now you can modify this didactic activity.</p>
-                        <form className="pure-form pure-form-stacked">
-                            <fieldset>
-                                <label>Academic year</label>
-                                <input type="text" value={this.state.year} onChange={this.handleChange} />
-                                <label>Degree course</label>
-                                <input type="text" value={this.state.degreeCourse} onChange={this.handleChange1} />
-                                <label>Didactic activity</label>
-                                <input type="text" value={this.state.didacticActivity} onChange={this.handleChange2} />
-                                <label>Exam</label>
-                                <div className="float-right">
-                                    <label>Tipology</label>
-                                    <input type="text" value={this.state.typology} onChange={this.handleChange3} />
-                                    <label>Professor</label>
-                                    <input type="text" value={this.state.professor} onChange={this.handleChange4} />
-                                    <label>Place</label>
-                                    <input type="text" value={this.state.place} onChange={this.handleChange5} />
-                                    <label>Date</label>
-                                    <input type="text" value={this.state.date} onChange={this.handleChange6} />
-                                    <label>Time</label>
-                                    <input type="text" value={this.state.time} onChange={this.handleChange7} />
-                                </div>
+                    <form className="pure-form pure-form-stacked">
+                        <fieldset>
+                            <label>Academic year</label>
+                            <input type="text" value={this.state.year} onChange={this.handleChange} />
+                            <label>Degree course</label>
+                            <input type="text" value={this.state.degreeCourse} onChange={this.handleChange1} />
+                            <label>Didactic activity</label>
+                            <input type="text" value={this.state.didacticActivity} onChange={this.handleChange2} />
+                            <label>Exam</label>
+                            <div className="float-right">
+                                <label>Tipology</label>
+                                <input type="text" value={this.state.typology} onChange={this.handleChange3} />
+                                <label>Professor</label>
+                                <input type="text" value={this.state.professor} onChange={this.handleChange4} />
+                                <label>Place</label>
+                                <input type="text" value={this.state.place} onChange={this.handleChange5} />
+                                <label>Date</label>
+                                <input type="text" value={this.state.date} onChange={this.handleChange6} />
+                                <label>Time</label>
+                                <input type="text" value={this.state.time} onChange={this.handleChange7} />
+                            </div>
+                            <div className="div-buttons">
                                 <input type="submit" value="Save" />
                                 <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
-                            </fieldset>
-                        </form>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
-            </main>    
+            </main>
         )
-    }    
+    }
 }
 
 export default ModifyDidacticActivity;

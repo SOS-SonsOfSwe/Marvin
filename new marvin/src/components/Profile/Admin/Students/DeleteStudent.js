@@ -21,7 +21,7 @@ class DeleteStudent extends React.Component {
 
         return (
             <main className='container'>
-                <div class="pure-g">
+                <div className="pure-u-1-1">
                     <h1>Delete student</h1>
                     <p>Are you sure you want to delete this student? Once you canceled it, you can't go back.</p>
                     <form className="pure-form pure-form-stacked">

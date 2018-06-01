@@ -3,6 +3,7 @@ import {
 } from 'redux-auth-wrapper/history3/redirect'
 import connectedAuthWrapper from 'redux-auth-wrapper/connectedAuthWrapper'
 import locationHelperBuilder from 'redux-auth-wrapper/history3/locationHelper'
+//import { replace } from 'react-router-redux'
 
 import {
   routerActions
@@ -58,6 +59,10 @@ export const AdminIsAuthenticated = connectedReduxRedirect({
   // },
   // AuthenticatingComponent: Loading,
   redirectAction: routerActions.replace,
+  /*redirectAction: (newLoc) => (dispatch) => {
+    dispatch(replace(newLoc));
+    console.log('You are not an administrator!');
+  },*/
   wrapperDisplayName: 'AdminIsAuthenticated'
 })
 
@@ -106,7 +111,7 @@ export const StudentIsAuthenticated = connectedReduxRedirect({
   redirectPath: '/',
   authenticatedSelector: state => {
     if (state.user.data !== null && state.user.isStudent) {
-      console.log("You can do what a professor can do!")
+      console.log("You can do what a student can do!")
       return true;
     } else {
       console.log("You're a powerfullness user!")

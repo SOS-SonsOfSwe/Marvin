@@ -10,6 +10,64 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
 */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css ------COMMENTO NON MIO------*/
 
+fieldset input {
+  margin-bottom: 0.5em;
+}
+
+td {
+  text-align: center;
+  border: 0.01em solid #ddd;
+  padding: 0.15em;
+}
+
+tr:nth-child(even) {
+  background: #f1f1f1;
+}
+
+.table { 
+  width: 80%;
+  margin: 1em 10%;
+} 
+ 
+.insert-button { 
+  float: right; 
+  margin-right: 10%;
+  margin-bottom: 1.5em;
+} 
+ 
+.insert-button a { 
+  text-decoration: none; 
+  color: #fff; 
+}
+
+.insert-button a:hover {
+  color: #333;
+  transition: 0.5s;
+}
+
+.title-column {
+  padding-bottom: 0.3em;
+}
+
+.modify-link{
+  margin-right: 3em;
+}
+
+.modify-link a {
+  color: rgb(17, 17, 124);
+  text-decoration: none;
+}
+
+.delete-link a {
+  color: #9C0015;
+  text-decoration: none;
+}
+ 
+.student-img { 
+  text-align: center;
+  margin-top: 2.5em;
+} 
+
 .pure-button:focus {
     outline: 0;
   }
@@ -199,7 +257,7 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
     padding: .35em .625em .75em;
   }
   
-  legend, td, th {
+  legend, th {
     padding: 0;
   }
   
