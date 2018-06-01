@@ -12,7 +12,9 @@ class Home extends Component {
             <p>This is the Proof Of Concept that the Sons Of SWE group edited for the Marvin project. It consist,
               through the use of blockchain technology, in an Uniweb demonstrator on Ethereum.
               </p>
-            <img className="students" src={students} alt="Students" />
+            <div className="text-center">
+              <img src={students} class="img-fluid" alt="Students" />
+            </div>
           </div>
         </div>
       </main>

@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router'
 
-class InsertDidacticActivity extends React.Component{
+class InsertDidacticActivity extends React.Component {
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
             year: '',
             degreeCourse: '',
@@ -16,41 +17,43 @@ class InsertDidacticActivity extends React.Component{
     }
 
     handleChange(event) {
-        this.setState({year: event.target.value});
+        this.setState({ year: event.target.value });
     }
 
     handleChange1(event) {
-        this.setState({degreeCourse: event.target.value});
+        this.setState({ degreeCourse: event.target.value });
     }
 
     handleChange2(event) {
-        this.setState({didacticActivity: event.target.value});
+        this.setState({ didacticActivity: event.target.value });
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <main className='container'>
                 <div class="pure-g">
                     <h1>Insert didactic activity</h1>
                     <p>Now you can insert a new didactic activity.</p>
-                        <form className="pure-form pure-form-stacked">
-                            <fieldset>
-                                <label>Academic year</label>
-                                <input type="text" value={this.state.year} onChange={this.handleChange} placeholder="Insert a year"/>
-                                <label>Degree Course</label>
-                                <input type="text" value={this.state.degreeCourse} onChange={this.handleChange1} placeholder="Insert a degree course"/>
-                                <label>Didactic activity</label>
-                                <input type="text" value={this.state.didacticActivity} onChange={this.handleChange2} placeholder="Insert a didactic activity"/>
-                                <a href="#">Add an exam</a>
-                                <br/>
-                                <input type="submit" value="Save" />
-                                <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
-                            </fieldset>
-                        </form>
+                    <form className="pure-form pure-form-stacked">
+                        <fieldset>
+                            <label>Academic year</label>
+                            <input type="text" value={this.state.year} onChange={this.handleChange} placeholder="Insert a year" />
+                            <label>Degree Course</label>
+                            <input type="text" value={this.state.degreeCourse} onChange={this.handleChange1} placeholder="Insert a degree course" />
+                            <label>Didactic activity</label>
+                            <input type="text" value={this.state.didacticActivity} onChange={this.handleChange2} placeholder="Insert a didactic activity" />
+                            <button>
+                                <Link to="/profile/insert-didactic-activity/insert-exam">Insert an exam</Link>
+                            </button>
+                            <br />
+                            <input type="submit" value="Save" />
+                            <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
+                        </fieldset>
+                    </form>
                 </div>
-            </main>    
+            </main>
         )
-    }    
+    }
 }
 
 export default InsertDidacticActivity;

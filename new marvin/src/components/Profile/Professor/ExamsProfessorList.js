@@ -13,7 +13,7 @@ var arrayData = [
 class ExamsProfessorList extends React.Component {
     render() {
 
-        const rows = arrayData.map((rowData) => <Row {...rowData} />);
+        const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
 
         return (
             <main className='container'>

@@ -1,11 +1,13 @@
 import React from 'react';
 
 var arrayData = [
-    {year: "2018", degreeCourse: "informatica", didacticActivity: "probabilità", exam1: "primo appello",
-    exam2: "secondo appello", exam3: "terzo appello"},
+    {
+        year: "2018", degreeCourse: "informatica", didacticActivity: "probabilità", exam1: "primo appello",
+        exam2: "secondo appello", exam3: "terzo appello"
+    },
 ]
 
-const Row = ({year, degreeCourse, didacticActivity, exam1, exam2, exam3}) => (
+const Row = ({ year, degreeCourse, didacticActivity, exam1, exam2, exam3 }) => (
     <div>
         <p>Academic year: {year}</p>
         <p>Degree course: {degreeCourse}</p>
@@ -16,29 +18,29 @@ const Row = ({year, degreeCourse, didacticActivity, exam1, exam2, exam3}) => (
     </div>
 );
 
-class DeleteDidacticActivity extends React.Component{
+class DeleteDidacticActivity extends React.Component {
 
-    render(){
-        const rows = arrayData.map( (rowData) => <Row {...rowData} />);
+    render() {
+        const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
 
-        return(
+        return (
             <main className='container'>
                 <div class="pure-g">
                     <h1>Delete didactic activity</h1>
                     <p>Are you sure you want to delete this didactic activity? Once you canceled it, you can't go back.</p>
                     <form className="pure-form pure-form-stacked">
-                            <fieldset>
-                                <body>
-                                    {rows}
-                                </body>
-                                <button>Delete</button>
-                                <button>Cancel</button>
-                            </fieldset>
+                        <fieldset>
+                            <body>
+                                {rows}
+                            </body>
+                            <button>Delete</button>
+                            <button>Cancel</button>
+                        </fieldset>
                     </form>
                 </div>
-            </main>    
+            </main>
         )
-    }    
+    }
 }
 
 export default DeleteDidacticActivity;
