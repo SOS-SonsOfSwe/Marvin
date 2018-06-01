@@ -35,7 +35,7 @@ const OnlyUniAdminSubLinks = VisibleOnlyUniAdmin(() => {
                         <Link to="/profile/degree-courses" className="pure-menu-link">Degree courses</Link>
                     </li>
                     <li className="pure-menu-item">
-                        <Link to="/profile/didactive-activities" className="pure-menu-link">Didactic activities</Link>
+                        <Link to="/profile/didactic-activities" className="pure-menu-link">Didactic activities</Link>
                     </li>
                     {/* <li className="pure-menu-item">
                         <Link to="/exams" className="pure-menu-link">Exams</Link>
@@ -63,7 +63,7 @@ const OnlyStudentSubLinks = VisibleOnlyStudent(() => {
         <div>
             <ul>
                 <li className="pure-menu-item">
-                    <Link to="/profle/exams-student-list" className="pure-menu-link">Your exams list</Link>
+                    <Link to="/profile/exams-student-list" className="pure-menu-link">Your exams list</Link>
                 </li>
                 <li className="pure-menu-item">
                     <Link to="/profile/school-records" className="pure-menu-link">School records</Link>
