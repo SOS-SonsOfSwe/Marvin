@@ -42,12 +42,13 @@ class InsertDidacticActivity extends React.Component {
                             <input type="text" value={this.state.degreeCourse} onChange={this.handleChange1} placeholder="Insert a degree course" />
                             <label>Didactic activity</label>
                             <input type="text" value={this.state.didacticActivity} onChange={this.handleChange2} placeholder="Insert a didactic activity" />
-                            <button>
-                                <Link to="/profile/insert-didactic-activity/insert-exam">Insert an exam</Link>
-                            </button>
                             <br />
-                            <input type="submit" value="Save" />
-                            <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
+                            <Link to="/profile/insert-didactic-activity/insert-exam">Insert an exam</Link>
+
+                            <div className="div-buttons">
+                                <input type="submit" value="Save" />
+                                <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
+                            </div>
                         </fieldset>
                     </form>
                 </div>

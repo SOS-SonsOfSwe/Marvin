@@ -16,21 +16,17 @@ const Row = ({ year, degreeCourse }) => (
     <tr className="clickable-row">
         <td>Academic year {year}</td>
         <td>{degreeCourse}</td>
-
-        <div className="float-right">
-
-            <button className="insert-table-button">
-
-                <Link to="/profile/degree-courses/insert-didactic-activity">Insert didactic activity</Link>
-
+        <td>
+            <Link to="/profile/degree-courses/insert-didactic-activity">Insert didactic activity</Link>
+        </td>
+        <td>
+            <button className="modify-link">
+                <Link to="/profile/degree-courses/modify-degree-course">Modify</Link>
             </button>
-
-            <Link to="/profile/degree-courses/modify-degree-course">Modify</Link>
-
-            <Link to="/profile/degree-courses/delete-degree-course">Delete</Link>
-
-        </div>
-
+            <button className="delete-link">
+                <Link to="/profile/degree-courses/delete-degree-course">Delete</Link>
+            </button>
+        </td>
     </tr>
 );
 
@@ -52,14 +48,15 @@ class DegreeCourses extends React.Component {
                 <div className="pure-u-1-1">
                     <h1>Degree courses</h1>
                     <p className="text-center">Here there is the list of the degree courses.</p>
-                    <button className="insert-button">
+                    <button className="insert-button pure-button pure-button-primary">
                         <Link to="/profile/degree-courses/insert-degree-course">Insert degree course</Link>
                     </button>
                     <table className="table table-striped">
                         <thead>
                             <tr>
-                                <th>Year</th>
-                                <th>Degree course</th>
+                                <th className="title-column">Year</th>
+                                <th className="title-column">Degree course</th>
+                                <th className="title-column">Didactic activity</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -17,20 +17,17 @@ const Row = ({ year, degreeCourse, didacticActivity }) => (
         <td>Academic year {year}</td>
         <td>{degreeCourse}</td>
         <td>{didacticActivity}</td>
-        <div className="float-right">
-
-            <button className="insert-table-button">
-
-                <Link to="/profile/didactic-activities/insert-exam">Insert an exam</Link>
-
+        <td>
+            <Link to="/profile/didactic-activities/insert-exam">Insert an exam</Link>
+        </td>
+        <td>
+            <button className="modify-link">
+                <Link to="/profile/didactic-activities/modify-didactic-activity">Modify</Link>
             </button>
-
-            <Link to="/profile/didactic-activities/modify-didactic-activity">Modify</Link>
-
-            <Link to="/profile/didactic-activities/delete-didactic-activity">Delete</Link>
-
-        </div>
-
+            <button className="delete-link">
+                <Link to="/profile/didactic-activities/delete-didactic-activity">Delete</Link>
+            </button>
+        </td>
     </tr>
 );
 
@@ -55,15 +52,16 @@ class DidacticActivities extends React.Component {
                 <div className="pure-u-1-1">
                     <h1>Didactic activities</h1>
                     <p className="text-center">Here there is the list of the didactic activities.</p>
-                    <button className="insert-button">
-                        <Link to="/profile/didactic-activities/insert-didactic-activity" className="pure-menu-link"> Insert didactic activity </Link>
+                    <button className="insert-button pure-button pure-button-primary">
+                        <Link to="/profile/didactic-activities/insert-didactic-activity"> Insert didactic activity </Link>
                     </button>
                     <table className="table table-striped">
                         <thead>
                             <tr>
-                                <th>Year</th>
-                                <th>Degree course</th>
-                                <th>Didactic activity</th>
+                                <th className="title-column">Year</th>
+                                <th className="title-column">Degree course</th>
+                                <th className="title-column">Didactic activity</th>
+                                <th className="title-column">Exam</th>
                             </tr>
                         </thead>
                         <tbody>

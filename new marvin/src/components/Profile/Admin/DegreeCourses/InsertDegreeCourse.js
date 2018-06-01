@@ -33,9 +33,10 @@ class InsertDegreeCourse extends React.Component {
                             <input type="text" value={this.state.year} onChange={this.handleChange} placeholder="Insert a year" />
                             <label>Degree Course</label>
                             <input type="text" value={this.state.degreeCourse} onChange={this.handleChange1} placeholder="Insert a degree course" />
-
-                            <input type="submit" value="Save" />
-                            <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
+                            <div className="div-buttons">
+                                <input type="submit" value="Save" />
+                                <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
+                            </div>
                         </fieldset>
                     </form>
                 </div>

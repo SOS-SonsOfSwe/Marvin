@@ -14,10 +14,11 @@ const Row = ({ name, surname, badgeNumber, fiscalCode, univocalCode }) => (
         <td>{surname}</td>
         <td>{badgeNumber}</td>
         <td>{fiscalCode}</td>
-        <td>{univocalCode}
-            <div className="float-right">
+        <td>{univocalCode}</td>
+        <td>
+            <button className="delete-link">
                 <Link to="/profile/administrators/delete-administrator">Delete</Link>
-            </div>
+            </button>
         </td>
     </tr>
 );
@@ -29,25 +30,27 @@ class Administrators extends React.Component {
 
         return (
             <main className='container'>
-                <h1>Administrators</h1>
-                <p className="text-center">Here there is the list of the administrators.</p>
-                <button>
-                    <Link to="/profile/administrators/insert-user">Insert an administrator</Link>
-                </button>
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Surname</th>
-                            <th>Badge number</th>
-                            <th>Fiscal code</th>
-                            <th>Univocal code</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rows}
-                    </tbody>
-                </table>
+                <div className="pure-u-1-1">
+                    <h1>Administrators</h1>
+                    <p className="text-center">Here there is the list of the administrators.</p>
+                    <button className="insert-button pure-button pure-button-primary">
+                        <Link to="/profile/administrators/insert-user">Insert an administrator</Link>
+                    </button>
+                    <table className="table table-striped">
+                        <thead>
+                            <tr>
+                                <th className="title-column">Name</th>
+                                <th className="title-column">Surname</th>
+                                <th className="title-column">Badge number</th>
+                                <th className="title-column">Fiscal code</th>
+                                <th className="title-column">Univocal code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {rows}
+                        </tbody>
+                    </table>
+                </div>
             </main>
         )
     }
