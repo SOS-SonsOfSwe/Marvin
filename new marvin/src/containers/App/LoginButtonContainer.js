@@ -2,7 +2,7 @@ import {
   connect
 } from 'react-redux'
 import LoginButton from '../../components/App/LoginButton'
-import { loginUser } from '../../redux/actions/buttons/LoginButtonActions'
+import { loginUser } from '../../redux/actions/Login-logout-signup/LoginButtonActions'
 
 const mapStateToProps = (state, ownProps) => {
   return {}

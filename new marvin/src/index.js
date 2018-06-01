@@ -18,7 +18,8 @@ import ProfileContainer from './containers/Profile/ProfileContainer'
 import SignUp from './components/SignUp/SignUp'
 import Help from './components/Help/Help'
 
-import AcademicYears from './components/Profile/Admin/AcademicYears/AcademicYears'
+// import AcademicYears from './components/Profile/Admin/AcademicYears/AcademicYears'
+import AcademicYears from './containers/Profile/Admin/AcademicYears/AcademicYearsContainer'
 import DegreeCourses from './components/Profile/Admin/DegreeCourses/DegreeCourses'
 import DidacticActivities from './components/Profile/Admin/DidacticActivities/DidacticActivities'
 import Administrators from './components/Profile/Admin/onlyUniversity/Administrators/Administrators'
@@ -68,6 +69,10 @@ ReactDOM.render((
         <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
         <Route path="profile">
           <IndexRoute component={UserIsAuthenticated(ProfileContainer)} />
+          <Route path="academic-years">
+            <IndexRoute component={(AcademicYears)} />
+            <Route path="insert-academic-year" component={UserIsAuthenticated(InsertAcademicYear)} />
+          </Route>
           <Route path="degree-courses" component={UserIsAuthenticated(DegreeCourses)} />
           <Route path="didactive-activities" component={UserIsAuthenticated(DidacticActivities)} />
           <Route path="administrators" component={UserIsAuthenticated(Administrators)} />

@@ -1,5 +1,5 @@
 import {
-  connectedRouterRedirect
+  connectedReduxRedirect
 } from 'redux-auth-wrapper/history3/redirect'
 import connectedAuthWrapper from 'redux-auth-wrapper/connectedAuthWrapper'
 import locationHelperBuilder from 'redux-auth-wrapper/history3/locationHelper'
@@ -14,7 +14,7 @@ const locationHelper = locationHelperBuilder({})
 
 // Layout Component Wrappers
 
-export const UserIsAuthenticated = connectedRouterRedirect({
+export const UserIsAuthenticated = connectedReduxRedirect({
   redirectPath: '/signup', //path in which it has to go if it's not authenticated
   authenticatedSelector: state => state.user.data !== null && state.user.data.payload.name !== null,
   authenticatingSelector: state => {
@@ -26,7 +26,7 @@ export const UserIsAuthenticated = connectedRouterRedirect({
   wrapperDisplayName: 'UserIsAuthenticated'
 })
 
-export const UserIsNotAuthenticated = connectedRouterRedirect({
+export const UserIsNotAuthenticated = connectedReduxRedirect({
   redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/profile', //where to go if it's authenticated
   // redirectPath: (state, ownProps) => ownProps.location.query.redirect || '/signup',
   authenticatedSelector: state => state.user.data === null,
@@ -41,10 +41,10 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
 })
 
 //for super admin
-export const UniAdminIsAuthenticated = connectedRouterRedirect({
+export const UniAdminIsAuthenticated = connectedReduxRedirect({
   redirectPath: '/',
   authenticatedSelector: state => {
-    if (state.user.data !== null && state.user.isAdmin) {
+    if(state.user.data !== null && state.user.isAdmin) {
       console.log("You can do whatever you want!")
       return true;
     } else {
@@ -108,7 +108,6 @@ export const VisibleOnlyStudent = connectedAuthWrapper({
   wrapperDisplayName: 'VisibleOnlyStudent',
   // FailureComponent: null // NOW OPTIONAL
 })
-
 
 // Applying to a function component for simplicity but could be Class or createClass component
 // const AdminOnlyLink = VisibleOnlyAdmin(() => <Link to='/admin'>Admin Section</Link>)

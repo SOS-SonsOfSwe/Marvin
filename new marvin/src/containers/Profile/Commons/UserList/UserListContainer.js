@@ -8,7 +8,7 @@ const Row = ({name, surname, badgeNumber, fiscalCode, univocalCode}) => (
         <td>{fiscalCode}</td>
         <td>{univocalCode}
             <div className="float-right">
-                <a href="#">Modify</a> <a href="#">Delete</a>
+                <a href={null}>Modify</a> <a href={null}>Delete</a>
             </div>
         </td>
     </tr>

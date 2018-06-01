@@ -8,8 +8,7 @@ import store from '../../../store'
 import ipfsPromise from '../../../../api/utils/ipfsPromise'
 
 import {
-  USER_LOGGED_IN,
-  USER_LOGGING_IN
+  userCostants
 } from '../../reducers/costants'
 
 const contract = require('truffle-contract')
@@ -18,19 +17,19 @@ const contract = require('truffle-contract')
 
 function userLoggingIn() {
   return {
-    type: USER_LOGGING_IN
+    type: userCostants.USER_LOGGING_IN
   }
 }
 
 function userLoggedIn(payload) {
   return {
-    type: USER_LOGGED_IN,
+    type: userCostants.USER_LOGGED_IN,
     payload: payload
   }
 }
 
 function doAwesomeStuff(dispatch, payload) {
- dispatch(userLoggedIn({
+  dispatch(userLoggedIn({
     payload
   }))
   var currentLocation = browserHistory.getCurrentLocation()

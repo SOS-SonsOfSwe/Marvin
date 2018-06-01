@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-var arrayData = [
-    { year: "2017-2018" },
-    { year: "2016-2017" },
-    { year: "2015-2016" },
-    { year: "2014-2015" },
-    { year: "2013-2014" },
-]
+// var arrayData = [
+//     { year: "2017-2018" },
+//     { year: "2016-2017" },
+//     { year: "2015-2016" },
+//     { year: "2014-2015" },
+//     { year: "2013-2014" },
+// ]
 
 const Row = ({ year }) => (
     <tr className="clickable-row">
@@ -24,8 +24,17 @@ const Row = ({ year }) => (
 );
 
 class AcademicYears extends React.Component {
-    render() {
+    constructor(props) {
+        super(props)
+        this.state = {
+            academicYearsData: 'componentState'
+        }
+        this.props.readAcademicData()
 
+    }
+
+    render() {
+        var arrayData = Object.values(this.state.academicYearsData);
         const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
 
         return (

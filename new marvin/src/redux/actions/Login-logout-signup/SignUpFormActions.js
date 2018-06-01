@@ -1,7 +1,7 @@
 import UniversityContract from '../../../../build/contracts/UserLogic.json'
 import {
   loginUser
-} from '../buttons/LoginButtonActions'
+} from './LoginButtonActions'
 import store from '../../../store'
 
 const contract = require('truffle-contract')

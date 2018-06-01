@@ -10,7 +10,7 @@ import thunkMiddleware from 'redux-thunk'
 import {
   routerMiddleware
 } from 'react-router-redux'
-import reducer from './redux/reducers/index'
+import reducer from './redux/reducers'
 
 // Redux DevTools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
