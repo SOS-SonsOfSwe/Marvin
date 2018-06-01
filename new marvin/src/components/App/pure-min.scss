@@ -10,6 +10,25 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
 */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css ------COMMENTO NON MIO------*/
 
+.table { 
+  width: 100%; 
+} 
+ 
+.insert-button { 
+  float: right; 
+  margin-right: 10%; 
+   
+} 
+ 
+.insert-button a, .insert-table-button a { 
+  text-decoration: none; 
+  color: #333; 
+} 
+ 
+.student-img { 
+  text-align: center; 
+} 
+
 .pure-button:focus {
     outline: 0;
   }

@@ -11,15 +11,22 @@ import { Link } from 'react-router'
 
 const Row = ({ year }) => (
     <tr className="clickable-row">
-        <td>Academic year {year}
-            <div className="float-right">
-                <button>
-                    <Link to="/profile/academic-years/insert-degree-course">Insert degree course</Link>
-                </button>
-                <Link to="/profile/academic-years/modify-academic-year">Modify</Link>
-                <Link to="/profile/academic-years/delete-academic-year">Delete</Link>
-            </div>
-        </td>
+        <td>Academic year {year}</td>
+
+        <div className="float-right">
+
+            <button className="insert-table-button">
+
+                <Link to="/profile/academic-years/insert-degree-course">Insert degree course</Link>
+
+            </button>
+
+            <Link to="/profile/academic-years/modify-academic-year">Modify</Link>
+
+            <Link to="/profile/academic-years/delete-academic-year">Delete</Link>
+
+        </div>
+
     </tr>
 );
 
@@ -39,23 +46,25 @@ class AcademicYears extends React.Component {
 
         return (
             <main className='container'>
-                <h1>Academic years</h1>
-                <p className="text-center">Here there is the list of the academic years.</p>
-                <ul>
-                    <button>
-                        <Link to="/profile/academic-years/insert-academic-year" className="pure-menu-link"> Insert academic year </Link>
-                    </button>
-                </ul>
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Year</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rows}
-                    </tbody>
-                </table>
+                <div className="pure-u-1-1">
+                    <h1>Academic years</h1>
+                    <p className="text-center">Here there is the list of the academic years.</p>
+                    <ul>
+                        <button className="insert-button">
+                            <Link to="/profile/academic-years/insert-academic-year" className="pure-menu-link"> Insert academic year </Link>
+                        </button>
+                    </ul>
+                    <table className="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {rows}
+                        </tbody>
+                    </table>
+                </div>
             </main>
         )
     }

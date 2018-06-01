@@ -15,15 +15,22 @@ import { Link } from 'react-router'
 const Row = ({ year, degreeCourse }) => (
     <tr className="clickable-row">
         <td>Academic year {year}</td>
-        <td>Degree course{degreeCourse}
-            <div className="float-right">
-                <button>
-                    <Link to="/profile/degree-courses/insert-didactic-activity">Insert didactic activity</Link>
-                </button>
-                <Link to="/profile/degree-courses/modify-degree-course">Modify</Link>
-                <Link to="/profile/degree-courses/delete-degree-course">Delete</Link>
-            </div>
-        </td>
+        <td>{degreeCourse}</td>
+
+        <div className="float-right">
+
+            <button className="insert-table-button">
+
+                <Link to="/profile/degree-courses/insert-didactic-activity">Insert didactic activity</Link>
+
+            </button>
+
+            <Link to="/profile/degree-courses/modify-degree-course">Modify</Link>
+
+            <Link to="/profile/degree-courses/delete-degree-course">Delete</Link>
+
+        </div>
+
     </tr>
 );
 
@@ -42,22 +49,24 @@ class DegreeCourses extends React.Component {
 
         return (
             <main className='container'>
-                <h1>Degree courses</h1>
-                <p className="text-center">Here there is the list of the degree courses.</p>
-                <button>
-                    <Link to="/profile/degree-courses/insert-degree-course">Insert degree course</Link>
-                </button>
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Year</th>
-                            <th>Degree course</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rows}
-                    </tbody>
-                </table>
+                <div className="pure-u-1-1">
+                    <h1>Degree courses</h1>
+                    <p className="text-center">Here there is the list of the degree courses.</p>
+                    <button className="insert-button">
+                        <Link to="/profile/degree-courses/insert-degree-course">Insert degree course</Link>
+                    </button>
+                    <table className="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Degree course</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {rows}
+                        </tbody>
+                    </table>
+                </div>
             </main>
         )
     }

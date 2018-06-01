@@ -31,7 +31,7 @@ class InsertDidacticActivity extends React.Component {
     render() {
         return (
             <main className='container'>
-                <div class="pure-g">
+                <div className="pure-u-1-1">
                     <h1>Insert didactic activity</h1>
                     <p>Now you can insert a new didactic activity.</p>
                     <form className="pure-form pure-form-stacked">

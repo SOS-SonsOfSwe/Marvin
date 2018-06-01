@@ -1,10 +1,10 @@
 import React from 'react';
 
-class InsertAcademicYear extends React.Component{
+class InsertAcademicYear extends React.Component {
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
             year: ''
         };
@@ -12,28 +12,28 @@ class InsertAcademicYear extends React.Component{
     }
 
     handleChange(event) {
-        this.setState({year: event.target.value});
+        this.setState({ year: event.target.value });
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <main className='container'>
-                <div class="pure-g">
+                <div className="pure-u-1-1">
                     <h1>Insert academic year</h1>
                     <p>Now you can insert a new academic year.</p>
-                        <form className="pure-form pure-form-stacked">
-                            <fieldset>
-                                <label>Academic year</label>
-                                <input type="text" value={this.state.year} onChange={this.handleChange} placeholder="Insert a new year"/>
+                    <form className="pure-form pure-form-stacked">
+                        <fieldset>
+                            <label>Academic year</label>
+                            <input type="text" value={this.state.year} onChange={this.handleChange} placeholder="Insert a new year" />
 
-                                <input type="submit" value="Save" />
-                                <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
-                            </fieldset>
-                        </form>
+                            <input type="submit" value="Save" />
+                            <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
+                        </fieldset>
+                    </form>
                 </div>
-            </main>    
+            </main>
         )
-    }    
+    }
 }
 
 export default InsertAcademicYear;

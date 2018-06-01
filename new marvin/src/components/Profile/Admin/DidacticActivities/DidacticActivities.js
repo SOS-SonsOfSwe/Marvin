@@ -16,15 +16,21 @@ const Row = ({ year, degreeCourse, didacticActivity }) => (
     <tr className="clickable-row">
         <td>Academic year {year}</td>
         <td>{degreeCourse}</td>
-        <td>{didacticActivity}
-            <div className="float-right">
-                <button>
-                    <Link to="/profile/didactic-activities/insert-exam">Insert an exam</Link>
-                </button>
-                <Link to="/profile/didactic-activities/modify-didactic-activity">Modify</Link>
-                <Link to="/profile/didactic-activities/delete-didactic-activity">Delete</Link>
-            </div>
-        </td>
+        <td>{didacticActivity}</td>
+        <div className="float-right">
+
+            <button className="insert-table-button">
+
+                <Link to="/profile/didactic-activities/insert-exam">Insert an exam</Link>
+
+            </button>
+
+            <Link to="/profile/didactic-activities/modify-didactic-activity">Modify</Link>
+
+            <Link to="/profile/didactic-activities/delete-didactic-activity">Delete</Link>
+
+        </div>
+
     </tr>
 );
 
@@ -46,23 +52,25 @@ class DidacticActivities extends React.Component {
 
         return (
             <main className='container'>
-                <h1>Didactic activities</h1>
-                <p className="text-center">Here there is the list of the didactic activities.</p>
-                <button>
-                    <Link to="/profile/didactic-activities/insert-didactic-activity" className="pure-menu-link"> Insert didactic activity </Link>
-                </button>
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Year</th>
-                            <th>Degree course</th>
-                            <th>Didactic activity</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rows}
-                    </tbody>
-                </table>
+                <div className="pure-u-1-1">
+                    <h1>Didactic activities</h1>
+                    <p className="text-center">Here there is the list of the didactic activities.</p>
+                    <button className="insert-button">
+                        <Link to="/profile/didactic-activities/insert-didactic-activity" className="pure-menu-link"> Insert didactic activity </Link>
+                    </button>
+                    <table className="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Degree course</th>
+                                <th>Didactic activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {rows}
+                        </tbody>
+                    </table>
+                </div>
             </main>
         )
     }

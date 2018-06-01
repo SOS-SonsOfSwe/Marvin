@@ -45,6 +45,8 @@ import DeleteStudent from './components/Profile/Admin/Students/DeleteStudent'
 
 
 import './index.scss'
+// import "bootstrap/scss/bootstrap.scss" 
+
 
 // Redux Store
 import store from './store'
