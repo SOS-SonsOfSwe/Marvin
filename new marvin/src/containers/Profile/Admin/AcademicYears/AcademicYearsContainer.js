@@ -13,7 +13,7 @@ import { readAcademicYearsFromDatabase } from '../../../../redux/actions/Read/re
 // it will be used in the component we previously imported.
 const mapStateToProps = (state, ownProps) => {
   return {
-    academicYearsData: state.admin.data
+    data: state.admin.data
   }
 }
 

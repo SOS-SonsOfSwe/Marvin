@@ -22,9 +22,10 @@ const adminReducer = (state = initialState, action) => {
   case adminCostants.READ_DATA:
     {
       console.log('adminReducer: data read from database')
-      return Object.assign({}, state, {
-        data: action.payload
-      })
+      // return Object.assign({}, state, {
+      //   data: action.payload
+      // })
+      return { ...state, data: action.payload }
     }
   }
 }
