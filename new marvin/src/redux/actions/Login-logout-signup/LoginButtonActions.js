@@ -33,8 +33,9 @@ function doAwesomeStuff(dispatch, payload) {
     payload
   }))
   var currentLocation = browserHistory.getCurrentLocation()
-  if('redirect' in currentLocation.query) {
-    return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
+  if ('redirect' in currentLocation.query) {
+    //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
+    return browserHistory.replace('/profile')
   }
   return browserHistory.push('/profile') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
@@ -53,7 +54,7 @@ export function loginUser() {
   }
 
   // Double-check web3's status.
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -66,7 +67,7 @@ export function loginUser() {
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
         // Log errors, if any.
-        if(error) {
+        if (error) {
           console.error(error);
         }
 
@@ -76,16 +77,17 @@ export function loginUser() {
 
             // Attempt to login user.
             universityInstance.login({
-                from: coinbase
-              })
+              from: coinbase
+            })
               .then(result => {
+
                 // If no error, login user.
                 payload.FC = web3.toUtf8(result[0]);
                 payload.tp = web3.toDecimal(result[1]);
                 payload.badgeNumber = web3.toDecimal(result[2]);
 
                 console.log("result[3]:", ipfsPromise.getIpfsHashFromBytes32(result[3]))
-                if(payload.tp !== 4) {
+                if (payload.tp !== 4) {
                   var ipfs = new ipfsPromise()
                   console.log('Waiting for the data from IPFS...')
                   ipfs.getJSON(ipfsPromise.getIpfsHashFromBytes32(result[3]))
@@ -100,7 +102,9 @@ export function loginUser() {
                     .catch(err => {
                       // HERE I CATCH THE ERROR OF THE getJSON METHOD. JUST FOR TESTING
                       // console.log('Fail:', err)
+
                       dispatch(userLoggingIn())
+
                     })
                   dispatch(userLoggingIn())
                 } else
@@ -110,7 +114,7 @@ export function loginUser() {
                 // If error, go to signup page.
                 console.error('Wallet ' + coinbase + ' does not have an account!')
 
-                //   return browserHistory.push('/signup')
+                //return browserHistory.push('/signup')
               })
           })
       })
