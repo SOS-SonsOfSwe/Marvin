@@ -19,11 +19,11 @@ function fetchDataSuccess() {
 }
 
 // this function is useful to tell the reducer there was an error while trying to retrieve data from database
-function fetchDataError() {
-  return {
-    type: costants.FETCH_DATA_ERROR,
-  }
-}
+// function fetchDataError() {
+//   return {
+//     type: costants.FETCH_DATA_ERROR,
+//   }
+// }
 
 export function readAcademicYearsFromDatabase() {
   // we are trying to put the infos we collected into the store. To achieve this we have to dispatch (=put into store) an action (not a object)
@@ -35,7 +35,7 @@ export function readAcademicYearsFromDatabase() {
       // ugly but working way to say: "we found data, we want to associate it to the load, so we create an object to pass to the dispatch thanks to the fetchData function
       'load': adminData.academicYears
     }))
-    setTimeout(() => dispatch(fetchDataSuccess()), 5000)
+    setTimeout(() => dispatch(fetchDataSuccess()), 3000)
   }
 }
 

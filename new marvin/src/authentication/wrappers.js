@@ -33,14 +33,14 @@ export const UserIsNotAuthenticated = connectedReduxRedirect({
 })
 
 //for admin
-export const AdminIsAuthenticated = (Component) => connectedReduxRedirect({
+export const AdminIsAuthenticated = connectedReduxRedirect({
   redirectPath: '/',
   authenticatedSelector: state => state.user.data !== null && state.user.isAdmin,
   authenticatingSelector: state => state.admin.loading,
   AuthenticatingComponent: LoadingData,
   redirectAction: routerActions.replace,
   wrapperDisplayName: 'AdminIsAuthenticated'
-})(Component)
+})
 
 //for uni-admin
 export const UniIsAuthenticated = connectedReduxRedirect({
