@@ -9,7 +9,7 @@ import { Link } from 'react-router'
 //     { year: "2013-2014" },
 // ]
 
-const Row = ({ year }) => (
+const Row = (year, index) => (
     <tr className="clickable-row">
         <td>Academic year {year}</td>
         <td>
@@ -27,20 +27,42 @@ const Row = ({ year }) => (
     </tr>
 );
 
+function arrayDataMap(data) {
+    // console.log('data: ' + JSON.stringify(data))
+    if (data !== null) {
+        var arrayData = Object.values(data);
+        return (
+            arrayData.map((rowData, index) => <Row key={index} {...rowData} />)
+        )
+    }
+}
+
 class AcademicYears extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            academicYearsData: 'componentState'
+            academicYearsData: props.data
         }
+        // console.log('Into component: ' + JSON.stringify(props.academicYearsData))
+        // console.log('AcademicYears data: ' + this.state.academicYearsData.load)
+        console.log('Constructor')
         this.props.readAcademicData()
+    }
+    componentWillMount() {
+        this.props.readAcademicData()
+        setTimeout(() => {
 
+            this.setState({
+                academicYearsData: this.props.data
+            })
+        }, 500)
     }
 
-    render() {
-        var arrayData = Object.values(this.state.academicYearsData);
-        const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
 
+    render() {
+        // console.log('AcademicYears data: ' + this.state.academicYearsData)
+        // var arrayData = Object.values(this.state.academicYearsData);
+        // const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
         return (
             <main className='container'>
                 <div className="pure-u-1-1">
@@ -59,7 +81,7 @@ class AcademicYears extends React.Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {rows}
+                        {arrayDataMap(this.state.academicYearsData)}
                         </tbody>
                     </table>
                 </div>
