@@ -13,13 +13,14 @@ import {
 import reducer from './redux/reducers'
 
 // Redux DevTools
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const routingMiddleware = routerMiddleware(browserHistory)
 
 const store = createStore(
   reducer,
-  composeEnhancers(
+  // composeEnhancers(
+  compose(
     applyMiddleware(
       thunkMiddleware,
       routingMiddleware
