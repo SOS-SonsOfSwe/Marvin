@@ -12,8 +12,11 @@ import { readAcademicYearsFromDatabase } from '../../../../redux/actions/Read/re
 // the store (=state) at the reducer selected (admin) with the data that are inside (data).
 // it will be used in the component we previously imported.
 const mapStateToProps = (state, ownProps) => {
+  console.log('state.admin.data: ' + JSON.stringify(state.admin.data))
   return {
-    data: state.admin.data
+    data: state.admin.data,
+    loading: state.admin.loading,
+    success: state.admin.success
   }
 }
 

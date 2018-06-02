@@ -9,7 +9,8 @@ import {
   routerActions
 } from 'react-router-redux'
 
-import Loading from '../components/Loading/Loading'
+import LoadingUser from '../components/Loading/LoadingUser'
+import LoadingData from '../components/Loading/LoadingData'
 
 const locationHelper = locationHelperBuilder({})
 
@@ -18,11 +19,6 @@ const locationHelper = locationHelperBuilder({})
 export const UserIsAuthenticated = connectedReduxRedirect({
   redirectPath: '/signup', //path in which it has to go if it's not authenticated
   authenticatedSelector: state => state.user.data !== null && state.user.data.payload.name !== null,
-  authenticatingSelector: state => {
-    console.log("wrapper UserIsAuthenticated is loading:", state.user.isLoading)
-    return state.user.isLoading
-  },
-  AuthenticatingComponent: Loading,
   redirectAction: routerActions.replace,
   wrapperDisplayName: 'UserIsAuthenticated'
 })
@@ -31,106 +27,47 @@ export const UserIsNotAuthenticated = connectedReduxRedirect({
   redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/profile', //where to go if it's authenticated
   // redirectPath: (state, ownProps) => ownProps.location.query.redirect || '/signup',
   authenticatedSelector: state => state.user.data === null,
-  authenticatingSelector: state => {
-    console.log("wrapper UserIsNotAuthenticated is loading:", state.user.isLoading)
-    return state.user.isLoading
-  },
-  AuthenticatingComponent: Loading,
   redirectAction: routerActions.replace,
   wrapperDisplayName: 'UserIsNotAuthenticated',
   allowRedirectBack: false
 })
 
 //for admin
-export const AdminIsAuthenticated = connectedReduxRedirect({
+export const AdminIsAuthenticated = (Component) => connectedReduxRedirect({
   redirectPath: '/',
-  authenticatedSelector: state => {
-    if (state.user.data !== null && state.user.isAdmin) {
-      console.log("You can do whatever you want!")
-      return true;
-    } else {
-      console.log("You're a powerfullness user!")
-      return false;
-    }
-  },
-  // authenticatingSelector: state => {
-  //   console.log("L'utente si sta loggando", state.user.isLoading)
-  //   return state.user.isLoading
-  // },
-  // AuthenticatingComponent: Loading,
+  authenticatedSelector: state => state.user.data !== null && state.user.isAdmin,
+  authenticatingSelector: state => state.admin.loading,
+  AuthenticatingComponent: LoadingData,
   redirectAction: routerActions.replace,
-  /*redirectAction: (newLoc) => (dispatch) => {
-    dispatch(replace(newLoc));
-    console.log('You are not an administrator!');
-  },*/
   wrapperDisplayName: 'AdminIsAuthenticated'
-})
+})(Component)
 
 //for uni-admin
 export const UniIsAuthenticated = connectedReduxRedirect({
   redirectPath: '/',
-  authenticatedSelector: state => {
-    if (state.user.data !== null && state.user.isUni) {
-      console.log("You can do whatever you want!")
-      return true;
-    } else {
-      console.log("You're a powerfullness user!")
-      return false;
-    }
-  },
-  // authenticatingSelector: state => {
-  //   console.log("L'utente si sta loggando", state.user.isLoading)
-  //   return state.user.isLoading
-  // },
-  // AuthenticatingComponent: Loading,
+  authenticatedSelector: state => state.user.data !== null && state.user.isUni,
   redirectAction: routerActions.replace,
   wrapperDisplayName: 'UniIsAuthenticated'
 })
 
 export const ProfessorIsAuthenticated = connectedReduxRedirect({
   redirectPath: '/',
-  authenticatedSelector: state => {
-    if (state.user.data !== null && state.user.isProf) {
-      console.log("You can do what a professor can do!")
-      return true;
-    } else {
-      console.log("You're a powerfullness user!")
-      return false;
-    }
-  },
-  // authenticatingSelector: state => {
-  //   console.log("L'utente si sta loggando", state.user.isLoading)
-  //   return state.user.isLoading
-  // },
-  // AuthenticatingComponent: Loading,
+  authenticatedSelector: state => state.user.data !== null && state.user.isProf,
   redirectAction: routerActions.replace,
   wrapperDisplayName: 'ProfessorIsAuthenticated'
 })
 
 export const StudentIsAuthenticated = connectedReduxRedirect({
   redirectPath: '/',
-  authenticatedSelector: state => {
-    if (state.user.data !== null && state.user.isStudent) {
-      console.log("You can do what a student can do!")
-      return true;
-    } else {
-      console.log("You're a powerfullness user!")
-      return false;
-    }
-  },
-  // authenticatingSelector: state => {
-  //   console.log("L'utente si sta loggando", state.user.isLoading)
-  //   return state.user.isLoading
-  // },
-  // AuthenticatingComponent: Loading,
+  authenticatedSelector: state => state.user.data !== null && state.user.isStudent,
   redirectAction: routerActions.replace,
   wrapperDisplayName: 'StudentIsAuthenticated'
 })
 
 //for managing the home page
-export const UserIsWaiting = (Component, FailureComponent) => connectedAuthWrapper({
-  authenticatedSelector: state => state.user.isLoading,
-  wrapperDisplayName: 'UserIsWaiting',
+export const UserDataFetching = (Component, FailureComponent = LoadingUser) => connectedAuthWrapper({
+  authenticatedSelector: state => !state.user.isLoading,
+  wrapperDisplayName: 'UserDataFetching',
   FailureComponent
 })(Component)
 

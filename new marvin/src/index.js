@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
-import { UserIsAuthenticated, UserIsNotAuthenticated, AdminIsAuthenticated, UserIsWaiting, UniIsAuthenticated, StudentIsAuthenticated, ProfessorIsAuthenticated } from './authentication/wrappers'
+import { UserIsAuthenticated, UserIsNotAuthenticated, AdminIsAuthenticated, UserDataFetching, UniIsAuthenticated, StudentIsAuthenticated, ProfessorIsAuthenticated } from './authentication/wrappers'
 import getWeb3 from '../api/utils/getWeb3'
 // Layouts
 
@@ -12,7 +12,7 @@ import getWeb3 from '../api/utils/getWeb3'
 import App from './components/App/App'
 import Home from './components/Home/Home'
 import InsertUser from './components/InsertUser/InsertUser'
-import Loading from './components/Loading/Loading'
+// import LoadingUser from './components/Loading/LoadingUser'
 import NotFound from './components/NotFound/NotFound'
 import ProfileContainer from './containers/Profile/ProfileContainer'
 import SignUp from './components/SignUp/SignUp'
@@ -68,7 +68,7 @@ ReactDOM.render((
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={UserIsWaiting(Loading, Home)} />
+        <IndexRoute component={UserDataFetching(Home)} />
         <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
         <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
         <Route path="profile">

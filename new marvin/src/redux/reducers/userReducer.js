@@ -2,11 +2,11 @@ import { userCostants } from './costants'
 
 const initialState = {
   data: null,
-  isLoading: false,
-  isAdmin: false,
-  isUni: false,
-  isProf: false,
-  isStudent: false
+  isLoading: null,
+  isAdmin: null,
+  isUni: null,
+  isProf: null,
+  isStudent: null
 }
 
 const userReducer = (state = initialState, action) => {
@@ -51,11 +51,11 @@ const userReducer = (state = initialState, action) => {
     {
       return Object.assign({}, state, {
         data: null,
-        isLoading: false,
-        isAdmin: false,
-        isUni: false,
-        isProf: false,
-        isStudent: false
+        isLoading: null,
+        isAdmin: null,
+        isUni: null,
+        isProf: null,
+        isStudent: null
       })
     }
   }

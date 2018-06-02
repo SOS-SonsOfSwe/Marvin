@@ -6,7 +6,9 @@ import { adminCostants } from './costants'
 
 // initial state: data is null!
 const initialState = {
-  data: null
+  data: null,
+  loading: null,
+  success: null
 }
 
 // this is a function used by the store (see index.js in this folder) which returns a new object containing the previous data and the new ones
@@ -19,13 +21,44 @@ const adminReducer = (state = initialState, action) => {
     }
 
     // in this case the admin has dispatched an action of reading in "readAdminData.js"
-  case adminCostants.READ_DATA:
+  case adminCostants.FETCH_DATA:
     {
-      console.log('adminReducer: data read from database')
+      console.log('adminReducer: reading data from database')
       // return Object.assign({}, state, {
       //   data: action.payload
       // })
-      return { ...state, data: action.payload }
+      return {
+        ...state,
+        data: action.payload,
+        loading: true,
+        success: null
+      }
+    }
+
+  case adminCostants.FETCH_DATA_SUCCESS:
+    {
+      return {
+        ...state,
+        loading: false,
+        success: true
+      }
+    }
+
+  case adminCostants.FETCH_DATA_ERROR:
+    {
+      return {
+        ...state,
+        loading: false,
+        success: false
+      }
+    }
+
+  case adminCostants.ERASE_DATA:
+    {
+      return {
+        ...state,
+        data: null
+      }
     }
   }
 }
