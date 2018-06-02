@@ -14,7 +14,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <main className="container">
+      <div className="profile">
         <SubNavBar />
         <div className="pure-u-1-1">
           <h1>Profile</h1>
@@ -29,7 +29,8 @@ class Profile extends Component {
             Your badge number is: <strong>{this.props.authData.payload.badgeNumber}</strong>.
             </p>
         </div>
-      </main>
+        {this.props.children}
+      </div>
     )
   }
 }

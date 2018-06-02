@@ -71,46 +71,39 @@ ReactDOM.render((
         <IndexRoute component={UserIsWaiting(Loading, Home)} />
         <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
         <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
-        <Route path="profile">
-          <IndexRoute component={UserIsAuthenticated(ProfileContainer)} />
-          <Route path="academic-years">
-            <IndexRoute component={AdminIsAuthenticated(AcademicYears)} />
+        <Route path="profile" component={UserIsAuthenticated(ProfileContainer)}>
+          <Route path="academic-years" component={AdminIsAuthenticated(AcademicYears)}>
             <Route path="insert-academic-year" component={AdminIsAuthenticated(InsertAcademicYear)} />
             <Route path="modify-academic-year" component={AdminIsAuthenticated(ModifyAcademicYear)} />
             <Route path="delete-academic-year" component={AdminIsAuthenticated(DeleteAcademicYear)} />
             <Route path="insert-degree-course" component={AdminIsAuthenticated(InsertDegreeCourse)} />
           </Route>
 
-          <Route path="degree-courses">
-            <IndexRoute component={AdminIsAuthenticated(DegreeCourses)} />
+          <Route path="degree-courses" component={AdminIsAuthenticated(DegreeCourses)}>
             <Route path="insert-degree-course" component={AdminIsAuthenticated(InsertDegreeCourse)} />
             <Route path="modify-degree-course" component={AdminIsAuthenticated(ModifyDegreeCourse)} />
             <Route path="delete-degree-course" component={AdminIsAuthenticated(DeleteDegreeCourse)} />
             <Route path="insert-didactic-activity" component={AdminIsAuthenticated(InsertDidacticActivity)} />
           </Route>
 
-          <Route path="didactic-activities">
-            <IndexRoute component={AdminIsAuthenticated(DidacticActivities)} />
+          <Route path="didactic-activities" component={AdminIsAuthenticated(DidacticActivities)}>
             <Route path="insert-didactic-activity" component={AdminIsAuthenticated(InsertDidacticActivity)} />
             <Route path="modify-didactic-activity" component={AdminIsAuthenticated(ModifyDidacticActivity)} />
             <Route path="delete-didactic-activity" component={AdminIsAuthenticated(DeleteDidacticActivity)} />
             <Route path="insert-exam" component={AdminIsAuthenticated(InsertExam)} />
           </Route>
 
-          <Route path="administrators">
-            <IndexRoute component={UniIsAuthenticated(Administrators)} />
+          <Route path="administrators" component={UniIsAuthenticated(Administrators)}>
             <Route path="insert-user" component={UniIsAuthenticated(InsertUser)} />
             <Route path="delete-administrator" component={UniIsAuthenticated(DeleteAdministrator)} />
           </Route>
 
-          <Route path="professors">
-            <IndexRoute component={AdminIsAuthenticated((Professors))} />
+          <Route path="professors" component={AdminIsAuthenticated((Professors))}>
             <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
             <Route path="delete-professor" component={AdminIsAuthenticated(DeleteProfessor)} />
           </Route>
 
-          <Route path="students">
-            <IndexRoute component={AdminIsAuthenticated(Students)} />
+          <Route path="students" component={AdminIsAuthenticated(Students)}>
             <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
             <Route path="delete-student" component={AdminIsAuthenticated(DeleteStudent)} />
           </Route>
@@ -124,7 +117,7 @@ ReactDOM.render((
         <Route path="*" component={NotFound} />
       </Route>
     </Router>
-  </Provider>
+  </Provider >
 ),
   document.getElementById('root')
 )
