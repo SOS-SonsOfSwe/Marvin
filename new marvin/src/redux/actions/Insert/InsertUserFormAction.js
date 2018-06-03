@@ -1,4 +1,4 @@
-import AdminContract from '../../../../build/contracts/UserLogic'
+import AdminContract from '../../../../build/contracts/Admin'
 import {
   browserHistory
 } from 'react-router'
@@ -47,8 +47,7 @@ export function insertUser(FCInserted, UCInserted, tpInserted) {
           .then(instance => {
             adminIstance = instance
             adminIstance.addUser(FCInserted, UCInserted, tpInserted, {
-                from: coinbase,
-                value: 100000000000000000
+                from: coinbase
               })
               .then(result => {
                 // yon.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito

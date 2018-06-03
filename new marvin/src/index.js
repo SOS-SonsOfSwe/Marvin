@@ -19,16 +19,16 @@ import SignUp from './components/SignUp/SignUp'
 import Help from './components/Help/Help'
 
 // import AcademicYears from './components/Profile/Admin/AcademicYears/AcademicYears'
-import AcademicYears from './containers/Profile/Admin/AcademicYears/AcademicYearsContainer'
-import DegreeCourses from './containers/Profile/Admin/DegreeCourses/DegreeCoursesContainer'
-import DidacticActivities from './containers/Profile/Admin/DidacticActivities/DidacticActivitiesContainer'
+import AcademicYearsContainer from './containers/Profile/Admin/AcademicYears/AcademicYearsContainer'
+import DegreeCoursesContainer from './containers/Profile/Admin/DegreeCourses/DegreeCoursesContainer'
+import DidacticActivitiesContainer from './containers/Profile/Admin/DidacticActivities/DidacticActivitiesContainer'
 import Administrators from './components/Profile/Admin/onlyUniversity/Administrators/Administrators'
 import Professors from './components/Profile/Admin/Professors/Professors'
 import Students from './components/Profile/Admin/Students/Students'
 import ExamsProfessorList from './components/Profile/Professor/ExamsProfessorList'
 import ExamsStudentList from './components/Profile/Student/ExamsStudentList'
 import SchoolRecords from './components/Profile/Student/SchoolRecords'
-import InsertAcademicYear from './components/Profile/Admin/AcademicYears/InsertAcademicYear'
+import InsertAcademicYearContainer from './containers/Profile/Admin/AcademicYears/InsertAcademicYearContainer'
 import ModifyAcademicYear from './components/Profile/Admin/AcademicYears/ModifyAcademicYear'
 import DeleteAcademicYear from './components/Profile/Admin/AcademicYears/DeleteAcademicYear'
 import InsertDegreeCourse from './components/Profile/Admin/DegreeCourses/InsertDegreeCourse'
@@ -72,21 +72,21 @@ ReactDOM.render((
         <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
         <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
         <Route path="profile" component={UserIsAuthenticated(ProfileContainer)}>
-          <Route path="academic-years" component={AdminIsAuthenticated(AcademicYears)}>
-            <Route path="insert-academic-year" component={AdminIsAuthenticated(InsertAcademicYear)} />
+          <Route path="academic-years" component={AdminIsAuthenticated(AcademicYearsContainer)}>
+            <Route path="insert-academic-year" component={AdminIsAuthenticated(InsertAcademicYearContainer)} />
             <Route path="modify-academic-year" component={AdminIsAuthenticated(ModifyAcademicYear)} />
             <Route path="delete-academic-year" component={AdminIsAuthenticated(DeleteAcademicYear)} />
             <Route path="insert-degree-course" component={AdminIsAuthenticated(InsertDegreeCourse)} />
           </Route>
 
-          <Route path="degree-courses" component={AdminIsAuthenticated(DegreeCourses)}>
+          <Route path="degree-courses" component={AdminIsAuthenticated(DegreeCoursesContainer)}>
             <Route path="insert-degree-course" component={AdminIsAuthenticated(InsertDegreeCourse)} />
             <Route path="modify-degree-course" component={AdminIsAuthenticated(ModifyDegreeCourse)} />
             <Route path="delete-degree-course" component={AdminIsAuthenticated(DeleteDegreeCourse)} />
             <Route path="insert-didactic-activity" component={AdminIsAuthenticated(InsertDidacticActivity)} />
           </Route>
 
-          <Route path="didactic-activities" component={AdminIsAuthenticated(DidacticActivities)}>
+          <Route path="didactic-activities" component={AdminIsAuthenticated(DidacticActivitiesContainer)}>
             <Route path="insert-didactic-activity" component={AdminIsAuthenticated(InsertDidacticActivity)} />
             <Route path="modify-didactic-activity" component={AdminIsAuthenticated(ModifyDidacticActivity)} />
             <Route path="delete-didactic-activity" component={AdminIsAuthenticated(DeleteDidacticActivity)} />

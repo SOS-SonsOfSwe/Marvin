@@ -41,9 +41,7 @@ export function signUpUser(userData) {
                 universityInstance = instance
 
                 // Attempt to register user.
-                universityInstance.registerUser(userData.FC, userData.UC, hash, {
-                    from: coinbase
-                  })
+                universityInstance.signUp(userData.FC, userData.UC, hash, { from: coinbase })
                   .then(function (result) {
 
                     // If no error, login user.

@@ -10,7 +10,7 @@ import {
 } from 'react-router-redux'
 
 import LoadingUser from '../components/Loading/LoadingUser'
-import LoadingData from '../components/Loading/LoadingData'
+// import LoadingData from '../components/Loading/LoadingData'
 
 const locationHelper = locationHelperBuilder({})
 
@@ -36,8 +36,6 @@ export const UserIsNotAuthenticated = connectedReduxRedirect({
 export const AdminIsAuthenticated = connectedReduxRedirect({
   redirectPath: '/',
   authenticatedSelector: state => state.user.data !== null && state.user.isAdmin,
-  authenticatingSelector: state => state.admin.loading,
-  AuthenticatingComponent: LoadingData,
   redirectAction: routerActions.replace,
   wrapperDisplayName: 'AdminIsAuthenticated'
 })
