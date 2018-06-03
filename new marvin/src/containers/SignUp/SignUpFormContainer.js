@@ -12,9 +12,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSignUpFormSubmit: (userData, hashIPFS, event) => {
+    onSignUpFormSubmit: (userData, event) => {
       // event.preventDefault()
-      dispatch(signUpUser(userData, hashIPFS))
+      dispatch(signUpUser(userData))
     }
   }
 }

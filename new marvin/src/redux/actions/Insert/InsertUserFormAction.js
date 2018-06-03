@@ -1,9 +1,9 @@
-import UniversityContract from '../../../../build/contracts/UserLogic'
+import AdminContract from '../../../../build/contracts/UserLogic'
 import {
   browserHistory
 } from 'react-router'
 import store from '../../../store'
-import * as utils from '../../../utils/validations'
+// import * as utils from '../../../utils/validations'
 
 import {
   userCostants
@@ -30,11 +30,11 @@ export function insertUser(FCInserted, UCInserted, tpInserted) {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
-      const university = contract(UniversityContract)
-      university.setProvider(web3.currentProvider)
+      const admin = contract(AdminContract)
+      admin.setProvider(web3.currentProvider)
 
       // Declaring this for later so we can chain functions on Authentication.
-      var universityInstance
+      var adminIstance
 
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
@@ -43,10 +43,10 @@ export function insertUser(FCInserted, UCInserted, tpInserted) {
           console.error(error);
         }
 
-        university.deployed()
+        admin.deployed()
           .then(instance => {
-            universityInstance = instance
-            universityInstance.addUser(FCInserted, UCInserted, tpInserted, {
+            adminIstance = instance
+            adminIstance.addUser(FCInserted, UCInserted, tpInserted, {
                 from: coinbase,
                 value: 100000000000000000
               })
@@ -60,7 +60,7 @@ export function insertUser(FCInserted, UCInserted, tpInserted) {
                   "YesOrNo": yon
                 }))
 
-                return browserHistory.push('/') | alert(UCInserted + " inserted as " + utils.userDef(parseInt(tpInserted, 10)))
+                return browserHistory.push('/') //| alert(UCInserted + " inserted as " + utils.userDef(parseInt(tpInserted, 10)))
               })
 
               .catch(function (result) {

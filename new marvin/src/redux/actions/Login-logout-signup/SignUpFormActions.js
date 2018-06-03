@@ -4,9 +4,14 @@ import {
 } from './LoginButtonActions'
 import store from '../../../store'
 
+import ipfsPromise from '../../../../api/utils/ipfsPromise'
+
 const contract = require('truffle-contract')
 
-export function signUpUser(userData, hashIPFS) {
+export function signUpUser(userData) {
+  var ipfs = new ipfsPromise()
+  // strinct bound on IPFS working
+
   let web3 = store.getState()
     .web3.web3Instance
 
@@ -30,19 +35,23 @@ export function signUpUser(userData, hashIPFS) {
 
         university.deployed()
           .then(function (instance) {
-            universityInstance = instance
+            ipfs.pushJSON(userData)
+              .then(hashIPFS => {
+                var hash = ipfsPromise.getBytes32FromIpfsHash(hashIPFS)
+                universityInstance = instance
 
-            // Attempt to register user.
-            universityInstance.registerUser(userData.FC, userData.UC, hashIPFS, {
-                from: coinbase
-              })
-              .then(function (result) {
+                // Attempt to register user.
+                universityInstance.registerUser(userData.FC, userData.UC, hash, {
+                    from: coinbase
+                  })
+                  .then(function (result) {
 
-                // If no error, login user.
-                return dispatch(loginUser())
-              })
-              .catch(function (result) {
-                // If error...
+                    // If no error, login user.
+                    return dispatch(loginUser())
+                  })
+                  .catch(function (result) {
+                    // If error...
+                  })
               })
           })
       })

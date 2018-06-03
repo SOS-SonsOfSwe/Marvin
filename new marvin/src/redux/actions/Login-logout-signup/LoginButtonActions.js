@@ -12,8 +12,6 @@ import {
 } from '../../reducers/costants'
 
 const contract = require('truffle-contract')
-// export const USER_LOGGED_IN = 'USER_LOGGED_IN'
-// export const USER_LOGGING_IN = 'USER_LOGGING_IN'
 
 function userLoggingIn() {
   return {
@@ -33,7 +31,7 @@ function doAwesomeStuff(dispatch, payload) {
     payload
   }))
   var currentLocation = browserHistory.getCurrentLocation()
-  if ('redirect' in currentLocation.query) {
+  if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   }
@@ -54,7 +52,7 @@ export function loginUser() {
   }
 
   // Double-check web3's status.
-  if (typeof web3 !== 'undefined') {
+  if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -67,7 +65,7 @@ export function loginUser() {
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
         // Log errors, if any.
-        if (error) {
+        if(error) {
           console.error(error);
         }
 
@@ -77,8 +75,8 @@ export function loginUser() {
 
             // Attempt to login user.
             universityInstance.login({
-              from: coinbase
-            })
+                from: coinbase
+              })
               .then(result => {
 
                 // If no error, login user.
@@ -87,7 +85,7 @@ export function loginUser() {
                 payload.badgeNumber = web3.toDecimal(result[2]);
 
                 console.log("result[3]:", ipfsPromise.getIpfsHashFromBytes32(result[3]))
-                if (payload.tp !== 4) {
+                if(payload.tp !== 4) {
                   var ipfs = new ipfsPromise()
                   console.log('Waiting for the data from IPFS...')
                   ipfs.getJSON(ipfsPromise.getIpfsHashFromBytes32(result[3]))
@@ -114,7 +112,7 @@ export function loginUser() {
                 // If error, go to signup page.
                 console.error('Wallet ' + coinbase + ' does not have an account!')
 
-                //return browserHistory.push('/signup')
+                return browserHistory.push('/signup')
               })
           })
       })

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as utils from '../../utils/validations'
 
-import ipfsPromise from '../../../api/utils/ipfsPromise'
+// import ipfsPromise from '../../../api/utils/ipfsPromise'
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -52,10 +52,10 @@ class SignUpForm extends Component {
       "UC": this.state.UC
     }
 
-    var ipfs = new ipfsPromise()
+    // var ipfs = new ipfsPromise()
 
-    ipfs.pushJSON(userData).then(hashIPFS =>
-      this.props.onSignUpFormSubmit(userData, ipfsPromise.getBytes32FromIpfsHash(hashIPFS), event))
+    // ipfs.pushJSON(userData).then(hashIPFS =>
+    this.props.onSignUpFormSubmit(userData, event)
   }
 
   render() {
