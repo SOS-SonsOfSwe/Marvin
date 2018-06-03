@@ -2,14 +2,6 @@ import React from 'react';
 import { Link } from 'react-router'
 import LoadingData from '../../../Loading/LoadingData'
 
-var arrayData = [
-    { year: "2017-2018" },
-    { year: "2016-2017" },
-    { year: "2015-2016" },
-    { year: "2014-2015" },
-    { year: "2013-2014" },
-]
-
 const Row = ({ year }) => (
     <tr className="clickable-row">
         <td>Academic year {year}</td>
@@ -41,8 +33,6 @@ class AcademicYears extends React.Component {
         const load = this.props.loading !== false ? <LoadingData label='Loading...' /> : <div />;
         const error = !this.props.success && this.props.loading === false ? <div>There was an error...</div> : <div />;
 
-        const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
-
         return (
             <div>
                 {load}
@@ -64,10 +54,8 @@ class AcademicYears extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {console.log('this.props.data.load: ' + this.props.data.load)}
-                                    {console.log('arrayData: ' + arrayData)}
-                                    {/* {arrayData = this.props.data.load} */}
-                                    {rows}
+                                    {console.log('this.props.data.load: ' + this.props.data)}
+                                    {this.props.data.load.map((rowData, index) => <Row key={index} {...rowData} />)}
                                 </tbody>
                             </table>
                         </div>
