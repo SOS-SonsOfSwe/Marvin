@@ -1,21 +1,21 @@
-export var academicYears = {
-  'years': [
-    { 'id': '01', 'year': '2017-2018' },
-    { 'id': '02', 'year': '2016-2017' }
-  ]
-}
+// export var academicYears = {
+//   'years': [
+//     { 'id': '01', 'year': '2017-2018' },
+//     { 'id': '02', 'year': '2016-2017' }
+//   ]
+// }
 //     { year: '2015-2016' },
 //     { year: '2014-2015' },
 //     { year: '2013-2014' }
 //   ]
 // }
-// export var academicYears = [
-//   { year: "2017-2018" },
-//   { year: "2016-2017" },
-//   { year: "2015-2016" },
-//   { year: "2014-2015" },
-//   { year: "2013-2014" },
-// ]
+export var academicYears = [
+  { year: "2017-2018" },
+  { year: "2016-2017" },
+  { year: "2015-2016" },
+  { year: "2014-2015" },
+  { year: "2013-2014" },
+]
 
 export var degreeCourses = {
   '0': ['2017-2018', 'Informatica'],

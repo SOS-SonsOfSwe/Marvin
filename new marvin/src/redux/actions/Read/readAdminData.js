@@ -35,9 +35,28 @@ export function readAcademicYearsFromDatabase() {
       // ugly but working way to say: "we found data, we want to associate it to the load, so we create an object to pass to the dispatch thanks to the fetchData function
       'load': adminData.academicYears
     }))
-    setTimeout(() => dispatch(fetchDataSuccess()), 3000)
+    setTimeout(() => dispatch(fetchDataSuccess()), 2000)
   }
 }
+
+// const fetchRequest = createAction('FETCH_REQUEST')
+// const fetchSuccess = createAction('FETCH_SUCCESS')
+// const fetchFailure = createAction('FETCH_FAILURE)
+// const fetch = (url) => {
+//     return async (dispatch, getState) => {
+//         try {
+//             dispatch(fetchRequest())
+//             const response= await _fetch(url)
+//             if(result.statusCode !== 200)
+//                 throw new Error()
+//             const result = await response.json()
+//             dispatch(fetchSuccess(result))
+//         }
+//         catch(error) {
+//             dispatch(fetchFailure(error))
+//         }
+//     }
+// }
 
 export function readDegreeCoursesFromDatabase() {
   return function (dispatch) {

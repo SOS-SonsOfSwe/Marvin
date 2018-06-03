@@ -24,30 +24,30 @@ const adminReducer = (state = initialState, action) => {
   case adminCostants.FETCH_DATA:
     {
       console.log('adminReducer: reading data from database')
-      // return {
-      //   ...state,
-      //   data: action.payload,
-      //   loading: true,
-      //   success: null
-      // }
-      return Object.assign({}, state, {
+      return {
+        ...state,
         data: action.payload,
         loading: true,
         success: null
-      })
+      }
+      // return Object.assign({}, state, {
+      //   data: action.payload,
+      //   loading: true,
+      //   success: null
+      // })
     }
 
   case adminCostants.FETCH_DATA_SUCCESS:
     {
-      // return {
-      //   ...state,
-      //   loading: false,
-      //   success: true
-      // }
-      return Object.assign({}, state, {
+      return {
+        ...state,
         loading: false,
         success: true
-      })
+      }
+      // return Object.assign({}, state, {
+      //   loading: false,
+      //   success: true
+      // })
     }
 
   case adminCostants.FETCH_DATA_ERROR:
