@@ -24,15 +24,10 @@ const Row = ({ year }) => (
 //     data.map((rowData, index) => <Row key={index} {...rowData} />)
 // }
 
-class AcademicYears extends React.Component {
-    componentDidMount() {
-        this.props.readAcademicData()
-    }
-
+class MainAcademicYears extends React.Component {
     render() {
         const load = this.props.loading !== false ? <LoadingData label='Loading...' /> : <div />;
         const error = !this.props.success && this.props.loading === false ? <div>There was an error...</div> : <div />;
-
         return (
             <div>
                 {load}
@@ -62,6 +57,23 @@ class AcademicYears extends React.Component {
                     </main>
                 }
                 {error}
+            </div>
+        )
+
+
+    }
+
+
+}
+class AcademicYears extends React.Component {
+    componentDidMount() {
+        this.props.readAcademicData()
+    }
+
+    render() {
+        return (
+            <div>
+                {this.props.children || <MainAcademicYears loading={this.props.loading} success={this.props.success} data={this.props.data} />}
             </div>
         )
     }
