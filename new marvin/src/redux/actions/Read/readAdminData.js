@@ -58,11 +58,12 @@ export function readAcademicYearsFromDatabase() {
 //     }
 // }
 
-export function readDegreeCoursesFromDatabase() {
+export function readDegreeCoursesFromDatabase(years) {
   return function (dispatch) {
     dispatch(fetchData({
-      'load': adminData.degreeCourses
+      'load': adminData.degreeCourses.filter(function (obj) { return obj.year === years })
     }))
+    setTimeout(() => dispatch(fetchDataSuccess()), 2000)
   }
 }
 

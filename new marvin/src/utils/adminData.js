@@ -17,16 +17,16 @@ export var academicYears = [
   { year: "cavallo" },
 ]
 
-export var degreeCourses = {
-  '0': ['2017-2018', 'Informatica'],
-  '1': ['2017-2018', 'Matematica'],
-  '2': ['2017-2018', 'Psicologia'],
-  '3': ['2017-2018', 'Ingegneria'],
-  '4': ['2017-2018', 'Giurisprudenza'],
-  '5': ['2016-2017', 'Informatica'],
-  '6': ['2016-2017', 'Matematica'],
-  '7': ['2016-2017', 'Psicologia']
-}
+export var degreeCourses = [
+  { year: "2017-2018", name: "Informatica" },
+  { year: "2017-2018", name: "Matematica" },
+  { year: "2017-2018", name: "Psicologia" },
+  { year: "2017-2018", name: "Ingegneria dell'energia" },
+  { year: "2017-2018", name: "Giurisprudenza" },
+  { year: "2016-2017", name: "Informatica" },
+  { year: "2016-2017", name: "Matematica" },
+  { year: "2016-2017", name: "Psicologia" }
+]
 
 export var didacticActivities = {
   '0': ['Informatica', 'Reti e Sicurezza'],

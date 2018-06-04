@@ -7,14 +7,16 @@ import { readDegreeCoursesFromDatabase } from '../../../../redux/actions/Read/re
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    degreeCoursesData: state.admin.data
+    data: state.admin.data,
+    loading: state.admin.loading,
+    success: state.admin.success
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    readDegreeData: () => {
-      dispatch(readDegreeCoursesFromDatabase())
+    readDegreeData: (years) => {
+      dispatch(readDegreeCoursesFromDatabase(years))
     }
   }
 }
