@@ -62,19 +62,19 @@ class DegreeCourses extends React.Component {
                 {load}
                 {!this.props.loading && this.props.success &&
                     <div>
-                        <form className="pure-form-stacked pure-form">
-                            <fieldset>
-                                <label htmlFor="years"> Select academic year </label>
-                                <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChange}>
-                                    <option value="2017-2018"> 2017-2018 </option>
-                                    <option value="2016-2017"> 2016-2017 </option>
-                                </select>
-                            </fieldset>
-                        </form>
                         <main className='container'>
                             <div className="pure-u-1-1">
                                 <h1>Degree courses</h1>
                                 <p className="text-center">Here there is the list of the degree courses.</p>
+                                <form className="pure-form-stacked pure-form">
+                                    <fieldset>
+                                        <label htmlFor="years"> Select academic year </label>
+                                        <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChange}>
+                                            <option value="2017-2018"> 2017-2018 </option>
+                                            <option value="2016-2017"> 2016-2017 </option>
+                                        </select>
+                                    </fieldset>
+                                </form>
                                 <button className="insert-button pure-button pure-button-primary">
                                     <Link to="/profile/degree-courses/insert-degree-course">Insert degree course</Link>
                                 </button>
