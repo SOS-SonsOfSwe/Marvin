@@ -59,33 +59,40 @@ class DegreeCourses extends React.Component {
 
         return (
             <div>
-                <select name="years" value={this.state.selectedYears} onChange={this.onSelectChange}>
-                    <option value="2017-2018"> 2017-2018 </option>
-                    <option value="2016-2017"> 2016-2017 </option>
-                </select>
                 {load}
                 {!this.props.loading && this.props.success &&
-                    <main className='container'>
-                        <div className="pure-u-1-1">
-                            <h1>Degree courses</h1>
-                            <p className="text-center">Here there is the list of the degree courses.</p>
-                            <button className="insert-button pure-button pure-button-primary">
-                                <Link to="/profile/degree-courses/insert-degree-course">Insert degree course</Link>
-                            </button>
-                            <table className="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th className="title-column">Year</th>
-                                        <th className="title-column">Degree course</th>
-                                        <th className="title-column">Didactic activity</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {this.props.data.load.map((rowData, index) => <Row key={index} {...rowData} />)}
-                                </tbody>
-                            </table>
-                        </div>
-                    </main>
+                    <div>
+                        <form className="pure-form-stacked pure-form">
+                            <fieldset>
+                                <label htmlFor="years"> Select academic year </label>
+                                <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChange}>
+                                    <option value="2017-2018"> 2017-2018 </option>
+                                    <option value="2016-2017"> 2016-2017 </option>
+                                </select>
+                            </fieldset>
+                        </form>
+                        <main className='container'>
+                            <div className="pure-u-1-1">
+                                <h1>Degree courses</h1>
+                                <p className="text-center">Here there is the list of the degree courses.</p>
+                                <button className="insert-button pure-button pure-button-primary">
+                                    <Link to="/profile/degree-courses/insert-degree-course">Insert degree course</Link>
+                                </button>
+                                <table className="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th className="title-column">Year</th>
+                                            <th className="title-column">Degree course</th>
+                                            <th className="title-column">Didactic activity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {this.props.data.load.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </main>
+                    </div>
                 }
                 {error}
             </div>

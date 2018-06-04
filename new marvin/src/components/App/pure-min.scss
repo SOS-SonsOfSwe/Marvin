@@ -241,10 +241,10 @@ tr:nth-child(even) {
     }
   }
   
-  .pure-button, .pure-form input:not([type]), .pure-menu {
+  .pure-button, .pure-form input:not([type]), .pure-menu{
     box-sizing: border-box;
   }
-  
+    
   input[type=search] {
     &::-webkit-search-cancel-button, &::-webkit-search-decoration {
       -webkit-appearance: none;
@@ -571,7 +571,7 @@ tr:nth-child(even) {
       vertical-align: middle;
       box-sizing: border-box;
     }
-    input {
+    input{
       &:not([type]) {
         padding: .5em .6em;
         display: inline-block;
@@ -679,6 +679,9 @@ tr:nth-child(even) {
     label, select, textarea {
       display: block;
       margin: 0.3em 0.4em;
+      font-weight: bold;
+      font-size: 100%;
+      
     }
   }
   
