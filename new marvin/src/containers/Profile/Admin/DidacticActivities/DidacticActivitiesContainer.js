@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 
 import DidacticActivities from '../../../../components/Profile/Admin/DidacticActivities/DidacticActivities'
 
-import { readDidacticActivitiesFromDatabase } from '../../../../redux/actions/Read/readAdminData'
+import { readDidacticActivitiesFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
 
 const mapStateToProps = (state, ownProps) => {
   return {

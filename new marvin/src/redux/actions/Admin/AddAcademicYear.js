@@ -1,10 +1,10 @@
-import AdminContract from '../../../../../build/contracts/Admin'
+import AdminContract from '../../../../build/contracts/Admin'
 import {
   browserHistory
 } from 'react-router'
-import store from '../../../../store'
+import store from '../../../store'
 
-import { adminCostants } from '../../../reducers/costants'
+import { adminCostants } from '../../reducers/costants'
 
 const contract = require('truffle-contract')
 

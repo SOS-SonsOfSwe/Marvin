@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import InsertAcademicYears from '../../../../components/Profile/Admin/AcademicYears/InsertAcademicYear'
-import { addNewAcademicYear } from '../../../../redux/actions/Insert/Admin/AddAcademicYear'
+import { addNewAcademicYear } from '../../../../redux/actions/Admin/AddAcademicYear'
 
 const mapStateToProps = (state, ownProps) => {
   return {

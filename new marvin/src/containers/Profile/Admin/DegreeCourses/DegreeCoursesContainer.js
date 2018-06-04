@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import DegreeCourses from '../../../../components/Profile/Admin/DegreeCourses/DegreeCourses'
-import { readDegreeCoursesFromDatabase } from '../../../../redux/actions/Read/readAdminData'
+import { readDegreeCoursesFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
 
 // This container is read-only, so there's no need for mapping dispatch actions to the store.
 // This connect is only for connecting the AcademicYears component to the store
