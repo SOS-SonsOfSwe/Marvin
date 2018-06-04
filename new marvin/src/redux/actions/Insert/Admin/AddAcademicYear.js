@@ -65,7 +65,7 @@ export function addNewAcademicYear(year) {
                 dispatch(errorAddingData())
               })
               .finally(def => {
-                return browserHistory.push('/academic-years')
+                return browserHistory.push('/profile/academic-years')
               })
           })
       })

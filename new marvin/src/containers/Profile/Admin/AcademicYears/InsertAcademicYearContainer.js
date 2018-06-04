@@ -4,8 +4,8 @@ import { addNewAcademicYear } from '../../../../redux/actions/Insert/Admin/AddAc
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    adding: this.state.admin.adding,
-    success: this.state.admin.success,
+    adding: state.admin.adding,
+    success: state.admin.success,
   }
 }
 
