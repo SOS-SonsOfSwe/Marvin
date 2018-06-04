@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 // we import the specific component we want to link to the store
 import AcademicYears from '../../../../components/Profile/Admin/AcademicYears/AcademicYears'
 // we import the action (=dispatch) we want to link to the store 
-import { readAcademicYearsFromDatabase } from '../../../../redux/actions/Read/readAdminData'
+import { readAcademicYearsFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
 
 // the two "map" listed here are useful to make the component "subscribe" the store.
 // how it works? See the description below!

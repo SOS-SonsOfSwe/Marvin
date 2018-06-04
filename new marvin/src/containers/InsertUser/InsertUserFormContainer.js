@@ -4,7 +4,7 @@ import {
 import InsertUserForm from '../../components/InsertUser/InsertUserForm'
 import {
   insertUser
-} from '../../redux/actions/Insert/InsertUserFormAction'
+} from '../../redux/actions/Admin/InsertUserFormAction'
 
 const mapStateToProps = (state, ownProps) => {
   return {

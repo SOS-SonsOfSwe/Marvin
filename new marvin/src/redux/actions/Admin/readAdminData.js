@@ -1,12 +1,12 @@
 // functions used to read all the infos from database
 
 import * as adminData from '../../../utils/adminData'
-import * as costants from '../../reducers/costants/adminCostants'
+import { adminCostants } from '../../reducers/costants'
 
 // prototype for the dispatch action. Here we want to send to the store the payload we succeeded in retrieving
 function fetchData(load) {
   return {
-    type: costants.FETCH_DATA,
+    type: adminCostants.FETCH_DATA,
     payload: load // so we will tell the reducer to wait for the end of fetching
   }
 }
@@ -14,7 +14,7 @@ function fetchData(load) {
 // this function is useful to tell the reducer we terminated to fetch data from database so he can unlock the component and render all the informations
 function fetchDataSuccess() {
   return {
-    type: costants.FETCH_DATA_SUCCESS,
+    type: adminCostants.FETCH_DATA_SUCCESS,
   }
 }
 
