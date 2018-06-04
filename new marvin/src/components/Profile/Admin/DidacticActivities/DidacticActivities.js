@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
+import LoadingData from '../../../Loading/LoadingData'
+
 
 // var arrayData = [
 //     { year: "2017-2018", degreeCourse: "Informatica", didacticActivity: "Probabilità" },
@@ -35,41 +37,80 @@ class DidacticActivities extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            didacticActivitiesData: 'nothing'
-        }
+        this.onSelectChangeY = this.onSelectChangeY.bind(this);
+        this.onSelectChangeDC = this.onSelectChangeDC.bind(this);
 
-        this.props.readDidacticActivitiesData()
+        this.state = {
+            selectedYears: '2017-2018',
+            selectedDegreeCourse: 'Informatica'
+        }
+    }
+
+    onSelectChangeY(event) {
+        this.setState({ selectedYears: event.target.value },
+            () => this.props.readDidacticActivitiesData(this.state.selectedYears, this.state.selectedDegreeCourse))
+    }
+
+    onSelectChangeDC(event) {
+        this.setState({ selectedDegreeCourse: event.target.value },
+            () => this.props.readDidacticActivitiesData(this.state.selectedYears, this.state.selectedDegreeCourse))
+    }
+
+    componentDidMount() {
+        this.props.readDidacticActivitiesData(this.state.selectedYears, this.state.selectedDegreeCourse)
+
     }
 
 
     render() {
-        var arrayData = Object.values(this.state.didacticActivitiesData);
-        const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
+        const load = this.props.loading !== false ? <LoadingData label='Loading...' /> : <div />;
+        const error = !this.props.success && this.props.loading === false ? <div>There was an error...</div> : <div />;
 
         return (
-            <main className='container'>
-                <div className="pure-u-1-1">
-                    <h1>Didactic activities</h1>
-                    <p className="text-center">Here there is the list of the didactic activities.</p>
-                    <button className="insert-button pure-button pure-button-primary">
-                        <Link to="/profile/didactic-activities/insert-didactic-activity"> Insert didactic activity </Link>
-                    </button>
-                    <table className="table table-striped">
-                        <thead>
-                            <tr>
-                                <th className="title-column">Year</th>
-                                <th className="title-column">Degree course</th>
-                                <th className="title-column">Didactic activity</th>
-                                <th className="title-column">Exam</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {rows}
-                        </tbody>
-                    </table>
-                </div>
-            </main>
+            <div>
+                {load}
+                {!this.props.loading && this.props.success &&
+                    <div>
+                        <main className='container'>
+                            <div className="pure-u-1-1">
+                                <h1>Didactic activities</h1>
+                                <p className="text-center">Here there is the list of the didactic activities.</p>
+                                <form className="pure-form-stacked pure-form">
+                                    <fieldset>
+                                        <label htmlFor="years"> Select academic year </label>
+                                        <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChangeY}>
+                                            <option value="2017-2018"> 2017-2018 </option>
+                                            <option value="2016-2017"> 2016-2017 </option>
+                                        </select>
+                                        <label htmlFor="degreecourse"> Select degree course </label>
+                                        <select type="text" name="degreecourse" value={this.state.selectedDegreeCourse} onChange={this.onSelectChangeDC}>
+                                            <option value="Informatica"> Informatica </option>
+                                            <option value="Fisica"> Fisica </option>
+                                        </select>
+                                    </fieldset>
+                                </form>
+                                <button className="insert-button pure-button pure-button-primary">
+                                    <Link to="/profile/didactic-activities/insert-didactic-activity"> Insert didactic activity </Link>
+                                </button>
+                                <table className="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th className="title-column">Year</th>
+                                            <th className="title-column">Degree course</th>
+                                            <th className="title-column">Didactic activity</th>
+                                            <th className="title-column">Exam</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {this.props.data.load.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </main>
+                    </div>
+                }
+                {error}
+            </div>
         )
     }
 }

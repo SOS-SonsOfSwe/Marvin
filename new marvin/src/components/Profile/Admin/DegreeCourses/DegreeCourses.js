@@ -47,7 +47,6 @@ class DegreeCourses extends React.Component {
 
     componentDidMount() {
         this.props.readDegreeData(this.state.selectedYears)
-        console.log(this.state.selectedYears)
     }
 
 

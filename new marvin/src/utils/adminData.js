@@ -28,13 +28,12 @@ export var degreeCourses = [
   { year: "2016-2017", name: "Psicologia" }
 ]
 
-export var didacticActivities = {
-  '0': ['Informatica', 'Reti e Sicurezza'],
-  '1': ['Informatica', 'Calcolo numerico'],
-  '2': ['Informatica', 'Ingegneria del Software'],
-  '3': ['Informatica', 'Logica'],
-  '4': ['Fisica', 'Analisi Matematica 1'],
-  '5': ['Fisica', 'Metodi Matematici'],
-  '6': ['Fisica', 'Sperimentazioni di fisica 1'],
-  '7': ['Fisica', 'Fisica moderna']
-}
+export var didacticActivities = [
+  { year: "2017-2018", course: "Informatica", name: "Reti e sicurezza" },
+  { year: "2017-2018", course: "Informatica", name: "Calcolo numerico" },
+  { year: "2017-2018", course: "Informatica", name: "ingegneria del software" },
+  { year: "2017-2018", course: "Informatica", name: "Reti e sicurezza" },
+  { year: "2017-2018", course: "Fisica", name: "Analisi matematica 1" },
+  { year: "2016-2017", course: "Fisica", name: "Metodi matematici" },
+  { year: "2016-2017", course: "Fisica", name: "Fisica moderna" }
+]

@@ -6,14 +6,17 @@ import { readDidacticActivitiesFromDatabase } from '../../../../redux/actions/Ad
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    didacticActivitiesData: state.admin.data
+    data: state.admin.data,
+    loading: state.admin.loading,
+    success: state.admin.success
+
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    readDidacticActivitiesData: () => {
-      dispatch(readDidacticActivitiesFromDatabase())
+    readDidacticActivitiesData: (years, degreeC) => {
+      dispatch(readDidacticActivitiesFromDatabase(years, degreeC))
     }
   }
 }

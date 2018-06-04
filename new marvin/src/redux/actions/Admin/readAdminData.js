@@ -67,10 +67,11 @@ export function readDegreeCoursesFromDatabase(years) {
   }
 }
 
-export function readDidacticActivitiesFromDatabase() {
+export function readDidacticActivitiesFromDatabase(years, degreeC) {
   return function (dispatch) {
     dispatch(fetchData({
-      'load': adminData.didacticActivities
+      'load': adminData.didacticActivities.filter(function (obj) { return obj.year === years && obj.course === degreeC })
     }))
+    setTimeout(() => dispatch(fetchDataSuccess()), 2000)
   }
 }
