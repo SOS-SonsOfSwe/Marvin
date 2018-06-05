@@ -5,7 +5,7 @@ var arrayData = [
 ]
 
 const Row = ({ year, degreeCourse, didacticActivity }) => (
-    <div>
+    <div className="div-insert-exam">
         <label>Academic year</label>
         <p>{year}</p>
         <label>Degree course</label>

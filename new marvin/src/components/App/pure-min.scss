@@ -10,6 +10,26 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
 */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css ------COMMENTO NON MIO------*/
 
+.div-insert-exam p {
+  text-align: inherit !important;
+}
+
+.delete-div-buttons {
+  text-align: center;
+}
+
+.delete-div-buttons button, .div-buttons input {
+  margin-right: 0.5em;
+}
+
+.delete-form {
+  margin-left: 8% !important;
+}
+
+.delete-fieldset {
+  padding-left: 1% !important;
+}
+
 fieldset input {
   margin-bottom: 0.5em;
 }

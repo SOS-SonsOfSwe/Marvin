@@ -24,11 +24,13 @@ class DeleteStudent extends React.Component {
                 <div className="pure-u-1-1">
                     <h1>Delete student</h1>
                     <p>Are you sure you want to delete this student? Once you canceled it, you can't go back.</p>
-                    <form className="pure-form pure-form-stacked">
-                        <fieldset>
+                    <form className="pure-form pure-form-stacked delete-form">
+                        <fieldset className="delete-fieldset">
                             {rows}
-                            <button>Delete</button>
-                            <button>Cancel</button>
+                            <div className="delete-div-buttons">
+                                <button>Delete</button>
+                                <button>Cancel</button>
+                            </div>
                         </fieldset>
                     </form>
                 </div>

@@ -43,7 +43,7 @@ class InsertDidacticActivity extends React.Component {
                             <label>Didactic activity</label>
                             <input type="text" value={this.state.didacticActivity} onChange={this.handleChange2} placeholder="Insert a didactic activity" />
                             <br />
-                            <Link to="/profile/insert-didactic-activity/insert-exam">Insert an exam</Link>
+                            <Link to="/profile/didactic-activities/insert-exam">Insert an exam</Link>
 
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
