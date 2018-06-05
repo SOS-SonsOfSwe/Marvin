@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 
 class InsertDegreeCourse extends React.Component {
 
@@ -11,6 +12,7 @@ class InsertDegreeCourse extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleChange1 = this.handleChange1.bind(this);
+        this.handleSave = this.handleSave.bind(this)
     }
 
     handleChange(event) {
@@ -21,9 +23,14 @@ class InsertDegreeCourse extends React.Component {
         this.setState({ degreeCourse: event.target.value });
     }
 
+    handleSave(event) {
+        event.preventDefault()
+        this.props.addDegreeCourse(this.state.degreeCourse, this.state.year)
+    }
+
     render() {
         return (
-            <main className='container'>
+            <main className='container' onSubmit={this.handleSave}>
                 <div className="pure-u-1-1">
                     <h1>Insert degree course</h1>
                     <p>Now you can insert a new degree course.</p>
@@ -35,7 +42,8 @@ class InsertDegreeCourse extends React.Component {
                             <input type="text" value={this.state.degreeCourse} onChange={this.handleChange1} placeholder="Insert a degree course" />
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
-                                <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
+                                <Link to='/profile/degree-courses'>Cancel</Link>
+                                {/* magari è un 'input' o 'a' invece che button che porta alla pagina precedente */}
                             </div>
                         </fieldset>
                     </form>

@@ -4,29 +4,11 @@ import {
 } from 'react-router'
 import store from '../../../store'
 
-import { adminCostants } from '../../reducers/costants'
+import { addingData, errorAddingData, dataAdded } from '../StandardDispatches/addingData'
 
 const contract = require('truffle-contract')
 
-function addingData() {
-  return {
-    type: adminCostants.ADDING
-  }
-}
-
-function dataAdded() {
-  return {
-    type: adminCostants.ADDED_NEW_DATA
-  }
-}
-
-function errorAddingData() {
-  return {
-    type: adminCostants.ERROR_ADDING_NEW_DATA
-  }
-}
-
-export function addNewAcademicYear(year) {
+export default function addNewAcademicYear(year) {
   // thinking as year = 2014-2015 we want to take only the first two int so we can send 
   // them to the solidity contract and risparmiare
 

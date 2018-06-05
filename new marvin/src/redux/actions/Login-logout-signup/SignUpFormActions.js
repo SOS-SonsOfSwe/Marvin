@@ -10,7 +10,6 @@ const contract = require('truffle-contract')
 
 export function signUpUser(userData) {
   var ipfs = new ipfsPromise()
-  // strinct bound on IPFS working
 
   let web3 = store.getState()
     .web3.web3Instance

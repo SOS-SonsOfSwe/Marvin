@@ -1,8 +1,9 @@
+import { adminCostants } from './costants'
+
 // adminReducer is a function which is used as a reducer from the store. In practice it's used to put all the infos
 // inside the store, which will be accessed by "this.state.<reducerName>" with the "connect" statement
 
 // importing the name of the actions
-import { adminCostants } from './costants'
 
 // initial state: data is null, so there are three values for them: null, true, false
 const initialState = {
@@ -23,14 +24,12 @@ const adminReducer = (state = initialState, action) => {
 
     // in this case the admin has dispatched an action of reading in "readAdminData.js"
     // admin is retrieving data from server, so the boolean variables work as expected
-  case adminCostants.FETCH_DATA:
+  case adminCostants.FETCHING_DATA:
     {
       console.log('adminReducer: reading data from database')
       return {
         ...state,
-        data: action.payload,
         loading: true,
-        success: null
       }
       // return Object.assign({}, state, {
       //   data: action.payload,
@@ -42,8 +41,10 @@ const adminReducer = (state = initialState, action) => {
     // server finished to give data successfully, so he can unlock resources
   case adminCostants.FETCH_DATA_SUCCESS:
     {
+      console.log('adminReducer: successfully fetched data')
       return {
         ...state,
+        data: action.payload,
         loading: false,
         success: true
       }
@@ -81,8 +82,7 @@ const adminReducer = (state = initialState, action) => {
     {
       return {
         ...state,
-        adding: true,
-        success: null
+        adding: true
       }
     }
 

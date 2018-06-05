@@ -1,17 +1,17 @@
 import React from 'react'
 
 class LoginButton extends React.Component {
-  constructor(props) {
-    super(props)
+  // constructor(props) {
+  //   super(props)
 
-    this.state = {
-      payload: {
-        FC: '',
-        tp: '',
-        badgeNumber: ''
-      }
-    }
-  }
+  //   this.state = {
+  //     payload: {
+  //       FC: '',
+  //       tp: '',
+  //       badgeNumber: ''
+  //     }
+  //   }
+  // }
 
   render() {
     return (

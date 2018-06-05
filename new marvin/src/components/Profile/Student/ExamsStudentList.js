@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row } from '../Commons/ExamList';
+import Row from '../Commons/ExamList';
 
 var arrayData = [
     { degreeCourse: "informatica", didacticActivity: "Probabilità", typology: "orale", date: "20-06-2018" },

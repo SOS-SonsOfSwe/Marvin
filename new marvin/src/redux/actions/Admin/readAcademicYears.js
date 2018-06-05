@@ -4,18 +4,17 @@ import * as adminData from '../../../utils/adminData'
 import { adminCostants } from '../../reducers/costants'
 
 // prototype for the dispatch action. Here we want to send to the store the payload we succeeded in retrieving
-function fetchingData() {
+function fetchData(load) {
   return {
-    type: adminCostants.FETCHING_DATA
-    // payload: load // so we will tell the reducer to wait for the end of fetching
+    type: adminCostants.FETCHING_DATA,
+    payload: load // so we will tell the reducer to wait for the end of fetching
   }
 }
 
 // this function is useful to tell the reducer we terminated to fetch data from database so he can unlock the component and render all the informations
-function fetchDataSuccess(data) {
+function fetchDataSuccess() {
   return {
     type: adminCostants.FETCH_DATA_SUCCESS,
-    payload: data
   }
 }
 
@@ -32,11 +31,11 @@ export function readAcademicYearsFromDatabase() {
   // So, as we are returning something to the caller (see the containers) we have to use the dispatch (passed as parameter from the function) 
   // and to fill it with the infos we found.
   return function (dispatch) {
-    dispatch(fetchingData())
-    setTimeout(() => dispatch(fetchDataSuccess({
-      // ugly but working way to say: "we found data, we want to associate it to the load, so we create an object to pass to the dispatch thanks to the fetchingData function
+    dispatch(fetchData({
+      // ugly but working way to say: "we found data, we want to associate it to the load, so we create an object to pass to the dispatch thanks to the fetchData function
       'load': adminData.academicYears
-    })), 2000)
+    }))
+    setTimeout(() => dispatch(fetchDataSuccess()), 2000)
   }
 }
 
@@ -61,18 +60,18 @@ export function readAcademicYearsFromDatabase() {
 
 export function readDegreeCoursesFromDatabase(years) {
   return function (dispatch) {
-    dispatch(fetchingData())
-    setTimeout(() => dispatch(fetchDataSuccess({
+    dispatch(fetchData({
       'load': adminData.degreeCourses.filter(function (obj) { return obj.year === years })
-    })), 2000)
+    }))
+    setTimeout(() => dispatch(fetchDataSuccess()), 2000)
   }
 }
 
 export function readDidacticActivitiesFromDatabase(years, degreeC) {
   return function (dispatch) {
-    dispatch(fetchingData())
-    setTimeout(() => dispatch(fetchDataSuccess({
+    dispatch(fetchData({
       'load': adminData.didacticActivities.filter(function (obj) { return obj.year === years && obj.course === degreeC })
-    })), 2000)
+    }))
+    setTimeout(() => dispatch(fetchDataSuccess()), 2000)
   }
 }

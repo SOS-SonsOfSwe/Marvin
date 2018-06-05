@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 
 class InsertAcademicYear extends React.Component {
 
@@ -33,7 +34,8 @@ class InsertAcademicYear extends React.Component {
                             <input type="text" value={this.state.year} onChange={this.handleChange} placeholder="Insert a new year" />
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
-                                <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
+                                <Link to='/profile/academic-years'>Cancel</Link>
+                                {/* magari è un 'input' o 'a' invece che button che porta alla pagina precedente */}
                             </div>
                         </fieldset>
                     </form>

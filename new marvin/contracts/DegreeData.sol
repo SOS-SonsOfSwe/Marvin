@@ -55,6 +55,32 @@ contract DegreeData {
         return uniCodes;
     }
 
+    function getYearDegrees(bytes4 _year) public view returns(bytes10[]) {
+        return(yearDegrees[_year]);
+    }
+
+    function getYearDegreesData(bytes4 _year) public view returns(bytes10[], bytes32[]) {
+        bytes10[] memory degreesForYear = getYearDegrees(_year);
+        bytes32[] memory degreesHashCodes;
+        for(uint i = 0; i < degreesForYear.length; ++i) {
+            degreesHashCodes[i] = degrees[degreesForYear[i]].hashData;
+        }
+        return(degreesForYear, degreesHashCodes);
+    }
+
+    function getDegreeCourses(bytes10 _degreeUniCode) public view returns(bytes10[]) {
+        return(degrees[_degreeUniCode].courses);
+    }
+
+    function getDegreeCoursesData(bytes10 _degreeUniCode) public view returns(bytes10[], bytes32[]) {
+        bytes10[] memory coursesForDegree = getDegreeCourses(_degreeUniCode);
+        bytes32[] memory coursesHashCodes;
+        for(uint i = 0; i < coursesForDegree.length; ++i) {
+            coursesHashCodes[i] = degrees[coursesForDegree[i]].hashData;
+        }
+        return(coursesForDegree, coursesHashCodes);
+    }
+
     function addYear(bytes4 _year) public {
         academicYears.push(_year);
     }

@@ -38,6 +38,15 @@ contract CourseData {
         return (courses[_courseUniCode].courseExams);
     }
 
+    function getCourseExamsData(bytes10 _courseUniCode) public view returns(bytes10[], bytes32[]) {
+        bytes10[] memory examsForCourse = getCourseExams(_courseUniCode);
+        bytes32[] memory examsHashCodes;
+        for(uint i = 0; i < examsForCourse.length; ++i) {
+            examsHashCodes[i] = courses[examsForCourse[i]].hashData;
+        }
+        return(examsForCourse, examsHashCodes);
+    }
+
     function addNewCourse(bytes10 _courseUniCode) public {
         uniCodes.push(_courseUniCode);
     }
