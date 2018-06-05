@@ -14,6 +14,7 @@ class InsertDidacticActivity extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleChange1 = this.handleChange1.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
+        this.handleSave = this.handleSave.bind(this)
     }
 
     handleChange(event) {
@@ -28,9 +29,14 @@ class InsertDidacticActivity extends React.Component {
         this.setState({ didacticActivity: event.target.value });
     }
 
+    handleSave(event) {
+        event.preventDefault()
+        this.props.addDidacticActivity(this.state.year, this.state.degreeCourse, this.state.didacticActivity)
+    }
+
     render() {
         return (
-            <main className='container'>
+            <main className='container' onSubmit={this.handleSave}>
                 <div className="pure-u-1-1">
                     <h1>Insert didactic activity</h1>
                     <p>Now you can insert a new didactic activity.</p>
@@ -47,7 +53,8 @@ class InsertDidacticActivity extends React.Component {
 
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
-                                <button>Cancel</button> {/*magari è un 'input' o 'a' invece che button che porta alla pagina precedente*/}
+                                <Link to='/profile/didactic-activities'>Cancel</Link>
+                                {/* magari è un 'input' o 'a' invece che button che porta alla pagina precedente */}
                             </div>
                         </fieldset>
                     </form>
