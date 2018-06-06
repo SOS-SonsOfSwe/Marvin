@@ -1,0 +1,87 @@
+pragma solidity ^0.4.2;
+import "./UserData.sol";
+import "./UserLogic.sol";
+import "./ExamData.sol";
+import "./CourseData.sol";
+import "./DegreeData.sol";
+import "./Student.sol";
+import "./Teacher.sol";
+import "./Admin.sol";
+
+contract ContractManager {
+    address[] userData;
+    address[] userLogic;
+    address[] examData;
+    address[] courseData;
+    address[] degreeData;
+    address[] student;
+    address[] teacher;
+    address[] admin;
+    address university;
+
+    constructor(address _userDataContract, address _userLogicContract, address _examDataContract, address _courseDataContract,
+                address _degreeDataContract, address _studentContract, address _teacherContract, address _adminContract, address _university) public {
+        if(userData[userData.length - 1] != _userDataContract) {
+            userData.push(_userDataContract);
+            setUserDataContract();
+        }
+        if(userLogic[userLogic.length - 1] != _userLogicContract) {
+            userLogic.push(_userLogicContract);
+            setUserLogicContract();
+        }
+        if(examData[userData.length - 1] != _examDataContract) {
+            examData.push(_examDataContract);
+            setExamDataContract();
+        }
+        if(courseData[courseData.length - 1] != _courseDataContract) {
+            courseData.push(_courseDataContract);
+            setCourseDataContract();
+        }
+        if(degreeData[degreeData.length - 1] != _degreeDataContract) {
+            degreeData.push(_degreeDataContract);
+            setDegreeDataContract();
+        }
+        if(student[student.length - 1] != _studentContract) {
+            student.push(_studentContract);
+            setStudentContract();
+        }
+        if(teacher[teacher.length - 1] != _teacherContract) {
+            teacher.push(_teacherContract);
+            setTeacherContract();
+        }
+        if(admin[admin.length - 1] != _adminContract) {
+            admin.push(_adminContract);
+            setAdminContract();
+        }
+        university = _university;
+    }
+
+    modifier onlyUniversity() {
+        require(msg.sender == university);
+        _;
+    }
+    function setUserDataContract() public onlyUniversity {
+        // set gli address che servono per i modificatori nei vari contracts
+    }
+    function setUserLogicContract() public onlyUniversity {
+        // set gli address che servono per i modificatori nei vari contracts
+    }
+    function setExamDataContract() public onlyUniversity {
+        // set gli address che servono per i modificatori nei vari contracts
+    }
+    function setCourseDataContract() public onlyUniversity {
+        // set gli address che servono per i modificatori nei vari contracts
+    }
+    function setDegreeDataContract() public onlyUniversity {
+        // set gli address che servono per i modificatori nei vari contracts
+    }
+    function setStudentContract() public onlyUniversity {
+        // set gli address che servono per i modificatori nei vari contracts
+    }
+    function setTeacherContract() public onlyUniversity {
+        // set gli address che servono per i modificatori nei vari contracts
+    }
+    function setAdminContract() public onlyUniversity {
+        // set gli address che servono per i modificatori nei vari contracts
+    }
+}
