@@ -3,21 +3,29 @@ In precedenza è stato realizzata una \emph{Proof of Concept} in cui si è data 
 Tale produzione è disponibile all'indirizzo: \url{https://github.com/SOS-SonsOfSwe/Marvin-PoC}.
 Durante la ricerca di strumenti adatti allo scopo il team ha deciso inizialmente di basare la prima produzione del prodotto sul framework \emph{Truffle}, dal momento che esso presentava molte delle tecnologie di interesse.
 Con uno studio più approfondito del pacchetto il gruppo si è reso conto che esso era una buona base di partenza per la realizzazione di un prodotto più complesso, sebbene necessitasse di alcune correzioni strutturali. Qui di seguito si elencano i limiti riscontrati e le soluzioni adottate:
-\begin{longtable}
+\newline
+\newline
+
+\begin{table}[hp]
+	\centering
+\begin{tabular}{|p{6cm}|p{6cm}|}
 	\hline
 	\textbf{Proof of Concept} & \textbf{Product Baseline} \\
 	
 	\hline Architettura ben strutturata ma male incapsulata
 	&
-	Organizzazione migliore della struttura del pacchetto a fronte di una conoscenza più approfondita del design pattern MVVM e di altri su cui il framework si basa \\ 
+	Organizzazione migliore della struttura del pacchetto
+	a fronte di una conoscenza più approfondita del design pattern MVVM e di altri su cui il framework si basa \\ 
 	
-	\hline Interfaccia povera e strutturata in maniera confusionaria, non chiara e difficilmente intuibile 
+	\hline Interfaccia povera e strutturata in maniera confusionaria, non chiara e  difficilmente intuibile 
 	&
 	Ristrutturazione completa e incremento dell'interfaccia utente, ora provvista di tutte le parti atte alla soddisfazione della maggior parte dei requisiti opzionali e obbligatori \\ 
 	
 	\hline Database solidity estremamente scarno e con poche funzionalità di sicurezza e di ottimizzazione
 	&
-	Strutturazione avanzata del backend di solidity, desisamente più ottimizzato e performante; implementazione già in fase di completamento \\ 
-\caption[Tracciamento Use case-Requisiti]{Tracciamento Use case-Requisiti}
-\label{tab:Confronto PoC PB}
-\end{longtable}
+	Strutturazione avanzata del backend di solidity, desisamente più ottimizzato e performante; implementazione già in fase di completamento\\
+	
+	\hline
+\end{tabular}
+\caption{Confronto tra Proof of Concept e Product Baseline}
+\end{table}
