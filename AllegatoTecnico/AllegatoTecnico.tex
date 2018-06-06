@@ -15,6 +15,7 @@
 \begin{document}
 %\copertina{}
 
+
 	\begin{titlepage}
 		\begin{center}
 
@@ -59,27 +60,34 @@
 		\end{center}
 	\end{titlepage}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %SOMMARIO
+%\input{sez/RegistroModifiche.tex}
+%\newpage
 \newpage
 \tableofcontents
 \newpage
 \listoffigures
 \newpage
+\listoftables
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PARAGRAFI
 \hypersetup{linkcolor=bluSOS}
 \input{sez/Introduzione.tex}
-\pagebreak
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{sez/RequisitiDiSistema.tex}
-\pagebreak
+\newpage
 \input{sez/InstallazioneEdEsecuzione.tex}
+\newpage
+\input{sez/RapportoPoC.tex}
+\newpage
+\input{sez/ArchitetturaProdotto.tex}
+\newpage
+\input{sez/SoddisfacimentoRequisiti.tex}
 \pagebreak
-
-
-
+\input{sez/UCSoddisfatti.tex}
 
 \end{document}
 
