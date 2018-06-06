@@ -23,14 +23,22 @@ I diagrammi presentati in questo documento illustrano la struttura sinteticament
 \end{figure}
 
 	\subsection{Model}
-		\subsubsection{Design patterns}
-		Per quanto riguarda la macrosezione relativa alla componente Model, si sono utilizzati i seguenti design pattern: {\textcolor{red}{INSERIRE I PATTERN}}
-			\begin{itemize}
-				\item \textbf{}: ;
-				\item \textbf{}: .
-				\item \textbf{}: .
-			\end{itemize}
-		
+\subsubsection{Architettura}
+		Per quanto riguarda la macrosezione relativa alla componente Model, composta dai contracts salvati su blockchain ed IPFS, si sono effettuate le seguenti scelte progettuali:
+		\begin{itemize}
+			\item \textbf{Modularità}: dividendo la parte logica e la struttura dei dati, in caso di aggiornamento della parte logica e quindi di un nuovo deploy dei contracts interessati, si ottiene la persistenza dei dati e un minor costo per il nuovo deploy. Infatti, se i dati e la logica fossero salvati nello stesso contracts, ad un nuovo deploy, i dati non sarebbero più consistenti, essendo contenuti in un altro contratto;
+			\item \textbf{Istanze di contracts}: ogni contracts ha un'unica istanza: se i contracts contengono oggetti con molteplicità, essi saranno strutturati in una struct e si salveranno in un mapping con una key che li identifica ed una value che punta all'istanza della struct interessata. Si salvano, inoltre, per ogni mapping, un array contenente le key dei mapping. Questo perchè in Solidity (il linguaggio utilizzato per programmare i contracts), non è possibile in alcun modo recuperare quali key sono già salvate nel mapping e quindi si utilizzano gli array collegati per iterare sui dati;
+			\item \textbf{Denormalizzazione}: come per altri database di tipo NoSQL e contrariamente ai database relazionali, si deve mantenere un compromesso fra ridondanza dei dati e costo del salvataggio maggiore. Infatti, per ottenere delle query più semplici e veloci, è necessario mantenere la ridondanza dei campi dati utilizzati più spesso. Questo si traduce in una maggior complessità per la modifica e l'eliminazione dei dati, ma si ottengono vantaggi significativi in caso di iterazioni sui dati non dovendo effettuare chiamate a contracts quando una transazione lo richiede e quindi richiedendo un costo minore;
+			\item \textbf{IPFS}: il costo del salvataggio dei dati su blockchain Ethereum è molto elevato. Per questo motivo, alcuni dati sono salvati off-chain su un altro sistema distribuito, ovvero IPFS. La scelta di salvare un dato su blockchain Ethereum o su IPFS segue quindi queste regole:
+			\begin{enumerate}
+				\item I dati utilizzati come identificativo per le query sono salvati su blockchain
+				per evitare la latenza dovuta alla comunicazione fra backend-frontend-IPFS;
+				\item I dati soggetti a problemi di concorrenza sono salvati su blockchain: in questo modo
+				non serve porsi il problema dell'accesso concorrenziale per la modifica del dato da parte
+				di molteplici utenti in contemporanea;
+				\item Tutti i dati considerati "accessori" possono essere salvati su IPFS.
+			\end{enumerate}
+		\end{itemize}
 		\subsubsection{Diagramma delle classi}
 		In seguito è riportato il diagramma delle classi relativo a questa sezione con evidenziato la posizione del design pattern utilizzato.
 	
@@ -87,30 +95,29 @@ I diagrammi presentati in questo documento illustrano la struttura sinteticament
 	
 		\subsubsection{Login}
 		Il diagramma di sequenza riportato qui di seguito raffigura il processo di login, durante il quale l'utente che vuole accedere può essere autenticato dal sistema.
-		{\textcolor{red}{INSERIRE DIAGRAMMA DI LOGIN}}
+		
 		\begin{figure}[h]
 			\centering
-			%	\includegraphics[height=3in]{./img/settings.png}
+				\includegraphics[height=5in]{./Diagrammi/DiagrammaSequenzaLogin.pdf}
 			\caption{Diagramma di sequenza del processo di login}
 			\label{}
 		\end{figure}
 		
 		\subsubsection{Inserimento di un utente}
 		Il seguente diagramma di sequenza rappresenta l'azione di inserimento di un utente nel sistema.
-		{\textcolor{red}{INSERIRE DIAGRAMMA DI INSERIMENTO UTENTE}}
 		\begin{figure}[h]
 			\centering
-			%	\includegraphics[height=3in]{./img/settings.png}
+				\includegraphics[height=4.5in]{./Diagrammi/DiagrammaSequenzaInsertUser.pdf}
 			\caption{Diagramma di sequenza del processo di inserimento di un utente}
 			\label{}
 		\end{figure}
 		
 		\subsubsection{Inserimento di un anno accademico}
 		Il diagramma di sequenza riportato qui di seguito raffigura il processo di inserimento di un nuovo anno accademico nel sistema.
-		{\textcolor{red}{INSERIRE DIAGRAMMA DI INSERIMENTO ANNO ACCADEMICO}}
+		
 		\begin{figure}[h]
 			\centering
-			%	\includegraphics[height=3in]{./img/settings.png}
+				\includegraphics[height=4in]{./Diagrammi/DiagrammaSequenzaInsertAcademicYear.pdf}
 			\caption{Diagramma di sequenza del processo di inserimento di un anno accademico}
 			\label{}
 		\end{figure}
