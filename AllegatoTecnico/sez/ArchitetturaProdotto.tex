@@ -22,7 +22,49 @@ I diagrammi presentati in questo documento illustrano la struttura sinteticament
 	\label{}
 \end{figure}
 
-	\subsection{Model}
+	
+	\subsection{View}
+		\subsubsection{Design patterns}
+		Progettando questa sezione ci si è resi conto che si sarebbero potute generare delle classi \emph{dumb}, ovvero slegate dalla logica del sistema e che si sarebbero dovute occupare solamente della rappresentazione delle informazioni. Per ottenere questo si è ricorso all'utilizzo del seguente design pattern:
+			\begin{itemize}
+				\item \textbf{Decorator}: sfruttando il macro-package \emph{Container}, che poi si occupa di collegare il componente allo stato di \emph{redux}, si possono decorare tutte le componenti ivi presenti con dei componenti react puri, ai quali vengono passate eventualmente le informazioni e le funzioni a disposizione attraverso un accesso al \emph{this.props}. In questa maniera si ha la completa separazione tra rappresentazione e dati - cosa auspicata dal framework MVVM - e si facilitano modifiche future.
+			\end{itemize}
+		
+		\subsubsection{Diagramma delle classi}
+		In Figura~\ref{fig:DiagrammaView} è riportato il diagramma delle classi relativo a questa sezione con evidenziato la posizione del design pattern utilizzato.
+	
+%	{\textcolor{red}{INSERIRE DIAGRAMMA CON VISTA SU VIEW}}
+
+	
+	\subsection{ViewModel}
+		\subsubsection{Design patterns}
+		Per la sezione riguardante il ViewModel, in Figura~\ref{fig:DiagrammaViewModel} si è ricorso all'utilizzo dei seguenti design pattern:
+			\begin{itemize}
+				\item \textbf{Observer}: descrizione per quanto riguarda il comportamento di trigger-client che opera Redux sullo stato di React;
+				\item \textbf{Façade}: per generare un'interfaccia astratta dalle implementazioni delle classi che poi si vanno ad utilizzare;
+				\item \textbf{Adapter}: per interagire col model si usa un adaptator offerto dal framework truffle che si occupa di {\textcolor{red}{fare-un-sacco-di-cose-belle-da-chiedere-a-Stefano}};
+				\item \textbf{Command}: come redux ordina a react di re-renderizzare le pagine al cambiamento dello state dovuto ad un dispatch di un'azione.
+			\end{itemize}
+				\begin{figure}[!h]
+		\centering
+			\includegraphics[height=7in]{./Diagrammi/DiagrammaView.pdf}
+		\caption{Diagramma delle classi del componente View}
+		\label{fig:DiagrammaView}
+	\end{figure}
+	
+		\subsubsection{Diagramma delle classi}
+		In seguito è riportato il diagramma delle classi relativo a questa sezione con evidenziato la posizione del design pattern utilizzato.
+	
+	\clearpage
+	\begin{figure}[hp]
+		\centering
+			\includegraphics[height=9in]{./Diagrammi/DiagrammaModelView.pdf}
+		\caption{Diagramma delle classi del componente ViewModel}
+		\label{fig:DiagrammaViewModel}
+	\end{figure}
+	\clearpage	
+	
+\subsection{Model}
 \subsubsection{Architettura}
 		Per quanto riguarda la macrosezione relativa alla componente Model, composta dai contracts salvati su blockchain ed IPFS, si sono effettuate le seguenti scelte progettuali:
 		\begin{itemize}
@@ -49,46 +91,7 @@ I diagrammi presentati in questo documento illustrano la struttura sinteticament
 		\caption{Diagramma delle classi del componente Model}
 		\label{}
 	\end{figure}
-	
-	\subsection{View}
-		\subsubsection{Design patterns}
-		Progettando questa sezione ci si è resi conto che si sarebbero potute generare delle classi \emph{dumb}, ovvero slegate dalla logica del sistema e che si sarebbero dovute occupare solamente della rappresentazione delle informazioni. Per ottenere questo si è ricorso all'utilizzo del seguente design pattern:
-			\begin{itemize}
-				\item \textbf{Decorator}: sfruttando il macro-package \emph{Container}, che poi si occupa di collegare il componente allo stato di \emph{redux}, si possono decorare tutte le componenti ivi presenti con dei componenti react puri, ai quali vengono passate eventualmente le informazioni e le funzioni a disposizione attraverso un accesso al \emph{this.props}. In questa maniera si ha la completa separazione tra rappresentazione e dati - cosa auspicata dal framework MVVM - e si facilitano modifiche future.
-			\end{itemize}
 		
-		\subsubsection{Diagramma delle classi}
-		In Figura~\ref{fig:DiagrammaView} è riportato il diagramma delle classi relativo a questa sezione con evidenziato la posizione del design pattern utilizzato.
-	
-%	{\textcolor{red}{INSERIRE DIAGRAMMA CON VISTA SU VIEW}}
-
-	
-	\subsection{ViewModel}
-		\subsubsection{Design patterns}
-		Per la sezione riguardante il ViewModel, si è ricorso all'utilizzo dei seguenti design pattern:
-			\begin{itemize}
-				\item \textbf{Observer}: descrizione per quanto riguarda il comportamento di trigger-client che opera Redux sullo stato di React;
-				\item \textbf{Façade}: per generare un'interfaccia astratta dalle implementazioni delle classi che poi si vanno ad utilizzare;
-				\item \textbf{Adapter}: per interagire col model si usa un adaptator offerto dal framework truffle che si occupa di {\textcolor{red}{fare-un-sacco-di-cose-belle-da-chiedere-a-Stefano}};
-				\item \textbf{Command}: come redux ordina a react di re-renderizzare le pagine al cambiamento dello state dovuto ad un dispatch di un'azione.
-			\end{itemize}
-				\begin{figure}[!h]
-		\centering
-			\includegraphics[height=0.5\textwidth]{./Diagrammi/DiagrammaView.pdf}
-		\caption{Diagramma delle classi del componente View}
-		\label{fig:DiagrammaView}
-	\end{figure}
-	
-		\subsubsection{Diagramma delle classi}
-		In seguito è riportato il diagramma delle classi relativo a questa sezione con evidenziato la posizione del design pattern utilizzato.
-	
-	{\textcolor{red}{INSERIRE DIAGRAMMA CON VISTA SU VIEWMODEL}}
-	\begin{figure}[h]
-		\centering
-		%	\includegraphics[height=3in]{./img/settings.png}
-		\caption{Diagramma delle classi del componente ViewModel}
-		\label{}
-	\end{figure}
 	
 	\subsection{Diagrammi di sequenza}
 	Come per i diagrammi delle classi, sono stati redatti i seguenti diagrammi di sequenza, disponibili e meglio visualizzabili nella cartella {\textcolor{red}{INSERIRE LA CARTELLA}};
