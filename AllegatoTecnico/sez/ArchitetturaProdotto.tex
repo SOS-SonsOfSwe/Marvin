@@ -12,7 +12,7 @@ Per poter apprezzare questa suddivisione nel pacchetto del team viene riportato 
 		\item Tutti i \emph{Containers} importano il rispettivo \emph{Component}, la rispettiva \emph{Action} e il pacchetto \emph{react-redux}.
 		\item Tutte le \emph{actions} importano le \emph{costants} che azionano il \emph{reducer}, il pacchetto \emph{react-router}, lo \emph{store}, il pacchetto \emph{truffle-contract} e la classe \emph{IpfsUtils}
 	\end{itemize}
-I diagrammi presentati in questo documento illustrano la struttura sinteticamente; la loro versione integrale si può trovare nella cartella {\textcolor{red}{INSERIRE LA CARTELLA}}.
+I diagrammi presentati in questo documento illustrano la struttura sinteticamente; la loro versione integrale si può trovare nella cartella Diagrammi.
 
 
 \begin{figure}[h]
@@ -84,56 +84,48 @@ I diagrammi presentati in questo documento illustrano la struttura sinteticament
 		\subsubsection{Diagramma delle classi}
 		In seguito è riportato il diagramma delle classi relativo a questa sezione con evidenziato la posizione del design pattern utilizzato.
 	
-	{\textcolor{red}{INSERIRE DIAGRAMMA CON VISTA SU MODEL}}
+\clearpage	
 	\begin{figure}[h]
 		\centering
-		%	\includegraphics[height=3in]{./img/settings.png}
+			\includegraphics[angle=90, origin=c, height=7in]{./Diagrammi/DiagrammaModel.pdf}
 		\caption{Diagramma delle classi del componente Model}
 		\label{}
 	\end{figure}
-		
+		\clearpage
 	
 	\subsection{Diagrammi di sequenza}
-	Come per i diagrammi delle classi, sono stati redatti i seguenti diagrammi di sequenza, disponibili e meglio visualizzabili nella cartella {\textcolor{red}{INSERIRE LA CARTELLA}};
+	Come per i diagrammi delle classi, sono stati redatti i seguenti diagrammi di sequenza, disponibili e meglio visualizzabili nella cartella Diagrammi;
 	
 		\subsubsection{Login}
 		Il diagramma di sequenza riportato qui di seguito raffigura il processo di login, durante il quale l'utente che vuole accedere può essere autenticato dal sistema.
 		
 		\begin{figure}[h]
 			\centering
-				\includegraphics[height=5in]{./Diagrammi/DiagrammaSequenzaLogin.pdf}
+				\includegraphics[height=5in]{./Diagrammi/DiagrammaSequenzaLogin2.pdf}
 			\caption{Diagramma di sequenza del processo di login}
 			\label{}
 		\end{figure}
 		
 		\subsubsection{Inserimento di un utente}
-		Il seguente diagramma di sequenza rappresenta l'azione di inserimento di un utente nel sistema.
+		Il diagramma di sequenza in Figura~\ref{fig:SeqInserimentoUtente} rappresenta l'azione di inserimento di un utente nel sistema.
 		\begin{figure}[h]
 			\centering
 				\includegraphics[height=4.5in]{./Diagrammi/DiagrammaSequenzaInsertUser.pdf}
 			\caption{Diagramma di sequenza del processo di inserimento di un utente}
-			\label{}
+			\label{fig:SeqInserimentoUtente}
 		\end{figure}
 		
 		\subsubsection{Inserimento di un anno accademico}
-		Il diagramma di sequenza riportato qui di seguito raffigura il processo di inserimento di un nuovo anno accademico nel sistema.
+		Il diagramma di sequenza riportato in Figura~\ref{fig:SeqInsertYear} raffigura il processo di inserimento di un nuovo anno accademico nel sistema.
 		
 		\begin{figure}[h]
 			\centering
 				\includegraphics[height=4in]{./Diagrammi/DiagrammaSequenzaInsertAcademicYear.pdf}
 			\caption{Diagramma di sequenza del processo di inserimento di un anno accademico}
-			\label{}
+			\label{fig:SeqInsertYear}
 		\end{figure}
+		\clearpage
 		
-		\subsubsection{Visualizzazione di un anno accademico}
-		Il seguente diagramma di sequenza rappresenta l'azione di visualizzazione di un anno accademico.
-		{\textcolor{red}{INSERIRE DIAGRAMMA DI VISUALIZZAZIONE ANNO ACCADEMICO}}
-		\begin{figure}[h]
-			\centering
-			%	\includegraphics[height=3in]{./img/settings.png}
-			\caption{Diagramma di sequenza del processo di visualizzazione di un anno accademico}
-			\label{}
-		\end{figure}
 	
 	
 	
