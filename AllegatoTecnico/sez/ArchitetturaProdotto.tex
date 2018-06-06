@@ -38,12 +38,12 @@ I diagrammi presentati in questo documento illustrano la struttura sinteticament
 	
 	\subsection{ViewModel}
 		\subsubsection{Design patterns}
-		Per la sezione riguardante il ViewModel, in Figura~\ref{fig:DiagrammaViewModel} si è ricorso all'utilizzo dei seguenti design pattern:
+		Essendo una tra le sezioni più complesse da gestire e quella che poi si sarebbe dovuta occupare della gestione degli stati dell'applicazione, si è deciso di seguire in parte i design pattern offerti dal framework sfruttato e di aggiungerne altri in seguito ad un'analisi più profonda del problema.
+		In Figura~\ref{fig:DiagrammaViewModel} si è ricorso all'utilizzo dei seguenti design pattern:
 			\begin{itemize}
-				\item \textbf{Observer}: descrizione per quanto riguarda il comportamento di trigger-client che opera Redux sullo stato di React;
-				\item \textbf{Façade}: per generare un'interfaccia astratta dalle implementazioni delle classi che poi si vanno ad utilizzare;
-				\item \textbf{Adapter}: per interagire col model si usa un adaptator offerto dal framework truffle che si occupa di {\textcolor{red}{fare-un-sacco-di-cose-belle-da-chiedere-a-Stefano}};
-				\item \textbf{Command}: come redux ordina a react di re-renderizzare le pagine al cambiamento dello state dovuto ad un dispatch di un'azione.
+				\item \textbf{Observer}: implementato già nel framework offerto da Truffle, si occupa di gestire gli stati dell'applicazione sfruttando il framework \emph{react-redux}. Il team lo ha declinato sfruttando la classe \emph{index} come \emph{observer} e la classe \emph{store} come subject. Lo \emph{store} viene aggiornato ogni qual volta si registra un cambiamento nello \emph{state} dell'applicazione, grazie agli strumenti offerti da \emph{redux}; questo aziona l'update dell'\emph{index}, che quindi si occupa di eseguire un render a schermo aggiornando le informazioni cambiate;
+				\item \textbf{Fa\c{c}ade}: sfruttato in maniera estensiva, questo pattern ha permesso al team di generare interfacce per semplificare gli import all'interno di classi generali (vedasi, ad esempio, l'import di \emhp{index} che deve importare tutte le componenti);
+				\item \textbf{Adapter}:\item \textbf{Adapter}: per interagire con i contratti \emph{solidity} \emph{truffle} ha sfruttato alcune componenti come \emph{adapter}: la classe \emph{migrate}, in particolare, si occupa di importare i contratti \emph{solidity}, di farne il \emph{deploy} all'interno della blockchain istanziata e poterli sfruttare come dei più leggibili \emph{json}. Dopodiché la classe \emph{truffle-contract} offre dei metodi per arricchire le istanze dei contratti ottenuti dal deploy con informazioni utili al loro sfruttamento nell'applicazione.
 			\end{itemize}
 				\begin{figure}[!h]
 		\centering
