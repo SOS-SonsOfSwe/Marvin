@@ -44,43 +44,21 @@ function doAwesomeStuff(dispatch, payload) {
   return browserHistory.push('/profile') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
-// export function loginUser() {
-//   var web3 = store.getState()
-//     .web3.web3Instance
-//   web3.eth.getAccounts(function (err, accounts) {
-//     browserHistory.push('/')
-//     store.dispatch(metamaskIsActive())
-//     if(err !== null) {
-//       browserHistory.push('/')
-//       store.dispatch(metamaskIsActive())
-//       console.log("An error occurred: " + err)
-//     } else if(accounts.length === 0) {
-
-//       browserHistory.push('/')
-//       store.dispatch(metamaskIsActive())
-//       alert("Log in from Metamask before!")
-//     } else {
-
-//       console.log("user is logged in to Metamask")
-
-//       browserHistory.push('/')
-//       store.dispatch(metamaskIsActive())
-//       actualLogin(web3)
-//     }
-//   })
-// }
-
 export function loginUser() {
   var web3 = store.getState()
     .web3.web3Instance
-  // web3.eth.getAccounts(function (err, accounts) {
-  //     if(err !== null) console.log("An error occurred: " + err)
-  //     else if(accounts.length === 0) {
-  //       alert("Log in from Metamask before!")
-  //       return browserHistory.push('/')
-  //     } else {
-  //       console.log("user is logged in to Metamask")
 
+  // check if the user is logged in to metamask
+  // the function has to return a function as is invoked by a dispatch
+  if(web3.eth.accounts.length === 0) {
+    alert("Please login to Metamask before!")
+    return function (dispatch) {
+      browserHistory.push('/')
+    }
+  } else return login(web3)
+}
+
+function login(web3, dispatch) {
   var payload = {
     name: '',
     surname: '',
@@ -94,6 +72,8 @@ export function loginUser() {
   if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
+      // checkMetamask(web3)
+      // .then((err, web3) => {
       // Using truffle-contract we create the authentication object.
       const university = contract(UniversityContract)
       university.setProvider(web3.currentProvider)
@@ -155,6 +135,11 @@ export function loginUser() {
               })
           })
       })
+      // })
+      // .catch(err => {
+      // alert('Login to Metamask before!')
+      // browserHistory.push('/')
+      // })
     }
   } else {
     console.error('Web3 is not initialized.');
