@@ -47,6 +47,8 @@ export function readDegreeCoursesFromDatabase(years) {
     prova: ''
   }
 
+  years = 'a'
+
   if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
@@ -70,7 +72,7 @@ export function readDegreeCoursesFromDatabase(years) {
 
             dispatch(readingData())
             // Attempt to read degree courses per year
-            degreeInstance.getYearDegreesData('a', { from: coinbase })
+            degreeInstance.getYearDegreesData(years, { from: coinbase })
               .then(result => {
                 console.log('result[0]: ' + web3.toUtf8(result))
                 payload.prova = web3.toUtf8(result[0]);

@@ -38,16 +38,23 @@ export default function addNewAcademicYear(year) {
             adminIstance = instance
             // dispatching action for make the reducer know we are making the transaction
             dispatch(addingData())
+
+            //taking the first 4 numbers
+            year = year.slice(0, 4)
+            //be careful!! This number cannot be over 4095 or it starts again from 1.
             adminIstance.addNewYear(year, { from: coinbase })
               .then(result => {
                 // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
+                // console.log(JSON.stringify(result))
                 dispatch(dataAdded())
+                alert('The new academic year has been added! Wait some seconds to make it write on blockchain.')
               })
               .catch(error => {
                 dispatch(errorAddingData())
               })
               .finally(def => {
-                return browserHistory.push('/profile/academic-years')
+                // console.log(JSON.stringify(def))
+                return browserHistory.push('/profile')
               })
           })
       })

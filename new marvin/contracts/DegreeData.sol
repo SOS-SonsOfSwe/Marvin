@@ -50,6 +50,10 @@ contract DegreeData {
         return false;
     }
 
+    function getAcademicYears() public view returns(bytes4[]) {
+        return(academicYears);
+    }
+
     // this function should be accessible only by university or admins
     function getAllIdentifiers() public view returns(bytes10[]) {
         return uniCodes;
@@ -81,6 +85,10 @@ contract DegreeData {
         return(coursesForDegree, coursesHashCodes);
     }
 
+    function setHashData(bytes10 _degreeUniCode, bytes32 _degreeHashData) public {
+        degrees[_degreeUniCode].hashData = _degreeHashData;
+    }
+
     function addYear(bytes4 _year) public {
         academicYears.push(_year);
     }
@@ -93,9 +101,5 @@ contract DegreeData {
 
     function addDegreeCourse(bytes10 _degreeUniCode, bytes10 _courseUniCode) public {
         degrees[_degreeUniCode].courses.push(_courseUniCode);
-    }
-
-    function setHashData(bytes10 _degreeUniCode, bytes32 _degreeHashData) public {
-        degrees[_degreeUniCode].hashData = _degreeHashData;
     }
 }

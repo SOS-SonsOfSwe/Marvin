@@ -20,7 +20,7 @@ contract ExamData {
         // mapping degli esiti accettati, key = badgeNumber studente, value = voto (0-31)
         mapping (uint32 => bytes2) confirmedResults;
         // possibilità per lo studente di iscriversi all'esame
-        bool activeSubscribtion;
+        bool activeSubscription;
     }
     /* mapping contenente, per ogni studente, gli esami i cui voti sono stati accettati (libretto). 
      * key = badgeNumber studente, value = array degli uniCode degli esami i cui voti sono stati accettati */
@@ -62,7 +62,7 @@ contract ExamData {
     }
     // get dello stato dell'esame (true = è possibile iscriversi)
     function getExamActiveSubscription(bytes10 _examUniCode) public view returns(bool) {
-        return(exams[_examUniCode].activeSubscribtion);
+        return(exams[_examUniCode].activeSubscription);
     }
     // get del professore associato all'esame
     function getExamTeacher(bytes10 _examUniCode) public view returns(uint32) {
@@ -78,7 +78,7 @@ contract ExamData {
     }
     // set dello stato dell'esame (true = è possibile iscriversi)
     function setActiveSubscription(bytes10 _examUniCode, bool _activeSubscription) public {
-        exams[_examUniCode].activeSubscribtion = _activeSubscription;
+        exams[_examUniCode].activeSubscription = _activeSubscription;
     }
     // ritorna true sse l'esame esiste
     function examExist(bytes10 _examUniCode) public view returns(bool) {

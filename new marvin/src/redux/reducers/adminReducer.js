@@ -10,7 +10,8 @@ const initialState = {
   data: null,
   loading: null,
   success: null,
-  adding: null
+  adding: null,
+  empty: null
 }
 
 // this is a function used by the store (see index.js in this folder) which returns a new object containing the previous data and the new ones
@@ -42,16 +43,15 @@ const adminReducer = (state = initialState, action) => {
   case adminCostants.FETCH_DATA_SUCCESS:
     {
       console.log('adminReducer: successfully fetched data')
+      // checking if somebody changed page during loading data, so the state.data is not overwritten by asynchronous returns
+      if(state.loading === false) return state
       return {
         ...state,
         data: action.payload,
         loading: false,
-        success: true
+        success: true,
+        empty: false
       }
-      // return Object.assign({}, state, {
-      //   loading: false,
-      //   success: true
-      // })
     }
 
     // there were some errors, so we can manage them
@@ -63,6 +63,14 @@ const adminReducer = (state = initialState, action) => {
         success: false
       }
     }
+  case adminCostants.FETCH_DATA_EMPTY:
+    {
+      return {
+        ...state,
+        empty: true,
+        loading: false
+      }
+    }
 
     // time to clean up: call this action if you want to free space
   case adminCostants.ERASE_ADMIN_REDUCER:
@@ -72,7 +80,8 @@ const adminReducer = (state = initialState, action) => {
         data: null,
         loading: null,
         success: null,
-        adding: null
+        adding: null,
+        empty: null
       }
     }
 
@@ -89,6 +98,7 @@ const adminReducer = (state = initialState, action) => {
     // adding was successfull. Time to unlock resources
   case adminCostants.ADDED_NEW_DATA:
     {
+      if(state.adding === false) return state
       return {
         ...state,
         adding: false,

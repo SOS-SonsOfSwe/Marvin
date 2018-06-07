@@ -22,6 +22,9 @@ const OnlyUniAdminLinks = VisibleOnlyUniAdmin(() => {
         <div className="float-right">
             <ul>
                 <li className="pure-menu-item">
+                    <Link to="/fill-blockchain" className="pure-menu-link">Fill Blockchain</Link>
+                </li>
+                <li className="pure-menu-item">
                     <Link to="/insert-user" className="pure-menu-link">Insert User</Link>
                 </li>
                 <li className="pure-menu-item">

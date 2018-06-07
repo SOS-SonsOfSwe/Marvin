@@ -11,17 +11,17 @@ module.exports = function (deployer) {
   deployer.deploy(UserData)
     .then(function () {
       deployer.deploy(UserLogic, UserData.address);
-	  return deployer.deploy(ExamData);
-	})
+      return deployer.deploy(ExamData);
+    })
     .then(function () {
-        deployer.deploy(Student, UserData.address, ExamData.address);
-        deployer.deploy(Teacher, UserData.address, ExamData.address);
-        return deployer.deploy(CourseData, ExamData.address);
-	})
+      deployer.deploy(Student, UserData.address, ExamData.address);
+      deployer.deploy(Teacher, UserData.address, ExamData.address);
+      return deployer.deploy(CourseData, ExamData.address);
+    })
     .then(function () {
-        return deployer.deploy(DegreeData, ExamData.address);
-	})
+      return deployer.deploy(DegreeData, CourseData.address);
+    })
     .then(function () {
-        return deployer.deploy(Admin, UserData.address, ExamData.address, CourseData.address, DegreeData.address);
+      return deployer.deploy(Admin, UserData.address, ExamData.address, CourseData.address, DegreeData.address);
     });
 };

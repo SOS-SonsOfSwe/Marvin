@@ -47,12 +47,12 @@ contract CourseData {
         return(examsForCourse, examsHashCodes);
     }
 
-    function addNewCourse(bytes10 _courseUniCode) public {
-        uniCodes.push(_courseUniCode);
-    }
-
     function setUniCode(bytes10 _courseUniCode) public {
         courses[_courseUniCode].uniCode = _courseUniCode;
+    }
+
+    function addNewCourse(bytes10 _courseUniCode) public {
+        uniCodes.push(_courseUniCode);
     }
 
     function setHashData(bytes10 _courseUniCode, bytes32 _courseHashData) public {

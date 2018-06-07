@@ -1,77 +1,120 @@
-// functions used to read all the infos from database
+import DegreeContract from '../../../../build/contracts/DegreeData'
+import { browserHistory } from 'react-router'
+import store from '../../../store'
 
-import * as adminData from '../../../utils/adminData'
-import { adminCostants } from '../../reducers/costants'
+// import { web3HexToInt } from '../../../utils/validations'
 
-// prototype for the dispatch action. Here we want to send to the store the payload we succeeded in retrieving
-function fetchData(load) {
-  return {
-    type: adminCostants.FETCHING_DATA,
-    payload: load // so we will tell the reducer to wait for the end of fetching
+import {
+  readingData,
+  // errorReadingData,
+  dataRead,
+  dataEmpty,
+  // ipfsReadingData,
+  // ipfsDataRead,
+  // ipfsErrorReadingData,
+  // ipfsNetworkError,
+  eraseAdminReducerInfo,
+  eraseIpfsReducerInfo
+} from '../StandardDispatches/readingData'
+
+// import ipfsPromise from '../../../../api/utils/ipfsPromise'
+
+const contract = require('truffle-contract')
+
+function doAwesomeStuff(dispatch, load) {
+  dispatch(dataRead({ load }))
+  var currentLocation = browserHistory.getCurrentLocation()
+  if('redirect' in currentLocation.query) {
+    //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
+    return browserHistory.replace('/profile')
   }
+  return browserHistory.push('/profile/academic-years') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
-
-// this function is useful to tell the reducer we terminated to fetch data from database so he can unlock the component and render all the informations
-function fetchDataSuccess() {
-  return {
-    type: adminCostants.FETCH_DATA_SUCCESS,
-  }
-}
-
-// this function is useful to tell the reducer there was an error while trying to retrieve data from database
-// function fetchDataError() {
-//   return {
-//     type: costants.FETCH_DATA_ERROR,
-//   }
-// }
 
 export function readAcademicYearsFromDatabase() {
-  // we are trying to put the infos we collected into the store. To achieve this we have to dispatch (=put into store) an action (not a object)
-  // doing so we guarantee that the infos in the store will be updated with what we found here
-  // So, as we are returning something to the caller (see the containers) we have to use the dispatch (passed as parameter from the function) 
-  // and to fill it with the infos we found.
-  return function (dispatch) {
-    dispatch(fetchData({
-      // ugly but working way to say: "we found data, we want to associate it to the load, so we create an object to pass to the dispatch thanks to the fetchData function
-      'load': adminData.academicYears
-    }))
-    setTimeout(() => dispatch(fetchDataSuccess()), 2000)
-  }
-}
+  let web3 = store.getState()
+    .web3.web3Instance
 
-// const fetchRequest = createAction('FETCH_REQUEST')
-// const fetchSuccess = createAction('FETCH_SUCCESS')
-// const fetchFailure = createAction('FETCH_FAILURE)
-// const fetch = (url) => {
-//     return async (dispatch, getState) => {
-//         try {
-//             dispatch(fetchRequest())
-//             const response= await _fetch(url)
-//             if(result.statusCode !== 200)
-//                 throw new Error()
-//             const result = await response.json()
-//             dispatch(fetchSuccess(result))
-//         }
-//         catch(error) {
-//             dispatch(fetchFailure(error))
-//         }
-//     }
-// }
+  if(typeof web3 !== 'undefined') {
 
-export function readDegreeCoursesFromDatabase(years) {
-  return function (dispatch) {
-    dispatch(fetchData({
-      'load': adminData.degreeCourses.filter(function (obj) { return obj.year === years })
-    }))
-    setTimeout(() => dispatch(fetchDataSuccess()), 2000)
-  }
-}
+    return function (dispatch) {
+      // Using truffle-contract we create the authentication object.
+      const degree = contract(DegreeContract)
+      degree.setProvider(web3.currentProvider)
 
-export function readDidacticActivitiesFromDatabase(years, degreeC) {
-  return function (dispatch) {
-    dispatch(fetchData({
-      'load': adminData.didacticActivities.filter(function (obj) { return obj.year === years && obj.course === degreeC })
-    }))
-    setTimeout(() => dispatch(fetchDataSuccess()), 2000)
+      // Declaring this for later so we can chain functions on Authentication.
+      var degreeInstance
+
+      // Get current ethereum wallet.
+      web3.eth.getCoinbase((error, coinbase) => {
+
+        dispatch(readingData())
+
+        // Log errors, if any.
+        if(error) {
+          console.error(error);
+        }
+
+        degree.deployed()
+          .then(function (instance) {
+            degreeInstance = instance
+
+            // Attempt to read degree courses per year
+            degreeInstance.getAcademicYears({ from: coinbase })
+              .then(result => {
+                // console.log('result[0] : ' + web3.toHex(result[0]))
+
+                // checking if the blockchain is empty for this kind of data.
+                // when the blockchain is empty the first numbers it retrieves are:
+                // 0x00000. When it's full it's 0xsomething. So we check the first number
+                // after "x" to be not equal to zero.
+
+                if(web3.toHex(result[0])
+                  .toString()
+                  .slice(2, 3) === '0') {
+                  dispatch(dataEmpty())
+                } else {
+                  // console.log('result[0] : ' + web3.toHex(result[0]))
+
+                  let i = 0
+                  var payload
+                  // console.error(web3HexToInt(web3.toHex(result[0])))
+
+                  for(let years of result) {
+                    // var yy = web3HexToInt(web3.toHex(years))
+
+                    // web3 offers a 8 bit return hexadecimal number. It's not needed since
+                    // solidity is returning me bytes4, so 3 bit of hexa data.
+                    // I just need to slice it down to the first 3 digits and everything is ok!
+                    // YOU HAVE TO CHECK THE LENGTH OF THE RETURNING BYTES AND MODIFY THE SLICE ACCORDINGLY
+
+                    var yy = parseInt(years.slice(2, -5), 16)
+
+                    if(i === 0) { // first element of array
+                      payload = [{ year: yy + '-' + (yy + 1) }]
+                      i++
+                    } else
+                      payload = [...payload,
+                        { year: yy + "-" + (yy + 1) }
+                      ]
+                  }
+                  //sorting results fom most recent one
+                  payload.sort((a, b) => parseInt((b.year), 10) - parseInt((a.year), 10))
+                  return doAwesomeStuff(dispatch, payload) //Repeating because of the asyncronous promises of the functions
+                }
+              })
+              .catch(function (result) {
+                // If error, go to signup page.
+                console.error('Error while reading infos: ' + result)
+                console.error('Wallet ' + coinbase + ' does not have an account!')
+                dispatch(eraseAdminReducerInfo())
+                dispatch(eraseIpfsReducerInfo())
+                return browserHistory.push('/profile')
+              })
+          })
+      })
+    }
+  } else {
+    console.error('Web3 is not initialized.');
   }
 }

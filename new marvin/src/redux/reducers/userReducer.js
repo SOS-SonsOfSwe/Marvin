@@ -6,7 +6,8 @@ const initialState = {
   isAdmin: null,
   isUni: null,
   isProf: null,
-  isStudent: null
+  isStudent: null,
+  metamask: null
 }
 
 const userReducer = (state = initialState, action) => {
@@ -55,8 +56,16 @@ const userReducer = (state = initialState, action) => {
         isAdmin: null,
         isUni: null,
         isProf: null,
-        isStudent: null
+        isStudent: null,
+        metamask: null
       })
+    }
+  case userCostants.TRYING_METAMASK:
+    {
+      return {
+        ...state,
+        metamask: true
+      }
     }
   }
 }

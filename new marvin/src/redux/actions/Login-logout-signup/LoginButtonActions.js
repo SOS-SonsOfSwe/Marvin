@@ -13,6 +13,12 @@ import {
 
 const contract = require('truffle-contract')
 
+// function metamaskIsActive() {
+//   return {
+//     type: userCostants.TRYING_METAMASK
+//   }
+// }
+
 function userLoggingIn() {
   return {
     type: userCostants.USER_LOGGING_IN
@@ -38,9 +44,42 @@ function doAwesomeStuff(dispatch, payload) {
   return browserHistory.push('/profile') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
+// export function loginUser() {
+//   var web3 = store.getState()
+//     .web3.web3Instance
+//   web3.eth.getAccounts(function (err, accounts) {
+//     browserHistory.push('/')
+//     store.dispatch(metamaskIsActive())
+//     if(err !== null) {
+//       browserHistory.push('/')
+//       store.dispatch(metamaskIsActive())
+//       console.log("An error occurred: " + err)
+//     } else if(accounts.length === 0) {
+
+//       browserHistory.push('/')
+//       store.dispatch(metamaskIsActive())
+//       alert("Log in from Metamask before!")
+//     } else {
+
+//       console.log("user is logged in to Metamask")
+
+//       browserHistory.push('/')
+//       store.dispatch(metamaskIsActive())
+//       actualLogin(web3)
+//     }
+//   })
+// }
+
 export function loginUser() {
-  let web3 = store.getState()
+  var web3 = store.getState()
     .web3.web3Instance
+  // web3.eth.getAccounts(function (err, accounts) {
+  //     if(err !== null) console.log("An error occurred: " + err)
+  //     else if(accounts.length === 0) {
+  //       alert("Log in from Metamask before!")
+  //       return browserHistory.push('/')
+  //     } else {
+  //       console.log("user is logged in to Metamask")
 
   var payload = {
     name: '',
@@ -121,3 +160,5 @@ export function loginUser() {
     console.error('Web3 is not initialized.');
   }
 }
+// })
+// }

@@ -6,10 +6,10 @@ export function readingData() {
   }
 }
 
-export function dataRead(payload) {
+export function dataRead(load) {
   return {
     type: adminCostants.FETCH_DATA_SUCCESS,
-    payload: payload
+    payload: load
   }
 }
 
@@ -17,6 +17,13 @@ export function errorReadingData() {
   console.log('reducer: adding data failed')
   return {
     type: adminCostants.FETCH_DATA_ERROR
+  }
+}
+
+export function dataEmpty() {
+  console.log("Blockchain vuota, e' ora di riempirla!")
+  return {
+    type: adminCostants.FETCH_DATA_EMPTY
   }
 }
 
