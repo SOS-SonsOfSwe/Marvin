@@ -1,9 +1,7 @@
 import AdminContract from '../../../../build/contracts/Admin'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
-
 import ipfsPromise from '../../../../api/utils/ipfsPromise'
-
 import {
   addingData,
   errorAddingData,
@@ -64,7 +62,7 @@ export default function addNewDegreeCourse(degreeCourse, year) {
                 adminIstance = instance
                 // dispatching action for make the reducer know we are making the transaction
                 dispatch(addingData())
-
+                year = year.slice(0, 4)
                 adminIstance.addNewDegree(degreeCourse, year, hash, { from: coinbase })
                   .then(result => {
                     // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito

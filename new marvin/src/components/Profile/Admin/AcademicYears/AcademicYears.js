@@ -23,6 +23,9 @@ const Row = ({ year }) => (
 
 class AcademicYears extends React.Component {
     componentDidMount() {
+        // so we do not re load the page if the user is just surfing our app.
+        // null is the value of the initial state and it is different from false.
+        // if (this.props.somethingChanged === true || this.props.somethingChanged === null)
         this.props.readAcademicData()
     }
 
@@ -35,6 +38,7 @@ class AcademicYears extends React.Component {
             <div>
                 {load}
                 {empty}
+                {/* executing this field only if the loading is false. Pay attention to the exact value: avoid doing "something !== false", instead use "something===true" as "null" is a third value */}
                 {this.props.loading === false &&
                     <main className='container'>
                         <div className="pure-u-1-1">
@@ -56,7 +60,7 @@ class AcademicYears extends React.Component {
                                     <tbody>
                                         {/* {console.log('this.props.data.load: ' + this.props.data)} */}
                                         {/* {console.log('component: AcademicYear. Data: this.props.data: ' + JSON.stringify(this.props.data))} */}
-                                        {this.props.data.load.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                        {this.props.academicYears.map((rowData, index) => <Row key={index} {...rowData} />)}
                                     </tbody>
                                 </table>
                             }

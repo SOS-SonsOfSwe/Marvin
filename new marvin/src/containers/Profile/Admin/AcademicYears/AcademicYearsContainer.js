@@ -13,12 +13,19 @@ import { readAcademicYearsFromDatabase } from '../../../../redux/actions/Admin/r
 // this map is useful to create a parameter (academicYearsData) and to make it subscribe
 // the store (=state) at the reducer selected (admin) with the data that are inside (data).
 // it will be used in the component we previously imported.
+// As the reader can see we are taking parameters from the exact place in which they are, so
+// SO:
+// state: store state
+// admin: first reducer
+// academicYears: second reducer
+// payload: the data inside the reducer
 const mapStateToProps = (state, ownProps) => {
   return {
-    data: state.admin.data,
-    loading: state.admin.loading,
-    success: state.admin.success,
-    empty: state.admin.empty
+    academicYears: state.admin.academicYears.payload,
+    loading: state.admin.academicYears.loading,
+    success: state.admin.academicYears.success,
+    empty: state.admin.academicYears.empty,
+    somethingChanged: state.admin.academicYears.somethingChanged
   }
 }
 

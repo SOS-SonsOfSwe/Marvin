@@ -6,9 +6,9 @@ import { readDidacticActivitiesFromDatabase } from '../../../../redux/actions/Ad
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    data: state.admin.data,
-    loading: state.admin.loading,
-    success: state.admin.success
+    data: state.admin.didacticActivities.payload,
+    loading: state.admin.didacticActivities.loading,
+    success: state.admin.didacticActivities.success
 
   }
 }

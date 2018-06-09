@@ -1,29 +1,33 @@
 import { adminCostants, ipfsCostants } from '../../reducers/costants'
 
-export function readingData() {
+export function readingData(req) {
   return {
-    type: adminCostants.FETCHING_DATA
+    type: adminCostants.FETCHING_DATA,
+    request: req
   }
 }
 
-export function dataRead(load) {
+export function dataRead(load, req) {
   return {
     type: adminCostants.FETCH_DATA_SUCCESS,
-    payload: load
+    payload: load,
+    request: req
   }
 }
 
-export function errorReadingData() {
+export function errorReadingData(req) {
   console.log('reducer: adding data failed')
   return {
-    type: adminCostants.FETCH_DATA_ERROR
+    type: adminCostants.FETCH_DATA_ERROR,
+    request: req
   }
 }
 
-export function dataEmpty() {
+export function dataEmpty(req) {
   console.log("Blockchain vuota, e' ora di riempirla!")
   return {
-    type: adminCostants.FETCH_DATA_EMPTY
+    type: adminCostants.FETCH_DATA_EMPTY,
+    request: req
   }
 }
 
@@ -50,18 +54,5 @@ export function ipfsNetworkError() {
   console.log('reducer: probably an infura problem')
   return {
     type: ipfsCostants.IPFS_NOT_RESPONDING
-  }
-}
-
-export function eraseAdminReducerInfo() {
-  console.log('Sembra essere andato tutto male, eh?')
-  return {
-    type: adminCostants.ERASE_ADMIN_REDUCER
-  }
-}
-
-export function eraseIpfsReducerInfo() {
-  return {
-    type: ipfsCostants.ERASE_IPFS_REDUCER
   }
 }

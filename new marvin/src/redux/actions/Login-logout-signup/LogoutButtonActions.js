@@ -1,5 +1,5 @@
 import { browserHistory } from 'react-router'
-import { ERASE_ADMIN_REDUCER } from '../../reducers/costants/adminCostants'
+// import { ERASE_ADMIN_REDUCER } from '../../reducers/costants/adminCostants'
 export const USER_LOGGED_OUT = 'USER_LOGGED_OUT'
 
 function userLoggedOut(user) {
@@ -9,18 +9,18 @@ function userLoggedOut(user) {
   }
 }
 
-function eraseData() {
-  return {
-    type: ERASE_ADMIN_REDUCER
-  }
-}
+// function eraseData() {
+//   return {
+//     type: ERASE_ADMIN_REDUCER
+//   }
+// }
 
 export function logoutUser() {
   return function (dispatch) {
     // Logout user.
 
     dispatch(userLoggedOut())
-    dispatch(eraseData())
+    // dispatch(eraseData())
     // Redirect home.
     return browserHistory.push('/')
   }

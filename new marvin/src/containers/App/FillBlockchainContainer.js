@@ -9,6 +9,13 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
   addAcademicYear: addNewAcademicYear
 }
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     readDidacticActivitiesData: (years, degreeC) => {
+//       dispatch(readDidacticActivitiesFromDatabase(years, degreeC))
+//     }
+//   }
+// }
 
 const FillBlockchainContainer = connect(
   mapStateToProps,

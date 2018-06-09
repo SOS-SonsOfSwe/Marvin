@@ -1,20 +1,21 @@
 import DegreeContract from '../../../../build/contracts/DegreeData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
-
+import { ACADEMIC_YEARS as req } from '../../reducers/costants/adminCostants'
 // import { web3HexToInt } from '../../../utils/validations'
 
+// those are standard dispatches. These are taking the "req" parameter which is responsible for addressing the right action to the right part of the reducer.
+// readingData is taking one parameter, req,
+// dataRead is taking two parameters, see the example below
+// dataEmpty is taking one parameter, req
 import {
   readingData,
-  // errorReadingData,
   dataRead,
   dataEmpty,
   // ipfsReadingData,
   // ipfsDataRead,
   // ipfsErrorReadingData,
   // ipfsNetworkError,
-  eraseAdminReducerInfo,
-  eraseIpfsReducerInfo
 } from '../StandardDispatches/readingData'
 
 // import ipfsPromise from '../../../../api/utils/ipfsPromise'
@@ -22,13 +23,14 @@ import {
 const contract = require('truffle-contract')
 
 function doAwesomeStuff(dispatch, load) {
-  dispatch(dataRead({ load }))
+  // dispatching the action and the load
+  dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
   if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
-  }
-  return browserHistory.push('/profile/academic-years') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
+  } // no need for redirect anymore
+  // return browserHistory.push('/profile/academic-years') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
 export function readAcademicYearsFromDatabase() {
@@ -47,8 +49,8 @@ export function readAcademicYearsFromDatabase() {
 
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
-
-        dispatch(readingData())
+        // here i'm starting to read
+        dispatch(readingData(req))
 
         // Log errors, if any.
         if(error) {
@@ -62,6 +64,7 @@ export function readAcademicYearsFromDatabase() {
             // Attempt to read degree courses per year
             degreeInstance.getAcademicYears({ from: coinbase })
               .then(result => {
+                // console.log(result)
                 // console.log('result[0] : ' + web3.toHex(result[0]))
 
                 // checking if the blockchain is empty for this kind of data.
@@ -72,7 +75,7 @@ export function readAcademicYearsFromDatabase() {
                 if(web3.toHex(result[0])
                   .toString()
                   .slice(2, 3) === '0') {
-                  dispatch(dataEmpty())
+                  dispatch(dataEmpty(req))
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))
 
@@ -84,7 +87,7 @@ export function readAcademicYearsFromDatabase() {
                     // var yy = web3HexToInt(web3.toHex(years))
 
                     // web3 offers a 8 bit return hexadecimal number. It's not needed since
-                    // solidity is returning me bytes4, so 3 bit of hexa data.
+                    // solidity is returning me bytes4, so 4 bytes of octa data => 3 hexa bit.
                     // I just need to slice it down to the first 3 digits and everything is ok!
                     // YOU HAVE TO CHECK THE LENGTH OF THE RETURNING BYTES AND MODIFY THE SLICE ACCORDINGLY
 
@@ -107,8 +110,8 @@ export function readAcademicYearsFromDatabase() {
                 // If error, go to signup page.
                 console.error('Error while reading infos: ' + result)
                 console.error('Wallet ' + coinbase + ' does not have an account!')
-                dispatch(eraseAdminReducerInfo())
-                dispatch(eraseIpfsReducerInfo())
+                // dispatch(eraseAdminReducerInfo())
+                // dispatch(eraseIpfsReducerInfo())
                 return browserHistory.push('/profile')
               })
           })

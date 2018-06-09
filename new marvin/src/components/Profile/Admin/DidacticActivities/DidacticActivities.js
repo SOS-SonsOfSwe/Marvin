@@ -63,13 +63,13 @@ class DidacticActivities extends React.Component {
 
 
     render() {
-        const load = this.props.loading !== false ? <LoadingData label='Loading...' /> : <div />;
-        const error = !this.props.success && this.props.loading === false ? <div>There was an error...</div> : <div />;
+        const load = this.props.loading === true ? <LoadingData label='Loading...' /> : <div />;
+        const error = this.props.success === false ? <div>There was an error...</div> : <div />;
 
         return (
             <div>
                 {load}
-                {!this.props.loading && this.props.success &&
+                {this.props.loading === false &&
                     <div>
                         <main className='container'>
                             <div className="pure-u-1-1">
@@ -102,7 +102,7 @@ class DidacticActivities extends React.Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {this.props.data.load.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                        {this.props.data.map((rowData, index) => <Row key={index} {...rowData} />)}
                                     </tbody>
                                 </table>
                             </div>

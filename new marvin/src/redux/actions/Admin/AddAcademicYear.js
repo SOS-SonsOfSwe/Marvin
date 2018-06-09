@@ -4,6 +4,7 @@ import {
 } from 'react-router'
 import store from '../../../store'
 
+// this are standard dispatches: feel free to use them. The meaning is obvious, those are not taking any parameter.
 import { addingData, errorAddingData, dataAdded } from '../StandardDispatches/addingData'
 
 const contract = require('truffle-contract')
@@ -47,7 +48,7 @@ export default function addNewAcademicYear(year) {
                 // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
                 // console.log(JSON.stringify(result))
                 dispatch(dataAdded())
-                alert('The new academic year has been added! Wait some seconds to make it write on blockchain.')
+                // alert('The new academic year has been added! Wait some seconds to make it write on blockchain.')
               })
               .catch(error => {
                 dispatch(errorAddingData())

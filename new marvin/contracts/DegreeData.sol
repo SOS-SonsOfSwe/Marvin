@@ -65,7 +65,7 @@ contract DegreeData {
 
     function getYearDegreesData(bytes4 _year) public view returns(bytes10[], bytes32[]) {
         bytes10[] memory degreesForYear = getYearDegrees(_year);
-        bytes32[] memory degreesHashCodes;
+        bytes32[] memory degreesHashCodes = new bytes32[](degreesForYear.length);
         for(uint i = 0; i < degreesForYear.length; ++i) {
             degreesHashCodes[i] = degrees[degreesForYear[i]].hashData;
         }
@@ -78,7 +78,7 @@ contract DegreeData {
 
     function getDegreeCoursesData(bytes10 _degreeUniCode) public view returns(bytes10[], bytes32[]) {
         bytes10[] memory coursesForDegree = getDegreeCourses(_degreeUniCode);
-        bytes32[] memory coursesHashCodes;
+        bytes32[] memory coursesHashCodes = new bytes32[](coursesForDegree.length);
         for(uint i = 0; i < coursesForDegree.length; ++i) {
             coursesHashCodes[i] = degrees[coursesForDegree[i]].hashData;
         }
