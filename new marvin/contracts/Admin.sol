@@ -37,8 +37,8 @@ contract Admin {
     }
 
     function addNewCourse(bytes10 _degreeuniCode, bytes10 _courseUniCode, bytes32 _courseHashData) public {
-        require(!degree.isDegreeCourse(_degreeuniCode, _courseUniCode));
-        degree.addDegreeCourse(_degreeuniCode, _courseUniCode);
+        require(!degree.isCourse(_degreeuniCode, _courseUniCode));
+        degree.addCourse(_degreeuniCode, _courseUniCode);
         course.addNewCourse(_courseUniCode);
         course.setUniCode(_courseUniCode);
         course.setHashData(_courseUniCode, _courseHashData);

@@ -72,7 +72,7 @@ export default function addNewDegreeCourse(degreeCourse, year) {
                     dispatch(errorAddingData())
                   })
                   .finally(def => {
-                    return browserHistory.push('/profile/degree-courses')
+                    return browserHistory.push('/profile')
                   })
               })
               .catch(err => {

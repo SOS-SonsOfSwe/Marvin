@@ -23,9 +23,10 @@ contract DegreeData {
     // unicodes of all degrees of all years
     bytes10[] uniCodes;
 
-    // registered years
+    // registered academic years
     bytes4[] academicYears;
 
+    // return true only if the year has already been registered
     function isYear(bytes4 _year) public view returns(bool) {
         for(uint i = 0; i < academicYears.length; ++i) {
             if(academicYears[i] == _year)
@@ -34,6 +35,7 @@ contract DegreeData {
         return false;
     }
 
+    // return true only if the degree has already been registered
     function isDegree(bytes10 _degreeUniCode) public view returns(bool) {
         // check if this uniCode is already assigned
         if(degrees[_degreeUniCode].uniCode == 0) 
@@ -41,7 +43,8 @@ contract DegreeData {
         return true;
     }
 
-    function isDegreeCourse(bytes10 _degreeUniCode, bytes10 _courseUniCode) public view returns(bool) {
+    // return true only if the course associated to the degree has already been registered
+    function isCourse(bytes10 _degreeUniCode, bytes10 _courseUniCode) public view returns(bool) {
         bytes10[] memory degreeCourses = degrees[_degreeUniCode].courses;
         for(uint i = 0; i < degreeCourses.length; ++i) {
             if(degreeCourses[i] == _courseUniCode)
@@ -50,19 +53,22 @@ contract DegreeData {
         return false;
     }
 
+    // return all the academic years
     function getAcademicYears() public view returns(bytes4[]) {
         return(academicYears);
     }
 
-    // this function should be accessible only by university or admins
+    // return all the degrees unicodes
     function getAllIdentifiers() public view returns(bytes10[]) {
         return uniCodes;
     }
 
+    // return all the degrees unicodes relating to _year
     function getYearDegrees(bytes4 _year) public view returns(bytes10[]) {
         return(yearDegrees[_year]);
     }
 
+    // return all the degrees unicodes and their IPFS hash relating to _year
     function getYearDegreesData(bytes4 _year) public view returns(bytes10[], bytes32[]) {
         bytes10[] memory degreesForYear = getYearDegrees(_year);
         bytes32[] memory degreesHashCodes = new bytes32[](degreesForYear.length);
@@ -72,34 +78,40 @@ contract DegreeData {
         return(degreesForYear, degreesHashCodes);
     }
 
-    function getDegreeCourses(bytes10 _degreeUniCode) public view returns(bytes10[]) {
+    // return all the courses unicodes relating to _degreeUniCode
+    function getCourses(bytes10 _degreeUniCode) public view returns(bytes10[]) {
         return(degrees[_degreeUniCode].courses);
     }
 
-    function getDegreeCoursesData(bytes10 _degreeUniCode) public view returns(bytes10[], bytes32[]) {
-        bytes10[] memory coursesForDegree = getDegreeCourses(_degreeUniCode);
+    // return all the courses unicodes and their IPFS hash relating to _degreeUniCode
+    function getCoursesData(bytes10 _degreeUniCode) public view returns(bytes10[], bytes32[]) {
+        bytes10[] memory coursesForDegree = getCourses(_degreeUniCode);
         bytes32[] memory coursesHashCodes = new bytes32[](coursesForDegree.length);
         for(uint i = 0; i < coursesForDegree.length; ++i) {
-            coursesHashCodes[i] = degrees[coursesForDegree[i]].hashData;
+            coursesHashCodes[i] = course.getHashData(coursesForDegree[i]);
         }
         return(coursesForDegree, coursesHashCodes);
     }
 
+    // set the IPFS hash of the degree
     function setHashData(bytes10 _degreeUniCode, bytes32 _degreeHashData) public {
         degrees[_degreeUniCode].hashData = _degreeHashData;
     }
 
+    // add a new academic year
     function addYear(bytes4 _year) public {
         academicYears.push(_year);
     }
 
+    // add a new degree in the academic year
     function addYearDegree(bytes10 _degreeUniCode, bytes4 _year) public {
         yearDegrees[_year].push(_degreeUniCode);
         uniCodes.push(_degreeUniCode);
         degrees[_degreeUniCode].uniCode = _degreeUniCode;
     }
 
-    function addDegreeCourse(bytes10 _degreeUniCode, bytes10 _courseUniCode) public {
+    // add a new course into degree
+    function addCourse(bytes10 _degreeUniCode, bytes10 _courseUniCode) public {
         degrees[_degreeUniCode].courses.push(_courseUniCode);
     }
 }
