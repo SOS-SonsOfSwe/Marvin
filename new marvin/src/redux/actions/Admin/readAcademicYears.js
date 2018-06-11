@@ -72,9 +72,7 @@ export function readAcademicYearsFromDatabase() {
                 // 0x00000. When it's full it's 0xsomething. So we check the first number
                 // after "x" to be not equal to zero.
 
-                if(web3.toHex(result[0])
-                  .toString()
-                  .slice(2, 3) === '0') {
+                if(result.length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))

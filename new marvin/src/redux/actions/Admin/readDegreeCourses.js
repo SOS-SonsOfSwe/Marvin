@@ -102,10 +102,11 @@ export function readDegreeCoursesFromDatabase(year) {
                 // console.log(web3.toUtf8(result[0]))
                 // for degreeCourse result[0] is the actual array of unicodes of the degreeCourse
                 // result[1] is the list of its respectively IPFS hash
-                console.log('web3ToHex: ' + web3.toHex(result[1][1]))
-                if(web3.toHex(result[0][0])
-                  .toString()
-                  .slice(2, 3) === '0') {
+                // console.log('web3ToHex: ' + web3.toHex(result[0][0]))
+
+                // console.log(result[0].length === 0)
+
+                if(result[0].length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))
