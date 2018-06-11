@@ -14,11 +14,11 @@ import LoadingData from '../../../Loading/LoadingData'
 //     { year: "2016-2017", degreeCourse: "Psicologia", didacticActivity: "Comportamento" },
 // ]
 
-const Row = ({ year, degreeCourse, didacticActivity }) => (
+const Row = ({ year, degreeCourse, courseDescription }) => (
     <tr className="clickable-row">
         <td>Academic year {year}</td>
         <td>{degreeCourse}</td>
-        <td>{didacticActivity}</td>
+        <td>{courseDescription}</td>
         <td>
             <Link to="/profile/didactic-activities/insert-exam">Insert an exam</Link>
         </td>

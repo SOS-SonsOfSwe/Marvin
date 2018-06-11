@@ -1,9 +1,9 @@
 import React from 'react';
 import chai from 'chai';
 import sinon from 'sinon';
-import LoginButton from '../Buttons/LoginButton';
+import LoginButton from '../App/LoginButton';
 // import {mount} from 'jsdom'
-import {mount} from 'enzyme'
+import { mount } from 'enzyme'
 // console.log('LoginButton.test.js')
 
 describe('<LoginButton/>', () => {

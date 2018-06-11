@@ -14,7 +14,7 @@ import {
 
 const contract = require('truffle-contract')
 
-export default function addNewDegreeCourse(degreeUnicode, year, description) {
+export default function addNewDegreeCourse(degreeUnicode, year, degreeDescription) {
   // thinking as year = 2014-2015 we want to take only the first two int so we can send 
   // them to the solidity contract and risparmiare
   var ipfs = new ipfsPromise()
@@ -22,7 +22,7 @@ export default function addNewDegreeCourse(degreeUnicode, year, description) {
   var userData = {
     'degreeUnicode': degreeUnicode,
     'year': year,
-    'description': description
+    'degreeDescription': degreeDescription
   }
 
   let web3 = store.getState()

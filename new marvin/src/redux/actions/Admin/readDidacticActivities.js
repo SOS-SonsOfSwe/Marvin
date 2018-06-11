@@ -1,7 +1,7 @@
 import DegreeContract from '../../../../build/contracts/DegreeData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
-import { DEGREE_COURSES as req } from "../../reducers/costants/adminCostants";
+import { DIDACTIC_ACTIVITIES as req } from "../../reducers/costants/adminCostants";
 
 // import { web3HexToInt } from '../../../utils/validations'
 
@@ -36,7 +36,7 @@ function doAwesomeStuff(dispatch, load) {
   // return browserHistory.push('/profile/degree-courses') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
-export function readDegreeCoursesFromDatabase(year) {
+export function readDidacticActivitiesFromDatabase(year, degreeUnicode) {
   let web3 = store.getState()
     .web3.web3Instance
 
@@ -66,10 +66,10 @@ export function readDegreeCoursesFromDatabase(year) {
 
             // Attempt to read degree courses per year
             year = year.slice(0, 4)
-            degreeInstance.getYearDegreesData(year, { from: coinbase })
+            degreeInstance.getCoursesData(degreeUnicode, { from: coinbase })
               // .then(console.log)
               .then(result => {
-                console.log('DEGREE DATA READ RESULT: ')
+                console.log('DIDACTIC ACTIVITIES READ RESULT: ')
                 console.log(result)
 
                 // checking if the blockchain is empty for this kind of data.

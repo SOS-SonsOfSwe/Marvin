@@ -48,13 +48,13 @@ function doAwesomeStuff(dispatch, load) {
 // }
 
 async function processIPFSResultParallel(ipfs, payload) {
-  const promises = payload.map(item => ipfs.getJSON(item.description)
+  const promises = payload.map(item => ipfs.getJSON(item.degreeDescription)
     .then(result => {
       // here I overwrite the description information with the description of the result.
       // THIS IS NOT A BEST PRACTICE, as I am overwriting some important informations.
       // result is giving the JSON file retrieved from the IPFS, so there would be much more informations
       // than a simple string.
-      item.description = result.description
+      item.degreeDescription = result.degreeDescription
     }))
   await Promise.all(promises)
 }
@@ -126,10 +126,10 @@ export function readDegreeCoursesFromDatabase(year) {
                     var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
                     // i'm storing the informations inside the description. We will retrieve them later.
                     if(i === 0) { // first element of array
-                      payload = [{ year: year, degreeUnicode: dgr, description: hashIPFS }, ]
+                      payload = [{ year: year, degreeUnicode: dgr, degreeDescription: hashIPFS }, ]
                     } else
                       payload = [...payload,
-                        { year: year, degreeUnicode: dgr, description: hashIPFS }
+                        { year: year, degreeUnicode: dgr, degreeDescription: hashIPFS }
                       ]
                   }
                   // this function provides a parallel loading of all the informations from ipfs. 

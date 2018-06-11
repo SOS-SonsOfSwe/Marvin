@@ -14,11 +14,11 @@ import EmptyData from '../../../Loading/EmptyData'
 //     { year: "2016-2017", degreeCourse: "Psicologia" },
 // ]
 
-const Row = ({ year, degreeUnicode, description }) => (
+const Row = ({ year, degreeUnicode, degreeDescription }) => (
     <tr className="clickable-row">
         <td>Academic year {year + "-" + (parseInt(year, 10) + 1).toString()} </td>
         <td>{degreeUnicode}</td>
-        <td>{description}</td>
+        <td>{degreeDescription}</td>
         <td>
             <Link to="/profile/degree-courses/insert-didactic-activity">Insert didactic activity</Link>
         </td>

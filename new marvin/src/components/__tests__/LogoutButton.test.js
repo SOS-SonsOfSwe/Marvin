@@ -1,8 +1,8 @@
 import React from 'react';
 import chai from 'chai';
 import sinon from 'sinon';
-import LogoutButton from '../Buttons/LogoutButton';
-import {mount} from 'enzyme'
+import LogoutButton from '../App/LogoutButton';
+import { mount } from 'enzyme'
 // console.log('LogoutButton.test.js')
 
 describe('<LogoutButton/>', () => {

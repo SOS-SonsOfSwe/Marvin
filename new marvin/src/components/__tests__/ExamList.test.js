@@ -1,8 +1,8 @@
 import React from 'react';
-import {mount} from 'enzyme'
+import { mount } from 'enzyme'
 import chai from 'chai'
-import sinon from 'sinon';
-import ExamList from '../ExamList/ExamList';
+// import sinon from 'sinon';
+import ExamList from '../Profile/Commons/ExamList';
 
 
 describe('<ExamList/>', () => {
@@ -10,4 +10,4 @@ describe('<ExamList/>', () => {
         const wrapper = mount(<ExamList />);
         chai.expect(wrapper.find(ExamList).length).to.equal(1);
     });
- });
+});

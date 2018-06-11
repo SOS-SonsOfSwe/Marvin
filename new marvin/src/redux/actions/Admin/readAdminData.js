@@ -74,7 +74,7 @@ export function readDidacticActivitiesFromDatabase(years, degreeC) {
   return function (dispatch) {
     dispatch(readingData(DIDACTIC_ACTIVITIES))
     setTimeout(() => dispatch(dataRead({
-      'load': adminData.didacticActivities.filter((obj) => obj.year === years && obj.course === degreeC)
+      'load': adminData.didacticActivities.filter((obj) => obj.year === years && obj.degreeDescription === degreeC)
     }, DIDACTIC_ACTIVITIES)), 2000)
   }
 }
