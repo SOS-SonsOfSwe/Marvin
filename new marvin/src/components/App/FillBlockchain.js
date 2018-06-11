@@ -21,8 +21,8 @@ export default class FillBlockchain extends React.Component {
             // this.props.addAcademicYear(i.year)
             store.dispatch(addNewAcademicYear(i.year))
         }
-        for(let i of data.degreeCourses) {
-            store.dispatch(AddDegreeCourse(i.name, i.year))
+        for (let i of data.degreeCourses) {
+            store.dispatch(AddDegreeCourse(i.degreeUnicode, i.year, i.description))
         }
         browserHistory.push('/profile')
     }

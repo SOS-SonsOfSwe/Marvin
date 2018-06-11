@@ -1,3 +1,4 @@
+import "regenerator-runtime/runtime"; // needed for async calls
 import DegreeContract from '../../../../build/contracts/DegreeData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
@@ -16,7 +17,7 @@ import ipfsPromise from '../../../../api/utils/ipfsPromise'
 const contract = require('truffle-contract')
 
 // export var degreeCourses = [
-//   { year: "2017-2018", name: "Informatica" },
+//   { year: "2017-2018", degreeUnicode: "DEG0000001", description: "Informatica" },
 //   { year: "2017-2018", name: "Matematica" },
 //   { year: "2017-2018", name: "Psicologia" },
 //   { year: "2017-2018", name: "Ingegneria dell'energia" },
@@ -34,6 +35,28 @@ function doAwesomeStuff(dispatch, load) {
     return browserHistory.replace('/profile')
   }
   // return browserHistory.push('/profile/degree-courses') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
+}
+
+// async function processIPFSResult(ipfs, payload) {
+//   for(const item of payload) {
+//     await ipfs.getJSON(item.description)
+//       .then(result => {
+//         console.log(JSON.stringify(result))
+//         item.description = result.description
+//       })
+//   }
+// }
+
+async function processIPFSResultParallel(ipfs, payload) {
+  const promises = payload.map(item => ipfs.getJSON(item.description)
+    .then(result => {
+      // here I overwrite the description information with the description of the result.
+      // THIS IS NOT A BEST PRACTICE, as I am overwriting some important informations.
+      // result is giving the JSON file retrieved from the IPFS, so there would be much more informations
+      // than a simple string.
+      item.description = result.description
+    }))
+  await Promise.all(promises)
 }
 
 export function readDegreeCoursesFromDatabase(year) {
@@ -79,7 +102,7 @@ export function readDegreeCoursesFromDatabase(year) {
                 // console.log(web3.toUtf8(result[0]))
                 // for degreeCourse result[0] is the actual array of unicodes of the degreeCourse
                 // result[1] is the list of its respectively IPFS hash
-                // console.log(web3.toHex(result[0][0]))
+                console.log('web3ToHex: ' + web3.toHex(result[1][1]))
                 if(web3.toHex(result[0][0])
                   .toString()
                   .slice(2, 3) === '0') {
@@ -87,41 +110,44 @@ export function readDegreeCoursesFromDatabase(year) {
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))
 
-                  let i = 0
                   var payload
-                  // console.error(web3HexToInt(web3.toHex(result[0])))
-                  for(let hash of result[1]) {
-                    console.log('ipfsPromise: ' + ipfsPromise.getIpfsHashFromBytes32(hash))
-                  }
+                  let i = 0;
 
-                  for(let degree of result[0]) {
-                    // var yy = web3HexToInt(web3.toHex(years))
-
-                    // web3 offers a 8 bit return hexadecimal number. It's not needed since
-                    // solidity is returning me bytes4, so 4 bytes of octa data => 3 hexa bit.
-                    // I just need to slice it down to the first 3 digits and everything is ok!
-                    // YOU HAVE TO CHECK THE LENGTH OF THE RETURNING BYTES AND MODIFY THE SLICE ACCORDINGLY
-                    // console.log(web3.toUtf8(degree))
+                  // Just read all the information inside the blockchain.
+                  // It is better to read all the infos together without doing
+                  // much conversions because we can close the communication
+                  // with the blockchain faster
+                  for(i; i < result[0].length; i++) {
+                    var degree = result[1][i]
+                    var hash = result[0][i]
+                    // console.log("degree: " + degree)
                     var dgr = web3.toUtf8(degree)
-
+                    // console.log('dgr: ' + dgr)
+                    var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
+                    // i'm storing the informations inside the description. We will retrieve them later.
                     if(i === 0) { // first element of array
-                      //   { year: "2017-2018", name: "Informatica" },
-                      payload = [{ year: year, name: dgr }, ]
-                      i++
+                      payload = [{ year: year, degreeUnicode: dgr, description: hashIPFS }, ]
                     } else
                       payload = [...payload,
-                        { year: year, name: dgr }
+                        { year: year, degreeUnicode: dgr, description: hashIPFS }
                       ]
                   }
-                  //sorting results fom most recent one
-                  payload.sort((a, b) => b.name - a.name)
-                  return doAwesomeStuff(dispatch, payload) //Repeating because of the asyncronous promises of the functions
+                  // this function provides a parallel loading of all the informations from ipfs. 
+                  // It renders the data all together: an interesting improvement will be to load the data
+                  // per parts so in case of some ipfs file failure the app is still working
+                  var ipfs = new ipfsPromise()
+                  processIPFSResultParallel(ipfs, payload)
+                    .then(result => {
+                      payload.sort((a, b) => b.degreeUnicode - a.degreeUnicode)
+                      return doAwesomeStuff(dispatch, payload)
+                    })
+
                 }
               })
               .catch(function (result) {
                 // If error, go to signup page.
                 console.error('Error while reading infos: ' + result)
-                console.error('Wallet ' + coinbase + ' does not have an account!')
+                console.error('Wallet ' + coinbase + 'encountered an error!')
                 // dispatch(eraseAdminReducerInfo())
                 // dispatch(eraseIpfsReducerInfo())
                 return browserHistory.push('/profile')

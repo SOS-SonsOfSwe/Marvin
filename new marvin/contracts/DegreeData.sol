@@ -69,13 +69,13 @@ contract DegreeData {
     }
 
     // return all the degrees unicodes and their IPFS hash relating to _year
-    function getYearDegreesData(bytes4 _year) public view returns(bytes10[], bytes32[]) {
+    function getYearDegreesData(bytes4 _year) public view returns(bytes32[], bytes10[]) {
         bytes10[] memory degreesForYear = getYearDegrees(_year);
         bytes32[] memory degreesHashCodes = new bytes32[](degreesForYear.length);
         for(uint i = 0; i < degreesForYear.length; ++i) {
             degreesHashCodes[i] = degrees[degreesForYear[i]].hashData;
         }
-        return(degreesForYear, degreesHashCodes);
+        return(degreesHashCodes, degreesForYear);
     }
 
     // return all the courses unicodes relating to _degreeUniCode

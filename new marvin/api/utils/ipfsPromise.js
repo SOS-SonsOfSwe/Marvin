@@ -40,6 +40,9 @@ export default class ipfsPromise {
     var ipfs = this.callback
     return new Promise(function (resolve, reject) {
       ipfs.addJSON(jsonPARAM, function (err, data) {
+        // setTimeout(() => {
+        //   return reject("no ipfs network allowed")
+        // }, 5)
         if(err !== null) return reject(err);
         resolve(data);
       })

@@ -14,10 +14,11 @@ import EmptyData from '../../../Loading/EmptyData'
 //     { year: "2016-2017", degreeCourse: "Psicologia" },
 // ]
 
-const Row = ({ year, name }) => (
+const Row = ({ year, degreeUnicode, description }) => (
     <tr className="clickable-row">
         <td>Academic year {year + "-" + (parseInt(year, 10) + 1).toString()} </td>
-        <td>{name}</td>
+        <td>{degreeUnicode}</td>
+        <td>{description}</td>
         <td>
             <Link to="/profile/degree-courses/insert-didactic-activity">Insert didactic activity</Link>
         </td>
@@ -93,7 +94,8 @@ class DegreeCourses extends React.Component {
                                         <thead>
                                             <tr>
                                                 <th className="title-column">Year</th>
-                                                <th className="title-column">Degree course</th>
+                                                <th className="title-column">Degree unicode</th>
+                                                <th className="title-column">Degree description</th>
                                                 <th className="title-column">Didactic activity</th>
                                             </tr>
                                         </thead>

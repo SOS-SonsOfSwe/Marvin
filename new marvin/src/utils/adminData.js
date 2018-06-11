@@ -7,22 +7,22 @@ export var academicYears = [
 ]
 
 export var degreeCourses = [
-  { year: "2017-2018", name: "Informatica" },
-  { year: "2017-2018", name: "Matematica" },
-  { year: "2017-2018", name: "Psicologia" },
-  { year: "2017-2018", name: "Ingegneria dell'energia" },
-  { year: "2017-2018", name: "Giurisprudenza" },
-  { year: "2016-2017", name: "Informatica" },
-  { year: "2016-2017", name: "Matematica" },
-  { year: "2016-2017", name: "Psicologia" }
+  { year: "2017-2018", description: "Informatica", degreeUnicode: 'MAT/INF17' },
+  { year: "2017-2018", description: "Matematica", degreeUnicode: 'MAT17' },
+  { year: "2017-2018", description: "Psicologia", degreeUnicode: 'PSI17' },
+  { year: "2017-2018", description: "Ingegneria dell'energia", degreeUnicode: 'ING/ENE17' },
+  { year: "2017-2018", description: "Giurisprudenza", degreeUnicode: 'GIUR17' },
+  { year: "2016-2017", description: "Informatica", degreeUnicode: 'MAT/INF16' },
+  { year: "2016-2017", description: "Matematica", degreeUnicode: 'MAT16' },
+  { year: "2016-2017", description: "Psicologia", degreeUnicode: 'PSI16' }
 ]
 
 export var didacticActivities = [
-  { year: "2017-2018", course: "Informatica", name: "Reti e sicurezza" },
-  { year: "2017-2018", course: "Informatica", name: "Calcolo numerico" },
-  { year: "2017-2018", course: "Informatica", name: "ingegneria del software" },
-  { year: "2017-2018", course: "Informatica", name: "Reti e sicurezza" },
-  { year: "2017-2018", course: "Fisica", name: "Analisi matematica 1" },
-  { year: "2016-2017", course: "Fisica", name: "Metodi matematici" },
-  { year: "2016-2017", course: "Fisica", name: "Fisica moderna" }
+  { year: "2017-2018", course: "Informatica", description: "Reti e sicurezza" },
+  { year: "2017-2018", course: "Informatica", description: "Calcolo numerico" },
+  { year: "2017-2018", course: "Informatica", description: "ingegneria del software" },
+  { year: "2017-2018", course: "Informatica", description: "Reti e sicurezza" },
+  { year: "2017-2018", course: "Fisica", description: "Analisi matematica 1" },
+  { year: "2016-2017", course: "Fisica", description: "Metodi matematici" },
+  { year: "2016-2017", course: "Fisica", description: "Fisica moderna" }
 ]

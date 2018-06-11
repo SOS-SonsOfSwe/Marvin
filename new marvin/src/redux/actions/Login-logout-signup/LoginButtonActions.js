@@ -103,7 +103,7 @@ function login(web3, dispatch) {
                 payload.tp = web3.toDecimal(result[1]);
                 payload.badgeNumber = web3.toDecimal(result[2]);
 
-                console.log("Address of the user:", ipfsPromise.getIpfsHashFromBytes32(result[3]))
+                console.log("IPFS of the user:", ipfsPromise.getIpfsHashFromBytes32(result[3]))
                 if(payload.tp !== 4) {
                   var ipfs = new ipfsPromise()
                   // console.log('Waiting for the data from IPFS...')
