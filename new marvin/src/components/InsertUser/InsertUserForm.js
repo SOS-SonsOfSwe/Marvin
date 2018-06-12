@@ -79,7 +79,7 @@ class InsertUserForm extends Component {
 
               <div className="radio">
                 <label>
-                  <input type="radio" value="1" checked={this.state.tpInserted === '1'} onChange={this.handleOptionChange} />
+                  <input disabled={this.props.isUni ? false : true} type="radio" value="1" checked={this.state.tpInserted === '1'} onChange={this.handleOptionChange} />
                   Administrator
                 </label>
               </div>

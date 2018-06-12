@@ -17,7 +17,6 @@ import LoadingData from '../../../Loading/LoadingData'
 const Row = ({ year, degreeCourse, courseDescription }) => (
     <tr className="clickable-row">
         <td>Academic year {year}</td>
-        <td>{degreeCourse}</td>
         <td>{courseDescription}</td>
         <td>
             <Link to="/profile/didactic-activities/insert-exam">Insert an exam</Link>
@@ -99,7 +98,6 @@ class DidacticActivities extends React.Component {
                                     <thead>
                                         <tr>
                                             <th className="title-column">Year</th>
-                                            <th className="title-column">Degree course</th>
                                             <th className="title-column">Didactic activity</th>
                                             <th className="title-column">Exam</th>
                                         </tr>
