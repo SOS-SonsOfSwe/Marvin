@@ -55,12 +55,7 @@ class DegreeCourses extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.state.selectedYears)
-        if (this.state.selectedYears !== '') {
-            this.props.readDegreeData(this.state.selectedYears);
-        }
         this.props.readAcademicData();
-
     }
 
     render() {
@@ -89,26 +84,30 @@ class DegreeCourses extends React.Component {
                                         </select>
                                     </fieldset>
                                 </form>
-                                <button className="insert-button pure-button pure-button-primary">
-                                    <Link to={{
-                                        pathname: "/profile/degree-courses/insert-degree-course",
-                                        state: { fromAcademic: false }
-                                    }} >Insert degree course</Link>
-                                </button>
-                                {this.props.emptyDegreeCourses === false && this.props.success === true &&
-                                    <table className="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th className="title-column">Year</th>
-                                                <th className="title-column">Degree unicode</th>
-                                                <th className="title-column">Degree description</th>
-                                                <th className="title-column">Didactic activity</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {this.props.degreeCourses.map((rowData, index) => <Row key={index} {...rowData} />)}
-                                        </tbody>
-                                    </table>
+                                {this.state.selectedYears !== "" &&
+                                    <div>
+                                        <button className="insert-button pure-button pure-button-primary">
+                                            <Link to={{
+                                                pathname: "/profile/degree-courses/insert-degree-course",
+                                                state: { fromAcademic: false }
+                                            }} >Insert degree course</Link>
+                                        </button>
+                                        {this.props.emptyDegreeCourses === false && this.props.success === true &&
+                                            <table className="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th className="title-column">Year</th>
+                                                        <th className="title-column">Degree unicode</th>
+                                                        <th className="title-column">Degree description</th>
+                                                        <th className="title-column">Didactic activity</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {this.props.degreeCourses.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                                </tbody>
+                                            </table>
+                                        }
+                                    </div>
                                 }
                             </div>
                         </main>
