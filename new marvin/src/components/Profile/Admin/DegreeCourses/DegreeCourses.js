@@ -55,8 +55,12 @@ class DegreeCourses extends React.Component {
     }
 
     componentDidMount() {
-        this.props.readDegreeData(this.state.selectedYears)
+        console.log(this.state.selectedYears)
+        if (this.state.selectedYears !== '') {
+            this.props.readDegreeData(this.state.selectedYears);
+        }
         this.props.readAcademicData();
+
     }
 
     render() {
@@ -69,7 +73,7 @@ class DegreeCourses extends React.Component {
                 {load}
                 {empty}
                 {/* {console.log('loadingAcademic: ' + this.props.loadingAcademic + '\nloadingDegree: ' + this.props.loadingDegree)} */}
-                {this.props.loadingAcademic === false && this.props.loadingDegree === false &&
+                {((this.props.loadingAcademic === false && this.props.loadingDegree === false) || this.state.selectedYears === "") &&
                     <div>
                         <main className='container'>
                             <div className="pure-u-1-1">
@@ -79,7 +83,7 @@ class DegreeCourses extends React.Component {
                                     <fieldset>
                                         <label htmlFor="years"> Select academic year </label>
                                         <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChange}>
-                                            {<option value="select year"> -- select an year -- </option>}
+                                            {<option value="select year" disabled={this.state.selectedYears === "" ? false : true}> -- select an year -- </option>}
                                             {this.props.emptyAcademicYears === false &&
                                                 this.props.academicYears.map((rowData, index) => <Options key={index} {...rowData} />)}
                                         </select>
