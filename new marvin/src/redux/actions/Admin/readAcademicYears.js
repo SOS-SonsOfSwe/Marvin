@@ -26,7 +26,7 @@ function doAwesomeStuff(dispatch, load) {
   // dispatching the action and the load
   dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
-  if('redirect' in currentLocation.query) {
+  if ('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   } // no need for redirect anymore
@@ -37,7 +37,7 @@ export function readAcademicYearsFromDatabase() {
   let web3 = store.getState()
     .web3.web3Instance
 
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -53,7 +53,7 @@ export function readAcademicYearsFromDatabase() {
         dispatch(readingData(req))
 
         // Log errors, if any.
-        if(error) {
+        if (error) {
           console.error(error);
         }
 
@@ -71,8 +71,7 @@ export function readAcademicYearsFromDatabase() {
                 // when the blockchain is empty the first numbers it retrieves are:
                 // 0x00000. When it's full it's 0xsomething. So we check the first number
                 // after "x" to be not equal to zero.
-
-                if(result.length === 0) {
+                if (result.length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))
@@ -81,7 +80,7 @@ export function readAcademicYearsFromDatabase() {
                   var payload
                   // console.error(web3HexToInt(web3.toHex(result[0])))
 
-                  for(let years of result) {
+                  for (let years of result) {
                     // var yy = web3HexToInt(web3.toHex(years))
 
                     // web3 offers a 8 bit return hexadecimal number. It's not needed since
@@ -91,12 +90,12 @@ export function readAcademicYearsFromDatabase() {
 
                     var yy = parseInt(years.slice(2, -5), 16)
 
-                    if(i === 0) { // first element of array
+                    if (i === 0) { // first element of array
                       payload = [{ year: yy + '-' + (yy + 1) }]
                       i++
                     } else
                       payload = [...payload,
-                        { year: yy + "-" + (yy + 1) }
+                      { year: yy + "-" + (yy + 1) }
                       ]
                   }
                   //sorting results fom most recent one

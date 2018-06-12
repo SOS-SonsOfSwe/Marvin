@@ -45,7 +45,7 @@ class DegreeCourses extends React.Component {
         super(props)
         this.onSelectChange = this.onSelectChange.bind(this);
         this.state = {
-            selectedYears: '2017-2018'
+            selectedYears: ''
         }
     }
 
@@ -79,8 +79,7 @@ class DegreeCourses extends React.Component {
                                     <fieldset>
                                         <label htmlFor="years"> Select academic year </label>
                                         <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChange}>
-                                            {/* <option value="2017-2018"> 2017-2018 </option>
-                                            <option value="2016-2017"> 2016-2017 </option> */}
+                                            {<option value="select year"> -- select an year -- </option>}
                                             {this.props.emptyAcademicYears === false &&
                                                 this.props.academicYears.map((rowData, index) => <Options key={index} {...rowData} />)}
                                         </select>
