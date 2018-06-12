@@ -17,7 +17,7 @@ class InsertUser extends Component {
           <div className="pure-u-1-1">
             <h1>Insert user</h1>
             <p><strong>{this.props.authData.payload.FC}</strong>, now you can add a user.</p>
-            <InsertUserFormContainer />
+            <InsertUserFormContainer type={this.props.location.state.type} />
           </div>
         </div>
       </main>

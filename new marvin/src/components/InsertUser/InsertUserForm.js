@@ -12,13 +12,15 @@ class InsertUserForm extends Component {
     this.state = {
       FCInserted: '', //inserimento codice fiscale 
       UCInserted: '', //inserimento codice univoco 
-      tpInserted: '3' //inserting type 
+      tpInserted: JSON.stringify(this.props.typeChecked) //inserting type
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this)
     this.onInputFCChange = this.onInputFCChange.bind(this)
     this.onInputUCChange = this.onInputUCChange.bind(this)
+
+
   }
 
   onInputFCChange(event) {
@@ -79,7 +81,7 @@ class InsertUserForm extends Component {
 
               <div className="radio">
                 <label>
-                  <input disabled={this.props.isUni ? false : true} type="radio" value="1" checked={this.state.tpInserted === '1'} onChange={this.handleOptionChange} />
+                  <input disabled={this.props.isUni ? false : true} type="radio" value="1" checked={this.state.tpInserted === '1' ? true : false} onChange={this.handleOptionChange} />
                   Administrator
                 </label>
               </div>

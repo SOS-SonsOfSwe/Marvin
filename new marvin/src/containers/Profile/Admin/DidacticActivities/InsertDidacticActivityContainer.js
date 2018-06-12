@@ -7,8 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   if (ownProps.location.state.fromDegree === false) {
     return {
       adding: state.admin.adding,
-      success: state.admin.success,
-      fromDegree: false
+      success: state.admin.success
     }
   }
 
@@ -16,7 +15,6 @@ const mapStateToProps = (state, ownProps) => {
     return {
       adding: state.admin.adding,
       success: state.admin.success,
-      fromDegree: true,
       year: ownProps.location.state.year,
       degreeUnicode: ownProps.location.state.degreeUnicode
     }

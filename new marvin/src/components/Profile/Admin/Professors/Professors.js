@@ -34,7 +34,10 @@ class Professors extends React.Component {
                     <h1>Professors</h1>
                     <p className="text-center">Here there is the list of the professors.</p>
                     <button className="insert-button pure-button pure-button-primary">
-                        <Link to="/profile/professors/insert-user">Insert a professor</Link>
+                        <Link to={{
+                            pathname: '/insert-user',
+                            state: { type: 2 }
+                        }}>Insert a professor</Link>
                     </button>
                     <table className="table table-striped">
                         <thead>

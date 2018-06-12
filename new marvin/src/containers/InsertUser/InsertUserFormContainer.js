@@ -7,9 +7,9 @@ import {
 } from '../../redux/actions/Admin/InsertUserFormAction'
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state.user.isUni)
   return {
-    isUni: state.user.isUni
+    isUni: state.user.isUni,
+    typeChecked: (ownProps.type !== undefined) ? ownProps.type : 3
   }
 }
 
