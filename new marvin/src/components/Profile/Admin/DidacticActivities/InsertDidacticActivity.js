@@ -7,10 +7,11 @@ class InsertDidacticActivity extends React.Component {
         super(props);
 
         this.state = {
-            year: '',
-            degreeCourse: '',
+            year: this.props.year,
+            degreeCourse: this.props.degreeUnicode,
             didacticActivity: '',
         };
+
         this.handleChange = this.handleChange.bind(this);
         this.handleChange1 = this.handleChange1.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
@@ -33,6 +34,17 @@ class InsertDidacticActivity extends React.Component {
         event.preventDefault()
         this.props.addDidacticActivity(this.state.year, this.state.degreeCourse, this.state.didacticActivity)
     }
+
+    /*componentDidMount() {
+
+        if (this.props.fromDegree) {
+            this.state = {
+                year: this.props.year,
+                degreeCourse: this.props.degreeUnicode,
+                didacticActivity: '',
+            };
+        }
+    }*/
 
     render() {
         return (

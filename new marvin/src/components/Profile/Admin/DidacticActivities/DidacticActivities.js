@@ -90,7 +90,10 @@ class DidacticActivities extends React.Component {
                                     </fieldset>
                                 </form>
                                 <button className="insert-button pure-button pure-button-primary">
-                                    <Link to="/profile/didactic-activities/insert-didactic-activity"> Insert didactic activity </Link>
+                                    <Link to={{
+                                        pathname: "/profile/didactic-activities/insert-didactic-activity",
+                                        state: { fromDegree: false }
+                                    }}> Insert didactic activity </Link>
                                 </button>
                                 <table className="table table-striped">
                                     <thead>

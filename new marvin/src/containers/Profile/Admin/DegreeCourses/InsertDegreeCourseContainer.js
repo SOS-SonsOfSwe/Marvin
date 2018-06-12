@@ -3,9 +3,21 @@ import InsertDegreeCourse from '../../../../components/Profile/Admin/DegreeCours
 import addNewDegreeCourse from '../../../../redux/actions/Admin/AddDegreeCourse'
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    adding: state.admin.adding,
-    success: state.admin.success,
+  if (ownProps.location.state.fromAcademic === false) {
+    return {
+      adding: state.admin.adding,
+      success: state.admin.success,
+      fromAcademic: false
+    }
+  }
+
+  else {
+    return {
+      adding: state.admin.adding,
+      success: state.admin.success,
+      fromAcademic: true,
+      year: ownProps.location.state.year
+    }
   }
 }
 

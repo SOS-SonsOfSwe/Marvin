@@ -7,7 +7,10 @@ const Row = ({ year }) => (
     <tr className="clickable-row">
         <td>Academic year {year}</td>
         <td>
-            <Link to="/profile/academic-years/insert-degree-course">Insert degree course</Link>
+            <Link to={{
+                pathname: "/profile/degree-courses/insert-degree-course",
+                state: { fromAcademic: true, year: year }
+            }} > Insert degree course</Link>
         </td>
         <td>
             <button className="modify-link">

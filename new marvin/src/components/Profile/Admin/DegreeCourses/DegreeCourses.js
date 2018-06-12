@@ -20,7 +20,10 @@ const Row = ({ year, degreeUnicode, degreeDescription }) => (
         <td>{degreeUnicode}</td>
         <td>{degreeDescription}</td>
         <td>
-            <Link to="/profile/degree-courses/insert-didactic-activity">Insert didactic activity</Link>
+            <Link to={{
+                pathname: "/profile/didactic-activities/insert-didactic-activity",
+                state: { fromDegree: true, year: year, degreeUnicode: degreeUnicode }
+            }}> Insert didactic activity</Link>
         </td>
         <td>
             <button className="modify-link">
@@ -56,9 +59,6 @@ class DegreeCourses extends React.Component {
         this.props.readAcademicData();
     }
 
-
-
-
     render() {
         const load = this.props.loadingDegree || this.props.loadingAcademic ? <LoadingData label='Loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
@@ -87,7 +87,10 @@ class DegreeCourses extends React.Component {
                                     </fieldset>
                                 </form>
                                 <button className="insert-button pure-button pure-button-primary">
-                                    <Link to="/profile/degree-courses/insert-degree-course">Insert degree course</Link>
+                                    <Link to={{
+                                        pathname: "/profile/degree-courses/insert-degree-course",
+                                        state: { fromAcademic: false }
+                                    }} >Insert degree course</Link>
                                 </button>
                                 {this.props.emptyDegreeCourses === false && this.props.success === true &&
                                     <table className="table table-striped">

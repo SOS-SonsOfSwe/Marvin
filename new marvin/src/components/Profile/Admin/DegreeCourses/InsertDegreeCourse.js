@@ -7,7 +7,7 @@ class InsertDegreeCourse extends React.Component {
         super(props);
 
         this.state = {
-            year: '',
+            year: this.props.year,
             description: '',
             degreeUnicode: ''
         };
