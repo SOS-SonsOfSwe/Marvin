@@ -1,10 +1,18 @@
 import UniversityContract from '../../../../build/contracts/UserLogic.json'
-import {
-  loginUser
-} from './LoginButtonActions'
+import { loginUser } from './LoginButtonActions'
 import store from '../../../store'
 
 import ipfsPromise from '../../../../api/utils/ipfsPromise'
+
+import {
+  addingData,
+  errorAddingData,
+  dataAdded,
+  ipfsAddingData,
+  ipfsDataAdded,
+  ipfsErrorAddingData,
+  ipfsNetworkError
+} from '../StandardDispatches/addingData'
 
 const contract = require('truffle-contract')
 
@@ -34,21 +42,32 @@ export function signUpUser(userData) {
 
         university.deployed()
           .then(function (instance) {
+
+            dispatch(ipfsAddingData())
+            dispatch(addingData())
+
             ipfs.pushJSON(userData)
               .then(hashIPFS => {
+
+                dispatch(ipfsDataAdded())
+
                 var hash = ipfsPromise.getBytes32FromIpfsHash(hashIPFS)
                 universityInstance = instance
 
                 // Attempt to register user.
                 universityInstance.signUp(userData.FC, userData.UC, hash, { from: coinbase })
                   .then(function (result) {
-
+                    dispatch(dataAdded())
                     // If no error, login user.
                     return dispatch(loginUser())
                   })
                   .catch(function (result) {
-                    // If error...
+                    dispatch(errorAddingData())
                   })
+              })
+              .catch(err => {
+                dispatch(ipfsErrorAddingData())
+                dispatch(ipfsNetworkError())
               })
           })
       })

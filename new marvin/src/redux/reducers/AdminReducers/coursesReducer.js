@@ -8,8 +8,8 @@ const initialState = {
   empty: null
 }
 
-const didacticActivitiesReducer = (state = initialState, action) => {
-  if(action.request === adminCostants.DIDACTIC_ACTIVITIES) {
+const coursesReducer = (state = initialState, action) => {
+  if(action.request === adminCostants.COURSES) {
     switch(action.type) {
       // default: in this case we tried to make a dispatch without using matching any case
       default: {
@@ -35,14 +35,14 @@ const didacticActivitiesReducer = (state = initialState, action) => {
       // server finished to give data successfully, so he can unlock resources
     case adminCostants.FETCH_DATA_SUCCESS:
       {
-        console.log('adminReducer: successfully fetched didactic activities data')
+        console.log('adminReducer: successfully fetched Courses data')
         // checking if somebody changed page during loading data, so the state.data is not overwritten by asynchronous returns
         // if(state.loading === false) return state
         return {
           ...state,
           payload: action.payload.load,
           // degreeCourses: state.degreeCourses,
-          // didacticActivities: state.didacticActivities,
+          // courses: state.courses,
           success: true,
           empty: false,
           // we want to set this false so we can tell the components that they don't need to retrieve informations from blockchain but that from the store is enough
@@ -72,4 +72,4 @@ const didacticActivitiesReducer = (state = initialState, action) => {
     }
   } else return state;
 }
-export default didacticActivitiesReducer
+export default coursesReducer

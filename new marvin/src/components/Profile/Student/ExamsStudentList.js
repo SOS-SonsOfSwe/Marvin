@@ -2,12 +2,12 @@ import React from 'react';
 import Row from '../Commons/ExamList';
 
 var arrayData = [
-    { degreeCourse: "informatica", didacticActivity: "Probabilità", typology: "orale", date: "20-06-2018" },
-    { degreeCourse: "informatica", didacticActivity: "Programmazione", typology: "scritto", date: "11-06-2018" },
-    { degreeCourse: "informatica", didacticActivity: "Analisi", typology: "laboratorio", date: "28-07-2018" },
-    { degreeCourse: "informatica", didacticActivity: "Algoritmi", typology: "orale", date: "9-08-2018" },
-    { degreeCourse: "informatica", didacticActivity: "Sistemi operativi", typology: "scritto", date: "25-07-2018" },
-    { degreeCourse: "informatica", didacticActivity: "Ricarca operativa", typology: "scritto", date: "19-08-2018" },
+    { degreeCourse: "informatica", course: "Probabilità", typology: "orale", date: "20-06-2018" },
+    { degreeCourse: "informatica", course: "Programmazione", typology: "scritto", date: "11-06-2018" },
+    { degreeCourse: "informatica", course: "Analisi", typology: "laboratorio", date: "28-07-2018" },
+    { degreeCourse: "informatica", course: "Algoritmi", typology: "orale", date: "9-08-2018" },
+    { degreeCourse: "informatica", course: "Sistemi operativi", typology: "scritto", date: "25-07-2018" },
+    { degreeCourse: "informatica", course: "Ricarca operativa", typology: "scritto", date: "19-08-2018" },
 ]
 
 class ExamsStudentList extends React.Component {
@@ -25,7 +25,7 @@ class ExamsStudentList extends React.Component {
                     <thead>
                         <tr>
                             <th>Degree Course</th>
-                            <th>Didactic Activity</th>
+                            <th>Course</th>
                             <th>Typology</th>
                             <th>Date</th>
                         </tr>
@@ -41,7 +41,7 @@ class ExamsStudentList extends React.Component {
                     <thead>
                         <tr>
                             <th>Degree Course</th>
-                            <th>Didactic Activities</th>
+                            <th>Courses</th>
                             <th>Typology</th>
                             <th>Date</th>
                         </tr>

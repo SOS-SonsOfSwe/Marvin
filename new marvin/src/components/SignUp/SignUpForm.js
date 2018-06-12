@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import * as utils from '../../utils/validations'
-
+import LoadingIPFSData from '../Loading/LoadingIpfs'
 // import ipfsPromise from '../../../api/utils/ipfsPromise'
 
 class SignUpForm extends Component {
@@ -59,42 +59,50 @@ class SignUpForm extends Component {
   }
 
   render() {
+    const ipfsAdd = this.props.ipfsAdding ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
     return (
-      <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit.bind(this)}>
-        <fieldset>
-          <label htmlFor="name">Name</label>
-          <input id="name" type="text" value={this.state.name} onChange={this.onInputNameChange.bind(this)} placeholder="Name" />
-          <span className="pure-form-message">This is a required field.</span>
+      <div>
+        {ipfsAdd}
+        {this.props.ipfsLoading !== true &&
 
-          <br />
-          <label htmlFor="surname">Surname</label>
-          <input id="surname" type="text" value={this.state.surname} onChange={this.onInputSurnameChange.bind(this)} placeholder="Surname" />
-          <span className="pure-form-message">This is a required field.</span>
+          <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit.bind(this)}>
+            <fieldset>
+              <label htmlFor="name">Name</label>
+              <input id="name" type="text" value={this.state.name} onChange={this.onInputNameChange.bind(this)} placeholder="Name" />
+              <span className="pure-form-message">This is a required field.</span>
 
-          <br />
-          <label htmlFor="email">eMail</label>
-          <input id="email" type="text" value={this.state.email} onChange={this.onInputEmailChange.bind(this)} placeholder="eMail" />
-          <span className="pure-form-message">This is a required field.</span>
+              <br />
+              <label htmlFor="surname">Surname</label>
+              <input id="surname" type="text" value={this.state.surname} onChange={this.onInputSurnameChange.bind(this)} placeholder="Surname" />
+              <span className="pure-form-message">This is a required field.</span>
 
-          <br />
-          <label htmlFor="FC">Fiscal code</label>
-          <input id="FC" type="text" value={this.state.FC} onChange={this.onInputFCChange.bind(this)} placeholder="Fiscal code" />
-          <span className="pure-form-message">This is a required field.</span>
+              <br />
+              <label htmlFor="email">eMail</label>
+              <input id="email" type="text" value={this.state.email} onChange={this.onInputEmailChange.bind(this)} placeholder="eMail" />
+              <span className="pure-form-message">This is a required field.</span>
 
-          <br />
+              <br />
+              <label htmlFor="FC">Fiscal code</label>
+              <input id="FC" type="text" value={this.state.FC} onChange={this.onInputFCChange.bind(this)} placeholder="Fiscal code" />
+              <span className="pure-form-message">This is a required field.</span>
 
-          <label htmlFor="UC">Univocal code</label>
-          <input id="UC" type="text" value={this.state.UC} onChange={this.onInputUCChange.bind(this)} placeholder="Univocal code" />
-          <span className="pure-form-message">This is a required field.</span>
+              <br />
 
-          <br />
+              <label htmlFor="UC">Univocal code</label>
+              <input id="UC" type="text" value={this.state.UC} onChange={this.onInputUCChange.bind(this)} placeholder="Univocal code" />
+              <span className="pure-form-message">This is a required field.</span>
 
-          <div className="div_button_signup">
-            <button type="submit" className="pure-button pure-button-primary">Sign Up</button>
-          </div>
+              <br />
 
-        </fieldset>
-      </form>
+              <div className="div_button_signup">
+                <button type="submit" className="pure-button pure-button-primary">Sign Up</button>
+              </div>
+
+            </fieldset>
+          </form>
+
+        }
+      </div>
     )
   }
 }

@@ -30,7 +30,7 @@ const contract = require('truffle-contract')
 function doAwesomeStuff(dispatch, load) {
   dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
-  if ('redirect' in currentLocation.query) {
+  if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   }
@@ -48,13 +48,10 @@ function doAwesomeStuff(dispatch, load) {
 // }
 
 async function processIPFSResultParallel(ipfs, payload) {
-  const promises = payload.map(item => ipfs.getJSON(item.degreeDescription)
+  const promises = payload.map(item => ipfs.getJSON(item.degreeData)
     .then(result => {
-      // here I overwrite the description information with the description of the result.
-      // THIS IS NOT A BEST PRACTICE, as I am overwriting some important informations.
-      // result is giving the JSON file retrieved from the IPFS, so there would be much more informations
-      // than a simple string.
-      item.degreeDescription = result.degreeDescription
+      // here I overwrite the description information with the JSON returning from the ipfs
+      item.degreeData = result.degreeData
     }))
   await Promise.all(promises)
 }
@@ -63,7 +60,7 @@ export function readDegreeCoursesFromDatabase(year) {
   let web3 = store.getState()
     .web3.web3Instance
 
-  if (typeof web3 !== 'undefined') {
+  if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -79,7 +76,7 @@ export function readDegreeCoursesFromDatabase(year) {
         dispatch(readingData(req))
 
         // Log errors, if any.
-        if (error) {
+        if(error) {
           console.error(error);
         }
 
@@ -106,7 +103,7 @@ export function readDegreeCoursesFromDatabase(year) {
 
                 // console.log(result[0].length === 0)
 
-                if (result[0].length === 0) {
+                if(result[0].length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))
@@ -118,7 +115,7 @@ export function readDegreeCoursesFromDatabase(year) {
                   // It is better to read all the infos together without doing
                   // much conversions because we can close the communication
                   // with the blockchain faster
-                  for (i; i < result[0].length; i++) {
+                  for(i; i < result[0].length; i++) {
                     var degree = result[1][i]
                     var hash = result[0][i]
                     // console.log("degree: " + degree)
@@ -126,11 +123,11 @@ export function readDegreeCoursesFromDatabase(year) {
                     // console.log('dgr: ' + dgr)
                     var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
                     // i'm storing the informations inside the description. We will retrieve them later.
-                    if (i === 0) { // first element of array
-                      payload = [{ year: year, degreeUnicode: dgr, degreeDescription: hashIPFS },]
+                    if(i === 0) { // first element of array
+                      payload = [{ year: year, degreeUnicode: dgr, degreeData: hashIPFS }, ]
                     } else
                       payload = [...payload,
-                      { year: year, degreeUnicode: dgr, degreeDescription: hashIPFS }
+                        { year: year, degreeUnicode: dgr, degreeData: hashIPFS }
                       ]
                   }
                   // this function provides a parallel loading of all the informations from ipfs. 

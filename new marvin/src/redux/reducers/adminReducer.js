@@ -4,14 +4,14 @@ import { routerReducer } from 'react-router-redux'
 import addingDataReducer from './AdminReducers/addingDataReducer'
 import academicYearsReducer from './AdminReducers/academicYearReducer'
 import degreeCoursesReducer from './AdminReducers/degreeCoursesReducer'
-import didacticActivitiesReducer from './AdminReducers/didacticActivitiesReducer'
+import coursesReducer from './AdminReducers/coursesReducer'
 
 const adminReducer = combineReducers({
   routing: routerReducer,
   addingData: addingDataReducer,
   academicYears: academicYearsReducer,
   degreeCourses: degreeCoursesReducer,
-  didacticActivities: didacticActivitiesReducer
+  courses: coursesReducer
 })
 
 export default adminReducer

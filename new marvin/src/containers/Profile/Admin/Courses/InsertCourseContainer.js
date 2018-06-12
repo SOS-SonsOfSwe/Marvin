@@ -1,17 +1,15 @@
 import { connect } from 'react-redux'
-import InsertDidacticActivity from '../../../../components/Profile/Admin/DidacticActivities/InsertDidacticActivity'
-import addNewDidacticActivity from '../../../../redux/actions/Admin/AddDidacticActivity'
+import InsertCourse from '../../../../components/Profile/Admin/Courses/InsertCourse'
+import addNewCourse from '../../../../redux/actions/Admin/AddCourse'
 
 const mapStateToProps = (state, ownProps) => {
 
-  if (ownProps.location.state.fromDegree === false) {
+  if(ownProps.location.state.fromDegree === false) {
     return {
       adding: state.admin.adding,
       success: state.admin.success
     }
-  }
-
-  else {
+  } else {
     return {
       adding: state.admin.adding,
       success: state.admin.success,
@@ -22,12 +20,12 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-  addDidacticActivity: addNewDidacticActivity
+  addCourse: addNewCourse
 }
 
-const InsertDidacticActivityContainer = connect(
+const InsertCourseContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(InsertDidacticActivity)
+)(InsertCourse)
 
-export default InsertDidacticActivityContainer
+export default InsertCourseContainer

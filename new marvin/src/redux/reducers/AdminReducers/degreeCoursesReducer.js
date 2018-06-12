@@ -42,7 +42,7 @@ const degreeCoursesReducer = (state = initialState, action) => {
           ...state,
           payload: action.payload.load,
           // degreeCourses: state.degreeCourses,
-          // didacticActivities: state.didacticActivities,
+          // courses: state.courses,
           success: true,
           empty: false,
           // we want to set this false so we can tell the components that they don't need to retrieve informations from blockchain but that from the store is enough

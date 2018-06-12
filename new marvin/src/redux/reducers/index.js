@@ -14,7 +14,7 @@ const reducer = combineReducers({
   // prof: profReducer,
   // student: studentReducer,
   web3: web3Reducer,
-  ipfsReducer
+  ipfs: ipfsReducer
 })
 
 export default reducer

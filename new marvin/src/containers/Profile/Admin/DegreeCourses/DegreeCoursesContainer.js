@@ -16,7 +16,9 @@ const mapStateToProps = (state, ownProps) => {
     success: state.admin.degreeCourses.success,
     somethingChanged: state.admin.degreeCourses.somethingChanged,
     emptyDegreeCourses: state.admin.degreeCourses.empty,
-    emptyAcademicYears: state.admin.academicYears.empty
+    emptyAcademicYears: state.admin.academicYears.empty,
+
+    ipfsLoading: state.ipfs.loading
   }
 }
 

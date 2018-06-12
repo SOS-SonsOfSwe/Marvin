@@ -16,15 +16,16 @@ import {
 
 const contract = require('truffle-contract')
 
-export default function addDidacticActivity(year, degreeCourse, didacticActivity) {
+export default function addCourse(year, degreeUnicode, courseUnicode, courseData) {
   // thinking as year = 2014-2015 we want to take only the first two int so we can send 
   // them to the solidity contract and risparmiare
   var ipfs = new ipfsPromise()
 
-  var userData = {
+  var course = {
     'year': year,
-    'degreeCourse': degreeCourse,
-    'didacticActivity': didacticActivity
+    'degreeUnicode': degreeUnicode,
+    'courseUnicode': courseUnicode,
+    'courseData': courseData
   }
 
   let web3 = store.getState()
@@ -55,17 +56,17 @@ export default function addDidacticActivity(year, degreeCourse, didacticActivity
             // dispatching blockchain adding data
             dispatch(addingData())
 
-            ipfs.pushJSON(userData)
+            ipfs.pushJSON(course)
               .then(hashIPFS => {
                 // dispatching ipfs data added
                 dispatch(ipfsDataAdded)
 
-                var hash = ipfsPromise.getBytes32FromIpfsHash(hashIPFS)
+                var courseHash = ipfsPromise.getBytes32FromIpfsHash(hashIPFS)
                 adminIstance = instance
                 // dispatching action for make the reducer know we are making the transaction
                 dispatch(addingData())
 
-                adminIstance.addNewCourse(degreeCourse, didacticActivity, hash, { from: coinbase })
+                adminIstance.addNewCourse(degreeUnicode, courseUnicode, courseHash, { from: coinbase })
                   .then(result => {
                     // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
                     dispatch(dataAdded())
@@ -74,7 +75,7 @@ export default function addDidacticActivity(year, degreeCourse, didacticActivity
                     dispatch(errorAddingData())
                   })
                   .finally(def => {
-                    return browserHistory.push('/profile/didactic-activities')
+                    return browserHistory.push('/profile/courses')
                   })
               })
               .catch(err => {

@@ -11,8 +11,8 @@ const mapDispatchToProps = {
 }
 // const mapDispatchToProps = (dispatch) => {
 //   return {
-//     readDidacticActivitiesData: (years, degreeC) => {
-//       dispatch(readDidacticActivitiesFromDatabase(years, degreeC))
+//     readCoursesData: (years, degreeC) => {
+//       dispatch(readCoursesFromDatabase(years, degreeC))
 //     }
 //   }
 // }

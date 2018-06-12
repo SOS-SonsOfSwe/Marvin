@@ -6,6 +6,7 @@ import * as data from '../../utils/adminData'
 import addNewAcademicYear from '../../redux/actions/Admin/AddAcademicYear'
 // taking degreeCourse, year
 import AddDegreeCourse from '../../redux/actions/Admin/AddDegreeCourse'
+import AddCourses from '../../redux/actions/Admin/AddCourse'
 import store from '../../store'
 import { browserHistory } from 'react-router'
 
@@ -22,7 +23,10 @@ export default class FillBlockchain extends React.Component {
             store.dispatch(addNewAcademicYear(i.year))
         }
         for (let i of data.degreeCourses) {
-            store.dispatch(AddDegreeCourse(i.degreeUnicode, i.year, i.degreeDescription))
+            store.dispatch(AddDegreeCourse(i.degreeUnicode, i.year, i.degreeData))
+        }
+        for (let i of data.courses) {
+            store.dispatch(AddCourses(i.year, i.degreeUnicode, i.courseUnicode, i.courseData))
         }
         browserHistory.push('/profile')
     }

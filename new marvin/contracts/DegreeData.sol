@@ -84,13 +84,13 @@ contract DegreeData {
     }
 
     // return all the courses unicodes and their IPFS hash relating to _degreeUniCode
-    function getCoursesData(bytes10 _degreeUniCode) public view returns(bytes10[], bytes32[]) {
+    function getCoursesData(bytes10 _degreeUniCode) public view returns(bytes32[], bytes10[]) {
         bytes10[] memory coursesForDegree = getCourses(_degreeUniCode);
         bytes32[] memory coursesHashCodes = new bytes32[](coursesForDegree.length);
         for(uint i = 0; i < coursesForDegree.length; ++i) {
             coursesHashCodes[i] = course.getHashData(coursesForDegree[i]);
         }
-        return(coursesForDegree, coursesHashCodes);
+        return(coursesHashCodes, coursesForDegree);
     }
 
     // set the IPFS hash of the degree

@@ -1,7 +1,8 @@
+import "regenerator-runtime/runtime"; // needed for async calls
 import DegreeContract from '../../../../build/contracts/DegreeData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
-import { DIDACTIC_ACTIVITIES as req } from "../../reducers/costants/adminCostants";
+import { COURSES as req } from "../../reducers/costants/adminCostants";
 
 // import { web3HexToInt } from '../../../utils/validations'
 
@@ -15,17 +16,6 @@ import ipfsPromise from '../../../../api/utils/ipfsPromise'
 
 const contract = require('truffle-contract')
 
-// export var degreeCourses = [
-//   { year: "2017-2018", name: "Informatica" },
-//   { year: "2017-2018", name: "Matematica" },
-//   { year: "2017-2018", name: "Psicologia" },
-//   { year: "2017-2018", name: "Ingegneria dell'energia" },
-//   { year: "2017-2018", name: "Giurisprudenza" },
-//   { year: "2016-2017", name: "Informatica" },
-//   { year: "2016-2017", name: "Matematica" },
-//   { year: "2016-2017", name: "Psicologia" }
-// ]
-
 function doAwesomeStuff(dispatch, load) {
   dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
@@ -36,7 +26,26 @@ function doAwesomeStuff(dispatch, load) {
   // return browserHistory.push('/profile/degree-courses') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
-export function readDidacticActivitiesFromDatabase(year, degreeUnicode) {
+// async function processIPFSResult(ipfs, payload) {
+//   for(const item of payload) {
+//     await ipfs.getJSON(item.description)
+//       .then(result => {
+//         console.log(JSON.stringify(result))
+//         item.description = result.description
+//       })
+//   }
+// }
+
+async function processIPFSResultParallel(ipfs, payload) {
+  const promises = payload.map(item => ipfs.getJSON(item.courseData)
+    .then(result => {
+      // here I overwrite the description information with the JSON returning from the ipfs
+      item.courseData = result.courseData
+    }))
+  await Promise.all(promises)
+}
+
+export function readCoursesFromDatabase(year, degreeUnicode) {
   let web3 = store.getState()
     .web3.web3Instance
 
@@ -65,11 +74,10 @@ export function readDidacticActivitiesFromDatabase(year, degreeUnicode) {
             degreeInstance = instance
 
             // Attempt to read degree courses per year
-            year = year.slice(0, 4)
             degreeInstance.getCoursesData(degreeUnicode, { from: coinbase })
               // .then(console.log)
               .then(result => {
-                console.log('DIDACTIC ACTIVITIES READ RESULT: ')
+                console.log('COURSES READ RESULT: ')
                 console.log(result)
 
                 // checking if the blockchain is empty for this kind of data.
@@ -79,49 +87,62 @@ export function readDidacticActivitiesFromDatabase(year, degreeUnicode) {
                 // console.log(web3.toUtf8(result[0]))
                 // for degreeCourse result[0] is the actual array of unicodes of the degreeCourse
                 // result[1] is the list of its respectively IPFS hash
-                // console.log(web3.toHex(result[0][0]))
-                if(web3.toHex(result[0][0])
-                  .toString()
-                  .slice(2, 3) === '0') {
+                // console.log('web3ToHex: ' + web3.toHex(result[0][0]))
+
+                // console.log(result[0].length === 0)
+
+                if(result[0].length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))
 
-                  let i = 0
                   var payload
-                  // console.error(web3HexToInt(web3.toHex(result[0])))
-                  for(let hash of result[1]) {
-                    console.log('ipfsPromise: ' + ipfsPromise.getIpfsHashFromBytes32(hash))
-                  }
+                  let i = 0;
 
-                  for(let degree of result[0]) {
-                    // var yy = web3HexToInt(web3.toHex(years))
+                  // export var courses = [{
+                  //   year: "2017-2018",
+                  //   degreeUnicode: "MAT/INF17",
+                  //   courseData: {
+                  //     'description': "Reti e sicurezza"
+                  //   },
+                  //   courseUnicode: 'RETISICU17'
+                  // }]
 
-                    // web3 offers a 8 bit return hexadecimal number. It's not needed since
-                    // solidity is returning me bytes4, so 4 bytes of octa data => 3 hexa bit.
-                    // I just need to slice it down to the first 3 digits and everything is ok!
-                    // YOU HAVE TO CHECK THE LENGTH OF THE RETURNING BYTES AND MODIFY THE SLICE ACCORDINGLY
-                    // console.log(web3.toUtf8(degree))
-                    var dgr = web3.toUtf8(degree)
-
+                  // Just read all the information inside the blockchain.
+                  // It is better to read all the infos together without doing
+                  // much conversions because we can close the communication
+                  // with the blockchain faster
+                  for(i; i < result[0].length; i++) {
+                    var degree = result[1][i]
+                    var hash = result[0][i]
+                    // console.log("degree: " + degree)
+                    var coUni = web3.toUtf8(degree)
+                    // console.log('dgr: ' + dgr)
+                    var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
+                    // i'm storing the informations inside the description. We will retrieve them later.
                     if(i === 0) { // first element of array
-                      //   { year: "2017-2018", name: "Informatica" },
-                      payload = [{ year: year, name: dgr }, ]
-                      i++
+                      payload = [{ year: year, degreeUnicode: degreeUnicode, courseData: hashIPFS, courseUnicode: coUni }, ]
                     } else
                       payload = [...payload,
-                        { year: year, name: dgr }
+                        { year: year, degreeUnicode: degreeUnicode, courseData: hashIPFS, courseUnicode: coUni }
                       ]
                   }
-                  //sorting results fom most recent one
-                  payload.sort((a, b) => b.name - a.name)
-                  return doAwesomeStuff(dispatch, payload) //Repeating because of the asyncronous promises of the functions
+                  // this function provides a parallel loading of all the informations from ipfs. 
+                  // It renders the data all together: an interesting improvement will be to load the data
+                  // per parts so in case of some ipfs file failure the app is still working
+                  var ipfs = new ipfsPromise()
+                  processIPFSResultParallel(ipfs, payload)
+                    .then(result => {
+                      payload.sort((a, b) => b.degreeUnicode - a.degreeUnicode)
+                      return doAwesomeStuff(dispatch, payload)
+                    })
+
                 }
               })
               .catch(function (result) {
                 // If error, go to signup page.
                 console.error('Error while reading infos: ' + result)
-                console.error('Wallet ' + coinbase + ' does not have an account!')
+                console.error('Wallet ' + coinbase + 'encountered an error!')
                 // dispatch(eraseAdminReducerInfo())
                 // dispatch(eraseIpfsReducerInfo())
                 return browserHistory.push('/profile')

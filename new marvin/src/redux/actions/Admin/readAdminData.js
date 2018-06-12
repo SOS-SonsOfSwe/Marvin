@@ -2,7 +2,7 @@
 
 import * as adminData from '../../../utils/adminData'
 // import { adminCostants } from '../../reducers/costants'
-import { DIDACTIC_ACTIVITIES } from '../../reducers/costants/adminCostants'
+import { COURSES } from '../../reducers/costants/adminCostants'
 import { dataRead, readingData } from '../../actions/StandardDispatches/readingData'
 
 // prototype for the dispatch action. Here we want to send to the store the payload we succeeded in retrieving
@@ -70,19 +70,19 @@ import { dataRead, readingData } from '../../actions/StandardDispatches/readingD
 //   }
 // }
 
-export function readDidacticActivitiesFromDatabase(years, degreeC) {
+export function readCoursesFromDatabase(years, degreeC) {
   return function (dispatch) {
-    dispatch(readingData(DIDACTIC_ACTIVITIES))
+    dispatch(readingData(COURSES))
     setTimeout(() => dispatch(dataRead({
-      'load': adminData.didacticActivities.filter((obj) => obj.year === years && obj.degreeDescription === degreeC)
-    }, DIDACTIC_ACTIVITIES)), 2000)
+      'load': adminData.courses.filter((obj) => obj.year === years && obj.degreeData === degreeC)
+    }, COURSES)), 2000)
   }
 }
-// export function readDidacticActivitiesFromDatabase(years, degreeC) {
+// export function readCoursesFromDatabase(years, degreeC) {
 //   return function (dispatch) {
-//     dispatch(readingData(DIDACTIC_ACTIVITIES))
+//     dispatch(readingData(COURSES))
 //     setTimeout(() => dispatch(dataRead({
-//       'load': adminData.didacticActivities
-//     }, DIDACTIC_ACTIVITIES)), 2000)
+//       'load': adminData.courses
+//     }, COURSES)), 2000)
 //   }
 // }

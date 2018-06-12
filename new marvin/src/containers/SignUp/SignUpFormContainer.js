@@ -7,7 +7,9 @@ import {
 } from '../../redux/actions/Login-logout-signup/SignUpFormActions'
 
 const mapStateToProps = (state, ownProps) => {
-  return {}
+  return {
+    ipfsAdding: state.ipfs.adding
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
