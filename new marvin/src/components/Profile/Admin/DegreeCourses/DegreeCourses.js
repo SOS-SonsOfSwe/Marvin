@@ -89,7 +89,7 @@ class DegreeCourses extends React.Component {
                                         <button className="insert-button pure-button pure-button-primary">
                                             <Link to={{
                                                 pathname: "/profile/degree-courses/insert-degree-course",
-                                                state: { fromAcademic: false }
+                                                state: { year: this.state.selectedYears }
                                             }} >Insert degree course</Link>
                                         </button>
                                         {this.props.emptyDegreeCourses === false && this.props.success === true &&

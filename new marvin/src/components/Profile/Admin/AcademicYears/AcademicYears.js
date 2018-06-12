@@ -9,7 +9,7 @@ const Row = ({ year }) => (
         <td>
             <Link to={{
                 pathname: "/profile/degree-courses/insert-degree-course",
-                state: { fromAcademic: true, year: year }
+                state: { year: year }
             }} > Insert degree course</Link>
         </td>
         <td>
