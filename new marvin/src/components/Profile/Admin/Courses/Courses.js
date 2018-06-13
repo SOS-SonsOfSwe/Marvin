@@ -113,25 +113,29 @@ class Courses extends React.Component {
                                         </select>
                                     </fieldset>
                                 </form>
-                                <button className="insert-button pure-button pure-button-primary">
-                                    <Link to={{
-                                        pathname: "/profile/courses/insert-course",
-                                        state: { fromDegree: false }
-                                    }}> Insert Course </Link>
-                                </button>
-                                {this.props.degreeCourses && this.props.courses &&
-                                    <table className="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th className="title-column">Year</th>
-                                                <th className="title-column">Course</th>
-                                                <th className="title-column">Exam</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {this.props.courses.map((rowData, index) => <Row key={index} {...rowData} />)}
-                                        </tbody>
-                                    </table>
+                                {this.state.selectedYears !== "" &&
+                                    <div>
+                                        <button className="insert-button pure-button pure-button-primary">
+                                            <Link to={{
+                                                pathname: "/profile/courses/insert-course",
+                                                state: { fromDegree: false }
+                                            }}> Insert Course </Link>
+                                        </button>
+                                        {this.props.emptyCourses === false && this.props.success === true &&
+                                            < table className="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th className="title-column">Year</th>
+                                                        <th className="title-column">Course</th>
+                                                        <th className="title-column">Exam</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {this.props.courses.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                                </tbody>
+                                            </table>
+                                        }
+                                    </div>
                                 }
                             </div>
                         </main>
