@@ -69,6 +69,17 @@ const degreeCoursesReducer = (state = initialState, action) => {
           loading: false
         }
       }
+    case adminCostants.ERASE_DEGREE_COURSES:
+      {
+        return {
+          ...state,
+          payload: null,
+          loading: null,
+          somethingChanged: null,
+          success: null,
+          empty: null
+        }
+      }
     }
   } else return state;
 }
