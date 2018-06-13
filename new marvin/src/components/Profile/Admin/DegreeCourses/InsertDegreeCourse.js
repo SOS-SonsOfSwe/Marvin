@@ -49,8 +49,9 @@ class InsertDegreeCourse extends React.Component {
                             <input type="text" value={this.state.degreeUnicode} onChange={this.handleDegreeUnicodeChange} placeholder="Insert the degree unicode" />
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
-                                <Link to='/profile/degree-courses'>Cancel</Link>
-                                {/* magari è un 'input' o 'a' invece che button che porta alla pagina precedente */}
+                                <button className="button_cancel">
+                                    <Link to='/profile/degree-courses'>Cancel</Link>
+                                </button>
                             </div>
                         </fieldset>
                     </form>

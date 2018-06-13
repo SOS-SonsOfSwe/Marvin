@@ -10,6 +10,41 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
 */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css ------COMMENTO NON MIO------*/
 
+// .title {
+//   text-transform: uppercase;
+//   font-size: 2.6em;
+//   text-decoration: none;
+// }
+
+.div-buttons input {
+  margin-left: 16%;
+}
+
+.button_cancel a {
+  text-decoration: none;
+  color: #333;
+}
+
+.title_div {
+  padding: 1.2em 2em 3em 1.5em;
+}
+
+.top-navbar {
+  height: 6em;
+}
+
+.top_message {
+  width: 100%;
+  text-align: center;
+  font-size: 1.3em;
+  letter-spacing: 0.01em;
+  color: rgb(240, 6, 6);
+}
+
+.div_insert_button {
+  text-align: center;
+}
+
 .div-insert-exam p {
   text-align: inherit !important;
 }
@@ -50,8 +85,6 @@ tr:nth-child(even) {
 } 
  
 .insert-button { 
-  float: right; 
-  margin-right: 10%;
   margin-bottom: 1.5em;
 } 
  
@@ -105,8 +138,8 @@ tr:nth-child(even) {
   
   html {
     font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+    //-ms-text-size-adjust: 100%;
+    //-webkit-text-size-adjust: 100%;
   }
   
   body {
@@ -221,13 +254,13 @@ tr:nth-child(even) {
   }
   
   button, html input[type=button] {
-    -webkit-appearance: button;
+    //-webkit-appearance: button;
     cursor: pointer;
   }
   
   input {
     &[type=reset], &[type=submit] {
-      -webkit-appearance: button;
+      //-webkit-appearance: button;
       cursor: pointer;
     }
   }
@@ -256,7 +289,7 @@ tr:nth-child(even) {
       }
     }
     &[type=search] {
-      -webkit-appearance: textfield;
+      //-webkit-appearance: textfield;
       box-sizing: content-box;
     }
   }
@@ -265,11 +298,11 @@ tr:nth-child(even) {
     box-sizing: border-box;
   }
     
-  input[type=search] {
-    &::-webkit-search-cancel-button, &::-webkit-search-decoration {
-      -webkit-appearance: none;
-    }
-  }
+  //input[type=search] {
+    //&::-webkit-search-cancel-button, &::-webkit-search-decoration {
+      //-webkit-appearance: none;
+    //}
+  //}
   
   fieldset {
     border: 1px solid silver;

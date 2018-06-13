@@ -90,12 +90,14 @@ class DegreeCourses extends React.Component {
                                 </form>
                                 {this.state.selectedYears !== "" &&
                                     <div>
-                                        <button className="insert-button pure-button pure-button-primary">
-                                            <Link to={{
-                                                pathname: "/profile/degree-courses/insert-degree-course",
-                                                state: { year: this.state.selectedYears }
-                                            }} >Insert degree course</Link>
-                                        </button>
+                                        <div className="div_insert_button">
+                                            <button className="insert-button pure-button pure-button-primary">
+                                                <Link to={{
+                                                    pathname: "/profile/degree-courses/insert-degree-course",
+                                                    state: { year: this.state.selectedYears }
+                                                }} >Insert degree course</Link>
+                                            </button>
+                                        </div>
                                         {this.props.emptyDegreeCourses === false && this.props.success === true &&
                                             <table className="table table-striped">
                                                 <thead>

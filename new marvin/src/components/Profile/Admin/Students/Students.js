@@ -33,12 +33,14 @@ class Students extends React.Component {
                 <div className="pure-u-1-1">
                     <h1>Students</h1>
                     <p className="text-center">Here there is the list of the students.</p>
-                    <button className="insert-button pure-button pure-button-primary">
-                        <Link to={{
-                            pathname: '/insert-user',
-                            state: { type: 3 }
-                        }}>Insert a student</Link>
-                    </button>
+                    <div className="div_insert_button">
+                        <button className="insert-button pure-button pure-button-primary">
+                            <Link to={{
+                                pathname: '/insert-user',
+                                state: { type: 3 }
+                            }}>Insert a student</Link>
+                        </button>
+                    </div>
                     <table className="table table-striped">
                         <thead>
                             <tr>

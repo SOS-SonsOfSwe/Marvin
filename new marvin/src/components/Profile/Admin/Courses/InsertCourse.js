@@ -61,12 +61,12 @@ class InsertCourse extends React.Component {
                             <label>Course</label>
                             <input type="text" value={this.state.course} onChange={this.handleChange2} placeholder="Insert a Course" />
                             <br />
-                            <Link to="/profile/courses/insert-exam">Insert an exam</Link>
-
+                                <Link to="/profile/courses/insert-exam">Insert an exam</Link>
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
-                                <Link to='/profile/courses'>Cancel</Link>
-                                {/* magari è un 'input' o 'a' invece che button che porta alla pagina precedente */}
+                                <button className="button_cancel">
+                                    <Link to='/profile/courses'>Cancel</Link>
+                                </button>
                             </div>
                         </fieldset>
                     </form>
