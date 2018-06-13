@@ -17,7 +17,7 @@ import EmptyData from '../../../Loading/EmptyData'
 
 const Row = ({ year, degreeUnicode, degreeData }) => (
     <tr className="clickable-row">
-        <td>Academic year {year} </td>
+        <td>Academic year {year + "-" + (parseInt(year, 10) + 1).toString()} </td>
         <td>{degreeUnicode}</td>
         <td>{degreeData}</td>
         <td>
@@ -51,8 +51,9 @@ class DegreeCourses extends React.Component {
     }
 
     onSelectChange(event) {
-        this.setState({ selectedYears: event.target.value },
-            () => this.props.readDegreeData(this.state.selectedYears))
+        this.setState({ selectedYears: event.target.value })
+
+        this.props.readDegreeData(event.target.value)
     }
 
     componentDidMount() {
