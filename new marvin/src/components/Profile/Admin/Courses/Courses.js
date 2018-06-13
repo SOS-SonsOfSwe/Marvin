@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router'
 import LoadingData from '../../../Loading/LoadingData'
+import LoadingIPFSData from '../../../Loading/LoadingIpfs'
+import EmptyData from '../../../Loading/EmptyData'
 
 
 // var arrayData = [
@@ -33,6 +35,13 @@ const Row = ({ year, courseUnicode }) => (
     </tr>
 );
 
+const OptionsY = ({ year }) => (
+    <option value={year}> {year} </option>
+);
+
+const OptionsDC = ({ DC }) => (
+    <option value={DC}> {DC} </option>
+);
 // CHANGE DEGREECOURSE IN DEGREEUNICODE, AS WE ARE WORKING WITH THEM
 
 class Courses extends React.Component {
@@ -43,34 +52,45 @@ class Courses extends React.Component {
         this.onSelectChangeDC = this.onSelectChangeDC.bind(this);
 
         this.state = {
-            selectedYears: '2017-2018',
-            selectedDegreeCourse: 'MAT/INF17'
+            selectedYears: '',
+            selectedDegreeCourse: ''
         }
     }
 
     onSelectChangeY(event) {
         this.setState({ selectedYears: event.target.value },
-            () => this.props.readCoursesData(this.state.selectedYears, this.state.selectedDegreeCourse))
+            () => {
+                if (this.state.selectedDegreeCourse !== '') this.props.readCoursesData(this.state.selectedYears, this.state.selectedDegreeCourse)
+            },
+            () => this.props.readDegreeCoursesData(this.state.selectedYears)
+        )
     }
 
     onSelectChangeDC(event) {
         this.setState({ selectedDegreeCourse: event.target.value },
-            () => this.props.readCoursesData(this.state.selectedYears, this.state.selectedDegreeCourse))
+            () => {
+                if (this.state.selectedYears !== '') this.props.readCoursesData(this.state.selectedYears, this.state.selectedDegreeCourse)
+            }
+        )
     }
 
     componentDidMount() {
-        this.props.readCoursesData(this.state.selectedYears, this.state.selectedDegreeCourse)
+        this.props.readAcademicData();
     }
 
 
     render() {
         const load = this.props.loading === true ? <LoadingData label='Loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
+        const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
+        const empty = this.props.emptyCourses ? <EmptyData label='no data found on blockchain' /> : <div />
 
         return (
             <div>
                 {load}
-                {this.props.loading === false &&
+                {ipfsLoad}
+                {empty}
+                {((this.props.loadingAcademic === false && this.props.loadingDegree === false && this.props.loadingCourses === false && this.props.ipfsLoading !== true) || (this.state.selectedYears === "" || this.state.selectedDegreeCourse === "")) &&
                     <div>
                         <main className='container'>
                             <div className="pure-u-1-1">
@@ -80,13 +100,15 @@ class Courses extends React.Component {
                                     <fieldset>
                                         <label htmlFor="years"> Select academic year </label>
                                         <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChangeY}>
-                                            <option value="2017-2018"> 2017-2018 </option>
-                                            <option value="2016-2017"> 2016-2017 </option>
+                                            {<option value="select year" disabled={this.state.selectedYears === "" ? false : true}> -- select a year -- </option>}
+                                            {this.props.emptyAcademicYears === false &&
+                                                this.props.academicYears.map((rowData, index) => <OptionsY key={index} {...rowData} />)}
                                         </select>
                                         <label htmlFor="degreecourse"> Select degree course </label>
-                                        <select type="text" name="degreecourse" value={this.state.selectedDegreeCourse} onChange={this.onSelectChangeDC}>
-                                            <option value="MAT/INF17"> MAT/INF17 </option>
-                                            <option value="Fisica"> Fisica </option>
+                                        <select disabled={this.state.selectedYears === "" ? true : false} type="text" name="degreecourse" value={this.state.selectedDegreeCourse} onChange={this.onSelectChangeDC}>
+                                            {<option value="select degreeCourse" disabled={this.state.selectedDegreeCourse === "" ? false : true}> -- select a degree course -- </option>}
+                                            {this.props.emptyDegreeCourses === false &&
+                                                this.props.degreeCourses.map((rowData, index) => <OptionsDC key={index} {...rowData} />)}
                                         </select>
                                     </fieldset>
                                 </form>
