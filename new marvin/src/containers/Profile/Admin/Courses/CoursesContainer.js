@@ -11,6 +11,7 @@ import { readAcademicYearsFromDatabase } from '../../../../redux/actions/Admin/r
 const mapStateToProps = (state, ownProps) => {
   return {
     degreeCourses: state.admin.degreeCourses.payload,
+    successDegree: state.admin.degreeCourses.success,
     academicYears: state.admin.academicYears.payload,
     courses: state.admin.courses.payload,
     loadingCourses: state.admin.courses.loading,
