@@ -17,7 +17,7 @@ import EmptyData from '../../../Loading/EmptyData'
 
 const Row = ({ year, degreeUnicode, degreeData }) => (
     <tr className="clickable-row">
-        <td>Academic year {year + "-" + (parseInt(year, 10) + 1).toString()} </td>
+        <td>Academic year {year} </td>
         <td>{degreeUnicode}</td>
         <td>{degreeData}</td>
         <td>
