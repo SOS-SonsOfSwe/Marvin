@@ -39,8 +39,8 @@ const OptionsY = ({ year }) => (
     <option value={year}> {year} </option>
 );
 
-const OptionsDC = ({ DC }) => (
-    <option value={DC.degreeUnicode}> {DC.degreeUnicode} </option>
+const OptionsDC = ({ degreeUnicode }) => (
+    <option value={degreeUnicode}> {degreeUnicode} </option>
 );
 // CHANGE DEGREECOURSE IN DEGREEUNICODE, AS WE ARE WORKING WITH THEM
 
@@ -107,7 +107,8 @@ class Courses extends React.Component {
                                         <label htmlFor="degreecourse"> Select degree course </label>
                                         <select disabled={this.state.selectedYears === "" ? true : false} type="text" name="degreecourse" value={this.state.selectedDegreeCourse} onChange={this.onSelectChangeDC}>
                                             {<option value="select degreeCourse" disabled={this.state.selectedDegreeCourse === "" ? false : true}> -- select a degree course -- </option>}
-                                            {this.props.emptyDegreeCourses === false && this.props.admin.degreeCourses &&
+                                            {console.log('this.props.degreeCourses: ' + JSON.stringify(this.props.degreeCourses))}
+                                            {this.props.emptyDegreeCourses === false && this.props.successDegree === true &&
                                                 this.props.degreeCourses.map((rowData, index) => <OptionsDC key={index} {...rowData} />)}
                                         </select>
                                     </fieldset>
@@ -118,7 +119,7 @@ class Courses extends React.Component {
                                         state: { fromDegree: false }
                                     }}> Insert Course </Link>
                                 </button>
-                                {this.props.data &&
+                                {this.props.degreeCourses && this.props.courses &&
                                     <table className="table table-striped">
                                         <thead>
                                             <tr>
@@ -128,7 +129,7 @@ class Courses extends React.Component {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {this.props.data.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                            {this.props.courses.map((rowData, index) => <Row key={index} {...rowData} />)}
                                         </tbody>
                                     </table>
                                 }
