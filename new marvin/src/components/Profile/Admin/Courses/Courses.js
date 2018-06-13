@@ -17,10 +17,10 @@ import EmptyData from '../../../Loading/EmptyData'
 // ]
 
 // INSERT ALSO THE DESCRIPTION OF THE COURSE
-const Row = ({ year, courseUnicode }) => (
+const Row = ({ year, courseUnicode, courseData }) => (
     <tr className="clickable-row">
-        <td>Academic year {year}</td>
         <td>{courseUnicode}</td>
+        <td>{courseData}</td>
         <td>
             <Link to="/profile/courses/insert-exam">Insert an exam</Link>
         </td>
@@ -32,6 +32,7 @@ const Row = ({ year, courseUnicode }) => (
                 <Link to="/profile/courses/delete-course">Delete</Link>
             </button>
         </td>
+
     </tr>
 );
 
@@ -60,10 +61,7 @@ class Courses extends React.Component {
     onSelectChangeY(event) {
         this.setState({ selectedYears: event.target.value })
         this.props.readDegreeData(event.target.value)
-
-        if (this.state.selectedDegreeCourse !== '')
-            this.props.readCoursesData(event.target.value, this.state.selectedDegreeCourse)
-
+        this.setState({ selectedDegreeCourse: '' })
 
     }
 
@@ -113,7 +111,7 @@ class Courses extends React.Component {
                                         </select>
                                     </fieldset>
                                 </form>
-                                {this.state.selectedYears !== "" &&
+                                {this.state.selectedYears !== "" && this.state.selectedDegreeCourse !== "" &&
                                     <div>
                                         <button className="insert-button pure-button pure-button-primary">
                                             <Link to={{
@@ -125,8 +123,8 @@ class Courses extends React.Component {
                                             < table className="table table-striped">
                                                 <thead>
                                                     <tr>
-                                                        <th className="title-column">Year</th>
                                                         <th className="title-column">Course</th>
+                                                        <th className="title-column">Description</th>
                                                         <th className="title-column">Exam</th>
                                                     </tr>
                                                 </thead>
