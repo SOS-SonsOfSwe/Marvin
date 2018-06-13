@@ -85,8 +85,8 @@ export function readDegreeCoursesFromDatabase(year) {
             degreeInstance = instance
 
             // Attempt to read degree courses per year
-            year = year.slice(0, 4)
-            degreeInstance.getYearDegreesData(year, { from: coinbase })
+            var yearSliced = year.slice(0, 4)
+            degreeInstance.getYearDegreesData(yearSliced, { from: coinbase })
               // .then(console.log)
               .then(result => {
                 console.log('DEGREE DATA READ RESULT: ')
