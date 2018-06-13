@@ -7,7 +7,7 @@ class ModifyDegreeCourse extends React.Component {
 
         this.state = {
             year: '2000credici',  /*INSERIRE L'ANNO ACCADEMICO*/
-            degreeCourse: 'tua madre'  /*INSERIRE IL CORSO DI LAUREA CHE L'UTENTE HA DECISO DI MODIFICARE*/
+            degreeCourse: ''  /*INSERIRE IL CORSO DI LAUREA CHE L'UTENTE HA DECISO DI MODIFICARE*/
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleChange1 = this.handleChange1.bind(this);
