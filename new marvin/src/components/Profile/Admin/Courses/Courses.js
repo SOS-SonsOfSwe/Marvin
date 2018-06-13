@@ -59,7 +59,7 @@ class Courses extends React.Component {
 
     onSelectChangeY(event) {
         this.setState({ selectedYears: event.target.value })
-        this.props.readDegreeCoursesData(event.target.value)
+        this.props.readDegreeData(event.target.value)
 
         if (this.state.selectedDegreeCourse !== '')
             this.props.readCoursesData(event.target.value, this.state.selectedDegreeCourse)
