@@ -38,7 +38,7 @@ export default class FillBlockchain extends React.Component {
                     <p>Let me insert some data for you.</p>
                     <form className="pure-form pure-form-stacked">
                         <fieldset>
-                            <div className="div-buttons">
+                            <div className="div-buttons fill_it_button">
                                 <input type="submit" value="Fill it!" />
                             </div>
                         </fieldset>
