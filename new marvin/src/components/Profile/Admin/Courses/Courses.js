@@ -115,9 +115,9 @@ class Courses extends React.Component {
                                     <div>
                                         <div className="div_insert_button">
                                             <button className="insert-button pure-button pure-button-primary">
-                                                <Link to={{
+                                                <Link className="pure-link" to={{
                                                     pathname: "/profile/courses/insert-course",
-                                                    state: { year:this.state.selectedYears, degreeUnicode: this.state.selectedDegreeCourse }
+                                                    state: { year: this.state.selectedYears, degreeUnicode: this.state.selectedDegreeCourse }
                                                 }}> Insert Course </Link>
                                             </button>
                                         </div>
