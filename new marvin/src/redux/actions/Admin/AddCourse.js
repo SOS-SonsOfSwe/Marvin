@@ -75,7 +75,7 @@ export default function addCourse(year, degreeUnicode, courseUnicode, courseData
                     dispatch(errorAddingData())
                   })
                   .finally(def => {
-                    return browserHistory.push('/profile/courses')
+                    return browserHistory.push('/profile')
                   })
               })
               .catch(err => {
