@@ -4,11 +4,21 @@ import bs58 from 'bs58'
 export default class ipfsPromise {
   constructor() {
     this.callback = new IPFS({
-      host: "ipfs.infura.io",
+      // Using Infura node:
+      /*host: "ipfs.infura.io",
       port: '5001',
-      protocol: 'https'
+      protocol: 'https'*/
+
+      /* 
+       * Using local node - if you choose this you have to run "ipfs daemon" before. 
+       * You also need to loosen your IPFS node's CORS restrictions, changing config file in your .ipfs directory
+       * and setting "Access-Control-Allow-Origin": ["*"] both in "Gateway" and "API"):
+       */
+      host: "127.0.0.1",
+      port: '5001',
+      protocol: 'http'
     })
-  }
+}
 
   // Return bytes32 hex string from base58 encoded ipfs hash,
   // stripping leading 2 bytes from 34 byte IPFS hash
