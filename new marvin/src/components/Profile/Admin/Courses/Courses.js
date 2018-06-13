@@ -40,7 +40,7 @@ const OptionsY = ({ year }) => (
 );
 
 const OptionsDC = ({ DC }) => (
-    <option value={DC}> {DC} </option>
+    <option value={DC.degreeUnicode}> {DC.degreeUnicode} </option>
 );
 // CHANGE DEGREECOURSE IN DEGREEUNICODE, AS WE ARE WORKING WITH THEM
 
@@ -58,20 +58,20 @@ class Courses extends React.Component {
     }
 
     onSelectChangeY(event) {
-        this.setState({ selectedYears: event.target.value },
-            () => {
-                if (this.state.selectedDegreeCourse !== '') this.props.readCoursesData(this.state.selectedYears, this.state.selectedDegreeCourse)
-            },
-            () => this.props.readDegreeCoursesData(this.state.selectedYears)
-        )
+        this.setState({ selectedYears: event.target.value })
+        this.props.readDegreeCoursesData(event.target.value)
+
+        if (this.state.selectedDegreeCourse !== '')
+            this.props.readCoursesData(event.target.value, this.state.selectedDegreeCourse)
+
+
     }
 
     onSelectChangeDC(event) {
-        this.setState({ selectedDegreeCourse: event.target.value },
-            () => {
-                if (this.state.selectedYears !== '') this.props.readCoursesData(this.state.selectedYears, this.state.selectedDegreeCourse)
-            }
-        )
+        this.setState({ selectedDegreeCourse: event.target.value })
+
+        if (this.state.selectedYears !== '') this.props.readCoursesData(this.state.selectedYears, event.target.value)
+
     }
 
     componentDidMount() {
@@ -107,7 +107,7 @@ class Courses extends React.Component {
                                         <label htmlFor="degreecourse"> Select degree course </label>
                                         <select disabled={this.state.selectedYears === "" ? true : false} type="text" name="degreecourse" value={this.state.selectedDegreeCourse} onChange={this.onSelectChangeDC}>
                                             {<option value="select degreeCourse" disabled={this.state.selectedDegreeCourse === "" ? false : true}> -- select a degree course -- </option>}
-                                            {this.props.emptyDegreeCourses === false &&
+                                            {this.props.emptyDegreeCourses === false && this.props.admin.degreeCourses &&
                                                 this.props.degreeCourses.map((rowData, index) => <OptionsDC key={index} {...rowData} />)}
                                         </select>
                                     </fieldset>
