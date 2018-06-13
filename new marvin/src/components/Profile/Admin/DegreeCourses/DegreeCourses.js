@@ -38,7 +38,7 @@ const Row = ({ year, degreeUnicode, degreeData }) => (
 );
 
 const Options = ({ year }) => (
-    <option value={year}> {year} </option>
+    <option value={year.degreeUnicode}> {year.degreeUnicode} </option>
 );
 
 class DegreeCourses extends React.Component {
