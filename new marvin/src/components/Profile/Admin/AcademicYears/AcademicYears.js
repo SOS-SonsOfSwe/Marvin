@@ -49,7 +49,7 @@ class AcademicYears extends React.Component {
                             <p className="text-center">Here there is the list of the academic years.</p>
                             <div className="div_insert_button">
                                 <button className="insert-button pure-button pure-button-primary">
-                                    <Link to="/profile/academic-years/insert-academic-year"> Insert academic year </Link>
+                                    <Link className="pure-link" to="/profile/academic-years/insert-academic-year"> Insert academic year </Link>
                                 </button>
                             </div>
                             {this.props.empty === false && this.props.success === true &&

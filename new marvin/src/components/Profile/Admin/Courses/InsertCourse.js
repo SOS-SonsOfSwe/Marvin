@@ -10,11 +10,13 @@ class InsertCourse extends React.Component {
             year: this.props.year,
             degreeCourse: this.props.degreeUnicode,
             course: '',
+            description: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleChange1 = this.handleChange1.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
+        this.handleChange3 = this.handleChange3.bind(this);
         this.handleSave = this.handleSave.bind(this)
     }
 
@@ -30,9 +32,13 @@ class InsertCourse extends React.Component {
         this.setState({ course: event.target.value });
     }
 
+    handleChange3(event) {
+        this.setState({ description: event.target.value });
+    }
+
     handleSave(event) {
         event.preventDefault()
-        this.props.addCourse(this.state.year, this.state.degreeCourse, this.state.course)
+        this.props.addCourse(this.state.year, this.state.degreeCourse, this.state.course, this.state.description)
     }
 
     /*componentDidMount() {
@@ -60,8 +66,10 @@ class InsertCourse extends React.Component {
                             <input type="text" value={this.state.degreeCourse} onChange={this.handleChange1} placeholder="Insert a degree course" />
                             <label>Course</label>
                             <input type="text" value={this.state.course} onChange={this.handleChange2} placeholder="Insert a Course" />
+                            <label>Description</label>
+                            <input type="text" value={this.state.description} onChange={this.handleChange3} placeholder="Insert a description" />
                             <br />
-                                <Link to="/profile/courses/insert-exam">Insert an exam</Link>
+                            <Link to="/profile/courses/insert-exam">Insert an exam</Link>
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
                                 <button className="button_cancel">

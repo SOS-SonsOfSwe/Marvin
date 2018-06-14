@@ -509,7 +509,7 @@ tr:nth-child(even) {
   .pure-button {
     font-family: inherit;
     font-size: 100%;
-    padding: .5em 1em;
+    padding: .5em 0;
     color: #444;
     color: rgba(0, 0, 0, 0.8);
     border: 1px solid #999;
@@ -1130,3 +1130,6 @@ tr:nth-child(even) {
     }
   }
 
+.pure-link{
+  padding: 0.65em 1em;
+}
