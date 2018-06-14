@@ -11,12 +11,12 @@ import EmptyData from '../../../../Loading/EmptyData'
     { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },
 ]*/
 
-const Row = ({ load, badgeNumber, fiscalCode, isSignedUp }) => (
+const Row = ({ load, badgeNumber, isSignedUp }) => (
     <tr className="clickable-row">
         <td>{load && load.name}</td>
         <td>{load && load.surname}</td>
         <td>{badgeNumber}</td>
-        <td>{fiscalCode}</td>
+        <td>{load && load.FC}</td>
         <td>{isSignedUp}</td>
         <td>
             <button className="delete-link">
@@ -40,8 +40,8 @@ class Administrators extends React.Component {
 
         return (
             <div>
-                {console.log('this.props.loading: ' + this.props.loading)}
-                {console.log('this.props.empty: ' + this.props.empty)}
+                {/* {console.log('this.props.loading: ' + this.props.loading)} */}
+                {/* {console.log('this.props.empty: ' + this.props.empty)} */}
                 {load}
                 {ipfsLoad}
                 {empty}
