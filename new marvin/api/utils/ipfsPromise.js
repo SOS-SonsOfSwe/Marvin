@@ -3,10 +3,15 @@ import bs58 from 'bs58'
 
 export default class ipfsPromise {
   constructor() {
+    // this.callback = new IPFS({
+    //   host: "ipfs.infura.io",
+    //   port: '5001',
+    //   protocol: 'https'
+    // })
     this.callback = new IPFS({
-      host: "ipfs.infura.io",
+      host: "127.0.0.1",
       port: '5001',
-      protocol: 'https'
+      protocol: 'http'
     })
   }
 

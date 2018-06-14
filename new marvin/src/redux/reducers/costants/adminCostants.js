@@ -17,3 +17,7 @@ export const COURSES = 'COURSES'
 export const ERASE_ACADEMIC_YEARS = 'ERASE_ACADEMIC_YEAR'
 export const ERASE_DEGREE_COURSES = 'ERASE_DEGREE_COURSES'
 export const ERASE_COURSES = 'ERASE_COURSES'
+
+export const TEACHERS = 'TEACHERS'
+export const STUDENTS = 'STUDENTS'
+export const ADMINS = 'ADMINS'

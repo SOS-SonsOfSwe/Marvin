@@ -51,8 +51,18 @@ contract UserData {
         return users[_fiscalCode].userType;
     }
 
+    function getUsersBadgeNumber(bytes32 _fiscalCode) public view returns(uint32) {
+        return users[_fiscalCode].badgeNumber;
+    }
+
     function getUsersIsUser(bytes32 _fiscalCode) public view returns(bool) {
         return users[_fiscalCode].isUser;
+    }
+
+    function getUsersHashData(bytes32 _fiscalCode) public view returns(bytes32) {
+        if(users[_fiscalCode].isUser)
+            return(users[_fiscalCode].hashData);
+        return(0);
     }
 
     function getRegUsersUniCode(address _address) public view returns(bytes10) {
