@@ -17,7 +17,6 @@ import ipfsPromise from '../../../../api/utils/ipfsPromise'
 const contract = require('truffle-contract')
 
 function doAwesomeStuff(dispatch, load, userValue) {
-  console.log('doAwesomeStuff: ')
   dispatch(dataRead({ load }, userValue))
   var currentLocation = browserHistory.getCurrentLocation()
   if('redirect' in currentLocation.query) {
@@ -33,10 +32,9 @@ async function processIPFSResultParallel(ipfs, payload) {
     if(item.load === null) return null
     else return ipfs.getJSON(item.load)
       .then(result => {
-        console.error('perche sono qui')
         // here I overwrite the description information with the JSON returning from the ipfs.
         // PAY ATTENTION: the payload is the same as the login, so look over there to catch the right info!
-        item.load = result.load
+        item.load = result
       })
   })
   await Promise.all(promises)
@@ -146,13 +144,13 @@ export function readUsersFromDatabase(userType) {
                     if(userType === web3.toDecimal(result[2][i])) {
                       var hash = result[0][i].toString()
                         .slice(0, 5)
-                      console.error(hash)
+                      // console.error(hash)
                       var hashIPFS
                       if(hash.toString() !== '0x000')
                         hashIPFS = ipfsPromise.getIpfsHashFromBytes32(result[0][i])
                       else hashIPFS = null
                       var badgeNumber = web3.toDecimal(result[1][i])
-                      var isSignedUp = web3.toDecimal(result[3][i])
+                      var isSignedUp = (result[3][i])
 
                       // console.log("admin: " + admin)
                       // console.log('dgr: ' + dgr)
