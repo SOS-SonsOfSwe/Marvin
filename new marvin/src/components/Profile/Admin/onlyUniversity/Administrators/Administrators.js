@@ -17,7 +17,7 @@ const Row = ({ load, badgeNumber, isSignedUp }) => (
         <td>{load && load.surname}</td>
         <td>{badgeNumber}</td>
         <td>{load && load.FC}</td>
-        <td>{isSignedUp}</td>
+        <td style={isSignedUp === 0 ? { backgroundColor: 'red' } : { backgroundColor: 'green' }}></td>
         <td>
             <button className="delete-link">
                 <Link to="/profile/administrators/delete-administrator">Delete</Link>
