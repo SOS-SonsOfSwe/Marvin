@@ -24,7 +24,7 @@ import FillBlockchainContainer from './containers/App/FillBlockchainContainer'
 import AcademicYearsContainer from './containers/Profile/Admin/AcademicYears/AcademicYearsContainer'
 import DegreeCoursesContainer from './containers/Profile/Admin/DegreeCourses/DegreeCoursesContainer'
 import CoursesContainer from './containers/Profile/Admin/Courses/CoursesContainer'
-import Administrators from './components/Profile/Admin/onlyUniversity/Administrators/Administrators'
+import readAdminsContainer from './containers/Profile/Admin/AllUsers/readAdminsContainer'
 import Professors from './components/Profile/Admin/Professors/Professors'
 import Students from './components/Profile/Admin/Students/Students'
 import ExamsProfessorList from './components/Profile/Professor/ExamsProfessorList'
@@ -101,7 +101,7 @@ ReactDOM.render((
           </Route>
 
           <Route path="administrators">
-            <IndexRoute component={UniIsAuthenticated(Administrators)} />
+            <IndexRoute component={UniIsAuthenticated(readAdminsContainer)} />
             <Route path="insert-user" component={UniIsAuthenticated(InsertUser)} />
             <Route path="delete-administrator" component={UniIsAuthenticated(DeleteAdministrator)} />
           </Route>
