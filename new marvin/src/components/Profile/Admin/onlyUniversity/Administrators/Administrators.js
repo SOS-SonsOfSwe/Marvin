@@ -11,13 +11,13 @@ import EmptyData from '../../../../Loading/EmptyData'
     { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },
 ]*/
 
-const Row = ({ name, surname, badgeNumber, fiscalCode, univocalCode }) => (
+const Row = ({ load, badgeNumber, fiscalCode, isSignedUp }) => (
     <tr className="clickable-row">
-        <td>{name}</td>
-        <td>{surname}</td>
+        <td>{load && load.name}</td>
+        <td>{load && load.surname}</td>
         <td>{badgeNumber}</td>
         <td>{fiscalCode}</td>
-        <td>{univocalCode}</td>
+        <td>{isSignedUp}</td>
         <td>
             <button className="delete-link">
                 <Link to="/profile/administrators/delete-administrator">Delete</Link>
@@ -28,7 +28,7 @@ const Row = ({ name, surname, badgeNumber, fiscalCode, univocalCode }) => (
 
 class Administrators extends React.Component {
     componentDidMount() {
-        this.props.readAdmins();
+        this.props.readAdmins('admin');
     }
 
     render() {
@@ -40,6 +40,8 @@ class Administrators extends React.Component {
 
         return (
             <div>
+                {console.log('this.props.loading: ' + this.props.loading)}
+                {console.log('this.props.empty: ' + this.props.empty)}
                 {load}
                 {ipfsLoad}
                 {empty}
@@ -65,7 +67,7 @@ class Administrators extends React.Component {
                                             <th className="title-column">Surname</th>
                                             <th className="title-column">Badge number</th>
                                             <th className="title-column">Fiscal code</th>
-                                            <th className="title-column">Univocal code</th>
+                                            <th className="title-column">Is signed up</th>
                                         </tr>
                                     </thead>
                                     <tbody>

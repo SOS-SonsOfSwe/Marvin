@@ -17,9 +17,10 @@ import ipfsPromise from '../../../../api/utils/ipfsPromise'
 const contract = require('truffle-contract')
 
 function doAwesomeStuff(dispatch, load, userValue) {
+  console.log('doAwesomeStuff: ')
   dispatch(dataRead({ load }, userValue))
   var currentLocation = browserHistory.getCurrentLocation()
-  if ('redirect' in currentLocation.query) {
+  if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   }
@@ -27,46 +28,51 @@ function doAwesomeStuff(dispatch, load, userValue) {
 }
 
 async function processIPFSResultParallel(ipfs, payload) {
-  const promises = payload.map(item => ipfs.getJSON(item.degreeData)
-    .then(result => {
-      // here I overwrite the description information with the JSON returning from the ipfs.
-      // PAY ATTENTION: the payload is the same as the login, so look over there to catch the right info!
-      item.payload = result.payload
-    }))
+  const promises = payload.map(item => {
+    // checking for the hash which has not to be null
+    if(item.load === null) return null
+    else return ipfs.getJSON(item.load)
+      .then(result => {
+        console.error('perche sono qui')
+        // here I overwrite the description information with the JSON returning from the ipfs.
+        // PAY ATTENTION: the payload is the same as the login, so look over there to catch the right info!
+        item.load = result.load
+      })
+  })
   await Promise.all(promises)
 }
 
 export function readUsersFromDatabase(userType) {
   var userValue
-  switch (userType) {
-    default: {
-      userType = '0'
+  switch(userType) {
+  case 'admin':
+    {
+      userType = 1
+      userValue = ADMINS
       break
     }
-    case userType === 'admin':
-      {
-        userType = '1'
-        userValue = ADMINS
-        break
-      }
-    case userType === 'teacher':
-      {
-        userType = '2'
-        userValue = TEACHERS
-        break
-      }
-    case userType === 'student':
-      {
-        userType = '3'
-        userValue = STUDENTS
-        break
-      }
+  case 'teacher':
+    {
+      userType = 2
+      userValue = TEACHERS
+      break
+    }
+  case 'student':
+    {
+      userType = 3
+      userValue = STUDENTS
+      break
+    }
+  default:
+    {
+      userType = 0
+      break
+    }
   }
-
   let web3 = store.getState()
     .web3.web3Instance
 
-  if (typeof web3 !== 'undefined') {
+  if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -82,7 +88,7 @@ export function readUsersFromDatabase(userType) {
         dispatch(readingData(userValue))
 
         // Log errors, if any.
-        if (error) {
+        if(error) {
           console.error(error);
         }
 
@@ -97,7 +103,7 @@ export function readUsersFromDatabase(userType) {
                 console.log('USER DATA READ RESULT: ')
                 console.log(result)
 
-                if (result[0].length === 0) {
+                if(result[0].length === 0) {
                   dispatch(dataEmpty(userValue))
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))
@@ -107,7 +113,7 @@ export function readUsersFromDatabase(userType) {
                   // result[0]: hash
                   // result[1]: badgeNumber
                   // result[2]: userType
-                  // result[3]: isSignedUP
+                  // result[3]: isSignedUp
                   // so payload will be:
                   // payload = [{'payload':result[0]}, 
                   //            {'badgeNumber':web3.toUtf8(result[1])},
@@ -130,21 +136,33 @@ export function readUsersFromDatabase(userType) {
                   // It is better to read all the infos together without doing
                   // much conversions because we can close the communication
                   // with the blockchain faster
-                  for (i; i < result[0].length; i++) {
-                    if (userType === web3.toDecimal(result[2])) {
-                      var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(result[0][i])
+                  for(i; i < result[0].length; i++) {
+                    // console.log('web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
+                    // console.log('ipfsPromise.getIpfsHashFromBytes32(result[0][i]): ' + ipfsPromise.getIpfsHashFromBytes32(result[0][i]))
+                    // console.log('web3.toDecimal(result[1][i]): ' + web3.toDecimal(result[1][i]))
+                    // console.log('web3.toDecimal(result[3][i]): ' + web3.toDecimal(result[3][i]))
+                    // console.log('userType: ' + userType, 'web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
+                    // console.log('if result ' + (userType === web3.toDecimal(result[2])))
+                    if(userType === web3.toDecimal(result[2][i])) {
+                      var hash = result[0][i].toString()
+                        .slice(0, 5)
+                      console.error(hash)
+                      var hashIPFS
+                      if(hash.toString() !== '0x000')
+                        hashIPFS = ipfsPromise.getIpfsHashFromBytes32(result[0][i])
+                      else hashIPFS = null
                       var badgeNumber = web3.toDecimal(result[1][i])
-                      var isSignedUP = web3.toDecimal(result[3][i])
+                      var isSignedUp = web3.toDecimal(result[3][i])
 
                       // console.log("admin: " + admin)
                       // console.log('dgr: ' + dgr)
 
                       // i'm storing the informations inside the description. We will retrieve them later.
-                      if (i === 0) { // first element of array
-                        payload = [{ load: hashIPFS, badgeNumber: badgeNumber, isSignedUP: isSignedUP },]
+                      if(i === 0) { // first element of array
+                        payload = [{ load: hashIPFS, badgeNumber: badgeNumber, isSignedUp: isSignedUp }, ]
                       } else
                         payload = [...payload,
-                        { load: hashIPFS, badgeNumber: badgeNumber, isSignedUP: isSignedUP }
+                          { load: hashIPFS, badgeNumber: badgeNumber, isSignedUp: isSignedUp }
                         ]
                     }
                   }
