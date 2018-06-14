@@ -62,7 +62,7 @@ const readTeachersReducer = (state = initialState, action) => {
           loading: false
         }
       }
-    case adminCostants.ERASE_COURSES:
+    case adminCostants.ERASE_TEACHERS:
       {
         return {
           ...state,

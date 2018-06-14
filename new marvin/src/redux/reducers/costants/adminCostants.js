@@ -21,3 +21,7 @@ export const ERASE_COURSES = 'ERASE_COURSES'
 export const TEACHERS = 'TEACHERS'
 export const STUDENTS = 'STUDENTS'
 export const ADMINS = 'ADMINS'
+
+export const ERASE_TEACHERS = 'ERASE_TEACHERS'
+export const ERASE_STUDENTS = 'ERASE_STUDENTS'
+export const ERASE_ADMINS = 'ERASE_ADMINS'
