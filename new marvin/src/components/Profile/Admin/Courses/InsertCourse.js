@@ -66,7 +66,7 @@ class InsertCourse extends React.Component {
                             <input type="text" value={this.state.degreeCourse} onChange={this.handleChange1} placeholder="Insert a degree course" />
                             <label>Course</label>
                             <input type="text" value={this.state.course} onChange={this.handleChange2} placeholder="Insert a Course" />
-                            <label>Course</label>
+                            <label>Description</label>
                             <input type="text" value={this.state.description} onChange={this.handleChange3} placeholder="Insert a description" />
                             <br />
                             <Link to="/profile/courses/insert-exam">Insert an exam</Link>
