@@ -1,4 +1,6 @@
 import AdminContract from '../../../../build/contracts/Admin'
+import Units from 'ethereumjs-units'
+import ethPrice from 'eth-price'
 import {
   browserHistory
 } from 'react-router'
@@ -21,8 +23,13 @@ export default function addNewAcademicYear(year) {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
+
       const admin = contract(AdminContract)
+
       admin.setProvider(web3.currentProvider)
+
+      var gasPrice
+      admin.web3.eth.getGasPrice((error, result) => gasPrice = Number(result))
 
       // Declaring this for later so we can chain functions on Authentication.
       var adminIstance
@@ -37,12 +44,36 @@ export default function addNewAcademicYear(year) {
         admin.deployed()
           .then(instance => {
             adminIstance = instance
+
+            var estimatedGas
+            var costOperationWei
+            var costOperationEth
+            var costOperationUsd
+
+            adminIstance.addNewYear.estimateGas(year)
+              .then(result => {
+                estimatedGas = result
+                costOperationWei = estimatedGas * gasPrice
+                costOperationEth = Units.convert(costOperationWei, 'wei', 'eth')
+                console.log('estimateGas: ' + estimatedGas)
+                console.log('Cost of the operation in Wei: ' + costOperationWei)
+                console.log('Cost of the operation in Ether: ' + costOperationEth)
+                ethPrice('EUR')
+                  .then(ethInEur => {
+                    ethInEur = parseFloat(ethInEur[0]
+                      .slice(5))
+                    costOperationUsd = ethInEur * costOperationEth
+                    console.error('Cost of the operation in EUR: ' + costOperationUsd)
+                  })
+
+              })
+
             // dispatching action for make the reducer know we are making the transaction
             dispatch(addingData())
-
             //taking the first 4 numbers
             year = year.slice(0, 4)
             //be careful!! This number cannot be over 4095 or it starts again from 1.
+
             adminIstance.addNewYear(year, { from: coinbase })
               .then(result => {
                 // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito

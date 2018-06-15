@@ -64,6 +64,8 @@
   },
   "dependencies": {
     "bs58": "^4.0.1",
+    "eth-price": "^0.1.5",
+    "ethereumjs-units": "^0.2.0",
     "ipfs-mini": "^1.1.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
