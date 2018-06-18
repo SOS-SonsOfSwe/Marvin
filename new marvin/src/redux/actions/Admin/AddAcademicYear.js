@@ -29,7 +29,13 @@ export default function addNewAcademicYear(year) {
       admin.setProvider(web3.currentProvider)
 
       var gasPrice
-      admin.web3.eth.getGasPrice((error, result) => gasPrice = Number(result))
+
+      // admin.web3.eth.getGasPrice((error, result) => {
+      //   gasPrice = Number(result)
+      //   // other methods here, as it's a callback which is returning a value
+      // })
+      // console.log('GasPrice: ' + gasPrice)
+      gasPrice = 1000000000
 
       // Declaring this for later so we can chain functions on Authentication.
       var adminIstance
@@ -53,17 +59,18 @@ export default function addNewAcademicYear(year) {
             adminIstance.addNewYear.estimateGas(year)
               .then(result => {
                 estimatedGas = result
+                console.log('GasPrice before op: ' + gasPrice)
                 costOperationWei = estimatedGas * gasPrice
                 costOperationEth = Units.convert(costOperationWei, 'wei', 'eth')
                 console.log('estimateGas: ' + estimatedGas)
                 console.log('Cost of the operation in Wei: ' + costOperationWei)
                 console.log('Cost of the operation in Ether: ' + costOperationEth)
-                ethPrice('EUR')
+                ethPrice('USD')
                   .then(ethInEur => {
                     ethInEur = parseFloat(ethInEur[0]
                       .slice(5))
                     costOperationUsd = ethInEur * costOperationEth
-                    console.error('Cost of the operation in EUR: ' + costOperationUsd)
+                    console.error('Cost of the operation in USD: ' + costOperationUsd)
                   })
 
               })
