@@ -48,11 +48,11 @@ export const UniIsAuthenticated = connectedReduxRedirect({
   wrapperDisplayName: 'UniIsAuthenticated'
 })
 
-export const ProfessorIsAuthenticated = connectedReduxRedirect({
+export const TeacherIsAuthenticated = connectedReduxRedirect({
   redirectPath: '/',
   authenticatedSelector: state => state.user.data !== null && state.user.isProf,
   redirectAction: routerActions.replace,
-  wrapperDisplayName: 'ProfessorIsAuthenticated'
+  wrapperDisplayName: 'TeacherIsAuthenticated'
 })
 
 export const StudentIsAuthenticated = connectedReduxRedirect({

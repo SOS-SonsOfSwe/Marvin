@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import Professors from '../../../../components/Profile/Admin/Professors/Professors'
+import Teachers from '../../../../components/Profile/Admin/Teachers/Teachers'
 // import Courses from '../../../../components/Profile/Admin/Courses/Courses'
 
 // import { readCoursesFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
@@ -28,6 +28,6 @@ const mapDispatchToProps = (dispatch) => {
 const readTeachersContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Professors)
+)(Teachers)
 
 export default readTeachersContainer

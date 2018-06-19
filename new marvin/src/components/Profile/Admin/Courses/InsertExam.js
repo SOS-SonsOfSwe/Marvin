@@ -22,7 +22,7 @@ class InsertExam extends React.Component {
 
         this.state = {
             typology: '',
-            professor: '',
+            teacher: '',
             place: '',
             date: '',
             time: ''
@@ -39,7 +39,7 @@ class InsertExam extends React.Component {
     }
 
     handleChange4(event) {
-        this.setState({ professor: event.target.value });
+        this.setState({ teacher: event.target.value });
     }
 
     handleChange5(event) {
@@ -67,8 +67,8 @@ class InsertExam extends React.Component {
                             {rows}
                             <label>Tipology</label>
                             <input type="text" value={this.state.typology} onChange={this.handleChange3} placeholder="Insert a tipology" />
-                            <label>Professor</label>
-                            <input type="text" value={this.state.professor} onChange={this.handleChange4} placeholder="Insert a professor" />
+                            <label>Teacher</label>
+                            <input type="text" value={this.state.teacher} onChange={this.handleChange4} placeholder="Insert a teacher" />
                             <label>Place</label>
                             <input type="text" value={this.state.place} onChange={this.handleChange5} placeholder="Insert a place" />
                             <label>Date</label>

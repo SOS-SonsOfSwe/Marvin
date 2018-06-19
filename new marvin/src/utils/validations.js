@@ -26,7 +26,7 @@ export function userDef(type) {
   case 3:
     return 'student';
   case 2:
-    return 'professor';
+    return 'teacher';
   case 1:
     return 'administrator';
   case 4:

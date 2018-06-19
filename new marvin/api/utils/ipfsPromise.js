@@ -3,15 +3,31 @@ import bs58 from 'bs58'
 
 export default class ipfsPromise {
   constructor() {
-    // this.callback = new IPFS({
-    //   host: "ipfs.infura.io",
-    //   port: '5001',
-    //   protocol: 'https'
-    // })
+    // Using Infura node
+    /*
+     * this.callback = new IPFS({
+     * host: "ipfs.infura.io",
+     * port: '5001',
+     * protocol: 'https'
+     * })
+     */
+
+    /* 
+     * Using local node - if you choose this you have to run "ipfs daemon" before. 
+     * You also need to loosen your IPFS node's CORS restrictions, changing config file in your .ipfs directory
+     * and setting "Access-Control-Allow-Origin": ["*"] both in "Gateway" and "API"):
+     *
+     * this.callback = new IPFS({
+     * host: "127.0.0.1",
+     * port: '5001',
+     * protocol: 'http'
+     * })
+     */
+
+    // Using AWS Server Instance
     this.callback = new IPFS({
-      host: "127.0.0.1",
-      port: '5001',
-      protocol: 'http'
+      host: "54.93.231.212", // IPv4 Public IP of the AWS Server Instance
+      port: '5001'
     })
   }
 
@@ -63,5 +79,4 @@ export default class ipfsPromise {
       })
     })
   }
-
 }

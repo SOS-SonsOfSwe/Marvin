@@ -10,7 +10,7 @@ class ModifyCourse extends React.Component {
             degreeCourse: 'to mare',  /*INSERIRE IL CORSO DI LAUREA*/
             course: 'omo',  /*INSERIRE L'ATTIVITà DIDATTICA CHE L'UTENTE HA DECISO DI MODIFICARE*/
             typology: 'tipologia',  /*INSERIRE LA TIPOLOGIA DELL'ESAME CHE L'UTENTE HA DECISO DI MODIFICARE*/
-            professor: 'professore',  /*INSERIRE IL PROFESSORE DELL'ESAME CHE L'UTENTE HA DECISO DI MODIFICARE*/
+            teacher: 'teachere',  /*INSERIRE IL PROFESSORE DELL'ESAME CHE L'UTENTE HA DECISO DI MODIFICARE*/
             place: 'luogo',  /*INSERIRE IL LUOGO DELL'ESAME CHE L'UTENTE HA DECISO DI MODIFICARE*/
             date: 'data',  /*INSERIRE LA DATA DELL'ESAME CHE L'UTENTE HA DECISO DI MODIFICARE*/
             time: 'ora'  /*INSERIRE L'ORA DELL'ESAME CHE L'UTENTE HA DECISO DI MODIFICARE*/
@@ -43,7 +43,7 @@ class ModifyCourse extends React.Component {
     }
 
     handleChange4(event) {
-        this.setState({ professor: event.target.value });
+        this.setState({ teacher: event.target.value });
     }
 
     handleChange5(event) {
@@ -76,8 +76,8 @@ class ModifyCourse extends React.Component {
                             <div className="float-right">
                                 <label>Tipology</label>
                                 <input type="text" value={this.state.typology} onChange={this.handleChange3} />
-                                <label>Professor</label>
-                                <input type="text" value={this.state.professor} onChange={this.handleChange4} />
+                                <label>Teacher</label>
+                                <input type="text" value={this.state.teacher} onChange={this.handleChange4} />
                                 <label>Place</label>
                                 <input type="text" value={this.state.place} onChange={this.handleChange5} />
                                 <label>Date</label>

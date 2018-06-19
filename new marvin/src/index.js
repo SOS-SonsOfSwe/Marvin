@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
-import { UserIsAuthenticated, UserIsNotAuthenticated, AdminIsAuthenticated, UserDataFetching, UniIsAuthenticated, StudentIsAuthenticated, ProfessorIsAuthenticated } from './authentication/wrappers'
+import { UserIsAuthenticated, UserIsNotAuthenticated, AdminIsAuthenticated, UserDataFetching, UniIsAuthenticated, StudentIsAuthenticated, TeacherIsAuthenticated } from './authentication/wrappers'
 import getWeb3 from '../api/utils/getWeb3'
 // Layouts
 
@@ -25,9 +25,9 @@ import AcademicYearsContainer from './containers/Profile/Admin/AcademicYears/Aca
 import DegreeCoursesContainer from './containers/Profile/Admin/DegreeCourses/DegreeCoursesContainer'
 import CoursesContainer from './containers/Profile/Admin/Courses/CoursesContainer'
 import readAdminsContainer from './containers/Profile/Admin/AllUsers/readAdminsContainer'
-import Professors from './components/Profile/Admin/Professors/Professors'
+import Teachers from './components/Profile/Admin/Teachers/Teachers'
 import Students from './components/Profile/Admin/Students/Students'
-import ExamsProfessorList from './components/Profile/Professor/ExamsProfessorList'
+import ExamsTeacherList from './components/Profile/Teacher/ExamsTeacherList'
 import ExamsStudentList from './components/Profile/Student/ExamsStudentList'
 import SchoolRecords from './components/Profile/Student/SchoolRecords'
 import InsertAcademicYearContainer from './containers/Profile/Admin/AcademicYears/InsertAcademicYearContainer'
@@ -41,7 +41,7 @@ import InsertExam from './components/Profile/Admin/Courses/InsertExam'
 import ModifyCourse from './components/Profile/Admin/Courses/ModifyCourse'
 import DeleteCourse from './components/Profile/Admin/Courses/DeleteCourse'
 import DeleteAdministrator from './components/Profile/Admin/onlyUniversity/Administrators/DeleteAdministrator'
-import DeleteProfessor from './components/Profile/Admin/Professors/DeleteProfessor'
+import DeleteTeacher from './components/Profile/Admin/Teachers/DeleteTeacher'
 import DeleteStudent from './components/Profile/Admin/Students/DeleteStudent'
 
 
@@ -106,10 +106,10 @@ ReactDOM.render((
             <Route path="delete-administrator" component={UniIsAuthenticated(DeleteAdministrator)} />
           </Route>
 
-          <Route path="professors">
-            <IndexRoute component={AdminIsAuthenticated((Professors))} />
+          <Route path="teachers">
+            <IndexRoute component={AdminIsAuthenticated((Teachers))} />
             <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
-            <Route path="delete-professor" component={AdminIsAuthenticated(DeleteProfessor)} />
+            <Route path="delete-teacher" component={AdminIsAuthenticated(DeleteTeacher)} />
           </Route>
 
           <Route path="students">
@@ -118,7 +118,7 @@ ReactDOM.render((
             <Route path="delete-student" component={AdminIsAuthenticated(DeleteStudent)} />
           </Route>
 
-          <Route path="exams-list" component={ProfessorIsAuthenticated(ExamsProfessorList)} />
+          <Route path="exams-list" component={TeacherIsAuthenticated(ExamsTeacherList)} />
           <Route path="exams-student-list" component={StudentIsAuthenticated(ExamsStudentList)} />
           <Route path="school-records" component={StudentIsAuthenticated(SchoolRecords)} />
 

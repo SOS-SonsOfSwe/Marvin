@@ -1,22 +1,36 @@
 pragma solidity ^0.4.2;
+import "./ContractManager.sol";
 
 contract UserData {
     address uniAddress;
+    ContractManager manager;
     
     struct User {
-        uint32 badgeNumber;
-        bytes32 hashData;
-        bytes10 uniCode;
         uint8 userType;         // 1: admin, 2: teacher, 3: student
         bool isUser;
-        bool etherWithdraw;
+        uint32 badgeNumber;
+        bytes10 uniCode;
+        bytes32 hashData;
     }
+    // key = user fiscal code
     mapping(bytes32 => User) users;
     mapping(address => bytes32) registeredUsers;        // used for user identification with Metamask
+    // users fiscal codes
     bytes32[] userIndex;
     
-    constructor() public {
+    constructor(address _contractManagerAddress) public {
         uniAddress = msg.sender;
+        manager = ContractManager(_contractManagerAddress);
+    }
+
+    modifier onlyLogicContract() {
+        require(msg.sender == manager.getUserLogicContract());
+        _;
+    }
+
+    modifier onlyAdminContract() {
+        require(msg.sender == manager.getAdminContract());
+        _;
     }
 
     function isUniversity(address _address) public view returns(bool) {
@@ -65,10 +79,6 @@ contract UserData {
         return(0);
     }
 
-    function getRegUsersUniCode(address _address) public view returns(bytes10) {
-        return users[registeredUsers[_address]].uniCode;
-    }
-
     function getRegUsersFiscalCode(address _address) public view returns(bytes32) {
         return registeredUsers[_address];
     }
@@ -89,35 +99,35 @@ contract UserData {
         return uniAddress ;
     }
 
-    function getEtherWithdraw(bytes32 _fiscalCode) public view returns(bool) {
-        return users[_fiscalCode].etherWithdraw;
-    }
-
-    function setUniCode(bytes32 _fiscalCode, bytes10 _uniCode) public {
+    function setUniCode(bytes32 _fiscalCode, bytes10 _uniCode) public onlyAdminContract {
         users[_fiscalCode].uniCode = _uniCode;
     }
 
-    function setUserType(bytes32 _fiscalCode, uint8 _userType) public {
+    function setUserType(bytes32 _fiscalCode, uint8 _userType) public onlyAdminContract {
         users[_fiscalCode].userType = _userType;
     }
 
-    function setEtherWithdraw(bytes32 _fiscalCode, bool _state) public {
-        users[_fiscalCode].etherWithdraw = _state;
-    }
-
-    function addAndSetBadgeNumber(bytes32 _fiscalCode) public {
+    function addAndSetBadgeNumber(bytes32 _fiscalCode) public onlyAdminContract {
         users[_fiscalCode].badgeNumber = uint32(userIndex.push(_fiscalCode));
     }
 
-    function setAddressMapping(address _address, bytes32 _fiscalCode) public {
+    function setAddressMapping(address _address, bytes32 _fiscalCode) public onlyLogicContract {
         registeredUsers[_address] = _fiscalCode;
     }
 
-    function setIsUser(bytes32 _fiscalCode, bool _isUser) public {
+    function setIsUser(bytes32 _fiscalCode, bool _isUser) public onlyLogicContract {
         users[_fiscalCode].isUser = _isUser;
     }
 
-    function setHashData(bytes32 _fiscalCode, bytes32 _hashData) public {
+    function setHashData(bytes32 _fiscalCode, bytes32 _hashData) public onlyLogicContract {
         users[_fiscalCode].hashData = _hashData;
+    }
+
+    function deleteUserArray(uint32 _user) public onlyAdminContract {
+        delete userIndex[_user - 1];
+    }
+
+    function deleteUserMap(uint32 _user) public onlyAdminContract {
+        delete users[userIndex[_user - 1]];
     }
 }
