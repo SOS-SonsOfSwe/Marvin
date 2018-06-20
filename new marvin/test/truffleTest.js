@@ -1,75 +1,31 @@
-var MetaCoin = artifacts.require("MetaCoin");
+const AdminContract = artifacts.require('./Admin.sol')
+const DegreeContract = artifacts.require('./DegreeData')
 
-contract('MetaCoin', function (accounts) {
-  it("should put 10000 MetaCoin in the first account", function () {
-    return MetaCoin.deployed()
-      .then(function (instance) {
-        return instance.getBalance.call(accounts[0]);
-      })
-      .then(function (balance) {
-        assert.equal(balance.valueOf(), 10000, "10000 wasn't in the first account");
+const address0 = '0x627306090abab3a6e1400e9345bc60c78a8bef57'
+const address1 = '0xf17f52151ebef6c7334fad080c5704d77216b732'
+const address2 = '0xc5fdf4076b8f3a5357c5e395ab970b5b54098fef'
+const address3 = '0x821aea9a577a9b44299b9c15c88cf3087f3b5544'
+const address4 = '0x0d1d4e623d10f9fba5db95830f7d3839406c6af2'
+const address5 = '0x2932b7a2355d6fecc4b5c0b6bd44cc31df247a2e'
+const address6 = '0x2191ef87e392377ec08e7c08eb105ef5448eced5'
+const address7 = '0x0f4f2ac550a1b4e2280d04c21cea7ebd822934b5'
+const address8 = '0x6330a553fc93768f612722bb8c2ec78ac90b3bbc'
+const address9 = '0x5aeda56215b167893e80b4fe645ba6d5bab767de'
+
+contract('AdminContract and DegreeContract', () => {
+  it("should insert a new year", function () {
+    var instance
+    AdminContract.deployed()
+      .then(adminInstance => {
+        instance = adminInstance
+        return instance.addNewYear(2018, { from: address0 })
       });
+    DegreeContract.deployed()
+      .then(degreeInstance => {
+        return degreeInstance.isYear(2018, { from: address0 })
+      })
+      .then(isTrue => {
+        assert.equal(isTrue, true, "Adding new year ok");
+      })
   });
-  it("should call a function that depends on a linked library", function () {
-    var meta;
-    var metaCoinBalance;
-    var metaCoinEthBalance;
-
-    return MetaCoin.deployed()
-      .then(function (instance) {
-        meta = instance;
-        return meta.getBalance.call(accounts[0]);
-      })
-      .then(function (outCoinBalance) {
-        metaCoinBalance = outCoinBalance.toNumber();
-        return meta.getBalanceInEth.call(accounts[0]);
-      })
-      .then(function (outCoinBalanceEth) {
-        metaCoinEthBalance = outCoinBalanceEth.toNumber();
-      })
-      .then(function () {
-        assert.equal(metaCoinEthBalance, 2 * metaCoinBalance, "Library function returned unexpected function, linkage may be broken");
-      });
-  });
-  it("should send coin correctly", function () {
-    var meta;
-
-    // Get initial balances of first and second account.
-    var account_one = accounts[0];
-    var account_two = accounts[1];
-
-    var account_one_starting_balance;
-    var account_two_starting_balance;
-    var account_one_ending_balance;
-    var account_two_ending_balance;
-
-    var amount = 10;
-
-    return MetaCoin.deployed()
-      .then(function (instance) {
-        meta = instance;
-        return meta.getBalance.call(account_one);
-      })
-      .then(function (balance) {
-        account_one_starting_balance = balance.toNumber();
-        return meta.getBalance.call(account_two);
-      })
-      .then(function (balance) {
-        account_two_starting_balance = balance.toNumber();
-        return meta.sendCoin(account_two, amount, { from: account_one });
-      })
-      .then(function () {
-        return meta.getBalance.call(account_one);
-      })
-      .then(function (balance) {
-        account_one_ending_balance = balance.toNumber();
-        return meta.getBalance.call(account_two);
-      })
-      .then(function (balance) {
-        account_two_ending_balance = balance.toNumber();
-
-        assert.equal(account_one_ending_balance, account_one_starting_balance - amount, "Amount wasn't correctly taken from the sender");
-        assert.equal(account_two_ending_balance, account_two_starting_balance + amount, "Amount wasn't correctly sent to the receiver");
-      });
-  });
-});
+})

@@ -7,6 +7,9 @@ import addNewAcademicYear from '../../redux/actions/Admin/AddAcademicYear'
 // taking degreeCourse, year
 import AddDegreeCourse from '../../redux/actions/Admin/AddDegreeCourse'
 import AddCourses from '../../redux/actions/Admin/AddCourse'
+
+import { insertUser } from '../../redux/actions/Admin/InsertUserFormAction'
+import { signUpUser } from '../../redux/actions/Login-logout-signup/SignUpFormActions'
 import store from '../../store'
 import { browserHistory } from 'react-router'
 
@@ -28,6 +31,13 @@ export default class FillBlockchain extends React.Component {
         for (let i of data.courses) {
             store.dispatch(AddCourses(i.year, i.degreeUnicode, i.courseUnicode, i.courseData))
         }
+        for (let i of data.insertUsers) {
+            store.dispatch(insertUser(i.FC, i.UC, i.tp))
+        }
+        for (let i of data.signUpUsers) {
+            store.dispatch(signUpUser(i))
+        }
+
         browserHistory.push('/profile')
     }
     render() {
