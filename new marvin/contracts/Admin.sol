@@ -89,8 +89,8 @@ contract Admin {
         CourseData(manager.getCourseContract()).deleteCourse(_courseUnicode);
     }
 
-    function removeDegree(bytes10 _degreeUnicode) public onlyAdmin {
-        DegreeData(manager.getDegreeContract()).deleteDegree(_degreeUnicode);
+    function removeDegree(bytes10 _degreeUnicode, bytes4 _degreeYear) public onlyAdmin {
+        DegreeData(manager.getDegreeContract()).deleteDegree(_degreeUnicode, _degreeYear);
     }
 
     function removeYear(bytes4 _year) public onlyAdmin {

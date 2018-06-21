@@ -45,5 +45,6 @@ contract Student {
         require(exam.isExam(_examUniCode) && (exam.getExamActiveSubscription(_examUniCode) == true));
         uint32 badgeNumber = UserData(manager.getUserDataContract()).getRegUsersBadgeNumber(msg.sender);
         exam.addNewSubscribedUser(_examUniCode, badgeNumber);
+        StudentData(manager.getStudentDataContract()).addSubscribedExam(_examUniCode, badgeNumber);
     }
 }

@@ -7,6 +7,7 @@ contract DegreeData {
     ContractManager manager;
 
     struct Degree {
+        uint16 index;
         bytes10 uniCode;
         bytes32 hashData;
         // codici univoci delle attività didattiche di un CDL
@@ -109,8 +110,8 @@ contract DegreeData {
     // add a new degree in the academic year
     function addYearDegree(bytes10 _degreeUniCode, bytes4 _year) public onlyAdminContract {
         yearDegrees[_year].push(_degreeUniCode);
-        uniCodes.push(_degreeUniCode);
         degrees[_degreeUniCode].uniCode = _degreeUniCode;
+        degrees[_degreeUniCode].index = uint16(uniCodes.push(_degreeUniCode) - 1);
     }
 
     // add a new course into degree
@@ -118,14 +119,30 @@ contract DegreeData {
         degrees[_degreeUniCode].courses.push(_courseUniCode);
     }
 
-    function deleteDegree(bytes10 _degreeUniCode) public onlyAdminContract {
+    function deleteDegree(bytes10 _degreeUniCode, bytes4 _degreeYear) public onlyAdminContract {
+        uint16 dIndex = degrees[_degreeUniCode].index;
+        bytes10[] memory dYear = yearDegrees[_degreeYear];
+        bool found = false;
+        uniCodes[dIndex] = uniCodes[uniCodes.length-1];
+        degrees[uniCodes[dIndex]].index = dIndex;
+        uniCodes.length--;
+        for(uint i = 0; i < dYear.length && !found; ++i) {
+            if(dYear[i] == _degreeUniCode) {
+                yearDegrees[_degreeYear][i] = yearDegrees[_degreeYear][dYear.length-1];
+                yearDegrees[_degreeYear].length--;
+            }  
+        }
         delete degrees[_degreeUniCode];
     }
 
     function deleteYear(bytes4 _year) public onlyAdminContract {
-        for(uint i = 0; i < academicYears.length; ++i) {
-            if(academicYears[i] == _year)
-                delete academicYears[i];
+        bool found = false;
+        for(uint i = 0; i < academicYears.length && !found; ++i) {
+            if(academicYears[i] == _year) {
+                academicYears[i] = academicYears[academicYears.length-1];
+                academicYears.length--;
+                found = true;
+            }
         }
     }
 }

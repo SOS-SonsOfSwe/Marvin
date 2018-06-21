@@ -15,7 +15,7 @@ class DeleteDegreeCourse extends React.Component {
     }
     handleDelete(event) {
         event.preventDefault()
-        this.props.deleteDegreeCourse(this.props.degreeUnicode)
+        this.props.deleteDegreeCourse(this.props.degreeUnicode, this.props.year)
     }
     render() {
         return (
