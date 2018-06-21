@@ -54,7 +54,7 @@ export default function addNewAcademicYear(year) {
             var estimatedGas
             var costOperationWei
             var costOperationEth
-            var costOperationUsd
+            var costOperationEur
 
             adminIstance.addNewYear.estimateGas(year)
               .then(result => {
@@ -65,12 +65,12 @@ export default function addNewAcademicYear(year) {
                 console.log('estimateGas: ' + estimatedGas)
                 console.log('Cost of the operation in Wei: ' + costOperationWei)
                 console.log('Cost of the operation in Ether: ' + costOperationEth)
-                ethPrice('USD')
+                ethPrice('EUR')
                   .then(ethInEur => {
                     ethInEur = parseFloat(ethInEur[0]
                       .slice(5))
-                    costOperationUsd = ethInEur * costOperationEth
-                    console.error('Cost of the operation in USD: ' + costOperationUsd)
+                    costOperationEur = ethInEur * costOperationEth
+                    console.error('Cost of the operation in EUR: ' + costOperationEur)
                   })
 
               })

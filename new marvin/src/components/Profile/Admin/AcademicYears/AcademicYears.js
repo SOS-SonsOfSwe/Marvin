@@ -31,8 +31,8 @@ class AcademicYears extends React.Component {
     componentDidMount() {
         // so we do not re load the page if the user has just deleted an academic year.
         // null is the value of the initial state and it is different from false.
-        if (this.props.justDeleted !== true)
-            this.props.readAcademicData()
+        // if (this.props.justDeleted !== true)
+        this.props.readAcademicData()
     }
 
     render() {
