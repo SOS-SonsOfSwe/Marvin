@@ -11,12 +11,12 @@ import EmptyData from '../../../../Loading/EmptyData'
     { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },
 ]*/
 
-const Row = ({ load, badgeNumber, isSignedUp }) => (
+const Row = ({ load, FC, badgeNumber, isSignedUp }) => (
     <tr className="clickable-row">
         <td>{load && load.name}</td>
         <td>{load && load.surname}</td>
         <td>{badgeNumber}</td>
-        <td>{load && load.FC}</td>
+        <td>{FC}</td>
         <td style={isSignedUp === false ? { backgroundColor: 'red' } : { backgroundColor: 'green' }}></td>
         <td>
             <button className="delete-link">

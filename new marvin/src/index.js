@@ -25,8 +25,10 @@ import AcademicYearsContainer from './containers/Profile/Admin/AcademicYears/Aca
 import DegreeCoursesContainer from './containers/Profile/Admin/DegreeCourses/DegreeCoursesContainer'
 import CoursesContainer from './containers/Profile/Admin/Courses/CoursesContainer'
 import readAdminsContainer from './containers/Profile/Admin/AllUsers/readAdminsContainer'
-import Teachers from './components/Profile/Admin/Teachers/Teachers'
-import Students from './components/Profile/Admin/Students/Students'
+import readTeachersContainer from './containers/Profile/Admin/AllUsers/readTeachersContainer'
+// import Teachers from './components/Profile/Admin/Teachers/Teachers'
+// import Students from './components/Profile/Admin/Students/Students'
+import readStudentsContainer from './containers/Profile/Admin/AllUsers/readStudentsContainer'
 import ExamsTeacherList from './components/Profile/Teacher/ExamsTeacherList'
 import ExamsStudentList from './components/Profile/Student/ExamsStudentList'
 import SchoolRecords from './components/Profile/Student/SchoolRecords'
@@ -107,13 +109,13 @@ ReactDOM.render((
           </Route>
 
           <Route path="teachers">
-            <IndexRoute component={AdminIsAuthenticated((Teachers))} />
+            <IndexRoute component={AdminIsAuthenticated((readTeachersContainer))} />
             <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
             <Route path="delete-teacher" component={AdminIsAuthenticated(DeleteTeacher)} />
           </Route>
 
           <Route path="students">
-            <IndexRoute component={AdminIsAuthenticated(Students)} />
+            <IndexRoute component={AdminIsAuthenticated(readStudentsContainer)} />
             <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
             <Route path="delete-student" component={AdminIsAuthenticated(DeleteStudent)} />
           </Route>

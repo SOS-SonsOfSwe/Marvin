@@ -22,6 +22,7 @@ function userInserted(YesOrNo) {
 }
 
 export function insertUser(FCInserted, UCInserted, tpInserted) {
+  console.log('Type inserted: ' + tpInserted)
   let web3 = store.getState()
     .web3.web3Instance
 

@@ -29,13 +29,15 @@ function doAwesomeStuff(dispatch, load, userValue) {
 async function processIPFSResultParallel(ipfs, payload) {
   const promises = payload.map(item => {
     // checking for the hash which has not to be null
-    if(item.load === null) return null
-    else return ipfs.getJSON(item.load)
+    if(item.load !== null) return ipfs.getJSON(item.load)
       .then(result => {
         // here I overwrite the description information with the JSON returning from the ipfs.
         // PAY ATTENTION: the payload is the same as the login, so look over there to catch the right info!
         item.load = result
       })
+    else {
+      return null
+    }
   })
   await Promise.all(promises)
 }
@@ -69,7 +71,7 @@ export function readUsersFromDatabase(userType) {
   }
   let web3 = store.getState()
     .web3.web3Instance
-
+  console.error(userType, userValue)
   if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
@@ -129,6 +131,7 @@ export function readUsersFromDatabase(userType) {
 
                   var payload
                   let i = 0;
+                  var total = 0;
 
                   // Just read all the information inside the blockchain.
                   // It is better to read all the infos together without doing
@@ -140,40 +143,46 @@ export function readUsersFromDatabase(userType) {
                     // console.log('web3.toDecimal(result[1][i]): ' + web3.toDecimal(result[1][i]))
                     // console.log('web3.toDecimal(result[3][i]): ' + web3.toDecimal(result[3][i]))
                     // console.log('userType: ' + userType, 'web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
-                    // console.log('if result ' + (userType === web3.toDecimal(result[2])))
-                    if(userType === web3.toDecimal(result[2][i])) {
-                      var hash = result[0][i].toString()
+                    console.log('if result ' + (userType === web3.toDecimal(result[3][i])))
+                    if(userType === web3.toDecimal(result[3][i])) {
+                      total++
+
+                      var hash = result[1][i].toString()
                         .slice(0, 5)
+                      var FC = web3.toUtf8(result[0][i])
+
                       // console.error(hash)
                       var hashIPFS
                       if(hash.toString() !== '0x000')
                         hashIPFS = ipfsPromise.getIpfsHashFromBytes32(result[0][i])
                       else hashIPFS = null
-                      var badgeNumber = web3.toDecimal(result[1][i])
-                      var isSignedUp = (result[3][i])
-
+                      var badgeNumber = web3.toDecimal(result[2][i])
+                      var isSignedUp = (result[4][i])
                       // console.log("admin: " + admin)
                       // console.log('dgr: ' + dgr)
 
                       // i'm storing the informations inside the description. We will retrieve them later.
-                      if(i === 0) { // first element of array
-                        payload = [{ load: hashIPFS, badgeNumber: badgeNumber, isSignedUp: isSignedUp }, ]
+                      if(total === 1) { // first element of array
+                        payload = [{ load: hashIPFS, FC: FC, badgeNumber: badgeNumber, isSignedUp: isSignedUp }, ]
                       } else
                         payload = [...payload,
-                          { load: hashIPFS, badgeNumber: badgeNumber, isSignedUp: isSignedUp }
+                          { load: hashIPFS, FC: FC, badgeNumber: badgeNumber, isSignedUp: isSignedUp }
                         ]
                     }
                   }
-                  // this function provides a parallel loading of all the informations from ipfs. 
-                  // It renders the data all together: an interesting improvement will be to load the data
-                  // per parts so in case of some ipfs file failure the app is still working
-                  var ipfs = new ipfsPromise()
-                  processIPFSResultParallel(ipfs, payload)
-                    .then(result => {
-                      payload.sort((a, b) => b.badgeNumber - a.badgeNumber)
-                      return doAwesomeStuff(dispatch, payload, userValue)
-                    })
-
+                  console.log('Total: ' + total)
+                  if(total === 0) return dispatch(dataEmpty(userValue))
+                  else {
+                    // this function provides a parallel loading of all the informations from ipfs. 
+                    // It renders the data all together: an interesting improvement will be to load the data
+                    // per parts so in case of some ipfs file failure the app is still working
+                    var ipfs = new ipfsPromise()
+                    processIPFSResultParallel(ipfs, payload)
+                      .then(result => {
+                        // payload.sort((a, b) => b.badgeNumber - a.badgeNumber)
+                        return doAwesomeStuff(dispatch, payload, userValue)
+                      })
+                  }
                 }
               })
               .catch(function (result) {
