@@ -87,19 +87,20 @@ export function readAcademicYearsFromDatabase() {
                     // solidity is returning me bytes4, so 4 bytes of octa data => 3 hexa bit.
                     // I just need to slice it down to the first 3 digits and everything is ok!
                     // YOU HAVE TO CHECK THE LENGTH OF THE RETURNING BYTES AND MODIFY THE SLICE ACCORDINGLY
-                    if(web3.toHex(year)
-                      .toString()
-                      .slice(0, 5) !== '0x000') {
-                      var yy = parseInt(year.slice(2, -5), 16)
+                    // if(web3.toHex(year)
+                    //   .toString()
+                    //   .slice(0, 5) !== '0x000') {
+                    // these lines was able to detect a non-resize of the array of solidity. No more need for them.
+                    var yy = parseInt(year.slice(2, -5), 16)
 
-                      if(i === 0) { // first element of array
-                        payload = [{ year: yy + '-' + (yy + 1) }]
-                        i++
-                      } else
-                        payload = [...payload,
-                          { year: yy + "-" + (yy + 1) }
-                        ]
-                    }
+                    if(i === 0) { // first element of array
+                      payload = [{ year: yy + '-' + (yy + 1) }]
+                      i++
+                    } else
+                      payload = [...payload,
+                        { year: yy + "-" + (yy + 1) }
+                      ]
+                    // }
                   }
                   //sorting results fom most recent one
                   payload.sort((a, b) => parseInt((b.year), 10) - parseInt((a.year), 10))
