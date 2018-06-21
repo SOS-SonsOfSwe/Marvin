@@ -16,6 +16,7 @@ install:
 script:
   - ./startBlockchain.ps1 > /dev/null &
   - sleep 5
+  - truffle test
   - truffle compile
   - truffle migrate
   - npm test

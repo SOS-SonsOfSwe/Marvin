@@ -1,19 +1,17 @@
-import React from 'react';
-import chai from 'chai';
-// import sinon from 'sinon';
-import AcademicYears from '../../components/Profile/Admin/AcademicYears/AcademicYears';
-// import {mount} from 'jsdom'
-import { mount, shallow } from 'enzyme'
-// console.log('LoginButton.test.js')
+// import React from 'react';
+// import chai from 'chai';
+// // import sinon from 'sinon';
+// import AcademicYears from '../../components/Profile/Admin/AcademicYears/AcademicYears';
+// // import {mount} from 'jsdom'
+// import { mount, shallow } from 'enzyme'
+// // console.log('LoginButton.test.js')
 
-describe('<AcademicYears/>', () => {
-  it('renders without exploding', () => {
-    const wrapper = shallow(<AcademicYears />);
-    chai.expect(wrapper.find(AcademicYears)).to.have.length(1);
-  });
-});
-
-
+// describe('<AcademicYears/>', () => {
+//   it('renders without exploding', () => {
+//     const wrapper = shallow(<AcademicYears />);
+//     chai.expect(wrapper.find(AcademicYears)).to.have.length(1);
+//   });
+// });
 
 // import React from 'react';
 // import ReactDOM from 'react-dom';
