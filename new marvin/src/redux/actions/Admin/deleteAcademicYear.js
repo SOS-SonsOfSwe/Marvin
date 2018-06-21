@@ -1,4 +1,5 @@
 import AdminContract from '../../../../build/contracts/Admin'
+import DegreeContract from '../../../../build/contracts/DegreeData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
 import { ACADEMIC_YEARS as req } from '../../reducers/costants/adminCostants'
@@ -44,8 +45,12 @@ export function deleteAcademicYearFromDatabase(year) {
       const admin = contract(AdminContract)
       admin.setProvider(web3.currentProvider)
 
+      const degree = contract(DegreeContract)
+      degree.setProvider(web3.currentProvider)
+
       // Declaring this for later so we can chain functions on Authentication.
       var adminInstance
+      var degreeInstance
 
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
@@ -57,26 +62,37 @@ export function deleteAcademicYearFromDatabase(year) {
           console.error(error);
         }
 
-        admin.deployed()
-          .then(function (instance) {
-            adminInstance = instance
-
-            // Attempt to read admin courses per year
-            var yearToDelete = year
-            yearToDelete = yearToDelete.toString()
-              .slice(0, 4)
-
-            console.log('yearToDelete: ' + yearToDelete)
-            adminInstance.removeYear(yearToDelete, { from: coinbase })
-              .then(() => {
-                return doAwesomeStuff(dispatch, year) //Repeating because of the asyncronous promises of the functions
+        var index // index at which we have to delete the file
+        var yearToDelete = year.slice(0, 4)
+        degree.deployed()
+          .then(instance => {
+            degreeInstance = instance
+            console.log('Year we are looking for: ' + yearToDelete)
+            degreeInstance.getYearIndex(yearToDelete, { from: coinbase })
+              .then(result => {
+                return console.error('index: ' + result)
+                // index = web3.toDecimal(result)
               })
-              .catch(error => {
-                dispatch(errorDeletingData())
-                // If error, go to signup page.
-                console.error('Error while deleting infos: ' + error)
-              })
-              .finally(() => { return browserHistory.push('/profile/academic-years') })
+              .catch(err => console.log(err))
+            // .then(() => {
+
+            //   admin.deployed()
+            //     .then(function (instance) {
+            //       adminInstance = instance
+
+            //       // console.log('yearToDelete: ' + yearToDelete)
+            //       adminInstance.removeYear(index, { from: coinbase })
+            //         .then(() => {
+            //           return doAwesomeStuff(dispatch, year) //Repeating because of the asyncronous promises of the functions
+            //         })
+            //         .catch(error => {
+            //           dispatch(errorDeletingData())
+            //           // If error, go to signup page.
+            //           console.error('Error while deleting infos: ' + error)
+            //         })
+            //         .finally(() => { return browserHistory.push('/profile/academic-years') })
+            //     })
+            // })
           })
       })
     }

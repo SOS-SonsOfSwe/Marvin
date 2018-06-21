@@ -119,6 +119,27 @@ contract DegreeData {
         degrees[_degreeUniCode].courses.push(_courseUniCode);
     }
 
+    function getYearDegreeIndex(bytes10 _degreeUniCode, bytes4 _degreeYear) public view onlyAdminContract returns(uint) {
+        bytes10[] memory dYear = yearDegrees[_degreeYear];
+        for(uint i = 0; i < dYear.length; ++i) {
+            if(dYear[i] == _degreeUniCode) {
+                return i;
+            }  
+        }
+    }
+
+    function deleteDegree(bytes10 _degreeUniCode, bytes4 _degreeYear, uint _index) public onlyAdminContract {
+        uint16 dIndex = degrees[_degreeUniCode].index;
+        uniCodes[dIndex] = uniCodes[uniCodes.length-1];
+        degrees[uniCodes[dIndex]].index = dIndex;
+        uniCodes.length--;
+        
+        yearDegrees[_degreeYear][_index] = yearDegrees[_degreeYear][yearDegrees[_degreeYear].length-1];
+        yearDegrees[_degreeYear].length--;
+        delete degrees[_degreeUniCode];
+    }
+
+    /*
     function deleteDegree(bytes10 _degreeUniCode, bytes4 _degreeYear) public onlyAdminContract {
         uint16 dIndex = degrees[_degreeUniCode].index;
         bytes10[] memory dYear = yearDegrees[_degreeYear];
@@ -130,12 +151,28 @@ contract DegreeData {
             if(dYear[i] == _degreeUniCode) {
                 yearDegrees[_degreeYear][i] = yearDegrees[_degreeYear][dYear.length-1];
                 yearDegrees[_degreeYear].length--;
+                found = true;
             }  
         }
         delete degrees[_degreeUniCode];
     }
+    */
 
-    function deleteYear(bytes4 _year) public onlyAdminContract {
+    function getYearIndex(bytes4 _year) public view onlyAdminContract returns(uint) {
+        for(uint i = 0; i < academicYears.length; ++i) {
+            if(academicYears[i] == _year) {
+                return i;
+            }
+        }
+    }
+
+    function deleteYear(uint _index) public onlyAdminContract {
+        academicYears[_index] = academicYears[academicYears.length-1];
+        academicYears.length--;
+    }
+
+    /*
+    function deleteYear(bytes4 _year, uint _index) public onlyAdminContract {
         bool found = false;
         for(uint i = 0; i < academicYears.length && !found; ++i) {
             if(academicYears[i] == _year) {
@@ -145,4 +182,5 @@ contract DegreeData {
             }
         }
     }
+    */
 }
