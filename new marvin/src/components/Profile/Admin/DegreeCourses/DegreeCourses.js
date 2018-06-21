@@ -31,7 +31,10 @@ const Row = ({ year, degreeUnicode, degreeData }) => (
                 <Link to="/profile/degree-courses/modify-degree-course">Modify</Link>
             </button>
             <button className="delete-link">
-                <Link to="/profile/degree-courses/delete-degree-course">Delete</Link>
+                <Link to={{
+                    pathname: "/profile/degree-courses/delete-degree-course",
+                    state: { year: year, degreeUnicode: degreeUnicode }
+                }}>Delete</Link>
             </button>
         </td>
     </tr>

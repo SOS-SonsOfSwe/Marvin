@@ -1,29 +1,32 @@
 import React from 'react';
 
-var arrayData = [
-    { year: "2018", degreeCourse: "informatica" },
-]
+// var arrayData = [
+//     { year: "2018", degreeCourse: "informatica" },
+// ]
 
-const Row = ({ year, degreeCourse }) => (
-    <div>
-        <p>Academic year: {year}</p>
-        <p>Degree course: {degreeCourse}</p>
-    </div>
-);
+
 
 class DeleteDegreeCourse extends React.Component {
+    constructor(props) {
+        super(props);
 
+        this.handleDelete = this.handleDelete.bind(this)
+
+    }
+    handleDelete(event) {
+        event.preventDefault()
+        this.props.deleteDegreeCourse(this.props.degreeUnicode)
+    }
     render() {
-        const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
-
         return (
-            <main className='container'>
+            <main className='container' onSubmit={this.handleDelete}>
                 <div className="pure-u-1-1">
                     <h1>Delete degree course</h1>
-                    <p>Are you sure you want to delete this degree course? Once you canceled it, you can't go back.</p>
+                    <p>Are you sure you want to delete this degree course? Once you delete it, you can't go back.</p>
                     <form className="pure-form pure-form-stacked delete-form">
                         <fieldset className="delete-fieldset">
-                            {rows}
+                            <p>Academic year: {this.props.year}</p>
+                            <p>Degree course: {this.props.degreeUnicode}</p>
                             <div className="delete-div-buttons">
                                 <button>Delete</button>
                                 <button>Cancel</button>

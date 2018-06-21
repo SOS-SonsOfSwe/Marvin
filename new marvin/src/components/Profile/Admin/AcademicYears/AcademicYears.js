@@ -17,7 +17,10 @@ const Row = ({ year }) => (
                 <Link to="/profile/academic-years/modify-academic-year">Modify</Link>
             </button>
             <button className="delete-link">
-                <Link to="/profile/academic-years/delete-academic-year">Delete</Link>
+                <Link to={{
+                    pathname: "/profile/academic-years/delete-academic-year",
+                    state: { year: year }
+                }}>Delete</Link>
             </button>
         </td>
 
@@ -26,10 +29,10 @@ const Row = ({ year }) => (
 
 class AcademicYears extends React.Component {
     componentDidMount() {
-        // so we do not re load the page if the user is just surfing our app.
+        // so we do not re load the page if the user has just deleted an academic year.
         // null is the value of the initial state and it is different from false.
-        // if (this.props.somethingChanged === true || this.props.somethingChanged === null)
-        this.props.readAcademicData()
+        if (this.props.justDeleted !== true)
+            this.props.readAcademicData()
     }
 
     render() {

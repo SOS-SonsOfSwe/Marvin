@@ -25,7 +25,7 @@ const mapStateToProps = (state, ownProps) => {
     loading: state.admin.academicYears.loading,
     success: state.admin.academicYears.success,
     empty: state.admin.academicYears.empty,
-    somethingChanged: state.admin.academicYears.somethingChanged
+    justDeleted: state.admin.academicYears.justDeleted
   }
 }
 

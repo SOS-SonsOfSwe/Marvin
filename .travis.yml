@@ -7,7 +7,7 @@ cache:
 env:
   - SOLIDITY_COVERAGE=true
 before_script:
-  - truffle version
+
 install:
   - cd "new marvin"
   - npm install -g truffle
