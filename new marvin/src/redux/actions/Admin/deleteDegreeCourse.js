@@ -1,4 +1,5 @@
 import AdminContract from '../../../../build/contracts/Admin'
+import DegreeContract from '../../../../build/contracts/DegreeData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
 import { DEGREE_COURSES as req } from '../../reducers/costants/adminCostants'
@@ -44,6 +45,9 @@ export function deleteDegreeCourseFromDatabase(degreeUnicode, year) {
       const admin = contract(AdminContract)
       admin.setProvider(web3.currentProvider)
 
+      const degree = contract(DegreeContract)
+      degree.setProvider(web3.currentProvider)
+
       // Declaring this for later so we can chain functions on Authentication.
       var adminInstance
 
@@ -56,11 +60,18 @@ export function deleteDegreeCourseFromDatabase(degreeUnicode, year) {
         if(error) {
           console.error(error);
         }
+        var yearToRefer = year.slice(0, 4)
+        // var index
 
+        // degree.deployed()
+        //   .then(degreeInstance => {
+        //     degreeInstance.getYearDegreeIndex(degreeUnicode, yearToRefer, { from: coinbase })
+        //       .then(result => console.log(result))
+        // })
         admin.deployed()
           .then(function (instance) {
             adminInstance = instance
-            var yearToRefer = year.slice(0, 4)
+            // var yearToRefer = year.slice(0, 4)
             console.log('degreeUnicode: ' + degreeUnicode, 'yearToRefer: ' + yearToRefer)
             adminInstance.removeDegree(degreeUnicode, yearToRefer, { from: coinbase })
               .then(() => {

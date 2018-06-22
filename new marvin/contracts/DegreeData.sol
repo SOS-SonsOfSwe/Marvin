@@ -7,6 +7,7 @@ contract DegreeData {
     ContractManager manager;
 
     struct Degree {
+        uint8 yearIndex;
         uint16 index;
         bytes10 uniCode;
         bytes32 hashData;
@@ -109,8 +110,8 @@ contract DegreeData {
 
     // add a new degree in the academic year
     function addYearDegree(bytes10 _degreeUniCode, bytes4 _year) public onlyAdminContract {
-        yearDegrees[_year].push(_degreeUniCode);
         degrees[_degreeUniCode].uniCode = _degreeUniCode;
+        degrees[_degreeUniCode].yearIndex = uint8(yearDegrees[_year].push(_degreeUniCode) - 1);
         degrees[_degreeUniCode].index = uint16(uniCodes.push(_degreeUniCode) - 1);
     }
 
@@ -119,6 +120,7 @@ contract DegreeData {
         degrees[_degreeUniCode].courses.push(_courseUniCode);
     }
 
+/*
     function getYearDegreeIndex(bytes10 _degreeUniCode, bytes4 _degreeYear) public view onlyAdminContract returns(uint) {
         bytes10[] memory dYear = yearDegrees[_degreeYear];
         for(uint i = 0; i < dYear.length; ++i) {
@@ -138,26 +140,24 @@ contract DegreeData {
         yearDegrees[_degreeYear].length--;
         delete degrees[_degreeUniCode];
     }
+    */
 
-    /*
     function deleteDegree(bytes10 _degreeUniCode, bytes4 _degreeYear) public onlyAdminContract {
         uint16 dIndex = degrees[_degreeUniCode].index;
+        uint8 dYearIndex = degrees[_degreeUniCode].yearIndex;
         bytes10[] memory dYear = yearDegrees[_degreeYear];
-        bool found = false;
         uniCodes[dIndex] = uniCodes[uniCodes.length-1];
         degrees[uniCodes[dIndex]].index = dIndex;
         uniCodes.length--;
-        for(uint i = 0; i < dYear.length && !found; ++i) {
-            if(dYear[i] == _degreeUniCode) {
-                yearDegrees[_degreeYear][i] = yearDegrees[_degreeYear][dYear.length-1];
-                yearDegrees[_degreeYear].length--;
-                found = true;
-            }  
-        }
-        delete degrees[_degreeUniCode];
-    }
-    */
+        
+        yearDegrees[_degreeYear][dYearIndex] = yearDegrees[_degreeYear][dYear.length-1];
+        degrees[yearDegrees[_degreeYear][dYearIndex]].yearIndex = dYearIndex;
+        yearDegrees[_degreeYear].length--;
 
+        // delete degrees[_degreeUniCode];
+    }
+
+/*
     function getYearIndex(bytes4 _year) public view onlyAdminContract returns(uint) {
         for(uint i = 0; i < academicYears.length; ++i) {
             if(academicYears[i] == _year) {
@@ -171,8 +171,9 @@ contract DegreeData {
         academicYears.length--;
     }
 
-    /*
-    function deleteYear(bytes4 _year, uint _index) public onlyAdminContract {
+    */
+
+    function deleteYear(bytes4 _year) public onlyAdminContract {
         bool found = false;
         for(uint i = 0; i < academicYears.length && !found; ++i) {
             if(academicYears[i] == _year) {
@@ -182,5 +183,4 @@ contract DegreeData {
             }
         }
     }
-    */
 }

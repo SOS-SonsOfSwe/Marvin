@@ -89,12 +89,12 @@ contract Admin {
         CourseData(manager.getCourseContract()).deleteCourse(_courseUnicode);
     }
 
-    function removeDegree(bytes10 _degreeUnicode, bytes4 _degreeYear, uint _index) public onlyAdmin {
-        DegreeData(manager.getDegreeContract()).deleteDegree(_degreeUnicode, _degreeYear, _index);
+    function removeDegree(bytes10 _degreeUnicode, bytes4 _degreeYear) public onlyAdmin {
+        DegreeData(manager.getDegreeContract()).deleteDegree(_degreeUnicode, _degreeYear);
     }
 
-    function removeYear(uint _index) public onlyAdmin {
-        DegreeData(manager.getDegreeContract()).deleteYear(_index);
+    function removeYear(bytes4 _year) public onlyAdmin {
+        DegreeData(manager.getDegreeContract()).deleteYear(_year);
     }
 
     function removeUser(uint32 _user) public onlyAdmin {
