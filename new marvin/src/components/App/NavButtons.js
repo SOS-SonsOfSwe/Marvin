@@ -50,4 +50,4 @@ const OnlyGuestLinks = HiddenOnlyAuth(() => {
     )
 })
 
-export { OnlyAuthLinks, OnlyUniAdminLinks, OnlyGuestLinks }
+export  {OnlyAuthLinks, OnlyUniAdminLinks, OnlyGuestLinks} 
