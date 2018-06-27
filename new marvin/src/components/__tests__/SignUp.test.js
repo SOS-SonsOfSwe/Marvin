@@ -14,17 +14,19 @@ import studentReducer from '../../redux/reducers/studentReducer';
 import { renderIntoDocument } from 'react-dom/test-utils';
 import store from '../../store';
 
+
  describe('SignUp', () => {
    const mockStore = { 
-    todos: []
+    
    };
 
   const rootReducer=userReducer;
 
-  const store = createStore(rootReducer, mockStore, applyMiddleware);
+ const store = createStore(rootReducer, mockStore, applyMiddleware);
+ //const store=createStore(browserHistory, mockStore, applyMiddleware)
   const renderer = renderIntoDocument(
      <Provider store={mockStore} key="provider">
-       <Router history={browserHistory}>
+       <Router history={browserHistory} >
          <SignUp />
        </Router>
      </Provider>
@@ -34,6 +36,13 @@ import store from '../../store';
    it('should render correctly', () => {
      return expect(renderer).to.be.ok;
    });
+
+   /*
+   it('should render with correct value', () => {
+    const text = dom.getElementsByTagName('strong')[0].textContent;
+    expect(text).to.equal(mockStore.info.data.message);
+  });
+  */
  })
 
- 
+
