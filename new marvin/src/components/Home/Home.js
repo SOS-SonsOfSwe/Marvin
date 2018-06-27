@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import students from '../../../public/media/students.jpg'
+import book from '../../../public/media/1.jpg'
 // import webpack from 'webpack';
 
 class Home extends Component {
@@ -12,8 +12,8 @@ class Home extends Component {
             <p>This is the website that the Sons Of SWE group edited for the Marvin project. It consist,
               through the use of blockchain technology, in an Uniweb demonstrator on Ethereum.
               </p>
-            <div className="student-img">
-              <img src={students} className="img-fluid" alt="Students" />
+            <div className="book-img">
+              <img src={book} className="img-fluid" alt="Book" />
             </div>
           </div>
         </div>

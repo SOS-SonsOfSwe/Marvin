@@ -116,9 +116,9 @@ tr:nth-child(even) {
   text-decoration: none;
 }
  
-.student-img { 
+.book-img { 
   text-align: center;
-  margin-top: 2.5em;
+  margin-top: 6em;
 } 
 
 .pure-button:focus {
@@ -137,7 +137,8 @@ tr:nth-child(even) {
   }
   
   html {
-    font-family: sans-serif;
+    font-family: Georgia, serif;
+    //font-family: sans-serif;
     //-ms-text-size-adjust: 100%;
     //-webkit-text-size-adjust: 100%;
   }
@@ -718,6 +719,10 @@ tr:nth-child(even) {
     margin-left: 0.7em;
   }
 
+  .pure-u-1-1 p {
+    width: 60%;
+    margin-left: 20%;
+  }
 
   .pure-u-1-1 p, .pure-u-1-1 h1 {
     text-align: center;
