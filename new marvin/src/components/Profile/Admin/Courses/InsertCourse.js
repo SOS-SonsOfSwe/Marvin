@@ -17,7 +17,7 @@ class InsertCourse extends React.Component {
         this.handleChange1 = this.handleChange1.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleChange3 = this.handleChange3.bind(this);
-        this.handleSave = this.handleSave.bind(this)
+        this.handleSave = this.handleSave.bind(this);
     }
 
     handleChange(event) {
@@ -54,11 +54,11 @@ class InsertCourse extends React.Component {
 
     render() {
         return (
-            <main className='container' onSubmit={this.handleSave}>
+            <main className='container'>
                 <div className="pure-u-1-1">
                     <h1>Insert Course</h1>
                     <p>Now you can insert a new Course.</p>
-                    <form className="pure-form pure-form-stacked">
+                    <form className="pure-form pure-form-stacked" onSubmit={this.handleSave}>
                         <fieldset>
                             <label>Academic year</label>
                             <input type="text" value={this.state.year} onChange={this.handleChange} placeholder="Insert a year" />

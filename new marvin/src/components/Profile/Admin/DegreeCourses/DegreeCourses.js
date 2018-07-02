@@ -23,7 +23,7 @@ const Row = ({ year, degreeUnicode, degreeData }) => (
         <td>
             <Link to={{
                 pathname: "/profile/courses/insert-course",
-                state: { fromDegree: true, year: year, degreeUnicode: degreeUnicode }
+                state: { year: year, degreeUnicode: degreeUnicode }
             }}> Insert Course</Link>
         </td>
         <td>

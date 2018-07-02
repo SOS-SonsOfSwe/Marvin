@@ -22,9 +22,9 @@ export default function addCourse(year, degreeUnicode, courseUnicode, courseData
   var ipfs = new ipfsPromise()
 
   var course = {
-    'year': year,
+    /*'year': year,
     'degreeUnicode': degreeUnicode,
-    'courseUnicode': courseUnicode,
+    'courseUnicode': courseUnicode,*/
     'courseData': courseData
   }
 
@@ -32,7 +32,7 @@ export default function addCourse(year, degreeUnicode, courseUnicode, courseData
     .web3.web3Instance
 
   // Double-check web3's status.
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -45,7 +45,7 @@ export default function addCourse(year, degreeUnicode, courseUnicode, courseData
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
         // Log errors, if any.
-        if(error) {
+        if (error) {
           console.error(error);
         }
 

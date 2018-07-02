@@ -41,12 +41,12 @@ import InsertDegreeCourseContainer from './containers/Profile/Admin/DegreeCourse
 import DeleteDegreeCourseContainer from './containers/Profile/Admin/DegreeCourses/DeleteDegreeCourseContainer'
 import ModifyDegreeCourse from './components/Profile/Admin/DegreeCourses/ModifyDegreeCourse';
 import InsertCourseContainer from './containers/Profile/Admin/Courses/InsertCourseContainer'
-import InsertExam from './components/Profile/Admin/Courses/InsertExam'
 import ModifyCourse from './components/Profile/Admin/Courses/ModifyCourse'
 import DeleteCourse from './components/Profile/Admin/Courses/DeleteCourse'
 import DeleteAdministrator from './components/Profile/Admin/onlyUniversity/Administrators/DeleteAdministrator'
 import DeleteTeacher from './components/Profile/Admin/Teachers/DeleteTeacher'
 import DeleteStudent from './components/Profile/Admin/Students/DeleteStudent'
+import InsertExamContainer from './containers/Profile/Admin/Courses/InsertExamContainer'
 
 
 
@@ -101,7 +101,7 @@ ReactDOM.render((
             <Route path="insert-course" component={AdminIsAuthenticated(InsertCourseContainer)} />
             <Route path="modify-course" component={AdminIsAuthenticated(ModifyCourse)} />
             <Route path="delete-course" component={AdminIsAuthenticated(DeleteCourse)} />
-            <Route path="insert-exam" component={AdminIsAuthenticated(InsertExam)} />
+            <Route path="insert-exam" component={AdminIsAuthenticated(InsertExamContainer)} />
           </Route>
 
           <Route path="administrators">
