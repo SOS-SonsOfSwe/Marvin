@@ -5,6 +5,7 @@ import addingDataReducer from './AdminReducers/addingDataReducer'
 import academicYearsReducer from './AdminReducers/academicYearReducer'
 import degreeCoursesReducer from './AdminReducers/degreeCoursesReducer'
 import coursesReducer from './AdminReducers/coursesReducer'
+import examsReducer from './AdminReducers/examsReducer'
 import readAdminsReducer from './AdminReducers/readAdminsReducer'
 import readTeachersReducer from './AdminReducers/readTeachersReducer'
 import readStudentsReducer from './AdminReducers/readStudentsReducer'
@@ -15,6 +16,7 @@ const adminReducer = combineReducers({
   academicYears: academicYearsReducer,
   degreeCourses: degreeCoursesReducer,
   courses: coursesReducer,
+  exams: examsReducer,
   readAdmins: readAdminsReducer,
   readStudents: readStudentsReducer,
   readTeachers: readTeachersReducer
