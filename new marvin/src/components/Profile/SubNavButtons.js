@@ -37,6 +37,9 @@ const OnlyUniAdminSubLinks = VisibleOnlyUniAdmin(() => {
                     <li className="pure-menu-item">
                         <Link to="/profile/courses" className="pure-menu-link">Courses</Link>
                     </li>
+                    <li className="pure-menu-item">
+                        <Link to="/profile/exams" className="pure-menu-link">Exams</Link>
+                    </li>
                 </ul>
             </div>
         </div>

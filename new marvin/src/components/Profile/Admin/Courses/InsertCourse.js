@@ -69,7 +69,7 @@ class InsertCourse extends React.Component {
                             <label>Description</label>
                             <input type="text" value={this.state.description} onChange={this.handleChange3} placeholder="Insert a description" />
                             <br />
-                            <Link to="/profile/courses/insert-exam">Insert an exam</Link>
+                            <Link to="/profile/exams/insert-exam">Insert an exam</Link>
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
                                 <button className="button_cancel">

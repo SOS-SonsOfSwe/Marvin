@@ -16,14 +16,13 @@ import EmptyData from '../../../Loading/EmptyData'
 //     { year: "2016-2017", degreeCourse: "Psicologia", course: "Comportamento" },
 // ]
 
-// INSERT ALSO THE DESCRIPTION OF THE COURSE
-const Row = ({ year, courseUnicode, courseData, degreeUnicode }) => (
+const Row = ({ courseUnicode, courseData }) => (
     <tr className="clickable-row">
         <td>{courseUnicode}</td>
         <td>{courseData}</td>
         <td>
             <Link to={{
-                pathname: "/profile/courses/insert-exam",
+                pathname: "/profile/exams/insert-exam",
                 state: { Class: courseUnicode }
             }}>Insert an exam</Link>
         </td>

@@ -19,7 +19,7 @@ const contract = require('truffle-contract')
 function doAwesomeStuff(dispatch, load) {
   dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
-  if('redirect' in currentLocation.query) {
+  if ('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   }
@@ -49,7 +49,7 @@ export function readCoursesFromDatabase(year, degreeUnicode) {
   let web3 = store.getState()
     .web3.web3Instance
 
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -65,7 +65,7 @@ export function readCoursesFromDatabase(year, degreeUnicode) {
         dispatch(readingData(req))
 
         // Log errors, if any.
-        if(error) {
+        if (error) {
           console.error(error);
         }
 
@@ -91,7 +91,7 @@ export function readCoursesFromDatabase(year, degreeUnicode) {
 
                 // console.log(result[0].length === 0)
 
-                if(result[0].length === 0) {
+                if (result[0].length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))
@@ -112,7 +112,7 @@ export function readCoursesFromDatabase(year, degreeUnicode) {
                   // It is better to read all the infos together without doing
                   // much conversions because we can close the communication
                   // with the blockchain faster
-                  for(i; i < result[0].length; i++) {
+                  for (i; i < result[0].length; i++) {
                     var degree = result[1][i]
                     var hash = result[0][i]
                     // console.log("degree: " + degree)
@@ -120,11 +120,11 @@ export function readCoursesFromDatabase(year, degreeUnicode) {
                     // console.log('dgr: ' + dgr)
                     var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
                     // i'm storing the informations inside the description. We will retrieve them later.
-                    if(i === 0) { // first element of array
-                      payload = [{ year: year, degreeUnicode: degreeUnicode, courseData: hashIPFS, courseUnicode: coUni }, ]
+                    if (i === 0) { // first element of array
+                      payload = [{ year: year, degreeUnicode: degreeUnicode, courseData: hashIPFS, courseUnicode: coUni },]
                     } else
                       payload = [...payload,
-                        { year: year, degreeUnicode: degreeUnicode, courseData: hashIPFS, courseUnicode: coUni }
+                      { year: year, degreeUnicode: degreeUnicode, courseData: hashIPFS, courseUnicode: coUni }
                       ]
                   }
                   // this function provides a parallel loading of all the informations from ipfs. 

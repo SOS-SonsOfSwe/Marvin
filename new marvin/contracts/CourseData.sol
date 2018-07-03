@@ -50,7 +50,7 @@ contract CourseData {
         bytes10[] memory examsForCourse = courses[_courseUniCode].courseExams;
         bytes32[] memory examsHashCodes = new bytes32[](examsForCourse.length);
         for(uint i = 0; i < examsForCourse.length; ++i) {
-            examsHashCodes[i] = courses[examsForCourse[i]].hashData;
+            examsHashCodes[i] = ExamData(manager.getExamContract()).getHashData(examsForCourse[i]);
         }
         return(examsForCourse, examsHashCodes);
     }

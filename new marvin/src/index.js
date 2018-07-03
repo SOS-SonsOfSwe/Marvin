@@ -56,6 +56,7 @@ import './index.scss'
 
 // Redux Store
 import store from './store'
+import ExamsContainer from './containers/Profile/Admin/Courses/ExamsContainer';
 
 
 // Initialize react-router-redux.
@@ -101,6 +102,11 @@ ReactDOM.render((
             <Route path="insert-course" component={AdminIsAuthenticated(InsertCourseContainer)} />
             <Route path="modify-course" component={AdminIsAuthenticated(ModifyCourse)} />
             <Route path="delete-course" component={AdminIsAuthenticated(DeleteCourse)} />
+            <Route path="insert-exam" component={AdminIsAuthenticated(InsertExamContainer)} />
+          </Route>
+
+          <Route path="exams">
+            <IndexRoute component={AdminIsAuthenticated(ExamsContainer)} />
             <Route path="insert-exam" component={AdminIsAuthenticated(InsertExamContainer)} />
           </Route>
 
