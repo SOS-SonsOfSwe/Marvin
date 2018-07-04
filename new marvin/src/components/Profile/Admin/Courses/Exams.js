@@ -85,7 +85,7 @@ class Exams extends React.Component {
         const load = this.props.loading === true ? <LoadingData label='Loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
         const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
-        const empty = this.props.empty ? <EmptyData label='no data found on blockchain' /> : <div />
+        const empty = this.props.emptyExams ? <EmptyData label='no data found on blockchain' /> : <div />
         //const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
 
         return (
