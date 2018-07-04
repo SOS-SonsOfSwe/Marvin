@@ -12,7 +12,7 @@ const Row = ({ teacher, examUnicode, load }) => (
         <td>{load && load.place}</td>
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
-        <td style={load.isActive ? { backgroundColor: 'green' } : { backgroundColor: 'red' }}></td>
+        <td style={load.isActive === true ? { backgroundColor: 'red' } : { backgroundColor: 'green' }}></td>
         <td>
             <button className="delete-link">
                 <Link to={{

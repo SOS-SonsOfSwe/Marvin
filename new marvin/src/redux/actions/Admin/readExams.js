@@ -37,10 +37,10 @@ function doAwesomeStuff(dispatch, load) {
 // }
 
 async function processIPFSResultParallel(ipfs, payload) {
-    const promises = payload.map(item => ipfs.getJSON(item.examData)
+    const promises = payload.map(item => ipfs.getJSON(item.load)
         .then(result => {
             // here I overwrite the description information with the JSON returning from the ipfs
-            item.examData = result.examData
+            item.load = result
         }))
     await Promise.all(promises)
 }
@@ -73,7 +73,7 @@ export function readExamsFromDatabase(classUnicode) {
                     .then(function (instance) {
                         classInstance = instance
 
-                        // Attempt to read degree courses per year
+                        // Attempt to read exams per class/course
                         classInstance.getCourseExamsData(classUnicode, { from: coinbase })
                             // .then(console.log)
                             .then(result => {
@@ -117,7 +117,7 @@ export function readExamsFromDatabase(classUnicode) {
                                         var exam = result[1][i]
                                         var hash = result[0][i]
                                         var teacher = 4  //!!!!!!!!!!!!! da sistemare 
-                                        var active = true //!!!!!!!!!!  da sistemare
+                                        var active = false //!!!!!!!!!!  da sistemare
                                         // console.log("degree: " + degree)
                                         var exUni = web3.toUtf8(exam)
                                         // console.log('dgr: ' + dgr)
