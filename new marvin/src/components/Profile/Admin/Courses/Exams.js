@@ -16,7 +16,7 @@ const Row = ({ teacher, examUnicode, load }) => (
         <td>
             <button className="delete-link">
                 <Link to={{
-                    pathname: "/profile/course/modify-teacher",
+                    pathname: "/profile/exams/modify-teacher",
                     state: { examUnicode: examUnicode }
                 }}>
                     Modify teacher </Link>
@@ -57,8 +57,7 @@ class Exams extends React.Component {
 
     onSelectChange(event) {
         this.setState({ selectedClass: event.target.value })
-
-        //if (this.state.selectedDegreeCourse !== '') this.props.readExams(event.target.value)
+        if (this.state.selectedDegreeCourse !== '') this.props.readExamsData(event.target.value)
 
 
     }
@@ -91,12 +90,10 @@ class Exams extends React.Component {
 
         return (
             <div>
-                {/* {console.log('this.props.loading: ' + this.props.loading)} */}
-                {/* {console.log('this.props.empty: ' + this.props.empty)} */}
                 {load}
                 {ipfsLoad}
                 {empty}
-                {((this.props.loading === false && this.props.ipfsLoading !== true) || (this.state.selectedYears === "" || this.state.selectedDegreeCourse === "")) &&
+                {((this.props.loadingExams === false && this.props.loadingAcademic === false && this.props.loadingDegree === false & this.props.ipfsLoading !== true) || (this.state.selectedYears === "" || this.state.selectedDegreeCourse === "" || this.state.selectedClass === "")) &&
                     < main className='container'>
                         <div className="pure-u-1-1">
                             <h1>Exams</h1>
@@ -117,8 +114,8 @@ class Exams extends React.Component {
                                             this.props.degreeCourses.map((rowData, index) => <OptionsDC key={index} {...rowData} />)}
                                     </select>
                                     <label htmlFor="classes"> Select class </label>
-                                    <select disabled={this.state.selectedYears === "" || this.state.selectedDegreeCourse === "" ? true : false} type="text" name="class" value={this.state.selectedDegreeCourse} onChange={this.onSelectChangeDC}>
-                                        {<option value="select degreeCourse" disabled={this.state.selectedClass === "" ? false : true}> -- select a class -- </option>}
+                                    <select disabled={this.state.selectedYears === "" || this.state.selectedDegreeCourse === "" ? true : false} type="text" name="class" value={this.state.selectedClass} onChange={this.onSelectChange}>
+                                        {<option value="select class" disabled={this.state.selectedClass === "" ? false : true}> -- select a class -- </option>}
                                         {console.log('this.props.classes: ' + JSON.stringify(this.props.classes))}
                                         {this.props.emptyClasses === false && this.props.successClasses === true &&
                                             this.props.classes.map((rowData, index) => <OptionsC key={index} {...rowData} />)}
@@ -130,7 +127,8 @@ class Exams extends React.Component {
                                     <div className="div_insert_button">
                                         <button className="insert-button pure-button pure-button-primary">
                                             <Link className="pure-link" to={{
-                                                pathname: '/profile/exams/insert-exam'
+                                                pathname: '/profile/exams/insert-exam',
+                                                state: { Class: this.state.selectedClass }
                                             }}
                                             >Insert an exam</Link>
                                         </button>

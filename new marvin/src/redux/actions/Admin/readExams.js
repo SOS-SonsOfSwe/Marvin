@@ -45,7 +45,7 @@ async function processIPFSResultParallel(ipfs, payload) {
     await Promise.all(promises)
 }
 
-export function readExamsFromDatabase(classUnicode, degreeUnicode) {
+export function readExamsFromDatabase(classUnicode) {
     let web3 = store.getState()
         .web3.web3Instance
 
@@ -94,6 +94,7 @@ export function readExamsFromDatabase(classUnicode, degreeUnicode) {
                                 if (result[0].length === 0) {
                                     dispatch(dataEmpty(req))
                                 } else {
+
                                     // console.log('result[0] : ' + web3.toHex(result[0]))
 
                                     var payload
