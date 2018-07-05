@@ -47,14 +47,14 @@ contract Admin {
         course.setHashData(_courseUniCode, _courseHashData);
     }
 
-    function addNewExam(bytes10 _courseUniCode, bytes10 _examUniCode, bytes32 _examHashData) public onlyAdmin {
+    function addNewExam(bytes10 _courseUniCode, bytes10 _examUniCode, bool _isActive, bytes32 _examHashData) public onlyAdmin {
         ExamData exam = ExamData(manager.getExamContract());
         CourseData course = CourseData(manager.getCourseContract());
         require(!exam.isExam(_examUniCode));
         course.addNewExam(_courseUniCode, _examUniCode);
         exam.addNewExam(_examUniCode);
         exam.setHashData(_examUniCode, _examHashData);
-        exam.setActiveSubscription(_examUniCode, true);
+        exam.setActiveSubscription(_examUniCode, _isActive);
     }
 
     function setExamTeacher(bytes10 _examUniCode, uint32 _teacherBadgeNumber) public onlyAdmin {

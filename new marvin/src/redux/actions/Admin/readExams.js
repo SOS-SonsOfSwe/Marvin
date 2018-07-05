@@ -98,8 +98,7 @@ export function readExamsFromDatabase(classUnicode) {
                                     // console.log('result[0] : ' + web3.toHex(result[0]))
 
                                     var payload
-                                    let i = 0;
-
+                                    var i = 0;
                                     // export var courses = [{
                                     //   year: "2017-2018",
                                     //   degreeUnicode: "MAT/INF17",
@@ -116,18 +115,19 @@ export function readExamsFromDatabase(classUnicode) {
                                     for (i; i < result[0].length; i++) {
                                         var exam = result[1][i]
                                         var hash = result[0][i]
-                                        var teacher = 4  //!!!!!!!!!!!!! da sistemare 
-                                        var active = false //!!!!!!!!!!  da sistemare
-                                        // console.log("degree: " + degree)
+                                        var teac = result[3][i]
+                                        console.log("teacher: " + teac)
+                                        var active = result[2][i]
+                                        console.log("active: " + active)
                                         var exUni = web3.toUtf8(exam)
                                         // console.log('dgr: ' + dgr)
                                         var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
                                         // i'm storing the informations inside the description. We will retrieve them later.
                                         if (i === 0) { // first element of array
-                                            payload = [{ load: hashIPFS, examUnicode: exUni, teacher: teacher, isActive: active },]
+                                            payload = [{ load: hashIPFS, examUnicode: exUni, teacher: teac, isActive: active },]
                                         } else
                                             payload = [...payload,
-                                            { load: hashIPFS, examUnicode: exUni, teacher: teacher, isActive: active }
+                                            { load: hashIPFS, examUnicode: exUni, teacher: teac, isActive: active }
                                             ]
                                     }
                                     // this function provides a parallel loading of all the informations from ipfs. 

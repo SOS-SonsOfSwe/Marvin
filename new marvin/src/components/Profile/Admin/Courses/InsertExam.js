@@ -9,7 +9,7 @@ class InsertExam extends React.Component {
 
         this.state = {
             Class: this.props.Class,
-            active: 'yes',
+            active: '',
             typology: '',
             teacher: '',
             place: '',
@@ -74,7 +74,7 @@ class InsertExam extends React.Component {
         }
 
 
-        this.props.addExam(this.state.teacher, this.state.Class, this.state.unicode, examData);
+        this.props.addExam(this.state.teacher, this.state.Class, this.state.unicode, this.state.active, examData);
     }
 
     render() {
@@ -98,7 +98,11 @@ class InsertExam extends React.Component {
                             <label>Time</label>
                             <input type="text" value={this.state.time} onChange={this.handleChange7} placeholder="Insert a time" />
                             <label>Subscription active</label>
-                            <input type="text" value={this.state.active} onChange={this.handleChange8} placeholder="Yes or no" />
+                            <select type="text" value={this.state.active} onChange={this.handleChange8} placeholder="Yes or no" >
+                                <option value="select yes or no"> -- select yes or no -- </option>
+                                <option value="true" > yes </option>
+                                <option value="false" > no </option>
+                            </select>
                             <label>Unicode</label>
                             <input type="text" value={this.state.unicode} onChange={this.handleChange9} placeholder="Insert a unicode" />
                             <div className="div-buttons">

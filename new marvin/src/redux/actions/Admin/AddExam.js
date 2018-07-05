@@ -16,7 +16,7 @@ import {
 
 const contract = require('truffle-contract')
 
-export default function addNewExam(teacher, classUnicode, examUnicode, examData) {
+export default function addNewExam(teacher, classUnicode, examUnicode, isActive, examData) {
     // thinking as year = 2014-2015 we want to take only the first two int so we can send 
     // them to the solidity contract and risparmiare
     var ipfs = new ipfsPromise()
@@ -59,7 +59,7 @@ export default function addNewExam(teacher, classUnicode, examUnicode, examData)
                                 // dispatching action for make the reducer know we are making the transaction
                                 dispatch(addingData())
 
-                                adminIstance.addNewExam(classUnicode, examUnicode, examHash, { from: coinbase })
+                                adminIstance.addNewExam(classUnicode, examUnicode, isActive, examHash, { from: coinbase })
                                     .then(result => {
                                         // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
                                         dispatch(dataAdded())
