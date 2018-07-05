@@ -97,10 +97,10 @@ class InsertExam extends React.Component {
                             <label>Time</label>
                             <input type="text" value={this.state.time} onChange={this.handleChange7} placeholder="Insert a time" />
                             <label>Subscription active</label>
-                            <select type="text" value={this.state.active} onChange={this.handleChange8} placeholder="Yes or no" >
-                                <option value="select yes or no"> -- select yes or no -- </option>
-                                <option value="true" > yes </option>
-                                <option value="false" > no </option>
+                            <select type="number" value={this.state.active} onChange={this.handleChange8} placeholder="Yes or no" >
+                                <option value="-1"> -- select yes or no -- </option>
+                                <option value="1" > yes </option>
+                                <option value="0" > no </option>
                             </select>
                             <label>Unicode</label>
                             <input type="text" value={this.state.unicode} onChange={this.handleChange9} placeholder="Insert a unicode" />

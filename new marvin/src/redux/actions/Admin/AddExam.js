@@ -58,6 +58,8 @@ export default function addNewExam(teacher, classUnicode, examUnicode, isActive,
                                 adminIstance = instance
                                 // dispatching action for make the reducer know we are making the transaction
                                 dispatch(addingData())
+                                if (isActive === 1) isActive = true;
+                                else isActive = false;
 
                                 adminIstance.addNewExam(classUnicode, examUnicode, isActive, examHash, { from: coinbase })
                                     .then(result => {
