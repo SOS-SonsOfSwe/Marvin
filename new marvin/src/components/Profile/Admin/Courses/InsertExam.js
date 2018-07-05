@@ -73,7 +73,6 @@ class InsertExam extends React.Component {
             "time": this.state.time
         }
 
-
         this.props.addExam(this.state.teacher, this.state.Class, this.state.unicode, this.state.active, examData);
     }
 

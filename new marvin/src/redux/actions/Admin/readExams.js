@@ -113,9 +113,9 @@ export function readExamsFromDatabase(classUnicode) {
                                     // much conversions because we can close the communication
                                     // with the blockchain faster
                                     for (i; i < result[0].length; i++) {
-                                        var exam = result[1][i]
+                                        var exam = result[3][i]
                                         var hash = result[0][i]
-                                        var teac = result[3][i]
+                                        var teac = web3.toDecimal(result[1][i])
                                         console.log("teacher: " + teac)
                                         var active = result[2][i]
                                         console.log("active: " + active)
