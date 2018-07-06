@@ -154,7 +154,7 @@ export function readUsersFromDatabase(userType) {
                       // console.error(hash)
                       var hashIPFS
                       if(hash.toString() !== '0x000')
-                        hashIPFS = ipfsPromise.getIpfsHashFromBytes32(result[0][i])
+                        hashIPFS = ipfsPromise.getIpfsHashFromBytes32(result[1][i])
                       else hashIPFS = null
                       var badgeNumber = web3.toDecimal(result[2][i])
                       var isSignedUp = (result[4][i])
