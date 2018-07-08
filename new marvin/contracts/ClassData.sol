@@ -9,14 +9,21 @@ contract ClassData {
 
     struct Class {
         uint16 index;
+        uint32 classTeacher;
         bytes10 uniCode;
         bytes32 hashData;
         // exams unicodes of the class
         bytes10[] classExams;
+        // students result (accepted)
+        mapping (uint32 => uint8) confirmedResults;
     }
 
     // key = class unicode, value = Class
     mapping (bytes10 => Class) classes;
+        
+    /* Teacher assigned classes
+     * key = teacher badgeNumber, value = uniCodes of assigned classes */
+    mapping(uint32 => bytes10[]) classTeacher;
 
     constructor(address _contractManagerAddress) public {
         uniAddress = msg.sender;
@@ -47,13 +54,14 @@ contract ClassData {
     }
 
     // return all the class exams and their IPFS hashes
-    function getClassExamsData(bytes10 _classUniCode) public view returns(bytes32[], bytes10[]) {
+    function getClassExamsData(bytes10 _classUniCode) public view returns(bytes32[], bytes10[], uint32) {
         bytes10[] memory examsForClass = classes[_classUniCode].classExams;
         bytes32[] memory examsHashCodes = new bytes32[](examsForClass.length);
+        uint32 examsTeacher = classes[_classUniCode].classTeacher;
         for(uint i = 0; i < examsForClass.length; ++i) {
             examsHashCodes[i] = ExamData(manager.getExamContract()).getHashData(examsForClass[i]);
         }
-        return(examsHashCodes, examsForClass);
+        return(examsHashCodes, examsForClass, examsTeacher);
     }
 
     function setUniCode(bytes10 _classUniCode) public onlyAdminContract {
@@ -86,5 +94,30 @@ contract ClassData {
 
     function getIndex(bytes10 _classUniCode) public view returns(uint16) {
         return(classes[_classUniCode].index);
+    }
+
+    // set the associated exam teacher
+    function setClassTeacher(bytes10 _classUniCode, uint32 _teacherBadgeNumber) public onlyAdminContract {
+        classes[_classUniCode].classTeacher = _teacherBadgeNumber;
+        classTeacher[_teacherBadgeNumber].push(_classUniCode);
+    }
+
+    // return class teacher
+    function getClassTeacher(bytes10 _classUniCode) public view returns(uint32) {
+        return(classes[_classUniCode].classTeacher);
+    }
+
+    function getTeacherClasses(uint32 _badgeNumber) public view returns(bytes10[]) {
+        return(classTeacher[_badgeNumber]);
+    }
+
+    // return accepted student result
+    function getConfirmedResult(uint32 _studentBadgeNumber, bytes10 _classUniCode) public view returns(uint8) {
+        return(classes[_classUniCode].confirmedResults[_studentBadgeNumber]);
+    }
+
+    // confirm student test result
+    function setConfirmedResult(bytes10 _classUniCode, uint32 _studentBadgeNumber, uint8 _result) public {
+        classes[_classUniCode].confirmedResults[_studentBadgeNumber] = _result;
     }
 }

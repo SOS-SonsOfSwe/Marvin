@@ -1,6 +1,7 @@
 pragma solidity ^0.4.2;
 import "./UserData.sol";
 import "./ExamData.sol";
+import "./ClassData.sol";
 import "./StudentData.sol";
 import "./ContractManager.sol";
 
@@ -21,22 +22,22 @@ contract Student {
     function booklet() public view returns(bytes32[], uint8[]) {
         uint32 badgeNumber = UserData(manager.getUserDataContract()).getRegUsersBadgeNumber(msg.sender);
         // array contenente gli uniCode degli esami confermati per lo studente chiamante
-        bytes10[] memory confirmedExamsUniCode = StudentData(manager.getStudentDataContract()).getConfirmedExamsPerStudent(badgeNumber);
-        bytes32[] memory examsHashData = new bytes32[](confirmedExamsUniCode.length);
-        uint8[] memory examsResult = new uint8[](confirmedExamsUniCode.length);
-        ExamData exam = ExamData(manager.getExamContract());
-        for(uint i = 0; i < confirmedExamsUniCode.length; ++i) {
-            examsHashData[i] = exam.getHashData(confirmedExamsUniCode[i]);
-            examsResult[i] = exam.getConfirmedResult(badgeNumber, confirmedExamsUniCode[i]);
+        bytes10[] memory acceptedResultUniCode = StudentData(manager.getStudentDataContract()).getAcceptedResults(badgeNumber);
+        bytes32[] memory classHashData = new bytes32[](acceptedResultUniCode.length);
+        uint8[] memory classResult = new uint8[](acceptedResultUniCode.length);
+        ClassData class = ClassData(manager.getClassContract());
+        for(uint i = 0; i < acceptedResultUniCode.length; ++i) {
+            classHashData[i] = class.getHashData(acceptedResultUniCode[i]);
+            classResult[i] = class.getConfirmedResult(badgeNumber, acceptedResultUniCode[i]);
         }
-        return(examsHashData, examsResult);
+        return(classHashData, classResult);
     }
 
-    function confirmResult(bytes10 _examUniCode) public {
+    function confirmResult(bytes10 _examUniCode, bytes10 _classUniCode, uint8 _result) public {
         uint32 badgeNumber = UserData(manager.getUserDataContract()).getRegUsersBadgeNumber(msg.sender);
         ExamData exam = ExamData(manager.getExamContract());
         require(exam.isExam(_examUniCode) && exam.isStudentSubscribed(_examUniCode, badgeNumber));
-        exam.setConfirmedResult(_examUniCode, badgeNumber);
+        ClassData(manager.getClassContract()).setConfirmedResult(_classUniCode, badgeNumber, _result);
         StudentData(manager.getStudentDataContract()).addAcceptedResult(_examUniCode, badgeNumber);
     }
 
