@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import DeleteClass from '../../../../components/Profile/Admin/Degrees/DeleteClass'
+import DeleteClass from '../../../../components/Profile/Admin/Classes/DeleteClass'
 // import { readDegreesFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
 import { deleteClassFromDatabase } from '../../../../redux/actions/Admin/deleteClass'
 // This container is read-only, so there's no need for mapping dispatch actions to the store.

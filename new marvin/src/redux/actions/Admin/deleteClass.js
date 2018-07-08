@@ -33,7 +33,7 @@ function doAwesomeStuff(dispatch, load) {
   //   return browserHistory.push('/profile/academic-years') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
-export function deleteClassFromDatabase(classUnicode) {
+export function deleteClassFromDatabase(degreeUnicode, classUnicode) {
   let web3 = store.getState()
     .web3.web3Instance
 
@@ -61,7 +61,7 @@ export function deleteClassFromDatabase(classUnicode) {
           .then(function (instance) {
             adminInstance = instance
 
-            adminInstance.removeClass(classUnicode, { from: coinbase })
+            adminInstance.removeClass(degreeUnicode, classUnicode, { from: coinbase })
               .then(() => {
                 return doAwesomeStuff(dispatch, classUnicode) //Repeating because of the asyncronous promises of the functions
               })

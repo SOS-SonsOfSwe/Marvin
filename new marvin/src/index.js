@@ -42,7 +42,6 @@ import DeleteDegreeContainer from './containers/Profile/Admin/Degrees/DeleteDegr
 import ModifyDegree from './components/Profile/Admin/Degrees/ModifyDegree';
 import InsertClassContainer from './containers/Profile/Admin/Classes/InsertClassContainer'
 import ModifyClass from './components/Profile/Admin/Classes/ModifyClass'
-import DeleteClass from './components/Profile/Admin/Classes/DeleteClass'
 import DeleteAdministrator from './components/Profile/Admin/onlyUniversity/Administrators/DeleteAdministrator'
 import DeleteTeacher from './components/Profile/Admin/Teachers/DeleteTeacher'
 import DeleteStudent from './components/Profile/Admin/Students/DeleteStudent'
@@ -57,6 +56,7 @@ import './index.scss'
 // Redux Store
 import store from './store'
 import ExamsContainer from './containers/Profile/Admin/Classes/ExamsContainer';
+import DeleteClassContainer from './containers/Profile/Admin/Classes/DeleteClassContainer';
 
 
 // Initialize react-router-redux.
@@ -101,7 +101,7 @@ ReactDOM.render((
             <IndexRoute component={AdminIsAuthenticated(ClassesContainer)} />
             <Route path="insert-class" component={AdminIsAuthenticated(InsertClassContainer)} />
             <Route path="modify-class" component={AdminIsAuthenticated(ModifyClass)} />
-            <Route path="delete-class" component={AdminIsAuthenticated(DeleteClass)} />
+            <Route path="delete-class" component={AdminIsAuthenticated(DeleteClassContainer)} />
             <Route path="insert-exam" component={AdminIsAuthenticated(InsertExamContainer)} />
           </Route>
 
