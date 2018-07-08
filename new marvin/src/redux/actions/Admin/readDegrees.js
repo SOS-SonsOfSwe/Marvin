@@ -34,7 +34,7 @@ function doAwesomeStuff(dispatch, load) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   }
-  // return browserHistory.push('/profile/degrees') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
+  // return browserHistory.push('/profile/degree-classes') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
 // async function processIPFSResult(ipfs, payload) {

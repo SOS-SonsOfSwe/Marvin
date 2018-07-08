@@ -82,7 +82,7 @@ export function deleteDegreeFromDatabase(degreeUnicode, year) {
                 // If error, go to signup page.
                 console.error('Error while deleting infos: ' + error)
               })
-              .finally(() => { return browserHistory.push('/profile/degrees') })
+              .finally(() => { return browserHistory.push('/profile/degree-classes') })
           })
       })
     }
