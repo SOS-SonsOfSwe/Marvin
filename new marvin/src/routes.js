@@ -36,63 +36,135 @@ import DeleteAdministrator from './components/Profile/Admin/onlyUniversity/Admin
 import DeleteTeacher from './components/Profile/Admin/Teachers/DeleteTeacher'
 import DeleteStudent from './components/Profile/Admin/Students/DeleteStudent'
 
-const Routes = (props, store, history) => (
-    <Route path="/" component={App}>
-        <IndexRoute component={UserDataFetching(Home)} />
-        <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
-        <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
-        <Route path="profile" component={UserIsAuthenticated(ProfileContainer)}>
-            {/* <Route path="academic-years" component={AdminIsAuthenticated(AcademicYearsContainer)}> */}
-            <Route path="academic-years">
-                <IndexRoute component={AdminIsAuthenticated(AcademicYearsContainer)} />
-                <Route path="insert-academic-year" component={AdminIsAuthenticated(InsertAcademicYearContainer)} />
-                <Route path="modify-academic-year" component={AdminIsAuthenticated(ModifyAcademicYear)} />
-                <Route path="delete-academic-year" component={AdminIsAuthenticated(DeleteAcademicYear)} />
-                <Route path="insert-degree-class" component={AdminIsAuthenticated(InsertDegree)} />
-            </Route>
+const Routes = (props, store, history) => ( <
+  Route path = "/"
+  component = { App } >
+  <
+  IndexRoute component = { UserDataFetching(Home) }
+  /> <
+  Route path = "insert-user"
+  component = { AdminIsAuthenticated(InsertUser) }
+  /> <
+  Route path = "signup"
+  component = { UserIsNotAuthenticated(SignUp) }
+  /> <
+  Route path = "profile"
+  component = { UserIsAuthenticated(ProfileContainer) } > { /* <Route path="academic-years" component={AdminIsAuthenticated(AcademicYearsContainer)}> */ } <
+  Route path = "academic-years" >
+  <
+  IndexRoute component = { AdminIsAuthenticated(AcademicYearsContainer) }
+  /> <
+  Route path = "insert-academic-year"
+  component = { AdminIsAuthenticated(InsertAcademicYearContainer) }
+  /> <
+  Route path = "modify-academic-year"
+  component = { AdminIsAuthenticated(ModifyAcademicYear) }
+  /> <
+  Route path = "delete-academic-year"
+  component = { AdminIsAuthenticated(DeleteAcademicYear) }
+  /> <
+  Route path = "insert-degree"
+  component = { AdminIsAuthenticated(InsertDegree) }
+  /> <
+  /Route>
 
-            <Route path="degree-classes">
-                <IndexRoute component={AdminIsAuthenticated(DegreesContainer)} />
-                <Route path="insert-degree-class" component={AdminIsAuthenticated(InsertDegree)} />
-                <Route path="modify-degree-class" component={AdminIsAuthenticated(ModifyDegree)} />
-                <Route path="delete-degree-class" component={AdminIsAuthenticated(DeleteDegree)} />
-                <Route path="insert-class" component={AdminIsAuthenticated(InsertClass)} />
-            </Route>
+  <
+  Route path = "degrees" >
+  <
+  IndexRoute component = { AdminIsAuthenticated(DegreesContainer) }
+  /> <
+  Route path = "insert-degree"
+  component = { AdminIsAuthenticated(InsertDegree) }
+  /> <
+  Route path = "modify-degree"
+  component = { AdminIsAuthenticated(ModifyDegree) }
+  /> <
+  Route path = "delete-degree"
+  component = { AdminIsAuthenticated(DeleteDegree) }
+  /> <
+  Route path = "insert-class"
+  component = { AdminIsAuthenticated(InsertClass) }
+  /> <
+  /Route>
 
-            <Route path="classes">
-                <IndexRoute component={AdminIsAuthenticated(ClassesContainer)} />
-                <Route path="insert-class" component={AdminIsAuthenticated(InsertClass)} />
-                <Route path="modify-class" component={AdminIsAuthenticated(ModifyClass)} />
-                <Route path="delete-class" component={AdminIsAuthenticated(DeleteClass)} />
-                <Route path="insert-exam" component={AdminIsAuthenticated(InsertExam)} />
-            </Route>
+  <
+  Route path = "classes" >
+  <
+  IndexRoute component = { AdminIsAuthenticated(ClassesContainer) }
+  /> <
+  Route path = "insert-class"
+  component = { AdminIsAuthenticated(InsertClass) }
+  /> <
+  Route path = "modify-class"
+  component = { AdminIsAuthenticated(ModifyClass) }
+  /> <
+  Route path = "delete-class"
+  component = { AdminIsAuthenticated(DeleteClass) }
+  /> <
+  Route path = "insert-exam"
+  component = { AdminIsAuthenticated(InsertExam) }
+  /> <
+  /Route>
 
-            <Route path="administrators">
-                <IndexRoute component={UniIsAuthenticated(Administrators)} />
-                <Route path="insert-user" component={UniIsAuthenticated(InsertUser)} />
-                <Route path="delete-administrator" component={UniIsAuthenticated(DeleteAdministrator)} />
-            </Route>
+  <
+  Route path = "administrators" >
+  <
+  IndexRoute component = { UniIsAuthenticated(Administrators) }
+  /> <
+  Route path = "insert-user"
+  component = { UniIsAuthenticated(InsertUser) }
+  /> <
+  Route path = "delete-administrator"
+  component = { UniIsAuthenticated(DeleteAdministrator) }
+  /> <
+  /Route>
 
-            <Route path="teachers">
-                <IndexRoute component={AdminIsAuthenticated((Teachers))} />
-                <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
-                <Route path="delete-teacher" component={AdminIsAuthenticated(DeleteTeacher)} />
-            </Route>
+  <
+  Route path = "teachers" >
+  <
+  IndexRoute component = { AdminIsAuthenticated((Teachers)) }
+  /> <
+  Route path = "insert-user"
+  component = { AdminIsAuthenticated(InsertUser) }
+  /> <
+  Route path = "delete-teacher"
+  component = { AdminIsAuthenticated(DeleteTeacher) }
+  /> <
+  /Route>
 
-            <Route path="students">
-                <IndexRoute component={AdminIsAuthenticated(Students)} />
-                <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
-                <Route path="delete-student" component={AdminIsAuthenticated(DeleteStudent)} />
-            </Route>
+  <
+  Route path = "students" >
+  <
+  IndexRoute component = { AdminIsAuthenticated(Students) }
+  /> <
+  Route path = "insert-user"
+  component = { AdminIsAuthenticated(InsertUser) }
+  /> <
+  Route path = "delete-student"
+  component = { AdminIsAuthenticated(DeleteStudent) }
+  /> <
+  /Route>
 
-            <Route path="exams-list" component={TeacherIsAuthenticated(ExamsTeacherList)} />
-            <Route path="exams-student-list" component={StudentIsAuthenticated(ExamsStudentList)} />
-            <Route path="school-records" component={StudentIsAuthenticated(SchoolRecords)} />
+  <
+  Route path = "exams-list"
+  component = { TeacherIsAuthenticated(ExamsTeacherList) }
+  /> <
+  Route path = "exams-student-list"
+  component = { StudentIsAuthenticated(ExamsStudentList) }
+  /> <
+  Route path = "school-records"
+  component = { StudentIsAuthenticated(SchoolRecords) }
+  />
 
-        </Route>
-        <Route path="help" component={Help} />
-        <Route path="*" component={NotFound} />
-    </Route>
+  <
+  /Route> <
+  Route path = "help"
+  component = { Help }
+  /> <
+  Route path = "*"
+  component = { NotFound }
+  /> <
+  /Route>
 )
 
 export default Routes
