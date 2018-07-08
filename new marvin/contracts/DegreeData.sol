@@ -86,7 +86,7 @@ contract DegreeData {
     }
 
     // return all the classes unicodes and their IPFS hash of the degree
-    function getClassesData(bytes10 _degreeUniCode) public view returns(bytes32[], bytes10[], uint32[]) {
+    function getClassesData(bytes10 _degreeUniCode) public view returns(bytes32[], uint32[], bytes10[]) {
         bytes10[] memory classesForDegree = getClasses(_degreeUniCode);
         bytes32[] memory classesHashCodes = new bytes32[](classesForDegree.length);
         uint32[] memory classesTeacher = new uint32[](classesForDegree.length);
@@ -94,7 +94,7 @@ contract DegreeData {
             classesHashCodes[i] = ClassData(manager.getClassContract()).getHashData(classesForDegree[i]);
             classesTeacher[i] = ClassData(manager.getClassContract()).getClassTeacher(classesForDegree[i]);
         }
-        return(classesHashCodes, classesForDegree, classesTeacher);
+        return(classesHashCodes, classesTeacher, classesForDegree);
     }
 
     function setHashData(bytes10 _degreeUniCode, bytes32 _degreeHashData) public onlyAdminContract {
