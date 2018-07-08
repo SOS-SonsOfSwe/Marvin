@@ -2,7 +2,7 @@ import AdminContract from '../../../../build/contracts/Admin'
 import DegreeContract from '../../../../build/contracts/DegreeData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
-import { DEGREE_COURSES as req } from '../../reducers/costants/adminCostants'
+import { DEGREES as req } from '../../reducers/costants/adminCostants'
 // import { web3HexToInt } from '../../../utils/validations'
 
 // those are standard dispatches. These are taking the "req" parameter which is responsible for addressing the right action to the right part of the reducer.

@@ -45,7 +45,7 @@ const OptionsY = ({ year }) => (
 const OptionsDC = ({ degreeUnicode }) => (
     <option value={degreeUnicode}> {degreeUnicode} </option>
 );
-// CHANGE DEGREECOURSE IN DEGREEUNICODE, AS WE ARE WORKING WITH THEM
+// CHANGE DEGREE IN DEGREEUNICODE, AS WE ARE WORKING WITH THEM
 
 class Classes extends React.Component {
     constructor(props) {

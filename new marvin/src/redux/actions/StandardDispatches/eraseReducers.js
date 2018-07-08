@@ -8,12 +8,12 @@ export function eraseAcademicYearsReducer() {
 }
 export function eraseDegreesReducer() {
   return {
-    type: adminCostants.ERASE_DEGREE_COURSES,
+    type: adminCostants.ERASE_DEGREES,
   }
 }
 export function eraseClassesReducer() {
   return {
-    type: adminCostants.ERASE_DEGREE_COURSES,
+    type: adminCostants.ERASE_DEGREES,
   }
 }
 export function eraseIpfsReducer() {

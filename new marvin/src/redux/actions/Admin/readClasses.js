@@ -2,7 +2,7 @@ import "regenerator-runtime/runtime"; // needed for async calls
 import DegreeContract from '../../../../build/contracts/DegreeData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
-import { COURSES as req } from "../../reducers/costants/adminCostants";
+import { CLASSES as req } from "../../reducers/costants/adminCostants";
 
 // import { web3HexToInt } from '../../../utils/validations'
 
@@ -77,7 +77,7 @@ export function readClassesFromDatabase(year, degreeUnicode) {
             degreeInstance.getClassesData(degreeUnicode, { from: coinbase })
               // .then(console.log)
               .then(result => {
-                console.log('COURSES READ RESULT: ')
+                console.log('CLASSES READ RESULT: ')
                 console.log(result)
 
                 // checking if the blockchain is empty for this kind of data.

@@ -9,7 +9,7 @@ const initialState = {
 }
 
 const degreesReducer = (state = initialState, action) => {
-  if (action.request === adminCostants.DEGREE_COURSES) {
+  if (action.request === adminCostants.DEGREES) {
     switch (action.type) {
       // default: in this case we tried to make a dispatch without using matching any case
       default: {
@@ -93,7 +93,7 @@ const degreesReducer = (state = initialState, action) => {
             loading: false
           }
         }
-      case adminCostants.ERASE_DEGREE_COURSES:
+      case adminCostants.ERASE_DEGREES:
         {
           return {
             ...state,

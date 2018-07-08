@@ -2,7 +2,7 @@ import "regenerator-runtime/runtime"; // needed for async calls
 import DegreeContract from '../../../../build/contracts/DegreeData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
-import { DEGREE_COURSES as req } from "../../reducers/costants/adminCostants";
+import { DEGREES as req } from "../../reducers/costants/adminCostants";
 
 // import { web3HexToInt } from '../../../utils/validations'
 

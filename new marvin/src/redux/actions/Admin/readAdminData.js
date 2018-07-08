@@ -2,7 +2,7 @@
 
 import * as adminData from '../../../utils/adminData'
 // import { adminCostants } from '../../reducers/costants'
-import { COURSES } from '../../reducers/costants/adminCostants'
+import { CLASSES } from '../../reducers/costants/adminCostants'
 import { dataRead, readingData } from '../../actions/StandardDispatches/readingData'
 
 // prototype for the dispatch action. Here we want to send to the store the payload we succeeded in retrieving
@@ -72,17 +72,17 @@ import { dataRead, readingData } from '../../actions/StandardDispatches/readingD
 
 export function readClassesFromDatabase(years, degreeC) {
   return function (dispatch) {
-    dispatch(readingData(COURSES))
+    dispatch(readingData(CLASSES))
     setTimeout(() => dispatch(dataRead({
       'load': adminData.classes.filter((obj) => obj.year === years && obj.degreeData === degreeC)
-    }, COURSES)), 2000)
+    }, CLASSES)), 2000)
   }
 }
 // export function readClassesFromDatabase(years, degreeC) {
 //   return function (dispatch) {
-//     dispatch(readingData(COURSES))
+//     dispatch(readingData(CLASSES))
 //     setTimeout(() => dispatch(dataRead({
 //       'load': adminData.classes
-//     }, COURSES)), 2000)
+//     }, CLASSES)), 2000)
 //   }
 // }
