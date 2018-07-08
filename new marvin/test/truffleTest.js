@@ -1,6 +1,6 @@
 const AdminContract = artifacts.require('./Admin.sol')
 const DegreeContract = artifacts.require('./DegreeData')
-const CourseContract = artifacts.require('./DegreeData')
+const ClassContract = artifacts.require('./DegreeData')
 const UserLogic = artifacts.require('./UserLogic')
 const web3 = require('web3')
 
@@ -80,7 +80,7 @@ contract('Admin, DegreeData', (address) => {
         assert.equal(isTrue, true, "Adding new year ok");
       })
   });
-  it("should check for a newly added degree course", function () {
+  it("should check for a newly added degree", function () {
     var instance
     AdminContract.deployed()
       .then(adminInstance => {
@@ -97,20 +97,20 @@ contract('Admin, DegreeData', (address) => {
   });
 })
 
-contract('Admin, CourseData', (address) => {
-  it("should check for a newly added course", function () {
+contract('Admin, ClassData', (address) => {
+  it("should check for a newly added class", function () {
     var instance
     AdminContract.deployed()
       .then(adminInstance => {
         instance = adminInstance
-        return instance.addNewCourse('INF18', 'PROGR18', 'asdasdasd', { from: address[0] })
+        return instance.addNewClass('INF18', 'PROGR18', 'asdasdasd', { from: address[0] })
       });
-    CourseContract.deployed()
-      .then(courseInstance => {
-        return courseInstance.isCourse('PROGR18', { from: address[0] })
+    ClassContract.deployed()
+      .then(classInstance => {
+        return classInstance.isClass('PROGR18', { from: address[0] })
       })
       .then(isTrue => {
-        assert.equal(isTrue, true, "Adding new course ok");
+        assert.equal(isTrue, true, "Adding new class ok");
       })
   });
 })

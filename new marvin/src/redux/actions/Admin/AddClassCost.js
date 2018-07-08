@@ -7,11 +7,11 @@ import store from '../../../store'
 
 const contract = require('truffle-contract')
 
-export default function addDegreeCourseCost(degreeUnicode, year) {
+export default function addClassCost(degreeUnicode, classUnicode) {
   let web3 = store.getState()
     .web3.web3Instance
 
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     const admin = contract(AdminContract)
 
@@ -24,7 +24,7 @@ export default function addDegreeCourseCost(degreeUnicode, year) {
     var adminInstance
 
     web3.eth.getCoinbase((error, coinbase) => {
-      if(error) {
+      if (error) {
         console.error(error);
       }
 
@@ -37,10 +37,10 @@ export default function addDegreeCourseCost(degreeUnicode, year) {
           var costOperationEth
           var costOperationUsd
           degreeUnicode = 'INF17'
-          year = '2000'
-          var degreeData = 'asdasdasdasdasdasd'
+          classUnicode = 'PROGRA17'
+          var classHash = 'asdasdasdasdasdasd'
 
-          adminInstance.addNewCourse.estimatedGas(degreeUnicode, year, degreeData)
+          adminInstance.addNewClass.estimatedGas(degreeUnicode, classUnicode, classHash)
             .then(result => {
               estimatedGas = result
               costOperationWei = estimatedGas * gasPrice

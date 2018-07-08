@@ -1,5 +1,5 @@
 import "regenerator-runtime/runtime"; // needed for async calls
-import CourseContract from '../../../../build/contracts/CourseData'
+import ClassContract from '../../../../build/contracts/ClassData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
 import { EXAMS as req } from "../../reducers/costants/adminCostants";
@@ -23,7 +23,7 @@ function doAwesomeStuff(dispatch, load) {
         //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
         return browserHistory.replace('/profile')
     }
-    // return browserHistory.push('/profile/degree-courses') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
+    // return browserHistory.push('/profile/degree-classes') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
 // async function processIPFSResult(ipfs, payload) {
@@ -53,7 +53,7 @@ export function readExamsFromDatabase(classUnicode) {
 
         return function (dispatch) {
             // Using truffle-contract we create the authentication object.
-            const Class = contract(CourseContract)
+            const Class = contract(ClassContract)
             Class.setProvider(web3.currentProvider)
 
             // Declaring this for later so we can chain functions on Authentication.
@@ -73,8 +73,8 @@ export function readExamsFromDatabase(classUnicode) {
                     .then(function (instance) {
                         classInstance = instance
 
-                        // Attempt to read exams per class/course
-                        classInstance.getCourseExamsData(classUnicode, { from: coinbase })
+                        // Attempt to read exams per class/class
+                        classInstance.getClassExamsData(classUnicode, { from: coinbase })
                             // .then(console.log)
                             .then(result => {
                                 console.log('EXAMS READ RESULT: ')
@@ -85,7 +85,7 @@ export function readExamsFromDatabase(classUnicode) {
                                 // 0x00000. When it's full it's 0xsomething. So we check the first number
                                 // after "x" to be not equal to zero.
                                 // console.log(web3.toUtf8(result[0]))
-                                // for degreeCourse result[0] is the actual array of unicodes of the degreeCourse
+                                // for degree result[0] is the actual array of unicodes of the degree
                                 // result[1] is the list of its respectively IPFS hash
                                 // console.log('web3ToHex: ' + web3.toHex(result[0][0]))
 
@@ -99,13 +99,13 @@ export function readExamsFromDatabase(classUnicode) {
 
                                     var payload
                                     var i = 0;
-                                    // export var courses = [{
+                                    // export var classes = [{
                                     //   year: "2017-2018",
                                     //   degreeUnicode: "MAT/INF17",
-                                    //   courseData: {
+                                    //   classData: {
                                     //     'description': "Reti e sicurezza"
                                     //   },
-                                    //   courseUnicode: 'RETISICU17'
+                                    //   classUnicode: 'RETISICU17'
                                     // }]
 
                                     // Just read all the information inside the blockchain.

@@ -8,8 +8,8 @@ const initialState = {
   empty: null
 }
 
-const academicYearsReducer = (state = initialState, action) => {
-  if (action.request === adminCostants.ACADEMIC_YEARS) {
+const classesReducer = (state = initialState, action) => {
+  if (action.request === adminCostants.COURSES) {
     switch (action.type) {
       // default: in this case we tried to make a dispatch without using matching any case
       default: {
@@ -20,7 +20,7 @@ const academicYearsReducer = (state = initialState, action) => {
       // admin is retrieving data from server, so the boolean variables work as expected
       case adminCostants.FETCHING_DATA || adminCostants.DELETING:
         {
-          console.log('adminReducer: reading or deleting data from database')
+          console.log('adminReducer: reading data from database')
           return {
             ...state,
             loading: true,
@@ -35,7 +35,7 @@ const academicYearsReducer = (state = initialState, action) => {
       // server finished to give data successfully, so he can unlock resources
       case adminCostants.FETCH_DATA_SUCCESS:
         {
-          console.log('adminReducer: successfully fetched academic years data')
+          console.log('adminReducer: successfully fetched Classes data')
           // checking if somebody changed page during loading data, so the state.data is not overwritten by asynchronous returns
           // if(state.loading === false) return state
           return {
@@ -52,19 +52,19 @@ const academicYearsReducer = (state = initialState, action) => {
         }
       case adminCostants.DELETED_DATA:
         {
-          console.log('adminReducer: successfully deleted academic year')
+          // console.log('adminReducer: successfully deleted academic year')
           var newPayload = state.payload
-          console.log('Trying to delete: ' + action.payload.load)
+          // console.log('Trying to delete: ' + action.payload.load)
           var indexToDelete = newPayload.findIndex(index => {
-            console.log('index.year: ' + index.year)
-            console.log('index.year === action.payload.load: ' + (index.year === action.payload.load))
+            // console.log('index.year: ' + index.year)
+            // console.log('index.year === action.payload.load: ' + (index.year === action.payload.load))
             return index.year === action.payload.load
           })
-          console.log('indexToDelete: ' + indexToDelete)
+          // console.log('indexToDelete: ' + indexToDelete)
           var part1 = newPayload.slice(0, indexToDelete)
           var part2 = newPayload.slice(indexToDelete + 1, -1)
           var tot = [...part1, ...part2]
-          console.log('Resulting academic year payload: ' + JSON.stringify(tot))
+          // console.log('Resulting academic year payload: ' + JSON.stringify(tot))
           return {
             ...state,
             payload: tot,
@@ -75,7 +75,6 @@ const academicYearsReducer = (state = initialState, action) => {
             loading: false
           }
         }
-
       // there were some errors, so we can manage them
       case adminCostants.FETCH_DATA_ERROR || adminCostants.ERROR_DELETING_DATA:
         {
@@ -94,7 +93,7 @@ const academicYearsReducer = (state = initialState, action) => {
             loading: false
           }
         }
-      case adminCostants.ERASE_ACADEMIC_YEARS:
+      case adminCostants.ERASE_COURSES:
         {
           return {
             ...state,
@@ -108,4 +107,4 @@ const academicYearsReducer = (state = initialState, action) => {
     }
   } else return state;
 }
-export default academicYearsReducer
+export default classesReducer

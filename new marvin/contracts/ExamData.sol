@@ -6,8 +6,7 @@ contract ExamData {
     ContractManager manager;
 
     struct Exam {
-        // open/closed subscription to the exam
-        bool activeSubscription;
+        uint16 index;
         uint32 examTeacher;
         bytes10 uniCode;
         bytes32 hashData;
@@ -18,13 +17,10 @@ contract ExamData {
         // students result (accepted) 
         mapping (uint32 => uint8) confirmedResults;
     }
-    // exams uniCodes
-    bytes10[] uniCodes;
 
     // key = exams uniCode, value = related Exam
     mapping (bytes10 => Exam) exams;
 
-    // ??? -> to teacher
     /* Teacher assigned exams
      * key = teacher badgeNumber, value = uniCodes of assigned exams */
     mapping(uint32 => bytes10[]) teacherExams;
@@ -48,10 +44,6 @@ contract ExamData {
         require(msg.sender == manager.getTeacherContract());
         _;
     }
-    
-    function getAllIdentifiers() public view returns(bytes10[]) {
-        return uniCodes;
-    }
 
     // return accepted student result
     function getConfirmedResult(uint32 _studentBadgeNumber, bytes10 _examUniCode) public view returns(uint8) {
@@ -67,10 +59,6 @@ contract ExamData {
         return(exams[_examUniCode].subscribedStudents);
     }
 
-    function getExamActiveSubscription(bytes10 _examUniCode) public view returns(bool) {
-        return(exams[_examUniCode].activeSubscription);
-    }
-
     // return exam teacher
     function getExamTeacher(bytes10 _examUniCode) public view returns(uint32) {
         return(exams[_examUniCode].examTeacher);
@@ -83,10 +71,6 @@ contract ExamData {
 
     function setHashData(bytes10 _examUniCode, bytes32 _hashData) public onlyAdminContract {
         exams[_examUniCode].hashData = _hashData;
-    }
-
-    function setActiveSubscription(bytes10 _examUniCode, bool _activeSubscription) public onlyAdminContract {
-        exams[_examUniCode].activeSubscription = _activeSubscription;
     }
 
     function isExam(bytes10 _examUniCode) public view returns(bool) {
@@ -105,8 +89,7 @@ contract ExamData {
         return false;
     }
 
-    function addNewExam(bytes10 _examUniCode) public onlyAdminContract {
-        uniCodes.push(_examUniCode);
+    function setUniCode(bytes10 _examUniCode) public onlyAdminContract {
         exams[_examUniCode].uniCode = _examUniCode;
     }
 
@@ -132,5 +115,17 @@ contract ExamData {
 
     function deleteExam(bytes10 _examUnicode) public onlyAdminContract {
         delete exams[_examUnicode];
+    }
+        
+    function setIndex(bytes10 _examUniCode, uint16 _index) public {
+        exams[_examUniCode].index = _index;
+    }
+
+    function getIndex(bytes10 _examUniCode) public view returns(uint16) {
+        return(exams[_examUniCode].index);
+    }
+
+    function resetExam(bytes10 _examUniCode) public onlyAdminContract {
+        delete exams[_examUniCode];
     }
 }

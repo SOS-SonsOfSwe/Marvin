@@ -3,7 +3,7 @@ pragma solidity ^0.4.2;
 contract ContractManager {
     address uniAddress;
     address adminContract;
-    address courseContract;
+    address classContract;
     address degreeContract;
     address examContract;
     address studentDataContract;
@@ -24,8 +24,8 @@ contract ContractManager {
     function getAdminContract() public view returns(address) {
         return adminContract;
     }
-    function getCourseContract() public view returns(address) {
-        return courseContract;
+    function getClassContract() public view returns(address) {
+        return classContract;
     }
     function getDegreeContract() public view returns(address) {
         return degreeContract;
@@ -58,8 +58,8 @@ contract ContractManager {
     function setExamContract(address _exam) public onlyUniversity {
         examContract = _exam;
     }
-    function setCourseContract(address _course) public onlyUniversity {
-        courseContract = _course;
+    function setClassContract(address _class) public onlyUniversity {
+        classContract = _class;
     }
     function setDegreeContract(address _degree) public onlyUniversity {
         degreeContract = _degree;

@@ -16,16 +16,16 @@ import {
 
 const contract = require('truffle-contract')
 
-export default function addCourse(year, degreeUnicode, courseUnicode, courseData) {
+export default function addClass(year, degreeUnicode, classUnicode, classData) {
   // thinking as year = 2014-2015 we want to take only the first two int so we can send 
   // them to the solidity contract and risparmiare
   var ipfs = new ipfsPromise()
 
-  var course = {
+  var Sclass = {
     /*'year': year,
     'degreeUnicode': degreeUnicode,
-    'courseUnicode': courseUnicode,*/
-    'courseData': courseData
+    'classUnicode': classUnicode,*/
+    'classData': classData
   }
 
   let web3 = store.getState()
@@ -56,17 +56,17 @@ export default function addCourse(year, degreeUnicode, courseUnicode, courseData
             // dispatching blockchain adding data
             dispatch(addingData())
 
-            ipfs.pushJSON(course)
+            ipfs.pushJSON(Sclass)
               .then(hashIPFS => {
                 // dispatching ipfs data added
                 dispatch(ipfsDataAdded)
 
-                var courseHash = ipfsPromise.getBytes32FromIpfsHash(hashIPFS)
+                var classHash = ipfsPromise.getBytes32FromIpfsHash(hashIPFS)
                 adminIstance = instance
                 // dispatching action for make the reducer know we are making the transaction
                 dispatch(addingData())
 
-                adminIstance.addNewCourse(degreeUnicode, courseUnicode, courseHash, { from: coinbase })
+                adminIstance.addNewClass(degreeUnicode, classUnicode, classHash, { from: coinbase })
                   .then(result => {
                     // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
                     dispatch(dataAdded())

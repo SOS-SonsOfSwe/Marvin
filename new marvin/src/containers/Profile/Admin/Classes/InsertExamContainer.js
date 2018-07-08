@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import InsertExam from '../../../../components/Profile/Admin/Courses/InsertExam'
+import InsertExam from '../../../../components/Profile/Admin/Classes/InsertExam'
 import addNewExam from '../../../../redux/actions/Admin/AddExam'
 
 const mapStateToProps = (state, ownProps) => {

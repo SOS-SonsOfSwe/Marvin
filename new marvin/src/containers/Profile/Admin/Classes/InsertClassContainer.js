@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import InsertCourse from '../../../../components/Profile/Admin/Courses/InsertCourse'
-import addNewCourse from '../../../../redux/actions/Admin/AddCourse'
+import InsertClass from '../../../../components/Profile/Admin/Classes/InsertClass'
+import addNewClass from '../../../../redux/actions/Admin/AddClass'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -13,12 +13,12 @@ const mapStateToProps = (state, ownProps) => {
 
 
 const mapDispatchToProps = {
-  addCourse: addNewCourse
+  addClass: addNewClass
 }
 
-const InsertCourseContainer = connect(
+const InsertClassContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(InsertCourse)
+)(InsertClass)
 
-export default InsertCourseContainer
+export default InsertClassContainer

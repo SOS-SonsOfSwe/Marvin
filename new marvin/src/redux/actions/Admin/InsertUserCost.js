@@ -5,11 +5,11 @@ import store from '../../../store'
 
 const contract = require('truffle-contract')
 
-export default function addDegreeCourseCost(FC, UC, tp) {
+export default function addDegreeCost(FC, UC, tp) {
   let web3 = store.getState()
     .web3.web3Instance
 
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     const admin = contract(AdminContract)
 
@@ -22,7 +22,7 @@ export default function addDegreeCourseCost(FC, UC, tp) {
     var adminInstance
 
     web3.eth.getCoinbase((error, coinbase) => {
-      if(error) {
+      if (error) {
         console.error(error);
       }
 

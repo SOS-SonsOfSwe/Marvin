@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Row = ({degreeCourse, course, typology, date}) => (
+const Row = ({ degree, Sclass, typology, date }) => (
     <tr className="clickable-row">
-        <td>{degreeCourse}</td>
-        <td>{course}</td>
+        <td>{degree}</td>
+        <td>{Sclass}</td>
         <td>{typology}</td>
         <td>{date}</td>
     </tr>

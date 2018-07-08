@@ -32,10 +32,10 @@ const OnlyUniAdminSubLinks = VisibleOnlyUniAdmin(() => {
                         <Link to="/profile/academic-years" className="pure-menu-link">Academic years</Link>
                     </li>
                     <li className="pure-menu-item">
-                        <Link to="/profile/degree-courses" className="pure-menu-link">Degree courses</Link>
+                        <Link to="/profile/degree-classes" className="pure-menu-link">Degrees</Link>
                     </li>
                     <li className="pure-menu-item">
-                        <Link to="/profile/courses" className="pure-menu-link">Courses</Link>
+                        <Link to="/profile/classes" className="pure-menu-link">Classes</Link>
                     </li>
                     <li className="pure-menu-item">
                         <Link to="/profile/exams" className="pure-menu-link">Exams</Link>

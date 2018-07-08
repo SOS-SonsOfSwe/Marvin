@@ -61,28 +61,28 @@ import { dataRead, readingData } from '../../actions/StandardDispatches/readingD
 //     }
 // }
 
-// export function readDegreeCoursesFromDatabase(years) {
+// export function readDegreesFromDatabase(years) {
 //   return function (dispatch) {
 //     dispatch(fetchingData())
 //     setTimeout(() => dispatch(fetchDataSuccess({
-//       'load': adminData.degreeCourses.filter(function (obj) { return obj.year === years })
+//       'load': adminData.degrees.filter(function (obj) { return obj.year === years })
 //     })), 2000)
 //   }
 // }
 
-export function readCoursesFromDatabase(years, degreeC) {
+export function readClassesFromDatabase(years, degreeC) {
   return function (dispatch) {
     dispatch(readingData(COURSES))
     setTimeout(() => dispatch(dataRead({
-      'load': adminData.courses.filter((obj) => obj.year === years && obj.degreeData === degreeC)
+      'load': adminData.classes.filter((obj) => obj.year === years && obj.degreeData === degreeC)
     }, COURSES)), 2000)
   }
 }
-// export function readCoursesFromDatabase(years, degreeC) {
+// export function readClassesFromDatabase(years, degreeC) {
 //   return function (dispatch) {
 //     dispatch(readingData(COURSES))
 //     setTimeout(() => dispatch(dataRead({
-//       'load': adminData.courses
+//       'load': adminData.classes
 //     }, COURSES)), 2000)
 //   }
 // }

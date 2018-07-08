@@ -107,7 +107,7 @@ class InsertExam extends React.Component {
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
                                 <button className="button_cancel">
-                                    <Link to='/profile/courses'>Cancel</Link>
+                                    <Link to='/profile/classes'>Cancel</Link>
                                 </button>
                             </div>
                         </fieldset>

@@ -38,23 +38,22 @@ contract Admin {
         degree.setHashData(_degreeUniCode, _hashData);
     }
 
-    function addNewCourse(bytes10 _degreeuniCode, bytes10 _courseUniCode, bytes32 _courseHashData) public onlyAdmin {
-        CourseData course = CourseData(manager.getCourseContract());
-        require(!course.isCourse(_courseUniCode));
-        DegreeData(manager.getDegreeContract()).addCourse(_degreeuniCode, _courseUniCode);
-        course.addNewCourse(_courseUniCode);
-        course.setUniCode(_courseUniCode);
-        course.setHashData(_courseUniCode, _courseHashData);
+    function addNewClass(bytes10 _degreeuniCode, bytes10 _classUniCode, bytes32 _classHashData) public onlyAdmin {
+        ClassData class = ClassData(manager.getClassContract());
+        require(!class.isClass(_classUniCode));
+        uint16 index = DegreeData(manager.getDegreeContract()).addNewClass(_degreeuniCode, _classUniCode);
+        class.setUniCode(_classUniCode);
+        class.setHashData(_classUniCode, _classHashData);
+        class.setIndex(_classUniCode, index);
     }
 
-    function addNewExam(bytes10 _courseUniCode, bytes10 _examUniCode, bool _isActive, bytes32 _examHashData) public onlyAdmin {
+    function addNewExam(bytes10 _classUniCode, bytes10 _examUniCode, bytes32 _examHashData) public onlyAdmin {
         ExamData exam = ExamData(manager.getExamContract());
-        CourseData course = CourseData(manager.getCourseContract());
         require(!exam.isExam(_examUniCode));
-        course.addNewExam(_courseUniCode, _examUniCode);
-        exam.addNewExam(_examUniCode);
+        uint16 index = ClassData(manager.getClassContract()).addNewExam(_classUniCode, _examUniCode);
+        exam.setUniCode(_examUniCode);
         exam.setHashData(_examUniCode, _examHashData);
-        exam.setActiveSubscription(_examUniCode, _isActive);
+        exam.setIndex(_examUniCode, index);
     }
 
     function setExamTeacher(bytes10 _examUniCode, uint32 _teacherBadgeNumber) public onlyAdmin {
@@ -63,7 +62,11 @@ contract Admin {
 
     function setStudentDegree(address _studentAddress, bytes10 _degree) public onlyAdmin {
         DegreeData(manager.getDegreeContract()).setDegree(_studentAddress, _degree);
-    } 
+    }
+
+    function getUsers() public view onlyAdmin returns(bytes32[]) {
+        return((UserData(manager.getUserDataContract()).getAllUsers()));
+    }
     
     function getUsersData() public view onlyAdmin returns(bytes32[], bytes32[], uint32[], uint8[], bool[]) {
         UserData user = UserData(manager.getUserDataContract()); 
@@ -81,12 +84,18 @@ contract Admin {
         return(allUsersCF, usersHash, usersBadge, usersType, usersRegistered);
     }
 
-    function removeExam(bytes10 _examUnicode) public onlyAdmin {
-        ExamData(manager.getExamContract()).deleteExam(_examUnicode);
+    function removeExam(bytes10 _classUniCode, bytes10 _examUniCode) public onlyAdmin {
+        ExamData exam = ExamData(manager.getExamContract());
+        uint16 index = exam.getIndex(_examUniCode);
+        ClassData(manager.getClassContract()).deleteExam(_classUniCode, index);
+        exam.resetExam(_examUniCode);
     }
 
-    function removeCourse(bytes10 _courseUnicode) public onlyAdmin {
-        CourseData(manager.getCourseContract()).deleteCourse(_courseUnicode);
+    function removeClass(bytes10 _degreeUniCode, bytes10 _classUniCode) public onlyAdmin {
+        ClassData class = ClassData(manager.getClassContract());
+        uint16 index = class.getIndex(_classUniCode);
+        DegreeData(manager.getDegreeContract()).deleteClass(_degreeUniCode, index);
+        class.resetClass(_classUniCode);
     }
 
     function removeDegree(bytes10 _degreeUnicode, bytes4 _degreeYear) public onlyAdmin {
@@ -101,5 +110,13 @@ contract Admin {
         UserData user = UserData(manager.getUserDataContract()); 
         user.deleteUserMap(_user);
         user.deleteUserArray(_user);
+    }
+
+    function getClassIndex(bytes10 _classUniCode) public view returns(uint16) {
+        return(ClassData(manager.getClassContract()).getIndex(_classUniCode));
+    }
+
+    function getExamIndex(bytes10 _examUniCode) public view returns(uint16) {
+        return(ExamData(manager.getExamContract()).getIndex(_examUniCode));
     }
 }

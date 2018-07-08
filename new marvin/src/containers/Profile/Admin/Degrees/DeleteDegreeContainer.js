@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import DeleteDegreeCourse from '../../../../components/Profile/Admin/DegreeCourses/DeleteDegreeCourse'
-// import { readDegreeCoursesFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
-import { deleteDegreeCourseFromDatabase } from '../../../../redux/actions/Admin/deleteDegreeCourse'
+import DeleteDegree from '../../../../components/Profile/Admin/Degrees/DeleteDegree'
+// import { readDegreesFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
+import { deleteDegreeFromDatabase } from '../../../../redux/actions/Admin/deleteDegree'
 // This container is read-only, so there's no need for mapping dispatch actions to the store.
 // This connect is only for connecting the AcademicYears component to the store
 
@@ -14,18 +14,18 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 // const mapDispatchToProps = {
-//   readDegreeData: readDegreeCoursesFromDatabase
+//   readDegreeData: readDegreesFromDatabase
 // }
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteDegreeCourse: bindActionCreators(deleteDegreeCourseFromDatabase, dispatch),
+    deleteDegree: bindActionCreators(deleteDegreeFromDatabase, dispatch),
   }
 }
 
-const DeleteDegreeCourseContainer = connect(
+const DeleteDegreeContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(DeleteDegreeCourse)
+)(DeleteDegree)
 
-export default DeleteDegreeCourseContainer
+export default DeleteDegreeContainer
 // export default connect(state => ({ uniData: state.user.data }))(AcademicYears)

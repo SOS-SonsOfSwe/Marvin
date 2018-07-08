@@ -4,9 +4,9 @@ import * as data from '../../utils/adminData'
 // import loadingGif from '../../../public/media/loading.gif'
 // taking year as parameter
 import addNewAcademicYear from '../../redux/actions/Admin/AddAcademicYear'
-// taking degreeCourse, year
-import AddDegreeCourse from '../../redux/actions/Admin/AddDegreeCourse'
-import AddCourses from '../../redux/actions/Admin/AddCourse'
+// taking degree, year
+import AddDegree from '../../redux/actions/Admin/AddDegree'
+import AddClasses from '../../redux/actions/Admin/AddClass'
 
 import { insertUser } from '../../redux/actions/Admin/InsertUserFormAction'
 import { signUpUser } from '../../redux/actions/Login-logout-signup/SignUpFormActions'
@@ -25,11 +25,11 @@ export default class FillBlockchain extends React.Component {
             // this.props.addAcademicYear(i.year)
             store.dispatch(addNewAcademicYear(i.year))
         }
-        for (let i of data.degreeCourses) {
-            store.dispatch(AddDegreeCourse(i.degreeUnicode, i.year, i.degreeData))
+        for (let i of data.degrees) {
+            store.dispatch(AddDegree(i.degreeUnicode, i.year, i.degreeData))
         }
-        for (let i of data.courses) {
-            store.dispatch(AddCourses(i.year, i.degreeUnicode, i.courseUnicode, i.courseData))
+        for (let i of data.classes) {
+            store.dispatch(AddClasses(i.year, i.degreeUnicode, i.classUnicode, i.classData))
         }
         for (let i of data.insertUsers) {
             store.dispatch(insertUser(i.FC, i.UC, i.tp))

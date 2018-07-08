@@ -23,8 +23,8 @@ const address9 = '0x5aeda56215b167893e80b4fe645ba6d5bab767de'
  * * 3 professors
  * * 4 students
  * 19 academicYears, from 2000 to 2018
- * 8*19 degreeCourses, 8 degreeCourses for each academicYears
- * 2*8*19 teachings, 2 teachings for each degreeCourses
+ * 8*19 degrees, 8 degrees for each academicYears
+ * 2*8*19 teachings, 2 teachings for each degrees
  * 2*8*19 exams, 1 exam for each teachings
  */
 var line = 0
@@ -83,13 +83,13 @@ AdminContract.deployed()
       .then(() => console.log('Line ' + line++ + ' ok'))
       .catch(() => console.error('Error at line ' + line++));
 
-    await adminInstance.addNewCourse('INF17', 'PROGR17', 'asdasdasdasdasd', { from: address0 })
+    await adminInstance.addNewClass('INF17', 'PROGR17', 'asdasdasdasdasd', { from: address0 })
       .then(() => console.log('Line ' + line++ + ' ok'))
       .catch(() => console.error('Error at line ' + line++));
-    await adminInstance.addNewCourse('INF17', 'ANALIS17', 'asdasdasdasdasd', { from: address0 })
+    await adminInstance.addNewClass('INF17', 'ANALIS17', 'asdasdasdasdasd', { from: address0 })
       .then(() => console.log('Line ' + line++ + ' ok'))
       .catch(() => console.error('Error at line ' + line++));
-    await adminInstance.addNewCourse('INF17', 'RETISICU17', 'asdasdasdasdasd', { from: address0 })
+    await adminInstance.addNewClass('INF17', 'RETISICU17', 'asdasdasdasdasd', { from: address0 })
       .then(() => console.log('Line ' + line++ + ' ok'))
       .catch(() => console.error('Error at line ' + line++));
 

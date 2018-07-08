@@ -8,9 +8,9 @@ const Row = ({ year }) => (
         <td>Academic year {year}</td>
         <td>
             <Link to={{
-                pathname: "/profile/degree-courses/insert-degree-course",
+                pathname: "/profile/degree-classes/insert-degree-class",
                 state: { year: year }
-            }} > Insert degree course</Link>
+            }} > Insert degree</Link>
         </td>
         <td>
             <button className="modify-link">
@@ -60,7 +60,7 @@ class AcademicYears extends React.Component {
                                     <thead>
                                         <tr>
                                             <th className="title-column">Year</th>
-                                            <th className="title-column">Degree course</th>
+                                            <th className="title-column">Degree</th>
                                         </tr>
                                     </thead>
                                     <tbody>

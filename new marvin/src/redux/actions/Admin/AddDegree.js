@@ -14,7 +14,7 @@ import {
 
 const contract = require('truffle-contract')
 
-export default function addNewDegreeCourse(degreeUnicode, year, degreeData) {
+export default function addNewDegree(degreeUnicode, year, degreeData) {
   // thinking as year = 2014-2015 we want to take only the first two int so we can send 
   // them to the solidity contract and risparmiare
   var ipfs = new ipfsPromise()
@@ -29,7 +29,7 @@ export default function addNewDegreeCourse(degreeUnicode, year, degreeData) {
     .web3.web3Instance
 
   // Double-check web3's status.
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -42,7 +42,7 @@ export default function addNewDegreeCourse(degreeUnicode, year, degreeData) {
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
         // Log errors, if any.
-        if(error) {
+        if (error) {
           console.error(error);
         }
 

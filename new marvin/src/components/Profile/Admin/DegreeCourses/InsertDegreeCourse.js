@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-class InsertDegreeCourse extends React.Component {
+class InsertDegree extends React.Component {
 
     constructor(props) {
         super(props);
@@ -30,15 +30,15 @@ class InsertDegreeCourse extends React.Component {
 
     handleSave(event) {
         event.preventDefault()
-        this.props.addDegreeCourse(this.state.degreeUnicode, this.state.year, this.state.description)
+        this.props.addDegree(this.state.degreeUnicode, this.state.year, this.state.description)
     }
 
     render() {
         return (
             <main className='container' onSubmit={this.handleSave}>
                 <div className="pure-u-1-1">
-                    <h1>Insert degree course</h1>
-                    <p>Now you can insert a new degree course.</p>
+                    <h1>Insert degree</h1>
+                    <p>Now you can insert a new degree.</p>
                     <form className="pure-form pure-form-stacked">
                         <fieldset>
                             <label>Academic year</label>
@@ -50,7 +50,7 @@ class InsertDegreeCourse extends React.Component {
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
                                 <button className="button_cancel">
-                                    <Link to='/profile/degree-courses'>Cancel</Link>
+                                    <Link to='/profile/degree-classes'>Cancel</Link>
                                 </button>
                             </div>
                         </fieldset>
@@ -61,4 +61,4 @@ class InsertDegreeCourse extends React.Component {
     }
 }
 
-export default InsertDegreeCourse;
+export default InsertDegree;

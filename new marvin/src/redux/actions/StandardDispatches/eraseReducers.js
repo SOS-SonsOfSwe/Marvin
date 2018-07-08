@@ -6,12 +6,12 @@ export function eraseAcademicYearsReducer() {
     type: adminCostants.ERASE_ACADEMIC_YEARS,
   }
 }
-export function eraseDegreeCoursesReducer() {
+export function eraseDegreesReducer() {
   return {
     type: adminCostants.ERASE_DEGREE_COURSES,
   }
 }
-export function eraseCoursesReducer() {
+export function eraseClassesReducer() {
   return {
     type: adminCostants.ERASE_DEGREE_COURSES,
   }
@@ -39,8 +39,8 @@ export function eraseStudentsRead() {
 
 export function eraseReducers() {
   store.dispatch(eraseAcademicYearsReducer())
-  store.dispatch(eraseDegreeCoursesReducer())
-  store.dispatch(eraseCoursesReducer())
+  store.dispatch(eraseDegreesReducer())
+  store.dispatch(eraseClassesReducer())
   store.dispatch(eraseIpfsReducer())
   store.dispatch(eraseUniAdminsRead())
   store.dispatch(eraseTeachersRead())

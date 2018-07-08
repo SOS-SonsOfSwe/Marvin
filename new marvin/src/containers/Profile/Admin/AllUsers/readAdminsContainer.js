@@ -2,9 +2,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import Administrators from '../../../../components/Profile/Admin/onlyUniversity/Administrators/Administrators'
-// import Courses from '../../../../components/Profile/Admin/Courses/Courses'
+// import Classes from '../../../../components/Profile/Admin/Classes/Classes'
 
-// import { readCoursesFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
+// import { readClassesFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
 import { readUsersFromDatabase } from '../../../../redux/actions/Admin/readUsers'
 
 const mapStateToProps = (state, ownProps) => {

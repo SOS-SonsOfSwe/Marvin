@@ -2,12 +2,12 @@ import React from 'react';
 import Row from '../Commons/ExamList';
 
 var arrayData = [
-    { degreeCourse: "informatica", course: "Probabilità", typology: "orale", date: "20-06-2018" },
-    { degreeCourse: "informatica", course: "Programmazione", typology: "scritto", date: "11-06-2018" },
-    { degreeCourse: "informatica", course: "Analisi", typology: "laboratorio", date: "28-07-2018" },
-    { degreeCourse: "informatica", course: "Algoritmi", typology: "orale", date: "9-08-2018" },
-    { degreeCourse: "informatica", course: "Sistemi operativi", typology: "scritto", date: "25-07-2018" },
-    { degreeCourse: "informatica", course: "Ricarca operativa", typology: "scritto", date: "19-08-2018" },
+    { degree: "informatica", class: "Probabilità", typology: "orale", date: "20-06-2018" },
+    { degree: "informatica", class: "Programmazione", typology: "scritto", date: "11-06-2018" },
+    { degree: "informatica", class: "Analisi", typology: "laboratorio", date: "28-07-2018" },
+    { degree: "informatica", class: "Algoritmi", typology: "orale", date: "9-08-2018" },
+    { degree: "informatica", class: "Sistemi operativi", typology: "scritto", date: "25-07-2018" },
+    { degree: "informatica", class: "Ricarca operativa", typology: "scritto", date: "19-08-2018" },
 ]
 
 class ExamsStudentList extends React.Component {
@@ -24,8 +24,8 @@ class ExamsStudentList extends React.Component {
                 <table className="table table-striped">
                     <thead>
                         <tr>
-                            <th>Degree Course</th>
-                            <th>Course</th>
+                            <th>Degree</th>
+                            <th>Class</th>
                             <th>Typology</th>
                             <th>Date</th>
                         </tr>
@@ -40,8 +40,8 @@ class ExamsStudentList extends React.Component {
                 <table className="table table-striped">
                     <thead>
                         <tr>
-                            <th>Degree Course</th>
-                            <th>Courses</th>
+                            <th>Degree</th>
+                            <th>Classes</th>
                             <th>Typology</th>
                             <th>Date</th>
                         </tr>

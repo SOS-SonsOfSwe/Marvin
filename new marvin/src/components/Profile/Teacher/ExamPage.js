@@ -2,16 +2,16 @@ import React from 'react';
 
 var arrayData = [
     {
-        degreeCourse: "informatica", course: "analisi", typology: "scritto",
+        degree: "informatica", class: "analisi", typology: "scritto",
         teacher: "Francescopaolo Montefalcone", place: "Paolotti Lum250", date: "15-06-2018",
         time: "9.30", studentsRegistered: "link"
     },
 ]
 
-const Row = ({ degreeCourse, course, typology, teacher, place, date, time, studentsRegistered }) => (
+const Row = ({ degree, Sclass, typology, teacher, place, date, time, studentsRegistered }) => (
     <div>
-        <p>Degree course: {degreeCourse}</p>
-        <p>Course: {course}</p>
+        <p>Degree: {degree}</p>
+        <p>Class: {Sclass}</p>
         <p>Typology: {typology}</p>
         <p>Teacher: {teacher}</p>
         <p>Place: {place}</p>

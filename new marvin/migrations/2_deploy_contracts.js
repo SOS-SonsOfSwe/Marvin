@@ -2,7 +2,7 @@ var UserData = artifacts.require("./UserData.sol");
 var StudentData = artifacts.require("./StudentData.sol");
 var UserLogic = artifacts.require("./UserLogic.sol");
 var ExamData = artifacts.require("./ExamData.sol");
-var CourseData = artifacts.require("./CourseData.sol");
+var ClassData = artifacts.require("./ClassData.sol");
 var DegreeData = artifacts.require("./DegreeData.sol");
 var Student = artifacts.require("./Student.sol");
 var Teacher = artifacts.require("./Teacher.sol");
@@ -21,8 +21,8 @@ module.exports = function (deployer) {
       deployer.deploy(ExamData, ContractManager.address).then(function () {
         instance.setExamContract(ExamData.address);
       })
-      deployer.deploy(CourseData, ContractManager.address).then(function () {
-        instance.setCourseContract(CourseData.address);
+      deployer.deploy(ClassData, ContractManager.address).then(function () {
+        instance.setClassContract(ClassData.address);
       })
       deployer.deploy(DegreeData, ContractManager.address).then(function () {
         instance.setDegreeContract(DegreeData.address);

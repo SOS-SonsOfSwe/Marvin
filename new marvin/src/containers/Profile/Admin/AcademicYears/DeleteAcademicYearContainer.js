@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import DeleteAcademicYear from '../../../../components/Profile/Admin/AcademicYears/DeleteAcademicYear'
-// import { readDegreeCoursesFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
+// import { readDegreesFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
 import { deleteAcademicYearFromDatabase } from '../../../../redux/actions/Admin/deleteAcademicYear'
 // This container is read-only, so there's no need for mapping dispatch actions to the store.
 // This connect is only for connecting the AcademicYears component to the store
@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 // const mapDispatchToProps = {
-//   readDegreeData: readDegreeCoursesFromDatabase
+//   readDegreeData: readDegreesFromDatabase
 // }
 const mapDispatchToProps = (dispatch) => {
   return {

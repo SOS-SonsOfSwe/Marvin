@@ -6,7 +6,7 @@ export var academicYears = [
   // { year: "2013-2014" },
 ]
 
-export var degreeCourses = [ //to be transformed into degreeData.description
+export var degrees = [ //to be transformed into degreeData.description
   { year: "2017-2018", degreeData: "Informatica", degreeUnicode: 'INF17' },
   { year: "2017-2018", degreeData: "Matematica", degreeUnicode: 'MAT17' },
   { year: "2017-2018", degreeData: "Psicologia", degreeUnicode: 'PSI17' },
@@ -21,13 +21,13 @@ export var degreeCourses = [ //to be transformed into degreeData.description
   // { year: "2016-2017", degreeData: "Fisica", degreeUnicode: 'FIS16' }
 ]
 
-export var courses = [
-  { year: "2017-2018", degreeUnicode: "INF17", courseData: "Reti e sicurezza", courseUnicode: 'RETISICU17' },
-  { year: "2017-2018", degreeUnicode: "INF17", courseData: "Calcolo numerico", courseUnicode: 'CALCNUME17' },
-  { year: "2017-2018", degreeUnicode: "INF17", courseData: "ingegneria del software", courseUnicode: 'INGESOFT17' },
-  // { year: "2017-2018", degreeUnicode: "FIS17", courseData: "Analisi matematica 1", courseUnicode: 'ANALMAT117' },
-  // { year: "2016-2017", degreeUnicode: "FIS16", courseData: "Metodi matematici", courseUnicode: 'METOMATE16' },
-  // { year: "2016-2017", degreeUnicode: "FIS16", courseData: "Fisica moderna", courseUnicode: 'FISIMODE17' }
+export var classes = [
+  { year: "2017-2018", degreeUnicode: "INF17", classData: "Reti e sicurezza", classUnicode: 'RETISICU17' },
+  { year: "2017-2018", degreeUnicode: "INF17", classData: "Calcolo numerico", classUnicode: 'CALCNUME17' },
+  { year: "2017-2018", degreeUnicode: "INF17", classData: "ingegneria del software", classUnicode: 'INGESOFT17' },
+  // { year: "2017-2018", degreeUnicode: "FIS17", classData: "Analisi matematica 1", classUnicode: 'ANALMAT117' },
+  // { year: "2016-2017", degreeUnicode: "FIS16", classData: "Metodi matematici", classUnicode: 'METOMATE16' },
+  // { year: "2016-2017", degreeUnicode: "FIS16", classData: "Fisica moderna", classUnicode: 'FISIMODE17' }
 ]
 
 export var insertUsers = [

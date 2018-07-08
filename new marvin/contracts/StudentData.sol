@@ -5,7 +5,7 @@ contract StudentData {
     address uniAddress;
     ContractManager manager;
     
-    mapping (address => bytes10) degreeCourseStudents;
+    mapping (address => bytes10) degreeClassStudents;
     
     /* Student accepted tests result
      * key = student badgeNumber, value = uniCodes of passed exams */
@@ -25,8 +25,8 @@ contract StudentData {
         _;
     }
 
-    function getStudentDegreeCourse(address _studentAddress) public view onlyStudentContract returns(bytes10) {
-        return(degreeCourseStudents[_studentAddress]);
+    function getStudentDegreeClass(address _studentAddress) public view onlyStudentContract returns(bytes10) {
+        return(degreeClassStudents[_studentAddress]);
     }
 
     // return all the accepted student results
@@ -53,7 +53,7 @@ contract StudentData {
 
     // Admin o Student?
     function setStudentDegree(address _studentAddress, bytes10 _degreeUniCode) public {
-        require(degreeCourseStudents[_studentAddress] == 0);
-        degreeCourseStudents[_studentAddress] = _degreeUniCode;
+        require(degreeClassStudents[_studentAddress] == 0);
+        degreeClassStudents[_studentAddress] = _degreeUniCode;
     }
 }

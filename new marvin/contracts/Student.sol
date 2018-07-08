@@ -42,7 +42,7 @@ contract Student {
 
     function subscribeExam(bytes10 _examUniCode) public {
         ExamData exam = ExamData(manager.getExamContract());
-        require(exam.isExam(_examUniCode) && (exam.getExamActiveSubscription(_examUniCode) == true));
+        require(exam.isExam(_examUniCode));
         uint32 badgeNumber = UserData(manager.getUserDataContract()).getRegUsersBadgeNumber(msg.sender);
         exam.addNewSubscribedUser(_examUniCode, badgeNumber);
         StudentData(manager.getStudentDataContract()).addSubscribedExam(_examUniCode, badgeNumber);

@@ -1,29 +1,29 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import Exams from '../../../../components/Profile/Admin/Courses/Exams'
+import Exams from '../../../../components/Profile/Admin/Classes/Exams'
 
 import { readExamsFromDatabase } from '../../../../redux/actions/Admin/readExams'
-import { readCoursesFromDatabase } from '../../../../redux/actions/Admin/readCourses'
-import { readDegreeCoursesFromDatabase } from '../../../../redux/actions/Admin/readDegreeCourses'
+import { readClassesFromDatabase } from '../../../../redux/actions/Admin/readClasses'
+import { readDegreesFromDatabase } from '../../../../redux/actions/Admin/readDegrees'
 import { readAcademicYearsFromDatabase } from '../../../../redux/actions/Admin/readAcademicYears'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        degreeCourses: state.admin.degreeCourses.payload,
-        successDegree: state.admin.degreeCourses.success,
+        degrees: state.admin.degrees.payload,
+        successDegree: state.admin.degrees.success,
         academicYears: state.admin.academicYears.payload,
-        classes: state.admin.courses.payload,
+        classes: state.admin.classes.payload,
         exams: state.admin.exams.payload,
-        loadingCourses: state.admin.courses.loading,
-        loadingDegree: state.admin.degreeCourses.loading,
+        loadingClasses: state.admin.classes.loading,
+        loadingDegree: state.admin.degrees.loading,
         loadingAcademic: state.admin.academicYears.loading,
         loadingExams: state.admin.exams.loading,
-        successClasses: state.admin.courses.success,
+        successClasses: state.admin.classes.success,
         success: state.admin.exams.success,
-        somethingChanged: state.admin.degreeCourses.somethingChanged,
-        emptyClasses: state.admin.courses.empty,
-        emptyDegreeCourses: state.admin.degreeCourses.empty,
+        somethingChanged: state.admin.degrees.somethingChanged,
+        emptyClasses: state.admin.classes.empty,
+        emptyDegrees: state.admin.degrees.empty,
         emptyAcademicYears: state.admin.academicYears.empty,
         emptyExams: state.admin.exams.empty,
 
@@ -34,8 +34,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        readCoursesData: bindActionCreators(readCoursesFromDatabase, dispatch),
-        readDegreeData: bindActionCreators(readDegreeCoursesFromDatabase, dispatch),
+        readClassesData: bindActionCreators(readClassesFromDatabase, dispatch),
+        readDegreeData: bindActionCreators(readDegreesFromDatabase, dispatch),
         readAcademicData: bindActionCreators(readAcademicYearsFromDatabase, dispatch),
         readExamsData: bindActionCreators(readExamsFromDatabase, dispatch)
     }
