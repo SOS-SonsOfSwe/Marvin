@@ -4,15 +4,14 @@ import LoadingData from '../../../Loading/LoadingData'
 import LoadingIPFSData from '../../../Loading/LoadingIpfs'
 import EmptyData from '../../../Loading/EmptyData'
 
-const Row = ({ teacher, examUnicode, load, isActive }) => (
+const Row = ({ teacher, examUnicode, load }) => (
     <tr className="clickable-row">
         <td>{examUnicode}</td>
         <td>{teacher}</td>
-        <td>{load && load.typology}</td>
+        <td>{load && load.type}</td>
         <td>{load && load.place}</td>
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
-        <td style={isActive !== true ? { backgroundColor: 'red' } : { backgroundColor: 'green' }}></td>
         <td>
             <button className="delete-link">
                 <Link to={{
@@ -139,7 +138,7 @@ class Exams extends React.Component {
                                                 <tr>
                                                     <th className="title-column">Exam unicode</th>
                                                     <th className="title-column">Teacher</th>
-                                                    <th className="title-column">Typology</th>
+                                                    <th className="title-column">Type</th>
                                                     <th className="title-column">Place</th>
                                                     <th className="title-column">Date</th>
                                                     <th className="title-column">Time</th>
