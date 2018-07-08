@@ -1,63 +1,59 @@
-// import React from 'react';
-// import chai from 'chai';
-// // import sinon from 'sinon';
-// import AcademicYears from '../../components/Profile/Admin/AcademicYears/AcademicYears';
-// // import {mount} from 'jsdom'
-// import { mount, shallow } from 'enzyme'
-// // console.log('LoginButton.test.js')
+ import { shallow } from 'enzyme'
+ import React from 'react';
+ import { expect } from 'chai';
+ import AcademicYears from '../../components/Profile/Admin/AcademicYears/AcademicYears';
+ import { readAcademicYearsFromDatabase } from '../../redux/actions/Admin/readAcademicYears';
 
-// describe('<AcademicYears/>', () => {
-//   it('renders without exploding', () => {
-//     const wrapper = shallow(<AcademicYears />);
-//     chai.expect(wrapper.find(AcademicYears)).to.have.length(1);
-//   });
-// });
+ describe('AcademicYearContainer', () => {
 
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { renderIntoDocument } from 'react-dom/test-utils';
-// import { expect } from 'chai';
-// import AcademicYears from '../../components/Profile/Admin/AcademicYears/AcademicYears';
-// import { Provider } from 'react-redux';
-// import { browserHistory, Router } from 'react-router';
-// import createStore from 'redux';
+   function setup(years, load, succ, emp, som){
+    const mockStore = {
+      academicYears: years,
+      loading: load,
+      success: succ,
+      empty: emp,
+      somethingChanged: som,
+      //readAcademicData: readAcademicYearsFromDatabase //che cazzo devo farci con questa?
+    };
 
-// describe('AcademicYearContainer', () => {
-//   const mockStore = {
-//     academicYears: [{ year: '2017-2018' }],
-//     loading: false,
-//     success: true,
-//     empty: false,
-//     somethingChanged: false
-//   };
-//   // const store = createStore(mockStore);
-//   const renderer = renderIntoDocument(
-//     <Provider store={mockStore} key="provider">
-//       <Router history={browserHistory}>
-//         <AcademicYears />
-//       </Router>
-//     </Provider>
-//   );
-//   const dom = ReactDOM.findDOMNode(renderer);
+    return shallow(<AcademicYears {...mockStore}/>);
+   }
+  
+  it("The page load the correct number of academic years", () =>{
+    const wrapper = setup(
+      [{ year: '2017-2018' }, {year: '2016-2017'}, {year: '2015-2016'}],
+      false,
+      true,
+      false,
+      true
+    )
+    expect(wrapper.find('Row').length).equals(3);
+    expect(wrapper.find('LoadingData').length).equals(0);
 
-//   it('should render correctly', () => {
-//     return expect(renderer).to.be.ok;
-//   });
-// })
 
-//   // it('should render with correct value', () => {
-//   //   const text = dom.getElementsByTagName('strong')[0].textContent;
-//   //   expect(text).to.equal(mockStore.info.data.message);
-//   // });
+  })
 
-//   // it('should render with a reload button', () => {
-//   //   const text = dom.getElementsByTagName('button')[0].textContent;
-//   //   expect(text).to.be.a('string');
-//   // });
+  it("The page is loading", () =>{
+    const wrapper = setup(
+      [],
+      true,
+      true,
+      false,
+      true
+    )
 
-// //   it('should render the correct className', () => {
-// //     const styles = require('components/InfoBar/InfoBar.scss');
-// //     expect(styles.infoBar).to.be.a('string');
-// //     expect(dom.className).to.include(styles.infoBar);
-// //   });
-// // });
+    expect(wrapper.find('Row').length).equals(0);
+    expect(wrapper.find('LoadingData').length).equals(1);
+  })
+
+  it("Data are no loading", () =>{
+    const wrapper = setup(
+      [],
+      true,
+      false,
+      false,
+      true
+    )
+     expect(wrapper.contains(<div>There was an error...</div>)).equals(true);
+  })  
+  })

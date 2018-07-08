@@ -45,7 +45,7 @@ async function processIPFSResultParallel(ipfs, payload) {
   await Promise.all(promises)
 }
 
-export function readClassesFromDatabase(year, degreeUnicode) {
+export function readClassesFromDatabase(degreeUnicode) {
   let web3 = store.getState()
     .web3.web3Instance
 
@@ -113,18 +113,19 @@ export function readClassesFromDatabase(year, degreeUnicode) {
                   // much conversions because we can close the communication
                   // with the blockchain faster
                   for (i; i < result[0].length; i++) {
-                    var degree = result[1][i]
+                    var degree = result[2][i]
                     var hash = result[0][i]
+                    var teac = web3.toDecimal(result[1][i])
                     // console.log("degree: " + degree)
                     var coUni = web3.toUtf8(degree)
                     // console.log('dgr: ' + dgr)
                     var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
                     // i'm storing the informations inside the description. We will retrieve them later.
                     if (i === 0) { // first element of array
-                      payload = [{ year: year, degreeUnicode: degreeUnicode, classData: hashIPFS, classUnicode: coUni },]
+                      payload = [{ teacher: teac, classData: hashIPFS, classUnicode: coUni },]
                     } else
                       payload = [...payload,
-                      { year: year, degreeUnicode: degreeUnicode, classData: hashIPFS, classUnicode: coUni }
+                      { teacher: teac, classData: hashIPFS, classUnicode: coUni }
                       ]
                   }
                   // this function provides a parallel loading of all the informations from ipfs. 
@@ -133,7 +134,7 @@ export function readClassesFromDatabase(year, degreeUnicode) {
                   var ipfs = new ipfsPromise()
                   processIPFSResultParallel(ipfs, payload)
                     .then(result => {
-                      payload.sort((a, b) => b.degreeUnicode - a.degreeUnicode)
+                      payload.sort((a, b) => b.classUnicode - a.classUnicode)
                       return doAwesomeStuff(dispatch, payload)
                     })
 

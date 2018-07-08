@@ -16,10 +16,11 @@ import EmptyData from '../../../Loading/EmptyData'
 //     { year: "2016-2017", degree: "Psicologia", class: "Comportamento" },
 // ]
 
-const Row = ({ classUnicode, classData }) => (
+const Row = ({ classUnicode, classData, teacher }) => (
     <tr className="clickable-row">
         <td>{classUnicode}</td>
         <td>{classData}</td>
+        <td>{teacher}</td>
         <td>
             <Link to={{
                 pathname: "/profile/exams/insert-exam",
@@ -70,7 +71,7 @@ class Classes extends React.Component {
     onSelectChangeDC(event) {
         this.setState({ selectedDegree: event.target.value })
 
-        if (this.state.selectedYears !== '') this.props.readClassesData(this.state.selectedYears, event.target.value)
+        if (this.state.selectedYears !== '') this.props.readClassesData(event.target.value)
 
     }
 
@@ -129,6 +130,7 @@ class Classes extends React.Component {
                                                     <tr>
                                                         <th className="title-column">Class</th>
                                                         <th className="title-column">Description</th>
+                                                        <th className="title-column">Teacher</th>
                                                         <th className="title-column">Exam</th>
                                                     </tr>
                                                 </thead>

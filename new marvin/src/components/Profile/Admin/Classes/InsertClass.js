@@ -10,13 +10,15 @@ class InsertClass extends React.Component {
             year: this.props.year,
             degree: this.props.degreeUnicode,
             class: '',
-            description: ''
+            description: '',
+            teacher: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleChange1 = this.handleChange1.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleChange3 = this.handleChange3.bind(this);
+        this.handleChange4 = this.handleChange4.bind(this);
         this.handleSave = this.handleSave.bind(this);
     }
 
@@ -36,9 +38,13 @@ class InsertClass extends React.Component {
         this.setState({ description: event.target.value });
     }
 
+    handleChange4(event) {
+        this.setState({ teacher: event.target.value });
+    }
+
     handleSave(event) {
         event.preventDefault()
-        this.props.addClass(this.state.year, this.state.degree, this.state.class, this.state.description)
+        this.props.addClass(this.state.degree, this.state.class, this.state.description, this.state.teacher)
     }
 
     /*componentDidMount() {
@@ -68,6 +74,8 @@ class InsertClass extends React.Component {
                             <input type="text" value={this.state.class} onChange={this.handleChange2} placeholder="Insert a Class" />
                             <label>Description</label>
                             <input type="text" value={this.state.description} onChange={this.handleChange3} placeholder="Insert a description" />
+                            <label>Teacher</label>
+                            <input type="text" value={this.state.teacher} onChange={this.handleChange4} placeholder="Insert a teacher" />
                             <br />
                             <Link to="/profile/exams/insert-exam">Insert an exam</Link>
                             <div className="div-buttons">
