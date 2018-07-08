@@ -7,7 +7,6 @@ contract ExamData {
 
     struct Exam {
         uint16 index;
-        uint32 examTeacher;
         bytes10 uniCode;
         bytes32 hashData;
         // subscribed student badgeNumber
@@ -20,10 +19,6 @@ contract ExamData {
 
     // key = exams uniCode, value = related Exam
     mapping (bytes10 => Exam) exams;
-
-    /* Teacher assigned exams
-     * key = teacher badgeNumber, value = uniCodes of assigned exams */
-    mapping(uint32 => bytes10[]) teacherExams;
 
     constructor(address _contractManagerAddress) public {
         uniAddress = msg.sender;
@@ -57,16 +52,6 @@ contract ExamData {
     // return exam subscribed students
     function getExamSubscribedStudent(bytes10 _examUniCode) public view returns(uint32[]) {
         return(exams[_examUniCode].subscribedStudents);
-    }
-
-    // return exam teacher
-    function getExamTeacher(bytes10 _examUniCode) public view returns(uint32) {
-        return(exams[_examUniCode].examTeacher);
-    }
-
-    // return teacher's exams
-    function getTeacherExams(uint32 _teacherBadgeNumber) public view returns(bytes10[]) {
-        return(teacherExams[_teacherBadgeNumber]);
     }
 
     function setHashData(bytes10 _examUniCode, bytes32 _hashData) public onlyAdminContract {
@@ -105,12 +90,6 @@ contract ExamData {
     // confirm student test result
     function setConfirmedResult(bytes10 _examUniCode, uint32 _studentBadgeNumber) public onlyStudentContract {
         exams[_examUniCode].confirmedResults[_studentBadgeNumber] = exams[_examUniCode].unconfirmedResults[_studentBadgeNumber];
-    }
-
-    // set the associated exam teacher
-    function setExamTeacher(bytes10 _examUniCode, uint32 _teacherBadgeNumber) public onlyAdminContract {
-        exams[_examUniCode].examTeacher = _teacherBadgeNumber;
-        teacherExams[_teacherBadgeNumber].push(_examUniCode);
     }
 
     function deleteExam(bytes10 _examUnicode) public onlyAdminContract {

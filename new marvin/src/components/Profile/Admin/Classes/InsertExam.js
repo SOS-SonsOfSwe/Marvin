@@ -9,9 +9,7 @@ class InsertExam extends React.Component {
 
         this.state = {
             Class: this.props.Class,
-            active: '',
-            typology: '',
-            teacher: '',
+            type: '',
             place: '',
             date: '',
             time: '',
@@ -20,11 +18,9 @@ class InsertExam extends React.Component {
 
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleChange3 = this.handleChange3.bind(this);
-        this.handleChange4 = this.handleChange4.bind(this);
         this.handleChange5 = this.handleChange5.bind(this);
         this.handleChange6 = this.handleChange6.bind(this);
         this.handleChange7 = this.handleChange7.bind(this);
-        this.handleChange8 = this.handleChange8.bind(this);
         this.handleChange9 = this.handleChange9.bind(this);
         this.handleSave = this.handleSave.bind(this);
     }
@@ -35,11 +31,7 @@ class InsertExam extends React.Component {
     }
 
     handleChange3(event) {
-        this.setState({ typology: event.target.value });
-    }
-
-    handleChange4(event) {
-        this.setState({ teacher: event.target.value });
+        this.setState({ type: event.target.value });
     }
 
     handleChange5(event) {
@@ -54,10 +46,6 @@ class InsertExam extends React.Component {
         this.setState({ time: event.target.value });
     }
 
-    handleChange8(event) {
-        this.setState({ active: event.target.value });
-    }
-
     handleChange9(event) {
         this.setState({ unicode: event.target.value });
     }
@@ -67,13 +55,13 @@ class InsertExam extends React.Component {
         event.preventDefault();
 
         let examData = {
-            "typology": this.state.typology,
+            "type": this.state.type,
             "place": this.state.place,
             "date": this.state.date,
             "time": this.state.time
         }
 
-        this.props.addExam(this.state.teacher, this.state.Class, this.state.unicode, this.state.active, examData);
+        this.props.addExam(this.state.Class, this.state.unicode, examData);
     }
 
     render() {
@@ -86,22 +74,14 @@ class InsertExam extends React.Component {
                         <fieldset>
                             <label>Class</label>
                             <input type="text" value={this.state.Class} onChange={this.handleChange2} placeholder="Insert a class" />
-                            <label>Tipology</label>
-                            <input type="text" value={this.state.typology} onChange={this.handleChange3} placeholder="Insert a tipology" />
-                            <label>Teacher</label>
-                            <input type="text" value={this.state.teacher} onChange={this.handleChange4} placeholder="Insert teacher unicode" />
+                            <label>Exam type</label>
+                            <input type="text" value={this.state.type} onChange={this.handleChange3} placeholder="Insert the exam type" />
                             <label>Place</label>
                             <input type="text" value={this.state.place} onChange={this.handleChange5} placeholder="Insert a place" />
                             <label>Date</label>
                             <input type="text" value={this.state.date} onChange={this.handleChange6} placeholder="Insert a date" />
                             <label>Time</label>
                             <input type="text" value={this.state.time} onChange={this.handleChange7} placeholder="Insert a time" />
-                            <label>Subscription active</label>
-                            <select type="number" value={this.state.active} onChange={this.handleChange8} placeholder="Yes or no" >
-                                <option value="-1"> -- select yes or no -- </option>
-                                <option value="1" > yes </option>
-                                <option value="0" > no </option>
-                            </select>
                             <label>Unicode</label>
                             <input type="text" value={this.state.unicode} onChange={this.handleChange9} placeholder="Insert a unicode" />
                             <div className="div-buttons">

@@ -117,17 +117,15 @@ export function readExamsFromDatabase(classUnicode) {
                                         var hash = result[0][i]
                                         var teac = web3.toDecimal(result[1][i])
                                         console.log("teacher: " + teac)
-                                        var active = result[2][i]
-                                        console.log("active: " + active)
                                         var exUni = web3.toUtf8(exam)
                                         // console.log('dgr: ' + dgr)
                                         var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
                                         // i'm storing the informations inside the description. We will retrieve them later.
                                         if (i === 0) { // first element of array
-                                            payload = [{ load: hashIPFS, examUnicode: exUni, teacher: teac, isActive: active },]
+                                            payload = [{ load: hashIPFS, examUnicode: exUni, teacher: teac },]
                                         } else
                                             payload = [...payload,
-                                            { load: hashIPFS, examUnicode: exUni, teacher: teac, isActive: active }
+                                            { load: hashIPFS, examUnicode: exUni, teacher: teac }
                                             ]
                                     }
                                     // this function provides a parallel loading of all the informations from ipfs. 

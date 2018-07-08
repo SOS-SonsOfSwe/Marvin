@@ -38,13 +38,14 @@ contract Admin {
         degree.setHashData(_degreeUniCode, _hashData);
     }
 
-    function addNewClass(bytes10 _degreeuniCode, bytes10 _classUniCode, bytes32 _classHashData) public onlyAdmin {
+    function addNewClass(bytes10 _degreeuniCode, bytes10 _classUniCode, bytes32 _classHashData, uint32 _teacherBadgeNumber) public onlyAdmin {
         ClassData class = ClassData(manager.getClassContract());
         require(!class.isClass(_classUniCode));
         uint16 index = DegreeData(manager.getDegreeContract()).addNewClass(_degreeuniCode, _classUniCode);
         class.setUniCode(_classUniCode);
         class.setHashData(_classUniCode, _classHashData);
         class.setIndex(_classUniCode, index);
+        class.setClassTeacher(_classUniCode, _teacherBadgeNumber);
     }
 
     function addNewExam(bytes10 _classUniCode, bytes10 _examUniCode, bytes32 _examHashData) public onlyAdmin {
@@ -54,10 +55,6 @@ contract Admin {
         exam.setUniCode(_examUniCode);
         exam.setHashData(_examUniCode, _examHashData);
         exam.setIndex(_examUniCode, index);
-    }
-
-    function setExamTeacher(bytes10 _examUniCode, uint32 _teacherBadgeNumber) public onlyAdmin {
-        ExamData(manager.getExamContract()).setExamTeacher(_examUniCode, _teacherBadgeNumber);
     }
 
     function setStudentDegree(address _studentAddress, bytes10 _degree) public onlyAdmin {
