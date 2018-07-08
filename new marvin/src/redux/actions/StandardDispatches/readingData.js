@@ -1,15 +1,15 @@
-import { adminCostants, ipfsCostants } from '../../reducers/costants'
+import { userCostants, ipfsCostants } from '../../reducers/costants'
 
 export function readingData(req) {
   return {
-    type: adminCostants.FETCHING_DATA,
+    type: userCostants.FETCHING_DATA,
     request: req
   }
 }
 
 export function dataRead(load, req) {
   return {
-    type: adminCostants.FETCH_DATA_SUCCESS,
+    type: userCostants.FETCH_DATA_SUCCESS,
     payload: load,
     request: req
   }
@@ -18,7 +18,7 @@ export function dataRead(load, req) {
 export function errorReadingData(req) {
   console.log('reducer: adding data failed')
   return {
-    type: adminCostants.FETCH_DATA_ERROR,
+    type: userCostants.FETCH_DATA_ERROR,
     request: req
   }
 }
@@ -26,7 +26,7 @@ export function errorReadingData(req) {
 export function dataEmpty(req) {
   console.log("Blockchain vuota, e' ora di riempirla!")
   return {
-    type: adminCostants.FETCH_DATA_EMPTY,
+    type: userCostants.FETCH_DATA_EMPTY,
     request: req
   }
 }

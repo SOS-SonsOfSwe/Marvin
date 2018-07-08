@@ -6,7 +6,7 @@ import store from '../../../store'
 // import * as utils from '../../../utils/validations'
 
 import {
-  userCostants
+  adminCostants
 } from '../../reducers/costants'
 
 const contract = require('truffle-contract')
@@ -15,7 +15,7 @@ const contract = require('truffle-contract')
 //function userLoggedIn(user) 
 function userInserted(YesOrNo) {
   return {
-    type: userCostants.USER_INSERTED,
+    type: adminCostants.USER_INSERTED,
     //payload: user
     payload: YesOrNo
   }

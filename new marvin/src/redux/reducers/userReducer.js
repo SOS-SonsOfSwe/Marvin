@@ -1,4 +1,5 @@
 import { userCostants } from './costants'
+import { adminCostants } from './costants'
 
 const initialState = {
   data: null,
@@ -41,7 +42,7 @@ const userReducer = (state = initialState, action) => {
       })
     }
 
-  case userCostants.USER_INSERTED:
+  case adminCostants.USER_INSERTED:
     {
       return Object.assign({}, state, {
         transactionTx: action.payload

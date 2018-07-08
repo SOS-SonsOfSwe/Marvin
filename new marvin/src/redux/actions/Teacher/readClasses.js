@@ -4,8 +4,6 @@ import { browserHistory } from 'react-router'
 import store from '../../../store'
 import { DEGREES as req } from "../../reducers/costants/adminCostants";
 
-// import { web3HexToInt } from '../../../utils/validations'
-
 import {
   readingData,
   dataRead,
@@ -16,36 +14,15 @@ import ipfsPromise from '../../../../api/utils/ipfsPromise'
 
 const contract = require('truffle-contract')
 
-// export var degrees = [
-//   { year: "2017-2018", degreeUnicode: "DEG0000001", description: "Informatica" },
-//   { year: "2017-2018", name: "Matematica" },
-//   { year: "2017-2018", name: "Psicologia" },
-//   { year: "2017-2018", name: "Ingegneria dell'energia" },
-//   { year: "2017-2018", name: "Giurisprudenza" },
-//   { year: "2016-2017", name: "Informatica" },
-//   { year: "2016-2017", name: "Matematica" },
-//   { year: "2016-2017", name: "Psicologia" }
-// ]
-
 function doAwesomeStuff(dispatch, load) {
   dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
-  if ('redirect' in currentLocation.query) {
+  if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   }
   // return browserHistory.push('/profile/degrees') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
-
-// async function processIPFSResult(ipfs, payload) {
-//   for(const item of payload) {
-//     await ipfs.getJSON(item.description)
-//       .then(result => {
-//         console.log(JSON.stringify(result))
-//         item.description = result.description
-//       })
-//   }
-// }
 
 async function processIPFSResultParallel(ipfs, payload) {
   const promises = payload.map(item => ipfs.getJSON(item.degreeData)
@@ -60,7 +37,7 @@ export function readDegreesFromDatabase(year) {
   let web3 = store.getState()
     .web3.web3Instance
 
-  if (typeof web3 !== 'undefined') {
+  if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -76,7 +53,7 @@ export function readDegreesFromDatabase(year) {
         dispatch(readingData(req))
 
         // Log errors, if any.
-        if (error) {
+        if(error) {
           console.error(error);
         }
 
@@ -103,7 +80,7 @@ export function readDegreesFromDatabase(year) {
 
                 // console.log(result[0].length === 0)
 
-                if (result[0].length === 0) {
+                if(result[0].length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))
@@ -115,7 +92,7 @@ export function readDegreesFromDatabase(year) {
                   // It is better to read all the infos together without doing
                   // much conversions because we can close the communication
                   // with the blockchain faster
-                  for (i; i < result[0].length; i++) {
+                  for(i; i < result[0].length; i++) {
                     var degree = result[1][i]
                     var hash = result[0][i]
                     // console.log("degree: " + degree)
@@ -123,11 +100,11 @@ export function readDegreesFromDatabase(year) {
                     // console.log('dgr: ' + dgr)
                     var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
                     // i'm storing the informations inside the description. We will retrieve them later.
-                    if (i === 0) { // first element of array
-                      payload = [{ year: year, degreeUnicode: dgr, degreeData: hashIPFS },]
+                    if(i === 0) { // first element of array
+                      payload = [{ year: year, degreeUnicode: dgr, degreeData: hashIPFS }, ]
                     } else
                       payload = [...payload,
-                      { year: year, degreeUnicode: dgr, degreeData: hashIPFS }
+                        { year: year, degreeUnicode: dgr, degreeData: hashIPFS }
                       ]
                   }
                   // this function provides a parallel loading of all the informations from ipfs. 

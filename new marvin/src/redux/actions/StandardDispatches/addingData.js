@@ -1,22 +1,22 @@
-import { adminCostants, ipfsCostants } from '../../reducers/costants'
+import { userCostants, ipfsCostants } from '../../reducers/costants'
 
 export function addingData() {
   return {
-    type: adminCostants.ADDING
+    type: userCostants.ADDING
   }
 }
 
 export function dataAdded() {
   console.log('dispatch: data was added')
   return {
-    type: adminCostants.ADDED_NEW_DATA
+    type: userCostants.ADDED_NEW_DATA
   }
 }
 
 export function errorAddingData() {
   console.log('reducer: adding data failed')
   return {
-    type: adminCostants.ERROR_ADDING_NEW_DATA
+    type: userCostants.ERROR_ADDING_NEW_DATA
   }
 }
 
