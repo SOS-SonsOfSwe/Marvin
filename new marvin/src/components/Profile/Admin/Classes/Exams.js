@@ -72,7 +72,7 @@ class Exams extends React.Component {
         this.setState({ selectedDegree: event.target.value })
         this.setState({ selectedClass: '' })
 
-        if (this.state.selectedYears !== '') this.props.readClassesData(this.state.selectedYears, event.target.value)
+        if (this.state.selectedYears !== '') this.props.readClassesData(event.target.value)
 
     }
 
