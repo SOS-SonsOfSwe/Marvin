@@ -50,7 +50,7 @@ class InsertDegree extends React.Component {
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
                                 <button className="button_cancel">
-                                    <Link to='/profile/degree-classes'>Cancel</Link>
+                                    <Link to='/profile/degrees'>Cancel</Link>
                                 </button>
                             </div>
                         </fieldset>

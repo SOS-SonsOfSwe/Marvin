@@ -8,7 +8,7 @@ const Row = ({ year }) => (
         <td>Academic year {year}</td>
         <td>
             <Link to={{
-                pathname: "/profile/degree-classes/insert-degree-class",
+                pathname: "/profile/degrees/insert-degree",
                 state: { year: year }
             }} > Insert degree</Link>
         </td>

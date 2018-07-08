@@ -86,14 +86,14 @@ ReactDOM.render((
             <Route path="insert-academic-year" component={AdminIsAuthenticated(InsertAcademicYearContainer)} />
             <Route path="modify-academic-year" component={AdminIsAuthenticated(ModifyAcademicYear)} />
             <Route path="delete-academic-year" component={AdminIsAuthenticated(DeleteAcademicYearContainer)} />
-            <Route path="insert-degree-class" component={AdminIsAuthenticated(InsertDegreeContainer)} />
+            <Route path="insert-degree" component={AdminIsAuthenticated(InsertDegreeContainer)} />
           </Route>
 
-          <Route path="degree-classes">
+          <Route path="degrees">
             <IndexRoute component={AdminIsAuthenticated(DegreesContainer)} />
-            <Route path="insert-degree-class" component={AdminIsAuthenticated(InsertDegreeContainer)} />
-            <Route path="modify-degree-class" component={AdminIsAuthenticated(ModifyDegree)} />
-            <Route path="delete-degree-class" component={AdminIsAuthenticated(DeleteDegreeContainer)} />
+            <Route path="insert-degree" component={AdminIsAuthenticated(InsertDegreeContainer)} />
+            <Route path="modify-degree" component={AdminIsAuthenticated(ModifyDegree)} />
+            <Route path="delete-degree" component={AdminIsAuthenticated(DeleteDegreeContainer)} />
             <Route path="insert-class" component={AdminIsAuthenticated(InsertClassContainer)} />
           </Route>
 

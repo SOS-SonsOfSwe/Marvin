@@ -28,11 +28,11 @@ const Row = ({ year, degreeUnicode, degreeData }) => (
         </td>
         <td>
             <button className="modify-link">
-                <Link to="/profile/degree-classes/modify-degree-class">Modify</Link>
+                <Link to="/profile/degrees/modify-degree">Modify</Link>
             </button>
             <button className="delete-link">
                 <Link to={{
-                    pathname: "/profile/degree-classes/delete-degree-class",
+                    pathname: "/profile/degrees/delete-degree",
                     state: { year: year, degreeUnicode: degreeUnicode }
                 }}>Delete</Link>
             </button>
@@ -96,7 +96,7 @@ class Degrees extends React.Component {
                                         <div className="div_insert_button">
                                             <button className="insert-button pure-button pure-button-primary">
                                                 <Link className="pure-link" to={{
-                                                    pathname: "/profile/degree-classes/insert-degree-class",
+                                                    pathname: "/profile/degrees/insert-degree",
                                                     state: { year: this.state.selectedYears }
                                                 }} >Insert degree</Link>
                                             </button>

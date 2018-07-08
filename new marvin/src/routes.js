@@ -48,14 +48,14 @@ const Routes = (props, store, history) => (
                 <Route path="insert-academic-year" component={AdminIsAuthenticated(InsertAcademicYearContainer)} />
                 <Route path="modify-academic-year" component={AdminIsAuthenticated(ModifyAcademicYear)} />
                 <Route path="delete-academic-year" component={AdminIsAuthenticated(DeleteAcademicYear)} />
-                <Route path="insert-degree-class" component={AdminIsAuthenticated(InsertDegree)} />
+                <Route path="insert-degree" component={AdminIsAuthenticated(InsertDegree)} />
             </Route>
 
-            <Route path="degree-classes">
+            <Route path="degrees">
                 <IndexRoute component={AdminIsAuthenticated(DegreesContainer)} />
-                <Route path="insert-degree-class" component={AdminIsAuthenticated(InsertDegree)} />
-                <Route path="modify-degree-class" component={AdminIsAuthenticated(ModifyDegree)} />
-                <Route path="delete-degree-class" component={AdminIsAuthenticated(DeleteDegree)} />
+                <Route path="insert-degree" component={AdminIsAuthenticated(InsertDegree)} />
+                <Route path="modify-degree" component={AdminIsAuthenticated(ModifyDegree)} />
+                <Route path="delete-degree" component={AdminIsAuthenticated(DeleteDegree)} />
                 <Route path="insert-class" component={AdminIsAuthenticated(InsertClass)} />
             </Route>
 
