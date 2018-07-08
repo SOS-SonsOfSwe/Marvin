@@ -8,7 +8,8 @@ import { deleteClassFromDatabase } from '../../../../redux/actions/Admin/deleteC
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    // year: ownProps.location.state.year
+    degreeUnicode: ownProps.location.state.degreeUnicode,
+    classUnicode: ownProps.location.state.classUnicode
   }
 }
 

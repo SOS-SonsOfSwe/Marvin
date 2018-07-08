@@ -122,10 +122,10 @@ export function readClassesFromDatabase(degreeUnicode) {
                     var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
                     // i'm storing the informations inside the description. We will retrieve them later.
                     if (i === 0) { // first element of array
-                      payload = [{ teacher: teac, classData: hashIPFS, classUnicode: coUni },]
+                      payload = [{ degreeUnicode: degreeUnicode, teacher: teac, classData: hashIPFS, classUnicode: coUni },]
                     } else
                       payload = [...payload,
-                      { teacher: teac, classData: hashIPFS, classUnicode: coUni }
+                      { degreeUnicode: degreeUnicode, teacher: teac, classData: hashIPFS, classUnicode: coUni }
                       ]
                   }
                   // this function provides a parallel loading of all the informations from ipfs. 

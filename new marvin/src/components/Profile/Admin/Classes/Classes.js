@@ -16,7 +16,7 @@ import EmptyData from '../../../Loading/EmptyData'
 //     { year: "2016-2017", degree: "Psicologia", class: "Comportamento" },
 // ]
 
-const Row = ({ classUnicode, classData, teacher }) => (
+const Row = ({ degreeUnicode, classUnicode, classData, teacher }) => (
     <tr className="clickable-row">
         <td>{classUnicode}</td>
         <td>{classData}</td>
@@ -32,7 +32,11 @@ const Row = ({ classUnicode, classData, teacher }) => (
                 <Link to="/profile/classes/modify-class">Modify</Link>
             </button>
             <button className="delete-link">
-                <Link to="/profile/classes/delete-class">Delete</Link>
+                <Link to={{
+                    pathname: "/profile/classes/delete-class",
+                    state: { classUnicode: classUnicode, degreeUnicode: degreeUnicode }
+                }}
+                > Delete</Link>
             </button>
         </td>
 
