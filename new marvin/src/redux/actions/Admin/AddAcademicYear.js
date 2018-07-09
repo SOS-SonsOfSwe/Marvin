@@ -19,7 +19,7 @@ export default function addNewAcademicYear(year) {
     .web3.web3Instance
 
   // Double-check web3's status.
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -43,7 +43,7 @@ export default function addNewAcademicYear(year) {
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
         // Log errors, if any.
-        if(error) {
+        if (error) {
           console.error(error);
         }
 
@@ -93,7 +93,7 @@ export default function addNewAcademicYear(year) {
               })
               .finally(def => {
                 // console.log(JSON.stringify(def))
-                return browserHistory.push('/profile')
+                return browserHistory.push('/profile/academic-years')
               })
           })
       })

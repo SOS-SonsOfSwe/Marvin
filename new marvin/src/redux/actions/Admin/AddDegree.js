@@ -74,7 +74,7 @@ export default function addNewDegree(degreeUnicode, year, degreeData) {
                     dispatch(errorAddingData())
                   })
                   .finally(def => {
-                    return browserHistory.push('/profile')
+                    return browserHistory.push('/profile/degrees')
                   })
               })
               .catch(err => {
