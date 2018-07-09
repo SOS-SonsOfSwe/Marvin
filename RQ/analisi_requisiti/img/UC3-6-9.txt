@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Amministratore
+actor Università
+rectangle UC3.6.9 {
+Amministratore -- (UC3.6.9.1 - Modifica del codice di un corso di un'attività didattica)
+Amministratore -- (UC3.6.9.10 - Visualizzazione dell'errore relativo alla modifica di un’attività didattica non valida)
+Amministratore -- (UC3.6.9.2 - Modifica del nome di un'attività didattica)
+Amministratore -- (UC3.6.9.3 - Modifica della descrizione di un'attività didattica)
+Amministratore -- (UC3.6.9.4 - Modifica del professore associato ad un'attività didattica)
+Amministratore -- (UC3.6.9.5 - Modifica dei crediti di un'attività didattica)
+Amministratore -- (UC3.6.9.6 - Modifica del periodo di un'attività didattica)
+Amministratore -- (UC3.6.9.7 - Modifica di un'esame associato ad un'attività didattica)
+Amministratore -- (UC3.6.9.8 - Annullamento della modifica di un'attività didattica)
+Amministratore -- (UC3.6.9.9 - Conferma della modifica di un'attività didattica)
+Università -- (UC3.6.9.1 - Modifica del codice di un corso di un'attività didattica)
+Università -- (UC3.6.9.10 - Visualizzazione dell'errore relativo alla modifica di un’attività didattica non valida)
+Università -- (UC3.6.9.2 - Modifica del nome di un'attività didattica)
+Università -- (UC3.6.9.3 - Modifica della descrizione di un'attività didattica)
+Università -- (UC3.6.9.4 - Modifica del professore associato ad un'attività didattica)
+Università -- (UC3.6.9.5 - Modifica dei crediti di un'attività didattica)
+Università -- (UC3.6.9.6 - Modifica del periodo di un'attività didattica)
+Università -- (UC3.6.9.7 - Modifica di un'esame associato ad un'attività didattica)
+Università -- (UC3.6.9.8 - Annullamento della modifica di un'attività didattica)
+Università -- (UC3.6.9.9 - Conferma della modifica di un'attività didattica)
+}
+@enduml

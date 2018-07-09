@@ -1,0 +1,100 @@
+\section{FrontEnd}
+This section the manual talks about about how to program some features that will make the user more comfortable with the package. By explaining how to do modify or add some functionalities, the reader will be guided into the logic of the application.
+Since the package has been developed using the \emph{Model View View-Model} design pattern, it is recommended to follow those guide lines, as they will help to keep the package clean and efficient. In every section there will be a quick explanation of what the user is going to do and the steps that are needed for doing the tasks.
+~\\~\\The guide will explain how to:
+\begin{itemize}
+	\item Modify or add a \textit{dumb} page whose functionality is to render some static informations on the screen. This concerns the \emph{View} section;
+	\item Modify or add a page in which the user wants to render some \verb|store| informations by accessing its \verb|state|, maybe paying attention to which kind of visitor the user wants to render the page to. This concerns the \emph{View-Model} section as the informations are already stored into the global \verb|state| application;
+	\item Modify or add a page in which the user can update the \verb|store| informations by making the user interacting both with interface and database. This concerns the \emph{Model} section.
+\end{itemize}
+
+\subsection{Modify or add a \emph{dumb} page}
+We can call the \emph{dumb} pages as \verb|components|, as they all extends the \verb|React| component abstract class. The only purpose of this kind of classes is to render static informations on the screen or to make the user do some in-\verb|component| tasks such as clicking a button to increase a counter.
+\\To keep in mind: 
+\begin{itemize}
+	\item Each class is correlated by a \verb|constructor| to which some \verb|props| are passed by the parent \verb|component|. It is possible to define a \verb|state| with which the reader can manage the data; those are not meant to be used outside the component;
+	\item The class should be correlated by a \emph{SassCSS} style sheet to make it looks more personal. The file should stay along with the file of the component;
+	\item All the components must stay into the \verb|src/components/| folder under the respective field. So if the reader wants to add a component that will be rendered, for example:
+	\begin{itemize}
+		\item along the \emph{navigation bar}, the component should stay under the \verb|App| folder;
+		\item if it is for some specific user, under \verb|src/components/Profile|/\verb|<userType>|;
+		\item if it is in common with all the users, under \verb|src/Profile|;
+		\item if it is not user specific, under \verb|src/components|.
+	\end{itemize}  
+	It is important to say that all the related files should be grouped together into the same sub folder. This is a \href{https://medium.freecodecamp.org/scaling-your-redux-app-with-ducks-6115955638be}{Duck} reference;
+	\item To render a component we have to make the application be aware of it! So the \verb|src/index.js| must be updated accordingly;
+\end{itemize}
+So let's say the reader wants to add a \verb|BetterHome| homepage for the application. He will have to follow those steps:
+\begin{enumerate}
+	\item Create a valid \verb|React| component under \verb|src/components/BetterHome/|;
+	\item Add a valid \verb|React| button under \verb|src/components/App| that must be imported into the \verb|src/components/App/NavButton|: we want to access the component we are going to create, aren't we?
+	\item Open \verb|src/index.js|, import the \verb|BetterHome| component;
+	\item Under \verb|ReactDOM.render()| find the right place in which the component should stay and give it a \verb|path| name. There are so many "..."\verb|IsAuthenticated()|: we will discuss about it later. The button we have created before should be linked to that path.
+\end{enumerate}
+
+What have we just done? We made the application to know about our new components and then render them when the user clicks on the navigation bar button. When the navigation button is clicked an history-\verb|action| is triggered, the \verb|state| is updated; by doing so the \verb|ReactDOM.render()| method of \verb|index.js| is updated and loads the page. Say thanks to the \verb|React| framework!
+
+\subsection{Modify or add a \emph{not-so-dumb} page}
+Adding a dumb component was ok, not so thrilling though. This chapter will introduce the reader into adding a \verb|container|, which is responsible for \emph{passing} a \verb|props| to the previous defined \verb|component| to make it more clever.
+\\To keep in mind:
+\begin{itemize}
+	\item The Marvin package owns a \emph{Redux} \verb|/src/store.js| in which the user can redefine the behavior of the application. In this file we compose some specific methods for managing the \emph{history} of the application, the kind of \verb|dispatch|es it will have to manage and the \verb|action|s that the \verb|reducer|s will have to trigger;
+	\item Every \verb|container| should stay under the \verb|src/containers| sub folder following the rules we described above;
+	\item The \verb|container| is a special javascript class which is then \emph{decorated} by a component. In this class we can \emph{connect} a component to the \verb|store| state so it has access to the informations that are kept into it.
+\end{itemize} 
+Let's say we want to make our \verb|BetterHome| component renders some user's informations, such as its own name. Then we have to follow those steps:
+\begin{enumerate}
+	\item Just as creating the \verb|component| \verb|BetterHome|, create a \verb|/src/containers/BetterHome/BetterHomeContainer.js| file accordingly to the rules we described above. In this class we will import the \verb|BetterHome| component. Then, we will use the \verb|connect| statement from \verb|react-redux| to connect the \verb|BetterHome| \verb|state| to the \verb|store| \verb|state.user.data|; this data is now accessible from the components via \verb|this.props.<dataNameInContainer>|;
+	\item After those steps, our \verb|container| class is a \emph{React} class, so it can be exported as an enriched component;
+	\item We should update the \verb|BetterHome| component to make it renders the name of the user which is logged in;
+	\item We have to modify the import inside \verb|src/index.js| to make the application know that we connected our component to the store. To achieve this we just switch import from the \verb|component| to \verb|container| class.
+\end{enumerate}
+With those few steps we have just connected our \emph{dumb} component to the \verb|store| \verb|state|. So every time the informations will change, our \verb|BetterHome| component will change accordingly.
+\\Remember all those "..."\verb|IsAuthenticated()| methods inside \verb|src/index.js| component? Take a deeper look: instead of managing all the authorization, the SoS team choosed to use the \verb|react-auth-wrapper| package. This tool is natively linked to the \emph{Redux} store and decouples the authentication from the components. We created a \verb|src/authentication/wrapper.js| file which can read the store informations and create some \verb|predicate|s in order to:
+\begin{itemize}
+	\item Take a \emph{React} component as parameter and decide to render it or not;
+	\item Dispatch redirections in case of success/failure of the predicate.
+\end{itemize}
+For further explanations please refer to its \href{https://github.com/mjrussell/redux-auth-wrapper}{GitHub} page.
+
+
+\subsection{Modify or add a \emph{very clever} page}
+\label{IPFS}
+Connecting a component to the store state is great, but we want something more from our application. Let's say that we want to add some other profile information such as the phone number. This is the very juicy part of the application - and the most rich of notions indeed. We will have to keep in mind some things:
+\begin{itemize}
+	\item The data are stored into two different kind of database: the \emph{blockchain} and the \emph{IPFS} ones. We described what they are and which one is to be preferred for storing data in the \emph{backend} part. The \emph{IPFS} stores some informations, it retrieves an \emph{hash code} which is then written on the \emph{blockchain}. We should decide to put our phone number into \emph{IPFS};
+	\item As we are developing a \verb|react-redux| application, we have to focus on what the reducer is: the reducer is a javascript file which is responsible to update the state information on the base of the actions that are dispatched. A user can dispatch an action: this will update the store state and trigger the application to re-render. Every reducer should stay under \verb|/src/redux/reducers|;
+	\item Even if there is no need to understand what \emph{Web3} is as the settings should not be modifyed, some skilled developers would find interesting how to change the communication between the javascript part, the Metamask plugin, the \emph{blockchain} network and the \emph{solidity} contracts. \emph{Truffle} uses this package to make a comfortable adapter to the \emph{backend}, retrieving a \emph{.json} instance of the \emph{solidity} contract and making it available for interacting with javascript;
+	\item As our application will make many asynchronous calls it is suggested to use \emph{promises} instead of \emph{callbacks} so this will keep the state coherent. If your application has to call a callback then you should transform it into a promise. Please refer to the example you can find into \verb|api/utils/ipfsPromises.js| where the team has already transformed a callback call from \verb|ipfs-mini| package into a promise.
+\end{itemize}
+
+Let's proceed.
+\\First of all the developer must have a clear idea of what he wants to add to the application. As we are updating new user's phone number we will need to:
+\begin{enumerate}
+	\item Read the informations that are already present on the \emph{blockchain} and \emph{IPFS}, so we will need the application to be aware of the reading state;
+	\item Keep them temporarly to make some modifications;
+	\item Add the informations into the \emph{IPFS} network and retrieve the hash and making the application know about the adding state;
+	\item Update the hash information on the \emph{blockchain}.
+\end{enumerate}
+With those steps in mind the developer will have a clearer ideas of the following steps.
+Go down the Rabbit's Hole!
+\begin{enumerate}
+	\item First of all the developer should modify the BetterHome page to make it accept a number insertion and a Save button, which will be connected to the store later;
+	\item Secondly he should become familiar with the reducers that are present into the \verb|src/redux/reducers|. The team chose to make:
+	\begin{itemize}
+		\item \verb|userReducer| for managing the login, logout and signup of all the users;
+		\item \verb|<userType>Reducer| for managing all the actions that a particular type of user shall do (i.e adding an Academic Year for administrators)
+		\item \verb|ipfsReducer| to maintain the reading and writing on/from \emph{IPFS};
+		\item \verb|web3Reducer| to make the application know about the web3 connection state.
+	\end{itemize}
+	In fact the developer is suggested to use one of the actions that are present in those reducers as they are tested to keep the store state coherent. However he could also add its own or modify the existing paying a bit more attention not to break the application global state;
+	\\To use the reducer in a more familiar way there are some standard dispatched that the developer can use effortless. They can be found at \verb|src/redux/actions/standardDispatches/|;
+	\item The user should now write the function to update the phone number. As for the components and containers the developer is suggested to write his action inside a \verb|/src/redux/action/| folder accordingly. There are many actions from which take inspiration: it's important to use the right dispatch to make the Marvin store know about how the readings and writing are going on;
+	\item Now we have to make the application aware of the action. To achieve this we have to modify the BetterHomeContainer accordingly using the \verb|mapDispatchToProps| function offered by the \verb|react-redux| framework;
+	\item The last thing to do is to make the Save button trigger the action. It will be enough to connect its event to the container function, which will be accessible from \verb|this.props.<functionName>|.
+\end{enumerate}
+We made it! We just upgraded the Marvin application with the possibility to update also the phone number.
+
+~\\
+~\\
+This guide is not finished yet, indeed this is a beta: as the developer will see there are some hide-and-seek tricks that makes this package faster and more efficient.

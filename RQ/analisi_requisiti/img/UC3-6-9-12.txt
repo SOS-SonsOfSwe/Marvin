@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor università
+rectangle UC3.6.9.12 {
+università -- (UC3.6.9.12.1 - Modifica del codice dell’esame)
+università -- (UC3.6.9.12.2 - Modifica della descrizione dell’esame)
+università -- (UC3.6.9.12.3 - Modifica dell’intervallo di prenotazione per l’esame)
+università -- (UC3.6.9.12.4 - Modifica della data dell’esame)
+università -- (UC3.6.9.12.5 - Modifica della tipologia dell’esame)
+università -- (UC3.6.9.12.6 - Modifica del luogo dell’esame)
+università -- (UC3.6.9.12.7 - Annullamento della modifica dell’esame)
+università -- (UC3.6.9.12.8 - Conferma della modifica dell’esame)
+università -- (UC3.6.9.12.9 - Visualizzazione errore relativo alla modifica di un esame)
+}
+@enduml

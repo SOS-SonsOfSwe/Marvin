@@ -1,0 +1,56 @@
+progetto
+proponente
+committenti
+manutenibile
+design pattern
+UML
+package
+diagramma di stato
+SWEgo
+Astah
+Microsoft Excel 365
+standalone
+milestone
+pianificazione
+diagrammi di Gantt
+attori
+casi d'uso
+requisiti
+Verifica
+Uso
+ISO
+versionamento
+Configuration Item
+\LaTeX
+Git
+repository
+master
+origin
+template
+branch
+revisioni
+build
+commit
+pull request
+Walkthrough
+checklist
+Inspection
+commessa
+TexStudio
+Gulpease
+JSHint
+OpenSource
+JavaScript
+W3C Markup Validation Service
+HTML
+xHTML
+Karma
+Mocha
+Telegram
+Slack
+Segretario
+verbale
+Organigramma
+Task
+Cloud
+hosting

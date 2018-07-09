@@ -1,0 +1,21 @@
+\section{Project Folder}
+%The project folder is organized in the following way: there are 
+The project folder contains the following subfolders:
+\begin{itemize}
+	\item\verb|contracts|: it contains the blockchain contracts written in the Solidity programming language
+    \item\verb|migrations|: it contains javascript files that help you deploy contracts to the Ethereum network. These files are
+    responsible for staging your deployment tasks, and they're written under the assumption that your deployment needs will change over time.
+    As your project evolves, you'll create new migration scripts to further this evolution on the blockchain.
+    %http://truffleframework.com/docs/getting_started/migrations
+    \item\verb|api|: it  contains all the \emph{adapters} to the external API such as \verb|IPFS| and \verb|web3|;
+    \item\verb|public|: it contains some media files, such as images, that can be accessible as external source;
+    \item\verb|scripts|: it contains files (build.js, start.js, test.js) written to compile and to create the local execution workspace for
+    	\project;
+    \item\verb|src|: it contains the part of the project related to the frontend development;
+    \item\verb|webpack|: it contains webpack, a static module bundler for JavaScript. It internally builds a dependency graph 
+    which maps every module needed by the project and generates one or more bundles
+    %http://truffleframework.com/tutorials/bundling-with-webpack
+\end{itemize}
+The folders \verb|scripts| and \verb|webpack| are responsible for getting the application start, test and build. If tyou are not confident with the settings of the \emph{truffle} framework and the \emph{webpack} package it's recommended to not modify those files.
+
+For any suggestion please feel free to contact us or open an issue on the GitHub portal.

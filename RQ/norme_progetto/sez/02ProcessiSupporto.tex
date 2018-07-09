@@ -1,0 +1,661 @@
+%\begin{comment}
+\newpage
+\section{Processi di Supporto}
+\subsection{Processo di documentazione}
+\subsubsection{Scopo del processo}
+Lo scopo di questo processo consiste nell'illustrare le linee guida di tutta la documentazione che verrà prodotta riguardante il ciclo di vita del software.
+\subsubsection{Descrizione}
+In questa sezione del documento dovranno essere redatte tutte le norme utilizzate dal team per produrre una documentazione coerente e di qualità riguardo lo sviluppo del software.
+\subsubsection{Organizzazione}
+Per questo motivo, il team suddividerà i documenti in:
+\begin{itemize}
+	\item \textbf{Documenti interni}
+	\newline Tutti quei documenti che saranno visionati da fornitori e committenti;
+	\item \textbf{Documenti esterni}
+	\newline Tutti quei documenti che saranno visionati anche dai proponenti.
+	
+\end{itemize}
+%	\subsubsection{Processo di garanzia della qualità}
+%	\textcolor{red}{Cosa scriviamo qui? Nell'ISO 1995 è al paragrafo 6.3, da verificare nell'ISO aggiornato.}
+	
+	\subsubsection{Ciclo di vita di un documento}
+	Un documento passerà attraverso tre stati:
+	\begin{itemize}
+		\item \textbf{In lavorazione}:
+		si tratta della fase di stesura del documento e non è consultabile;
+		\item \textbf{Da verificare}:
+		dopo che il documento è stato ultimato, passerà nelle mani del \ver{} (il cui ruolo è descritto nel paragrafo \ref{verificatore}), che dovrà esaminarlo;
+		\item \textbf{Approvato}:
+		dopo la verifica, il documento dovrà essere approvato definitivamente dal \RdP.
+	\end{itemize}
+	Ogni documento sarà identificato con un flag alla fine del nome, distanziato con un underscore, in base allo stato in cui si trova. 
+	Per il primo si userà \emph{\textunderscore{L}}, per il secondo \emph{\textunderscore{V}}, per il terzo \emph{\textunderscore{A}}.
+	
+	\subsubsection{Documenti finali ad uso interno}
+		\paragraph{Studio di fattibilità (SdF)}
+		~\\Lo \SdF{} ha lo scopo di raccogliere le informazioni salienti dei capitolati proposti, esprimendone gli aspetti positivi e 
+		le potenziali criticità che sono emerse durante il confronto col gruppo.
+		\paragraph{Norme di progetto (NdP)}
+		~\\Le \NdP{} contengono le regole che il team utilizzerà durante lo sviluppo del progetto.
+		\paragraph{Verbale interno (VI)}
+		~\\Il \VI{} servirà al gruppo per documentare le discussioni e le decisioni prese durante le riunioni. 
+		La denominazione dovrà essere come segue:\\
+		\begin{center}
+			\textit{verbale\textunderscore{Tipo del verbale}\textunderscore{Numero del verbale}\textunderscore{Data del verbale}} 
+		\end{center}
+		dove:
+		\begin{itemize}
+			\item \textbf{Tipo del verbale}:
+			specifica se Interno (I) o Esterno (E);
+			\item \textbf{Numero del verbale}:
+			numero univoco identificativo del verbale;
+			\item \textbf{Data del verbale}:
+			identifica la data in cui la riunione si è svolta. Si utilizzerà il formato:
+			\begin{center}
+				\emph{YYYY-MM-DD}
+			\end{center}
+		\end{itemize}
+		Nella parte introduttiva del verbale verranno specificati:
+		\begin{itemize}
+			\item Data riunione;
+			\item Ora inizio riunione;
+			\item Ora fine riunione;
+			\item Durata riunione;
+			\item Luogo d'incontro;
+			\item Oggetto di discussione;
+			\item Moderatore;
+			\item Segretario;
+			\item Partecipanti.
+		\end{itemize}
+
+	\subsubsection{Documenti finali ad uso esterno}
+	\paragraph{Piano di Progetto (PdP)}
+	~\\Il \PdP{} contiene le indicazioni sulle scadenze temporali e fornisce un preventivo dei costi da presentare al proponente. 
+	~\\Vengono inoltre individuati i rischi ed analizzate le loro ricorrenze.
+	~\\In questo documento vengono fatte emergere le \emph{milestone\ped{G}} legate ai punti critici e viene effettuata una \emph{pianificazione}\ped{G} con l'uso di \emph{diagrammi di Gantt}\ped{G}.
+	~\\In questo documento vengono fatte emergere le \emph{milestone\ped{G}} legate ai punti critici e viene effettuata una \emph{pianificazione}\ped{G} con l'uso di diagrammi di \emph{Gantt}\ped{G}.
+	\paragraph{Piano di Qualifica (PdQ)} 
+	~\\Il \PdQ{} deve fornire ai membri del gruppo tutte le informazioni con cui poter soddisfare gli obiettivi di qualità.
+	\paragraph{Analisi dei Requisiti (AdR)}
+	~\\L'\AdR{} descrive gli \emph{attori}\ped{G} del sistema, individua i \emph{casi d'uso}\ped{G} a partire dai \emph{requisiti}\ped{G} e fornisce una visione chiara ai \progs{} sul problema da trattare.
+	
+	\begin{comment}
+	\paragraph{Specifica Tecnica (ST)}
+	~\\La \ST{} si occupa di dare una descrizione ad alto livello del prodotto, descrivendo pregi e difetti delle sue tecnologie. \textcolor{red}{Da ampliare quando avremo fatto il documento}
+	\paragraph{Definizione di Prodotto (DdP)}
+	~\\La \DdP{} descrive i dettagli implementativi del prodotto, andando a definire anche le funzioni delle componenti terminali del sistema tramite diagrammi \emph{UML}.
+	\end{comment}
+	
+	\paragraph{Glossario (G)}
+	~\\Nel documento \G{} i termini tecnici, gli acronimi e le abbreviazioni sono definiti in modo chiaro e conciso, in modo tale da evitare ambiguità e massimizzare la comprensione dei documenti.
+	\paragraph{Manuale Utente (MU)}
+	~\\Il \MU{} è un manuale pensato per aiutare l'utente ad utilizzare il prodotto, viene incrementato durante lo sviluppo di quest'ultimo. Deve avere un approccio incentrato sulle funzionalità che il prodotto offre.
+	\paragraph{Manuale Sviluppatore (MS)}
+	~\\Il \MS{} è un manuale per aiutare lo sviluppatore nella manutenzione e nell'incremento delle funzionalità del prodotto.
+	\paragraph{Verbale Esterno (VE)}
+	~\\Il \VE{} è un documento in cui si tiene traccia delle discussioni del team con i committenti ed i proponenti. Come struttura ricalca quella del \VI.
+	
+	\subsubsection{Struttura del documento}
+	\paragraph{Prima pagina}
+	La prima pagina di ogni documento sarà così strutturata:
+	\begin{itemize}
+		\item Logo;
+		\item Nome del documento;
+		\item Nome del gruppo \emph{-} Nome del progetto;
+		\item Email del gruppo;
+		\item Informazioni sul documento:
+		\begin{itemize}
+			\item Versione del documento;
+			\item Redazione;
+			\item \emph{Verifica}\ped{G};
+			\item Approvazione;
+			\item \emph{Uso}\ped{G};
+			\item Distribuzione.
+		\end{itemize}
+		\item Descrizione del documento.
+	\end{itemize}
+	\paragraph{Registro delle modifiche}
+	~\\In seconda pagina il documento conterrà il registro delle modifiche che traccerà le modifiche apportate al documento. Sarà organizzato in una tabella che conterrà le seguenti colonne:
+	\begin{itemize}
+		\item Versione:
+		indica la versione del documento;
+		\item Data:
+		indica la data in cui il documento è stato modificato;
+		\item Descrizione:
+		descrive la modifica effettuata nella relativa versione;
+		\item Autore:
+		indica il nome della persona che ha effettuato la modifica;
+		\item Ruolo:
+		indica il ruolo dell'autore.
+	\end{itemize}
+	\paragraph{Indice}
+	~\\Dopo il registro delle modifiche, il documento sarà correlato da un indice di tutte le sezioni. In alcuni documenti, se necessario, sarà aggiunto anche l'indice delle immagini, delle tabelle e dei riferimenti.
+	\paragraph{Formattazione generale della pagina}
+	~\\Ogni pagina del documento, fatta eccezione per la prima, conterrà una intestazione ed un pié di pagina.
+	\\L'intestazione presenterà a sinistra il logo e a destra l'email del gruppo.
+	\\Nel pié di pagina saranno presenti a sinistra il nome del documento susseguito dal nome del gruppo e, a destra il numero della pagina.
+	%\begin{comment}
+	\subsubsection{Norme tipografiche}
+	Tutti i documenti dovranno sottostare alle seguenti norme tipografiche ed ortografiche.
+	\paragraph{Formati}
+	\begin{itemize}
+	\item \textbf{Data}: il formato della data seguirà quello esplicato nell'\emph{ISO}\ped{G} \emph{8601:2004}\ped{G}, quindi sarà: 
+		\begin{center}
+			\emph{YYYY-MM-DD}
+		\end{center}
+	dove i simboli stanno per:
+		\begin{itemize}
+			\item YYYY: anno;
+			\item MM: mese;
+			\item DD: giorno.
+		\end{itemize}
+	\item \textbf{Orario}: ci si atterrà allo standard europeo delle 24 ore:
+		 \begin{center}
+		 	\emph{hh:mm}
+		 \end{center}
+	dove i simboli stanno per:
+	 	\begin{itemize}
+	 		\item hh: ore;
+	 		\item mm: minuti.
+	 	\end{itemize}
+ 	\begin{comment}
+		\item \textbf{Nome del documento}: \textcolor{red}{Dovremmo elaborare un comando che, una volta invocato, genera automaticamente il nome del documento e la sua versione}
+		\item \textbf{Nome del gruppo}: per riferirsi al nome del gruppo si dovrà
+		utilizzare il comando garantendo in questo modo la corretta sintassi;
+		\item \textbf{Nome del progetto}: per iferirsi al nome del progetto si dovrà
+		utilizzare il comando garantendo in questo modo la corretta sintassi;
+		\item \textbf{Link sito del gruppo}: per riferirsi al link del sito del gruppo si dovrà
+		utilizzare il comando garantendo in questo modo la corretta sintassi;
+		\item \textbf{Email del gruppo}: per riferirsi all'indirizzo email del gruppo si dovrà
+		utilizzare il comando garantendo in questo modo la corretta sintassi;
+		\item \textbf{Nome del proponente}: per riferirsi al nome del proponente, ovvero del proponente, si dovrà
+		utilizzare il comando garantendo in questo modo la corretta
+		sintassi.
+	\end{comment}
+	
+	\end{itemize}
+	\paragraph{Composizione del testo}
+	\begin{itemize}
+		\item \textbf{Elenchi puntati}: ogni punto dell'elenco deve terminare con ''\emph{;}''
+		tranne l'ultimo che deve terminare con  ''\emph{.}''. La prima parola deve iniziare con unla lettera maiuscola;
+		\item \textbf{Glossario}: il pedice ''\ped{G}'' verrà utilizzato in corrispondenza di vocaboli presenti nel \textit{\G}.
+	\end{itemize}
+	\paragraph{Stili di testo}
+	\begin{itemize}
+		\item \textbf{Grassetto}: il grassetto deve essere utilizzato per evidenziare parole
+		particolarmente importanti negli elenchi puntati o nelle frasi;
+		\item \textbf{Corsivo}: il corsivo deve essere utilizzato con i seguenti termini:
+		situazioni:
+		\begin{itemize}
+			\item Ruoli;
+			\item Documenti;
+			\item Stati del documento;
+			\item Citazioni;
+			\item Glossario;
+			\item Nomi di file.
+		\end{itemize}
+		\item \textbf{Maiuscolo}: il maiuscolo deve essere utilizzato solamente per gli acronimi.
+	\end{itemize}
+	\paragraph{Sintassi}
+	~\\Per la stesura dei documenti i membri del team adotteranno la terza persona singolare.
+	\paragraph{Sigle}
+	\begin{itemize}
+		\item \textbf{AdR}: Analisi dei Requisiti;
+		\item \textbf{PdP}: Piano di Progetto;
+		\item \textbf{NdP}: Norme di Progetto;
+		\item \textbf{SdF}: Studio di Fattibilità;
+		\item \textbf{PdQ}: Piano di Qualifica;
+		\item \textbf{LdP}: Lettera di Presentazione;
+		\item \textbf{G}: Glossario;
+		\item \textbf{TB}: Technology Baseline;
+		\item \textbf{PB}: Product Baseline;
+		\item \textbf{MU}: Manuale Utente;
+		\item \textbf{MS}: Manuale Sviluppatore;
+		\item \textbf{RR}: Revisione dei Requisiti;
+		\item \textbf{RP}: Revisione di Progettazione;
+		\item \textbf{RQ}: Revisione di Qualifica;
+		\item \textbf{RA}: Revisione di Accettazione.
+	\end{itemize}
+
+\begin{comment}
+	\subsubsection{Componenti grafiche}
+	\textcolor{red}{Da controllare, quando inizieremo ad usarle}
+	\begin{itemize}
+		\item Tabelle
+		\item Immagini
+	\end{itemize}
+\end{comment}
+	\subsubsection{Nome del file \emph{.pdf}\ped{G}}
+	Ogni documento sarà generato come file con estensione .pdf ed avrà un nome che rispetti la seguente convenzione:
+	\begin{center}
+		\emph{NomeFile\_versione.pdf}
+	\end{center}
+	Il \emph{NomeFile} seguirà la notazione CamelCase già descritta, invece la \emph{versione} seguirà lo standard descritto qui di seguito.
+	
+	\subsubsection{Struttura dei file in \LaTeX}
+	Lo scheletro dei file necessari per generare un file .pdf di un documento è così strutturato:
+	\begin{itemize}
+		\item \emph{sos.sty}: contiene tutti i package e le macro che possono trovare utilizzo in tutti i documenti. Contiene  anche anche la macro che genera la copertina della prima pagina e che viene invocata dal file \emph{main.tex};
+		\item \emph{main.tex}: Include il template e tutte le sezioni che compongono il documento. Il file non è monolitico perché include le sezioni (che quindi sono dei file \emph{.tex} che hanno vita propria), in questo modo si cerca di puntare all'assenza di conflitti durante modifiche contemporanee a più parti dello stesso documento e, di facilitare la revisione di singole parti del documento;
+		\item \emph{comandi.tex}: contiene delle macro specifiche per il documento che si sta creando;
+		\item \emph{"img" folder}: contiene il logo del gruppo e le altre immagini che sono incluse nel documento.
+	\end{itemize}
+	\subsubsection{Versionamento}
+	Il \emph{versionamento\ped{G}} permette a ciascun membro del team di condividere il lavoro nello spazio comune e di lavorare su vecchi e nuovi \emph{Configuration Item}\ped{G} senza rischio di sovrascritture accidentali.
+	\\Avrà questa forma:
+	\begin{center}
+		\emph{vX.Y.Z}
+	\end{center}
+	dove:
+	\begin{itemize}
+		\item \textbf{X}:
+		\begin{itemize}
+			\item Inizia da 0;
+			\item Viene incrementato solo nel caso in cui il documento venga rilasciato pubblicamente.
+		\end{itemize}
+		\item \textbf{Y}:
+		\begin{itemize}
+			\item Inizia da 0;
+			\item Viene incrementato dal \RdP{} una volta approvato il documento;
+			\item Quando viene incrementato, \emph{Z} viene riportato a 0.
+		\end{itemize}
+		\item \textbf{Z}:
+		\begin{itemize}
+			\item Alla creazione parte da 1;
+			\item Viene incrementato dal redattore del documento ogni volta che questo è viene modificato.
+			\item Quando vengono incrementati X o Y viene riportato a 0.
+		\end{itemize}
+	\end{itemize}
+	\subsubsection{Strumenti}
+			\paragraph{\LaTeX}
+			~\\Il team ha scelto di usufruire del linguaggio \LaTeX{} per questi motivi:
+			\begin{itemize}
+				%\item Permette di rendere ogni sezione molto autonoma, mantenendo comunque lo stile coerente;
+				\item Permette un versionamento più semplice e compatibile con \emph{Git}\ped{G};
+				\item Evita i conflitti che si possono creare usando software differenti (per esempio OpenOffice e Microsoft Word).
+			\end{itemize}
+		
+		%	\paragraph{\textcolor{red}{Da aggiungere qui eventuali altri strumenti che utilizzeremo per altro}}
+	
+		\subsubsection{Gestione del \emph{repository}\ped{G}}
+		Per tenere traccia di tutte le modifiche apportate ai documenti ed al codice che sono stati prodotti, il team ha deciso di utilizzare \emph{GitHub}, creando una \emph{repository}\ped{G} dedicata. Si seguiranno le norme descritte qui di seguito.
+			\paragraph{Struttura}
+			\begin{itemize}
+				\item Il \emph{master}\ped{G} è annidato nella repository \emph{origin}\ped{G} e deve contenere solo il \emph{template}\ped{G} per la scrittura di tutti i documenti;
+				\item Ogni \emph{branch}\ped{G} annidato sul master deve corrispondere solo alle \emph{revisioni}\ped{G};
+				\item Ogni branch annidato in branch relativi alle revisioni contiene dei documenti che le riguardano;
+				\item Ogni membro del gruppo potrà modificare i file di ogni documento o codice, o direttamente sul branch corrispondente oppure creandone uno parallelo a sua discrezione a meno di direttive diverse da parte dei \progs{}.
+%				\item \textcolor{red}{Capire come fare la repo quando si dovrà mettere dentro il codice}
+			\end{itemize}
+			\paragraph{Tipi di file}
+			Tutti i file pertinenti verranno caricati nel repository e saranno sottoposti a versionamento. Verranno tuttavia ignorati, quindi inseriti all'interno del file \emph{.gitignore}\ped{G}, tutti quelle quei file generati automaticamente durante le varie \emph{build}\ped{G} e che hanno estensioni indesiderate (ad esempio \emph{.log}, \emph{ .out}). 
+			\paragraph{Norme sui \emph{commit}\ped{G}}
+			~\\I membri del team dovranno registrare le modifiche apportate alla repository tramite commit. Questo genererà una \emph{pull request}\ped{G} che il responsabile dovrà approvare prima di unire le modifiche al branch di riferimento. %Qualora non si riuscisse a concludere un'attività entro la giornata, si dovrà eseguire un commit alla fine di essa, per garantire una copia offline.
+\subsection{Processo di verifica}
+\subsubsection{Scopo del processo}
+Lo scopo del processo di verifica consiste nel controllare e correggere eventuali errori commessi durante il compimento delle attività dei processi svolti.
+\subsubsection{Descrizione}
+Il processo di verifica deve essere continuo, questo serve ad evitare che eventuali errori arrivino fino alla fase di validazione.
+Questa attività, che viene svolta in corso d'opera, deve essere:
+\begin{itemize}
+	\item Tempestiva, cioè il dato deve esserci quando serve;
+	\item Accurata, devono essere evitate scorrettezze;
+	\item Non intrusiva, non deve interrompere alcuna attività durante la sua esecuzione.
+\end{itemize}
+
+	\subsubsection{Qualità}
+	Nel documento \PdQ{} si devono descrivere le tecniche usate dai membri del gruppo con lo scopo di garantire la qualità del prodotto, in particolare:
+	\begin{itemize}
+		\item tutti gli standard adottati e che si occupano della qualità dei processi devono essere citati;
+		\item devono essere presentati tutti i processi rilevanti di tali standard.
+	\end{itemize}
+	Inoltre per ogni processo si devono descrivere:
+	\begin{itemize}
+		\item gli obbiettivi di qualità che derivano da esso;
+		\item le metodologie e le strategie considerate di utilità per raggiungerne gli obbiettivi;
+		\item le metriche da utilizzare per poter effettuare delle misurazioni oggettive e qualitative.
+	\end{itemize}
+
+\paragraph{Metriche per il processo}
+\label{AppB:metricheProc}
+In questa sezione verranno descritte le metriche che verranno utilizzate per garantire la qualità dei processi, comprese le metriche relative alla qualità del codice prodotto.
+
+\subparagraph{Compiti assegnati}
+\label{AppB:SV}
+~\\Tale metrica verrà utilizzata per controllare che la pianificazione di progetto sia stata eseguita correttamente, verificando che tutti i compiti che compongono ogni attività siano distribuiti ed assegnati ai membri del team. Verrà calcolata come segue:
+
+\begin{displaymath}
+	\mbox{SV}= \frac{\mbox{Numero compiti assegnati}} {\mbox{Numero compiti totali}} * 100
+\end{displaymath}
+
+
+\subparagraph{Schedule Variance - SV}
+\label{AppB:SV}
+~\\La Schedule Variance è un indicatore che permette di capire se un processo è il linea, in anticipo o in ritardo con la schedulazione temporale indicata del \PdP{}. Viene calcolata come percentuale di tempo speso, considerando le date di inizio e di fine previste e la data di completamento effettiva:
+
+\begin{displaymath}
+	\mbox{SV}= \frac{\mbox{Data di completamento effettiva - Data di completamento pianificata}} {\mbox{Data di completamento pianificata - Data di inizio pianificata}} * 100
+\end{displaymath}
+
+I risultati possibili sono tre:
+
+\begin{itemize}
+	\item SV $\textgreater$ 0, che indica un ritardo sui tempi pianificati;
+	\item SV = 0, che indica l'essere in linea con i tempi pianificati;
+	\item SV $\textless$ 0, che indica un anticipo sui tempi pianificati.
+\end{itemize}
+
+\subparagraph{Cost Variance - CV}
+\label{AppB:CV}
+~\\La Cost Variance è una metrica che permette di capire se i costi effettivi siano in linea o meno con i costi pianificati nel \PdP{}. Viene calcolata come percentuale di costo utilizzando BCWP (Budgeted Cost of Work Performed), cioè il valore delle attività svolte fino al momento del calcolo e ACWP (Actual Cost of Work Performed).
+
+\begin{displaymath}
+	\mbox{CV}= \frac{\mbox{BCWP}-\mbox{ACWP}}{BCWP}*100
+\end{displaymath}
+
+I risultati possibili sono tre:
+
+\begin{itemize}
+	\item CV $\textgreater$ 0, che indica che il progetto sta producendo con un minor costo rispetto a quanto pianificato;
+	\item CV = 0, che indica l'essere in linea con i costi preventivati;
+	\item CV $\textless$ 0, che indica che il progetto sta producendo con un costo maggiore rispetto a quello pianificato.
+\end{itemize}
+
+\subparagraph{Rischi non preventivati}
+\label{AppB:RischiNP}
+~\\Tale metrica verrà utilizzata per evidenziare il numero di rischi che non sono stati preventivati all'inizio di ogni fase di progetto e che hanno dunque fatto sorgere problemi inaspettati. Viene calcolato come indice numerico, il quale aumenta con il presentarsi di un problema non preventivato.
+
+\subparagraph{SFIN - Structural fan in}
+\label{AppB:SFIN}
+~\\La structural fan in è una metrica che verrà utilizzata insieme alla successiva per misurare il livello di relazione tra diversi elementi del software. In particolare, un risultato di SFIN alto indicherà che la procedura sulla quale è calcolata è largamente utilizzata dal sistema e dunque c'è molto riuso del suo codice.
+Data una procedura, viene calcolata come segue:
+
+\begin{displaymath}
+	\mbox{SFIN}= numero di componenti che utilizzano la procedura.
+\end{displaymath}
+
+\subparagraph{SFOUT - Structural fan out}
+\label{AppB:SFOUT}
+~\\La structural fan out è una metrica che verrà utilizzata insieme alla precedente per misurare il livello di relazione tra diversi elementi del software. In particolare, un risultato di SFOUT alto indicherà un codice fortemente accoppiato, dunque probabilmente molto complesso da eseguire e testare.
+Data una procedura o un componente, viene calcolata come segue:
+
+\begin{displaymath}
+	\mbox{SFOUT}= numero di componenti esterne utilizzate dalla procedura o dal modulo.
+\end{displaymath}
+
+\subparagraph{Complessità ciclomatica}
+~\\La complessità ciclomatica è una metrica utilizzata per misurare la complessità di un software attraverso la valutazione dei suoi metodi, classi e algoritmi. Essa è calcolata utilizzando il grafo di flusso: in esso i nodi corrispondono a gruppi indivisibili di istruzioni, mentre gli archi connettono due nodi se le istruzioni del secondo possono essere eseguite immediatamente dopo quelle del primo.
+Questa misurazione sarà utile nella fase di sviluppo per limitare la complessità delle singole parti del software e nella fase di test per capire quanti test diversi saranno necessari per testare adeguatamente il codice.
+La misurazione si baserà su un indice numerico intero: valori troppo alti indicano un'eccessiva complessità del codice con conseguente scarsa manutenibilità, mentre valori troppo bassi potrebbero indicare una scarsa efficienza.
+
+\subparagraph{Commenti per linee di codice}
+~\\Attraverso tale metrica si valuterà il rapporto commenti/linee di codice: una percentuale abbastanza alta di commenti aiuterà la comprensione del sorgente. Verrà misurata come segue:
+
+\begin{displaymath}
+	\mbox{CxSLOC} =\frac{\mbox{Numero linee di commento}}{\mbox{Numero \emph{SLOC}\ped{G}}} * 100
+\end{displaymath}
+
+\subparagraph{Parametri per metodo}
+~\\Tale metrica si basa sul numero di parametri formali dei \emph{metodi}\ped{G} per valutare la complessità del codice: un numero elevato potrebbe infatti indicare un livello di complessità troppo alto per i singoli metodi.
+
+\subparagraph{Linee di codice per metodo}
+~\\Tale metrica verrà utilizzata congiuntamente alla precedente (Parametri per metodo) per valutare il grado di complessità di un metodo: controllando il numero di \emph{statement}\ped{G} per ogni metodo è possibile facilitarne comprensione e verifica, spingendo verso una modularizzazione del codice il più ampia possibile. 
+Questa metrica sarà fortemente influenzata dall'esperienza che il team guadagnerà durante lo sviluppo del progetto, motivo per cui i valori che seguono saranno indicativi e molto probabilmente modificati in futuro.
+
+\subparagraph{Copertura del codice}
+~\\Tale metrica è orientata alla valutazione della qualità dei test; essa misura infatti la capacità di coprire mediante test gli statement del codice, attraverso il loro conteggio in percentuale, al fine di fornire dei test che assicurino una valutazione del software il più affidabile possibile. Verrà calcolata come segue:
+
+\begin{displaymath}
+	\mbox{Copertura} =\frac{\mbox{Numero di statement testati}}{\mbox{Numero di statement totali}} * 100
+\end{displaymath}	
+
+
+\subparagraph{Copertura dei branch}
+~\\Tale metrica verrà utilizzata congiuntamente alla precedente (Copertura del codice) per valutare la qualità dei test. Essa indicherà la capacità dei test di valutare il maggior numero possibile di rami decisionali del grafo di flusso del software. Verrà calcolata come segue:
+
+\begin{displaymath}
+	\mbox{Copertura\ped{branch}} =\frac{\mbox{Numero di rami raggiunti}}{\mbox{Numero di rami totali}} * 100
+\end{displaymath}	
+
+\paragraph{Metriche per i documenti}
+\label{AppB:metricheDoc}
+In questa sezione vengono descritte le metriche che verranno utilizzate nel processo di verifica dei documenti prodotti.
+\subparagraph{Errori ortografici}
+\label{AppB:ErroriOrtografici}
+~\\Questa è la metrica che serve ad esprimere un giudizio di correttezza ortografica riguardo il documento prodotto. Gli errori saranno individuati secondo le seguenti modalità:
+il primo controllo, per quanto riguarda i documenti in lingua inglese, avverrà a tempo di stesura del documento tramite lo strumento di autocorrezione dell'ambiente \emph{''TexStudio''}, mentre il secondo controllo avverrà dopo aver terminato la prima redazione del documento stesso. Esso avverrà tramite due verifiche manuali del \ver{}: una temporanea dopo aver finito la stesura del documento ed una definitiva prima dell'approvazione finale del documento stesso.
+\newline Formula:
+\begin{displaymath}
+	\mbox{Errori ortografici}= {\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
+\end{displaymath}
+
+\subparagraph{Indice Gulpease}
+\label{AppB:IndiceGulpease}
+~\\L'{Indice Gulpease} è un indice di leggibilità di un testo tarato sulla lingua italiana, con il vantaggio rispetto ad altri indici di utilizzare la lunghezza delle parole in lettere anzichè in sillabe, semplificandone il calcolo automatico. L'indice utilizza due variabili linguistiche: la lunghezza della parola e la lunghezza della frase rispetto al numero delle lettere.
+\newline La formula per il suo calcolo è la seguente:
+\begin{displaymath}
+	\mbox{{Indice Gulpease}}= 89+\frac{300*\mbox{(numero delle frasi)}-10*\mbox{(numero delle lettere)}}{\mbox{numero delle parole}}
+\end{displaymath}
+I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilità più alta e "0" la leggibilità più bassa. In generale risulta che testi con un indice
+\begin{itemize}
+	\item Inferiori a 80 sono difficili da leggere per chi ha la licenza elementare;
+	\item Inferiore a 60 sono difficili da leggere per chi ha la licenza media;
+	\item Inferiore a 40 sono difficili da leggere per chi ha un diploma superiore.
+\end{itemize}
+
+\subparagraph{Errori contenutistici}
+\label{AppB:ErroriCont}
+~\\Questa è la metrica necessaria per esprimere la correttezza del contenuto di un documento. È importante verificare che i concetti trattati siano corretti e coerenti con quanto prefissato. Il valore ottenuto da questa metrica rappresenta il numero di errori concettuali riscontrati dal \ver{} durante la verifica definitiva del documento.
+\newline La formula utilizzata per il calcolo degli errori è la seguente:
+\begin{displaymath}
+	\mbox{Errori concettuali}={\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
+\end{displaymath}
+
+\subparagraph{Struttura del documento}
+\label{AppB:ErroriForma}
+~\\Viene utilizzata questa unità di misura per verificare quanto un documento sia attinente alle regole strutturali descritte nel documento \NdP{}.
+La metrica si basa sul numero di errori segnalati dal \ver{} durante la verifica definitiva del documento.
+\newline La formula utilizzata per il calcolo degli errori è la seguente:
+\begin{displaymath}
+	\mbox{Errori di forma}={\mbox{numero di errori totali riscontrati dopo la verifica manuale definitiva}}
+\end{displaymath}
+
+\paragraph{Metriche per il prodotto software}
+\label{AppB:metricheSoft}
+In questa sezione si descrivono le metriche che verranno usate dal gruppo per verificare e garantire la qualità dei prodotti software durante il periodo del progetto. Si sottolinea il fatto che questa sarà solo una prima stesura delle metriche e sarà raffinata nel corso delle varie revisioni, facendo frutto dell'esperienza che verrà acquisita negli intervalli di lavoro tra esse.
+
+\subparagraph{Requisiti soddisfatti}
+\label{AppB:Funzionalita}
+~\\Tale metrica verrà utilizzata per valutare la funzionalità del software prodotto attraverso una misurazione quantificativa dei requisiti soddisfatti; verranno effettuate due misurazioni differenti, una per i soli requisiti obbligatori e una per tutti.
+
+\begin{description}
+	\item[Requisiti obbligatori]
+	~\\ \begin{displaymath}
+		\mbox{ROS}=\frac{\mbox{numero requisiti obbligatori soddisfatti}}{\mbox{numero totale requisiti obbligatori}}
+	\end{displaymath}
+	
+	\item[Requisiti obbligatori e facoltativi]
+	~\\ \begin{displaymath}
+		\mbox{ROFS}=\frac{\mbox{numero requisiti obbligatori soddisfatti} + \mbox{numero requisiti facoltativi soddisfatti}}{\mbox{numero totale requisiti}}
+	\end{displaymath}
+\end{description}
+
+
+\subparagraph{Successo dei test}
+\label{AppB:Affidabilita}
+~\\Tale metrica verrà utilizzata per valutare in parte il livello di affidabilità del prodotto software tramite il calcolo della percentuale di test aventi successo nella fase di verifica.
+\begin{displaymath}
+	\mbox{Successo dei test}=\frac{\mbox{numero test aventi successo}}{\mbox{numero totale dei test effettuati}} * 100
+\end{displaymath}
+
+
+\subparagraph{Tempo di risposta}
+\label{AppB:Efficienza}
+~\\Tale metrica verrà utilizzata per valutare l'efficienza del prodotto basandosi sul tempo medio che intercorrà tra la richiesta di una certa funzionalità da parte dell'utente e la risposta del software. Con \textit{tempo medio} si intende la media tra i tempi medi di risposta di tutte le funzionalità: ognuna di esse dovrà essere testata almeno 5 volte ed in condizioni quanto più differenti.
+
+\begin{displaymath}
+	\mbox{T\ped{rispostaF}} =\frac{\sum_{k=1}^5 T\ped{test}k}{5}
+\end{displaymath}
+
+\begin{displaymath}
+	\mbox{T\ped{rispostaTOT}} =\frac{\sum_{k=1}^n T\ped{rispostaF}k}{n}
+\end{displaymath}
+
+
+\subparagraph{Validazione pagine web}
+\label{AppB:Usabilita}
+~\\Tale metrica verrà usata come tentativo di applicare una metrica oggettiva e misurabile per valutare l'usabilità del prodotto finale; si è usata la parola "tentativo" poichè in effetti l'usabilità e l'accessibilità di un sito web sono due cose distinte, anche se affini: pagine web con contenuto inaccessibile saranno sicuramente poco usabili. Valutare l'accessibilità attraverso l'analisi del codice prodotto permetterà dunque di fornire una base allo sviluppo di pagine usabili.
+W3C offre uno strumento per valutare le pagine \emph{HTML}\ped{G}, come dichiarato nelle \NdP{}: esso riporta il numero e il tipo di errori trovati nel documento in esame.
+
+%\begin{comment}
+	\paragraph{Verifica dei documenti}
+Il \RdP{} Ha il compito di dare inizio al processo di verifica della documentazione prodotta, assegnando i corrispettivi compiti ai \vers{}. Questi dovranno verificare che siano state rispettate in maniera rigida le seguenti regole, e in caso contrario segnalarlo per una successiva correzione:
+\begin{itemize}
+	\item Utilizzo di una sintassi corretta e semplice;
+	\item Utilizzo di brevi periodi, per evitare frasi troppo complesse;
+	\item Un corretto annidamento della struttura del documento, evitando gerarchie troppo profonde o estese;
+	\item Rispetto di tutte le norme precedentemente elencate in questo documento.
+\end{itemize}
+Per tutta la durata del progetto il team avrà inoltre l'obbligo di utilizzare il registro delle modifiche ogni qual volta deciderà di alterare il contenuto di un documento, al fine di tenere traccia dei cambiamenti effettuati e degli errori commessi.
+Un \ver{}, per un corretto svolgimento della sua attività, ha il compito di svolgere i task descritti nei paragrafi successivi secondo il seguente ordine:
+\begin{itemize}
+	\item Attività manuale di verifica;
+	\item Attività automatica di verifica;
+	\item Resoconto delle attività di verifica.
+\end{itemize}
+\subparagraph{Attività manuale di verifica}
+I \vers{} avranno il compito di eseguire l'attività manuale di verifica sui documenti in maniera attenta e minuziosa, accompagnando l'attività stessa da un elenco contenente il resoconto degli errori riscontrati secondo tutte le metriche presentate nelle \NdP{} e discusse nel \PdQ{}.
+
+\subparagraph{Attività automatica di verifica}
+Per ottenere una seconda verifica sui documenti prodotti, andando a consolidare già la prima verifica manuale effettuata, si è deciso di svolgere una verifica automatizzata tramite l'utilizzo del correttore automatico dell'editor di testo \emph{TeXstudio}, al fine di individuare eventuali errori tralasciati per motivi di distrazione.
+
+\subparagraph{Resoconto dell'attività di verifica}
+Al termine dello svolgimento dell'attività di verifica, il \ver{} è tenuto a consegnare al \RdP{}, il resoconto finale contenente tutti gli errori riscontrati durante lo svolgimento dell'attività, in modo che possano venire effettuate le opportune correzioni e discussi eventuali cambiamenti da entrambi i membri. Al termine della correzione dovrà quindi essere aggiornato il registro delle modifiche per tenere traccia dei cambiamenti effettuati e degli errori precedentemente commessi.
+Tutti gli errori riscontrati durante l'ultima attività di verifica, verranno inoltre impiegati in seguito per calcolare le metriche riguardanti gli obiettivi di qualità prefissati per i documenti redatti, e pubblicati nelle appendici del \PdQ{}.
+
+
+	\subsubsection{Analisi}
+	\paragraph{Analisi statica}
+	~\\Studia il codice sorgente e la documentazione e controlla che essi seguano le norme. Non richiede l'esecuzione del prodotto software in nessuna sua parte, ma si limita all'osservazione. Questo processo può essere visto come una verifica dinamica del comportamento del programma su un insieme finito di casi selezionati nel dominio di tutte le esecuzioni possibili. Ciascun caso di prova, specifica i valori in ingresso e lo stato iniziale del sistema e deve produrre un esito decidibile, verificato rispetto ad un comportamento atteso. 
+	\\Si può declinare in due maniere:
+	\begin{itemize}
+		\item \textbf{\emph{Walkthrough}}\ped{G}
+		~\\Questa tecnica di analisi deve essere effettuata nella fase iniziale dello sviluppo del prodotto per trovare eventuali errori che possano essere riscontrati. Non sapendo che tipo di errori cercare, si effettua una lettura a largo spettro. Quando i \vers{} avranno stilato una \emph{checklist}\ped{G} di tutti gli errori più comuni, si passerà alla fase di \emph{Inspection}\ped{G}. Essendo un'analisi continua, la checklist tenderà ad aumentare costantemente di dimensione, rendendo più efficace ed efficiente l'Inspection.
+		\item \textbf{Inspection}
+		~\\Basandosi sulla checklist redatta durante la Walkthrough, i \vers{} analizzeranno tutto il prodotto cercando, di volta in volta e in modo mirato, tutti gli errori ricorrenti in essa contenuti.
+	\end{itemize}
+	\paragraph{Analisi dinamica}
+	~\\L'analisi dinamica, al contrario di quella statica, richiede l'esecuzione del codice.
+	Viene effettuata tramite test ed è coinvolta sia nel processo di verifica che in quello di validazione.
+	I test verranno descritti in un capitolo a parte.
+	%\begin{comment}
+	\subsubsection{Test}
+	Il testing è una parte essenziale del processo di verifica: produce una misura della qualità del sistema
+	aumentandone il valore, identificandone e rimuovendone i difetti. Il suo inizio non va differito
+	al termine delle attività di codifica e le sue esigenze devono essere tenute in conto nella progettazione del sistema. Tutti i test devono essere rieseguibili e devono sempre produrre lo stesso esito. Devono essere eseguiti in condizioni controllate, diventando così deterministici.
+	~\\Di seguito vengono descritte le tipologie di test, assieme alla sintassi relativa al modo in cui sono identificati all'interno del \PdQ.
+		\paragraph{Test di unità (TU)}
+		~\\Il loro obiettivo è quello di verificare la correttezza del codice \emph{as implemented}, ovvero
+		puntando a controllare il codice in maniera microscopica.
+		\\La responsabilità della loro realizzazione è del \progr{} per le unità più semplici, e di un \ver{} indipendente per le altre.
+		\\Le risorse consumate da questo tipo di test sono molto poche perché,  sono coinvolte piccole parti di codice che hanno basso accoppiamento le une con le altre. I test di unità sono classificati come segue:
+		\begin{center} TU[codice identificativo]\end{center}
+		dove il codice identificativo è numerico, incrementale (iniziando da 1) ed univoco per ogni test.		
+		
+		\paragraph{Test di integrazione (TI)}
+		~\\Questi test verificano non solo il corretto comportamento di ogni singolo oggetto, 
+		ma anche le relazioni con gli altri componenti dell'applicazione.
+		~\\Possono rilevare i seguenti problemi:
+		\begin{itemize}
+			\item Errori residui nella realizzazione dei componenti;
+			\item Modifica delle interfacce o cambiamenti nei requisiti;
+			\item Riuso di componenti dal comportamento oscuro o inadatto;
+			\item Integrazione con altre applicazioni non bene conosciute.
+		\end{itemize}
+		Un test di questo tipo consuma molte risorse dato che, la grandezza del codice da controllare è 
+		significativa ed il grado di accoppiamento tra le varie parti da testare è massimo. 
+		L'utilizzo di un test di questo tipo deve quindi essere ponderato e, in generale, da non preferire a quello di unità.
+		I test di integrazione sono classificati come segue:
+		\begin{center} TI[codice identificativo]\end{center}
+		dove il codice identificativo è numerico, incrementale (iniziando da 1) ed univoco per ogni test.
+		
+		
+		\paragraph{Test di sistema (TS)}
+		~\\I test di sistema possono essere visti come un'attività interna del fornitore
+		per accertare la copertura dei requisiti software.
+		\newline{}Questo tipo di test richiede molte risorse e, in generale, non va utilizzato per testare
+		unità singole. I test di sistema sono classificati come segue:
+		\begin{center} TS[codice requisito]\end{center}
+		dove il codice requisito identifica	il codice univoco associato ad ogni requisito descritto nel documento \AdR.
+		
+		\paragraph{Test di regressione (TR)}
+		~\\I test di regressione sono l'insieme dei TU e TI necessari ad accertare che la modifica
+		di una parte del prodotto non causi errori nelle altre parti che hanno relazioni con essa.
+		\\Un test di questo tipo consuma tante più risorse quanto la parte modificata è accoppiata con le altre, 
+		anche perché comporta la ripetizione di test già previsti ed effettuati per ogni parte che non è 
+		stata modificata.
+		
+		\paragraph{Test di validazione (TV)}
+		~\\Il test di validazione è un'attività supervisionata dal committente e dal proponente come dimostrazione di conformità del prodotto sulla base 
+		di casi di prova specificati o implicati dal contratto.
+		Alla validazione segue il rilascio del prodotto con eventuale garanzia e la fine della
+		\emph{commessa}\ped{G},	con eventuale manutenzione. I test di validazione sono classificati come segue:
+		\begin{center} TV[codice requisito]\end{center}
+		dove il codice requisito identifica	il codice univoco associato ad ogni requisito descritto nel documento \AdR.
+	
+	\subsubsection{Strumenti}
+	\paragraph{Strumenti per l'analisi statica}
+	\begin{itemize}
+		\item \emph{\textbf{\emph{TexStudio}}}\ped{G}\footnote{\href{https://www.texstudio.org/}{https://www.texstudio.org/}}
+		~\\Questo editor include un correttore ortografico automatico che sarà utilizzato per verificare la corretta sintassi dei manuali in lingua inglese da fornire alla \proponente. Tuttavia tale strumento non è preciso nell'individuazione degli errori più sottili, quindi sarà comunque necessaria un'analisi più approfondita da parte dei \vers;
+		\item \textbf{Indice \emph{Gulpease}}\ped{G}
+		~\\Per i test di leggibilità il team ricorrerà al calcolo dell'indice Gulpease;
+		\begin{comment}
+		\item 
+		\emph{\textbf{\emph{JSHint}}}\ped{G}\footnote{\href{http://jshint.com/}{http://jshint.com/}}
+		~\\È uno strumento \emph{OpenSource}\ped{G} funzionale alla rilevazione degli errori e possibili problemi nel codice \emph{JavaScript}\ped{G};
+		\item 
+		\emph{\textbf{\emph{Draw.io}}}\ped{G}\footnote{\href{https://www.draw.io/}{https://www.draw.io/}}
+		\\È un software per la creazione di diagrammi di flusso, di processo, organigrammi, UML, ER e diagrammi di rete.
+		\end{comment}
+		
+		% AAAAAAAAAAAAAA PERCHE IL VALIDATORE ERA COMMENTATO?? Bisogna specificarlo nelle norme perchè se ne parla nel PdQ!!
+		
+		\item \textbf{\emph{W3C Markup Validation Service}}\ped{G}\footnote{\href{https://validator.w3.org/}{https://validator.w3.org/}}
+		~\\È uno strumento per la validazione rispetto agli standard dei documenti \emph{HTML}\ped{G} e \emph{xHTML}\ped{G};
+		
+		\item \textbf{Microsoft Excel}\ped{G}
+		~\\Tale programma verrà utilizzato per calcolare alcune metriche di qualità e fornirne i risultati in un formato grafico nel \PdQ.
+		
+	\end{itemize}
+
+\subsection{Validazione}
+Il processo di validazione ha i seguenti obiettivi:
+\begin{itemize}
+	\item verificare che il prodotto finale sia conforme con quanto specificato;
+	\item verificare che il prodotto finale sia in grado di minimizzare gli effetti degli errori commessi.
+\end{itemize}
+\subsubsection{Ruoli}
+I ruoli per il processo di validazione saranno divisi nel seguente modo:
+\begin{itemize}
+	\item i \vers{} avranno il compito di eseguire i test, tracciando i risultati e riportandone la valutazione;
+	\item il \RdP{} avrà il compito di revisionare i risultati dei test effettuati, e decidere se convalidarli o ripeterli. Egli sarà inoltre incaricato di fornire al committente i risultati dei test effettuati, accompagnati da una documentazione per poterli svolgere in maniera indipendente.
+\end{itemize}
+\subsubsection{Procedure di validazione}
+L'intera procedura di validazione dovrà quindi comprendere i seguenti punti:
+\begin{itemize}
+	\item La verifica da parte dei \vers{} sul prodotto finale, ed il tracciamento dei risultati ottenuti;
+	\item L'analisi dei risultati da parte del \RdP{}, con verdetto finale di accettazione o ripetizione dei test;
+	\item La consegna da parte del \RdP{} dei risultati accettati al proponente, informandolo dettagliatamente sulle modalità di validazione.
+\end{itemize}
+\begin{comment}
+	\paragraph{Strumenti per l'analisi dinamica}
+	\begin{itemize}
+		\item 
+		\emph{\textbf{\emph{\textcolor{red}{Karma}}}}\ped{G}\footnote{\href{https://karma-runner.github.io/2.0/index.html}{https://karma-runner.github.io/2.0/index.html}}
+		~\\È uno strumento per effettuare test di unità sugli script realizzati, installabile come modulo per \emph{Node.js}\ped{G};
+		\item 
+		\emph{\textbf{\emph{\textcolor{red}{Mocha}}}}\ped{G}\footnote{\href{https://mochajs.org/}{https://mochajs.org/}}
+		~\\È un framework per l'esecuzione dei test asincroni e in serie di Javascript, scritto Node.js.
+	\end{itemize}
+\end{comment}
