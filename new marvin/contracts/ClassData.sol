@@ -54,14 +54,14 @@ contract ClassData {
     }
 
     // return all the class exams and their IPFS hashes
-    function getClassExamsData(bytes10 _classUniCode) public view returns(bytes32[], uint32, bytes10[]) {
+    function getClassExamsData(bytes10 _classUniCode) public view returns(bytes32[], bytes10[], uint32) {
         bytes10[] memory examsForClass = classes[_classUniCode].classExams;
         bytes32[] memory examsHashCodes = new bytes32[](examsForClass.length);
         uint32 examsTeacher = classes[_classUniCode].classTeacher;
         for(uint i = 0; i < examsForClass.length; ++i) {
             examsHashCodes[i] = ExamData(manager.getExamContract()).getHashData(examsForClass[i]);
         }
-        return(examsHashCodes, examsTeacher, examsForClass);
+        return(examsHashCodes, examsForClass, examsTeacher);
     }
 
     function setUniCode(bytes10 _classUniCode) public onlyAdminContract {

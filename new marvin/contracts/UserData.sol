@@ -95,6 +95,11 @@ contract UserData {
         return users[registeredUsers[_address]].hashData;
     }
 
+    function getRegUsersData(address _address) public view returns(bytes32, uint8, uint32, bytes32) {
+        return(registeredUsers[_address], users[registeredUsers[_address]].userType, 
+            users[registeredUsers[_address]].badgeNumber, users[registeredUsers[_address]].hashData);
+    }
+
     function getUniAddress() public view returns(address) {
         return uniAddress ;
     }

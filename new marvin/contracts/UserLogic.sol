@@ -33,7 +33,6 @@ contract UserLogic {
         if(msg.sender == user.getUniAddress())
             return("Universita degli studi di Padova", 4, 0, "0");
         require(user.userExists(msg.sender), "User not registered");
-        return(user.getRegUsersFiscalCode(msg.sender), user.getRegUsersUserType(msg.sender), 
-            user.getRegUsersBadgeNumber(msg.sender), user.getRegUsersHashData(msg.sender));
+        return(user.getRegUsersData(msg.sender));
     }
 }
