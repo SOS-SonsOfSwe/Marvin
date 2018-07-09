@@ -78,68 +78,63 @@ AdminContract.deployed()
     await adminInstance.addNewDegree('PSI17', y, 'asdasdasdasdasd', { from: address0 })
       .then(() => console.log('Line ' + line++ + ' ok'))
       .catch(() => console.error('Error at line ' + line++));
-
-    // await adminInstance.addNewClass('INF17', 'PROGR17', 'asdasdasdasdasd', { from: address0 })
-    //   .then(() => console.log('Line ' + line++ + ' ok'))
-    //   .catch(() => console.error('Error at line ' + line++));
-    // await adminInstance.addNewClass('INF17', 'ANALIS17', 'asdasdasdasdasd', { from: address0 })
-    //   .then(() => console.log('Line ' + line++ + ' ok'))
-    //   .catch(() => console.error('Error at line ' + line++));
-    // await adminInstance.addNewClass('INF17', 'RETISICU17', 'asdasdasdasdasd', { from: address0 })
-    //   .then(() => console.log('Line ' + line++ + ' ok'))
-    //   .catch(() => console.error('Error at line ' + line++));
-
-    // await adminInstance.addNewExam('PROGR17', 'APP1', 'asdasdasdasdasd', { from: address0 })
-    //   .then(() => console.log('Line ' + line++ + ' ok'))
-    //   .catch(() => console.error('Error at line ' + line++));
-    // await adminInstance.addNewExam('PROGR17', 'APP2', 'asdasdasdasdasd', { from: address0 })
-    //   .then(() => console.log('Line ' + line++ + ' ok'))
-    //   .catch(() => console.error('Error at line ' + line++));
-    // await adminInstance.addNewExam('PROGR17', 'APP3', 'asdasdasdasdasd', { from: address0 })
-    //   .then(() => console.log('Line ' + line++ + ' ok'))
-    //   .catch(() => console.error('Error at line ' + line++));
-
-    // await adminInstance.setExamTeacher('APP1', '4', { from: address0 })
-    //   .then(() => console.log('Line ' + line++ + ' ok'))
-    //   .catch(() => console.error('Error at line ' + line++));
-    // await adminInstance.setExamTeacher('APP2', '4', { from: address0 })
-    //   .then(() => console.log('Line ' + line++ + ' ok'))
-    //   .catch(() => console.error('Error at line ' + line++));
-    // await adminInstance.setExamTeacher('APP3', '4', { from: address0 })
-    //   .then(() => console.log('Line ' + line++ + ' ok'))
-    //   .catch(() => console.error('Error at line ' + line++));
   })
-// .then(() => {
-//   LogicContract.deployed()
-//     .then(async userLogicInstance => {
-//       await userLogicInstance.signUp('AAABBB00A00B000C', '1234567890', 'asdasdasdasdasd', { from: address1 })
-//         .then(() => console.log('Line ' + line++ + ' ok'))
-//         .catch(() => console.error('Error at line ' + line++));
-//       await userLogicInstance.signUp('AAABBB00A00B001C', '1234567880', 'asdasdasdasdasd', { from: address2 })
-//         .then(() => console.log('Line ' + line++ + ' ok'))
-//         .catch(() => console.error('Error at line ' + line++));
-//       await userLogicInstance.signUp('AAABBB00A00B002C', '1234567870', 'asdasdasdasdasd', { from: address3 })
-//         .then(() => console.log('Line ' + line++ + ' ok'))
-//         .catch(() => console.error('Error at line ' + line++));
-//       await userLogicInstance.signUp('BBBCCC11B11C111D', '1234567891', 'asdasdasdasdasd', { from: address4 })
-//         .then(() => console.log('Line ' + line++ + ' ok'))
-//         .catch(() => console.error('Error at line ' + line++));
-//       await userLogicInstance.signUp('BBBCCC11B11C112D', '1234567881', 'asdasdasdasdasd', { from: address5 })
-//         .then(() => console.log('Line ' + line++ + ' ok'))
-//         .catch(() => console.error('Error at line ' + line++));
-//       await userLogicInstance.signUp('BBBCCC11B11C113D', '1234567871', 'asdasdasdasdasd', { from: address6 })
-//         .then(() => console.log('Line ' + line++ + ' ok'))
-//         .catch(() => console.error('Error at line ' + line++));
-//       await userLogicInstance.signUp('CCCDDD22C22D222E', '1234567892', 'asdasdasdasdasd', { from: address7 })
-//         .then(() => console.log('Line ' + line++ + ' ok'))
-//         .catch(() => console.error('Error at line ' + line++));
-//       await userLogicInstance.signUp('CCCDDD22C22D223E', '1234567882', 'asdasdasdasdasd', { from: address8 })
-//         .then(() => console.log('Line ' + line++ + ' ok'))
-//         .catch(() => console.error('Error at line ' + line++));
-//       await userLogicInstance.signUp('CCCDDD22C22D224E', '1234567872', 'asdasdasdasdasd', { from: address9 })
-//         .then(() => console.log('Line ' + line++ + ' ok'))
-//         .catch(() => console.error('Error at line ' + line++));
-// })
+  .then(() => {
+    LogicContract.deployed()
+      .then(async userLogicInstance => {
+        await userLogicInstance.signUp('AAABBB00A00B000C', '1234567890', 'asdasdasdasdasd', { from: address1 })
+          .then(() => console.log('Line ' + line++ + ' ok'))
+          .catch(() => console.error('Error at line ' + line++));
+        await userLogicInstance.signUp('AAABBB00A00B001C', '1234567880', 'asdasdasdasdasd', { from: address2 })
+          .then(() => console.log('Line ' + line++ + ' ok'))
+          .catch(() => console.error('Error at line ' + line++));
+        await userLogicInstance.signUp('AAABBB00A00B002C', '1234567870', 'asdasdasdasdasd', { from: address3 })
+          .then(() => console.log('Line ' + line++ + ' ok'))
+          .catch(() => console.error('Error at line ' + line++));
+        await userLogicInstance.signUp('BBBCCC11B11C111D', '1234567891', 'asdasdasdasdasd', { from: address4 })
+          .then(() => console.log('Line ' + line++ + ' ok'))
+          .catch(() => console.error('Error at line ' + line++));
+        await userLogicInstance.signUp('BBBCCC11B11C112D', '1234567881', 'asdasdasdasdasd', { from: address5 })
+          .then(() => console.log('Line ' + line++ + ' ok'))
+          .catch(() => console.error('Error at line ' + line++));
+        await userLogicInstance.signUp('BBBCCC11B11C113D', '1234567871', 'asdasdasdasdasd', { from: address6 })
+          .then(() => console.log('Line ' + line++ + ' ok'))
+          .catch(() => console.error('Error at line ' + line++));
+        await userLogicInstance.signUp('CCCDDD22C22D222E', '1234567892', 'asdasdasdasdasd', { from: address7 })
+          .then(() => console.log('Line ' + line++ + ' ok'))
+          .catch(() => console.error('Error at line ' + line++));
+        await userLogicInstance.signUp('CCCDDD22C22D223E', '1234567882', 'asdasdasdasdasd', { from: address8 })
+          .then(() => console.log('Line ' + line++ + ' ok'))
+          .catch(() => console.error('Error at line ' + line++));
+        await userLogicInstance.signUp('CCCDDD22C22D224E', '1234567872', 'asdasdasdasdasd', { from: address9 })
+          .then(() => console.log('Line ' + line++ + ' ok'))
+          .catch(() => console.error('Error at line ' + line++));
+      })
+      .then(() => {
+        AdminContract.deployed()
+          .then(async adminInstance => {
+            await adminInstance.addNewClass('INF17', 'PROGR17', 'asdasdasdasdasd', '1234567891', { from: address0 })
+              .then(() => console.log('Line ' + line++ + ' ok'))
+              .catch(() => console.error('Error at line ' + line++));
+            await adminInstance.addNewClass('INF17', 'ANALIS17', 'asdasdasdasdasd', '1234567891', { from: address0 })
+              .then(() => console.log('Line ' + line++ + ' ok'))
+              .catch(() => console.error('Error at line ' + line++));
+            await adminInstance.addNewClass('INF17', 'RETISICU17', 'asdasdasdasdasd', '1234567891', { from: address0 })
+              .then(() => console.log('Line ' + line++ + ' ok'))
+              .catch(() => console.error('Error at line ' + line++));
+
+            await adminInstance.addNewExam('PROGR17', 'APP1', 'asdasdasdasdasd', { from: address0 })
+              .then(() => console.log('Line ' + line++ + ' ok'))
+              .catch(() => console.error('Error at line ' + line++));
+            await adminInstance.addNewExam('PROGR17', 'APP2', 'asdasdasdasdasd', { from: address0 })
+              .then(() => console.log('Line ' + line++ + ' ok'))
+              .catch(() => console.error('Error at line ' + line++));
+            await adminInstance.addNewExam('PROGR17', 'APP3', 'asdasdasdasdasd', { from: address0 })
+              .then(() => console.log('Line ' + line++ + ' ok'))
+              .catch(() => console.error('Error at line ' + line++));
+          })
+      })
+  })
 // .then(() => {
 //   StudentContract.deployed()
 //     .then(async studentInstance => {
