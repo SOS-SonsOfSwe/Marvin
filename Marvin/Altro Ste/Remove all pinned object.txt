@@ -1,0 +1,26 @@
+# Remove all pinned objects from IPFS 
+
+ipfs pin ls > ./pinned.txt
+
+while read -r line; do
+    #echo $line
+    # sed is better than parameter expansion
+    line=${line%% direct}
+    line=${line%% recursive}
+    # make "indirect" line empty
+    line=${line%%* indirect}
+    # check if $line is empty
+    if [ -n "$line" ]; then
+        echo $line
+        ipfs pin rm $line
+    fi
+ done < ./pinned.txt
+ 
+ ipfs pin ls
+
+
+
+
+
+
+// Per invocare il garbage collector sugli elementi unpinnati --> ipfs repo gc
