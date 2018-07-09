@@ -27,7 +27,7 @@ export function insertUser(FCInserted, UCInserted, tpInserted) {
     .web3.web3Instance
 
   // Double-check web3's status.
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -40,7 +40,7 @@ export function insertUser(FCInserted, UCInserted, tpInserted) {
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
         // Log errors, if any.
-        if(error) {
+        if (error) {
           console.error(error);
         }
 
@@ -48,11 +48,11 @@ export function insertUser(FCInserted, UCInserted, tpInserted) {
           .then(instance => {
             adminIstance = instance
             adminIstance.addUser(FCInserted, UCInserted, tpInserted, {
-                from: coinbase
-              })
+              from: coinbase
+            })
               .then(result => {
                 // yon.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
-                var yon = result.receipt.status;
+                let yon = result.receipt.status;
 
                 console.log(yon);
 
@@ -60,7 +60,17 @@ export function insertUser(FCInserted, UCInserted, tpInserted) {
                   "YesOrNo": yon
                 }))
 
-                return browserHistory.push('/') //| alert(UCInserted + " inserted as " + utils.userDef(parseInt(tpInserted, 10)))
+                console.log("tpInserted:" + tpInserted)
+                switch (parseInt(tpInserted)) {
+                  case 1:
+                    return browserHistory.push('/profile/administrators')
+                  case 2:
+                    return browserHistory.push('/profile/teachers')
+                  case 3:
+                    return browserHistory.push('/profile/students')
+                  default:
+                    return browserHistory.push('/profile')
+                }
               })
 
               .catch(function (result) {

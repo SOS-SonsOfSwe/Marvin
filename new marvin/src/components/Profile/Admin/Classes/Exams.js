@@ -4,22 +4,14 @@ import LoadingData from '../../../Loading/LoadingData'
 import LoadingIPFSData from '../../../Loading/LoadingIpfs'
 import EmptyData from '../../../Loading/EmptyData'
 
-const Row = ({ examUnicode, load }) => (
+const Row = ({ examUnicode, load, teacher }) => (
     <tr className="clickable-row">
         <td>{examUnicode}</td>
         <td>{load && load.type}</td>
         <td>{load && load.place}</td>
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
-        {/* <td>
-            <button className="delete-link">
-                <Link to={{
-                    pathname: "/profile/exams/modify-teacher",
-                    state: { examUnicode: examUnicode }
-                }}>
-                    Modify teacher </Link>
-            </button>
-        </td> */}
+        <td>{teacher} </td>
     </tr>
 );
 
@@ -140,6 +132,7 @@ class Exams extends React.Component {
                                                     <th className="title-column">Place</th>
                                                     <th className="title-column">Date</th>
                                                     <th className="title-column">Time</th>
+                                                    <th className="title-column">Teacher</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
