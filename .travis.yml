@@ -3,13 +3,13 @@ node_js:
   - "6"
 cache:
   directories:
-    - "new marvin/node_modules"
+    - "Marvin/node_modules"
 env:
   - SOLIDITY_COVERAGE=true
 before_script:
 
 install:
-  - cd "new marvin"
+  - cd "Marvin"
   - npm install -g truffle
   - npm install -g ganache-cli
   - npm install
