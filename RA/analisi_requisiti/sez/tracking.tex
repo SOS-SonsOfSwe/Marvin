@@ -1,0 +1,727 @@
+\subsection{Tracciamento Requsiti - Use Case}
+\normalsize
+\begin{longtable}{|c|c|}
+\hline
+\textbf{Codice Requisiti} & \textbf{Codice Use case} \\
+\hline
+\endhead
+R0F\ref{L'utente non autenticato puo registrarsi} & \ref{Registrazione}\\
+& UC\ref{Registrazione}.\ref{Inserimento del nome}\\
+& UC\ref{Registrazione}.\ref{Inserimento del cognome}\\
+& UC\ref{Registrazione}.\ref{Inserimento della e-mail}\\
+& UC\ref{Registrazione}.\ref{Inserimento del codice fiscale}\\
+& UC\ref{Registrazione}.\ref{Inserimento del codice univoco}\\
+& UC\ref{Registrazione}.\ref{Identificazione utente tramite Metamask}\\
+& UC\ref{Registrazione}.\ref{Annullamento della registrazione}\\
+& UC\ref{Registrazione}.\ref{Conferma della registrazione}\\
+& UC\ref{Registrazione}.\ref{Visualizzazione dell'errore di registrazione}\\
+& UC\ref{Registrazione}.\ref{Inserimento della matricola}\\
+\hline
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio nome} & UC\ref{Registrazione}.\ref{Inserimento del nome}\\
+\hline
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio cognome} & UC\ref{Registrazione}.\ref{Inserimento del cognome}\\
+\hline
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire la propria e-mail} & UC\ref{Registrazione}.\ref{Inserimento della e-mail}\\
+\hline
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio codice fiscale} & UC\ref{Registrazione}.\ref{Inserimento del codice fiscale}\\
+\hline
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio codice univoco} & UC\ref{Registrazione}.\ref{Inserimento del codice univoco}\\
+\hline
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{Il sistema identifica l'utente attraverso l'interfaccia Metamask} & UC\ref{Registrazione}.\ref{Identificazione utente tramite Metamask}\\
+\hline
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo annullare la registrazione} & UC\ref{Registrazione}.\ref{Annullamento della registrazione}\\
+\hline
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{Il sistema deve mostrare un messaggio di errore nel caso di inserimenti mancanti o errati} & UC\ref{Registrazione}.\ref{Visualizzazione dell'errore di registrazione}\\
+\hline
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo confermare la registrazione} & UC\ref{Registrazione}.\ref{Conferma della registrazione}\\
+\hline
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire la propria matricola} & UC\ref{Registrazione}.\ref{Inserimento della matricola}\\
+\hline
+R0F\ref{L'utente non autenticato puo effettuare il login} & UC\ref{Login}\\
+%& \hyperlink{UC2.1}{UC2.1}\\
+%\hline
+%\hyperlink{R2F2.1}{R2F2.1} & \hyperlink{UC2.1}{UC2.1}\\
+\hline
+R0F\ref{L'universita e l'amministratore possono aggiungere un anno accademico} & UC\ref{Aggiunta di un anno accademico}\\
+& UC\ref{Aggiunta di un anno accademico}.\ref{Inserimento dell'inizio di un accademico}\\
+& UC\ref{Aggiunta di un anno accademico}.\ref{Inserimento della fine di un accademico}\\
+& UC\ref{Aggiunta di un anno accademico}.\ref{Annullamento dell'aggiunta di un anno accademico}\\
+& UC\ref{Aggiunta di un anno accademico}.\ref{Conferma dell'aggiunta di un anno accademico}\\
+& UC\ref{Aggiunta di un anno accademico}.\ref{Visualizzazione dell'errore relativo all'aggiunta di un anno accademico non valido}\\
+%& UC\ref{Aggiunta di un corso di laurea}\\
+\hline
+R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico} & UC\ref{Aggiunta di un corso di laurea}\\
+& UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento del codice di un corso di laurea}\\
+& UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento del nome di un corso di laurea}\\
+& UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento della descrizione di un corso di laurea}\\
+& UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento della tipologia di un corso di laurea}\\
+& UC\ref{Aggiunta di un corso di laurea}.\ref{Annullamento dell'aggiunta di un corso di laurea}\\
+& UC\ref{Aggiunta di un corso di laurea}.\ref{Conferma dell'aggiunta di un corso di laurea}\\
+& UC\ref{Aggiunta di un corso di laurea}.\ref{Visualizzazione dell'errore relativo all'aggiunta di corso di laurea non valido}\\
+%& UC\ref{Aggiunta di un'attivita didattica}\\
+%& UC\ref{Modifica di un'attivita didattica}\\
+\hline
+R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea} & UC\ref{Aggiunta di un'attivita didattica}\\
+& UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del codice del corso di un'attivita didattica}\\
+& UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del nome di un'attivita didattica}\\
+& UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento della descrizione di un'attivita didattica}\\
+& UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del professore associato ad un'attivita didattica}\\
+& UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento dei crediti di un'attivita didattica}\\
+& UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del periodo di un'attivita didattica}\\
+& UC\ref{Aggiunta di un'attivita didattica}.\ref{Annullamento dell'aggiunta di un'attivita didattica}\\
+& UC\ref{Aggiunta di un'attivita didattica}.\ref{Conferma dell'aggiunta di un'attivita didattica}\\
+%& UC\ref{Aggiunta di un esame}\\
+& UC\ref{Aggiunta di un'attivita didattica}.\ref{Visualizzazione dell'errore relativo all'aggiunta di un'attivita didattica non valida}\\
+%& UC\ref{Modifica di un esame}\\
+%& UC\ref{Eliminazione di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il codice univoco del corso relativo ad un'attivita didattica} & UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del codice del corso di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il nome di un'attivita didattica} & UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del nome di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire la descrizione di un'attivita didattica} & UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento della descrizione di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il professore associato ad un'attivita didattica} & UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del professore associato ad un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire i crediti di un'attivita didattica} & UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento dei crediti di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il periodo di un'attivita didattica} & UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del periodo di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono annullare l'aggiunta di un'attivita didattica} & UC\ref{Aggiunta di un'attivita didattica}.\ref{Annullamento dell'aggiunta di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono confermare l'aggiunta di un'attivita didattica} & UC\ref{Aggiunta di un'attivita didattica}.\ref{Conferma dell'aggiunta di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un'attivita didattica} & UC\ref{Aggiunta di un'attivita didattica}.\ref{Visualizzazione dell'errore relativo all'aggiunta di un'attivita didattica non valida}\\
+\hline
+R0F\ref{L'universita e l'amministratore possono aggiungere un esame} 
+& UC\ref{Aggiunta di un esame}\\
+& UC\ref{Aggiunta di un esame}.\ref{Inserimento del codice di un esame}\\
+& UC\ref{Aggiunta di un esame}.\ref{Inserimento della descrizione di un esame}\\
+& UC\ref{Aggiunta di un esame}.\ref{Inserimento dell'intervallo di prenotazione per un esame}\\
+& UC\ref{Aggiunta di un esame}.\ref{Inserimento della data di un esame}\\
+& UC\ref{Aggiunta di un esame}.\ref{Inserimento della tipologia di un esame}\\
+& UC\ref{Aggiunta di un esame}.\ref{Inserimento del luogo di un esame}\\
+& UC\ref{Aggiunta di un esame}.\ref{Annullamento dell'aggiunta di un esame}\\
+& UC\ref{Aggiunta di un esame}.\ref{Conferma dell'aggiunta di un esame}\\
+& UC\ref{Aggiunta di un esame}.\ref{Visualizzazione dell'errore relativo all'aggiunta di un esame non valido}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire il codice univoco di un esame} & UC\ref{Aggiunta di un esame}.\ref{Inserimento del codice di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire la descrizione di un esame} & UC\ref{Aggiunta di un esame}.\ref{Inserimento della descrizione di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire l'intervallo di prenotazione per un esame} & UC\ref{Aggiunta di un esame}.\ref{Inserimento dell'intervallo di prenotazione per un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire la data di un esame} & UC\ref{Aggiunta di un esame}.\ref{Inserimento della data di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire la tipologia di un esame} & UC\ref{Aggiunta di un esame}.\ref{Inserimento della tipologia di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire il luogo dove si terra un esame} & UC\ref{Aggiunta di un esame}.\ref{Inserimento del luogo di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono annullare l'aggiunta di un esame} & UC\ref{Aggiunta di un esame}.\ref{Annullamento dell'aggiunta di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono confermare l'aggiunta di un esame} & UC\ref{Aggiunta di un esame}.\ref{Conferma dell'aggiunta di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un esame} & UC\ref{Aggiunta di un esame}.\ref{Visualizzazione dell'errore relativo all'aggiunta di un esame non valido}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire il nome del corso di laurea} & UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento del nome di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono annullare l'aggiunta del corso di laurea} & UC\ref{Aggiunta di un corso di laurea}.\ref{Annullamento dell'aggiunta di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono confermare l'aggiunta del corso di laurea} & UC\ref{Aggiunta di un corso di laurea}.\ref{Conferma dell'aggiunta di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un corso di laurea} & UC\ref{Aggiunta di un corso di laurea}.\ref{Visualizzazione dell'errore relativo all'aggiunta di corso di laurea non valido}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire il codice univoco del corso di laurea} & UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento del codice di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire la descrizione di un corso di laurea} & UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento della descrizione di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire la tipologia di un corso di laurea} & UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento della tipologia di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono inserire la data d'inizio dell'anno accademico} & UC\ref{Aggiunta di un anno accademico}.\ref{Inserimento dell'inizio di un accademico}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono inserire la data della fine dell'anno accademico} & UC\ref{Aggiunta di un anno accademico}.\ref{Inserimento della fine di un accademico}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono annullare l'aggiunta dell'anno accademico} & UC\ref{Aggiunta di un anno accademico}.\ref{Annullamento dell'aggiunta di un anno accademico}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono confermare l'aggiunta dell'anno accademico} & UC\ref{Aggiunta di un anno accademico}.\ref{Conferma dell'aggiunta di un anno accademico}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un anno accademico} & UC\ref{Aggiunta di un anno accademico}.\ref{Visualizzazione dell'errore relativo all'aggiunta di un anno accademico non valido}\\
+\hline
+R0F\ref{Lo studente puo iscriversi ad un esame} & UC\ref{Iscrizione ad un esame}\\
+& UC\ref{Iscrizione ad un esame}.\ref{Conferma dell'iscrizione ad un esame}\\
+& UC\ref{Iscrizione ad un esame}.\ref{Annullamento dell'iscrizione ad un esame}\\
+\hline
+R2F\ref{Lo studente puo iscriversi ad un esame}.\ref{Lo studente puo confermare l'iscrizione ad un esame} & UC\ref{Iscrizione ad un esame}.\ref{Conferma dell'iscrizione ad un esame}\\
+\hline
+R2F\ref{Lo studente puo iscriversi ad un esame}.\ref{Lo studente puo annullare l'azione di iscrizione ad un esame} & UC\ref{Iscrizione ad un esame}.\ref{Annullamento dell'iscrizione ad un esame}\\
+\hline
+R0F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente} & UC\ref{Inserimento di un voto}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono eliminare un anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un anno accademico} & UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un anno accademico}\\
+\hline
+R2F\ref{Lo studente puo eliminare l'iscrizione ad un esame} & UC\ref{Eliminazione dell'iscrizione ad un esame}\\
+& UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Annullamento dell'eliminazione dell'iscrizione ad un esame}\\
+& UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Conferma dell'eliminazione dell'iscrizione ad un esame}\\
+\hline
+R2F\ref{Lo studente puo eliminare l'iscrizione ad un esame}.\ref{Lo studente puo annullare l'eliminazione dell'iscrizione ad un esame} & UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Annullamento dell'eliminazione dell'iscrizione ad un esame}\\
+\hline
+R2F\ref{Lo studente puo eliminare l'iscrizione ad un esame}.\ref{Lo studente puo confermare l'eliminazione dell'iscrizione ad un esame} & UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Conferma dell'eliminazione dell'iscrizione ad un esame}\\
+\hline
+R2F\ref{Lo studente puo rifiutare il voto di un esame, se non lo fa dopo 8 giorni il voto viene automaticamente accettato dal sistema} & UC\ref{Rifiuto del voto di un esame}\\
+\hline
+R2F\ref{Il professore puo modificare gli esami a cui e associato} & UC\ref{Modifica di un esame da parte di un professore}\\
+& UC\ref{Modifica di un esame da parte di un professore}.\ref{Modifica dell'intervallo di prenotazione di un esame}\\
+& UC\ref{Modifica di un esame da parte di un professore}.\ref{Modifica della data di un esame}\\
+& UC\ref{Modifica di un esame da parte di un professore}.\ref{Modifica del luogo di un esame}\\
+& UC\ref{Modifica di un esame da parte di un professore}.\ref{Annullamento della modifica di un esame da parte di un professore}\\
+& UC\ref{Modifica di un esame da parte di un professore}.\ref{Conferma della modifica di un esame da parte di un professore}\\
+&  UC\ref{Modifica di un esame da parte di un professore}.\ref{Visualizzazione dell'errore di modifica di un esame da parte di un professore}\\
+\hline
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo modificare l'intervallo di prenotazione di un esame} & UC\ref{Modifica di un esame da parte di un professore}.\ref{Modifica dell'intervallo di prenotazione di un esame}\\
+\hline
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo modificare la data di un esame a cui e associato} & UC\ref{Modifica di un esame da parte di un professore}.\ref{Modifica della data di un esame}\\
+\hline
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo modificare il luogo di un esame a cui e associato} & UC\ref{Modifica di un esame da parte di un professore}.\ref{Modifica del luogo di un esame}\\
+\hline
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo annullare la modifica di un esame a cui e associato} & UC\ref{Modifica di un esame da parte di un professore}.\ref{Annullamento della modifica di un esame da parte di un professore}\\
+\hline
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo confermare la modifica apportata ad un esame a cui e associato} & UC\ref{Modifica di un esame da parte di un professore}.\ref{Conferma della modifica di un esame da parte di un professore}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico} & UC\ref{Modifica di un anno accademico}\\
+& UC\ref{Modifica di un anno accademico}.\ref{Modifica dell'inizio di un anno accademico}\\
+& UC\ref{Modifica di un anno accademico}.\ref{Modifica della fine di un anno accademico}\\
+& UC\ref{Modifica di un anno accademico}.\ref{Annullamento della modifica di un anno accademico}\\
+& UC\ref{Modifica di un anno accademico}.\ref{Conferma della modifica di un anno accademico}\\
+& UC\ref{Modifica di un anno accademico}.\ref{Visualizzazione dell'errore relativo alla modifica di un anno accademico}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono modificare l'inizio di un anno accademico} & UC\ref{Modifica di un anno accademico}.\ref{Modifica dell'inizio di un anno accademico}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono modificare la fine di un anno accademico} & UC\ref{Modifica di un anno accademico}.\ref{Modifica della fine di un anno accademico}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono annullare la modifica di un anno accademico} & UC\ref{Modifica di un anno accademico}.\ref{Annullamento della modifica di un anno accademico}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono confermare la modifica di un anno accademico} & UC\ref{Modifica di un anno accademico}.\ref{Conferma della modifica di un anno accademico}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un anno accademico} &  UC\ref{Modifica di un anno accademico}.\ref{Visualizzazione dell'errore relativo alla modifica di un anno accademico}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea} & UC\ref{Modifica di un corso di laurea}\\
+& UC\ref{Modifica di un corso di laurea}.\ref{Modifica del codice di un corso di laurea}\\
+& UC\ref{Modifica di un corso di laurea}.\ref{Modifica del nome di un corso di laurea}\\
+& UC\ref{Modifica di un corso di laurea}.\ref{Modifica della descrizione di un corso di laurea}\\
+& UC\ref{Modifica di un corso di laurea}.\ref{Modifica della tipologia di un corso di laurea}\\
+& UC\ref{Modifica di un corso di laurea}.\ref{Annullamento della modifica di un corso di laurea}\\
+& UC\ref{Modifica di un corso di laurea}.\ref{Conferma della modifica di un corso di laurea}\\
+& UC\ref{Modifica di un corso di laurea}.\ref{Visualizzazione dell'errore relativo alla modifica di un corso di laurea non valido}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare il codice univoco di un corso di laurea} & UC\ref{Modifica di un corso di laurea}.\ref{Modifica del codice di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare il nome di un corso di laurea} & UC\ref{Modifica di un corso di laurea}.\ref{Modifica del nome di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare la descrizione di un corso di laurea} & UC\ref{Modifica di un corso di laurea}.\ref{Modifica della descrizione di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare la tipologia di un corso di laurea} & UC\ref{Modifica di un corso di laurea}.\ref{Modifica della tipologia di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare la tipologia di un corso di laurea} & UC\ref{Modifica di un corso di laurea}.\ref{Annullamento della modifica di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono confermare la modifica di un corso di laurea} & UC\ref{Modifica di un corso di laurea}.\ref{Conferma della modifica di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono eliminare un'attivita didattica} & UC\ref{Eliminazione di un'attivita didattica}\\
+& UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono eliminare un'attivita didattica}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un'attivita didattica} & UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica} & UC\ref{Modifica di un'attivita didattica}\\
+& UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del codice di un'attivita didattica}\\
+& UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del nome di un'attivita didattica}\\
+& UC\ref{Modifica di un'attivita didattica}.\ref{Modifica della descrizione di un'attivita didattica}\\
+& UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del professore associato ad un'attivita didattica}\\
+& UC\ref{Modifica di un'attivita didattica}.\ref{Modifica dei crediti di un'attivita didattica}\\
+& UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del periodo di un'attivita didattica}\\
+& UC\ref{Modifica di un'attivita didattica}.\ref{Annullamento della modifica di un'attivita didattica}\\
+& UC\ref{Modifica di un'attivita didattica}.\ref{Conferma della modifica di un'attivita didattica}\\
+& UC\ref{Modifica di un'attivita didattica}.\ref{Visualizzazione dell'errore relativo alla modifica di un'attivita didattica non valida}\\
+& UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il codice del corso di un'attivita didattica} & UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del codice di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il nome di un'attivita didattica} & UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del nome di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{ L'universita e l'amministratore possono modificare la descrizione di un'attivita didattica} & UC\ref{Modifica di un'attivita didattica}.\ref{Modifica della descrizione di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il professore associato ad un'attivita didattica} & UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del professore associato ad un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare i crediti di un'attivita didattica} & UC\ref{Modifica di un'attivita didattica}.\ref{Modifica dei crediti di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il periodo di un'attivita didattica} & UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del periodo di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono annullare la modifica ad un'attivita didattica} & UC\ref{Modifica di un'attivita didattica}.\ref{Annullamento della modifica di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono confermare la modifica di un'attivita didattica} & UC\ref{Modifica di un'attivita didattica}.\ref{Conferma della modifica di un'attivita didattica}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un'attivita didattica} & UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono eliminare un esame associato ad un'attivita didattica} & UC\ref{Eliminazione di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un esame} & UC\ref{Modifica di un esame}\\
+& UC\ref{Modifica di un esame}.\ref{Modifica del codice di un esame}\\
+& UC\ref{Modifica di un esame}.\ref{Modifica della descrizione di un esame}\\
+& UC\ref{Modifica di un esame}.\ref{Modifica dell'intervallo di prenotazione di un esame}\\
+& UC\ref{Modifica di un esame}.\ref{Modifica della data di un esame}\\
+& UC\ref{Modifica di un esame}.\ref{Modifica della tipologia di un esame}\\
+& UC\ref{Modifica di un esame}.\ref{Modifica del luogo di un esame}\\
+& UC\ref{Modifica di un esame}.\ref{Annullamento della modifica di un esame}\\
+& UC\ref{Modifica di un esame}.\ref{Conferma della modifica di un esame}\\
+& UC\ref{Modifica di un esame}.\ref{Visualizzazione dell'errore relativo alla modifica di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare il codice di un esame} & UC\ref{Modifica di un esame}.\ref{Modifica del codice di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare la descrizione di un esame} & UC\ref{Modifica di un esame}.\ref{Modifica della descrizione di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare l'intervallo di prenotazione per un esame} & UC\ref{Modifica di un esame}.\ref{Modifica dell'intervallo di prenotazione di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare la data di un esame} & UC\ref{Modifica di un esame}.\ref{Modifica della data di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare la tipologia di un esame} & UC\ref{Modifica di un esame}.\ref{Modifica della tipologia di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare il luogo dove si tiene l'esame} & UC\ref{Modifica di un esame}.\ref{Modifica del luogo di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono annullare la modifica ad un esame} & UC\ref{Modifica di un esame}.\ref{Annullamento della modifica di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono confermare la modifica ad un esame} & UC\ref{Modifica di un esame}.\ref{Conferma della modifica di un esame}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un esame} & UC\ref{Modifica di un esame}.\ref{Visualizzazione dell'errore relativo alla modifica di un esame}\\
+\hline
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo visualizzare un errore relativo alla modifica di un esame} &  UC\ref{Modifica di un esame da parte di un professore}.\ref{Visualizzazione dell'errore di modifica di un esame da parte di un professore}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un'attivita didattica} & UC\ref{Modifica di un'attivita didattica}.\ref{Visualizzazione dell'errore relativo alla modifica di un'attivita didattica non valida}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un corso di laurea} & UC\ref{Modifica di un corso di laurea}.\ref{Visualizzazione dell'errore relativo alla modifica di un corso di laurea non valido}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono eliminare un corso di laurea} & UC\ref{Eliminazione di un corso di laurea}\\
+& UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono eliminare un corso di laurea}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un corso di laurea} & UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un corso di laurea}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono eliminare un anno accademico} & UC\ref{Eliminazione di un anno accademico}\\
+& UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un anno accademico}\\
+\hline
+R2F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente} 
+& UC\ref{Inserimento di un voto} \\
+& UC\ref{Inserimento di un voto}.\ref{Annullamento della registrazione del voto, relativo ad uno specifico esame, di uno studente}\\
+& UC\ref{Inserimento di un voto}.\ref{Conferma dell'inserimento di un voto}\\
+& UC\ref{Inserimento di un voto}.\ref{Visualizzazione dell'errore di inserimento di un voto non valido}\\
+\hline
+R2F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}.\ref{Il professore puo annullare la registrazione del voto} & UC\ref{Inserimento di un voto}.\ref{Annullamento della registrazione del voto, relativo ad uno specifico esame, di uno studente}\\
+& UC\ref{Inserimento di un voto}.\ref{Conferma dell'inserimento di un voto}\\
+\hline
+R2F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}.\ref{Il professore, in caso di inserimento di un voto con un formato errato, visualizza un messaggio d'errore} & UC\ref{Inserimento di un voto}.\ref{Visualizzazione dell'errore di inserimento di un voto non valido}\\
+\hline
+R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema} & UC\ref{Inserimento di un utente nel sistema}\\
+& UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della matricola relativa ad un utente}\\
+& UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento del codice univoco relativo ad un utente}\\
+& UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia di un utente}\\
+& UC\ref{Inserimento di un utente nel sistema}.\ref{Conferma dell'inserimento di un utente nel sistema}\\
+& UC\ref{Inserimento di un utente nel sistema}.\ref{Visualizzazione dell'errore relativo all'inserimento di un utente nel sistema}\\
+& UC\ref{Inserimento di un utente nel sistema}.\ref{Annullamento dell'inserimento di un nuovo utente nel sistema}\\
+& UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia Studente}\\
+& UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia Professore}\\
+& UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia Amministratore}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la matricola relativa ad un utente} & UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della matricola relativa ad un utente}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire il codice univoco relativo ad un utente} & UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento del codice univoco relativo ad un utente}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la tipologia relativa ad un utente} & UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia di un utente}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono confermare l'inserimento di un nuovo utente nel sistema} & UC\ref{Inserimento di un utente nel sistema}.\ref{Conferma dell'inserimento di un utente nel sistema}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono annullare l'inserimento di un nuovo utente nel sistema} & UC\ref{Inserimento di un utente nel sistema}.\ref{Annullamento dell'inserimento di un nuovo utente nel sistema}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'inserimento di un utente nel sistema} & UC\ref{Inserimento di un utente nel sistema}.\ref{Visualizzazione dell'errore relativo all'inserimento di un utente nel sistema}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la tipologia studente} & UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia Studente}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la tipologia professore} & UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia Professore}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita puo inserire la tipologia amministratore} & UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia Amministratore}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono rimuovere un utente dal sistema} & UC\ref{Rimozione di un utente dal sistema}\\
+& UC\ref{Rimozione di un utente dal sistema}.\ref{Conferma della rimozione di un utente dal sistema}\\
+& UC\ref{Rimozione di un utente dal sistema}.\ref{Annullamento della rimozione di un utente dal sistema}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono rimuovere un utente dal sistema}.\ref{L'universita e l'amministratore possono confermare l'eliminazione di un utente dal sistema} & UC\ref{Rimozione di un utente dal sistema}.\ref{Conferma della rimozione di un utente dal sistema}\\
+\hline
+R2F\ref{L'universita e l'amministratore possono rimuovere un utente dal sistema}.\ref{L'universita e l'amministratore possono annullare l'eliminazione di un utente dal sistema} & UC\ref{Rimozione di un utente dal sistema}.\ref{Annullamento della rimozione di un utente dal sistema}\\
+\hline
+R0F\ref{Lo studente puo visualizzare il suo libretto} & UC\ref{Visualizzazione del libretto}\\
+\hline
+R0F\ref{Il professore puo vedere la lista degli esami che sono a lui associati} & UC\ref{Visualizzazione degli esami associati}\\
+\hline
+R0F\ref{Il professore puo visualizzare la lista di studenti iscritti al suo esame} & UC\ref{Visualizzazione degli studenti iscritti ad un esame associato}\\
+\hline
+\caption[Tracciamento Requisiti-Use case]{Tracciamento Requisiti-Use case}
+\label{tabella:requi-usecase}
+\end{longtable}
+\clearpage
+
+\subsection{Tracciamento Use Case - Requisiti}
+\normalsize
+\begin{longtable}{|c|c|}
+\hline
+\textbf{Codice Use case} & \textbf{Codice Requisiti} \\
+\hline
+\endhead
+UC\ref{Registrazione} & R0F\ref{L'utente non autenticato puo registrarsi}\\
+\hline
+UC\ref{Registrazione}.\ref{Inserimento del nome} & R0F\ref{L'utente non autenticato puo registrarsi}\\
+& R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio nome}\\
+\hline
+UC\ref{Registrazione}.\ref{Inserimento del cognome} & R0F\ref{L'utente non autenticato puo registrarsi}\\
+& R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio cognome}\\
+\hline
+UC\ref{Registrazione}.\ref{Inserimento della e-mail} & R0F\ref{L'utente non autenticato puo registrarsi}\\
+& R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire la propria e-mail}\\
+\hline
+UC\ref{Registrazione}.\ref{Inserimento del codice fiscale} & R0F\ref{L'utente non autenticato puo registrarsi}\\
+& R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio codice fiscale}\\
+\hline
+UC\ref{Registrazione}.\ref{Inserimento del codice univoco} & R0F\ref{L'utente non autenticato puo registrarsi}\\
+& R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio codice univoco}\\
+\hline
+UC\ref{Registrazione}.\ref{Identificazione utente tramite Metamask} & R0F\ref{L'utente non autenticato puo registrarsi}\\
+& R2F\ref{L'utente non autenticato puo registrarsi}.\ref{Il sistema identifica l'utente attraverso l'interfaccia Metamask}\\
+\hline
+UC\ref{Registrazione}.\ref{Annullamento della registrazione} & R0F\ref{L'utente non autenticato puo registrarsi}\\
+& R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo annullare la registrazione}\\
+\hline
+UC\ref{Registrazione}.\ref{Conferma della registrazione} & R0F\ref{L'utente non autenticato puo registrarsi}\\
+& R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo confermare la registrazione}\\
+\hline
+UC\ref{Registrazione}.\ref{Visualizzazione dell'errore di registrazione} & R0F\ref{L'utente non autenticato puo registrarsi}\\
+& R2F\ref{L'utente non autenticato puo registrarsi}.\ref{Il sistema deve mostrare un messaggio di errore nel caso di inserimenti mancanti o errati}\\
+\hline
+UC\ref{Registrazione}.\ref{Inserimento della matricola} & R0F\ref{L'utente non autenticato puo registrarsi}\\
+& R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire la propria matricola}\\
+\hline
+UC\ref{Login} & R0F\ref{L'utente non autenticato puo effettuare il login}\\
+%\begin{comment}
+%\hline
+%\hyperlink{UC2.1}{UC2.1} & R0F\ref{L'utente non autenticato puo effettuare il login}\\
+%& \hyperlink{R2F2.1}{R2F2.1}\\
+%\end{comment}
+\hline
+UC\ref{Aggiunta di un anno accademico} & R0F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}\\
+\hline
+UC\ref{Aggiunta di un anno accademico}.\ref{Inserimento dell'inizio di un accademico} & R0F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono inserire la data d'inizio dell'anno accademico}\\
+\hline
+UC\ref{Aggiunta di un anno accademico}.\ref{Inserimento della fine di un accademico} & R0F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono inserire la data della fine dell'anno accademico}\\
+\hline
+UC\ref{Aggiunta di un anno accademico}.\ref{Annullamento dell'aggiunta di un anno accademico} & R0F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono annullare l'aggiunta dell'anno accademico}\\
+\hline
+UC\ref{Aggiunta di un anno accademico}.\ref{Conferma dell'aggiunta di un anno accademico} & R0F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono confermare l'aggiunta dell'anno accademico}\\
+\hline
+UC\ref{Aggiunta di un anno accademico}.\ref{Visualizzazione dell'errore relativo all'aggiunta di un anno accademico non valido} & R0F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un anno accademico}\\
+%\hline
+%UC\ref{Aggiunta di un corso di laurea} & R0F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}\\
+%& R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}\\
+\hline
+UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento del codice di un corso di laurea} & R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire il codice univoco del corso di laurea}\\
+\hline
+UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento del nome di un corso di laurea} & R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire il nome del corso di laurea}\\
+\hline
+UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento della descrizione di un corso di laurea} & R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire la descrizione di un corso di laurea}\\
+\hline
+UC\ref{Aggiunta di un corso di laurea}.\ref{Inserimento della tipologia di un corso di laurea} & R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire la tipologia di un corso di laurea}\\
+\hline
+UC\ref{Aggiunta di un corso di laurea}.\ref{Annullamento dell'aggiunta di un corso di laurea} & R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono annullare l'aggiunta del corso di laurea}\\
+\hline
+UC\ref{Aggiunta di un corso di laurea}.\ref{Conferma dell'aggiunta di un corso di laurea} & R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono confermare l'aggiunta del corso di laurea}\\
+\hline
+UC\ref{Aggiunta di un corso di laurea}.\ref{Visualizzazione dell'errore relativo all'aggiunta di corso di laurea non valido} & R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}\\
+%\hline
+%UC\ref{Aggiunta di un'attivita didattica} & R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}\\
+%& R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+\hline
+UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del codice del corso di un'attivita didattica} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il codice univoco del corso relativo ad un'attivita didattica}\\
+\hline
+UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del nome di un'attivita didattica} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il nome di un'attivita didattica}\\
+\hline
+UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento della descrizione di un'attivita didattica} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire la descrizione di un'attivita didattica}\\
+\hline
+UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del professore associato ad un'attivita didattica} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il professore associato ad un'attivita didattica}\\
+\hline
+UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento dei crediti di un'attivita didattica} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire i crediti di un'attivita didattica}\\
+\hline
+UC\ref{Aggiunta di un'attivita didattica}.\ref{Inserimento del periodo di un'attivita didattica} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il periodo di un'attivita didattica}\\
+\hline
+UC\ref{Aggiunta di un'attivita didattica}.\ref{Annullamento dell'aggiunta di un'attivita didattica} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono annullare l'aggiunta di un'attivita didattica}\\
+\hline
+UC\ref{Aggiunta di un'attivita didattica}.\ref{Conferma dell'aggiunta di un'attivita didattica} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono confermare l'aggiunta di un'attivita didattica}\\
+\hline
+UC\ref{Aggiunta di un'attivita didattica}.\ref{Visualizzazione dell'errore relativo all'aggiunta di un'attivita didattica non valida} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+\hline
+UC\ref{Aggiunta di un esame} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+& R0F\ref{L'universita e l'amministratore possono aggiungere un esame}\\
+\hline
+UC\ref{Aggiunta di un esame}.\ref{Inserimento del codice di un esame} & R0F\ref{L'universita e l'amministratore possono aggiungere un esame}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire il codice univoco di un esame}\\
+\hline
+UC\ref{Aggiunta di un esame}.\ref{Inserimento della descrizione di un esame} & R0F\ref{L'universita e l'amministratore possono aggiungere un esame}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire la descrizione di un esame}\\
+\hline
+UC\ref{Aggiunta di un esame}.\ref{Inserimento dell'intervallo di prenotazione per un esame} & R0F\ref{L'universita e l'amministratore possono aggiungere un esame}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire l'intervallo di prenotazione per un esame}\\
+\hline
+UC\ref{Aggiunta di un esame}.\ref{Inserimento della data di un esame} & R0F\ref{L'universita e l'amministratore possono aggiungere un esame}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire la data di un esame}\\
+\hline
+UC\ref{Aggiunta di un esame}.\ref{Inserimento della tipologia di un esame} & R0F\ref{L'universita e l'amministratore possono aggiungere un esame}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire la tipologia di un esame}\\
+\hline
+UC\ref{Aggiunta di un esame}.\ref{Inserimento del luogo di un esame} & R0F\ref{L'universita e l'amministratore possono aggiungere un esame}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire il luogo dove si terra un esame}\\
+\hline
+UC\ref{Aggiunta di un esame}.\ref{Annullamento dell'aggiunta di un esame} & R0F\ref{L'universita e l'amministratore possono aggiungere un esame}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono annullare l'aggiunta di un esame}\\
+\hline
+UC\ref{Aggiunta di un esame}.\ref{Conferma dell'aggiunta di un esame} & R0F\ref{L'universita e l'amministratore possono aggiungere un esame}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono confermare l'aggiunta di un esame}\\
+\hline
+UC\ref{Aggiunta di un esame}.\ref{Visualizzazione dell'errore relativo all'aggiunta di un esame non valido} & R0F\ref{L'universita e l'amministratore possono aggiungere un esame}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un esame}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un corso di laurea}\\
+\hline
+UC\ref{Modifica di un anno accademico} & R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}\\
+\hline
+UC\ref{Modifica di un anno accademico}.\ref{Modifica dell'inizio di un anno accademico} & R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono modificare l'inizio di un anno accademico}\\
+\hline
+UC\ref{Modifica di un anno accademico}.\ref{Modifica della fine di un anno accademico} & R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono modificare la fine di un anno accademico}\\
+\hline
+UC\ref{Modifica di un anno accademico}.\ref{Annullamento della modifica di un anno accademico} & R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono annullare la modifica di un anno accademico}\\
+\hline
+UC\ref{Modifica di un anno accademico}.\ref{Conferma della modifica di un anno accademico} & R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono confermare la modifica di un anno accademico}\\
+\hline
+ UC\ref{Modifica di un anno accademico}.\ref{Visualizzazione dell'errore relativo alla modifica di un anno accademico} & R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un anno accademico}\\
+\hline
+UC\ref{Modifica di un corso di laurea} & R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}\\
+\hline
+UC\ref{Modifica di un corso di laurea}.\ref{Modifica del codice di un corso di laurea} & R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare il codice univoco di un corso di laurea}\\
+\hline
+UC\ref{Modifica di un corso di laurea}.\ref{Modifica del nome di un corso di laurea} & R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare il nome di un corso di laurea}\\
+\hline
+UC\ref{Modifica di un corso di laurea}.\ref{Modifica della descrizione di un corso di laurea} & R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare la descrizione di un corso di laurea}\\
+\hline
+UC\ref{Modifica di un corso di laurea}.\ref{Modifica della tipologia di un corso di laurea} & R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare la tipologia di un corso di laurea}\\
+\hline
+UC\ref{Modifica di un corso di laurea}.\ref{Annullamento della modifica di un corso di laurea} & R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare la tipologia di un corso di laurea}\\
+\hline
+UC\ref{Modifica di un corso di laurea}.\ref{Conferma della modifica di un corso di laurea} & R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono confermare la modifica di un corso di laurea}\\
+\hline
+UC\ref{Modifica di un corso di laurea}.\ref{Visualizzazione dell'errore relativo alla modifica di un corso di laurea non valido} & R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un corso di laurea}\\
+\hline
+UC\ref{Modifica di un'attivita didattica} & R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}\\
+\hline
+UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del codice di un'attivita didattica} & R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il codice del corso di un'attivita didattica}\\
+\hline
+UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del nome di un'attivita didattica} & R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il nome di un'attivita didattica}\\
+\hline
+UC\ref{Modifica di un'attivita didattica}.\ref{Modifica della descrizione di un'attivita didattica} & R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{ L'universita e l'amministratore possono modificare la descrizione di un'attivita didattica}\\
+\hline
+UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del professore associato ad un'attivita didattica} & R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il professore associato ad un'attivita didattica}\\
+\hline
+UC\ref{Modifica di un'attivita didattica}.\ref{Modifica dei crediti di un'attivita didattica} & R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare i crediti di un'attivita didattica}\\
+\hline
+UC\ref{Modifica di un'attivita didattica}.\ref{Modifica del periodo di un'attivita didattica} & R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il periodo di un'attivita didattica}\\
+\hline
+UC\ref{Modifica di un'attivita didattica}.\ref{Annullamento della modifica di un'attivita didattica} & R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono annullare la modifica ad un'attivita didattica}\\
+\hline
+UC\ref{Modifica di un'attivita didattica}.\ref{Conferma della modifica di un'attivita didattica} & R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono confermare la modifica di un'attivita didattica}\\
+\hline
+UC\ref{Modifica di un'attivita didattica}.\ref{Visualizzazione dell'errore relativo alla modifica di un'attivita didattica non valida} & R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un'attivita didattica}\\
+\hline
+UC\ref{Modifica di un esame} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un esame}\\
+\hline
+UC\ref{Modifica di un esame}.\ref{Modifica del codice di un esame} & R2F\ref{L'universita e l'amministratore possono modificare un esame}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare il codice di un esame}\\
+\hline
+UC\ref{Modifica di un esame}.\ref{Modifica della descrizione di un esame} & R2F\ref{L'universita e l'amministratore possono modificare un esame}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare la descrizione di un esame}\\
+\hline
+UC\ref{Modifica di un esame}.\ref{Modifica dell'intervallo di prenotazione di un esame} & R2F\ref{L'universita e l'amministratore possono modificare un esame}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare l'intervallo di prenotazione per un esame}\\
+\hline
+UC\ref{Modifica di un esame}.\ref{Modifica della data di un esame} & R2F\ref{L'universita e l'amministratore possono modificare un esame}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare la data di un esame}\\
+\hline
+UC\ref{Modifica di un esame}.\ref{Modifica della tipologia di un esame} & R2F\ref{L'universita e l'amministratore possono modificare un esame}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare la tipologia di un esame}\\
+\hline
+UC\ref{Modifica di un esame}.\ref{Modifica del luogo di un esame} & R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare il luogo dove si tiene l'esame}\\
+\hline
+UC\ref{Modifica di un esame}.\ref{Annullamento della modifica di un esame} & R2F\ref{L'universita e l'amministratore possono modificare un esame}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono annullare la modifica ad un esame}\\
+\hline
+UC\ref{Modifica di un esame}.\ref{Conferma della modifica di un esame} & R2F\ref{L'universita e l'amministratore possono modificare un esame}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono confermare la modifica ad un esame}\\
+\hline
+UC\ref{Modifica di un esame}.\ref{Visualizzazione dell'errore relativo alla modifica di un esame} & R2F\ref{L'universita e l'amministratore possono modificare un esame}\\
+& R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un esame}\\
+\hline
+UC\ref{Eliminazione di un esame} & R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono eliminare un esame associato ad un'attivita didattica}\\
+\hline
+UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un esame} & R2F\ref{L'universita e l'amministratore possono eliminare un esame associato ad un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono eliminare un esame associato ad un'attivita didattica}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un esame}\\
+\hline
+UC\ref{Eliminazione di un'attivita didattica} & R2F\ref{L'universita e l'amministratore possono eliminare un'attivita didattica}\\
+\hline
+UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un'attivita didattica} & R2F\ref{L'universita e l'amministratore possono eliminare un'attivita didattica}\\
+& R2F\ref{L'universita e l'amministratore possono eliminare un'attivita didattica}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un'attivita didattica}\\
+\hline
+UC\ref{Eliminazione di un corso di laurea} & R2F\ref{L'universita e l'amministratore possono eliminare un corso di laurea}\\
+\hline
+UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un corso di laurea} & R2F\ref{L'universita e l'amministratore possono eliminare un corso di laurea}\\
+& R2F\ref{L'universita e l'amministratore possono eliminare un corso di laurea}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un corso di laurea}\\
+\hline
+UC\ref{Eliminazione di un anno accademico} & R2F\ref{L'universita e l'amministratore possono eliminare un anno accademico}\\
+\hline
+UC\ref{Iscrizione ad un esame} & R0F\ref{Lo studente puo iscriversi ad un esame}\\
+\hline
+UC\ref{Iscrizione ad un esame}.\ref{Conferma dell'iscrizione ad un esame} & R0F\ref{Lo studente puo iscriversi ad un esame}\\
+& R2F\ref{Lo studente puo iscriversi ad un esame}.\ref{Lo studente puo confermare l'iscrizione ad un esame}\\
+\hline
+UC\ref{Iscrizione ad un esame}.\ref{Annullamento dell'iscrizione ad un esame} & R0F\ref{Lo studente puo iscriversi ad un esame}\\
+& R2F\ref{Lo studente puo iscriversi ad un esame}.\ref{Lo studente puo annullare l'azione di iscrizione ad un esame}\\
+\hline
+UC\ref{Eliminazione dell'iscrizione ad un esame} & R2F\ref{Lo studente puo eliminare l'iscrizione ad un esame}\\
+\hline
+UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Annullamento dell'eliminazione dell'iscrizione ad un esame} & R2F\ref{Lo studente puo eliminare l'iscrizione ad un esame}.\ref{Lo studente puo annullare l'eliminazione dell'iscrizione ad un esame}\\
+\hline
+UC\ref{Eliminazione dell'iscrizione ad un esame}.\ref{Conferma dell'eliminazione dell'iscrizione ad un esame} & R2F\ref{Lo studente puo eliminare l'iscrizione ad un esame}.\ref{Lo studente puo confermare l'eliminazione dell'iscrizione ad un esame}\\
+\hline
+UC\ref{Rifiuto del voto di un esame} & R2F\ref{Lo studente puo rifiutare il voto di un esame, se non lo fa dopo 8 giorni il voto viene automaticamente accettato dal sistema}\\
+\hline
+UC\ref{Modifica di un esame da parte di un professore} & R2F\ref{Il professore puo modificare gli esami a cui e associato}\\
+\hline
+UC\ref{Modifica di un esame da parte di un professore}.\ref{Modifica dell'intervallo di prenotazione di un esame} & R2F\ref{Il professore puo modificare gli esami a cui e associato}\\
+& R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo modificare l'intervallo di prenotazione di un esame}\\
+\hline
+UC\ref{Modifica di un esame da parte di un professore}.\ref{Modifica della data di un esame} & R2F\ref{Il professore puo modificare gli esami a cui e associato}\\
+& R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo modificare la data di un esame a cui e associato}\\
+\hline
+UC\ref{Modifica di un esame da parte di un professore}.\ref{Modifica del luogo di un esame} & R2F\ref{Il professore puo modificare gli esami a cui e associato}\\
+& R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo modificare il luogo di un esame a cui e associato}\\
+\hline
+UC\ref{Modifica di un esame da parte di un professore}.\ref{Annullamento della modifica di un esame da parte di un professore} & R2F\ref{Il professore puo modificare gli esami a cui e associato}\\
+& R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo annullare la modifica di un esame a cui e associato}\\
+\hline
+UC\ref{Modifica di un esame da parte di un professore}.\ref{Conferma della modifica di un esame da parte di un professore} & R2F\ref{Il professore puo modificare gli esami a cui e associato}\\
+& R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo confermare la modifica apportata ad un esame a cui e associato}\\
+\hline
+ UC\ref{Modifica di un esame da parte di un professore}.\ref{Visualizzazione dell'errore di modifica di un esame da parte di un professore} & R2F\ref{Il professore puo modificare gli esami a cui e associato}\\
+& R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo visualizzare un errore relativo alla modifica di un esame}\\
+\hline
+UC\ref{Inserimento di un voto} & R0F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}\\
+\hline
+UC\ref{Inserimento di un voto}.\ref{Annullamento della registrazione del voto, relativo ad uno specifico esame, di uno studente} & R0F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}\\
+& R2F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}.\ref{Il professore puo annullare la registrazione del voto}\\
+\hline
+UC\ref{Inserimento di un voto}.\ref{Conferma dell'inserimento di un voto} & R0F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}\\
+& R2F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}.\ref{Il professore puo confermare il voto}\\
+\hline
+UC\ref{Inserimento di un voto}.\ref{Visualizzazione dell'errore di inserimento di un voto non valido} & R0F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}\\
+& R2F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}.\ref{Il professore, in caso di inserimento di un voto con un formato errato, visualizza un messaggio d'errore}\\
+\hline
+UC\ref{Inserimento di un utente nel sistema} & R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}\\
+\hline
+UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della matricola relativa ad un utente} & R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}\\
+& R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la matricola relativa ad un utente}\\
+\hline
+UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento del codice univoco relativo ad un utente} & R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}\\
+& R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire il codice univoco relativo ad un utente}\\
+\hline
+UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia di un utente} & R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}\\
+& R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la tipologia relativa ad un utente}\\
+\hline
+UC\ref{Inserimento di un utente nel sistema}.\ref{Conferma dell'inserimento di un utente nel sistema} & R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}\\
+& R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono confermare l'inserimento di un nuovo utente nel sistema}\\
+\hline
+UC\ref{Inserimento di un utente nel sistema}.\ref{Visualizzazione dell'errore relativo all'inserimento di un utente nel sistema} & R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}\\
+& R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'inserimento di un utente nel sistema}\\
+\hline
+UC\ref{Inserimento di un utente nel sistema}.\ref{Annullamento dell'inserimento di un nuovo utente nel sistema} & R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}\\
+& R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono annullare l'inserimento di un nuovo utente nel sistema}\\
+\hline
+UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia Studente} & R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}\\
+& R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la tipologia studente}\\
+\hline
+UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia Professore} & R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}\\
+& R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la tipologia professore}\\
+\hline
+UC\ref{Inserimento di un utente nel sistema}.\ref{Inserimento della tipologia Amministratore} & R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}\\
+& R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita puo inserire la tipologia amministratore}\\
+\hline
+UC\ref{Rimozione di un utente dal sistema} & R2F\ref{L'universita e l'amministratore possono rimuovere un utente dal sistema}\\
+\hline
+UC\ref{Rimozione di un utente dal sistema}.\ref{Conferma della rimozione di un utente dal sistema} & R2F\ref{L'universita e l'amministratore possono rimuovere un utente dal sistema}\\
+& R2F\ref{L'universita e l'amministratore possono rimuovere un utente dal sistema}.\ref{L'universita e l'amministratore possono confermare l'eliminazione di un utente dal sistema}\\
+\hline
+UC\ref{Rimozione di un utente dal sistema}.\ref{Annullamento della rimozione di un utente dal sistema} & R2F\ref{L'universita e l'amministratore possono rimuovere un utente dal sistema}\\
+& R2F\ref{L'universita e l'amministratore possono rimuovere un utente dal sistema}.\ref{L'universita e l'amministratore possono annullare l'eliminazione di un utente dal sistema}\\
+\hline
+UC\ref{Visualizzazione dell'errore relativo all'eliminazione di un anno accademico} & R2F\ref{L'universita e l'amministratore possono eliminare un anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un anno accademico}\\
+& R2F\ref{L'universita e l'amministratore possono eliminare un anno accademico}\\
+\hline
+UC\ref{Visualizzazione del libretto} & R0F\ref{Lo studente puo visualizzare il suo libretto}\\
+\hline
+UC\ref{Visualizzazione degli esami associati} & R0F\ref{Il professore puo vedere la lista degli esami che sono a lui associati}\\
+\hline
+UC\ref{Visualizzazione degli studenti iscritti ad un esame associato} & R0F\ref{Il professore puo visualizzare la lista di studenti iscritti al suo esame}\\
+\hline
+\caption[Tracciamento Use case-Requisiti]{Tracciamento Use case-Requisiti}
+\label{tabella:requi-usecase}
+\end{longtable}
+\clearpage

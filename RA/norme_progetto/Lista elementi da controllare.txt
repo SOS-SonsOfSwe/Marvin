@@ -1,0 +1,9 @@
+Utilizzo dei verbi: deve essere sempre al futuro, in maniera imperativa.
+Controllare i paragrafi: alla fine ci deve essere sempre ;, a parte l'ultimo punto col .
+Nei paragrafi la descrizione in grassetto, i due punti fuori normali.
+
+Aggiungere sezione di codifica: in corso
+
+Migliorare la copertura dei processi dello standard: da fare
+
+Migliorare l'intento di mostrare che le norme sono prodotte incrementalmente: da fare

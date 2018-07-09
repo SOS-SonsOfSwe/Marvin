@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor amministratore
+rectangle UC4.7.10 {
+amministratore -- (UC4.7.10.1 - Modifica del codice del corso dell’attività didattica)
+amministratore -- (UC4.7.10.2 - Modifica del nome dell’attività didattica)
+amministratore -- (UC4.7.10.3 - Modifica della descrizione dell’attività didattica)
+amministratore -- (UC4.7.10.4 - Modifica del professore associato all’attività didattica)
+amministratore -- (UC4.7.10.5 - Modifica dei crediti dell’attività didattica)
+amministratore -- (UC4.7.10.6 - Modifica del periodo dell’attività didattica)
+amministratore -- (UC4.7.10.7 - Modifica dell’esame associato all’attività didattica)
+amministratore -- (UC4.7.10.8 - Annullamento della modifica dell’attività didattica)
+amministratore -- (UC4.7.10.9 - Conferma della modifica dell’attività didattica)
+}
+@enduml

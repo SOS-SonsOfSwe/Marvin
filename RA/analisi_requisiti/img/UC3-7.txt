@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Amministratore
+actor Università
+rectangle UC3.7 {
+Amministratore -- (UC3.7.1 - Modifica del codice di un corso di laurea)
+Amministratore -- (UC3.7.2 - Modifica del nome di un corso di laurea)
+Amministratore -- (UC3.7.3 - Modifica della descrizione di un corso di laurea)
+Amministratore -- (UC3.7.4 - Modifica della tipologia di un corso di laurea)
+Amministratore -- (UC3.7.5 - Modifica di un'attività didattica di un corso di laurea)
+Amministratore -- (UC3.7.6 - Annullamento della modifica di un corso di laurea)
+Amministratore -- (UC3.7.7 - Conferma della modifica di un corso di laurea)
+Amministratore -- (UC3.7.8 - Visualizzazione dell'errore relativo alla modifica di un corso di laurea non valido)
+Università -- (UC3.7.1 - Modifica del codice di un corso di laurea)
+Università -- (UC3.7.2 - Modifica del nome di un corso di laurea)
+Università -- (UC3.7.3 - Modifica della descrizione di un corso di laurea)
+Università -- (UC3.7.4 - Modifica della tipologia di un corso di laurea)
+Università -- (UC3.7.5 - Modifica di un'attività didattica di un corso di laurea)
+Università -- (UC3.7.6 - Annullamento della modifica di un corso di laurea)
+Università -- (UC3.7.7 - Conferma della modifica di un corso di laurea)
+Università -- (UC3.7.8 - Visualizzazione dell'errore relativo alla modifica di un corso di laurea non valido)
+}
+@enduml

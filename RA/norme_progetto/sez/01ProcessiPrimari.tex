@@ -1,0 +1,257 @@
+\newpage
+\section{Processi primari}
+\subsection{Processo di fornitura}
+
+\subsubsection{Studio di Fattibilità}
+Si tratta del documento in cui vengono analizzati tutti i capitolati, valutandone pregi e difetti, allo scopo di scegliere quello di maggiore affinità per il gruppo.
+Dopo che il \RdP{} (il cui ruolo è descritto nel paragrafo \ref{responsabile_progetto}) avrà riunito il team e discusso con esso di tutti i capitolati, gli \anas{} avranno il compito di stilare lo \SdF{} seguendo le considerazioni emerse.\\
+Lo \SdF{} sarà organizzato come segue:
+\begin{itemize}
+	\item \textbf{Informazioni sul capitolato}:
+	Vengono ricordati il nome del \emph{progetto}\ped{G}, il \textit{proponente}\ped{G} e i \textit{committenti}\ped{G};
+	\item \textbf{Descrizione}:
+	Si riassume lo scopo del capitolato;
+	\item \textbf{Dominio applicativo}:
+	Si specifica il settore di utilizzo del prodotto finale;
+	\item \textbf{Dominio tecnologico}:
+	Si elencano le tecnologie che dovranno essere utilizzate nello sviluppo del capitolato;
+	\item \textbf{Aspetti positivi}:
+	Si elencano i motivi che il gruppo potrebbe considerare vantaggiosi;
+	\item \textbf{Aspetti negativi}:
+	Si elencano le potenziali criticità che il gruppo dovrà tenere in considerazione nella scelta finale;
+	\item \textbf{Valutazione finale}:
+	Si analizzano gli aspetti positivi e quelli negativi riscontrati e si motiva l'eventuale approvazione o esclusione.
+\end{itemize}
+
+\subsubsection{Rapporti con il proponente}
+Una volta scelto il capitolato, si intende instaurare un rapporto quanto più costante e profittevole con la \proponente{} allo scopo di:
+\begin{itemize}
+	\item Stabilire un accordo in merito allo sviluppo, al mantenimento, al funzionamento e alla consegna del prodotto;
+	\item Realizzare un prodotto che soddisfi totalmente i requisiti obbligatori concordati e quanto più possibile quelli desiderabili;
+	\item Stimare i costi;
+	\item Concordare la qualifica del prodotto.
+\end{itemize}
+
+\subsubsection{Collaudo e consegna del prodotto}
+Una volta terminate le fasi di sviluppo, verifica e validazione si effettuerà il collaudo al fine di dimostrare che tutti i requisiti obbligatori e, possibilmente, anche alcuni dei requisiti opzionali siano stati soddisfatti. 
+\\In questa fase inoltre si dovrà dimostrare che l'esecuzione di tutti i test di validazione abbia dato un'esito positivo.
+\\Il team consegnerà in ultima il prodotto finale su un supporto fisico ai committenti \committenti.
+
+\subsection{Processo di sviluppo}
+\subsubsection{Scopo del processo}
+Contiene tutte le attività svolte dal team, al fine di produrre il software finale.
+\subsubsection{Aspettative del processo}
+Le aspettative previste dal team per una efficace implementazione del processo sono le seguenti:
+\begin{itemize}
+	\item realizzare un prodotto finale che soddisfi i testi di validazione e verifica, secondo quanto concordato con il proponente;
+	\item fissare gli obiettivi di sviluppo;
+	\item normare i vincoli tecnologici per lo sviluppo.
+\end{itemize}
+\subsubsection{Descrizione}
+Secondo lo standard ISO/IEC 12207, il processo di sviluppo si divide nelle seguenti attività:
+\begin{itemize}
+	\item Analisi dei requisiti;
+	\item Progettazione;
+	\item Codifica.
+\end{itemize}
+\subsubsection{Attività}
+\paragraph{Analisi dei Requisiti}
+\subparagraph{Scopo}:
+	Lo scopo dell'\AdR consiste nell'individuare i requisiti del progetto tramite le specifiche del capitolato e tramite le comunicazioni con il proponente. 
+\subparagraph{Descrizione}:
+	Il risultato di tale attività dovrà essere stilato dagli \anas, contenente la lista dei requisiti e dei casi d'uso. Tale documento ha il fine di comprendere maggiormente le scelte di progettazione effettuate.
+\subparagraph{Classificazione dei Requisiti}:
+	i requisiti saranno classificati secondo la seguente codifica:
+		\begin{center}
+			R[Importanza][Tipo][Codice]
+		\end{center}
+	dove:
+	\begin{itemize}
+		\item \textbf{Importanza} può assumere questi valori:
+			\begin{itemize}
+				\item F: indica un requisito funzionale;
+				\item Q: indica un requisito di qualità;
+				\item P: indica un requisito prestazionale;
+				\item V: indica un requisito di vincolo.
+			\end{itemize}
+		\item \textbf{Tipo} può assumere questi valori:
+			\begin{itemize}
+				\item O: indica un requisito obbligatorio;
+				\item D: indica un requisito desiderabile;
+				\item F: indica un requisito facoltativo.
+			\end{itemize}
+		\item \textbf{Codice} indica il codice identificativo del requisito, è univoco e deve essere indicato in
+		forma gerarchica.
+	\end{itemize}
+	Per ogni requisito si dovrà inoltre indicare una breve descrizione e la fonte, che può essere una tra le seguenti:
+		\begin{itemize}
+		\item Capitolato: deriva direttamente dal testo del capitolato;
+		\item Verbale: deriva da un incontro verbalizzato;
+		\item Interno: deriva da discussioni interne al team.
+		\end{itemize}
+	
+\subparagraph{Classificazione dei casi d'uso}: i casi d’uso saranno classificati secondo la seguente codifica:
+		\begin{center}
+			UC[Codice padre].[Codice identificativo]
+		\end{center}
+	dove:
+		\begin{itemize}
+			\item Codice padre: indica il codice del caso d’uso padre di quello in esame, se non è identificabile è da omettere;
+			\item Codice identificativo: codice univoco e progressivo del caso d’uso in esame.
+		\end{itemize}
+	Per ogni caso d’uso saranno inoltre identificate le seguenti informazioni:
+		\begin{itemize}
+			\item \textbf{Attori}: indica gli attori coinvolti nel caso d’uso;
+			\item \textbf{Descrizione}: chiara, precisa e concisa descrizione del caso d’uso;
+			\item \textbf{Precondizione}: indica la situazione che deve essere vera prima dell’esecuzione del caso d’uso;
+			\item \textbf{Flusso principale degli eventi}: descrizione composta dal flusso dei casi d’uso figli;
+			\item \textbf{Postcondizione}: indica la situazione che deve essere vera dopo l’esecuzione del caso d’uso;
+			\item \textbf{Estensioni}: indica quali sono tutte le estensioni, se presenti;
+			\item \textbf{Generalizzazioni}: indica quali sono tutte le generalizzazioni, se presenti.
+		\end{itemize}
+	
+\paragraph{Progettazione}
+\subparagraph{Scopo}
+	~\\L'attività di progettazione deve precedere la produzione del software ed ha il compito di soddisfare le peculiarità ed i bisogni individuati durante l'attività di \emph{analisi dei requisiti}, e di realizzare al meglio i requisiti di qualità imposti dal committente.
+\subparagraph{Descrizione}
+	~\\I \progs{} (il cui ruolo è descritto nel paragrafo \ref{progettista}) dovranno delinerare i requisiti utili alla documentazione specifica e determinare le linee guida da seguire in funzione dei requisiti individuati dall'analisi.
+	
+	\subparagraph{Descrizione}
+	La progettazione permette di:
+	\begin{itemize}
+		\item Costruire l'architettura logica del prodotto;
+		\item Ottimizzare l'utilizzo delle risorse;
+		\item Garantire la qualità prefissata del prodotto;
+		\item Organizzare le varie parti del progetto in modo da ottenere componenti singole e facili da implementare durante la successiva fase di codifica.
+	\end{itemize}
+	
+	La progettazione si colloca nel periodo di \emph{Progettazione e codifica} all'interno del \PdP{}; periodo all'interno del quale vengono individuati i design pattern e realizzata l'architettura del prodotto tramite l'utilizzo dei diagrammi delle classi e di sequenza. Il lavoro complessivo ottenuto in questo arco di tempo rappresenta la \textbf{Product Baseline}.
+
+
+	\subparagraph{Linee guida per la progettazione}
+	Dopo aver completato l'\AdR{} i \progs{} dovranno sottostare alle seguenti linee guida per lo sviluppo dell'architettura logica del sistema:
+	\begin{itemize}
+		\item Si dovrà puntare ad una progettazione chiara e di immediata comprensione;
+		\item Le componenti progettate dovranno essere quanto più riutilizzabili e manutenibili;
+		\item La complessità non dovrà mai essere intrattabile;
+		\item I \progs{} dovranno rientrare nei costi e nelle risorse disponibili;
+		\item I \progs{} dovranno descrivere i \emph{design pattern}\ped{G} che intendono utilizzare per la realizzazione dell'architettura, fornendone una breve descrizione e un diagramma;
+		\item Si dovrà evitare l'utilizzo, ove possibile di classi astratte;
+		\item Si dovrà evitare package vuoti, classi non utilizzate, e parametri senza tipo.
+	\end{itemize}
+
+	\subparagraph{UML}
+	~\\Le tipologie di diagrammi \emph{UML}\ped{G} che verranno adoperate per analizzare, descrivere e specificare le scelte progettuali adottate saranno:
+	\begin{itemize}
+		\item \textbf{Diagrammi di classe}: illustrano una collezione di elementi che rappresenta un modello di classi e tipi, con i rispettivi contenuti e relazioni;
+		\item \textbf{Diagrammi di } \emph{\textbf{package}}\ped{G}: documentano le dipendenze tra le classi ed è utile per controllare la complessità strutturale in sistemi medio-grandi;
+		\item \textbf{Diagrammi di attività}: modellano un processo e organizzano più entità in un sistema di azioni secondo un determinato flusso. I diagrammi delle attività sono un tipo particolare di \emph{diagramma di stato}\ped{G} che identifica la variazione di stato al verificarsi di alcune condizioni legate ad una o più entità;
+		\item \textbf{Diagrammi di sequenza}: descrivono la collaborazione di un gruppo di oggetti che devono implementare collettivamente un comportamento. Sono diagrammi molto semplici, ma che permettono di capire se l'architettura creata viene eseguita.
+	\end{itemize}
+	
+	\subparagraph{Requisiti per i progettisti}
+	I \progs{} sono responsabili delle attività di progettazione. Per un corretto svolgersi del loro lavoro, sono tenuti ad acquisire le seguenti conoscenze:
+	\begin{itemize}
+		\item Buona conoscenza generale del processo di sviluppo software;
+		\item Estesa visione generale delle scelte progettuali da attuare in situazioni particolarmente problematiche;
+		\item Discreta inventiva per trovare possibili soluzioni progettuali anche nel caso in cui non vi siano casi metodologici esplicitamente applicabili;
+		\item Capacità di individuare le scelte più opportune e coerenti alle esigenze del team.
+	\end{itemize}
+
+	\subparagraph{Obiettivi di progettazione}
+	La progettazione ha lo scopo di conseguire i seguenti obiettivi:
+	\begin{itemize}
+		\item  Progettare un software con caratteristiche qualitative pari a quelle descritte nella fase di analisi dei requisiti;
+		\item  Progettare un software affinchè sia possibile effettuare modifiche nel caso in cui sia necessario, senza avere la necessità di mettere in discussione l'intera struttura del software;
+		\item  Progettare un software che sia modulare, ossia che ogni parte sia chiara e distinta ed abbia una determinata funzione;
+		\item Soddisfare i requisiti fissati dal committente;
+		\item Costruire un software robusto, ed in grado di gestire malfunzionamenti di fronte a situazioni critiche improvvise;
+		\item Ridurre ove sia possibile gli sprechi di tempo e spazio, ragionando in termini di efficienza;
+		\item Progettare un software sicuro per quanto riguarda possibili intrusioni e pericoli esterni;
+		\item Rispettare il principio dell'incapsulazione, tramite un corretto utilizzo del \emph{data hiding}\ped{G}.
+	\end{itemize}
+	
+	
+	\paragraph{Codifica}
+	In questa fase i \progrs{} (il cui ruolo è descritto nel paragrafo \ref{programmatore}), seguendo le norme delineate nella progettazione, devono realizzare il passaggio dalla fase di pianificazione all'effettiva realizzazione del prodotto.
+	Le norme qui presenti serviranno come strumento per realizzare un codice uniforme e di alta qualità. Inoltre, per mantenerne la manutenibilità, dovrà essere realizzato in inglese.
+	I \progrs{} si dovranno attenere agli standard di codifica qui di seguito elencati.
+	\subparagraph{Indentazione}
+	I blocchi di codice prodotti dovranno essere indentati secondo le seguenti norme:
+	\begin{itemize}
+		\item \emph{Annidamento}: I blocchi annidati dovranno essere correttamente indentati, usando per ciascun livello di profondità un \emph{Tab} (equivalente a quattro spazi) per allineare correttamente le sezioni di codice;
+		\item \emph{Capo linea}: Per andare a capo linea di una riga di codice è opportuno utilizzare due volte un \emph{Tab} (equivalente a otto spazi), per allineare correttamente le sezioni di codice;
+		\item \emph{Profondità}: Nel caso in cui ci siano blocchi di codice annidati tra loro, si dovrà sviluppare il codice sul livello relativo al proprio blocco, tenendo conto delle regole precedentemente elencate.
+		\item \emph{Parentesizzazione}: I blocchi di codice andranno sempre chiusi all'interno di parentesi graffe, anche nel caso in cui il linguaggio non lo richieda esplicitamente, come per esempio nel caso dei controlli condizionali \emph{if-else};
+		\item \emph{Parentesizzazione 2}: Le parentesi graffe andranno collocate sulla stessa riga in cui inizia il blocco di codice.
+	\end{itemize}
+	\subparagraph{Nomi}
+	\begin{itemize}
+		\item Ogni elemento (classe, metodo, e variabile) deve avere un nome rappresentativo e pertinente alla funzione da esso svolta;
+		\item Il nome di una classe deve sempre iniziare con la lettera maisucola;
+		\item Si dovrà utilizzare la notazione \emph{CamelCase}, ovvero la concatenazione di più parole, ognuna delle quali con lettera iniziale maiuscola. In caso di metodi e variabili la prima lettera dovrà essere minuscola, mentre per le classi maiuscola;
+		\item Si potranno utilizzare singole lettere esclusivamente per identificare gli indici dei cicli;
+		\item Saranno da evitare notazioni troppo simili tra di loro in significato e denominazione;
+		\item Si dovranno evitare errori di ortografia.
+	\end{itemize}
+	\subparagraph{Commenti}
+	~\\Sarà necessario che il codice contenga dei commenti esplicativi per facilitarne la comprensione.
+	\newline In particolare, si dovranno seguire le seguenti linee guida:
+	
+	\begin{itemize}
+		\item Quando si modifica codice già esistente, vanno aggiornati i relativi commenti;
+		\item Evitare di aggiungere commenti sulla stessa riga di codice; la continua presenza di codice misto a testo può creare confusione e difficoltà di lettura;
+		\item Evitare di scrivere commenti privi di senso logico, al fine di separare righe di codice; nel caso in cui insorgesse questa necessità si dovrà utilizzare spazi vuoti;
+		\item Il fine dei commenti deve essere di chiarire il codice scritto; è quindi opportuno utilizzare frasi semplici, di senso compiuto e con una corretta punteggiatura;
+		\item E' opportuno commentare tutte le parti di codice non chiare o particolarmente complicate;
+		\item E' opportuno utilizzare i commenti nel caso in cui una parte di codice venga corretta in seguito a degli errori, al fine di tenere presenti errori frequenti e le possibili soluzioni da applicare.
+	\end{itemize}
+	
+	
+	\subparagraph{Formattazione}
+	La formattazione serve a facilitare la comprensione dell'organizzazione logica del codice. Per consentire agli sviluppatori di decifrare facilmente il codice si dovranno seguire le seguenti regole:
+	\begin{itemize} 
+		\item Il rientro predefinito dovrà essere di un \emph{Tab} per allineare le sezioni di codice;
+		\item Prima e dopo ogni operatore dovrà esserci uno spazio;
+		\item I blocchi saranno tra loro spaziati per una maggiore comprensione;
+		\item Utilizzare spazi vuoti per definire la struttura del codice; in questo modo sarà possibile ottenere paragrafi separati tra loro più facilmente comprensibili;
+%		\item Il codice sorgente dovrà essere quanto più suddiviso in file e dovrà essere raggruppato in sottocartelle che dovranno rispecchiare il pattern utilizzato.
+%		\item \textcolor{red}{Se ce ne sono altre le inseriamo qui. Da pensare al pattern, }
+	\end{itemize}
+
+	\subparagraph{Visibilità}
+	Le variabili vanno dichiarate nel blocco più interno che comprenda l'utilizzo della variabile stessa, al fine di ottenere codice di qualità migliore. E' quindi fortemente sconsigliato l'utilizzo di variabili globali.
+	
+	\subparagraph{Inizializzazione}
+	Le variabili devono sempre essere inizializzate quanto prima possibile. E' consigliato inizializzare una variabile ogni qual volta venga dichiarata. Nel caso in cui non si possa effettuare questa operazione, è consigliabile posticipare la dichiarazione al momento in cui si potrà effettuare.
+	
+	\subparagraph{Codice esterno}
+	Nel caso in cui si decida di utilizzare codice esterno sviluppato da terze parti, è consigliabile utilizzare lo stile e le norme di codifica degli autori di quel codice, al fine di non creare ambiguità stilistiche e facilitarne la comprensione.
+	
+	
+\subsubsection{Strumenti}
+Gli strumenti utilizzati durante la fase dei processi primari sono:
+\begin{itemize}
+	\item \textbf{TexStudio}
+	\newline Il gruppo ha scelto \emph{TexStudio} come editor multipiattaforma per comporre i documenti in \emph{\LaTeX}\ped{G};
+	\item \emph{\textbf{\emph{SWEgo}}}\ped{G} \footnote{\href{https://www.swego.it/}{https://www.swego.it/}}
+	~\\ Il gruppo ha scelto \emph{SWEgo} come database per la gestione dei casi d'uso, dei requisiti e del loro tracciamento per il documento \AdR{}. Dopo un'attenta analisi preliminare dello strumento il team ha deciso di utilizzarlo nonostante alcuni problemi rilevati nella generazione del codice \LaTeX{} perché, permette una stesura standardizzata e sempre aggiornata di alcuni capitoli importanti del documento, a fronte di correzioni minori e applicabili in maniera seriale e regolamentata;
+	\item \textbf{Astah}\ped{G}
+	~\\Il gruppo ha scelto l'utilizzo di \emph{Astah} per la generazione dei diagrammi dei casi d'uso dell'\AdR{};
+	\item \textbf{Microsoft Excel 365}
+	\newline Il gruppo ha scelto di utilizzare \emph{Microsoft Excel 365}\ped{G} per la generazione di grafici e di tabelle da poter inserire all'interno del \PdQ{} e \PdP{} perché di immediata realizzazione e visualizzazione;
+	\item \textbf{Instagantt} \footnote{\href{https://instagantt.com/}{https://instagantt.com/}}
+	~\\Instagantt è un servizio web fortemente legato ad Asana (vedi descrizione negli strumenti dei \emph{processi organizzativi}), strumento con il quale si integra perfettamente, nonostante sia disponibile anche una versione \emph{standalone}\ped{G}. Esso permette di creare diagrammi di Gantt e gestire in maniera semplificata la timeline e la struttura di un progetto.
+	\item \textbf{Visual Studio Code} \footnote{\href{https://code.visualstudio.com/}{https://code.visualstudio.com/}} 
+	~\\Visual Studio Code è un editor di testo gratuito e multipiattaforma che supporta operazioni di debugging e di versionamento. Permette inoltre di installare vari pacchetti che consentono di personalizzarne l'usabilità e di supportare nuove tecnologie o linguaggi di programmazione. Il gruppo lo ha scelto come editor di testo per scrivere il codice in React e Redux.
+	\item \textbf{Truffle} \footnote{\href{http://truffleframework.com/}{http://truffleframework.com/}}
+	~\\Truffle è un ambiente di sviluppo e testing per Ethereum. Il gruppo ha deciso di utilizzarlo perché fornisce un aiuto nello sviluppare, pubblicare e testare gli smart contract.
+	\item \textbf{Ganache} \footnote{\href{http://truffleframework.com/ganache/}{http://truffleframework.com/ganache/}}
+	~\\Ganache è uno strumento legato a Truffle che consente di avere una blockchain virtuale locale utilizzabile per sviluppare contratti, applicazioni ed effettuare dei test. Permette anche di generare degli account di testing  utilizzabili  durante lo sviluppo.
+	\item \textbf{Npm} \footnote{\href{https://www.npmjs.com/}{https://www.npmjs.com/}}
+	~\\npm è un gestore di pacchetti per il linguaggio Javascript.
+	
+	\item \textbf{Remix}
+	~\\Remix è l'ambiente di sviluppo integrato ufficiale di Ethereum per il linguaggio di programmazione di smart contract \textit{solidity}\ped{G}. Viene eseguito all'interno di un browser web, online all'indirizzo  \url{https://remix.ethereum.org/} oppure in locale scaricando i relativi file sulla propria macchina.% Il gruppo ha deciso di utilizzarlo in locale perché c'è il vantaggio di poter comunicare con un nodo client di ethereum eseguito in locale.
+\end{itemize}	
+

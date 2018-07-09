@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor amministratore
+rectangle UC4.7.9.11 {
+amministratore -- (UC4.7.9.11.1 - Inserimento del codice dell’esame)
+amministratore -- (UC4.7.9.11.10 - Visualizzazione errore relativo all’aggiunta di un esame non valido)
+amministratore -- (UC4.7.9.11.2 - Inserimento della descrizione dell’esame)
+amministratore -- (UC4.7.9.11.3 - Inserimento dell’intervallo di prenotazione per l’esame)
+amministratore -- (UC4.7.9.11.4 - Inserimento della data dell’esame)
+amministratore -- (UC4.7.9.11.5 - Inserimento della tipologia dell’esame)
+amministratore -- (UC4.7.9.11.6 - Inserimento del numero totale degli studenti iscritti all’esame)
+amministratore -- (UC4.7.9.11.7 - Inserimento del luogo dell’esame)
+amministratore -- (UC4.7.9.11.8 - Annullamento dell’aggiunta dell’esame)
+amministratore -- (UC4.7.9.11.9 - Conferma dell’aggiunta dell’esame)
+}
+@enduml

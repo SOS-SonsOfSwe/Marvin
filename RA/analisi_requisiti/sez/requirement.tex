@@ -1,0 +1,638 @@
+\newcounter{c}
+\newcommand{\taskF}[1]{
+	\refstepcounter{c}
+	\label{#1}
+}
+
+\newcounter{d}[c]
+\newcommand{\taskFF}[1]{
+	\refstepcounter{d}
+	\label{#1}
+}
+
+
+
+\section{Requisiti}
+\newcolumntype{H}{>{\centering\arraybackslash}m{7cm}}
+\subsection{Requisiti Funzionali}
+\normalsize
+\begin{longtable}{|c|H|c|}
+\hline
+\textbf{Id Requisito} & \textbf{Descrizione} & \textbf{Fonte}\\
+\hline
+\endhead
+%R0F1
+\taskF{L'utente non autenticato puo registrarsi}
+R0F\ref{L'utente non autenticato puo registrarsi} & L'utente non autenticato può registrarsi & Capitolato C6 \\ \hline 
+%R2F1.1
+\taskFF{L'utente non autenticato puo inserire il proprio nome}
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio nome} & L'utente non autenticato può inserire il proprio nome & Interno \\ \hline 
+%{R2F1.2}
+\taskFF{L'utente non autenticato puo inserire il proprio cognome}
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio cognome} & L'utente non autenticato può inserire il proprio cognome  & Interno \\ \hline 
+%{R2F1.3}
+\taskFF{L'utente non autenticato puo inserire la propria e-mail}
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire la propria e-mail} & L'utente non autenticato può inserire la propria e-mail & Interno \\ \hline 
+%{R2F1.4}
+\taskFF{L'utente non autenticato puo inserire il proprio codice fiscale}
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio codice fiscale} & L'utente non autenticato può inserire il proprio codice fiscale & Interno \\ \hline 
+%{R2F1.5}
+\taskFF{L'utente non autenticato puo inserire il proprio codice univoco}
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire il proprio codice univoco} & L'utente non autenticato può inserire il proprio codice univoco & Interno \\ \hline 
+%{R2F1.6}
+\taskFF{Il sistema identifica l'utente attraverso l'interfaccia Metamask}
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{Il sistema identifica l'utente attraverso l'interfaccia Metamask} & Il sistema identifica l'utente attraverso l'interfaccia Metamask & Interno \\ \hline 
+%{R2F1.7}
+\taskFF{L'utente non autenticato puo annullare la registrazione}
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo annullare la registrazione} & L'utente non autenticato può annullare la registrazione & Interno \\ \hline 
+%{R2F1.8}
+\taskFF{Il sistema deve mostrare un messaggio di errore nel caso di inserimenti mancanti o errati}
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{Il sistema deve mostrare un messaggio di errore nel caso di inserimenti mancanti o errati} & Il sistema deve mostrare un messaggio di errore nel caso di inserimenti mancanti o errati & Interno \\ \hline 
+%{R2F1.9}
+\taskFF{L'utente non autenticato puo confermare la registrazione}
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo confermare la registrazione} & L'utente non autenticato può confermare la registrazione & Interno \\ \hline 
+%{R2F1.10}
+\taskFF{L'utente non autenticato puo inserire la propria matricola}
+R2F\ref{L'utente non autenticato puo registrarsi}.\ref{L'utente non autenticato puo inserire la propria matricola} & L'utente non autenticato può inserire la propria matricola & Verbale 3 (28/03/2018) \\ \hline 
+
+
+
+
+
+
+%{R0F2}
+\taskF{L'utente non autenticato puo effettuare il login}
+R0F\ref{L'utente non autenticato puo effettuare il login} & L'utente non autenticato può effettuare il login & Capitolato C6 \\ \hline 
+%\hypertarget{R2F2.1}{R2F2.1} & Il sistema logga automaticamente l'utente & Interno \\ \hline
+
+%{R0F3}
+\taskF{L'universita e l'amministratore possono aggiungere un anno accademico}
+R0F\ref{L'universita e l'amministratore possono aggiungere un anno accademico} & L'università e l'amministratore possono aggiungere un anno accademico & Capitolato C6 \\ \hline 
+%{R2F3.2}
+\taskFF{L'universita e l'amministratore possono inserire la data d'inizio dell'anno accademico}
+R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono inserire la data d'inizio dell'anno accademico} & L'università e l'amministratore possono inserire la data d'inizio dell'anno accademico & Interno \\ \hline 
+%{R2F3.3}
+\taskFF{L'universita e l'amministratore possono inserire la data della fine dell'anno accademico}
+R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono inserire la data della fine dell'anno accademico} & L'università e l'amministratore possono inserire la data della fine dell'anno accademico & Interno \\ \hline
+%{R2F3.4}
+\taskFF{L'universita e l'amministratore possono annullare l'aggiunta dell'anno accademico}
+R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono annullare l'aggiunta dell'anno accademico} & L'università e l'amministratore possono annullare l'aggiunta dell'anno accademico & Interno \\ \hline 
+%{R2F3.5}
+\taskFF{L'universita e l'amministratore possono confermare l'aggiunta dell'anno accademico}
+R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono confermare l'aggiunta dell'anno accademico} & L'università e l'amministratore possono confermare l'aggiunta dell'anno accademico & Interno \\ \hline 
+%{R2F3.6}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un anno accademico}
+R2F\ref{L'universita e l'amministratore possono aggiungere un anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un anno accademico} & L'università e l'amministratore possono visualizzare un errore relativo all'aggiunta di un anno accademico & Interno \\ \hline 
+
+
+%R0F3.1
+\taskF{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}
+R0F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico} & L'università e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico & Verbale 3 (28/03/2018) \\ \hline 
+
+%{R2F3.1.8}
+\taskFF{L'universita e l'amministratore possono inserire il codice univoco del corso di laurea}
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire il codice univoco del corso di laurea} & L'università e l'amministratore possono inserire il codice univoco del corso di laurea & Interno \\ \hline
+
+%{R2F3.1.2}
+\taskFF{L'universita e l'amministratore possono inserire il nome del corso di laurea}
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire il nome del corso di laurea} & L'università e l'amministratore possono inserire il nome del corso di laurea & Interno \\ \hline 
+
+%{R2F3.1.9}
+\taskFF{L'universita e l'amministratore possono inserire la descrizione di un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire la descrizione di un corso di laurea} & L'università e l'amministratore possono inserire la descrizione di un corso di laurea & Interno \\ \hline 
+
+%{R2F3.1.10}
+\taskFF{L'universita e l'amministratore possono inserire la tipologia di un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono inserire la tipologia di un corso di laurea} & L'università e l'amministratore possono inserire la tipologia di un corso di laurea & Interno \\ \hline 
+
+%{R2F3.1.5}
+\taskFF{L'universita e l'amministratore possono annullare l'aggiunta del corso di laurea}
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono annullare l'aggiunta del corso di laurea} & L'università e l'amministratore possono annullare l'aggiunta del corso di laurea & Interno \\ \hline 
+
+%{R2F3.1.6}
+\taskFF{L'universita e l'amministratore possono confermare l'aggiunta del corso di laurea}
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono confermare l'aggiunta del corso di laurea} & L'università e l'amministratore possono confermare l'aggiunta del corso di laurea & Interno \\ \hline 
+
+%{R2F3.1.7}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono aggiungere un corso di laurea relativo ad uno specifico anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un corso di laurea} & L'università e l'amministratore possono visualizzare un errore relativo all'aggiunta di un corso di laurea & Interno \\ \hline 
+
+
+
+
+
+
+%{R0F3.1.1}
+\taskF{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}
+R0F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea} & L'università e l'amministratore possono aggiungere un'attività didattica associata ad uno specifico corso di laurea & Verbale 3 (28/03/2018) \\ \hline 
+
+%{R2F3.1.1.1}
+\taskFF{L'universita e l'amministratore possono inserire il codice univoco del corso relativo ad un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il codice univoco del corso relativo ad un'attivita didattica} & L'università e l'amministratore possono inserire il codice univoco del corso relativo ad un'attività didattica & Interno \\ \hline 
+
+%{R2F3.1.1.2}
+\taskFF{L'universita e l'amministratore possono inserire il nome di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il nome di un'attivita didattica} & L'università e l'amministratore possono inserire il nome di un'attività didattica & Interno \\ \hline 
+
+%{R2F3.1.1.3}
+\taskFF{L'universita e l'amministratore possono inserire la descrizione di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire la descrizione di un'attivita didattica} & L'università e l'amministratore possono inserire la descrizione di un'attività didattica & Interno \\ \hline
+ 
+%{R2F3.1.1.4}
+\taskFF{L'universita e l'amministratore possono inserire il professore associato ad un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il professore associato ad un'attivita didattica} & L'università e l'amministratore possono inserire il professore associato ad un'attività didattica & Interno \\ \hline 
+
+%{R2F3.1.1.5}
+\taskFF{L'universita e l'amministratore possono inserire i crediti di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire i crediti di un'attivita didattica} & L'università e l'amministratore possono inserire i crediti di un'attività didattica & Interno \\ \hline
+
+%{R2F3.1.1.6}
+\taskFF{L'universita e l'amministratore possono inserire il periodo di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono inserire il periodo di un'attivita didattica} & L'università e l'amministratore possono inserire il periodo di un'attività didattica & Interno \\ \hline
+ 
+ %{R2F3.1.1.7}
+\taskFF{L'universita e l'amministratore possono annullare l'aggiunta di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono annullare l'aggiunta di un'attivita didattica} & L'università e l'amministratore possono annullare l'aggiunta di un'attività didattica & Interno \\ \hline 
+
+%{R2F3.1.1.8}
+\taskFF{L'universita e l'amministratore possono confermare l'aggiunta di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono confermare l'aggiunta di un'attivita didattica} & L'università e l'amministratore possono confermare l'aggiunta di un'attività didattica & Interno \\ \hline
+ 
+ %{R2F3.1.1.9}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono aggiungere un'attivita didattica associata ad uno specifico corso di laurea}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un'attivita didattica} & L'università e l'amministratore possono visualizzare un errore relativo all'aggiunta di un'attività didattica & Interno \\ \hline 
+
+
+
+
+%{R0F3.1.1.10}
+\taskF{L'universita e l'amministratore possono aggiungere un esame}
+R0F\ref{L'universita e l'amministratore possono aggiungere un esame} & L'università e l'amministratore possono aggiungere un esame & Capitolato C6 \\ \hline 
+
+%{R2F3.1.1.10.1}
+\taskFF{L'universita e l'amministratore possono inserire il codice univoco di un esame}
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire il codice univoco di un esame} & L'università e l'amministratore possono inserire il codice univoco di un esame & Interno \\ \hline 
+
+%{R2F3.1.1.10.2}
+\taskFF{L'universita e l'amministratore possono inserire la descrizione di un esame}
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire la descrizione di un esame} & L'università e l'amministratore possono inserire la descrizione di un esame & Interno \\ \hline 
+
+%{R2F3.1.1.10.3}
+\taskFF{L'universita e l'amministratore possono inserire l'intervallo di prenotazione per un esame}
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire l'intervallo di prenotazione per un esame} & L'università e l'amministratore possono inserire l'intervallo di prenotazione per un esame & Interno \\ \hline 
+
+%{R2F3.1.1.10.4}
+\taskFF{L'universita e l'amministratore possono inserire la data di un esame}
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire la data di un esame} & L'università e l'amministratore possono inserire la data di un esame & Interno \\ \hline 
+
+%{R2F3.1.1.10.5}
+\taskFF{L'universita e l'amministratore possono inserire la tipologia di un esame}
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire la tipologia di un esame} & L'università e l'amministratore possono inserire la tipologia di un esame & Interno \\ \hline
+
+% {R2F3.1.1.10.6}
+\taskFF{L'universita e l'amministratore possono inserire il luogo dove si terra un esame}
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono inserire il luogo dove si terra un esame} & L'università e l'amministratore possono inserire il luogo dove si terrà un esame & Interno \\ \hline 
+
+%{R2F3.1.1.10.7}
+\taskFF{L'universita e l'amministratore possono annullare l'aggiunta di un esame}
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono annullare l'aggiunta di un esame} & L'università e l'amministratore possono annullare l'aggiunta di un esame & Interno \\ \hline 
+
+%{R2F3.1.1.10.8}
+\taskFF{L'universita e l'amministratore possono confermare l'aggiunta di un esame}
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono confermare l'aggiunta di un esame} & L'università e l'amministratore possono confermare l'aggiunta di un esame & Interno \\ \hline 
+
+%{R2F3.1.1.10.9}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un esame}
+R2F\ref{L'universita e l'amministratore possono aggiungere un esame}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'aggiunta di un esame} & L'università e l'amministratore possono visualizzare un errore relativo all'aggiunta di un esame & Interno \\ \hline 
+
+
+
+
+
+
+%{R2F14}
+\taskF{L'universita e l'amministratore possono modificare un anno accademico}
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico} & L'università e l'amministratore possono modificare un anno accademico & Interno \\ \hline 
+
+%{R2F14.1}
+\taskFF{L'universita e l'amministratore possono modificare l'inizio di un anno accademico}
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono modificare l'inizio di un anno accademico} & L'università e l'amministratore possono modificare l'inizio di un anno accademico & Interno \\ \hline 
+
+%{R2F14.2}
+\taskFF{L'universita e l'amministratore possono modificare la fine di un anno accademico}
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono modificare la fine di un anno accademico} & L'università e l'amministratore possono modificare la fine di un anno accademico & Interno \\ \hline 
+
+%{R2F14.3}
+\taskFF{L'universita e l'amministratore possono annullare la modifica di un anno accademico}
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono annullare la modifica di un anno accademico} & L'università e l'amministratore possono annullare la modifica di un anno accademico & Interno \\ \hline 
+
+%{R2F14.4}
+\taskFF{L'universita e l'amministratore possono confermare la modifica di un anno accademico}
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono confermare la modifica di un anno accademico} & L'università e l'amministratore possono confermare la modifica di un anno accademico & Interno \\ \hline 
+
+%{R2F14.4.1}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un anno accademico}
+R2F\ref{L'universita e l'amministratore possono modificare un anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un anno accademico} & L'università e l'amministratore possono visualizzare un errore relativo alla modifica di un anno accademico & Interno \\ \hline 
+
+
+
+
+%{R2F14.5}
+\taskF{L'universita e l'amministratore possono modificare un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea} & L'università e l'amministratore possono modificare un corso di laurea & Interno \\ \hline 
+
+%{R2F14.5.1}
+\taskFF{L'universita e l'amministratore possono modificare il codice univoco di un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare il codice univoco di un corso di laurea} & L'università e l'amministratore possono modificare il codice univoco di un corso di laurea & Interno \\ \hline 
+
+%{R2F14.5.2}
+\taskFF{L'universita e l'amministratore possono modificare il nome di un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare il nome di un corso di laurea} & L'università e l'amministratore possono modificare il nome di un corso di laurea & Interno \\ \hline 
+
+%{R2F14.5.3}
+\taskFF{L'universita e l'amministratore possono modificare la descrizione di un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare la descrizione di un corso di laurea} & L'università e l'amministratore possono modificare la descrizione di un corso di laurea & Interno \\ \hline 
+
+%{R2F14.5.4}
+\taskFF{L'universita e l'amministratore possono modificare la tipologia di un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono modificare la tipologia di un corso di laurea} & L'università e l'amministratore possono modificare la tipologia di un corso di laurea & Interno \\ \hline 
+
+%{R2F14.5.5}
+\taskFF{L'universita e l'amministratore possono annullare la modifica di un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono annullare la modifica di un corso di laurea} & L'università e l'amministratore possono annullare la modifica di un corso di laurea & Interno \\ \hline 
+
+%{R2F14.5.6}
+\taskFF{L'universita e l'amministratore possono confermare la modifica di un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono confermare la modifica di un corso di laurea} & L'università e l'amministratore possono confermare la modifica di un corso di laurea & Interno \\ \hline 
+
+%{R2F14.5.11}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono modificare un corso di laurea}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un corso di laurea} & L'università e l'amministratore possono visualizzare un errore relativo alla modifica di un corso di laurea & Interno \\ \hline 
+
+
+
+%{R2F14.5.9}
+\taskF{L'universita e l'amministratore possono modificare un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica} & L'università e l'amministratore possono modificare un'attività didattica & Interno \\ \hline 
+
+%{R2F14.5.9.1}
+\taskFF{L'universita e l'amministratore possono modificare il codice del corso di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il codice del corso di un'attivita didattica} & L'università e l'amministratore possono modificare il codice del corso di un'attività didattica & Interno \\ \hline 
+
+%{R2F14.5.9.2}
+\taskFF{L'universita e l'amministratore possono modificare il nome di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il nome di un'attivita didattica} & L'università e l'amministratore possono modificare il nome di un'attività didattica & Interno \\ \hline 
+
+%{R2F14.5.9.3}
+\taskFF{ L'universita e l'amministratore possono modificare la descrizione di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{ L'universita e l'amministratore possono modificare la descrizione di un'attivita didattica} & L'università e l'amministratore possono modificare la descrizione di un'attività didattica & Interno \\ \hline 
+
+%{R2F14.5.9.4}
+\taskFF{L'universita e l'amministratore possono modificare il professore associato ad un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il professore associato ad un'attivita didattica} & L'università e l'amministratore possono modificare il professore associato ad un'attività didattica & Interno \\ \hline 
+
+%{R2F14.5.9.5}
+\taskFF{L'universita e l'amministratore possono modificare i crediti di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare i crediti di un'attivita didattica} & L'università e l'amministratore possono modificare i crediti di un'attività didattica & Interno \\ \hline 
+
+%{R2F14.5.9.6}
+\taskFF{L'universita e l'amministratore possono modificare il periodo di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono modificare il periodo di un'attivita didattica} & L'università e l'amministratore possono modificare il periodo di un'attività didattica & Interno \\ \hline 
+
+%{R2F14.5.9.8}
+\taskFF{L'universita e l'amministratore possono annullare la modifica ad un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono annullare la modifica ad un'attivita didattica} & L'università e l'amministratore possono annullare la modifica ad un'attività didattica & Interno \\ \hline 
+
+%{R2F14.5.9.9}
+\taskFF{L'universita e l'amministratore possono confermare la modifica di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono confermare la modifica di un'attivita didattica} & L'università e l'amministratore possono confermare la modifica di un'attività didattica & Interno \\ \hline
+
+%{R2F14.5.10}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono modificare un'attivita didattica}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un'attivita didattica} & L'università e l'amministratore possono visualizzare un errore relativo alla modifica di un'attività didattica & Interno \\ \hline 
+
+
+
+%{R2F14.5.9.12}
+\taskF{L'universita e l'amministratore possono modificare un esame}
+R2F\ref{L'universita e l'amministratore possono modificare un esame} & L'università e l'amministratore possono modificare un esame & Interno \\ \hline 
+
+%{R2F14.5.9.12.1}
+\taskFF{L'universita e l'amministratore possono modificare il codice di un esame}
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare il codice di un esame} & L'università e l'amministratore possono modificare il codice di un esame & Interno \\ \hline 
+
+%{R2F14.5.9.12.2}
+\taskFF{L'universita e l'amministratore possono modificare la descrizione di un esame}
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare la descrizione di un esame} & L'università e l'amministratore possono modificare la descrizione di un esame & Interno \\ \hline 
+
+
+%{R2F14.5.9.12.3}
+\taskFF{L'universita e l'amministratore possono modificare l'intervallo di prenotazione per un esame}
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare l'intervallo di prenotazione per un esame} & L'università e l'amministratore possono modificare l'intervallo di prenotazione per un esame & Interno \\ \hline 
+
+
+
+%{R2F14.5.9.12.4}
+\taskFF{L'universita e l'amministratore possono modificare la data di un esame}
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare la data di un esame} & L'università e l'amministratore possono modificare la data di un esame & Interno \\ \hline 
+
+%{R2F14.5.9.12.5}
+\taskFF{L'universita e l'amministratore possono modificare la tipologia di un esame}
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare la tipologia di un esame} & L'università e l'amministratore possono modificare la tipologia di un esame & Interno \\ \hline 
+
+%{R2F14.5.9.12.6}
+\taskFF{L'universita e l'amministratore possono modificare il luogo dove si tiene l'esame}
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono modificare il luogo dove si tiene l'esame} & L'università e l'amministratore possono modificare il luogo dove si tiene l'esame & Interno \\ \hline 
+
+%{R2F14.5.9.12.7}
+\taskFF{L'universita e l'amministratore possono annullare la modifica ad un esame}
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono annullare la modifica ad un esame} & L'università e l'amministratore possono annullare la modifica ad un esame & Interno \\ \hline 
+
+%{R2F14.5.9.12.8}
+\taskFF{L'universita e l'amministratore possono confermare la modifica ad un esame}
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono confermare la modifica ad un esame} & L'università e l'amministratore possono confermare la modifica ad un esame & Interno \\ \hline 
+
+%{R2F14.5.9.12.9}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un esame}
+R2F\ref{L'universita e l'amministratore possono modificare un esame}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo alla modifica di un esame} & L'università e l'amministratore possono visualizzare un errore relativo alla modifica di un esame & Interno \\ \hline 
+
+
+
+%{R2F15}
+\taskF{L'universita e l'amministratore possono eliminare un anno accademico}
+R2F\ref{L'universita e l'amministratore possono eliminare un anno accademico} & L'università e l'amministratore possono eliminare un anno accademico & Interno \\ \hline 
+%{R2F10.1}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un anno accademico}
+R2F\ref{L'universita e l'amministratore possono eliminare un anno accademico}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un anno accademico} & L'università e l'amministratore possono visualizzare un errore relativo all'eliminazione di un anno accademico & Interno \\ \hline 
+
+%{R2F14.6}
+\taskF{L'universita e l'amministratore possono eliminare un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono eliminare un corso di laurea} & L'università e l'amministratore possono eliminare un corso di laurea & Interno \\ \hline 
+
+%{R2F14.7}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un corso di laurea}
+R2F\ref{L'universita e l'amministratore possono eliminare un corso di laurea}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un corso di laurea} & L'università e l'amministratore possono visualizzare un errore relativo all'eliminazione di un corso di laurea & Interno \\ \hline 
+
+%{R2F14.5.7}
+\taskF{L'universita e l'amministratore possono eliminare un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono eliminare un'attivita didattica} & L'università e l'amministratore possono eliminare un'attività didattica & Interno \\ \hline 
+
+%{R2F14.5.8}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono eliminare un'attivita didattica}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un'attivita didattica} & L'università e l'amministratore possono visualizzare un errore relativo all'eliminazione di un'attività didattica & Interno \\ \hline 
+
+%{R2F14.5.9.11}
+\taskF{L'universita e l'amministratore possono eliminare un esame associato ad un'attivita didattica}
+R2F\ref{L'universita e l'amministratore possono eliminare un esame associato ad un'attivita didattica} & L'università e l'amministratore possono eliminare un esame associato ad un'attività didattica & Interno \\ \hline 
+
+%{R2F14.5.9.10}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un esame}
+R2F\ref{L'universita e l'amministratore possono eliminare un esame associato ad un'attivita didattica}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'eliminazione di un esame} & L'università e l'amministratore possono visualizzare un errore relativo all'eliminazione di un esame & Interno \\ \hline 
+
+ 
+
+%R0F4
+\taskF{L'universita e l'amministratore possono inserire un professore associato ad uno specifico esame}
+R0F\ref{L'universita e l'amministratore possono inserire un professore associato ad uno specifico esame} & L'università e l'amministratore possono inserire un professore associato ad uno specifico esame & Capitolato C6 \\ \hline 
+
+%R0F5
+\taskF{Lo studente puo iscriversi ad un esame}
+R0F\ref{Lo studente puo iscriversi ad un esame} & Lo studente può iscriversi ad un esame & Capitolato C6 \\ \hline 
+
+%R0F5.1
+\taskFF{Lo studente puo confermare l'iscrizione ad un esame}
+R2F\ref{Lo studente puo iscriversi ad un esame}.\ref{Lo studente puo confermare l'iscrizione ad un esame} & Lo studente può confermare l'iscrizione ad un esame & Interno \\ \hline 
+
+%R2F5.2
+\taskFF{Lo studente puo annullare l'azione di iscrizione ad un esame}
+R2F\ref{Lo studente puo iscriversi ad un esame}.\ref{Lo studente puo annullare l'azione di iscrizione ad un esame} & Lo studente può annullare l'azione di iscrizione ad un esame & Interno \\ \hline 
+
+%R0F6
+%\taskF{Lo studente puo visualizzare la lista dei suoi esami registrati}
+%R0F\ref{Lo studente puo visualizzare la lista dei suoi esami registrati} & Lo studente può visualizzare la lista dei suoi esami registrati & %Capitolato C6 \\ \hline 
+
+%R0F7
+\taskF{Il professore puo vedere la lista degli esami che sono a lui associati}
+R0F\ref{Il professore puo vedere la lista degli esami che sono a lui associati} & Il professore può vedere la lista degli esami che sono a lui associati & Capitolato C6 \\ \hline 
+
+%R0F8}
+\taskF{Il professore puo visualizzare la lista di studenti iscritti al suo esame}
+R0F\ref{Il professore puo visualizzare la lista di studenti iscritti al suo esame} & Il professore può visualizzare la lista di studenti iscritti al suo esame & Capitolato C6 \\ \hline 
+
+%{R0F9}
+%\taskF{Il professore puo inserire una valutazione ad un determinato studente in merito ad uno specifico esame}
+%R0F\ref{Il professore puo inserire una valutazione ad un determinato studente in merito ad uno specifico esame} & Il %professore può inserire una valutazione ad un determinato studente in merito ad uno specifico esame & Capitolato C6 \\ %\hline 
+
+%{R0F10}
+\taskF{Il sistema deve far visualizzare per ogni operazione il costo ad esso associato}
+R0F\ref{Il sistema deve far visualizzare per ogni operazione il costo ad esso associato} & Il sistema deve far visualizzare per ogni operazione il costo ad esso associato & Capitolato C6 \\ \hline 
+
+
+
+%R2F11
+\taskF{Lo studente puo eliminare l'iscrizione ad un esame}
+R2F\ref{Lo studente puo eliminare l'iscrizione ad un esame} & Lo studente può eliminare l'iscrizione ad un esame & Interno \\ \hline 
+
+%{R2F11.1}
+\taskFF{Lo studente puo annullare l'eliminazione dell'iscrizione ad un esame}
+R2F\ref{Lo studente puo eliminare l'iscrizione ad un esame}.\ref{Lo studente puo annullare l'eliminazione dell'iscrizione ad un esame} & Lo studente può annullare l'eliminazione dell'iscrizione ad un esame & Interno \\ \hline 
+
+%{R2F11.2}
+\taskFF{Lo studente puo confermare l'eliminazione dell'iscrizione ad un esame}
+R2F\ref{Lo studente puo eliminare l'iscrizione ad un esame}.\ref{Lo studente puo confermare l'eliminazione dell'iscrizione ad un esame} & Lo studente può confermare l'eliminazione dell'iscrizione ad un esame
+& Interno \\ \hline 
+
+%{R2F12}
+\taskF{Lo studente puo rifiutare il voto di un esame, se non lo fa dopo 8 giorni il voto viene automaticamente accettato dal sistema}
+R2F\ref{Lo studente puo rifiutare il voto di un esame, se non lo fa dopo 8 giorni il voto viene automaticamente accettato dal sistema} & Lo studente può rifiutare il voto di un esame, se non lo fa dopo 8 giorni il voto viene automaticamente accettato dal sistema & Interno \\ \hline 
+
+
+
+
+
+
+%{R2F13}
+\taskF{Il professore puo modificare gli esami a cui e associato}
+R2F\ref{Il professore puo modificare gli esami a cui e associato} & Il professore può modificare gli esami a cui è associato & Interno \\ \hline 
+
+%{R2F13.1}
+\taskFF{Il professore puo modificare l'intervallo di prenotazione di un esame}
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo modificare l'intervallo di prenotazione di un esame} & Il professore può modificare l'intervallo di prenotazione di un esame & Interno \\ \hline 
+
+%{R2F13.2}
+\taskFF{Il professore puo modificare la data di un esame a cui e associato}
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo modificare la data di un esame a cui e associato} & Il professore può modificare la data di un esame a cui è associato  & Interno \\ \hline 
+
+%{R2F13.3}
+\taskFF{Il professore puo modificare il luogo di un esame a cui e associato}
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo modificare il luogo di un esame a cui e associato} & Il professore può modificare il luogo di un esame a cui è associato & Interno \\ \hline 
+
+%{R2F13.4}
+\taskFF{Il professore puo annullare la modifica di un esame a cui e associato}
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo annullare la modifica di un esame a cui e associato} & Il professore può annullare la modifica di un esame a cui è associato & Interno \\ \hline 
+
+%{R2F13.5}
+\taskFF{Il professore puo confermare la modifica apportata ad un esame a cui e associato}
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo confermare la modifica apportata ad un esame a cui e associato} & Il professore può confermare la modifica apportata ad un esame a cui è associato & Interno \\ \hline 
+
+%{R2F14.5.9.13}
+\taskFF{Il professore puo visualizzare un errore relativo alla modifica di un esame}
+R2F\ref{Il professore puo modificare gli esami a cui e associato}.\ref{Il professore puo visualizzare un errore relativo alla modifica di un esame} & Il professore può visualizzare un errore relativo alla modifica di un esame & Interno \\ \hline 
+
+
+
+
+%R0F16
+\taskF{Il professore puo registrare il voto relativo ad un esame di uno studente}
+R0F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente} & Il professore può registrare il voto relativo ad un esame di uno studente & Interno \\ \hline 
+
+%{R2F16.1}
+\taskFF{Il professore puo annullare la registrazione del voto}
+R2F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}.\ref{Il professore puo annullare la registrazione del voto} & Il professore può annullare la registrazione del voto  & Interno \\ \hline 
+
+%{R2F16.2}
+\taskFF{Il professore puo confermare il voto}
+R2F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}.\ref{Il professore puo confermare il voto} & Il professore può confermare il voto  & Interno \\ \hline 
+
+%{R2F16.3}
+\taskFF{Il professore, in caso di inserimento di un voto con un formato errato, visualizza un messaggio d'errore}
+R2F\ref{Il professore puo registrare il voto relativo ad un esame di uno studente}.\ref{Il professore, in caso di inserimento di un voto con un formato errato, visualizza un messaggio d'errore} & Il professore, in caso di inserimento di un voto con un formato errato, visualizza un messaggio d'errore & Interno \\ \hline 
+
+
+
+
+%{R0F17}
+\taskF{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}
+R0F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema} & L'università e l'amministratore possono inserire un nuovo utente nel sistema & verbale\_I\_3\_2018.04.05 \\ \hline 
+
+%{R2F17.1}
+\taskFF{L'universita e l'amministratore possono inserire la matricola relativa ad un utente}
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la matricola relativa ad un utente} & L'università e l'amministratore possono inserire la matricola relativa ad un utente & verbale\_I\_3\_2018.04.05 \\ \hline 
+
+%{R2F17.2}
+\taskFF{L'universita e l'amministratore possono inserire il codice univoco relativo ad un utente}
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire il codice univoco relativo ad un utente} & L'università e l'amministratore possono inserire il codice univoco relativo ad un utente & verbale\_I\_3\_2018.04.05 \\ \hline 
+
+%{R2F17.3}
+\taskFF{L'universita e l'amministratore possono inserire la tipologia relativa ad un utente}
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la tipologia relativa ad un utente} & L'università e l'amministratore possono inserire la tipologia relativa ad un utente & verbale\_I\_3\_2018.04.05 \\ \hline 
+
+%{R2F17.4}
+\taskFF{L'universita e l'amministratore possono confermare l'inserimento di un nuovo utente nel sistema}
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono confermare l'inserimento di un nuovo utente nel sistema} & L'università e l'amministratore possono confermare l'inserimento di un nuovo utente nel sistema & verbale\_I\_3\_2018.04.05 \\ \hline 
+
+%{R2F17.5}
+\taskFF{L'universita e l'amministratore possono annullare l'inserimento di un nuovo utente nel sistema}
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono annullare l'inserimento di un nuovo utente nel sistema} & L'università e l'amministratore possono annullare l'inserimento di un nuovo utente nel sistema & verbale\_I\_3\_2018.04.05 \\ \hline 
+
+%{R2F17.6}
+\taskFF{L'universita e l'amministratore possono visualizzare un errore relativo all'inserimento di un utente nel sistema}
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono visualizzare un errore relativo all'inserimento di un utente nel sistema} & L'università e l'amministratore possono visualizzare un errore relativo all'inserimento di un utente nel sistema & verbale\_I\_3\_2018.04.05 \\ \hline 
+
+%{R2F17.7}
+\taskFF{L'universita e l'amministratore possono inserire la tipologia studente}
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la tipologia studente} & L'università e l'amministratore possono inserire la tipologia studente & Interno \\ \hline 
+
+%{R2F17.8}
+\taskFF{L'universita e l'amministratore possono inserire la tipologia professore}
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita e l'amministratore possono inserire la tipologia professore} & L'università e l'amministratore possono inserire la tipologia professore & Interno \\ \hline 
+
+%{R2F17.9}
+\taskFF{L'universita puo inserire la tipologia amministratore}
+R2F\ref{L'universita e l'amministratore possono inserire un nuovo utente nel sistema}.\ref{L'universita puo inserire la tipologia amministratore} & L'università può inserire la tipologia amministratore & Interno \\ \hline 
+
+
+
+%{R2F18}
+\taskF{L'universita e l'amministratore possono rimuovere un utente dal sistema}
+R2F\ref{L'universita e l'amministratore possono rimuovere un utente dal sistema} & L'università e l'amministratore possono rimuovere un utente dal sistema & verbale\_I\_3\_2018.04.05 \\ \hline 
+
+%{R2F18.1}
+\taskFF{L'universita e l'amministratore possono confermare l'eliminazione di un utente dal sistema}
+R2F\ref{L'universita e l'amministratore possono rimuovere un utente dal sistema}.\ref{L'universita e l'amministratore possono confermare l'eliminazione di un utente dal sistema} & L'università e l'amministratore possono confermare l'eliminazione di un utente dal sistema & verbale\_I\_3\_2018.04.05 \\ \hline 
+
+%{R2F18.2}
+\taskFF{L'universita e l'amministratore possono annullare l'eliminazione di un utente dal sistema}
+R2F\ref{L'universita e l'amministratore possono rimuovere un utente dal sistema}.\ref{L'universita e l'amministratore possono annullare l'eliminazione di un utente dal sistema} & L'università e l'amministratore possono annullare l'eliminazione di un utente dal sistema & verbale\_I\_3\_2018.04.05 \\ \hline 
+
+
+%R0F19
+\taskF{Lo studente puo visualizzare il suo libretto}
+R0F\ref{Lo studente puo visualizzare il suo libretto} & Lo studente può visualizzare il suo libretto & Capitolato C6 \\ \hline
+
+
+\caption[Requisiti Funzionali]{Requisiti Funzionali}
+\label{tabella:req0}
+\end{longtable}
+\clearpage
+
+
+
+\newcounter{e}
+\newcommand{\taskV}[1]{
+	\refstepcounter{e}
+	\label{#1}
+}
+
+
+
+
+\newcolumntype{H}{>{\centering\arraybackslash}m{7cm}}
+\subsection{Requisiti Di Vincolo}
+\normalsize
+\begin{longtable}{|c|H|c|}
+\hline
+\textbf{Id Requisito} & \textbf{Descrizione} & \textbf{Fonte}\\
+\hline
+\endhead
+
+%R0V1
+\taskV{Il sistema deve essere sviluppato usando JavaScript 8 edizione  (ES8)}
+R0V\ref{Il sistema deve essere sviluppato usando JavaScript 8 edizione  (ES8)} & Il sistema deve essere sviluppato usando JavaScript 8\^{} edizione  (ES8) & Capitolato C6 \\ \hline 
+
+%{R0V2}
+\taskV{Devono essere ridotte al minimo le callback}
+R0V\ref{Devono essere ridotte al minimo le callback} & Devono essere ridotte al minimo le callback & Capitolato C6 \\ \hline 
+
+%{R0V3}
+
+%\hypertarget{R0V5}{R0V5} & Devono essere usate le linee guida 12 Factors App & Capitolato C6 \\ \hline 
+
+%{R0V4}
+\taskV{Il sistema deve essere sviluppato usando i framework React/Redux}
+R0V\ref{Il sistema deve essere sviluppato usando i framework React/Redux} & Il sistema deve essere sviluppato usando i framework React/Redux & Capitolato C6 \\ \hline
+
+
+\taskV{Il sistema puo utilizzare dei database off-chain come IPFS o Swarm}
+R2V\ref{Il sistema puo utilizzare dei database off-chain come IPFS o Swarm} & Il sistema può utilizzare dei database off-chain come IPFS o Swarm & Interno \\ \hline
+
+%{R1V7}
+\taskV{L'uso di SCSS e consigliato}
+R1V\ref{L'uso di SCSS e consigliato} & L'uso di SCSS è consigliato & Capitolato C6 \\ \hline 
+
+\taskV{Il sistema deve essere compatibile con il browser Google Chrome versione 60 e future}
+R0V\ref{Il sistema deve essere compatibile con il browser Google Chrome versione 60 e future} & Il sistema deve essere compatibile con il browser Google Chrome versione 60 e future & Interno \\ \hline
+
+\taskV{Il sistema deve essere compatibile con il browser Mozilla Firefox versione 50 e future}
+R2V\ref{Il sistema deve essere compatibile con il browser Mozilla Firefox versione 50 e future} & Il sistema deve essere compatibile con il browser Mozilla Firefox versione 50 e future & Interno \\ \hline
+\caption[Requisiti Di Vincolo]{Requisiti Di Vincolo}
+\label{tabella:req3}
+\end{longtable}
+\clearpage
+
+\subsection{Requisiti Di Qualità}
+\normalsize
+\begin{longtable}{|c|H|c|}
+	\hline
+	\textbf{Id Requisito} & \textbf{Descrizione} & \textbf{Fonte}\\
+	\hline
+	\endhead
+	\hypertarget{R0Q1}{R0Q1} & Devono essere usate le linee guida 12 Factors App & Capitolato C6 \\ \hline 
+	\hypertarget{R0Q2}{R0Q2} & Deve essere utilizzato lo stile guida JavaScript di Airbnb e rinforzato usando ESLint & Capitolato C6 \\ \hline
+	\hypertarget{R0Q3}{R0Q3} & Deve essere fornito il manuale utente in lingua inglese & Capitolato C6 \\ \hline
+	\caption[Requisiti Di Qualità]{Requisiti Di Qualità}
+	\label{tabella:req3}
+\end{longtable}
+\clearpage
+
+

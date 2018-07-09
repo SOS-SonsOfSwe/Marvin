@@ -1,0 +1,42 @@
+%generare il pdf con il comando: pdflatex main.tex
+\documentclass[a4paper, oneside, openany, dvipsnames, table]{article}
+\usepackage{../template/sos}
+\usepackage{eurosym}
+\usepackage{float}
+\definecolor{bluSOS}{RGB}{48, 84, 150}
+\definecolor{greySOS}{RGB}{209, 222, 223}
+\input{comandi.tex}
+
+
+
+\begin{document}
+\copertina{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%SOMMARIO
+\input{sez/RegistroModifiche.tex}
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PARAGRAFI
+\hypersetup{linkcolor=bluSOS}
+\input{sez/Introduzione.tex}
+\input{sez/AnalisiDeiRischi.tex}
+\input{sez/Pianificazione.tex}
+\input{sez/Preventivo.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix 
+\input{sez/AttualizzazioneRischi.tex}
+\pagebreak
+\input{sez/ConsuntivoPeriodo.tex}
+\pagebreak
+\input{sez/PreventivoFinire.tex}
+\pagebreak
+\input{sez/Organigramma.tex}
+\pagebreak
+
+\end{document}

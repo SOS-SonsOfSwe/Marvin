@@ -1,0 +1,14 @@
+353
+- Fare attenzione allo scope dei nostri requisiti. Se troppo vasto, suddividere.
+- Nei 353 faceva notare l'impossibilità di iscrivere due studenti con lo stesso nome. Noi abbiamo anche il CF, giusto?
+- Vardanega richiede - evidentemente - il distinguo tra Amministratore e Università; sarà una cosa da chiarire tra di noi e con il proponente.
+- Dovremo fare attenzione che i requisiti funzionali siano coperti da più casi d'uso, altrimenti incorriamo nella stessa osservazione che V ha fatto a loro.
+
+NOVE
+- Ricordiamoci la sezione "Scopo del prodotto".
+- Le diapositive del corso devono essere riferimenti informativi, non normativi.
+- Che relazioni hanno fra di loro i nostri attori?
+- Abbiamo attori principali e attori secondari? A me (Mawanda) non sembra.
+- Metamask come attore principale: a me non sembra così presente, se non nella fase di login. E' possibile che sia stato l'errore che hanno commesso, quando parla di UCS1.1?
+- Dividere i requisiti per tipologia.
+
