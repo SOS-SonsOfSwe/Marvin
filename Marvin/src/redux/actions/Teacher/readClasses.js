@@ -80,7 +80,7 @@ export function readClassesFromDatabase() {
 
                 // console.error(web3.toUtf8(result[0]))
 
-                if(web3.toUtf8(result[0]) === '') {
+                if(result.length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
                   //   // console.log('result[0] : ' + web3.toHex(result[0]))

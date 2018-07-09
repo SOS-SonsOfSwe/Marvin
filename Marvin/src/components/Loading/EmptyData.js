@@ -12,7 +12,7 @@ export default class EmptyData extends React.Component {
                 <div className="pure-g">
                     {/* {console.log('Inside LoadingData page')} */}
                     {/* <img src={loadingGif} alt='loading gif' className='loading_gif' /> */}
-                    <h1 className="top_message">You do not have data: add your own!</h1>
+                    <h1 className="top_message">You do not have any data.</h1>
                 </div>
             </main>
         )
