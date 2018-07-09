@@ -14,8 +14,8 @@ install:
   - npm install ganache-cli
   - npm install
 script:
-  - chmod +x startBlockchain.ps1
-  - ./startBlockchain.ps1 > /dev/null &
+  - chmod +x startBlockchain.bat
+  - ./startBlockchain.bat > /dev/null &
   - sleep 5
   - truffle compile
   - truffle migrate
