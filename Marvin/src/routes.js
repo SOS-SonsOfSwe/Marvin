@@ -23,11 +23,11 @@ import ExamsTeacherList from './components/Profile/Teacher/ExamsTeacherList'
 import ExamsStudentList from './components/Profile/Student/ExamsStudentList'
 import SchoolRecords from './components/Profile/Student/SchoolRecords'
 import InsertAcademicYearContainer from './containers/Profile/Admin/AcademicYears/InsertAcademicYearContainer'
-import ModifyAcademicYear from './components/Profile/Admin/AcademicYears/ModifyAcademicYear'
+// import ModifyAcademicYear from './components/Profile/Admin/AcademicYears/ModifyAcademicYear'
 import DeleteAcademicYear from './components/Profile/Admin/AcademicYears/DeleteAcademicYear'
 import InsertDegree from './components/Profile/Admin/Degrees/InsertDegree'
 import DeleteDegree from './components/Profile/Admin/Degrees/DeleteDegree'
-import ModifyDegree from './components/Profile/Admin/Degrees/ModifyDegree';
+// import ModifyDegree from './components/Profile/Admin/Degrees/ModifyDegree';
 import InsertClass from './components/Profile/Admin/Classes/InsertClass'
 import InsertExam from './components/Profile/Admin/Classes/InsertExam'
 import ModifyClass from './components/Profile/Admin/Classes/ModifyClass'
@@ -46,7 +46,7 @@ const Routes = (props, store, history) => (
             <Route path="academic-years">
                 <IndexRoute component={AdminIsAuthenticated(AcademicYearsContainer)} />
                 <Route path="insert-academic-year" component={AdminIsAuthenticated(InsertAcademicYearContainer)} />
-                <Route path="modify-academic-year" component={AdminIsAuthenticated(ModifyAcademicYear)} />
+                {/* <Route path="modify-academic-year" component={AdminIsAuthenticated(ModifyAcademicYear)} /> */}
                 <Route path="delete-academic-year" component={AdminIsAuthenticated(DeleteAcademicYear)} />
                 <Route path="insert-degree" component={AdminIsAuthenticated(InsertDegree)} />
             </Route>
@@ -54,7 +54,7 @@ const Routes = (props, store, history) => (
             <Route path="degrees">
                 <IndexRoute component={AdminIsAuthenticated(DegreesContainer)} />
                 <Route path="insert-degree" component={AdminIsAuthenticated(InsertDegree)} />
-                <Route path="modify-degree" component={AdminIsAuthenticated(ModifyDegree)} />
+                {/* <Route path="modify-degree" component={AdminIsAuthenticated(ModifyDegree)} /> */}
                 <Route path="delete-degree" component={AdminIsAuthenticated(DeleteDegree)} />
                 <Route path="insert-class" component={AdminIsAuthenticated(InsertClass)} />
             </Route>

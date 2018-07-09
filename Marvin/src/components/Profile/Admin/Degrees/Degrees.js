@@ -27,9 +27,6 @@ const Row = ({ year, degreeUnicode, degreeData }) => (
             }}> Insert Class</Link>
         </td>
         <td>
-            <button className="modify-link">
-                <Link to="/profile/degrees/modify-degree">Modify</Link>
-            </button>
             <button className="delete-link">
                 <Link to={{
                     pathname: "/profile/degrees/delete-degree",

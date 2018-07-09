@@ -23,15 +23,6 @@ const Row = ({ examUnicode, load }) => (
         <td>{load && load.place}</td>
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
-        {/* <td>
-            <button className="delete-link">
-                <Link to={{
-                    pathname: "/profile/exams/modify-teacher",
-                    state: { examUnicode: examUnicode }
-                }}>
-                    Modify teacher </Link>
-            </button>
-        </td> */}
     </tr>
 );
 

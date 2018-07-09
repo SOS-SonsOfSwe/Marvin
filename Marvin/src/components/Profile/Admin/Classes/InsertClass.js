@@ -77,7 +77,6 @@ class InsertClass extends React.Component {
                             <label>Teacher</label>
                             <input type="text" value={this.state.teacher} onChange={this.handleChange4} placeholder="Insert a teacher" />
                             <br />
-                            <Link to="/profile/exams/insert-exam">Insert an exam</Link>
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
                                 <button className="button_cancel">

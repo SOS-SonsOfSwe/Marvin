@@ -13,9 +13,6 @@ const Row = ({ year }) => (
             }} > Insert degree</Link>
         </td>
         <td>
-            <button className="modify-link">
-                <Link to="/profile/academic-years/modify-academic-year">Modify</Link>
-            </button>
             <button className="delete-link">
                 <Link to={{
                     pathname: "/profile/academic-years/delete-academic-year",
