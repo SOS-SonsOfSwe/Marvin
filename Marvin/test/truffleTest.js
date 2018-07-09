@@ -1,6 +1,6 @@
 const AdminContract = artifacts.require('./Admin.sol')
 const DegreeContract = artifacts.require('./DegreeData')
-const ClassContract = artifacts.require('./DegreeData')
+const ClassContract = artifacts.require('./ClassData')
 const UserLogic = artifacts.require('./UserLogic')
 const web3 = require('web3')
 
@@ -61,7 +61,7 @@ contract('Admin, DegreeData', (address) => {
         return degreeInstance.getAcademicYears({ from: address[0] })
       })
       .then(result => {
-        assert.equal(parseInt(result[0].slice(2, -5), 16), 2017, 'Error adding a new year')
+        assert.equal(parseInt(result[0].slice(2, -5), 16), 2017, 'Error adding a new year: ')
       })
   });
 
@@ -77,7 +77,7 @@ contract('Admin, DegreeData', (address) => {
         return degreeInstance.isYear(2018, { from: address[0] })
       })
       .then(isTrue => {
-        assert.equal(isTrue, true, "Adding new year ok");
+        assert.equal(isTrue, true, "Adding new year... ");
       })
   });
   it("should check for a newly added degree", function () {
@@ -92,25 +92,25 @@ contract('Admin, DegreeData', (address) => {
         return degreeInstance.isDegree('INF18', { from: address[0] })
       })
       .then(isTrue => {
-        assert.equal(isTrue, true, "Adding new degree ok");
+        assert.equal(isTrue, true, "Adding new degree... ");
       })
   });
 })
 
-contract('Admin, ClassData', (address) => {
-  it("should check for a newly added class", function () {
-    var instance
-    AdminContract.deployed()
-      .then(adminInstance => {
-        instance = adminInstance
-        return instance.addNewClass('INF18', 'PROGR18', 'asdasdasd', { from: address[0] })
-      });
-    ClassContract.deployed()
-      .then(classInstance => {
-        return classInstance.isClass('PROGR18', { from: address[0] })
-      })
-      .then(isTrue => {
-        assert.equal(isTrue, true, "Adding new class ok");
-      })
-  });
-})
+// contract('Admin, ClassData', (address) => {
+//   it("should check for a newly added class", function () {
+//     var instance
+//     AdminContract.deployed()
+//       .then(adminInstance => {
+//         instance = adminInstance
+//         return instance.addNewClass('INF18', 'PROGR18', 'asdasdasd', { from: address[0] })
+//       });
+//     ClassContract.deployed()
+//       .then(classInstance => {
+//         return classInstance.isClass('PROGR18', { from: address[0] })
+//       })
+//       .then(isTrue => {
+//         assert.equal(isTrue, true, "Adding new class... ");
+//       })
+//   });
+// })
