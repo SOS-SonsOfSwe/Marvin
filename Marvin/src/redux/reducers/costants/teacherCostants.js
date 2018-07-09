@@ -1,0 +1,5 @@
+export const CLASSES = 'TEACHER_CLASSES'
+export const EXAMS = "TEACHER_EXAMS"
+
+export const ERASE_CLASSES = "TEACHER_ERASE_CLASSES"
+export const ERASE_EXAMS = "TEACHER_ERASE_EXAMS"
