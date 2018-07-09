@@ -1,4 +1,4 @@
-import { adminCostants, userCostants } from '../costants'
+import { teacherCostants, userCostants } from '../costants'
 
 const initialState = {
   payload: null,
@@ -8,8 +8,8 @@ const initialState = {
   empty: null
 }
 
-const classesReducer = (state = initialState, action) => {
-  if(action.request === adminCostants.CLASSES) {
+const examsReducer = (state = initialState, action) => {
+  if(action.request === teacherCostants.EXAMS) {
     switch(action.type) {
       // default: in this case we tried to make a dispatch without using matching any case
       default: {
@@ -85,7 +85,7 @@ const classesReducer = (state = initialState, action) => {
           loading: false
         }
       }
-    case adminCostants.ERASE_CLASSES:
+    case teacherCostants.ERASE_CLASSES:
       {
         return {
           ...state,
@@ -99,4 +99,4 @@ const classesReducer = (state = initialState, action) => {
     }
   } else return state;
 }
-export default classesReducer
+export default examsReducer

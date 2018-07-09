@@ -4,14 +4,14 @@ import userReducer from './userReducer'
 import adminReducer from './adminReducer'
 import ipfsReducer from './ipfsReducer'
 // import studentReducer from './studentReducer'
-// import profReducer from './profReducer'
+import teacherReducer from './teacherReducer'
 import web3Reducer from './web3Reducer'
 
 const reducer = combineReducers({
   routing: routerReducer,
   user: userReducer,
   admin: adminReducer,
-  // prof: profReducer,
+  teacher: teacherReducer,
   // student: studentReducer,
   web3: web3Reducer,
   ipfs: ipfsReducer

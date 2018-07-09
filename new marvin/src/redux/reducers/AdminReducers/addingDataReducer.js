@@ -1,4 +1,4 @@
-import { adminCostants } from '../costants'
+import { userCostants } from '../costants'
 
 // adminReducer is a function which is used as a reducer from the store. In practice it's used to put all the infos
 // inside the store, which will be accessed by "this.state.<reducerName>" with the "connect" statement
@@ -23,7 +23,7 @@ const addingDataReducer = (state = initialState, action) => {
 
     // admin is adding data to its blockchain. We don't mind the type as the action is globally
     // understandable
-  case adminCostants.ADDING:
+  case userCostants.ADDING:
     {
       return {
         ...state,
@@ -32,7 +32,7 @@ const addingDataReducer = (state = initialState, action) => {
     }
 
     // adding was successfull. Time to unlock resources
-  case adminCostants.ADDED_NEW_DATA:
+  case userCostants.ADDED_NEW_DATA:
     {
       if(state.adding === false) return state
       return {
@@ -45,7 +45,7 @@ const addingDataReducer = (state = initialState, action) => {
     }
 
     // there was an error trying to add some data. We have to manage it!
-  case adminCostants.ERROR_ADDING_NEW_DATA:
+  case userCostants.ERROR_ADDING_NEW_DATA:
     {
       return {
         ...state,

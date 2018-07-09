@@ -32,7 +32,7 @@ export default function addClass(degreeUnicode, classUnicode, classData, teacher
     .web3.web3Instance
 
   // Double-check web3's status.
-  if (typeof web3 !== 'undefined') {
+  if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -45,7 +45,7 @@ export default function addClass(degreeUnicode, classUnicode, classData, teacher
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
         // Log errors, if any.
-        if (error) {
+        if(error) {
           console.error(error);
         }
 
@@ -75,7 +75,7 @@ export default function addClass(degreeUnicode, classUnicode, classData, teacher
                     dispatch(errorAddingData())
                   })
                   .finally(def => {
-                    return browserHistory.push('/profile')
+                    return browserHistory.push('/profile/classes')
                   })
               })
               .catch(err => {

@@ -29,7 +29,7 @@ import readTeachersContainer from './containers/Profile/Admin/AllUsers/readTeach
 // import Teachers from './components/Profile/Admin/Teachers/Teachers'
 // import Students from './components/Profile/Admin/Students/Students'
 import readStudentsContainer from './containers/Profile/Admin/AllUsers/readStudentsContainer'
-import ExamsTeacherList from './components/Profile/Teacher/ExamsTeacherList'
+import ExamsTeacherListContainer from './containers/Profile/Teacher/ExamsTeacherListContainer'
 import ExamsStudentList from './components/Profile/Student/ExamsStudentList'
 import SchoolRecords from './components/Profile/Student/SchoolRecords'
 import InsertAcademicYearContainer from './containers/Profile/Admin/AcademicYears/InsertAcademicYearContainer'
@@ -128,7 +128,7 @@ ReactDOM.render((
             <Route path="delete-student" component={AdminIsAuthenticated(DeleteStudent)} />
           </Route>
 
-          <Route path="exams-list" component={TeacherIsAuthenticated(ExamsTeacherList)} />
+          <Route path="exams-list" component={TeacherIsAuthenticated(ExamsTeacherListContainer)} />
           <Route path="exams-student-list" component={StudentIsAuthenticated(ExamsStudentList)} />
           <Route path="school-records" component={StudentIsAuthenticated(SchoolRecords)} />
 

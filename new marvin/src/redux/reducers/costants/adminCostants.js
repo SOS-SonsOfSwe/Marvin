@@ -1,13 +1,13 @@
 // constants for managing the data retrieving
 // request:
-export const ACADEMIC_YEARS = 'ACADEMIC_YEARS'
-export const DEGREES = 'DEGREES'
-export const CLASSES = 'CLASSES'
-export const EXAMS = "EXAMS"
+export const ACADEMIC_YEARS = 'ADMIN_ACADEMIC_YEARS'
+export const DEGREES = 'ADMIN_DEGREES'
+export const CLASSES = 'ADMIN_CLASSES'
+export const EXAMS = "ADMIN_EXAMS"
 
-export const TEACHERS = 'TEACHERS'
-export const STUDENTS = 'STUDENTS'
-export const ADMINS = 'ADMINS'
+export const TEACHERS = 'ADMIN_TEACHERS'
+export const STUDENTS = 'ADMIN_STUDENTS'
+export const ADMINS = 'ADMIN_ADMINS'
 
 export const ERASE_ADMIN_REDUCER = 'ERASE_ADMIN_REDUCER'
 

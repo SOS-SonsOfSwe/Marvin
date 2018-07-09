@@ -1,4 +1,4 @@
-import { adminCostants, ipfsCostants } from '../../reducers/costants'
+import { adminCostants, teacherCostants, ipfsCostants } from '../../reducers/costants'
 import store from '../../../store'
 
 export function eraseAcademicYearsReducer() {
@@ -36,6 +36,16 @@ export function eraseStudentsRead() {
     type: adminCostants.ERASE_STUDENTS
   }
 }
+export function eraseTeacherClasses() {
+  return {
+    type: teacherCostants.ERASE_CLASSES
+  }
+}
+export function eraseTeacherExams() {
+  return {
+    type: teacherCostants.ERASE_EXAMS
+  }
+}
 
 export function eraseReducers() {
   store.dispatch(eraseAcademicYearsReducer())
@@ -45,4 +55,6 @@ export function eraseReducers() {
   store.dispatch(eraseUniAdminsRead())
   store.dispatch(eraseTeachersRead())
   store.dispatch(eraseStudentsRead())
+  store.dispatch(eraseTeacherClasses())
+  store.dispatch(eraseTeacherExams())
 }
