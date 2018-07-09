@@ -41,6 +41,11 @@ contract ExamData {
         return(exams[_examUniCode].hashData);
     }
 
+    
+    function getResultHash(bytes10 _examUniCode) public view returns(bytes32) {
+        return(exams[_examUniCode].hashResult);
+    }
+
     // return exam subscribed students
     function getExamSubscribedStudent(bytes10 _examUniCode) public view returns(uint32[]) {
         return(exams[_examUniCode].subscribedStudents);
