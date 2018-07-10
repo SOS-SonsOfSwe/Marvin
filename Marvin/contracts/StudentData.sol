@@ -5,7 +5,8 @@ contract StudentData {
     address uniAddress;
     ContractManager manager;
     
-    mapping (address => bytes10) degreeClassStudents;
+    // Students degree: key = student badgeNumber, value = degree uniCode
+    mapping (uint32 => bytes10) studentsDegree;
     
     /* Student accepted tests result
      * key = student badgeNumber, value = uniCodes of passed exams */
@@ -25,8 +26,8 @@ contract StudentData {
         _;
     }
 
-    function getStudentDegreeClass(address _studentAddress) public view onlyStudentContract returns(bytes10) {
-        return(degreeClassStudents[_studentAddress]);
+    function getStudenDegree(uint32 _badgeNumber) public view onlyStudentContract returns(bytes10) {
+        return(studentsDegree[_badgeNumber]);
     }
 
     // return all the accepted student results
@@ -51,9 +52,8 @@ contract StudentData {
         subscribedExams[_studentBadgeNumber].push(_examUniCode);
     }
 
-    // Admin o Student?
-    function setStudentDegree(address _studentAddress, bytes10 _degreeUniCode) public {
-        require(degreeClassStudents[_studentAddress] == 0);
-        degreeClassStudents[_studentAddress] = _degreeUniCode;
+    function setStudentDegree(uint32 _badgeNumber, bytes10 _degreeUniCode) public {
+        require(studentsDegree[_badgeNumber] == 0);
+        studentsDegree[_badgeNumber] = _degreeUniCode;
     }
 }
