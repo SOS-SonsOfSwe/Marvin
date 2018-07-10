@@ -19,7 +19,7 @@ const contract = require('truffle-contract')
 function doAwesomeStuff(dispatch, load) {
   dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
-  if ('redirect' in currentLocation.query) {
+  if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   }
@@ -49,7 +49,7 @@ export function readClassesFromDatabase(degreeUnicode) {
   let web3 = store.getState()
     .web3.web3Instance
 
-  if (typeof web3 !== 'undefined') {
+  if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -65,7 +65,7 @@ export function readClassesFromDatabase(degreeUnicode) {
         dispatch(readingData(req))
 
         // Log errors, if any.
-        if (error) {
+        if(error) {
           console.error(error);
         }
 
@@ -91,7 +91,7 @@ export function readClassesFromDatabase(degreeUnicode) {
 
                 // console.log(result[0].length === 0)
 
-                if (result[0].length === 0) {
+                if(result[0].length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))
@@ -112,20 +112,20 @@ export function readClassesFromDatabase(degreeUnicode) {
                   // It is better to read all the infos together without doing
                   // much conversions because we can close the communication
                   // with the blockchain faster
-                  for (i; i < result[0].length; i++) {
-                    var degree = result[2][i]
+                  for(i; i < result[0].length; i++) {
+                    var classUnicode = result[2][i]
                     var hash = result[0][i]
                     var teac = web3.toDecimal(result[1][i])
-                    // console.log("degree: " + degree)
-                    var coUni = web3.toUtf8(degree)
+                    // console.log("classUnicode: " + classUnicode)
+                    classUnicode = web3.toUtf8(classUnicode)
                     // console.log('dgr: ' + dgr)
                     var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
                     // i'm storing the informations inside the description. We will retrieve them later.
-                    if (i === 0) { // first element of array
-                      payload = [{ degreeUnicode: degreeUnicode, teacher: teac, classData: hashIPFS, classUnicode: coUni },]
+                    if(i === 0) { // first element of array
+                      payload = [{ degreeUnicode: degreeUnicode, teacher: teac, classData: hashIPFS, classUnicode: classUnicode }, ]
                     } else
                       payload = [...payload,
-                      { degreeUnicode: degreeUnicode, teacher: teac, classData: hashIPFS, classUnicode: coUni }
+                        { degreeUnicode: degreeUnicode, teacher: teac, classData: hashIPFS, classUnicode: classUnicode }
                       ]
                   }
                   // this function provides a parallel loading of all the informations from ipfs. 

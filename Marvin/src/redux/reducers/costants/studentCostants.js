@@ -1,0 +1,3 @@
+export const EXAMS = "STUDENT_EXAMS"
+
+export const ERASE_EXAMS = "TEACHER_ERASE_EXAMS"
