@@ -54,7 +54,7 @@ contract ClassData {
     }
 
     // return all the class exams and their IPFS hashes
-    function getClassExamsData(bytes10 _classUniCode) public view returns(bytes32[], uint32, bytes10[] ) {
+    function getClassExamsData(bytes10 _classUniCode) public view returns(bytes32[], uint32, bytes10[]) {
         bytes10[] memory examsForClass = classes[_classUniCode].classExams;
         bytes32[] memory examsHashCodes = new bytes32[](examsForClass.length);
         uint32 examsTeacher = classes[_classUniCode].classTeacher;

@@ -85,15 +85,15 @@ function getJSON(hashIpfsPARAM) {
 }
 
 var insertUsers = [
-  { FC: 'AAABBB00A00B000C', UC: '1234567890', tp: 1 },
-  { FC: 'AAABBB00A00B001C', UC: '1234567880', tp: 1 },
-  { FC: 'AAABBB00A00B002C', UC: '1234567870', tp: 1 },
-  { FC: 'BBBCCC11B11C111D', UC: '1234567891', tp: 2 },
-  { FC: 'BBBCCC11B11C112D', UC: '1234567881', tp: 2 },
-  { FC: 'BBBCCC11B11C113D', UC: '1234567871', tp: 2 },
-  { FC: 'CCCDDD22C22D222E', UC: '1234567892', tp: 3 },
-  { FC: 'CCCDDD22C22D223E', UC: '1234567882', tp: 3 },
-  { FC: 'CCCDDD22C22D224E', UC: '1234567872', tp: 3 }
+  { FC: 'AAABBB00A00B000C', UC: '1234567890', tp: 1, degree: '' },
+  // { FC: 'AAABBB00A00B001C', UC: '1234567880', tp: 1 },
+  // { FC: 'AAABBB00A00B002C', UC: '1234567870', tp: 1 },
+  { FC: 'BBBCCC11B11C111D', UC: '1234567891', tp: 2, degree: '' },
+  { FC: 'BBBCCC11B11C112D', UC: '1234567881', tp: 2, degree: '' },
+  // { FC: 'BBBCCC11B11C113D', UC: '1234567871', tp: 2 },
+  { FC: 'CCCDDD22C22D222E', UC: '1234567892', tp: 3, degree: 'INF17' },
+  { FC: 'CCCDDD22C22D223E', UC: '1234567882', tp: 3, degree: 'INF17' },
+  // { FC: 'CCCDDD22C22D224E', UC: '1234567872', tp: 3 }
 ]
 
 var academicYears = [
@@ -122,14 +122,14 @@ var degrees = [ //to be transformed into degreeData.description
 
 var signUpUsers = [
   { FC: 'AAABBB00A00B000C', UC: '1234567890', name: 'John', surname: 'Smith', email: 'john@smith.com' },
-  { FC: 'AAABBB00A00B001C', UC: '1234567880', name: 'Johnny', surname: 'Reid', email: 'johnny@reid.com' },
-  { FC: 'AAABBB00A00B002C', UC: '1234567870', name: 'JohnyStecchino', surname: 'Kennedy', email: 'johnnyStecchino@kennedy.com' },
+  // { FC: 'AAABBB00A00B001C', UC: '1234567880', name: 'Johnny', surname: 'Reid', email: 'johnny@reid.com' },
+  // { FC: 'AAABBB00A00B002C', UC: '1234567870', name: 'JohnyStecchino', surname: 'Kennedy', email: 'johnnyStecchino@kennedy.com' },
   { FC: 'BBBCCC11B11C111D', UC: '1234567891', name: 'Jessica', surname: 'Rabbit', email: 'jessica@rabbit.com' },
   { FC: 'BBBCCC11B11C112D', UC: '1234567881', name: 'Marta', surname: 'Wagner', email: 'marta@wagner.com' },
-  { FC: 'BBBCCC11B11C113D', UC: '1234567871', name: 'Alina', surname: 'Miles', email: 'alina@miles.com' },
+  // { FC: 'BBBCCC11B11C113D', UC: '1234567871', name: 'Alina', surname: 'Miles', email: 'alina@miles.com' },
   { FC: 'CCCDDD22C22D222E', UC: '1234567892', name: 'Rachel', surname: 'McAdams', email: 'rachel@mcadams.com' },
   { FC: 'CCCDDD22C22D223E', UC: '1234567882', name: 'Kate', surname: 'Hardy', email: 'kate@hardy.com' },
-  { FC: 'CCCDDD22C22D224E', UC: '1234567872', name: 'Margot', surname: 'Peterson', email: 'margot@peterson.com' },
+  // { FC: 'CCCDDD22C22D224E', UC: '1234567872', name: 'Margot', surname: 'Peterson', email: 'margot@peterson.com' },
 ]
 
 var classes = [
@@ -162,7 +162,7 @@ AdminContract.deployed()
   .then(async (adminInstance) => {
     var insertUserLine = 0;
     for(var user of insertUsers) {
-      await adminInstance.addUser(user.FC, user.UC, user.tp, { from: addresses[0] })
+      await adminInstance.addUser(user.FC, user.UC, user.tp, user.degree, { from: addresses[0] })
         .then(() => console.log('insertUser ' + insertUserLine++ + ' ok'))
         .catch(() => console.error('Error at insertUser' + insertUserLine++));
     }

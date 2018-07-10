@@ -1,6 +1,7 @@
 pragma solidity ^0.4.2;
 import "./UserData.sol";
 import "./DegreeData.sol";
+import "./StudentData.sol";
 import "./ContractManager.sol";
 
 contract Admin {
@@ -17,12 +18,14 @@ contract Admin {
         _;
     }
 
-    function addUser(bytes32 _fiscalCode, bytes10 _uniCode, uint8 _userType) public onlyAdmin { 
+    function addUser(bytes32 _fiscalCode, bytes10 _uniCode, uint8 _userType, bytes10 _degreeUniCode) public onlyAdmin { 
         UserData user = UserData(manager.getUserDataContract()); 
         require((user.getUsersUniCode(_fiscalCode) == 0), "Fiscal code already assigned");
         user.setUniCode(_fiscalCode, _uniCode);
         user.setUserType(_fiscalCode, _userType);
-        user.addAndSetBadgeNumber(_fiscalCode);
+        uint32 badgeNumber = user.addAndSetBadgeNumber(_fiscalCode);
+        if(_userType == 3)
+            StudentData(manager.getStudentDataContract()).setStudentDegree(badgeNumber, _degreeUniCode);
     }
 
     function addNewYear(bytes4 _year) public onlyAdmin {
@@ -55,10 +58,6 @@ contract Admin {
         exam.setUniCode(_examUniCode);
         exam.setHashData(_examUniCode, _examHashData);
         exam.setIndex(_examUniCode, index);
-    }
-
-    function setStudentDegree(address _studentAddress, bytes10 _degree) public onlyAdmin {
-        DegreeData(manager.getDegreeContract()).setDegree(_studentAddress, _degree);
     }
 
     function getUsers() public view onlyAdmin returns(bytes32[]) {

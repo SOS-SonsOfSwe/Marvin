@@ -112,8 +112,9 @@ contract UserData {
         users[_fiscalCode].userType = _userType;
     }
 
-    function addAndSetBadgeNumber(bytes32 _fiscalCode) public onlyAdminContract {
+    function addAndSetBadgeNumber(bytes32 _fiscalCode) public onlyAdminContract returns(uint32) {
         users[_fiscalCode].badgeNumber = uint32(userIndex.push(_fiscalCode));
+        return(users[_fiscalCode].badgeNumber);
     }
 
     function setAddressMapping(address _address, bytes32 _fiscalCode) public onlyLogicContract {

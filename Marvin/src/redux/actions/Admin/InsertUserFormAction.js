@@ -1,7 +1,5 @@
 import AdminContract from '../../../../build/contracts/Admin'
-import {
-  browserHistory
-} from 'react-router'
+import { browserHistory } from 'react-router'
 import store from '../../../store'
 // import * as utils from '../../../utils/validations'
 
@@ -21,7 +19,7 @@ function userInserted(YesOrNo) {
   }
 }
 
-export function insertUser(FCInserted, UCInserted, tpInserted) {
+export function insertUser(FCInserted, UCInserted, tpInserted, degreeUnicode) {
   console.log('Type inserted: ' + tpInserted)
   let web3 = store.getState()
     .web3.web3Instance
@@ -47,9 +45,7 @@ export function insertUser(FCInserted, UCInserted, tpInserted) {
         admin.deployed()
           .then(instance => {
             adminIstance = instance
-            adminIstance.addUser(FCInserted, UCInserted, tpInserted, {
-                from: coinbase
-              })
+            adminIstance.addUser(FCInserted, UCInserted, tpInserted, degreeUnicode, { from: coinbase })
               .then(result => {
                 // yon.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
                 let yon = result.receipt.status;

@@ -21,9 +21,6 @@ contract DegreeData {
     // every class of all years: key = year, value = Degrees uniCodes of all the degrees for that year
     mapping (bytes4 => bytes10[]) yearDegrees;
 
-    // student's degree: key = student address, value = Degree uniCode
-    mapping (address => bytes10) degreeClassStudents;
-
     // unicodes of all degrees of all years
     bytes10[] uniCodes;
 
@@ -100,11 +97,6 @@ contract DegreeData {
     function setHashData(bytes10 _degreeUniCode, bytes32 _degreeHashData) public onlyAdminContract {
         degrees[_degreeUniCode].hashData = _degreeHashData;
     }
-
-    // ?? Admin o Student
-    function setDegree(address _studentAddress, bytes10 _degree) public {
-        degreeClassStudents[_studentAddress] = _degree;
-    }  
 
     function addYear(bytes4 _year) public onlyAdminContract {
         academicYears.push(_year);
