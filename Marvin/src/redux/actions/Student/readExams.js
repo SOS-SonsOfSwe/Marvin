@@ -12,7 +12,7 @@ import { EXAMS as req } from "../../reducers/costants/studentCostants";
 import {
   readingData,
   dataRead,
-  dataEmpty,
+  // dataEmpty,
   errorReadingData
 } from '../StandardDispatches/readingData'
 
@@ -22,6 +22,7 @@ const contract = require('truffle-contract')
 
 function doAwesomeStuff(dispatch, load) {
   dispatch(dataRead({ load }, req))
+  // console.error('Payload: ' + JSON.stringify(load))
   var currentLocation = browserHistory.getCurrentLocation()
   if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
@@ -39,84 +40,9 @@ async function processIPFSResultParallel(ipfs, payload) {
   await Promise.all(promises)
 }
 
-// async function readExams(classInstance, classes, payload, web3, coinbase, dispatch) {
-//   // for(let sclass of classes)
-//   var i = 0
-//   const promises = classes.map(sclass => new Promise(function (resolve, reject) {
-//     // var payloadToReturn
-//     var classUnicode = web3.toUtf8(sclass)
-//     return classInstance.getClassExamsData(classUnicode, { from: coinbase })
-//       .then(result => {
-
-//         // result[0] = examHashcode
-//         // result[1] = examsTeacher
-//         // result[2] = examUnicode
-
-//         console.log('EXAMS READ RESULT: ')
-//         console.log(result)
-
-//         if(result[0].length === 0) {
-//           return payload
-//         } else {
-
-//           var hashIPFS
-//           for(let j = 0; j < result[0].length; j++) {
-//             var exam = result[2][j]
-//             var hash = result[0][j]
-//             var teac = web3.toDecimal(result[1][j])
-//             console.log("teacher: " + teac)
-//             var exUni = web3.toUtf8(exam)
-//             // console.log('dgr: ' + dgr)
-//             hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
-//             console.log("hash: " + hashIPFS)
-//             // i'm storing the informations inside the description. We will retrieve them later.
-//             // console.error(payload == null)
-//             if(payload == null) { // first element of array
-//               payload = [{ load: hashIPFS, examUnicode: exUni, teacher: teac }, ]
-//             } else
-//               payload = [...payload,
-//                 { load: hashIPFS, examUnicode: exUni, teacher: teac }
-//               ]
-//             i++
-//           }
-
-//           // }
-//           var ipfs = new ipfsPromise()
-//           return processIPFSResultParallel(ipfs, payload)
-//             .then(() => {
-//               payload.sort((a, b) => b.load.date - a.load.date)
-//               console.log(i)
-//               // console.error('payload: ' + JSON.stringify(payload))
-//               return payload
-//             })
-//             .catch(function (error) {
-//               // If error, go to signup page.
-//               console.error('Error while reading ipfs informations.')
-//               console.log(error)
-//               dispatch(errorReadingData(req))
-//               return reject(error)
-//               // return browserHistory.push('/profile')
-//             })
-//         }
-
-//       })
-//       .catch(function (error) {
-//         // If error, go to signup page.
-//         console.error('Error while reading exams.')
-//         console.log(error)
-//         dispatch(errorReadingData(req))
-//         return reject(error)
-//         // return browserHistory.push('/profile')
-//       })
-//   }))
-
-//   await Promise.all(promises)
-// }
-
 async function readExams(classInstance, classes, payload, web3, coinbase, dispatch) {
   return new Promise(function (resolve, reject) { // for(let sclass of classes)
-    var i = 0
-    const promises = classes.map(sclass => {
+    classes.map(sclass => {
       // var payloadToReturn
       var classUnicode = web3.toUtf8(sclass)
       return classInstance.getClassExamsData(classUnicode, { from: coinbase })
@@ -151,7 +77,6 @@ async function readExams(classInstance, classes, payload, web3, coinbase, dispat
                 payload = [...payload,
                   { load: hashIPFS, examUnicode: exUni, teacher: teac }
                 ]
-              i++
             }
 
             // }
@@ -159,7 +84,6 @@ async function readExams(classInstance, classes, payload, web3, coinbase, dispat
             return processIPFSResultParallel(ipfs, payload)
               .then(() => {
                 payload.sort((a, b) => b.load.date - a.load.date)
-                console.log(i)
                 // console.error('payload: ' + JSON.stringify(payload))
                 return resolve(payload)
               })
@@ -183,8 +107,6 @@ async function readExams(classInstance, classes, payload, web3, coinbase, dispat
           // return browserHistory.push('/profile')
         })
     })
-
-    // await Promise.all(promises)
   })
 }
 
@@ -204,11 +126,6 @@ export function readStudentExamsFromDatabase(badgeNumber) {
 
       const Degree = contract(DegreeContract)
       Degree.setProvider(web3.currentProvider)
-
-      // Declaring this for later so we can chain functions on Authentication.
-      var studentDataInstance
-      var classInstance
-      var degreeInstance
 
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
@@ -231,13 +148,12 @@ export function readStudentExamsFromDatabase(badgeNumber) {
                       .then(classes => {
                         sClass.deployed()
                           .then(function (classInstance) {
-                            var i = 0;
                             var payload
-                            console.error('badgeNumber: ' + badgeNumber)
+                            // console.error('badgeNumber: ' + badgeNumber)
                             return readExams(classInstance, classes, payload, web3, coinbase, dispatch)
                               .then((payload) => {
-                                console.error('payload: ' + JSON.stringify(payload))
-                                console.error('i: ' + i)
+                                // console.error('payload: ' + JSON.stringify(payload))
+                                // console.error('i: ' + i)
                                 // here I dispatch all the exams the student is registered to
                                 return doAwesomeStuff(dispatch, payload)
                               })

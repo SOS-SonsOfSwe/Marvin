@@ -36,6 +36,7 @@ const examsReducer = (state = initialState, action) => {
       {
         // checking if somebody changed page during loading data, so the state.data is not overwritten by asynchronous returns
         // if(state.loading === false) return state
+        // console.error('Payload: ' + JSON.stringify(action.payload.load))
         return {
           ...state,
           payload: action.payload.load,
