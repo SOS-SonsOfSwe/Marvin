@@ -9,7 +9,7 @@ contract ClassData {
 
     struct Class {
         uint16 index;
-        uint32 classTeacher;
+        uint32 teacher;
         bytes10 uniCode;
         bytes32 hashData;
         // exams unicodes of the class
@@ -23,7 +23,7 @@ contract ClassData {
         
     /* Teacher assigned classes
      * key = teacher badgeNumber, value = uniCodes of assigned classes */
-    mapping(uint32 => bytes10[]) classTeacher;
+    mapping(uint32 => bytes10[]) teacherClasses;
 
     constructor(address _contractManagerAddress) public {
         uniAddress = msg.sender;
@@ -57,7 +57,7 @@ contract ClassData {
     function getClassExamsData(bytes10 _classUniCode) public view returns(bytes32[], uint32, bytes10[]) {
         bytes10[] memory examsForClass = classes[_classUniCode].classExams;
         bytes32[] memory examsHashCodes = new bytes32[](examsForClass.length);
-        uint32 examsTeacher = classes[_classUniCode].classTeacher;
+        uint32 examsTeacher = classes[_classUniCode].teacher;
         for(uint i = 0; i < examsForClass.length; ++i) {
             examsHashCodes[i] = ExamData(manager.getExamContract()).getHashData(examsForClass[i]);
         }
@@ -98,17 +98,17 @@ contract ClassData {
 
     // set the associated exam teacher
     function setClassTeacher(bytes10 _classUniCode, uint32 _teacherBadgeNumber) public onlyAdminContract {
-        classes[_classUniCode].classTeacher = _teacherBadgeNumber;
-        classTeacher[_teacherBadgeNumber].push(_classUniCode);
+        classes[_classUniCode].teacher = _teacherBadgeNumber;
+        teacherClasses[_teacherBadgeNumber].push(_classUniCode);
     }
 
     // return class teacher
     function getClassTeacher(bytes10 _classUniCode) public view returns(uint32) {
-        return(classes[_classUniCode].classTeacher);
+        return(classes[_classUniCode].teacher);
     }
 
     function getTeacherClasses(uint32 _badgeNumber) public view returns(bytes10[]) {
-        return(classTeacher[_badgeNumber]);
+        return(teacherClasses[_badgeNumber]);
     }
 
     // return accepted student result
