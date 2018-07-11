@@ -77,9 +77,13 @@ h1 {
     }
   }
 
-  .logo {
-    padding-top: 0.3em;
-    margin-left: 0.8em;
+  .logo_div {
+    margin-left: 1em;
+    background: url("../../.././public/media/Marvin_title.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 12%;
+    padding: 1em 2em 3em 1.5em;
   }
 
   .pure-menu-heading {
@@ -88,7 +92,7 @@ h1 {
 
   .navbar-right { //è importante, non cancellare
     float: right; 
-    padding-top: 1em;
+    padding-top: 0.5em;
   } 
 
   .uport-logo {
