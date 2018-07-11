@@ -54,7 +54,6 @@ class ExamsTeacherList extends React.Component {
         const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
         const empty = this.props.emptyExams ? <EmptyData label='no data found on blockchain' /> : <div />
-        console.error(this.props.emptyExams)
         return (
             <div>
                 {load}
