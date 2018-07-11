@@ -60,12 +60,8 @@ contract Admin {
         exam.setIndex(_examUniCode, index);
     }
 
-    function setStudentDegree(address _studentAddress, bytes10 _degree) public onlyAdmin {
-        DegreeData(manager.getDegreeContract()).setDegree(_studentAddress, _degree);
-    }
-
     function getUsers() public view onlyAdmin returns(bytes32[]) {
-        return((UserData(manager.getUserDataContract()).getAllUsers()));
+        return(UserData(manager.getUserDataContract()).getAllUsers());
     }
     
     function getUsersData() public view onlyAdmin returns(bytes32[], bytes32[], uint32[], uint8[], bool[]) {

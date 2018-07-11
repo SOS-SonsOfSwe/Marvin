@@ -26,7 +26,7 @@ contract StudentData {
         _;
     }
 
-    function getStudenDegree(uint32 _badgeNumber) public view onlyStudentContract returns(bytes10) {
+    function getStudentDegree(uint32 _badgeNumber) public view onlyStudentContract returns(bytes10) {
         return(studentsDegree[_badgeNumber]);
     }
 
