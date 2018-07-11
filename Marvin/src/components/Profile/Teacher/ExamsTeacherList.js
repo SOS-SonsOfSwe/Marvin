@@ -53,8 +53,8 @@ class ExamsTeacherList extends React.Component {
         const load = this.props.loadingExams || this.props.loadingClasses ? <LoadingData label='Loading...' /> : <div />;
         const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
-        const empty = this.props.emptyClasses ? <EmptyData label='no data found on blockchain' /> : <div />
-
+        const empty = this.props.emptyExams ? <EmptyData label='no data found on blockchain' /> : <div />
+        console.error(this.props.emptyExams)
         return (
             <div>
                 {load}
@@ -78,7 +78,7 @@ class ExamsTeacherList extends React.Component {
                                     </fieldset>
                                 </form>
                                 {this.state.selectedClass !== "" &&
-                                    this.props.emptyClasses === false && this.props.success === true &&
+                                    this.props.emptyExams === false && this.props.success === true &&
                                     <table className="table table-striped">
                                         <thead>
                                             <tr>
