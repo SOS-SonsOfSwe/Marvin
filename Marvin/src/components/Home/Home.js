@@ -13,7 +13,7 @@ class Home extends Component {
               through the use of blockchain technology, in an Uniweb demonstrator on Ethereum.
               </p>
             <div className="book-img">
-              <img src={book} className="img-fluid" alt="Book" />
+              {/* <img src={book} className="img-fluid" alt="Book" /> */}
             </div>
           </div>
         </div>

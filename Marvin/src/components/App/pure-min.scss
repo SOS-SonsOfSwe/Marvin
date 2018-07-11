@@ -1,20 +1,4 @@
-/*!
-Pure v0.6.2
-Copyright 2013 Yahoo!
-Licensed under the BSD License.
-https://github.com/yahoo/pure/blob/master/LICENSE.md
-*/
-/*!
-normalize.css v^3.0 | MIT License | git.io/normalize
-Copyright (c) Nicolas Gallagher and Jonathan Neal
-*/
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css ------COMMENTO NON MIO------*/
-
-// .title {
-//   text-transform: uppercase;
-//   font-size: 2.6em;
-//   text-decoration: none;
-// }
+//import book from '../../../public/media/1.jpg'
 
 .fill_it_button input {
   margin-left: 16%;
@@ -25,12 +9,9 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
   color: #333;
 }
 
-.title_div {
-  padding: 1.2em 2em 3em 1.5em;
-}
-
 .top-navbar {
   height: 6em;
+  padding-top: 1em;
 }
 
 .top_message {
@@ -117,8 +98,13 @@ tr:nth-child(even) {
 }
  
 .book-img { 
-  text-align: center;
   margin-top: 6em;
+  background: url("../../.././public/media/1.jpg");
+  width: 100%;
+  height: 20em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 } 
 
 .pure-button:focus {
@@ -510,7 +496,7 @@ tr:nth-child(even) {
   .pure-button {
     font-family: inherit;
     font-size: 100%;
-    padding: .5em 0;
+    padding: .5em 0.3em;
     color: #444;
     color: rgba(0, 0, 0, 0.8);
     border: 1px solid #999;

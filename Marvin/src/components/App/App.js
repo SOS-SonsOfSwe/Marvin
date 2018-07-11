@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 
 import { OnlyAuthLinks, OnlyGuestLinks, OnlyUniAdminLinks } from './NavButtons'
-import logo from '../../../public/media/Marvin_title.png'
+//import logo from '../../../public/media/Marvin_title.png'
 // import '../node_modules/bootstrap/scss/bootstrap.scss'
 
 // Styles
@@ -10,6 +10,7 @@ import logo from '../../../public/media/Marvin_title.png'
 import '../stylesheets/open-sans.scss'*/
 import './pure-min.scss'
 import './App.scss'
+import './Mobile.scss'
 
 class App extends Component {
   render() {
@@ -21,11 +22,12 @@ class App extends Component {
             <OnlyAuthLinks />
             <OnlyUniAdminLinks />
           </ul>
-          <div className="title_div">
+          
             <Link to="/">
-              <img className="logo" src={logo} alt="My logo" />
+            <div className="logo_div"></div>
+              {/* <img className="logo" src={logo} alt="My logo" /> */}
             </Link>
-          </div>
+          
           {/* <Link to="/" className="title">Marvin</Link> */}
         </nav>
 
