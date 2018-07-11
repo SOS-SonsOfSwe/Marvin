@@ -252,7 +252,7 @@ AdminContract.deployed()
             })
             .then(hashIPFS => {
               hash = getBytes32FromIpfsHash(hashIPFS);
-              adminInstance.addNewClass(Sclass.degreeUnicode, Sclass.classUnicode, hash, '1234567891', { from: address0 })
+              adminInstance.addNewClass(Sclass.degreeUnicode, Sclass.classUnicode, hash, '2', { from: address0 })
                 .then(() => console.log('Class ' + classLine++ + ' ok'))
                 .catch(() => console.error('Error at class ' + classLine++));
             })
