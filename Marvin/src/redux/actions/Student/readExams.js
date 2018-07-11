@@ -12,7 +12,7 @@ import { EXAMS as req } from "../../reducers/costants/studentCostants";
 import {
   readingData,
   dataRead,
-  // dataEmpty,
+  dataEmpty,
   errorReadingData
 } from '../StandardDispatches/readingData'
 
@@ -78,8 +78,6 @@ async function readExams(classInstance, classes, payload, web3, coinbase, dispat
                   { load: hashIPFS, examUnicode: exUni, teacher: teac }
                 ]
             }
-
-            // }
             var ipfs = new ipfsPromise()
             return processIPFSResultParallel(ipfs, payload)
               .then(() => {
@@ -155,7 +153,8 @@ export function readStudentExamsFromDatabase(badgeNumber) {
                                 // console.error('payload: ' + JSON.stringify(payload))
                                 // console.error('i: ' + i)
                                 // here I dispatch all the exams the student is registered to
-                                return doAwesomeStuff(dispatch, payload)
+                                if(payload == null) dispatch(dataEmpty(req))
+                                else return doAwesomeStuff(dispatch, payload)
                               })
                               .catch(function (error) {
                                 // If error, go to signup page.

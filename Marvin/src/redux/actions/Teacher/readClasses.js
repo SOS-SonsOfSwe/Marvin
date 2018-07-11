@@ -66,8 +66,8 @@ export function readClassesFromDatabase() {
             // Attempt to read degrees per year
             teacherInstance.myClasses({ from: coinbase })
               .then(result => {
-                console.log('CLASSES READ RESULT: ')
-                console.log(result)
+                // console.log('CLASSES READ RESULT: ')
+                // console.log(result)
 
                 // checking if the blockchain is empty for this kind of data.
                 // when the blockchain is empty the first numbers it retrieves are:
