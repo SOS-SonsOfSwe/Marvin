@@ -94,7 +94,7 @@ class ExamsTeacherList extends React.Component {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                            {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} classUnicode={this.state.selectedClass} />)}
                                         </tbody>
                                     </table>
                                 }

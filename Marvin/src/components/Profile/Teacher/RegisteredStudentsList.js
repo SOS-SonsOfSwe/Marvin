@@ -47,12 +47,11 @@ class RegisteredStudentsList extends React.Component {
     }
 
     handleSave() {
-        //this.props. chiama la action per l'inserimento
+        this.props.setMarksData(this.props.examUnicode, this.props.classUnicode, this.state.votes)
     }
 
     componentDidMount() {
         this.props.readStudentsData(this.props.examUnicode)
-        if (this.props.emptyStudents === false) this.setState({ num_of_stud: this.props.students.length })
     }
 
     render() {
