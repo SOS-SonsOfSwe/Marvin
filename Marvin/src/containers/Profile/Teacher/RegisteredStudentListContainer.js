@@ -5,12 +5,14 @@ import RegisteredStudentList from '../../../components/Profile/Teacher/Registere
 //import { readClassesFromDatabase } from '../../../redux/actions/Teacher/readClasses'
 import { readExamsFromDatabase } from '../../../redux/actions/Teacher/readExams'
 import { readStudentsPerExam } from '../../../redux/actions/Teacher/readStudents'
+import setMarkPerExams from '../../../redux/actions/Teacher/setMarksPerExam';
 // This container is read-only, so there's no need for mapping dispatch actions to the store.
 // This connect is only for connecting the AcademicYears component to the store
 
 const mapStateToProps = (state, ownProps) => {
   return {
     examUnicode: ownProps.location.state.examUnicode,
+    classUnicode: ownProps.location.state.classUnicode,
 
     exams: state.teacher.exams.payload,
     students: state.teacher.students.payload, // you can access the badge number via: this.props.students.badgeNumber
@@ -34,7 +36,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     //readClassesData: bindActionCreators(readClassesFromDatabase, dispatch),
     readExamsData: bindActionCreators(readExamsFromDatabase, dispatch),
-    // readStudentsPerExam(examUnicode)
+    setMarksData: bindActionCreators(setMarkPerExams, dispatch),
     readStudentsData: bindActionCreators(readStudentsPerExam, dispatch)
   }
 }
