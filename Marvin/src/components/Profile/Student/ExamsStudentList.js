@@ -12,8 +12,9 @@ import EmptyData from '../../Loading/EmptyData'
 //     { degree: "informatica", class: "Ricarca operativa", typology: "scritto", date: "19-08-2018" },
 // ]
 
-const Row = ({ examUnicode, load, teacher }) => (
+const Row = ({ examUnicode, classUnicode, load, teacher }) => (
     <tr className="clickable-row">
+        <td>{classUnicode}</td>
         <td>{examUnicode}</td>
         <td>{load && load.type}</td>
         <td>{load && load.place}</td>
@@ -49,6 +50,7 @@ class ExamsStudentList extends React.Component {
                         <table className="table table-striped">
                             <thead>
                                 <tr>
+                                    <th className="title-column">Class unicode</th>
                                     <th className="title-column">Exam unicode</th>
                                     <th className="title-column">Type</th>
                                     <th className="title-column">Place</th>
