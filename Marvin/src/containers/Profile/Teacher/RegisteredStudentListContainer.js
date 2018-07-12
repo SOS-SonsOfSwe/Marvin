@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import RegisteredStudentList from '../../../components/Profile/Teacher/RegisteredStudentList'
+import RegisteredStudentList from '../../../components/Profile/Teacher/RegisteredStudentsList'
 // import { readDegreesFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
 //import { readClassesFromDatabase } from '../../../redux/actions/Teacher/readClasses'
 import { readExamsFromDatabase } from '../../../redux/actions/Teacher/readExams'
@@ -15,15 +15,15 @@ const mapStateToProps = (state, ownProps) => {
     exams: state.teacher.exams.payload,
     students: state.teacher.students.payload, // you can access the badge number via: this.props.students.badgeNumber
 
-    loadingExams: state.teacher.exams.loading,
+    // loadingExams: state.teacher.exams.loading,
     loadingStudents: state.teacher.students.loading,
 
     success: state.teacher.students.success,
     // somethingChanged: state.admin.degrees.somethingChanged,
-    emptyExams: state.teacher.exams.empty,
+    //emptyExams: state.teacher.exams.empty,
     emptyStudents: state.teacher.students.empty,
 
-    // ipfsLoading: state.ipfs.loading
+    ipfsLoading: state.ipfs.loading
   }
 }
 

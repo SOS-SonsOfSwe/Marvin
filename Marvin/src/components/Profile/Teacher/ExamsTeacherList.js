@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router'
+import { Link } from 'react-router'
 import LoadingData from '../../Loading/LoadingData'
 import LoadingIPFSData from '../../Loading/LoadingIpfs'
 import EmptyData from '../../Loading/EmptyData'
@@ -23,7 +23,11 @@ const Row = ({ examUnicode, load }) => (
         <td>{load && load.place}</td>
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
-    </tr>
+        <td> <Link to={{
+            pathname: "/profile/exams-list/student-list",
+            state: { examUnicode: examUnicode }
+        }}>Go to the list of subscribed students</Link></td>
+    </tr >
 );
 
 const Options = ({ classUnicode }) => (
@@ -86,6 +90,7 @@ class ExamsTeacherList extends React.Component {
                                                 <th className="title-column">Place</th>
                                                 <th className="title-column">Date</th>
                                                 <th className="title-column">Time</th>
+                                                <th className="title-column">Subscribed students</th>
                                             </tr>
                                         </thead>
                                         <tbody>

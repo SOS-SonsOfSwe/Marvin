@@ -1,65 +1,97 @@
 import React from 'react';
+import LoadingData from '../../Loading/LoadingData';
+import LoadingIPFSData from '../../Loading/LoadingIpfs';
+import EmptyData from '../../Loading/EmptyData';
 
-var arrayData = [
-    { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },
-    { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },
-    { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },
-    { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },
-]
 
-const Row = ({ name, surname, badgeNumber, fiscalCode, univocalCode }) => (
+const Row = ({ name, surname, badgeNumber, fiscalCode, univocalCode, hChange }) => (
     <tr className="clickable-row">
         <td>{name}</td>
         <td>{surname}</td>
         <td>{badgeNumber}</td>
         <td>{fiscalCode}</td>
         <td>{univocalCode}</td>
+        <td>
+            <fieldset><input type="text" onChange={hChange(badgeNumber)} />
+            </fieldset>
+        </td>
     </tr>
 );
 
 class RegisteredStudentsList extends React.Component {
 
+    /*handleChange(event) {
+        this.setState({ vote: event.target.value });
+    }*/
+
     constructor(props) {
         super(props);
 
         this.state = {
-            vote: '30L'
-        };
-        this.handleChange = this.handleChange.bind(this);
+            votes: []
+        }
     }
 
-    handleChange(event) {
-        this.setState({ vote: event.target.value });
+    handleChange(badgeNumber, event) {
+        this.setState({ votes: this.state.votes.concat([{ badgeNumber: badgeNumber, vote: event.target.value }]) });
+    }
+
+    handleSave() {
+        //this.props. chiama la action per l'inserimento
+    }
+
+    componentDidMount() {
+        this.props.readStudentsData(this.props.examUnicode)
+        if (this.props.emptyStudents === false) this.setState({ num_of_stud: this.props.students.length })
     }
 
     render() {
 
-        const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
+        const load = this.props.loadingStudents === true ? <LoadingData label='Loading...' /> : <div />;
+        const error = this.props.success === false ? <div>There was an error...</div> : <div />;
+        const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
+        const empty = this.props.emptyStudents ? <EmptyData label='no data found on blockchain' /> : <div />
+
 
         return (
-            <main className='container'>
-                <h1>Students registered to the X exam</h1>
-                <p className="text-center">Here there is the list of the students that are registered to the X exam.</p>
-                <label className="float-right" href="#">Total registered students:</label>
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Surname</th>
-                            <th>Badge number</th>
-                            <th>Fiscal code</th>
-                            <th>Univocal code</th>
-                            <th>Vote</th>
-                            {/* <td><input type="text" value={this.state.vote} onChange={this.handleChange} /></td> */}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rows}
-                    </tbody>
-                </table>
-            </main>
+            <div>
+                {load}
+                {ipfsLoad}
+                {empty}
+                {(this.props.loadingStudents === false && this.props.ipfsLoading !== true) &&
+                    <main className='container'>
+                        <h1>Students registered to the exam with code: {this.props.examUnicode}</h1>
+                        <p className="text-center">Here there is the list of the students that are registered to the X exam.</p>
+                        <label className="float-right" href="#">Total registered students:</label>
+                        {this.props.emptyStudents === false && this.props.success === true &&
+                            <form onSubmit={this.handleSave}>
+                                <table className="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Surname</th>
+                                            <th>Badge number</th>
+                                            <th>Fiscal code</th>
+                                            <th>Univocal code</th>
+                                            <th>Vote</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {this.props.students.map((rowData, index) => <Row key={index} {...rowData} hChange={this.handleChange} />)}
+                                    </tbody>
+                                </table>
+                                <fieldset>
+                                    <input type="submit" value="Save" />
+                                </fieldset>
+                            </form>
+                        }
+                    </main>
+                }
+                {error}
+            </div>
         )
     }
+
 }
 
 export default RegisteredStudentsList;
