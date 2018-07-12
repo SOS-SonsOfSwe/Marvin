@@ -1,5 +1,6 @@
 import "regenerator-runtime/runtime"; // needed for async calls
 import ClassContract from '../../../../build/contracts/ClassData'
+import ExamDataContract from '../../../../build/contracts/ExamData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
 import { EXAMS as req } from "../../reducers/costants/teacherCostants";
@@ -10,6 +11,7 @@ import {
   readingData,
   dataRead,
   dataEmpty,
+  errorReadingData
 } from '../StandardDispatches/readingData'
 
 import ipfsPromise from '../../../../api/utils/ipfsPromise'
@@ -26,15 +28,48 @@ function doAwesomeStuff(dispatch, load) {
   // return browserHistory.push('/profile/degrees') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
-// async function processIPFSResult(ipfs, payload) {
-//   for(const item of payload) {
-//     await ipfs.getJSON(item.description)
-//       .then(result => {
-//         console.log(JSON.stringify(result))
-//         item.description = result.description
-//       })
-//   }
-// }
+async function removeVotedExams(payload, examData, web3) {
+  return new Promise(function (resolve, reject) {
+    examData.deployed()
+      .then(examDataInstance => {
+
+        // return new Promise(function (resolve, reject) {
+        var filteredPayload
+
+        payload.map((element, i, payload) => {
+          return examDataInstance.getResultHash(element.examUnicode)
+            .then(hash => {
+              if(web3.toDecimal(hash) === 0) {
+                // console.log('element:' + JSON.stringify(element))
+                if(filteredPayload == null)
+                  filteredPayload = [element]
+                else filteredPayload = [...filteredPayload,
+                  element
+                ]
+                // console.error("filteredPayload: " + JSON.stringify(filteredPayload))
+                if(payload.length - 1 === i)
+                  return resolve(filteredPayload)
+              } else return resolve(filteredPayload)
+
+              return filteredPayload
+            })
+            .catch(function (error) {
+              // If error, go to signup page.
+              console.error('Error while getting result hash.\n')
+              console.log(error)
+              return reject(error)
+              // dispatch(errorReadingData(req))
+            })
+        })
+      })
+      .catch(function (error) {
+        // If error, go to signup page.
+        console.error('Error while deploying examData.\n')
+        console.log(error)
+        return reject(error)
+      })
+  })
+}
 
 async function processIPFSResultParallel(ipfs, payload) {
   const promises = payload.map(item => ipfs.getJSON(item.load)
@@ -55,6 +90,9 @@ export function readExamsFromDatabase(classUnicode) {
       // Using truffle-contract we create the authentication object.
       const Class = contract(ClassContract)
       Class.setProvider(web3.currentProvider)
+
+      const examData = contract(ExamDataContract)
+      examData.setProvider(web3.currentProvider)
 
       // Declaring this for later so we can chain functions on Authentication.
       var classInstance
@@ -117,7 +155,7 @@ export function readExamsFromDatabase(classUnicode) {
                     var exam = result[2][i]
                     var hash = result[0][i]
                     var teac = web3.toDecimal(result[1][i])
-                    console.log("teacher: " + teac)
+                    // console.log("teacher: " + teac)
                     var exUni = web3.toUtf8(exam)
                     // console.log('dgr: ' + dgr)
                     hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
@@ -129,16 +167,28 @@ export function readExamsFromDatabase(classUnicode) {
                         { load: hashIPFS, examUnicode: exUni, teacher: teac }
                       ]
                   }
-                  // this function provides a parallel loading of all the informations from ipfs. 
-                  // It renders the data all together: an interesting improvement will be to load the data
-                  // per parts so in case of some ipfs file failure the app is still working
-                  var ipfs = new ipfsPromise()
-                  processIPFSResultParallel(ipfs, payload)
-                    .then(result => {
-                      payload.sort((a, b) => b.examUnicode - a.examUnicode)
-                      return doAwesomeStuff(dispatch, payload)
+                  removeVotedExams(payload, examData, web3)
+                    .then(payload => {
+                      // console.error('payload outside: ' + payload)
+                      // this function provides a parallel loading of all the informations from ipfs. 
+                      // It renders the data all together: an interesting improvement will be to load the data
+                      // per parts so in case of some ipfs file failure the app is still working
+                      if(payload != null) {
+                        var ipfs = new ipfsPromise()
+                        processIPFSResultParallel(ipfs, payload)
+                          .then(result => {
+                            payload.sort((a, b) => b.examUnicode - a.examUnicode)
+                            return doAwesomeStuff(dispatch, payload)
+                          })
+                          .catch(function (error) {
+                            // If error, go to signup page.
+                            console.error('Error while reading ipfs informations.')
+                            console.log(error)
+                            dispatch(errorReadingData(req))
+                            // return browserHistory.push('/profile')
+                          })
+                      } else dispatch(dataEmpty(req))
                     })
-
                 }
               })
               .catch(function (result) {
