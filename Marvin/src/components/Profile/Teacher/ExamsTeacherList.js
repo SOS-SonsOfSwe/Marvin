@@ -15,7 +15,7 @@ import EmptyData from '../../Loading/EmptyData'
 //     { year: "2016-2017", degree: "Psicologia" },
 // ]
 
-const Row = ({ examUnicode, load }) => (
+const Row = ({ examUnicode, load, classUnicode }) => (
     <tr className="clickable-row">
         <td>{examUnicode}</td>
         {/* <td>{teacher}</td> */}
@@ -25,7 +25,7 @@ const Row = ({ examUnicode, load }) => (
         <td>{load && load.time}</td>
         <td> <Link to={{
             pathname: "/profile/exams-list/student-list",
-            state: { examUnicode: examUnicode }
+            state: { examUnicode: examUnicode, classUnicode: classUnicode }
         }}>Go to the list of subscribed students</Link></td>
     </tr >
 );

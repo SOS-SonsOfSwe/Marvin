@@ -4,25 +4,17 @@ import LoadingIPFSData from '../../Loading/LoadingIpfs';
 import EmptyData from '../../Loading/EmptyData';
 
 
-const Row = ({ name, surname, badgeNumber, fiscalCode, univocalCode, hChange }) => (
+const Row = ({ badgeNumber, hChange }) => (
     <tr className="clickable-row">
-        <td>{name}</td>
-        <td>{surname}</td>
-        <td>{badgeNumber}</td>
-        <td>{fiscalCode}</td>
-        <td>{univocalCode}</td>
+        <td> {badgeNumber} </td>
         <td>
-            <fieldset><input type="text" onChange={hChange(badgeNumber)} />
+            <fieldset><input type="text" onChange={(e) => hChange(badgeNumber, e)} />
             </fieldset>
         </td>
-    </tr>
+    </tr >
 );
 
 class RegisteredStudentsList extends React.Component {
-
-    /*handleChange(event) {
-        this.setState({ vote: event.target.value });
-    }*/
 
     constructor(props) {
         super(props);
@@ -30,13 +22,16 @@ class RegisteredStudentsList extends React.Component {
         this.state = {
             votes: []
         }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSave = this.handleSave.bind(this);
     }
 
     handleChange(badgeNumber, event) {
 
         let flag = false;
 
-        this.state.votes.array.forEach(element => {
+        this.state.votes.forEach(element => {
             if (element.badgeNumber === badgeNumber && flag === false) {
                 element.vote = event.target.value;
                 flag = true;
@@ -46,16 +41,18 @@ class RegisteredStudentsList extends React.Component {
         if (flag === false) this.setState({ votes: this.state.votes.concat([{ badgeNumber: badgeNumber, vote: event.target.value }]) });
     }
 
-    handleSave() {
+    handleSave(event) {
+        event.preventDefault();
         this.props.setMarksData(this.props.examUnicode, this.props.classUnicode, this.state.votes)
     }
 
     componentDidMount() {
         this.props.readStudentsData(this.props.examUnicode)
+
+
     }
 
     render() {
-
         const load = this.props.loadingStudents === true ? <LoadingData label='Loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
         const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
@@ -71,17 +68,13 @@ class RegisteredStudentsList extends React.Component {
                     <main className='container'>
                         <h1>Students registered to the exam with code: {this.props.examUnicode}</h1>
                         <p className="text-center">Here there is the list of the students that are registered to the X exam.</p>
-                        <label className="float-right" href="#">Total registered students:</label>
+                        <label className="float-right" href="#">Total registered students: {this.props.students.length}</label>
                         {this.props.emptyStudents === false && this.props.success === true &&
                             <form onSubmit={this.handleSave}>
                                 <table className="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Surname</th>
                                             <th>Badge number</th>
-                                            <th>Fiscal code</th>
-                                            <th>Univocal code</th>
                                             <th>Vote</th>
                                         </tr>
                                     </thead>
