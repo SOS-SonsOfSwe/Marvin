@@ -33,7 +33,17 @@ class RegisteredStudentsList extends React.Component {
     }
 
     handleChange(badgeNumber, event) {
-        this.setState({ votes: this.state.votes.concat([{ badgeNumber: badgeNumber, vote: event.target.value }]) });
+
+        let flag = false;
+
+        this.state.votes.array.forEach(element => {
+            if (element.badgeNumber === badgeNumber && flag === false) {
+                element.vote = event.target.value;
+                flag = true;
+            }
+        });
+
+        if (flag === true) this.setState({ votes: this.state.votes.concat([{ badgeNumber: badgeNumber, vote: event.target.value }]) });
     }
 
     handleSave() {
