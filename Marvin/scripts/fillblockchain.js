@@ -75,14 +75,14 @@ function pushJSON(jsonPARAM) {
   })
 }
 
-function getJSON(hashIpfsPARAM) {
-  return new Promise(function (resolve, reject) {
-    ipfs.catJSON(hashIpfsPARAM, function (err, data) {
-      if(err !== null) return reject(err);
-      resolve(data);
-    })
-  })
-}
+// function getJSON(hashIpfsPARAM) {
+//   return new Promise(function (resolve, reject) {
+//     ipfs.catJSON(hashIpfsPARAM, function (err, data) {
+//       if(err !== null) return reject(err);
+//       resolve(data);
+//     })
+//   })
+// }
 
 var insertUsers = [
   { FC: 'AAABBB00A00B000C', UC: '1234567890', tp: 1, degree: '' },
@@ -252,7 +252,7 @@ AdminContract.deployed()
             })
             .then(hashIPFS => {
               hash = getBytes32FromIpfsHash(hashIPFS);
-              adminInstance.addNewClass(Sclass.degreeUnicode, Sclass.classUnicode, hash, '2', { from: address0 })
+              adminInstance.addNewClass(Sclass.degreeUnicode, Sclass.classUnicode, hash, 2, { from: address0 })
                 .then(() => console.log('Class ' + classLine++ + ' ok'))
                 .catch(() => console.error('Error at class ' + classLine++));
             })
@@ -280,8 +280,21 @@ AdminContract.deployed()
                 .catch(() => console.error('Error at exam ' + examsLine++));
             })
         }
-        // console.log('Added all exams')
 
+      })
+      .then(() => {
+        var subscribedLine = 0
+        var studentInstance
+        StudentContract.deployed()
+          .then(async instance => {
+            studentInstance = instance
+            studentInstance.subscribeExam(exams[0].examUnicode, { from: address4 })
+              .then(() => console.log('address4 subscribed APP1 ' + subscribedLine++ + ' ok'))
+              .catch(() => console.error('Error at subscribed ' + subscribedLine++));
+            studentInstance.subscribeExam(exams[0].examUnicode, { from: address5 })
+              .then(() => console.log('address4 subscribed APP1 ' + subscribedLine++ + ' ok'))
+              .catch(() => console.error('Error at subscribed ' + subscribedLine++));
+          })
       })
   })
 // })
