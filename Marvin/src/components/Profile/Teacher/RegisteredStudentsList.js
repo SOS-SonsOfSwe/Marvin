@@ -68,24 +68,26 @@ class RegisteredStudentsList extends React.Component {
                     <main className='container'>
                         <h1>Students registered to the exam with code: {this.props.examUnicode}</h1>
                         <p className="text-center">Here there is the list of the students that are registered to the X exam.</p>
-                        <label className="float-right" href="#">Total registered students: {this.props.students.length}</label>
                         {this.props.emptyStudents === false && this.props.success === true &&
-                            <form onSubmit={this.handleSave}>
-                                <table className="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Badge number</th>
-                                            <th>Vote</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {this.props.students.map((rowData, index) => <Row key={index} {...rowData} hChange={this.handleChange} />)}
-                                    </tbody>
-                                </table>
-                                <fieldset>
-                                    <input type="submit" value="Save" />
-                                </fieldset>
-                            </form>
+                            <div>
+                                <span className="float-right" href="#">Total registered students: {this.props.students.length}</span>
+                                <form onSubmit={this.handleSave}>
+                                    <table className="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Badge number</th>
+                                                <th>Vote</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {this.props.students.map((rowData, index) => <Row key={index} {...rowData} hChange={this.handleChange} />)}
+                                        </tbody>
+                                    </table>
+                                    <fieldset>
+                                        <input type="submit" value="Save" />
+                                    </fieldset>
+                                </form>
+                            </div>
                         }
                     </main>
                 }
