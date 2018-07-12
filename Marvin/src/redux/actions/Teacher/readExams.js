@@ -47,10 +47,10 @@ async function removeVotedExams(payload, examData, web3) {
                   element
                 ]
                 // console.error("filteredPayload: " + JSON.stringify(filteredPayload))
-                if(payload.length - 1 === i)
-                  return resolve(filteredPayload)
-              } else return resolve(filteredPayload)
 
+              }
+              if(payload.length - 1 === i)
+                return resolve(filteredPayload)
               return filteredPayload
             })
             .catch(function (error) {

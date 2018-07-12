@@ -1,9 +1,7 @@
 import AdminContract from '../../../../build/contracts/Admin'
 import Units from 'ethereumjs-units'
 import ethPrice from 'eth-price'
-import {
-  browserHistory
-} from 'react-router'
+import { browserHistory } from 'react-router'
 import store from '../../../store'
 
 // this are standard dispatches: feel free to use them. The meaning is obvious, those are not taking any parameter.
@@ -19,7 +17,7 @@ export default function addNewAcademicYear(year) {
     .web3.web3Instance
 
   // Double-check web3's status.
-  if (typeof web3 !== 'undefined') {
+  if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -43,7 +41,7 @@ export default function addNewAcademicYear(year) {
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
         // Log errors, if any.
-        if (error) {
+        if(error) {
           console.error(error);
         }
 
