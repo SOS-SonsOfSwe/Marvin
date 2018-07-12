@@ -43,7 +43,7 @@ class RegisteredStudentsList extends React.Component {
             }
         });
 
-        if (flag === true) this.setState({ votes: this.state.votes.concat([{ badgeNumber: badgeNumber, vote: event.target.value }]) });
+        if (flag === false) this.setState({ votes: this.state.votes.concat([{ badgeNumber: badgeNumber, vote: event.target.value }]) });
     }
 
     handleSave() {
