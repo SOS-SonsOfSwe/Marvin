@@ -45,9 +45,8 @@ class InsertClass extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        if(!checkDegreeUnicode(this.state.class))
+        if (!checkDegreeUnicode(this.state.class))
             return alert("The class code has an invalid format")
-        event.preventDefault()
         this.props.addClass(this.state.degree, this.state.class, this.state.description, this.state.teacher)
     }
 
@@ -57,11 +56,11 @@ class InsertClass extends React.Component {
     }
     render() {
         return (
-            <main className='container' onSubmit={this.handleSubmit}> 
+            <main className='container' >
                 <div className="pure-u-1-1">
                     <h1>Insert Class</h1>
                     <p>Now you can insert a new Class.</p>
-                    <form className="pure-form pure-form-stacked" >
+                    <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>
                         <fieldset>
                             {/* <label htmlFor="years"> Select academic year </label>
                             <select type="text" name="years" value={this.state.year} onChange={this.handleChange}>
