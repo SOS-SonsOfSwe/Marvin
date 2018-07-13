@@ -4,13 +4,12 @@ import bs58 from 'bs58'
 export default class ipfsPromise {
   constructor() {
     // Using Infura node
-    /*
-     * this.callback = new IPFS({
-     * host: "ipfs.infura.io",
-     * port: '5001',
-     * protocol: 'https'
-     * })
-     */
+
+    // this.callback = new IPFS({
+    //   host: "ipfs.infura.io",
+    //   port: '5001',
+    //   protocol: 'https'
+    // })
 
     /* 
      * Using local node - if you choose this you have to run "ipfs daemon" before. 

@@ -20,6 +20,7 @@ import { readStudentExamsFromDatabase } from '../../../redux/actions/Student/rea
 // academicYears: second reducer
 // payload: the data inside the reducer
 const mapStateToProps = (state, ownProps) => {
+  // console.error('Payload: ' + JSON.stringify(state.student.exams.payload))
   return {
     exams: state.student.exams.payload,
     loading: state.student.exams.loading,
@@ -29,7 +30,7 @@ const mapStateToProps = (state, ownProps) => {
 
     badgeNumber: state.user.data.payload.badgeNumber,
 
-    ipfsLoading: state.ipfs.loading
+    // ipfsLoading: state.ipfs.loading
   }
 }
 

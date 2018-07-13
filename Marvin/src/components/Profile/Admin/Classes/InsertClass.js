@@ -1,6 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router'
 
+
+const OptionsDC = ({ degreeUnicode }) => (
+    <option value={degreeUnicode}> {degreeUnicode} </option>
+);
+
+const OptionsY = ({ year }) => (
+    <option value={year}> {year} </option>
+);
+
 class InsertClass extends React.Component {
 
     constructor(props) {
@@ -47,17 +56,6 @@ class InsertClass extends React.Component {
         this.props.addClass(this.state.degree, this.state.class, this.state.description, this.state.teacher)
     }
 
-    /*componentDidMount() {
-
-        if (this.props.fromDegree) {
-            this.state = {
-                year: this.props.year,
-                degree: this.props.degreeUnicode,
-                class: '',
-            };
-        }
-    }*/
-
     render() {
         return (
             <main className='container'>
@@ -66,10 +64,19 @@ class InsertClass extends React.Component {
                     <p>Now you can insert a new Class.</p>
                     <form className="pure-form pure-form-stacked" onSubmit={this.handleSave}>
                         <fieldset>
-                            <label>Academic year</label>
-                            <input type="text" value={this.state.year} onChange={this.handleChange} placeholder="Insert a year" />
-                            <label>Degree</label>
-                            <input type="text" value={this.state.degree} onChange={this.handleChange1} placeholder="Insert a degree" />
+                            <label htmlFor="years"> Select academic year </label>
+                            <select type="text" name="years" value={this.state.year} onChange={this.handleChange}>
+                                {<option value="select year" disabled={this.state.years === "" ? false : true}> -- select a year -- </option>}
+                                {this.props.emptyAcademicYears === false &&
+                                    this.props.academicYears.map((rowData, index) => <OptionsY key={index} {...rowData} />)}
+                            </select>
+                            <label htmlFor="degree"> Select degree </label>
+                            <select type="text" name="degree" value={this.state.degree} onChange={this.handleChange1}>
+                                {<option value="select degree" disabled={this.state.degree === "" ? false : true}> -- select a degree -- </option>}
+                                {console.log('this.props.degrees: ' + JSON.stringify(this.props.degrees))}
+                                {this.props.emptyDegrees === false && this.props.successDegree === true &&
+                                    this.props.degrees.map((rowData, index) => <OptionsDC key={index} {...rowData} />)}
+                            </select>
                             <label>Class</label>
                             <input type="text" value={this.state.class} onChange={this.handleChange2} placeholder="Insert a Class" />
                             <label>Description</label>

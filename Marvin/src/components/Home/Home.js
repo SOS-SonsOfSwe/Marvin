@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import book from '../../../public/media/1.jpg'
+// import book from '../../../public/media/1.jpg'
 // import webpack from 'webpack';
 
 class Home extends Component {

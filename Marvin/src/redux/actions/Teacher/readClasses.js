@@ -66,8 +66,8 @@ export function readClassesFromDatabase() {
             // Attempt to read degrees per year
             teacherInstance.myClasses({ from: coinbase })
               .then(result => {
-                console.log('CLASSES READ RESULT: ')
-                console.log(result)
+                // console.log('CLASSES READ RESULT: ')
+                // console.log(result)
 
                 // checking if the blockchain is empty for this kind of data.
                 // when the blockchain is empty the first numbers it retrieves are:
@@ -86,7 +86,6 @@ export function readClassesFromDatabase() {
                   //   // console.log('result[0] : ' + web3.toHex(result[0]))
 
                   var payload
-                  let i = 0;
 
                   // export var classes = [{
                   //   year: "2017-2018",
@@ -104,13 +103,12 @@ export function readClassesFromDatabase() {
                   var classUnicode
                   for(let cU of result) {
                     classUnicode = web3.toUtf8(cU);
-                    if(i === 0) { // first element of array
+                    if(payload == null) { // first element of array
                       payload = [{ classUnicode: classUnicode }, ]
                     } else
                       payload = [...payload,
                         { classUnicode: classUnicode }
                       ]
-                    i++
                   }
 
                   // for(i; i < result.length; i++) {

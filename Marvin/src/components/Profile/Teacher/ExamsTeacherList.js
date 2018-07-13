@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router'
+import { Link } from 'react-router'
 import LoadingData from '../../Loading/LoadingData'
 import LoadingIPFSData from '../../Loading/LoadingIpfs'
 import EmptyData from '../../Loading/EmptyData'
@@ -15,7 +15,7 @@ import EmptyData from '../../Loading/EmptyData'
 //     { year: "2016-2017", degree: "Psicologia" },
 // ]
 
-const Row = ({ examUnicode, load }) => (
+const Row = ({ examUnicode, load, classUnicode }) => (
     <tr className="clickable-row">
         <td>{examUnicode}</td>
         {/* <td>{teacher}</td> */}
@@ -23,7 +23,11 @@ const Row = ({ examUnicode, load }) => (
         <td>{load && load.place}</td>
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
-    </tr>
+        <td> <Link to={{
+            pathname: "/profile/exams-list/student-list",
+            state: { examUnicode: examUnicode, classUnicode: classUnicode }
+        }}>Go to the list of subscribed students</Link></td>
+    </tr >
 );
 
 const Options = ({ classUnicode }) => (
@@ -53,8 +57,7 @@ class ExamsTeacherList extends React.Component {
         const load = this.props.loadingExams || this.props.loadingClasses ? <LoadingData label='Loading...' /> : <div />;
         const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
-        const empty = this.props.emptyClasses ? <EmptyData label='no data found on blockchain' /> : <div />
-
+        const empty = this.props.emptyExams ? <EmptyData label='no data found on blockchain' /> : <div />
         return (
             <div>
                 {load}
@@ -78,7 +81,7 @@ class ExamsTeacherList extends React.Component {
                                     </fieldset>
                                 </form>
                                 {this.state.selectedClass !== "" &&
-                                    this.props.emptyClasses === false && this.props.success === true &&
+                                    this.props.emptyExams === false && this.props.success === true &&
                                     <table className="table table-striped">
                                         <thead>
                                             <tr>
@@ -87,10 +90,11 @@ class ExamsTeacherList extends React.Component {
                                                 <th className="title-column">Place</th>
                                                 <th className="title-column">Date</th>
                                                 <th className="title-column">Time</th>
+                                                <th className="title-column">Subscribed students</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                            {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} classUnicode={this.state.selectedClass} />)}
                                         </tbody>
                                     </table>
                                 }

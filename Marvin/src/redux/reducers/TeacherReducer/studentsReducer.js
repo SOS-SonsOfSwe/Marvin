@@ -1,4 +1,4 @@
-import { studentCostants, userCostants } from '../costants'
+import { teacherCostants, userCostants } from '../costants'
 
 const initialState = {
   payload: null,
@@ -8,8 +8,8 @@ const initialState = {
   empty: null
 }
 
-const examsReducer = (state = initialState, action) => {
-  if(action.request === studentCostants.EXAMS) {
+const studentsReducer = (state = initialState, action) => {
+  if(action.request === teacherCostants.STUDENTS) {
     switch(action.type) {
       // default: in this case we tried to make a dispatch without using matching any case
       default: {
@@ -36,7 +36,6 @@ const examsReducer = (state = initialState, action) => {
       {
         // checking if somebody changed page during loading data, so the state.data is not overwritten by asynchronous returns
         // if(state.loading === false) return state
-        // console.error('Payload: ' + JSON.stringify(action.payload.load))
         return {
           ...state,
           payload: action.payload.load,
@@ -81,12 +80,13 @@ const examsReducer = (state = initialState, action) => {
       {
         return {
           ...state,
+          payload: null,
           success: true,
           empty: true,
           loading: false
         }
       }
-    case studentCostants.ERASE_CLASSES:
+    case teacherCostants.ERASE_STUDENTS:
       {
         return {
           ...state,
@@ -100,4 +100,4 @@ const examsReducer = (state = initialState, action) => {
     }
   } else return state;
 }
-export default examsReducer
+export default studentsReducer

@@ -1,6 +1,6 @@
 import React from 'react';
 import LoadingData from '../../Loading/LoadingData'
-import LoadingIPFSData from '../../Loading/LoadingIpfs'
+// import LoadingIPFSData from '../../Loading/LoadingIpfs'
 import EmptyData from '../../Loading/EmptyData'
 
 // var arrayData = [
@@ -12,8 +12,9 @@ import EmptyData from '../../Loading/EmptyData'
 //     { degree: "informatica", class: "Ricarca operativa", typology: "scritto", date: "19-08-2018" },
 // ]
 
-const Row = ({ examUnicode, load, teacher }) => (
+const Row = ({ examUnicode, classUnicode, load, teacher }) => (
     <tr className="clickable-row">
+        <td>{classUnicode}</td>
         <td>{examUnicode}</td>
         <td>{load && load.type}</td>
         <td>{load && load.place}</td>
@@ -33,39 +34,39 @@ class ExamsStudentList extends React.Component {
     render() {
         const load = this.props.loading === true ? <LoadingData label='Loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
-        const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
+        // const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
         const empty = this.props.empty ? <EmptyData label='no data found on blockchain' /> : <div />
         //const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
+        // console.error('Payload: ' + JSON.stringify(this.props.exams))
+        // console.error('success: ' + this.props.success)
 
         return (
             <div>
                 {load}
-                {ipfsLoad}
+                {/* {ipfsLoad} */}
                 {empty}
-                {this.props.ipfsLoading !== true &&
-                    <main className='container'>
+                <main className='container'>
+                    {this.props.empty === false && this.props.success === true &&
+                        <table className="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th className="title-column">Class unicode</th>
+                                    <th className="title-column">Exam unicode</th>
+                                    <th className="title-column">Type</th>
+                                    <th className="title-column">Place</th>
+                                    <th className="title-column">Date</th>
+                                    <th className="title-column">Time</th>
+                                    <th className="title-column">Teacher</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} />)}
+                            </tbody>
+                        </table>
+                    }
 
-                        {this.props.emptyExams === false && this.props.success === true &&
-                            <table className="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th className="title-column">Exam unicode</th>
-                                        <th className="title-column">Type</th>
-                                        <th className="title-column">Place</th>
-                                        <th className="title-column">Date</th>
-                                        <th className="title-column">Time</th>
-                                        <th className="title-column">Teacher</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} />)}
-                                </tbody>
-                            </table>
-                        }
 
-
-                    </main>
-                }
+                </main>
                 {error}
             </div>
         )

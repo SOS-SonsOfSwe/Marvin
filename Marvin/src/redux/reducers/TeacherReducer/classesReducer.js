@@ -80,6 +80,7 @@ const classesReducer = (state = initialState, action) => {
       {
         return {
           ...state,
+          payload: null,
           success: true,
           empty: true,
           loading: false

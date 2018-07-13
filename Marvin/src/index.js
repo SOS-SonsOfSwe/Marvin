@@ -46,6 +46,9 @@ import DeleteAdministrator from './components/Profile/Admin/onlyUniversity/Admin
 import DeleteTeacher from './components/Profile/Admin/Teachers/DeleteTeacher'
 import DeleteStudent from './components/Profile/Admin/Students/DeleteStudent'
 import InsertExamContainer from './containers/Profile/Admin/Classes/InsertExamContainer'
+import ExamsContainer from './containers/Profile/Admin/Classes/ExamsContainer';
+import DeleteClassContainer from './containers/Profile/Admin/Classes/DeleteClassContainer';
+import RegisteredStudentListContainer from './containers/Profile/Teacher/RegisteredStudentListContainer';
 
 
 
@@ -55,8 +58,7 @@ import './index.scss'
 
 // Redux Store
 import store from './store'
-import ExamsContainer from './containers/Profile/Admin/Classes/ExamsContainer';
-import DeleteClassContainer from './containers/Profile/Admin/Classes/DeleteClassContainer';
+
 
 
 // Initialize react-router-redux.
@@ -128,7 +130,11 @@ ReactDOM.render((
             <Route path="delete-student" component={AdminIsAuthenticated(DeleteStudent)} />
           </Route>
 
-          <Route path="exams-list" component={TeacherIsAuthenticated(ExamsTeacherListContainer)} />
+          <Route path="exams-list">
+            <IndexRoute component={TeacherIsAuthenticated(ExamsTeacherListContainer)} />
+            <Route path="student-list" component={TeacherIsAuthenticated(RegisteredStudentListContainer)} />
+          </Route>
+
           <Route path="exams-student-list" component={StudentIsAuthenticated(ExamsStudentListContainer)} />
           <Route path="school-records" component={StudentIsAuthenticated(SchoolRecords)} />
 

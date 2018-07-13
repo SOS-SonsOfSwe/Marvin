@@ -1,5 +1,6 @@
 /*jshint loopfunc:true*/
 import "regenerator-runtime/runtime"; // needed for async calls
+import DegreeContract from '../../../../build/contracts/DegreeData'
 import ClassContract from '../../../../build/contracts/ClassData'
 import StudentDataContract from '../../../../build/contracts/StudentData'
 import { browserHistory } from 'react-router'
@@ -21,6 +22,7 @@ const contract = require('truffle-contract')
 
 function doAwesomeStuff(dispatch, load) {
   dispatch(dataRead({ load }, req))
+  // console.error('Payload: ' + JSON.stringify(load))
   var currentLocation = browserHistory.getCurrentLocation()
   if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
@@ -38,6 +40,74 @@ async function processIPFSResultParallel(ipfs, payload) {
   await Promise.all(promises)
 }
 
+async function readExams(classInstance, classes, payload, web3, coinbase, dispatch) {
+  return new Promise(function (resolve, reject) { // for(let sclass of classes)
+    classes.map(sclass => {
+      // var payloadToReturn
+      var classUnicode = web3.toUtf8(sclass)
+      return classInstance.getClassExamsData(classUnicode, { from: coinbase })
+        .then(result => {
+
+          // result[0] = examHashcode
+          // result[1] = examsTeacher
+          // result[2] = examUnicode
+
+          console.log('EXAMS READ RESULT: ')
+          console.log(result)
+
+          if(result[0].length === 0) {
+            return payload
+          } else {
+
+            var hashIPFS
+            for(let j = 0; j < result[0].length; j++) {
+              var exam = result[2][j]
+              var hash = result[0][j]
+              var teac = web3.toDecimal(result[1][j])
+              console.log("teacher: " + teac)
+              var exUni = web3.toUtf8(exam)
+              // console.log('dgr: ' + dgr)
+              hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
+              console.log("hash: " + hashIPFS)
+              // i'm storing the informations inside the description. We will retrieve them later.
+              // console.error(payload == null)
+              if(payload == null) { // first element of array
+                payload = [{ load: hashIPFS, examUnicode: exUni, teacher: teac }, ]
+              } else
+                payload = [...payload,
+                  { load: hashIPFS, examUnicode: exUni, teacher: teac }
+                ]
+            }
+            var ipfs = new ipfsPromise()
+            return processIPFSResultParallel(ipfs, payload)
+              .then(() => {
+                payload.sort((a, b) => b.load.date - a.load.date)
+                // console.error('payload: ' + JSON.stringify(payload))
+                return resolve(payload)
+              })
+              .catch(function (error) {
+                // If error, go to signup page.
+                console.error('Error while reading ipfs informations.')
+                console.log(error)
+                dispatch(errorReadingData(req))
+                return reject(error)
+                // return browserHistory.push('/profile')
+              })
+          }
+
+        })
+        .catch(function (error) {
+          // If error, go to signup page.
+          console.error('Error while reading exams.')
+          console.log(error)
+          dispatch(errorReadingData(req))
+          return reject(error)
+          // return browserHistory.push('/profile')
+        })
+    })
+  })
+}
+
 export function readStudentExamsFromDatabase(badgeNumber) {
   let web3 = store.getState()
     .web3.web3Instance
@@ -52,9 +122,8 @@ export function readStudentExamsFromDatabase(badgeNumber) {
       const sClass = contract(ClassContract)
       sClass.setProvider(web3.currentProvider)
 
-      // Declaring this for later so we can chain functions on Authentication.
-      var studentDataInstance
-      var classInstance
+      const Degree = contract(DegreeContract)
+      Degree.setProvider(web3.currentProvider)
 
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
@@ -67,75 +136,38 @@ export function readStudentExamsFromDatabase(badgeNumber) {
         }
 
         studentData.deployed()
-          .then(function (instance) {
-            studentDataInstance = instance
-
-            // Attempt to read exams per class/class
-
-            studentDataInstance.getStudentDegree(badgeNumber, { from: coinbase })
+          .then(function (studentDataInstance) {
+            return studentDataInstance.getStudentDegree(badgeNumber, { from: coinbase })
               // .then(console.log)
               .then(degree => {
-                sClass.deployed()
-                  .then(function (instance) {
-                    classInstance = instance
-                    classInstance.getClasses(degree, { from: coinbase })
+                Degree.deployed()
+                  .then(function (degreeInstance) {
+                    return degreeInstance.getClasses(degree, { from: coinbase })
                       .then(classes => {
-                        var i = 0;
-                        var payload
-                        console.error('badgeNumber: ' + badgeNumber)
-                        for(let sclass of classes) {
-                          var classUnicode = web3.toUtf8(sclass)
-                          classInstance.getClassExamsData(classUnicode, { from: coinbase })
-                            .then(result => {
-                              // result[0] = examHashcode
-                              // result[1] = examsTeacher
-                              // result[2] = examUnicode
+                        sClass.deployed()
+                          .then(function (classInstance) {
+                            var payload
+                            // console.error('badgeNumber: ' + badgeNumber)
+                            return readExams(classInstance, classes, payload, web3, coinbase, dispatch)
+                              .then((payload) => {
+                                // console.error('payload: ' + JSON.stringify(payload))
+                                // console.error('i: ' + i)
+                                // here I dispatch all the exams the student is registered to
+                                if(payload == null) dispatch(dataEmpty(req))
+                                else return doAwesomeStuff(dispatch, payload)
+                              })
+                              .catch(function (error) {
+                                // If error, go to signup page.
+                                console.error('Error in readExams.')
+                                console.log(error)
+                                dispatch(errorReadingData(req))
+                                // return browserHistory.push('/profile')
+                              })
 
-                              console.log('EXAMS READ RESULT: ')
-                              console.log(result)
-
-                              if(result[0].length === 0 && i === 0) {
-                                dispatch(dataEmpty(req))
-                              } else {
-
-                                var hashIPFS
-                                for(let j = 0; j < result[0].length; j++) {
-                                  var exam = result[2][j]
-                                  var hash = result[0][j]
-                                  var teac = web3.toDecimal(result[1][j])
-                                  console.log("teacher: " + teac)
-                                  var exUni = web3.toUtf8(exam)
-                                  // console.log('dgr: ' + dgr)
-                                  hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
-                                  // i'm storing the informations inside the description. We will retrieve them later.
-                                  if(i === 0) { // first element of array
-                                    payload = [{ load: hashIPFS, examUnicode: exUni, teacher: teac }, ]
-                                  } else
-                                    payload = [...payload,
-                                      { load: hashIPFS, examUnicode: exUni, teacher: teac }
-                                    ]
-                                  i++
-                                }
-                              }
-                            })
-                            .catch(function (error) {
-                              // If error, go to signup page.
-                              console.error('Error while reading exams.')
-                              console.log(error)
-                              dispatch(errorReadingData(req))
-                              // return browserHistory.push('/profile')
-                            })
-                        }
-                        // here I dispatch all the exams the student is registered to
-                        var ipfs = new ipfsPromise()
-                        processIPFSResultParallel(ipfs, payload)
-                          .then(result => {
-                            payload.sort((a, b) => b.load.date - a.load.date)
-                            return doAwesomeStuff(dispatch, payload)
                           })
                           .catch(function (error) {
                             // If error, go to signup page.
-                            console.error('Error while reading ipfs informations.')
+                            console.error('Error while deploying classData.')
                             console.log(error)
                             dispatch(errorReadingData(req))
                             // return browserHistory.push('/profile')
@@ -151,7 +183,7 @@ export function readStudentExamsFromDatabase(badgeNumber) {
                   })
                   .catch(function (error) {
                     // If error, go to signup page.
-                    console.error('Error while deploying class contract.\n')
+                    console.error('Error while deploying degree contract.\n')
                     console.log(error)
                     dispatch(errorReadingData(req))
                     // return browserHistory.push('/profile')
