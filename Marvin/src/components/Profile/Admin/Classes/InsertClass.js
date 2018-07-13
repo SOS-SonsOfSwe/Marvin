@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
+import { checkDegreeUnicode } from '../../../../utils/validations';
 
 
 const OptionsDC = ({ degreeUnicode }) => (
@@ -28,7 +29,7 @@ class InsertClass extends React.Component {
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleChange3 = this.handleChange3.bind(this);
         this.handleChange4 = this.handleChange4.bind(this);
-        this.handleSave = this.handleSave.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -51,18 +52,21 @@ class InsertClass extends React.Component {
         this.setState({ teacher: event.target.value });
     }
 
-    handleSave(event) {
+    handleSubmit(event) {
+        event.preventDefault()
+        if(!checkDegreeUnicode(this.state.class))
+            return alert("The class code has an invalid format")
         event.preventDefault()
         this.props.addClass(this.state.degree, this.state.class, this.state.description, this.state.teacher)
     }
 
     render() {
         return (
-            <main className='container'>
+            <main className='container' onSubmit={this.handleSubmit}>
                 <div className="pure-u-1-1">
                     <h1>Insert Class</h1>
                     <p>Now you can insert a new Class.</p>
-                    <form className="pure-form pure-form-stacked" onSubmit={this.handleSave}>
+                    <form className="pure-form pure-form-stacked" >
                         <fieldset>
                             <label htmlFor="years"> Select academic year </label>
                             <select type="text" name="years" value={this.state.year} onChange={this.handleChange}>
