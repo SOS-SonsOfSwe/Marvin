@@ -1,5 +1,12 @@
 //import book from '../../../public/media/1.jpg'
 
+.point-button {
+  height: 1.3em;
+  width: 1.3em;
+  border-radius: 9px;
+  pointer-events: none;
+}
+
 .dropdown{
   display: none;
 }
