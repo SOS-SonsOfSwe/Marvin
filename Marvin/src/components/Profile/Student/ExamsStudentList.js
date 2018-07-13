@@ -12,7 +12,7 @@ import EmptyData from '../../Loading/EmptyData'
 //     { degree: "informatica", class: "Ricarca operativa", typology: "scritto", date: "19-08-2018" },
 // ]
 
-const Row = ({ examUnicode, classUnicode, load, teacher }) => (
+const Row = ({ examUnicode, classUnicode, load, teacher, mark }) => (
     <tr className="clickable-row">
         <td>{classUnicode}</td>
         <td>{examUnicode}</td>
@@ -20,7 +20,8 @@ const Row = ({ examUnicode, classUnicode, load, teacher }) => (
         <td>{load && load.place}</td>
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
-        <td>{teacher} </td>
+        <td>{teacher}</td>
+        <td>{mark}</td>
     </tr>
 );
 

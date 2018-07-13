@@ -72,11 +72,13 @@ async function removeVotedExams(payload, examData, web3) {
 }
 
 async function processIPFSResultParallel(ipfs, payload) {
-  const promises = payload.map(item => ipfs.getJSON(item.load)
-    .then(result => {
-      // here I overwrite the description information with the JSON returning from the ipfs
-      item.load = result
-    }))
+  const promises = payload.map(async item => {
+    try {
+      item.load = await ipfs.getJSON(item.load)
+    } catch(error) {
+      console.error('Error while reading ipfs')
+    }
+  })
   await Promise.all(promises)
 }
 
