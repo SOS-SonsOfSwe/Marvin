@@ -49,7 +49,7 @@ class Administrators extends React.Component {
                     <main className='container'>
                         <div className="pure-u-1-1">
                             <h1>Administrators</h1>
-                            <p className="text-center">Here there is the list of the administrators.</p>
+                            <p className="text-center">The list below contains the administrators.</p>
                             <div className="div_insert_button">
                                 <button className="insert-button pure-button pure-button-primary">
                                     <Link className="pure-link" to={{
