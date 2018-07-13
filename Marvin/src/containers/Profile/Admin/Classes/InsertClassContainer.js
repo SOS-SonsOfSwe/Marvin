@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addClass: addNewClass,
+    addClass: bindActionCreators(addNewClass, dispatch),
     readTeachers: bindActionCreators(readTeachersFromDatabase, dispatch)
   }
 }

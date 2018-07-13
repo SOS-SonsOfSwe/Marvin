@@ -34,15 +34,14 @@ class InsertDegree extends React.Component {
 
     render() {
         return (
-            <main className='container' onSubmit={this.handleSubmit}>
+            <main className='container'>
                 <div className="pure-u-1-1">
                     <h1>Insert degree</h1>
                     <p>Now you can insert a new degree.</p>
-                    <form className="pure-form pure-form-stacked">
+                    <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>
                         <fieldset>
                             <label>Academic year</label>
                             <input type="text" value={this.state.year} readOnly="true" />
-
                             <label>Degree description</label>
                             <input type="text" value={this.state.description} onChange={this.handleDescriptionChange} placeholder="Insert the description" />
                             <label>Degree unicode</label>
