@@ -1,5 +1,9 @@
 //import book from '../../../public/media/1.jpg'
 
+.delete-fieldset p {
+  text-align: inherit !important;
+}
+
 .point-button {
   height: 1.3em;
   width: 1.3em;
@@ -111,13 +115,26 @@ tr:nth-child(even) {
   padding-left: 0.6em;
 }
 
-.delete-link a, .button_cancel a {
+.button_cancel a {
   color: #fff;
   text-decoration: none;
   padding-right: 0.6em;
 }
 
-.delete-link, .button_cancel{
+.button_cancel {
+  border: 0.01em solid #516274;
+  border-radius: 4px;
+  background-color: #516274;
+  padding: 0.3em 0em;
+}
+
+.delete-link a {
+  color: #fff;
+  text-decoration: none;
+  padding-right: 0.6em;
+}
+
+.delete-link{
   border: 0.01em solid #9C0015;
   border-radius: 4px;
   background-color: #9C0015;
@@ -126,10 +143,11 @@ tr:nth-child(even) {
 }
 
 .div-buttons input {
-  border: 0.01em solid #516274;
+  border: 0.01em solid #333;
   border-radius: 4px;
-  background-color: #516274;
-  padding: 0.3em 0em;
+  background-color: #333;
+  padding: 0.3em 0.6em;
+  color: #fff;
 }
 
 .div-buttons input a {
