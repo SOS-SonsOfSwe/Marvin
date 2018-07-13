@@ -60,8 +60,16 @@ contract Admin {
         exam.setIndex(_examUniCode, index);
     }
 
-    function getUsers() public view onlyAdmin returns(bytes32[]) {
-        return((UserData(manager.getUserDataContract()).getAllUsers()));
+    function getUsersBadgeType() public view onlyAdmin returns(uint32[], uint8[]) {
+        UserData user = UserData(manager.getUserDataContract()); 
+        bytes32[] memory allUsersCF = user.getAllUsers();
+        uint32[] memory usersBadge = new uint32[](allUsersCF.length);
+        uint8[] memory usersType = new uint8[](allUsersCF.length);
+        for(uint i = 0; i < allUsersCF.length; ++i) {
+            usersBadge[i] = user.getUsersBadgeNumber(allUsersCF[i]);
+            usersType[i] = user.getUsersUserType(allUsersCF[i]);
+        }
+        return(usersBadge, usersType);
     }
     
     function getUsersData() public view onlyAdmin returns(bytes32[], bytes32[], uint32[], uint8[], bool[]) {
