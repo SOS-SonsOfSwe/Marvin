@@ -110,9 +110,12 @@ async function setIfMarked(examDataInstance, exams, badgeNumber, coinbase, web3)
           hash = ipfsPromise.getIpfsHashFromBytes32(hash)
           try {
             var marks = await ipfs.getJSON(hash)
-            for(let mark of marks) {
-              if(mark.badgeNumber === badgeNumber) exam.mark = mark.vote
-            }
+            marks.forEach(mark => {
+              if(mark.badgeNumber === badgeNumber) {
+                exam.mark = mark.vote
+                return
+              }
+            })
           } catch(error) {
             dError('Error while reading hash of marks', error)
             return reject(error)
