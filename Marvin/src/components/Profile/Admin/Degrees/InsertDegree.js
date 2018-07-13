@@ -12,14 +12,9 @@ class InsertDegree extends React.Component {
             description: '',
             degreeUnicode: ''
         };
-        this.handleYearChange = this.handleYearChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleDegreeUnicodeChange = this.handleDegreeUnicodeChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this)
-    }
-
-    handleYearChange(event) {
-        this.setState({ year: event.target.value });
     }
 
     handleDescriptionChange(event) {
@@ -31,7 +26,7 @@ class InsertDegree extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        if(!checkDegreeUnicode(this.state.degreeUnicode))
+        if (!checkDegreeUnicode(this.state.degreeUnicode))
             return alert("The degree unicode has an invalid format")
         event.preventDefault()
         this.props.addDegree(this.state.degreeUnicode, this.state.year, this.state.description)
@@ -46,7 +41,8 @@ class InsertDegree extends React.Component {
                     <form className="pure-form pure-form-stacked">
                         <fieldset>
                             <label>Academic year</label>
-                            <input type="text" value={this.state.year} onChange={this.handleYearChange} placeholder="Insert a year" />
+                            <input type="text" value={this.state.year} readOnly="true" />
+
                             <label>Degree description</label>
                             <input type="text" value={this.state.description} onChange={this.handleDescriptionChange} placeholder="Insert the description" />
                             <label>Degree unicode</label>

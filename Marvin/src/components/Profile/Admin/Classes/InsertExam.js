@@ -16,18 +16,12 @@ class InsertExam extends React.Component {
             unicode: ''
         }
 
-        this.handleChange2 = this.handleChange2.bind(this);
         this.handleChange3 = this.handleChange3.bind(this);
         this.handleChange5 = this.handleChange5.bind(this);
         this.handleChange6 = this.handleChange6.bind(this);
         this.handleChange7 = this.handleChange7.bind(this);
         this.handleChange9 = this.handleChange9.bind(this);
         this.handleSave = this.handleSave.bind(this);
-    }
-
-
-    handleChange2(event) {
-        this.setState({ Class: event.target.value });
     }
 
     handleChange3(event) {
@@ -64,6 +58,7 @@ class InsertExam extends React.Component {
         this.props.addExam(this.state.Class, this.state.unicode, examData);
     }
 
+
     render() {
         return (
             <main className='container'>
@@ -73,7 +68,7 @@ class InsertExam extends React.Component {
                     <form className="pure-form pure-form-stacked" onSubmit={this.handleSave}>
                         <fieldset>
                             <label>Class</label>
-                            <input type="text" value={this.state.Class} onChange={this.handleChange2} placeholder="Insert a class" />
+                            <input type="text" value={this.state.Class} readOnly="true" />
                             <label>Exam type</label>
                             <input type="text" value={this.state.type} onChange={this.handleChange3} placeholder="Insert the exam type" />
                             <label>Place</label>
