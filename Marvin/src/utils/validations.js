@@ -48,8 +48,19 @@ export function web3HexToInt(hex) {
 }
 
 export function checkY(year) {
-  let check = year.match(new RegExp('^2[0-9][0-9][0-9]$'));
-  if (check != null)
+  let check = year.match(new RegExp('^2[0-9][0-9][0-9]-2[0-9][0-9][0-9]$'));
+  if (check === null){
+    return "Incorrect format";
+  }
+  if(new Date().getFullYear() > parseInt( year.slice(0,4), 10))
+    return "Year before the current one";
+  return true;
+}
+ 
+export function checkDegreeUnicode(code){
+  let check = code.match(new RegExp('^[A-Z]{4}[0-9][0-9]$'))
+  if(check!== null)
     return true;
-  return false;
+  else
+    return false;
 }

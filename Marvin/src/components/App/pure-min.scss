@@ -1,5 +1,24 @@
 //import book from '../../../public/media/1.jpg'
 
+.delete-fieldset p {
+  text-align: inherit !important;
+}
+
+.point-button {
+  height: 1.3em;
+  width: 1.3em;
+  border-radius: 9px;
+  pointer-events: none;
+}
+
+.dropdown{
+  display: none;
+}
+
+.float-left-links ul {
+  padding-left: 0.6em;
+}
+
 .fill_it_button input {
   margin-left: 16%;
 }
@@ -92,9 +111,61 @@ tr:nth-child(even) {
   text-decoration: none;
 }
 
-.delete-link a {
-  color: #9C0015;
+.button_cancel a {
+  padding-left: 0.6em;
+}
+
+.button_cancel a {
+  color: #fff;
   text-decoration: none;
+  padding-right: 0.6em;
+}
+
+.button_cancel {
+  border: 0.01em solid #516274;
+  border-radius: 4px;
+  background-color: #516274;
+  padding: 0.3em 0em;
+}
+
+.delete-link a {
+  color: #fff;
+  text-decoration: none;
+  padding-right: 0.6em;
+}
+
+.delete-link{
+  border: 0.01em solid #9C0015;
+  border-radius: 4px;
+  background-color: #9C0015;
+  padding: 0.3em 0em;
+  
+}
+
+.div-buttons input {
+  border: 0.01em solid #333;
+  border-radius: 4px;
+  background-color: #333;
+  padding: 0.3em 0.6em;
+  color: #fff;
+}
+
+.div-buttons input a {
+  color: #fff;
+  text-decoration: none;
+  padding-right: 0.6em;
+}
+
+.X-button {
+  margin-right: 0.6em;
+  padding-right: 0.7em;
+  border: 0.01em solid #9C0015;
+  border-top-left-radius: 4px;
+  background-color: rgba(0,0,0,0.5);
+  left: 0;
+  padding-top: 0.31em;
+  padding-bottom: 0.38em;
+  padding-left: 0.7em;
 }
  
 .book-img { 

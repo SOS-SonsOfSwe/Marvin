@@ -31,7 +31,7 @@ const Row = ({ year, degreeUnicode, degreeData }) => (
                 <Link to={{
                     pathname: "/profile/degrees/delete-degree",
                     state: { year: year, degreeUnicode: degreeUnicode }
-                }}>Delete</Link>
+                }}><span className="X-button">X</span>Delete</Link>
             </button>
         </td>
     </tr>

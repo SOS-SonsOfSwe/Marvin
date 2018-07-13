@@ -17,10 +17,12 @@ const Row = ({ load, FC, badgeNumber, isSignedUp }) => (
         <td>{load && load.surname}</td>
         <td>{badgeNumber}</td>
         <td>{FC}</td>
-        <td style={isSignedUp === false ? { backgroundColor: 'red' } : { backgroundColor: 'green' }}></td>
+        <td>
+            <button className="point-button" style={isSignedUp === false ? { backgroundColor: 'red' } : { backgroundColor: 'green' }}></button>
+        </td>
         <td>
             <button className="delete-link">
-                <Link to="/profile/administrators/delete-administrator">Delete</Link>
+                <Link to="/profile/administrators/delete-administrator"><span className="X-button">X</span>Delete</Link>
             </button>
         </td>
     </tr>
@@ -49,7 +51,7 @@ class Administrators extends React.Component {
                     <main className='container'>
                         <div className="pure-u-1-1">
                             <h1>Administrators</h1>
-                            <p className="text-center">Here there is the list of the administrators.</p>
+                            <p className="text-center">List of the administrators.</p>
                             <div className="div_insert_button">
                                 <button className="insert-button pure-button pure-button-primary">
                                     <Link className="pure-link" to={{

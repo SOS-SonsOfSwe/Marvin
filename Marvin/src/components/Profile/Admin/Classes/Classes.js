@@ -36,7 +36,7 @@ const Row = ({ degreeUnicode, classUnicode, classData, teacher }) => (
                     pathname: "/profile/classes/delete-class",
                     state: { classUnicode: classUnicode, degreeUnicode: degreeUnicode }
                 }}
-                > Delete</Link>
+                > <span className="X-button">X</span>Delete</Link>
             </button>
         </td>
 
@@ -108,7 +108,7 @@ class Classes extends React.Component {
                                             {<option value="select year" disabled={this.state.selectedYears === "" ? false : true}> -- select a year -- </option>}
                                             {this.props.emptyAcademicYears === false &&
                                                 this.props.academicYears.map((rowData, index) => <OptionsY key={index} {...rowData} />)}
-                                        </select>
+                                        </select> 
                                         <label htmlFor="degree"> Select degree </label>
                                         <select disabled={this.state.selectedYears === "" ? true : false} type="text" name="degree" value={this.state.selectedDegree} onChange={this.onSelectChangeDC}>
                                             {<option value="select degree" disabled={this.state.selectedDegree === "" ? false : true}> -- select a degree -- </option>}

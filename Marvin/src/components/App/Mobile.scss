@@ -84,7 +84,7 @@
     }
 
     .title-column {
-        font-size: 0.95em;
+        font-size: 0.85em;
     }
 
     .pure-form-stacked select {
@@ -93,6 +93,22 @@
 
     .top_message {
         font-size: 1.2em;
+    }
+
+    .dropdown {
+        display: inherit;
+    }
+
+    .float-left-links, .float-right-links {
+        display: none;
+    }
+
+    .show {
+        width: 100%;
+        padding: 25px;
+        background-color: coral;
+        color: white;
+        font-size: 25px;
     }
 }
 

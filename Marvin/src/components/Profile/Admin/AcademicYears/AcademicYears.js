@@ -17,7 +17,7 @@ const Row = ({ year }) => (
                 <Link to={{
                     pathname: "/profile/academic-years/delete-academic-year",
                     state: { year: year }
-                }}>Delete</Link>
+                }}><span className="X-button">X</span>Delete</Link>
             </button>
         </td>
 
