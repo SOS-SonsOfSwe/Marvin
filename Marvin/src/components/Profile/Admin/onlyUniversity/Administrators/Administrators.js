@@ -20,7 +20,7 @@ const Row = ({ load, FC, badgeNumber, isSignedUp }) => (
         <td style={isSignedUp === false ? { backgroundColor: 'red' } : { backgroundColor: 'green' }}></td>
         <td>
             <button className="delete-link">
-                <Link to="/profile/administrators/delete-administrator">Delete</Link>
+                <Link to="/profile/administrators/delete-administrator"><span className="X-button">X</span>Delete</Link>
             </button>
         </td>
     </tr>

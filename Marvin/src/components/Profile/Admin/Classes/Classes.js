@@ -36,7 +36,7 @@ const Row = ({ degreeUnicode, classUnicode, classData, teacher }) => (
                     pathname: "/profile/classes/delete-class",
                     state: { classUnicode: classUnicode, degreeUnicode: degreeUnicode }
                 }}
-                > Delete</Link>
+                > <span className="X-button">X</span>Delete</Link>
             </button>
         </td>
 
