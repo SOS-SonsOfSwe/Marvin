@@ -3,6 +3,7 @@ import "regenerator-runtime/runtime"; // needed for async calls
 import DegreeContract from '../../../../build/contracts/DegreeData'
 import ClassContract from '../../../../build/contracts/ClassData'
 import StudentDataContract from '../../../../build/contracts/StudentData'
+import ExamDataContract from '../../../../build/contracts/ExamData'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
 import { EXAMS as req } from "../../reducers/costants/studentCostants";
@@ -20,8 +21,10 @@ import ipfsPromise from '../../../../api/utils/ipfsPromise'
 
 const contract = require('truffle-contract')
 
-function doAwesomeStuff(dispatch, load) {
-  dispatch(dataRead({ load }, req))
+var thereWasAnError = false
+
+function doAwesomeStuff(load) {
+  store.dispatch(dataRead({ load }, req))
   // console.error('Payload: ' + JSON.stringify(load))
   var currentLocation = browserHistory.getCurrentLocation()
   if('redirect' in currentLocation.query) {
@@ -31,7 +34,7 @@ function doAwesomeStuff(dispatch, load) {
   // return browserHistory.push('/profile/degrees') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
-async function processIPFSResultParallel(payload) {
+async function processIPFSLoad(payload) {
   var ipfs = new ipfsPromise()
   const promises = payload.map(async item =>
     item.load = await ipfs.getJSON(item.load)
@@ -40,7 +43,7 @@ async function processIPFSResultParallel(payload) {
   await Promise.all(promises)
 }
 
-async function readExams(classInstance, classes, web3, coinbase, dispatch) {
+async function readExams(classInstance, classes, web3, coinbase) {
   var payload
   return new Promise(function (resolve, reject) { // for(let sclass of classes)
     classes.map(async sclass => {
@@ -53,8 +56,8 @@ async function readExams(classInstance, classes, web3, coinbase, dispatch) {
         // result[1] = examsTeacher
         // result[2] = examUnicode
 
-        console.log('EXAMS READ RESULT: ')
-        console.log(result)
+        // console.log('EXAMS READ RESULT: ')
+        // console.log(result)
 
         if(result[0].length === 0) {
           return payload
@@ -65,11 +68,11 @@ async function readExams(classInstance, classes, web3, coinbase, dispatch) {
             var exam = result[2][j]
             var hash = result[0][j]
             var teac = web3.toDecimal(result[1])
-            console.log("teacher: " + teac)
+            // console.log("teacher: " + teac)
             var exUni = web3.toUtf8(exam)
             // console.log('dgr: ' + dgr)
             hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
-            console.log("hash: " + hashIPFS)
+            // console.log("hash: " + hashIPFS)
             // i'm storing the informations inside the description. We will retrieve them later.
             // console.error(payload == null)
             if(payload == null) { // first element of array
@@ -80,54 +83,60 @@ async function readExams(classInstance, classes, web3, coinbase, dispatch) {
               ]
           }
           try {
-            await processIPFSResultParallel(payload)
+            await processIPFSLoad(payload)
             payload.sort((a, b) => b.load.date - a.load.date)
             // console.error('payload: ' + JSON.stringify(payload))
             return resolve(payload)
           } catch(error) {
-            console.error('Error while reading ipfs informations.')
-            console.log(error)
-            dispatch(errorReadingData(req))
+            dError('Error while reading ipfs informations.', error)
             return reject(error)
           }
         }
       } catch(error) {
-        console.error('Error while reading exams.')
-        console.log(error)
-        dispatch(errorReadingData(req))
+        dError('Error while reading exams.', error)
         return reject(error)
       }
-
-      // return classInstance.getClassExamsData(classUnicode, { from: coinbase })
-      //   .then(async result => {
-
-      //       // return processIPFSResultParallel(payload)
-      //       //   .then(() => {
-      //       //     payload.sort((a, b) => b.load.date - a.load.date)
-      //       //     // console.error('payload: ' + JSON.stringify(payload))
-      //       //     return resolve(payload)
-      //       //   })
-      //       //   .catch(function (error) {
-      //       //     // If error, go to signup page.
-      //       //     console.error('Error while reading ipfs informations.')
-      //       //     console.log(error)
-      //       //     dispatch(errorReadingData(req))
-      //       //     return reject(error)
-      //       //     // return browserHistory.push('/profile')
-      //       //   })
-      //     }
-
-      // })
-      // .catch(function (error) {
-      //   // If error, go to signup page.
-      //   console.error('Error while reading exams.')
-      //   console.log(error)
-      //   dispatch(errorReadingData(req))
-      //   return reject(error)
-      //   // return browserHistory.push('/profile')
-      // })
     })
   })
+}
+
+async function setIfMarked(examDataInstance, exams, badgeNumber, coinbase, web3) {
+  var ipfs = new ipfsPromise()
+  return new Promise(async function (resolve, reject) {
+    for(let exam of exams) {
+      try {
+        var hash = await examDataInstance.getResultHash(exam.examUnicode, { from: coinbase })
+        if(web3.toDecimal(hash) !== 0) {
+          hash = ipfsPromise.getIpfsHashFromBytes32(hash)
+          try {
+            var marks = await ipfs.getJSON(hash)
+            for(let mark of marks) {
+              if(mark.badgeNumber === badgeNumber) exam.mark = mark.vote
+            }
+          } catch(error) {
+            dError('Error while reading hash of marks', error)
+            return reject(error)
+          }
+          return resolve(exams)
+
+        } else {
+          console.log('No marks found!')
+        }
+      } catch(error) {
+        dError('Error while reading marks', error)
+        return reject(error)
+      }
+      return resolve(exams)
+    }
+  })
+}
+
+function dError(text, error) {
+  console.error(text)
+  console.log(error)
+  store.dispatch(errorReadingData(req))
+  thereWasAnError = true
+  alert('There was an error while deploying contracts or reading infos. See the console log.')
 }
 
 export function readStudentExamsFromDatabase(badgeNumber) {
@@ -147,8 +156,11 @@ export function readStudentExamsFromDatabase(badgeNumber) {
       const Degree = contract(DegreeContract)
       Degree.setProvider(web3.currentProvider)
 
+      const ExamData = contract(ExamDataContract)
+      ExamData.setProvider(web3.currentProvider)
+
       // Get current ethereum wallet.
-      web3.eth.getCoinbase((error, coinbase) => {
+      web3.eth.getCoinbase(async (error, coinbase) => {
 
         dispatch(readingData(req))
 
@@ -157,83 +169,49 @@ export function readStudentExamsFromDatabase(badgeNumber) {
           console.error(error);
         }
 
-        studentData.deployed()
-          .then(function (studentDataInstance) {
-            return studentDataInstance.getStudentDegree(badgeNumber, { from: coinbase })
-              // .then(console.log)
-              .then(degree => {
-                Degree.deployed()
-                  .then(function (degreeInstance) {
-                    return degreeInstance.getClasses(degree, { from: coinbase })
-                      .then(classes => {
-                        sClass.deployed()
-                          .then(async function (classInstance) {
-                            try {
-                              var payload = await readExams(classInstance, classes, web3, coinbase, dispatch)
-                              if(payload == null) dispatch(dataEmpty(req))
-                              else return doAwesomeStuff(dispatch, payload)
-                            } catch(error) {
-                              console.error('Error in readExams.')
-                              console.log(error)
-                              dispatch(errorReadingData(req))
-                            }
-                            // console.error('badgeNumber: ' + badgeNumber)
-                            // return readExams(classInstance, classes, web3, coinbase, dispatch)
-                            //   .then((payload) => {
-                            //     // console.error('payload: ' + JSON.stringify(payload))
-                            //     // console.error('i: ' + i)
-                            //     // here I dispatch all the exams the student is registered to
-                            //     if(payload == null) dispatch(dataEmpty(req))
-                            //     else return doAwesomeStuff(dispatch, payload)
-                            //   })
-                            //   .catch(function (error) {
-                            //     // If error, go to signup page.
-                            //     console.error('Error in readExams.')
-                            //     console.log(error)
-                            //     dispatch(errorReadingData(req))
-                            //     // return browserHistory.push('/profile')
-                            //   })
+        try { var studentDataInstance = await studentData.deployed() } catch(error) {
+          // If error, go to signup page.
+          dError('Error while deploying studentData.', error)
+          // return browserHistory.push('/profile')
+        }
 
-                          })
-                          .catch(function (error) {
-                            // If error, go to signup page.
-                            console.error('Error while deploying classData.')
-                            console.log(error)
-                            dispatch(errorReadingData(req))
-                            // return browserHistory.push('/profile')
-                          })
-                      })
-                      .catch(function (error) {
-                        // If error, go to signup page.
-                        console.error('Error while reading classes.')
-                        console.log(error)
-                        dispatch(errorReadingData(req))
-                        // return browserHistory.push('/profile')
-                      })
-                  })
-                  .catch(function (error) {
-                    // If error, go to signup page.
-                    console.error('Error while deploying degree contract.\n')
-                    console.log(error)
-                    dispatch(errorReadingData(req))
-                    // return browserHistory.push('/profile')
-                  })
-              })
-              .catch(function (error) {
-                // If error, go to signup page.
-                console.error('Error while reading degree.\n')
-                console.log(error)
-                dispatch(errorReadingData(req))
-                // return browserHistory.push('/profile')
-              })
-          })
-          .catch(function (error) {
-            // If error, go to signup page.
-            console.error('Error while deploying studentData.\n')
-            console.log(error)
-            dispatch(errorReadingData(req))
-            // return browserHistory.push('/profile')
-          })
+        try { var degreeInstance = await Degree.deployed() } catch(error) {
+          dError('Error while deploying degree contract.')
+        }
+
+        try { var classInstance = await sClass.deployed() } catch(error) {
+          dError('Error while deploying classData.')
+        }
+        try { var examDataInstance = await ExamData.deployed() } catch(error) {
+          dError('Error while deploying examData.')
+        }
+        if(!thereWasAnError) {
+          try {
+            var degree = await studentDataInstance.getStudentDegree(badgeNumber, { from: coinbase })
+            try {
+              var classes = await degreeInstance.getClasses(degree, { from: coinbase })
+              try {
+                var exams = await readExams(classInstance, classes, web3, coinbase)
+                if(exams == null) dispatch(dataEmpty(req))
+                else {
+                  try {
+                    var markedExams = await setIfMarked(examDataInstance, exams, badgeNumber, coinbase, web3)
+                    // console.log('Exams with marks: ' + JSON.stringify(markedExams))
+                    return doAwesomeStuff(markedExams)
+                  } catch(error) {
+                    dError('Error while setting marks on exams', error)
+                  }
+                }
+              } catch(error) {
+                dError('Error in readExams.')
+              }
+            } catch(error) {
+              dError('Error while reading classes.')
+            }
+          } catch(error) {
+            dError('Error while reading degree.\n')
+          }
+        }
       })
     }
   } else {

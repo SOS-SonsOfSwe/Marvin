@@ -1,33 +1,38 @@
 import IPFS from 'ipfs-mini'
 import bs58 from 'bs58'
 
+var instance = null
+
 export default class ipfsPromise {
   constructor() {
-    // Using Infura node
+    if(!instance) {
+      instance = this
+      // Using Infura node
 
-    // this.callback = new IPFS({
-    //   host: "ipfs.infura.io",
-    //   port: '5001',
-    //   protocol: 'https'
-    // })
+      // this.callback = new IPFS({
+      //   host: "ipfs.infura.io",
+      //   port: '5001',
+      //   protocol: 'https'
+      // })
 
-    /* 
-     * Using local node - if you choose this you have to run "ipfs daemon" before. 
-     * You also need to loosen your IPFS node's CORS restrictions, changing config file in your .ipfs directory
-     * and setting "Access-Control-Allow-Origin": ["*"] both in "Gateway" and "API"):
-     *
-     * this.callback = new IPFS({
-     * host: "127.0.0.1",
-     * port: '5001',
-     * protocol: 'http'
-     * })
-     */
+      /* 
+       * Using local node - if you choose this you have to run "ipfs daemon" before. 
+       * You also need to loosen your IPFS node's CORS restrictions, changing config file in your .ipfs directory
+       * and setting "Access-Control-Allow-Origin": ["*"] both in "Gateway" and "API"):
+       *
+       * this.callback = new IPFS({
+       * host: "127.0.0.1",
+       * port: '5001',
+       * protocol: 'http'
+       * })
+       */
 
-    // Using AWS Server Instance
-    this.callback = new IPFS({
-      host: "54.93.231.212", // IPv4 Public IP of the AWS Server Instance
-      port: '5001'
-    })
+      // Using AWS Server Instance
+      this.callback = new IPFS({
+        host: "54.93.231.212", // IPv4 Public IP of the AWS Server Instance
+        port: '5001'
+      })
+    } else this.callback = instance.callback
   }
 
   // Return bytes32 hex string from base58 encoded ipfs hash,
@@ -64,7 +69,7 @@ export default class ipfsPromise {
         //   return reject("no ipfs network allowed")
         // }, 5)
         if(err !== null) return reject(err);
-        resolve(data);
+        return resolve(data);
       })
     })
   }
@@ -74,7 +79,7 @@ export default class ipfsPromise {
     return new Promise(function (resolve, reject) {
       ipfs.catJSON(hashIpfsPARAM, function (err, data) {
         if(err !== null) return reject(err);
-        resolve(data);
+        return resolve(data);
       })
     })
   }
