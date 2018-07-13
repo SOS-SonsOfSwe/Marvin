@@ -62,7 +62,7 @@ class InsertClass extends React.Component {
 
     render() {
         return (
-            <main className='container' onSubmit={this.handleSubmit}>
+            <main className='container' onSubmit={this.handleSubmit}> 
                 <div className="pure-u-1-1">
                     <h1>Insert Class</h1>
                     <p>Now you can insert a new Class.</p>
