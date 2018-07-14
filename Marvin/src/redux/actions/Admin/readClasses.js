@@ -10,14 +10,18 @@ import {
   readingData,
   dataRead,
   dataEmpty,
+  ipfsReadingData,
+  ipfsDataRead,
+  ipfsErrorReadingData,
+  ipfsNetworkError
 } from '../StandardDispatches/readingData'
 
 import ipfsPromise from '../../../../api/utils/ipfsPromise'
 
 const contract = require('truffle-contract')
 
-function doAwesomeStuff(dispatch, load) {
-  dispatch(dataRead({ load }, req))
+function doAwesomeStuff(load) {
+  store.dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
   if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
@@ -36,11 +40,14 @@ function doAwesomeStuff(dispatch, load) {
 //   }
 // }
 
-async function processIPFSResultParallel(ipfs, payload) {
-  const promises = payload.map(item => ipfs.getJSON(item.classData)
+async function processIPFSResultParallel(payload) {
+  store.dispatch(ipfsReadingData())
+  var ipfs = new ipfsPromise()
+  const promises = payload.map((item, i, payload) => ipfs.getJSON(item.classData)
     .then(result => {
       // here I overwrite the description information with the JSON returning from the ipfs
       item.classData = result.classData
+      if(payload.length - 1 === i) store.dispatch(ipfsDataRead())
     }))
   await Promise.all(promises)
 }
@@ -131,11 +138,15 @@ export function readClassesFromDatabase(degreeUnicode) {
                   // this function provides a parallel loading of all the informations from ipfs. 
                   // It renders the data all together: an interesting improvement will be to load the data
                   // per parts so in case of some ipfs file failure the app is still working
-                  var ipfs = new ipfsPromise()
-                  processIPFSResultParallel(ipfs, payload)
+
+                  processIPFSResultParallel(payload)
                     .then(result => {
                       payload.sort((a, b) => b.classUnicode - a.classUnicode)
-                      return doAwesomeStuff(dispatch, payload)
+                      return doAwesomeStuff(payload)
+                    })
+                    .catch(error => {
+                      dispatch(ipfsErrorReadingData())
+                      dispatch(ipfsNetworkError())
                     })
 
                 }

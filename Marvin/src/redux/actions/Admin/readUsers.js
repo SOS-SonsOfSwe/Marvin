@@ -10,30 +10,37 @@ import {
   readingData,
   dataRead,
   dataEmpty,
+  ipfsReadingData,
+  ipfsDataRead,
+  ipfsErrorReadingData,
+  ipfsNetworkError
 } from '../StandardDispatches/readingData'
 
 import ipfsPromise from '../../../../api/utils/ipfsPromise'
 
 const contract = require('truffle-contract')
 
-function doAwesomeStuff(dispatch, load, userValue) {
-  dispatch(dataRead({ load }, userValue))
+function doAwesomeStuff(load, userValue) {
+  store.dispatch(dataRead({ load }, userValue))
   var currentLocation = browserHistory.getCurrentLocation()
-  if ('redirect' in currentLocation.query) {
+  if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   }
   // return browserHistory.push('/profile/admin-classes') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
-async function processIPFSResultParallel(ipfs, payload) {
-  const promises = payload.map(item => {
+async function processIPFSResultParallel(payload) {
+  store.dispatch(ipfsReadingData())
+  var ipfs = new ipfsPromise()
+  const promises = payload.map((item, i, payload) => {
     // checking for the hash which has not to be null
-    if (item.load !== null) return ipfs.getJSON(item.load)
+    if(item.load !== null) return ipfs.getJSON(item.load)
       .then(result => {
         // here I overwrite the description information with the JSON returning from the ipfs.
         // PAY ATTENTION: the payload is the same as the login, so look over there to catch the right info!
         item.load = result
+        if(payload.length - 1 === i) store.dispatch(ipfsDataRead())
       })
     else {
       return null
@@ -44,35 +51,35 @@ async function processIPFSResultParallel(ipfs, payload) {
 
 export function readUsersFromDatabase(userType) {
   var userValue
-  switch (userType) {
-    case 'admin':
-      {
-        userType = 1
-        userValue = ADMINS
-        break
-      }
-    case 'teacher':
-      {
-        userType = 2
-        userValue = TEACHERS
-        break
-      }
-    case 'student':
-      {
-        userType = 3
-        userValue = STUDENTS
-        break
-      }
-    default:
-      {
-        userType = 0
-        break
-      }
+  switch(userType) {
+  case 'admin':
+    {
+      userType = 1
+      userValue = ADMINS
+      break
+    }
+  case 'teacher':
+    {
+      userType = 2
+      userValue = TEACHERS
+      break
+    }
+  case 'student':
+    {
+      userType = 3
+      userValue = STUDENTS
+      break
+    }
+  default:
+    {
+      userType = 0
+      break
+    }
   }
   let web3 = store.getState()
     .web3.web3Instance
   console.error(userType, userValue)
-  if (typeof web3 !== 'undefined') {
+  if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -88,7 +95,7 @@ export function readUsersFromDatabase(userType) {
         dispatch(readingData(userValue))
 
         // Log errors, if any.
-        if (error) {
+        if(error) {
           console.error(error);
         }
 
@@ -103,7 +110,7 @@ export function readUsersFromDatabase(userType) {
                 console.log('USER DATA READ RESULT: ')
                 console.log(result)
 
-                if (result[0].length === 0) {
+                if(result[0].length === 0) {
                   dispatch(dataEmpty(userValue))
                 } else {
                   // console.log('result[0] : ' + web3.toHex(result[0]))
@@ -137,14 +144,14 @@ export function readUsersFromDatabase(userType) {
                   // It is better to read all the infos together without doing
                   // much conversions because we can close the communication
                   // with the blockchain faster
-                  for (i; i < result[0].length; i++) {
+                  for(i; i < result[0].length; i++) {
                     // console.log('web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
                     // console.log('ipfsPromise.getIpfsHashFromBytes32(result[0][i]): ' + ipfsPromise.getIpfsHashFromBytes32(result[0][i]))
                     // console.log('web3.toDecimal(result[1][i]): ' + web3.toDecimal(result[1][i]))
                     // console.log('web3.toDecimal(result[3][i]): ' + web3.toDecimal(result[3][i]))
                     // console.log('userType: ' + userType, 'web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
                     console.log('if result ' + (userType === web3.toDecimal(result[3][i])))
-                    if (userType === web3.toDecimal(result[3][i])) {
+                    if(userType === web3.toDecimal(result[3][i])) {
                       total++
 
                       var hash = result[1][i].toString()
@@ -153,7 +160,7 @@ export function readUsersFromDatabase(userType) {
 
                       // console.error(hash)
                       var hashIPFS
-                      if (hash.toString() !== '0x000')
+                      if(hash.toString() !== '0x000')
                         hashIPFS = ipfsPromise.getIpfsHashFromBytes32(result[1][i])
                       else hashIPFS = null
                       var badgeNumber = web3.toDecimal(result[2][i])
@@ -162,25 +169,28 @@ export function readUsersFromDatabase(userType) {
                       // console.log('dgr: ' + dgr)
 
                       // i'm storing the informations inside the description. We will retrieve them later.
-                      if (total === 1) { // first element of array
-                        payload = [{ load: hashIPFS, FC: FC, badgeNumber: badgeNumber, isSignedUp: isSignedUp },]
+                      if(total === 1) { // first element of array
+                        payload = [{ load: hashIPFS, FC: FC, badgeNumber: badgeNumber, isSignedUp: isSignedUp }, ]
                       } else
                         payload = [...payload,
-                        { load: hashIPFS, FC: FC, badgeNumber: badgeNumber, isSignedUp: isSignedUp }
+                          { load: hashIPFS, FC: FC, badgeNumber: badgeNumber, isSignedUp: isSignedUp }
                         ]
                     }
                   }
                   console.log('Total: ' + total)
-                  if (total === 0) return dispatch(dataEmpty(userValue))
+                  if(total === 0) return dispatch(dataEmpty(userValue))
                   else {
                     // this function provides a parallel loading of all the informations from ipfs. 
                     // It renders the data all together: an interesting improvement will be to load the data
                     // per parts so in case of some ipfs file failure the app is still working
-                    var ipfs = new ipfsPromise()
-                    processIPFSResultParallel(ipfs, payload)
+                    processIPFSResultParallel(payload)
                       .then(result => {
                         // payload.sort((a, b) => b.badgeNumber - a.badgeNumber)
-                        return doAwesomeStuff(dispatch, payload, userValue)
+                        return doAwesomeStuff(payload, userValue)
+                      })
+                      .catch(error => {
+                        dispatch(ipfsErrorReadingData())
+                        dispatch(ipfsNetworkError())
                       })
                   }
                 }
