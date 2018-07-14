@@ -1,7 +1,7 @@
 import React from "react";
 
 import './Loading.scss'
-import ipfsLoaderGif from '../../../public/media/ipfsLoader.gif'
+import ipfsLoaderGif from '../../../public/media/loading.gif'
 
 // Not found page component
 export default class LoadingIPFSData extends React.Component {

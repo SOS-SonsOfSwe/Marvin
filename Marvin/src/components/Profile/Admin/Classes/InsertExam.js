@@ -9,7 +9,7 @@ class InsertExam extends React.Component {
 
     this.state = {
       Class: this.props.Class,
-      type: '',
+      type: 'Written',
       place: '',
       date: '',
       time: '',
@@ -71,9 +71,9 @@ class InsertExam extends React.Component {
               <input type="text" value={this.state.Class} readOnly="true" />
               <label>Exam type</label>
               <select type="text" value={this.state.type} onChange={this.handleChange3} placeholder="Insert the exam type">
-                <option value="written">Writing</option>
-                <option value="laboratory"> Laboratory </option>
-                <option value="oral"> Oral </option>
+                <option value="Written">Written</option>
+                <option value="Practice"> Practice </option>
+                <option value="Oral"> Oral </option>
               </select>
               <label>Place</label>
               <input type="text" value={this.state.place} onChange={this.handleChange5} placeholder="Insert a place" />
