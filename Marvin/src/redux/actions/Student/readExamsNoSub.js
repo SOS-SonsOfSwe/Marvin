@@ -79,7 +79,6 @@ async function readExams(classInstance, classes, web3, coinbase) {
       var classUnicode = web3.toUtf8(sclass)
       try {
         var result = await classInstance.getClassExamsData(classUnicode, { from: coinbase })
-
         // result[0] = examHashcode
         // result[1] = examsTeacher
         // result[2] = examUnicode
@@ -118,10 +117,12 @@ async function readExams(classInstance, classes, web3, coinbase) {
     }))
     try {
       // console.log(payload)
-      var newPayload = await processIPFSLoad(payload)
-      newPayload.sort((a, b) => new Date(b.load.date) - new Date(a.load.date))
-      // console.error('payload: ' + JSON.stringify(payload))
-      return resolve(newPayload)
+      if(payload != null) {
+        var newPayload = await processIPFSLoad(payload)
+        newPayload.sort((a, b) => new Date(b.load.date) - new Date(a.load.date))
+        // console.error('payload: ' + JSON.stringify(payload))
+        return resolve(newPayload)
+      } else return resolve(null)
     } catch(error) {
       dError('Error while reading ipfs informations.', error)
       return reject(error)
@@ -280,22 +281,24 @@ export function readExamsNoSubFromDatabase(badgeNumber) {
             var degree = await studentDataInstance.getStudentDegree(badgeNumber, { from: coinbase })
             try {
               var classes = await degreeInstance.getClasses(degree, { from: coinbase })
-              var noBookletClasses = await removeIfBooklet(classes, studentInstance, web3, coinbase)
-              try {
-                var exams = await readExams(classInstance, noBookletClasses, web3, coinbase)
-                if(exams == null) dispatch(dataEmpty(req))
-                else {
-                  try {
-                    var noSubscribedExams = await removeIfSubscribed(studentDataInstance, exams, badgeNumber, coinbase, web3)
-                    if(noSubscribedExams != null) {
-                      return doAwesomeStuff(noSubscribedExams)
-                    } else dispatch(dataEmpty(req))
-                  } catch(error) {
-                    dError('Error while removing subscribed exams', error)
+              if(classes != null) {
+                var noBookletClasses = await removeIfBooklet(classes, studentInstance, web3, coinbase)
+                try {
+                  var exams = await readExams(classInstance, noBookletClasses, web3, coinbase)
+                  if(exams == null) dispatch(dataEmpty(req))
+                  else {
+                    try {
+                      var noSubscribedExams = await removeIfSubscribed(studentDataInstance, exams, badgeNumber, coinbase, web3)
+                      if(noSubscribedExams != null) {
+                        return doAwesomeStuff(noSubscribedExams)
+                      } else dispatch(dataEmpty(req))
+                    } catch(error) {
+                      dError('Error while removing subscribed exams', error)
+                    }
                   }
+                } catch(error) {
+                  dError('Error in readExams.')
                 }
-              } catch(error) {
-                dError('Error in readExams.')
               }
             } catch(error) {
               dError('Error while reading classes.')
