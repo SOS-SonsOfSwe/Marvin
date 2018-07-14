@@ -75,7 +75,7 @@ function pushJSON(jsonPARAM) {
       // setTimeout(() => {
       //   return reject("no ipfs network allowed")
       // }, 5)
-      if(err !== null) return reject(err);
+      if (err !== null) return reject(err);
       resolve(data);
     })
   })
@@ -211,6 +211,7 @@ var exams = [
 var adminInstance
 var userLogicInstance
 var studentInstance
+var teacherInstance
 
 AdminContract.deployed()
   .then(instance => {
@@ -222,6 +223,8 @@ AdminContract.deployed()
       .then(() => {
         StudentContract.deployed()
           .then(instance => studentInstance = instance)
+        TeacherContract.deployed()
+          .then(instance => teacherInstance = instance)
       })
       .then(async () => {
         await addUsers(insertUsers)
@@ -231,6 +234,7 @@ AdminContract.deployed()
         await addClass(classes)
         await addExams(exams)
         await subscribeStudents()
+        await registerResults()
       })
   })
 
@@ -238,13 +242,13 @@ async function addUsers(users) {
   // AdminContract.deployed()
   // .then(async (adminInstance) => {
   var insertUserLine = 0;
-  for(var user of users) {
+  for (var user of users) {
     // (async) => {
     try {
       await adminInstance.addUser(user.FC, user.UC, user.tp, user.degree, { from: addresses[0] });
       console.log('insertUser ' + insertUserLine++ + ' ok');
       // .then(() => console.log('insertUser ' + insertUserLine++ + ' ok'))
-    } catch(error) {
+    } catch (error) {
       console.error('Error at insertUser' + insertUserLine++);
     }
     // .catch(() => console.error('Error at insertUser' + insertUserLine++));
@@ -254,12 +258,12 @@ async function addUsers(users) {
 
 async function addAcademicYears(years) {
   var academicYearLine = 0;
-  for(var year of years) {
+  for (var year of years) {
     year = year.year.slice(0, 4)
     try {
       await adminInstance.addNewYear(year, { from: addresses[0] })
       console.log('year ' + academicYearLine++ + ' ok')
-    } catch(error) {
+    } catch (error) {
       console.error('Error at year ' + academicYearLine++)
     }
   }
@@ -273,14 +277,14 @@ async function addAcademicYears(years) {
 
 async function addDegrees(degreeCourse) {
   var degreeLine = 0;
-  for(var degree of degreeCourse) {
+  for (var degree of degreeCourse) {
     try {
       var hashIPFS = await pushJSON({
         "degreeUnicode": degree.degreeUnicode,
         "year": degree.year,
         "degreeData": degree.degreeData
       })
-    } catch(error) {
+    } catch (error) {
       console.error('Error while pushing JSON on IPFS')
     }
 
@@ -289,7 +293,7 @@ async function addDegrees(degreeCourse) {
     try {
       await adminInstance.addNewDegree(degree.degreeUnicode, year, hash, { from: address0 })
       console.log('Degree ' + degreeLine++ + ' ok')
-    } catch(error) {
+    } catch (error) {
       console.error('Error at degree ' + degreeLine++)
     }
   }
@@ -305,7 +309,7 @@ async function signUpUser(users) {
   // }
   var signUpLine = 0;
   var j = 1;
-  for(let user of users) {
+  for (let user of users) {
     try {
       var hashIPFS = await pushJSON({
         "name": user.name,
@@ -314,14 +318,14 @@ async function signUpUser(users) {
         "FC": user.FC,
         "UC": user.UC
       })
-    } catch(error) {
+    } catch (error) {
       console.error('Error while pushing JSON on IPFS')
     }
     var hash = getBytes32FromIpfsHash(hashIPFS);
     try {
       await userLogicInstance.signUp(user.FC, user.UC, hash, { from: addresses[j++] })
       console.log('Signup ' + signUpLine++ + ' ok')
-    } catch(error) {
+    } catch (error) {
       console.error('Error at signup ' + signUpLine++)
     }
   }
@@ -339,7 +343,7 @@ async function addClass(classes) {
   //   'classData': ""
   // }
   var classLine = 0;
-  for(var Sclass of classes) {
+  for (var Sclass of classes) {
     try {
       var hashIPFS = await pushJSON({
         /*'year': year,
@@ -347,14 +351,14 @@ async function addClass(classes) {
         'classUnicode': Sclass.classUnicode,
         'classData': Sclass.classData
       })
-    } catch(error) {
+    } catch (error) {
       console.error('Error while pushing JSON on IPFS')
     }
     var hash = getBytes32FromIpfsHash(hashIPFS);
     try {
       await adminInstance.addNewClass(Sclass.degreeUnicode, Sclass.classUnicode, hash, Sclass.teacher, { from: address0 })
       console.log('Class ' + classLine++ + ' ok')
-    } catch(error) {
+    } catch (error) {
       console.error('Error at class ' + classLine++)
     }
   }
@@ -369,7 +373,7 @@ async function addExams(exams) {
   //   "time": ''
   // }
   var examsLine = 0;
-  for(var exam of exams) {
+  for (var exam of exams) {
     var hashIPFS = await pushJSON({
       "type": exam.type,
       "place": exam.place,
@@ -380,7 +384,7 @@ async function addExams(exams) {
     try {
       await adminInstance.addNewExam(exam.classUnicode, exam.examUnicode, hash, { from: address0 })
       console.log('Exam ' + examsLine++ + ' ok')
-    } catch(error) { console.error('Error at exam ' + examsLine++) }
+    } catch (error) { console.error('Error at exam ' + examsLine++) }
   }
 }
 
@@ -389,11 +393,27 @@ async function subscribeStudents() {
   try {
     await studentInstance.subscribeExam(exams[0].examUnicode, { from: addresses[10] })
     console.log('address4 subscribed PROG17-1 ' + subscribedLine++ + ' ok')
-  } catch(error) { console.error('Error at subscribed ' + subscribedLine++) }
+  } catch (error) { console.error('Error at subscribed ' + subscribedLine++) }
   try {
     studentInstance.subscribeExam(exams[0].examUnicode, { from: addresses[11] })
     console.log('address4 subscribed PROG17-1 ' + subscribedLine++ + ' ok')
-  } catch(error) { console.error('Error at subscribed ' + subscribedLine++) }
+  } catch (error) { console.error('Error at subscribed ' + subscribedLine++) }
+}
+
+async function registerResults() {
+  var addedResultLine = 0
+  var hashIPFS = await pushJSON([{
+    "badgeNumber": 10,
+    "vote": "25"
+  }, {
+    "badgeNumber": 11,
+    "vote": "21"
+  }])
+  var hash = getBytes32FromIpfsHash(hashIPFS);
+  try {
+    await teacherInstance.registerResult(exams[0].examUnicode, exams[0].classUnicode, hash, { from: addresses[4] })
+    console.log('PROG17-1 adding results' + addedResultLine++ + ' ok')
+  } catch (error) { console.error('Error adding results ' + addedResultLine++) }
 }
 
 // new Promise(async function (resolve, reject) {
