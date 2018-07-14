@@ -8,7 +8,8 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    ipfsAdding: state.ipfs.adding
+    ipfsAdding: state.ipfs.adding,
+    blockchainAdding: state.admin.addingData.adding
   }
 }
 

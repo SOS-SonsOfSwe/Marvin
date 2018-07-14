@@ -246,8 +246,8 @@ AdminContract.deployed()
         for(var Sclass of classes) {
           await pushJSON({
               /*'year': year,
-              'degreeUnicode': degreeUnicode,
-              'classUnicode': classUnicode,*/
+              'degreeUnicode': degreeUnicode,*/
+              'classUnicode': Sclass.classUnicode,
               'classData': Sclass.classData
             })
             .then(hashIPFS => {

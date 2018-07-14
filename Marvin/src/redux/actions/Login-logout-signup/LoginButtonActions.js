@@ -11,6 +11,13 @@ import {
   userCostants
 } from '../../reducers/costants'
 
+import {
+  ipfsReadingData,
+  ipfsDataRead,
+  ipfsErrorReadingData,
+  ipfsNetworkError
+} from '../StandardDispatches/readingData'
+
 const contract = require('truffle-contract')
 
 // function metamaskIsActive() {
@@ -105,6 +112,8 @@ function login(web3, dispatch) {
 
                 console.log("IPFS of the user:", ipfsPromise.getIpfsHashFromBytes32(result[3]))
                 if(payload.tp !== 4) {
+                  dispatch(userLoggingIn())
+                  dispatch(ipfsReadingData())
                   var ipfs = new ipfsPromise()
                   // console.log('Waiting for the data from IPFS...')
                   ipfs.getJSON(ipfsPromise.getIpfsHashFromBytes32(result[3]))
@@ -114,16 +123,17 @@ function login(web3, dispatch) {
                       payload.name = jFile.name;
                       payload.surname = jFile.surname;
                       payload.email = jFile.email;
+                      dispatch(ipfsDataRead())
                       return doAwesomeStuff(dispatch, payload)
                     })
                     .catch(err => {
                       // HERE I CATCH THE ERROR OF THE getJSON METHOD. JUST FOR TESTING
                       // console.log('Fail:', err)
-
-                      dispatch(userLoggingIn())
-
+                      dispatch(ipfsErrorReadingData())
+                      dispatch(ipfsNetworkError())
+                      alert('IPFS is not able to load your data. Pay attention to your network')
                     })
-                  dispatch(userLoggingIn())
+
                 } else
                   return doAwesomeStuff(dispatch, payload) //Repeating because of the asyncronous promises of the functions
               })
