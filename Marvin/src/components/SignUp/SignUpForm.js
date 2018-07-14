@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as utils from '../../utils/validations'
 import LoadingIPFSData from '../Loading/LoadingIpfs'
+import LoadingData from '../Loading/LoadingData';
 // import ipfsPromise from '../../../api/utils/ipfsPromise'
 
 class SignUpForm extends Component {
@@ -60,10 +61,13 @@ class SignUpForm extends Component {
 
   render() {
     const ipfsAdd = this.props.ipfsAdding ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
+    const blockchaingAdd = this.props.blockchainAdding === true ? <LoadingData label='Loading...' /> : <div />;
+
     return (
       <div>
         {ipfsAdd}
-        {this.props.ipfsLoading !== true &&
+        {blockchaingAdd}
+        {this.props.ipfsLoading !== true && this.props.ipfsAdding !== true && this.props.blockchainAdding !== true &&
 
           <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit.bind(this)}>
             <fieldset>

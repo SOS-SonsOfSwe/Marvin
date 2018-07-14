@@ -5,17 +5,6 @@ import LoadingIPFSData from '../../../Loading/LoadingIpfs'
 import EmptyData from '../../../Loading/EmptyData'
 
 
-// var arrayData = [
-//     { year: "2017-2018", degree: "Informatica", class: "Probabilità" },
-//     { year: "2017-2018", degree: "Matematica", class: "Calcolo" },
-//     { year: "2017-2018", degree: "Psicologia", class: "Comportamento" },
-//     { year: "2017-2018", degree: "Ingegneria", class: "Analisi" },
-//     { year: "2017-2018", degree: "Giurisprudenza", class: "Diritto" },
-//     { year: "2016-2017", degree: "Informatica", class: "Probabilità" },
-//     { year: "2016-2017", degree: "Matematica", class: "Calcolo" },
-//     { year: "2016-2017", degree: "Psicologia", class: "Comportamento" },
-// ]
-
 const Row = ({ degreeUnicode, classUnicode, classData, teacher }) => (
     <tr className="clickable-row">
         <td>{classUnicode}</td>
@@ -28,9 +17,6 @@ const Row = ({ degreeUnicode, classUnicode, classData, teacher }) => (
             }}>Insert an exam</Link>
         </td>
         <td>
-            <button className="modify-link">
-                <Link to="/profile/classes/modify-class">Modify</Link>
-            </button>
             <button className="delete-link">
                 <Link to={{
                     pathname: "/profile/classes/delete-class",
@@ -108,7 +94,7 @@ class Classes extends React.Component {
                                             {<option value="select year" disabled={this.state.selectedYears === "" ? false : true}> -- select a year -- </option>}
                                             {this.props.emptyAcademicYears === false &&
                                                 this.props.academicYears.map((rowData, index) => <OptionsY key={index} {...rowData} />)}
-                                        </select> 
+                                        </select>
                                         <label htmlFor="degree"> Select degree </label>
                                         <select disabled={this.state.selectedYears === "" ? true : false} type="text" name="degree" value={this.state.selectedDegree} onChange={this.onSelectChangeDC}>
                                             {<option value="select degree" disabled={this.state.selectedDegree === "" ? false : true}> -- select a degree -- </option>}
