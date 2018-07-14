@@ -187,7 +187,7 @@ async function removeNoMarked(examDataInstance, exams, badgeNumber, coinbase, we
             return reject(error)
           }
         } else {
-          console.log('No marks found!')
+          // console.log('No marks found!')
         }
       } catch(error) {
         dError('Error while reading marks', error)
