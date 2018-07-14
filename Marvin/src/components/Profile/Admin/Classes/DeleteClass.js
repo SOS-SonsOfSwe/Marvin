@@ -25,7 +25,7 @@ class DeleteClass extends React.Component {
                         <fieldset className="delete-fieldset">
                             <p>Degree course: {this.props.degreeUnicode}</p>
                             <p>Class: {this.props.classUnicode}</p>
-                            <div className="delete-div-buttons">
+                            <div className="div-buttons delete-but">
                                 <input type="submit" value="Delete" />
                                 <button className="button_cancel">
                                     <Link to='/profile/classes'>Cancel</Link>

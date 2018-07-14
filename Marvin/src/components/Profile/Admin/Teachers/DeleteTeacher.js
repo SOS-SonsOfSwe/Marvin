@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 
 var arrayData = [
     { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" }
@@ -27,9 +28,11 @@ class DeleteTeacher extends React.Component {
                     <form className="pure-form pure-form-stacked delete-form">
                         <fieldset className="delete-fieldset">
                             {rows}
-                            <div className="delete-div-buttons">
-                                <button>Delete</button>
-                                <button>Cancel</button>
+                            <div className="div-buttons delete-but">
+                                <input type="submit" value="Delete" />
+                                <button className="button_cancel">
+                                    <Link to='/profile/teachers'>Cancel</Link>
+                                </button>
                             </div>
                         </fieldset>
                     </form>
