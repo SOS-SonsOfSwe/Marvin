@@ -19,7 +19,7 @@ contract Student {
         manager = ContractManager(_contractManagerAddress);
     }
 
-    function booklet() public view returns(bytes32[], uint8[]) {
+    function booklet() public view returns(bytes32[], bytes10[], uint8[]) {
         uint32 badgeNumber = UserData(manager.getUserDataContract()).getRegUsersBadgeNumber(msg.sender);
         // array contenente gli uniCode degli esami confermati per lo studente chiamante
         bytes10[] memory acceptedResultUniCode = StudentData(manager.getStudentDataContract()).getAcceptedResults(badgeNumber);
@@ -30,7 +30,7 @@ contract Student {
             classHashData[i] = class.getHashData(acceptedResultUniCode[i]);
             classResult[i] = class.getConfirmedResult(badgeNumber, acceptedResultUniCode[i]);
         }
-        return(classHashData, classResult);
+        return(classHashData, acceptedResultUniCode, classResult);
     }
 
     function confirmResult(bytes10 _examUniCode, bytes10 _classUniCode, uint8 _result) public {
