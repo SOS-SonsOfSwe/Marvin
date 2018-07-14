@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
+import { checkExam } from '../../../../utils/validations';
 
 
 class InsertExam extends React.Component {
@@ -47,7 +48,9 @@ class InsertExam extends React.Component {
   handleSave(event) {
 
     event.preventDefault();
-
+    let error = checkExam(this.state);
+    if(error !== null)
+      return alert(error);
     let examData = {
       "type": this.state.type,
       "place": this.state.place,
