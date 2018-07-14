@@ -5,7 +5,7 @@ import ExamsStudentList from '../../../components/Profile/Student/ExamsStudentLi
 // we import the action (=dispatch) we want to link to the store 
 // import { readAcademicYearsFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
 
-import { readStudentExamsFromDatabase } from '../../../redux/actions/Student/readExams'
+import { readExamsNoSubFromDatabase } from '../../../redux/actions/Student/readExamsNoSub'
 
 // the two "map" listed here are useful to make the component "subscribe" the store.
 // how it works? See the description below!
@@ -40,7 +40,7 @@ const mapStateToProps = (state, ownProps) => {
 // Mind the "return" statements: we haven't done the dispatch here, neither in the action. It will
 // be done by the connect below
 const mapDispatchToProps = {
-  readExams: readStudentExamsFromDatabase
+  readExams: readExamsNoSubFromDatabase
 }
 // const mapDispatchToProps = (dispatch) => {
 //   return {
