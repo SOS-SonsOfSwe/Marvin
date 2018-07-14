@@ -46,7 +46,7 @@ class Teachers extends React.Component {
                 {load}
                 {ipfsLoad}
                 {empty}
-                {(this.props.loading === false && this.props.ipfsLoading !== true) &&
+                {(this.props.loading !== true && this.props.ipfsLoading !== true) &&
                     <main className='container'>
                         <div className="pure-u-1-1">
                             <h1>Teachers</h1>

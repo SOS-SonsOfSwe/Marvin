@@ -96,82 +96,88 @@ class InsertUserForm extends Component {
     const empty = this.props.emptyDegrees ? <EmptyData label='no data found on blockchain' /> : <div />
 
     return (
-      <main className='container'>
-        <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>
-          <fieldset>
-            <label htmlFor="FC">Fiscal Code</label>
-            <input id="FC" type="text" value={this.state.FCInserted} onChange={this.onInputFCChange} placeholder="FC" />
-            <span className="pure-form-message">This is a required field.</span>
+      <div>
+        <main className='container'>
+          <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>
+            <fieldset>
+              <label htmlFor="FC">Fiscal Code</label>
+              <input id="FC" type="text" value={this.state.FCInserted} onChange={this.onInputFCChange} placeholder="FC" />
+              <span className="pure-form-message">This is a required field.</span>
 
-            <br />
+              <br />
 
-            <label htmlFor="UC">Unique code</label>
-            <input id="UC" type="text" value={this.state.UCInserted} onChange={this.onInputUCChange} placeholder="UC" />
-            <span className="pure-form-message">This is a required field.</span>
+              <label htmlFor="UC">Unique code</label>
+              <input id="UC" type="text" value={this.state.UCInserted} onChange={this.onInputUCChange} placeholder="UC" />
+              <span className="pure-form-message">This is a required field.</span>
 
-            <br />
+              <br />
 
-            <label htmlFor="UC">User type</label>
-            <div className="row">
-              <div className="col-sm-12">
+              <label htmlFor="UC">User type</label>
+              <div className="row">
+                <div className="col-sm-12">
 
 
-                <div className="radio">
-                  <label>
-                    <input disabled={this.props.isUni ? false : true} type="radio" value="1" checked={this.state.tpInserted === '1' ? true : false} onChange={this.handleOptionChange} />
-                    Administrator
+                  <div className="radio">
+                    <label>
+                      <input disabled={this.props.isUni ? false : true} type="radio" value="1" checked={this.state.tpInserted === '1' ? true : false} onChange={this.handleOptionChange} />
+                      Administrator
                 </label>
-                </div>
+                  </div>
 
-                <div className="radio">
-                  <label>
-                    <input type="radio" value="2" checked={this.state.tpInserted === '2'} onChange={this.handleOptionChange} />
-                    Teacher
+                  <div className="radio">
+                    <label>
+                      <input type="radio" value="2" checked={this.state.tpInserted === '2'} onChange={this.handleOptionChange} />
+                      Teacher
                 </label>
-                </div>
+                  </div>
 
-                <div className="radio">
-                  <label>
-                    <input type="radio" value="3" checked={this.state.tpInserted === '3'} onChange={this.handleOptionChange} />
-                    Student
+                  <div className="radio">
+                    <label>
+                      <input type="radio" value="3" checked={this.state.tpInserted === '3'} onChange={this.handleOptionChange} />
+                      Student
                 </label>
+                  </div>
                 </div>
               </div>
-            </div>
-            {this.state.tpInserted === '3' && load && ipfsLoad && error && empty &&
-              <div className='pure-u-1-1'>
-                <label htmlFor="years"> Select academic year </label>
-                <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChangeY}>
-                  {<option value="select year" disabled={this.state.selectedYears === "" ? false : true}> -- select a year -- </option>}
-                  {this.props.emptyAcademicYears === false &&
-                    this.props.academicYears.map((rowData, index) => <OptionsY key={index} {...rowData} />)}
-                </select>
-                <label htmlFor="degree"> Select degree </label>
-                <select disabled={this.state.selectedYears === "" ? true : false} type="text" name="degree" value={this.state.selectedDegree} onChange={this.onSelectChangeDC}>
-                  {<option value="select degree" disabled={this.state.selectedDegree === "" ? false : true}> -- select a degree -- </option>}
-                  {console.log('this.props.degrees: ' + JSON.stringify(this.props.degrees))}
-                  {this.props.emptyDegrees === false && this.props.successDegree === true &&
-                    this.props.degrees.map((rowData, index) => <OptionsDC key={index} {...rowData} />)}
-                </select>
+              {load}
+              {ipfsLoad}
+              {error}
+              {empty}
+              {this.state.tpInserted === '3' &&
+                <div className='pure-u-1-1'>
+                  <label htmlFor="years"> Select academic year </label>
+                  <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChangeY}>
+                    {<option value="select year" disabled={this.state.selectedYears === "" ? false : true}> -- select a year -- </option>}
+                    {this.props.emptyAcademicYears === false &&
+                      this.props.academicYears.map((rowData, index) => <OptionsY key={index} {...rowData} />)}
+                  </select>
+                  <label htmlFor="degree"> Select degree </label>
+                  <select disabled={this.state.selectedYears === "" ? true : false} type="text" name="degree" value={this.state.selectedDegree} onChange={this.onSelectChangeDC}>
+                    {<option value="select degree" disabled={this.state.selectedDegree === "" ? false : true}> -- select a degree -- </option>}
+                    {console.log('this.props.degrees: ' + JSON.stringify(this.props.degrees))}
+                    {this.props.emptyDegrees === false && this.props.successDegree === true &&
+                      this.props.degrees.map((rowData, index) => <OptionsDC key={index} {...rowData} />)}
+                  </select>
+                </div>
+              }
+
+              {/* <button className="btn btn-default" type="submit">Save</button> */}
+              {/* </form> */}
+
+              {/* </div> */}
+
+              <span className="pure-form-message">This is a required field.</span>
+
+              <br />
+
+              <div className="div_button_insertuser">
+                <button type="submit" className="pure-button pure-button-primary">Insert new user</button>
               </div>
-            }
 
-            {/* <button className="btn btn-default" type="submit">Save</button> */}
-            {/* </form> */}
-
-            {/* </div> */}
-
-            <span className="pure-form-message">This is a required field.</span>
-
-            <br />
-
-            <div className="div_button_insertuser">
-              <button type="submit" className="pure-button pure-button-primary">Insert new user</button>
-            </div>
-
-          </fieldset >
-        </form >
-      </main>
+            </fieldset >
+          </form >
+        </main>
+      </div>
     )
   }
 }
