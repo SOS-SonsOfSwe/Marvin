@@ -72,16 +72,14 @@ class Exams extends React.Component {
     }
 
     render() {
-        const load = this.props.loading === true ? <LoadingData label='Loading...' /> : <div />;
+        const load = this.props.loading === true || this.props.ipfsLoading ? <LoadingData label='Loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
-        const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
         const empty = this.props.emptyExams ? <EmptyData label='no data found on blockchain' /> : <div />
         //const rows = arrayData.map((rowData, index) => <Row key={index} {...rowData} />);
 
         return (
             <div>
                 {load}
-                {ipfsLoad}
                 {empty}
                 {((this.props.loadingExams === false && this.props.loadingAcademic === false && this.props.loadingDegree === false & this.props.ipfsLoading !== true) || (this.state.selectedYears === "" || this.state.selectedDegree === "" || this.state.selectedClass === "")) &&
                     < main className='container'>

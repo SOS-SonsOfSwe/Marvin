@@ -53,16 +53,14 @@ class RegisteredStudentsList extends React.Component {
     }
 
     render() {
-        const load = this.props.loadingStudents === true ? <LoadingData label='Loading...' /> : <div />;
+        const load = this.props.loadingStudents === true || this.props.ipfsLoading ? <LoadingData label='Loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
-        const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
         const empty = this.props.emptyStudents ? <EmptyData label='no data found on blockchain' /> : <div />
 
 
         return (
             <div>
                 {load}
-                {ipfsLoad}
                 {empty}
                 {(this.props.loadingStudents === false && this.props.ipfsLoading !== true) &&
                     <main className='container'>

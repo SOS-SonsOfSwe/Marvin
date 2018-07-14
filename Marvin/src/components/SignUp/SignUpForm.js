@@ -60,13 +60,11 @@ class SignUpForm extends Component {
   }
 
   render() {
-    const ipfsAdd = this.props.ipfsAdding ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
-    const blockchaingAdd = this.props.blockchainAdding === true ? <LoadingData label='Loading...' /> : <div />;
+    const adding = this.props.blockchainAdding === true || this.props.ipfsAdding ? <LoadingData label='Loading...' /> : <div />;
 
     return (
       <div>
-        {ipfsAdd}
-        {blockchaingAdd}
+        {adding}
         {this.props.ipfsLoading !== true && this.props.ipfsAdding !== true && this.props.blockchainAdding !== true &&
 
           <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit.bind(this)}>

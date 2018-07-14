@@ -54,14 +54,12 @@ class ExamsTeacherList extends React.Component {
     }
 
     render() {
-        const load = this.props.loadingExams || this.props.loadingClasses ? <LoadingData label='Loading...' /> : <div />;
-        const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
+        const load = this.props.loadingExams || this.props.loadingClasses || this.props.ipfsLoading ? <LoadingData label='Loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
         const empty = this.props.emptyExams ? <EmptyData label='no data found on blockchain' /> : <div />
         return (
             <div>
                 {load}
-                {ipfsLoad}
                 {empty}
                 {/* {console.log('loadingClasses: ' + this.props.loadingClasses + '\nloadingDegree: ' + this.props.loadingExams } */}
                 {((this.props.loadingClasses === false && this.props.loadingExams === false && this.props.ipfsLoading !== true) || this.state.selectedClass === "") &&
