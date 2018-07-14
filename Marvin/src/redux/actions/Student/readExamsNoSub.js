@@ -151,7 +151,7 @@ async function removeIfBooklet(classes, studentInstance, web3, coinbase) {
                 newClasses = [sclass]
               } else
                 newClasses = [...newClasses,
-                  { sclass }
+                  sclass
                 ]
           }
         }
