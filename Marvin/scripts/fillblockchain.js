@@ -74,7 +74,7 @@ function pushJSON(jsonPARAM) {
       // setTimeout(() => {
       //   return reject("no ipfs network allowed")
       // }, 5)
-      if (err !== null) return reject(err);
+      if(err !== null) return reject(err);
       resolve(data);
     })
   })
@@ -201,14 +201,14 @@ var exams = [
 AdminContract.deployed()
   .then(async (adminInstance) => {
     var insertUserLine = 0;
-    for (var user of insertUsers) {
+    for(var user of insertUsers) {
       await adminInstance.addUser(user.FC, user.UC, user.tp, user.degree, { from: addresses[0] })
         .then(() => console.log('insertUser ' + insertUserLine++ + ' ok'))
         .catch(() => console.error('Error at insertUser' + insertUserLine++));
     }
 
     var academicYearLine = 0;
-    for (var year of academicYears) {
+    for(var year of academicYears) {
       year = year.year.slice(0, 4)
       await adminInstance.addNewYear(year, { from: addresses[0] })
         .then(() => console.log('year ' + academicYearLine++ + ' ok'))
@@ -222,12 +222,12 @@ AdminContract.deployed()
     // }
     var degreeLine = 0;
     var hash;
-    for (var degree of degrees) {
+    for(var degree of degrees) {
       await pushJSON({
-        "degreeUnicode": degree.degreeUnicode,
-        "year": degree.year,
-        "degreeData": degree.degreeData
-      })
+          "degreeUnicode": degree.degreeUnicode,
+          "year": degree.year,
+          "degreeData": degree.degreeData
+        })
         .then(hashIPFS => {
           year = degree.year.slice(0, 4)
           hash = getBytes32FromIpfsHash(hashIPFS);
@@ -253,14 +253,14 @@ AdminContract.deployed()
         var signUpLine = 0;
         var hash;
         var j = 1;
-        for (let user of signUpUsers) {
+        for(let user of signUpUsers) {
           await pushJSON({
-            "name": user.name,
-            "surname": user.surname,
-            "email": user.email,
-            "FC": user.FC,
-            "UC": user.UC
-          })
+              "name": user.name,
+              "surname": user.surname,
+              "email": user.email,
+              "FC": user.FC,
+              "UC": user.UC
+            })
             .then(hashIPFS => {
               hash = getBytes32FromIpfsHash(hashIPFS);
               userLogicInstance.signUp(user.FC, user.UC, hash, { from: addresses[j++] })
@@ -283,13 +283,13 @@ AdminContract.deployed()
         // }
         var classLine = 0;
         var hash;
-        for (var Sclass of classes) {
+        for(var Sclass of classes) {
           await pushJSON({
-            /*'year': year,
-            'degreeUnicode': degreeUnicode,*/
-            'classUnicode': Sclass.classUnicode,
-            'classData': Sclass.classData
-          })
+              /*'year': year,
+              'degreeUnicode': degreeUnicode,*/
+              'classUnicode': Sclass.classUnicode,
+              'classData': Sclass.classData
+            })
             .then(hashIPFS => {
               hash = getBytes32FromIpfsHash(hashIPFS);
               adminInstance.addNewClass(Sclass.degreeUnicode, Sclass.classUnicode, hash, Sclass.teacher, { from: address0 })
@@ -306,13 +306,13 @@ AdminContract.deployed()
         //   "time": ''
         // }
         var examsLine = 0;
-        for (var exam of exams) {
+        for(var exam of exams) {
           await pushJSON({
-            "type": exam.type,
-            "place": exam.place,
-            "date": exam.date,
-            "time": exam.time
-          })
+              "type": exam.type,
+              "place": exam.place,
+              "date": exam.date,
+              "time": exam.time
+            })
             .then(hashIPFS => {
               hash = getBytes32FromIpfsHash(hashIPFS);
               adminInstance.addNewExam(exam.classUnicode, exam.examUnicode, hash, { from: address0 })
@@ -328,10 +328,10 @@ AdminContract.deployed()
         StudentContract.deployed()
           .then(async instance => {
             studentInstance = instance
-            studentInstance.subscribeExam(exams[0].examUnicode, { from: address4 })
+            studentInstance.subscribeExam(exams[0].examUnicode, { from: addresses[10] })
               .then(() => console.log('address4 subscribed PROG17-1 ' + subscribedLine++ + ' ok'))
               .catch(() => console.error('Error at subscribed ' + subscribedLine++));
-            studentInstance.subscribeExam(exams[0].examUnicode, { from: address5 })
+            studentInstance.subscribeExam(exams[0].examUnicode, { from: addresses[11] })
               .then(() => console.log('address4 subscribed PROG17-1 ' + subscribedLine++ + ' ok'))
               .catch(() => console.error('Error at subscribed ' + subscribedLine++));
           })
