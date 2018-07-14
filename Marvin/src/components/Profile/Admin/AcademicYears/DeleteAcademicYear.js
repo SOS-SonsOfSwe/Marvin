@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 
 // var arrayData = [
 //     { year: "2018" },
@@ -42,9 +43,11 @@ class DeleteAcademicYear extends React.Component {
                     <form className="pure-form pure-form-stacked delete-form">
                         <fieldset className="delete-fieldset">
                             <p>Acaddemic year: {this.state.year}</p>
-                            <div className="delete-div-buttons">
-                                <button>Delete</button>
-                                <button>Cancel</button>
+                            <div className="div-buttons delete-but">
+                                <input type="submit" value="Delete" />
+                                <button className="button_cancel">
+                                    <Link to='/profile/academic-years'>Cancel</Link>
+                                </button>
                             </div>
                         </fieldset>
                     </form>
