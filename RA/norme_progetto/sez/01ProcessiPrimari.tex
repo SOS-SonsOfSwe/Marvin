@@ -57,9 +57,10 @@ Secondo lo standard ISO/IEC 12207, il processo di sviluppo si divide nelle segue
 \subsubsection{Attività}
 \paragraph{Analisi dei Requisiti}
 \subparagraph{Scopo}:
-	Lo scopo dell'\AdR consiste nell'individuare i requisiti del progetto tramite le specifiche del capitolato e tramite le comunicazioni con il proponente. 
+	Lo scopo dell'\AdR consiste nell'individuare i requisiti del progetto tramite le specifiche del capitolato, tramite le comunicazioni con il proponente e tramite le valutazioni effettuate durante le riunioni interne del gruppo. 
 \subparagraph{Descrizione}:
-	Il risultato di tale attività dovrà essere stilato dagli \anas, contenente la lista dei requisiti e dei casi d'uso. Tale documento ha il fine di comprendere maggiormente le scelte di progettazione effettuate.
+	Il risultato di tale attività dovrà essere stilato dagli \anas, contenente la lista dei requisiti e dei casi d'uso. Essi dovranno inoltre fornire un diagramma conforme
+	allo standard UML per ogni caso d’uso. Tale documento ha il fine di comprendere maggiormente le scelte di progettazione effettuate.
 \subparagraph{Classificazione dei Requisiti}:
 	i requisiti saranno classificati secondo la seguente codifica:
 		\begin{center}
@@ -113,10 +114,10 @@ Secondo lo standard ISO/IEC 12207, il processo di sviluppo si divide nelle segue
 \paragraph{Progettazione}
 \subparagraph{Scopo}
 	~\\L'attività di progettazione deve precedere la produzione del software ed ha il compito di soddisfare le peculiarità ed i bisogni individuati durante l'attività di \emph{analisi dei requisiti}, e di realizzare al meglio i requisiti di qualità imposti dal committente.
-\subparagraph{Descrizione}
+	L’attività di progettazione si impone inoltre di generare una soluzione soddisfacente per tutti gli individui che fanno parte del progetto. Una volta compresi pienamente i requisiti del problema e approfondita la progettazione in parti abbastanza semplici, si forniranno le istruzioni necessarie ai \progs{} per sviluppare il prodotto finito.
 	~\\I \progs{} (il cui ruolo è descritto nel paragrafo \ref{progettista}) dovranno delinerare i requisiti utili alla documentazione specifica e determinare le linee guida da seguire in funzione dei requisiti individuati dall'analisi.
 	
-	\subparagraph{Descrizione}
+	\subparagraph{Progettazione architetturale}
 	La progettazione permette di:
 	\begin{itemize}
 		\item Costruire l'architettura logica del prodotto;
@@ -125,7 +126,15 @@ Secondo lo standard ISO/IEC 12207, il processo di sviluppo si divide nelle segue
 		\item Organizzare le varie parti del progetto in modo da ottenere componenti singole e facili da implementare durante la successiva fase di codifica.
 	\end{itemize}
 	
-	La progettazione si colloca nel periodo di \emph{Progettazione e codifica} all'interno del \PdP{}; periodo all'interno del quale vengono individuati i design pattern e realizzata l'architettura del prodotto tramite l'utilizzo dei diagrammi delle classi e di sequenza. Il lavoro complessivo ottenuto in questo arco di tempo rappresenta la \textbf{Product Baseline}.
+	La progettazione si colloca nel periodo di \emph{Progettazione e codifica} all'interno del \PdP{}; periodo all'interno del quale vengono individuati i design pattern e realizzata l'architettura del prodotto tramite l'utilizzo dei diagrammi delle classi e di sequenza. Il lavoro complessivo ottenuto in questo arco di tempo rappresenta la \textbf{Product Baseline}. Una volta sviluppata l'architettura generale del software dovranno inoltre essere documentati i seguenti task:
+	\begin{itemize}
+		\item Suddividere il prodotto in componenti;
+		\item Definire il ruolo dei membri;
+		\item Definire le interazioni tra i componenti;
+		\item Assicurarsi che ogni requisito sia soddisfatto da almeno un componente;
+		\item Realizzare e documentare i test d'integrazione, al fine di verificare il corretto funzionamento di più componenti tra loro;
+		\item 
+	\end{itemize}
 
 
 	\subparagraph{Linee guida per la progettazione}
@@ -148,6 +157,10 @@ Secondo lo standard ISO/IEC 12207, il processo di sviluppo si divide nelle segue
 		\item \textbf{Diagrammi di attività}: modellano un processo e organizzano più entità in un sistema di azioni secondo un determinato flusso. I diagrammi delle attività sono un tipo particolare di \emph{diagramma di stato}\ped{G} che identifica la variazione di stato al verificarsi di alcune condizioni legate ad una o più entità;
 		\item \textbf{Diagrammi di sequenza}: descrivono la collaborazione di un gruppo di oggetti che devono implementare collettivamente un comportamento. Sono diagrammi molto semplici, ma che permettono di capire se l'architettura creata viene eseguita.
 	\end{itemize}
+
+	\subparagraph{Test di integrazione}
+	Per quanto riguarda l’attività di test, i \progs{} devono preoccuparsi di definire delle classi di verifica per accertare il funzionamento dei componenti. In alcuni casi non è quindi possibile fornire ai \vers{} degli strumenti automatici per l'esecuzione dei test. La progettazione delle classi per i test necessita di essere svolta senza sovrapporre lo stesso ruolo; chi crea una classe non può essere incaricato anche di testarla.
+	
 	
 	\subparagraph{Requisiti per i progettisti}
 	I \progs{} sono responsabili delle attività di progettazione. Per un corretto svolgersi del loro lavoro, sono tenuti ad acquisire le seguenti conoscenze:
