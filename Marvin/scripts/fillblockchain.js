@@ -19,7 +19,12 @@ var addresses = [
   '0x2191ef87e392377ec08e7c08eb105ef5448eced5',
   '0x0f4f2ac550a1b4e2280d04c21cea7ebd822934b5',
   '0x6330a553fc93768f612722bb8c2ec78ac90b3bbc',
-  '0x5aeda56215b167893e80b4fe645ba6d5bab767de'
+  '0x5aeda56215b167893e80b4fe645ba6d5bab767de',
+  '0xE44c4cf797505AF1527B11e4F4c6f95531b4Be24',
+  '0x69e1CB5cFcA8A311586e3406ed0301C06fb839a2',
+  '0xF014343BDFFbED8660A9d8721deC985126f189F3',
+  '0x0E79EDbD6A727CfeE09A2b1d0A59F7752d5bf7C9',
+  '0x9bC1169Ca09555bf2721A5C9eC6D69c8073bfeB4',
 ]
 const address0 = '0x627306090abab3a6e1400e9345bc60c78a8bef57'
 const address1 = '0xf17f52151ebef6c7334fad080c5704d77216b732'
@@ -69,7 +74,7 @@ function pushJSON(jsonPARAM) {
       // setTimeout(() => {
       //   return reject("no ipfs network allowed")
       // }, 5)
-      if(err !== null) return reject(err);
+      if (err !== null) return reject(err);
       resolve(data);
     })
   })
@@ -90,10 +95,16 @@ var insertUsers = [
   // { FC: 'AAABBB00A00B002C', UC: '1234567870', tp: 1 },
   { FC: 'BBBCCC11B11C111D', UC: '1234567891', tp: 2, degree: '' },
   { FC: 'BBBCCC11B11C112D', UC: '1234567881', tp: 2, degree: '' },
-  // { FC: 'BBBCCC11B11C113D', UC: '1234567871', tp: 2 },
-  { FC: 'CCCDDD22C22D222E', UC: '1234567892', tp: 3, degree: 'INF17' },
-  { FC: 'CCCDDD22C22D223E', UC: '1234567882', tp: 3, degree: 'INF17' },
-  // { FC: 'CCCDDD22C22D224E', UC: '1234567872', tp: 3 }
+  { FC: 'BBBCCC11B11C113D', UC: '1234567871', tp: 2, degree: '' },
+  { FC: 'BBBCCC11B11C114D', UC: '1234567861', tp: 2, degree: '' },
+  { FC: 'BBBCCC11B11C115D', UC: '1234567851', tp: 2, degree: '' },
+  { FC: 'BBBCCC11B11C116D', UC: '1234567841', tp: 2, degree: '' },
+  { FC: 'BBBCCC11B11C117D', UC: '1234567831', tp: 2, degree: '' },
+  { FC: 'BBBCCC11B11C118D', UC: '1234567821', tp: 2, degree: '' },
+
+  { FC: 'CCCDDD22C22D222E', UC: '1234567892', tp: 3, degree: 'INFO17' },
+  { FC: 'CCCDDD22C22D223E', UC: '1234567882', tp: 3, degree: 'INFO17' },
+  { FC: 'CCCDDD22C22D224E', UC: '1234567872', tp: 3, degree: 'MATE17' }
 ]
 
 var academicYears = [
@@ -106,18 +117,18 @@ var academicYears = [
 ]
 
 var degrees = [ //to be transformed into degreeData.description
-  { year: "2017-2018", degreeData: "Informatica", degreeUnicode: 'INF17' },
-  { year: "2017-2018", degreeData: "Matematica", degreeUnicode: 'MAT17' },
-  { year: "2017-2018", degreeData: "Psicologia", degreeUnicode: 'PSI17' },
-  // { year: "2017-2018", degreeData: "Ingegneria dell'energia", degreeUnicode: 'ING/ENE17' },
-  // { year: "2017-2018", degreeData: "Giurisprudenza", degreeUnicode: 'GIUR17' },
-  // { year: "2017-2018", degreeData: "Fisica", degreeUnicode: 'FIS17' },
-  // { year: "2016-2017", degreeData: "Medicina", degreeUnicode: 'MED17' },
-  // { year: "2016-2017", degreeData: "Informatica", degreeUnicode: 'MAT/INF16' },
-  // { year: "2016-2017", degreeData: "Matematica", degreeUnicode: 'MAT16' },
-  // { year: "2016-2017", degreeData: "Psicologia", degreeUnicode: 'PSI16' },
-  // { year: "2016-2017", degreeData: "Medicina", degreeUnicode: 'MED16' },
-  // { year: "2016-2017", degreeData: "Fisica", degreeUnicode: 'FIS16' }
+  { year: "2017-2018", degreeData: "Informatica", degreeUnicode: 'INFO17' },
+  { year: "2017-2018", degreeData: "Matematica", degreeUnicode: 'MATE17' },
+  { year: "2017-2018", degreeData: "Psicologia", degreeUnicode: 'PSIC17' },
+  { year: "2017-2018", degreeData: "Ingegneria dell'energia", degreeUnicode: 'IENE17' },
+  { year: "2017-2018", degreeData: "Giurisprudenza", degreeUnicode: 'GIUR17' },
+  { year: "2017-2018", degreeData: "Fisica", degreeUnicode: 'FISI17' },
+  { year: "2017-2018", degreeData: "Medicina", degreeUnicode: 'MEDI17' },
+  { year: "2016-2017", degreeData: "Informatica", degreeUnicode: 'INFO16' },
+  { year: "2016-2017", degreeData: "Matematica", degreeUnicode: 'MATI16' },
+  { year: "2016-2017", degreeData: "Psicologia", degreeUnicode: 'PSIC16' },
+  { year: "2016-2017", degreeData: "Medicina", degreeUnicode: 'MEDI16' },
+  { year: "2016-2017", degreeData: "Fisica", degreeUnicode: 'FISI16' }
 ]
 
 var signUpUsers = [
@@ -126,25 +137,54 @@ var signUpUsers = [
   // { FC: 'AAABBB00A00B002C', UC: '1234567870', name: 'JohnyStecchino', surname: 'Kennedy', email: 'johnnyStecchino@kennedy.com' },
   { FC: 'BBBCCC11B11C111D', UC: '1234567891', name: 'Jessica', surname: 'Rabbit', email: 'jessica@rabbit.com' },
   { FC: 'BBBCCC11B11C112D', UC: '1234567881', name: 'Marta', surname: 'Wagner', email: 'marta@wagner.com' },
+
+  { FC: 'BBBCCC11B11C113D', UC: '1234567871', name: 'James', surname: 'Bond 🔫', email: 'james@bond.com' },
+  { FC: 'BBBCCC11B11C114D', UC: '1234567861', name: 'David', surname: 'Jones', email: 'david@jones.com' },
+  { FC: 'BBBCCC11B11C115D', UC: '1234567851', name: 'Peter', surname: 'Garcia', email: 'peter@garcia.com' },
+  { FC: 'BBBCCC11B11C116D', UC: '1234567841', name: 'Patricia', surname: 'Taylor', email: 'patricia@taylor.com' },
+  { FC: 'BBBCCC11B11C117D', UC: '1234567831', name: 'Andrew', surname: 'Young', email: 'andrew@young.com' },
+  { FC: 'BBBCCC11B11C118D', UC: '1234567821', name: 'Jennifer', surname: 'McDonald', email: 'jennifer@mcdonald.com' },
+
   // { FC: 'BBBCCC11B11C113D', UC: '1234567871', name: 'Alina', surname: 'Miles', email: 'alina@miles.com' },
   { FC: 'CCCDDD22C22D222E', UC: '1234567892', name: 'Rachel', surname: 'McAdams', email: 'rachel@mcadams.com' },
   { FC: 'CCCDDD22C22D223E', UC: '1234567882', name: 'Kate', surname: 'Hardy', email: 'kate@hardy.com' },
-  // { FC: 'CCCDDD22C22D224E', UC: '1234567872', name: 'Margot', surname: 'Peterson', email: 'margot@peterson.com' },
+  { FC: 'CCCDDD22C22D224E', UC: '1234567872', name: 'Margot', surname: 'Peterson', email: 'margot@peterson.com' }
 ]
 
 var classes = [
-  { year: "2017-2018", degreeUnicode: "INF17", classData: "Reti e sicurezza", classUnicode: 'RETISI17' },
-  { year: "2017-2018", degreeUnicode: "INF17", classData: "Calcolo numerico", classUnicode: 'CALCNU17' },
-  { year: "2017-2018", degreeUnicode: "INF17", classData: "Programmazione 1", classUnicode: 'PROGR17' },
-  // { year: "2017-2018", degreeUnicode: "FIS17", classData: "Analisi matematica 1", classUnicode: 'ANALMAT117' },
-  // { year: "2016-2017", degreeUnicode: "FIS16", classData: "Metodi matematici", classUnicode: 'METOMATE16' },
-  // { year: "2016-2017", degreeUnicode: "FIS16", classData: "Fisica moderna", classUnicode: 'FISIMODE17' }
+  { year: "2017-2018", degreeUnicode: "INFO17", classData: "Reti e sicurezza", classUnicode: 'RETI17', teacher: '2' },
+  { year: "2017-2018", degreeUnicode: "INFO17", classData: "Calcolo numerico", classUnicode: 'CALC17', teacher: '3' },
+  { year: "2017-2018", degreeUnicode: "INFO17", classData: "Programmazione 1", classUnicode: 'PROG17', teacher: '4' },
+  { year: "2017-2018", degreeUnicode: "INFO17", classData: "Basi di dati", classUnicode: 'BASI17', teacher: '2' },
+  { year: "2017-2018", degreeUnicode: "INFO17", classData: "Ricerca operativa", classUnicode: 'RICE17', teacher: '5' },
+  { year: "2017-2018", degreeUnicode: "MEDI17", classData: "Neurologia", classUnicode: 'NEUR17', teacher: '6' },
+  { year: "2017-2018", degreeUnicode: "FISI17", classData: "Analisi matematica 1", classUnicode: 'ANAL17', teacher: '7' },
+  { year: "2016-2017", degreeUnicode: "FISI16", classData: "Metodi matematici", classUnicode: 'METO16', teacher: '8' },
+  { year: "2016-2017", degreeUnicode: "PSIC16", classData: "French fries", classUnicode: 'FREN16', teacher: '9' }
 ]
 
 var exams = [
-  { classUnicode: 'PROGR17', examUnicode: 'APP1', type: 'Writing', place: 'LUF1', date: '01/01/2017', time: '14:00' },
-  { classUnicode: 'PROGR17', examUnicode: 'APP2', type: 'Writing', place: 'LUF1', date: '10/01/2017', time: '14:00' },
-  { classUnicode: 'PROGR17', examUnicode: 'APP3', type: 'Writing', place: 'LUF1', date: '20/07/2017', time: '14:00' },
+  { classUnicode: 'PROG17', examUnicode: 'PROG17-1', type: 'Writing', place: 'LUF1', date: '2017-06-05', time: '10:30' },
+  { classUnicode: 'PROG17', examUnicode: 'PROG17-2', type: 'Writing', place: 'LUF1', date: '2017-06-30', time: '14:30' },
+  { classUnicode: 'PROG17', examUnicode: 'PROG17-3', type: 'Writing', place: 'LUF1', date: '2017-09-02', time: '09:00' },
+  { classUnicode: 'RETI17', examUnicode: 'RETI17-1', type: 'Writing', place: 'LUM250', date: '2017-06-11', time: '10:30' },
+  { classUnicode: 'RETI17', examUnicode: 'RETI17-2', type: 'Writing', place: 'LUM250', date: '2017-07-07', time: '14:30' },
+  { classUnicode: 'RETI17', examUnicode: 'RETI17-3', type: 'Writing', place: 'LUM250', date: '2017-09-08', time: '09:00' },
+  { classUnicode: 'CALC17', examUnicode: 'CALC17-1', type: 'Writing', place: 'LUF1', date: '2017-06-06', time: '10:30' },
+  { classUnicode: 'CALC17', examUnicode: 'CALC17-2', type: 'Writing', place: 'LUF1', date: '2017-06-28', time: '14:30' },
+  { classUnicode: 'CALC17', examUnicode: 'CALC17-3', type: 'Writing', place: 'LUF1', date: '2017-09-07', time: '09:00' },
+  { classUnicode: 'BASI17', examUnicode: 'BASI17-1', type: 'Writing', place: 'LUM250', date: '2017-06-09', time: '10:30' },
+  { classUnicode: 'BASI17', examUnicode: 'BASI17-2', type: 'Writing', place: 'LUM250', date: '2017-06-27', time: '14:30' },
+  { classUnicode: 'BASI17', examUnicode: 'BASI17-3', type: 'Writing', place: 'LUM250', date: '2017-09-09', time: '09:00' },
+  { classUnicode: 'RICE17', examUnicode: 'RICE17-1', type: 'Writing', place: '1C150', date: '2017-06-10', time: '10:30' },
+  { classUnicode: 'RICE17', examUnicode: 'RICE17-2', type: 'Writing', place: '1C150', date: '2017-07-15', time: '14:30' },
+  { classUnicode: 'RICE17', examUnicode: 'RICE17-3', type: 'Writing', place: '1C150', date: '2017-09-13', time: '09:00' },
+  { classUnicode: 'MEDI17', examUnicode: 'MEDI17-1', type: 'Oral', place: 'AULA MAGNA NEUROLOGIA', date: '2017-06-07', time: '10:30' },
+  { classUnicode: 'MEDI17', examUnicode: 'MEDI17-2', type: 'Oral', place: 'AULA MAGNA NEUROLOGIA', date: '2017-06-23', time: '14:30' },
+  { classUnicode: 'MEDI17', examUnicode: 'MEDI17-3', type: 'Oral', place: 'AULA MAGNA NEUROLOGIA', date: '2017-08-30', time: '09:00' },
+  { classUnicode: 'FREN16', examUnicode: 'FREN16-1', type: 'Lab', place: 'MURIALDO', date: '2017-06-07', time: '10:30' },
+  { classUnicode: 'FREN16', examUnicode: 'FREN16-2', type: 'Lab', place: 'MURIALDO', date: '2017-06-23', time: '14:30' },
+  { classUnicode: 'FREN16', examUnicode: 'FREN16-3', type: 'Lab', place: 'MURIALDO', date: '2017-08-30', time: '09:00' }
 ]
 
 /* added:
@@ -161,14 +201,14 @@ var exams = [
 AdminContract.deployed()
   .then(async (adminInstance) => {
     var insertUserLine = 0;
-    for(var user of insertUsers) {
+    for (var user of insertUsers) {
       await adminInstance.addUser(user.FC, user.UC, user.tp, user.degree, { from: addresses[0] })
         .then(() => console.log('insertUser ' + insertUserLine++ + ' ok'))
         .catch(() => console.error('Error at insertUser' + insertUserLine++));
     }
 
     var academicYearLine = 0;
-    for(var year of academicYears) {
+    for (var year of academicYears) {
       year = year.year.slice(0, 4)
       await adminInstance.addNewYear(year, { from: addresses[0] })
         .then(() => console.log('year ' + academicYearLine++ + ' ok'))
@@ -182,12 +222,12 @@ AdminContract.deployed()
     // }
     var degreeLine = 0;
     var hash;
-    for(var degree of degrees) {
+    for (var degree of degrees) {
       await pushJSON({
-          "degreeUnicode": degree.degreeUnicode,
-          "year": degree.year,
-          "degreeData": degree.degreeData
-        })
+        "degreeUnicode": degree.degreeUnicode,
+        "year": degree.year,
+        "degreeData": degree.degreeData
+      })
         .then(hashIPFS => {
           year = degree.year.slice(0, 4)
           hash = getBytes32FromIpfsHash(hashIPFS);
@@ -213,14 +253,14 @@ AdminContract.deployed()
         var signUpLine = 0;
         var hash;
         var j = 1;
-        for(let user of signUpUsers) {
+        for (let user of signUpUsers) {
           await pushJSON({
-              "name": user.name,
-              "surname": user.surname,
-              "email": user.email,
-              "FC": user.FC,
-              "UC": user.UC
-            })
+            "name": user.name,
+            "surname": user.surname,
+            "email": user.email,
+            "FC": user.FC,
+            "UC": user.UC
+          })
             .then(hashIPFS => {
               hash = getBytes32FromIpfsHash(hashIPFS);
               userLogicInstance.signUp(user.FC, user.UC, hash, { from: addresses[j++] })
@@ -243,16 +283,16 @@ AdminContract.deployed()
         // }
         var classLine = 0;
         var hash;
-        for(var Sclass of classes) {
+        for (var Sclass of classes) {
           await pushJSON({
-              /*'year': year,
-              'degreeUnicode': degreeUnicode,
-              'classUnicode': classUnicode,*/
-              'classData': Sclass.classData
-            })
+            /*'year': year,
+            'degreeUnicode': degreeUnicode,
+            'classUnicode': classUnicode,*/
+            'classData': Sclass.classData
+          })
             .then(hashIPFS => {
               hash = getBytes32FromIpfsHash(hashIPFS);
-              adminInstance.addNewClass(Sclass.degreeUnicode, Sclass.classUnicode, hash, 2, { from: address0 })
+              adminInstance.addNewClass(Sclass.degreeUnicode, Sclass.classUnicode, hash, Sclass.teacher, { from: address0 })
                 .then(() => console.log('Class ' + classLine++ + ' ok'))
                 .catch(() => console.error('Error at class ' + classLine++));
             })
@@ -266,13 +306,13 @@ AdminContract.deployed()
         //   "time": ''
         // }
         var examsLine = 0;
-        for(var exam of exams) {
+        for (var exam of exams) {
           await pushJSON({
-              "type": exam.type,
-              "place": exam.place,
-              "date": exam.date,
-              "time": exam.time
-            })
+            "type": exam.type,
+            "place": exam.place,
+            "date": exam.date,
+            "time": exam.time
+          })
             .then(hashIPFS => {
               hash = getBytes32FromIpfsHash(hashIPFS);
               adminInstance.addNewExam(exam.classUnicode, exam.examUnicode, hash, { from: address0 })
@@ -289,10 +329,10 @@ AdminContract.deployed()
           .then(async instance => {
             studentInstance = instance
             studentInstance.subscribeExam(exams[0].examUnicode, { from: address4 })
-              .then(() => console.log('address4 subscribed APP1 ' + subscribedLine++ + ' ok'))
+              .then(() => console.log('address4 subscribed PROG17-1 ' + subscribedLine++ + ' ok'))
               .catch(() => console.error('Error at subscribed ' + subscribedLine++));
             studentInstance.subscribeExam(exams[0].examUnicode, { from: address5 })
-              .then(() => console.log('address4 subscribed APP1 ' + subscribedLine++ + ' ok'))
+              .then(() => console.log('address4 subscribed PROG17-1 ' + subscribedLine++ + ' ok'))
               .catch(() => console.error('Error at subscribed ' + subscribedLine++));
           })
       })
