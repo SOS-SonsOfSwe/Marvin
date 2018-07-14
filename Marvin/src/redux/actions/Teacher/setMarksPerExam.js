@@ -68,7 +68,7 @@ export default function setMarkPerExams(examUnicode, classUnicode, marks) {
                     dispatch(errorAddingData())
                   })
                   .finally(def => {
-                    return browserHistory.push('/profile/exams-student-list')
+                    return browserHistory.push('/profile/exams-list')
                   })
               })
               .catch(err => {

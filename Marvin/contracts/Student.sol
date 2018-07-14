@@ -22,15 +22,15 @@ contract Student {
     function booklet() public view returns(bytes32[], bytes10[], uint8[]) {
         uint32 badgeNumber = UserData(manager.getUserDataContract()).getRegUsersBadgeNumber(msg.sender);
         // array contenente gli uniCode degli esami confermati per lo studente chiamante
-        bytes10[] memory acceptedResultUniCode = StudentData(manager.getStudentDataContract()).getAcceptedResults(badgeNumber);
-        bytes32[] memory classHashData = new bytes32[](acceptedResultUniCode.length);
-        uint8[] memory classResult = new uint8[](acceptedResultUniCode.length);
+        bytes10[] memory acceptedClassUniCode = StudentData(manager.getStudentDataContract()).getAcceptedResults(badgeNumber);
+        bytes32[] memory classHashData = new bytes32[](acceptedClassUniCode.length);
+        uint8[] memory classResult = new uint8[](acceptedClassUniCode.length);
         ClassData class = ClassData(manager.getClassContract());
-        for(uint i = 0; i < acceptedResultUniCode.length; ++i) {
-            classHashData[i] = class.getHashData(acceptedResultUniCode[i]);
-            classResult[i] = class.getConfirmedResult(badgeNumber, acceptedResultUniCode[i]);
+        for(uint i = 0; i < acceptedClassUniCode.length; ++i) {
+            classHashData[i] = class.getHashData(acceptedClassUniCode[i]);
+            classResult[i] = class.getConfirmedResult(badgeNumber, acceptedClassUniCode[i]);
         }
-        return(classHashData, acceptedResultUniCode, classResult);
+        return(classHashData, acceptedClassUniCode, classResult);
     }
 
     function confirmResult(bytes10 _examUniCode, bytes10 _classUniCode, uint8 _result) public {

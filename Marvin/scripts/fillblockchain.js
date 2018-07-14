@@ -285,11 +285,19 @@ AdminContract.deployed()
         var hash;
         for (var Sclass of classes) {
           await pushJSON({
+<<<<<<< HEAD
             /*'year': year,
             'degreeUnicode': degreeUnicode,
             'classUnicode': classUnicode,*/
             'classData': Sclass.classData
           })
+=======
+              /*'year': year,
+              'degreeUnicode': degreeUnicode,*/
+              'classUnicode': Sclass.classUnicode,
+              'classData': Sclass.classData
+            })
+>>>>>>> cabed7d1fa825490755184136e50172c36bacc50
             .then(hashIPFS => {
               hash = getBytes32FromIpfsHash(hashIPFS);
               adminInstance.addNewClass(Sclass.degreeUnicode, Sclass.classUnicode, hash, Sclass.teacher, { from: address0 })
