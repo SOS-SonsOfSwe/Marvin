@@ -100,8 +100,18 @@ async function readExams(classInstance, classes, web3, coinbase) {
   })
 }
 
-async function setIfMarked(examDataInstance, exams, badgeNumber, coinbase, web3) {
+async function removeIfBooklet(classes) {
+  var newClasses
+  console.log('REMOVE IF IN BOOKLET')
+  return new Promise(async function (resolve, reject) {
+    newClasses = classes
+    return resolve(newClasses)
+  })
+}
+
+async function removeNoMarked(examDataInstance, exams, badgeNumber, coinbase, web3) {
   var ipfs = new ipfsPromise()
+  var newExams
   return new Promise(async function (resolve, reject) {
     for(let exam of exams) {
       try {
@@ -116,12 +126,16 @@ async function setIfMarked(examDataInstance, exams, badgeNumber, coinbase, web3)
                 return
               }
             })
+            if(newExams == null) { // first element of array
+              newExams = [exam]
+            } else
+              newExams = [...newExams,
+                exam
+              ]
           } catch(error) {
             dError('Error while reading hash of marks', error)
             return reject(error)
           }
-          return resolve(exams)
-
         } else {
           console.log('No marks found!')
         }
@@ -129,8 +143,8 @@ async function setIfMarked(examDataInstance, exams, badgeNumber, coinbase, web3)
         dError('Error while reading marks', error)
         return reject(error)
       }
-      return resolve(exams)
     }
+    return resolve(newExams)
   })
 }
 
@@ -193,14 +207,16 @@ export function readStudentExamsFromDatabase(badgeNumber) {
             var degree = await studentDataInstance.getStudentDegree(badgeNumber, { from: coinbase })
             try {
               var classes = await degreeInstance.getClasses(degree, { from: coinbase })
+              var noBookletClasses = await removeIfBooklet(classes)
               try {
-                var exams = await readExams(classInstance, classes, web3, coinbase)
+                var exams = await readExams(classInstance, noBookletClasses, web3, coinbase)
                 if(exams == null) dispatch(dataEmpty(req))
                 else {
                   try {
-                    var markedExams = await setIfMarked(examDataInstance, exams, badgeNumber, coinbase, web3)
-                    // console.log('Exams with marks: ' + JSON.stringify(markedExams))
-                    return doAwesomeStuff(markedExams)
+                    var markedExams = await removeNoMarked(examDataInstance, exams, badgeNumber, coinbase, web3)
+                    if(markedExams != null)
+                      return doAwesomeStuff(markedExams)
+                    else dispatch(dataEmpty(req))
                   } catch(error) {
                     dError('Error while setting marks on exams', error)
                   }
