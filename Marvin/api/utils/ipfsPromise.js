@@ -19,13 +19,12 @@ export default class ipfsPromise {
        * Using local node - if you choose this you have to run "ipfs daemon" before. 
        * You also need to loosen your IPFS node's CORS restrictions, changing config file in your .ipfs directory
        * and setting "Access-Control-Allow-Origin": ["*"] both in "Gateway" and "API"):
-       *
-       * this.callback = new IPFS({
-       * host: "127.0.0.1",
-       * port: '5001',
-       * protocol: 'http'
-       * })
        */
+      // this.callback = new IPFS({
+      //   host: "127.0.0.1",
+      //   port: '5001',
+      //   protocol: 'http'
+      // })
 
       // Using AWS Server Instance
       this.callback = new IPFS({

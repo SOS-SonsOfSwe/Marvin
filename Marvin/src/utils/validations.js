@@ -64,3 +64,29 @@ export function checkDegreeUnicode(code){
   else
     return false;
 }
+
+export function checkExam(state){
+  if(state.place === '')
+    return "Please, insert a valid place."
+    
+    let year = parseInt(state.date.slice(0,4),10)
+    let month = parseInt(state.date.slice(5,7),10)
+    let day = parseInt(state.date.slice(8,10),10)
+
+    let today = new Date();
+    let currentYear = today.getFullYear();
+    let currentMonth = today.getMonth()+1;
+    let currentDay = today.getDate();
+    let currentTimeInSeconds = (parseInt(state.time.slice(0,2),10)*3600)+(parseInt(state.time.slice(3,5),10)*60);
+    
+  if(currentTimeInSeconds<30600 || currentTimeInSeconds >63000)
+    return "The time for an exam must be between 8:30 and 17:30."
+
+  if(state.date === '' || currentYear > year || (currentYear === year && currentMonth > month) || (currentYear === year && currentMonth === month && currentDay >= day) )
+    return "Please, insert a valid date."
+
+  if(state.unicode.slice(0,6) !== state.Class && state.unicode.slice(6,9).match('^-[0-9][0-9]?$'))
+    return "Please, insert a valid unicode."
+
+return null;
+}

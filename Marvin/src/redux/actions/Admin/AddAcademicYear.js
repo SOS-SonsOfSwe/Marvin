@@ -5,7 +5,11 @@ import { browserHistory } from 'react-router'
 import store from '../../../store'
 
 // this are standard dispatches: feel free to use them. The meaning is obvious, those are not taking any parameter.
-import { addingData, errorAddingData, dataAdded } from '../StandardDispatches/addingData'
+import {
+  addingData,
+  errorAddingData,
+  dataAdded,
+} from '../StandardDispatches/addingData'
 
 const contract = require('truffle-contract')
 

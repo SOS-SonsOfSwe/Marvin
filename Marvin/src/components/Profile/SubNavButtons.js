@@ -1,7 +1,6 @@
 import React from 'react'
 import { VisibleOnlyUniAdmin, VisibleOnlyUni, VisibleOnlyProf, VisibleOnlyStudent } from '../../authentication/wrappers'
 import { Link } from 'react-router'
-import myFunction from './HideMenu'
 
 
 const OnlyUniSubLinks = VisibleOnlyUni(() => {
@@ -43,37 +42,8 @@ const OnlyUniAdminSubLinks = VisibleOnlyUniAdmin(() => {
                     </li>
                 </ul>
             </div>
-
-            <div className="dropdown">
-                <a id="menu-link" href="#anchor-bottom">
-                <button className="dropbtn" onClick={myFunction}>Menu</button>
-                </a>
-                <div id="myDropdown" class="dropdown-content">
-                    <ul>
-                        <li className="pure-menu-item">
-                            <Link to="/profile/academic-years" className="pure-menu-link">Academic years</Link>
-                        </li>
-                        <li className="pure-menu-item">
-                            <Link to="/profile/degrees" className="pure-menu-link">Degrees</Link>
-                        </li>
-                        <li className="pure-menu-item">
-                            <Link to="/profile/classes" className="pure-menu-link">Classes</Link>
-                        </li>
-                        <li className="pure-menu-item">
-                            <Link to="/profile/exams" className="pure-menu-link">Exams</Link>
-                        </li>
-                        <OnlyUniSubLinks />
-                        <li className="pure-menu-item">
-                            <Link to="/profile/teachers" className="pure-menu-link">Teachers</Link>
-                        </li>
-                        <li className="pure-menu-item">
-                            <Link to="/profile/students" className="pure-menu-link">Students</Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
-        
+
     )
 })
 
@@ -94,10 +64,13 @@ const OnlyStudentSubLinks = VisibleOnlyStudent(() => {
         <div>
             <ul>
                 <li className="pure-menu-item">
-                    <Link to="/profile/exams-student-list" className="pure-menu-link">Your exams list</Link>
+                    <Link to="/profile/exams-student-list" className="pure-menu-link">Exam session</Link>
                 </li>
                 <li className="pure-menu-item">
-                    <Link to="/profile/school-records" className="pure-menu-link">School records</Link>
+                    <Link to="/profile/marked-exams-student-list" className="pure-menu-link">Booking board</Link>
+                </li>
+                <li className="pure-menu-item">
+                    <Link to="/profile/school-records" className="pure-menu-link">Booklet</Link>
                 </li>
             </ul>
         </div>

@@ -23,8 +23,8 @@ export default function addClass(degreeUnicode, classUnicode, classData, teacher
 
   var Sclass = {
     /*'year': year,
-    'degreeUnicode': degreeUnicode,
-    'classUnicode': classUnicode,*/
+    'degreeUnicode': degreeUnicode,*/
+    'classUnicode': classUnicode,
     'classData': classData
   }
 

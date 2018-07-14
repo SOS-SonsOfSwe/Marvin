@@ -7,6 +7,12 @@ import {
   adminCostants
 } from '../../reducers/costants'
 
+import {
+  addingData,
+  errorAddingData,
+  dataAdded,
+} from '../StandardDispatches/addingData'
+
 const contract = require('truffle-contract')
 
 // export const USER_INSERTED = 'USER_INSERTED'
@@ -44,6 +50,7 @@ export function insertUser(FCInserted, UCInserted, tpInserted, degreeUnicode) {
 
         admin.deployed()
           .then(instance => {
+            dispatch(addingData())
             adminIstance = instance
             adminIstance.addUser(FCInserted, UCInserted, tpInserted, degreeUnicode, { from: coinbase })
               .then(result => {
@@ -55,7 +62,7 @@ export function insertUser(FCInserted, UCInserted, tpInserted, degreeUnicode) {
                 dispatch(userInserted({
                   "YesOrNo": yon
                 }))
-
+                dispatch(dataAdded())
                 console.log("tpInserted:" + tpInserted)
                 switch(parseInt(tpInserted, 10)) {
                 case 1:
@@ -70,7 +77,7 @@ export function insertUser(FCInserted, UCInserted, tpInserted, degreeUnicode) {
               })
 
               .catch(function (result) {
-
+                dispatch(errorAddingData())
               })
           })
       })

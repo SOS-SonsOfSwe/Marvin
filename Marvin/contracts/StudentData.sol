@@ -35,7 +35,7 @@ contract StudentData {
         return(acceptedResults[_studentBadgeNumber]);
     }
 
-    function getSubscribedExams(uint32 _studentBadgeNumber) public view onlyStudentContract returns(bytes10[]) {
+    function getSubscribedExams(uint32 _studentBadgeNumber) public view returns(bytes10[]) {
         return(subscribedExams[_studentBadgeNumber]);
     }
 

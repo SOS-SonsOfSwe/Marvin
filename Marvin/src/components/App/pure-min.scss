@@ -1,5 +1,9 @@
 //import book from '../../../public/media/1.jpg'
 
+.s_records {
+  text-align: center !important;
+}
+
 .delete-fieldset p {
   text-align: inherit !important;
 }
@@ -9,10 +13,6 @@
   width: 1.3em;
   border-radius: 9px;
   pointer-events: none;
-}
-
-.dropdown{
-  display: none;
 }
 
 .float-left-links ul {
