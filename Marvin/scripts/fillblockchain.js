@@ -200,13 +200,13 @@ var exams = [
  */
 
 // async function deployer(contract) {
-//   return await contract
+//   return await contract.deployed()
 // }
-// var adminInstance = await AdminContract.deployed()
+// // var adminInstance = await AdminContract.deployed()
 
-// var adminInstance = deployer(AdminContract.deploy())
-// var userLogicInstance = deployer(LogicContract.deploy())
-// var studentInstance = deployer(StudentContract.deploy())
+// var adminInstance = deployer(AdminContract)
+// var userLogicInstance = deployer(LogicContract)
+// var studentInstance = deployer(StudentContract)
 
 var adminInstance
 var userLogicInstance
@@ -222,15 +222,15 @@ AdminContract.deployed()
       .then(() => {
         StudentContract.deployed()
           .then(instance => studentInstance = instance)
-      })
-      .then(async () => {
-        await addUsers(insertUsers)
-        await addAcademicYears(academicYears)
-        await addDegrees(degrees)
-        await signUpUser(signUpUsers)
-        await addClass(classes)
-        await addExams(exams)
-        await subscribeStudents()
+          .then(async () => {
+            await addUsers(insertUsers)
+            await addAcademicYears(academicYears)
+            await addDegrees(degrees)
+            await signUpUser(signUpUsers)
+            await addClass(classes)
+            await addExams(exams)
+            await subscribeStudents()
+          })
       })
   })
 
@@ -370,12 +370,16 @@ async function addExams(exams) {
   // }
   var examsLine = 0;
   for(var exam of exams) {
-    var hashIPFS = await pushJSON({
-      "type": exam.type,
-      "place": exam.place,
-      "date": exam.date,
-      "time": exam.time
-    })
+    try {
+      var hashIPFS = await pushJSON({
+        "type": exam.type,
+        "place": exam.place,
+        "date": exam.date,
+        "time": exam.time
+      })
+    } catch(error) {
+      console.error('Error while pushing JSON on IPFS')
+    }
     var hash = getBytes32FromIpfsHash(hashIPFS);
     try {
       await adminInstance.addNewExam(exam.classUnicode, exam.examUnicode, hash, { from: address0 })
