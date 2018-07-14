@@ -73,7 +73,7 @@ export function deleteDegreeFromDatabase(degreeUnicode, year) {
             adminInstance = instance
             // var yearToRefer = year.slice(0, 4)
             console.log('degreeUnicode: ' + degreeUnicode, 'yearToRefer: ' + yearToRefer)
-            adminInstance.removeDegree(degreeUnicode, yearToRefer, { from: coinbase })
+            adminInstance.removeDegree(degreeUnicode, yearToRefer, { gas: '100000', from: coinbase })
               .then(() => {
                 return doAwesomeStuff(dispatch, degreeUnicode) //Repeating because of the asyncronous promises of the functions
               })

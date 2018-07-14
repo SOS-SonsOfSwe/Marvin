@@ -61,7 +61,7 @@ export function deleteClassFromDatabase(degreeUnicode, classUnicode) {
           .then(function (instance) {
             adminInstance = instance
 
-            adminInstance.removeClass(degreeUnicode, classUnicode, { from: coinbase })
+            adminInstance.removeClass(degreeUnicode, classUnicode, { gas: '100000', from: coinbase })
               .then(() => {
                 return doAwesomeStuff(dispatch, classUnicode) //Repeating because of the asyncronous promises of the functions
               })
