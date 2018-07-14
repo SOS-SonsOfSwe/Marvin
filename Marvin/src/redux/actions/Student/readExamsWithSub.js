@@ -2,6 +2,7 @@
 import "regenerator-runtime/runtime"; // needed for async calls
 import DegreeContract from '../../../../build/contracts/DegreeData'
 import ClassContract from '../../../../build/contracts/ClassData'
+import StudentContract from '../../../../build/contracts/Student'
 import StudentDataContract from '../../../../build/contracts/StudentData'
 import ExamDataContract from '../../../../build/contracts/ExamData'
 import { browserHistory } from 'react-router'
@@ -14,7 +15,11 @@ import {
   readingData,
   dataRead,
   dataEmpty,
-  errorReadingData
+  errorReadingData,
+  ipfsReadingData,
+  ipfsDataRead,
+  ipfsErrorReadingData,
+  ipfsNetworkError
 } from '../StandardDispatches/readingData'
 
 import ipfsPromise from '../../../../api/utils/ipfsPromise'
@@ -36,17 +41,31 @@ function doAwesomeStuff(load) {
 
 async function processIPFSLoad(payload) {
   var ipfs = new ipfsPromise()
-  const promises = payload.map(async item =>
-    item.load = await ipfs.getJSON(item.load)
-    // here I overwrite the description information with the JSON returning from the ipfs
-  )
-  await Promise.all(promises)
+  return new Promise(async (resolve, reject) => {
+    // for(var item of payload) {
+    store.dispatch(ipfsReadingData())
+    await Promise.all(payload.map(async (item, i, payload) => {
+      try {
+
+        return item.load = await ipfs.getJSON(item.load)
+      } catch(error) {
+        dError('Error during processing ipfs exam informations', error)
+        store.dispatch(ipfsErrorReadingData())
+        store.dispatch(ipfsNetworkError())
+        return reject(error)
+      }
+      // here I overwrite the description information with the JSON returning from the ipfs
+    }))
+    // console.log(payload)
+    store.dispatch(ipfsDataRead())
+    return resolve(payload)
+  })
 }
 
 async function readExams(classInstance, classes, web3, coinbase) {
   var payload
-  return new Promise(function (resolve, reject) { // for(let sclass of classes)
-    classes.map(async sclass => {
+  return new Promise(async function (resolve, reject) { // for(let sclass of classes)
+    await Promise.all(classes.map(async sclass => {
       // var payloadToReturn
       var classUnicode = web3.toUtf8(sclass)
       try {
@@ -82,30 +101,61 @@ async function readExams(classInstance, classes, web3, coinbase) {
                 { load: hashIPFS, examUnicode: exUni, classUnicode: classUnicode, teacher: teac }
               ]
           }
-          try {
-            await processIPFSLoad(payload)
-            payload.sort((a, b) => b.load.date - a.load.date)
-            // console.error('payload: ' + JSON.stringify(payload))
-            return resolve(payload)
-          } catch(error) {
-            dError('Error while reading ipfs informations.', error)
-            return reject(error)
-          }
+
         }
       } catch(error) {
         dError('Error while reading exams.', error)
         return reject(error)
       }
-    })
+    }))
+    try {
+      await processIPFSLoad(payload)
+      payload.sort((a, b) => new Date(b.load.date) - new Date(a.load.date))
+      // console.error('payload: ' + JSON.stringify(payload))
+      return resolve(payload)
+    } catch(error) {
+      dError('Error while reading ipfs informations.', error)
+      return reject(error)
+    }
   })
 }
 
-async function removeIfBooklet(classes) {
+async function removeIfBooklet(classes, studentInstance, web3, coinbase) {
   var newClasses
-  console.log('REMOVE IF IN BOOKLET')
   return new Promise(async function (resolve, reject) {
-    newClasses = classes
-    return resolve(newClasses)
+    try {
+      var booklet = await studentInstance.booklet({ from: coinbase })
+
+      if(booklet[0].length === 0) {
+        return resolve(classes)
+      } else {
+        for(let sclass of classes) {
+          for(let j = 0; j < booklet[0].length; j++) {
+            // var exam = booklet[2][j]
+            // var hash = booklet[0][j]
+            // var teac = web3.toDecimal(booklet[1])
+            // console.log("teacher: " + teac)
+            var bookletClass = web3.toUtf8(booklet[1][j])
+            // console.error(payload == null)
+            if(bookletClass !== sclass)
+              if(newClasses == null) { // first element of array
+                newClasses = [sclass]
+              } else
+                newClasses = [...newClasses,
+                  sclass
+                ]
+          }
+        }
+        return resolve(newClasses)
+      }
+    } catch(error) {
+      dError('Error while removing booklet exams.', error)
+      return reject(error)
+    }
+    // console.log('REMOVE IF IN BOOKLET')
+
+    // newClasses = classes
+    // return resolve(newClasses)
   })
 }
 
@@ -156,7 +206,7 @@ function dError(text, error) {
   alert('There was an error while deploying contracts or reading infos. See the console log.')
 }
 
-export function readStudentExamsFromDatabase(badgeNumber) {
+export function readMarkedExamsFromDatabase(badgeNumber) {
   let web3 = store.getState()
     .web3.web3Instance
 
@@ -164,6 +214,9 @@ export function readStudentExamsFromDatabase(badgeNumber) {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
+      const Student = contract(StudentContract)
+      Student.setProvider(web3.currentProvider)
+
       const studentData = contract(StudentDataContract)
       studentData.setProvider(web3.currentProvider)
 
@@ -184,6 +237,12 @@ export function readStudentExamsFromDatabase(badgeNumber) {
         // Log errors, if any.
         if(error) {
           console.error(error);
+        }
+
+        try { var studentInstance = await Student.deployed() } catch(error) {
+          // If error, go to signup page.
+          dError('Error while deploying studentData.', error)
+          // return browserHistory.push('/profile')
         }
 
         try { var studentDataInstance = await studentData.deployed() } catch(error) {
@@ -207,7 +266,7 @@ export function readStudentExamsFromDatabase(badgeNumber) {
             var degree = await studentDataInstance.getStudentDegree(badgeNumber, { from: coinbase })
             try {
               var classes = await degreeInstance.getClasses(degree, { from: coinbase })
-              var noBookletClasses = await removeIfBooklet(classes)
+              var noBookletClasses = await removeIfBooklet(classes, studentInstance, web3, coinbase)
               try {
                 var exams = await readExams(classInstance, noBookletClasses, web3, coinbase)
                 if(exams == null) dispatch(dataEmpty(req))
