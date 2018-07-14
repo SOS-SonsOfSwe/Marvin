@@ -63,8 +63,8 @@ class ExamsStudentList extends React.Component {
                 {/* {ipfsLoad} */}
                 {empty}
                 <main className='container'>
-                    {this.props.empty === false && this.props.success === true &&
-                        <table className="table table-striped">
+                    {this.props.empty === false && this.props.success === true && this.props.loading !== true &&
+                        < table className="table table-striped">
                             <thead>
                                 <tr>
                                     <th className="title-column">Class unicode</th>
@@ -87,7 +87,7 @@ class ExamsStudentList extends React.Component {
 
                 </main>
                 {error}
-            </div>
+            </div >
         )
     }
 }
