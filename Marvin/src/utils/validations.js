@@ -64,3 +64,8 @@ export function checkDegreeUnicode(code){
   else
     return false;
 }
+
+export function checkExam(state){
+  if
+
+}

@@ -45,8 +45,13 @@ class InsertClass extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault()
+        
         if (!checkDegreeUnicode(this.state.class))
             return alert("The class code has an invalid format")
+        if(this.state.description === '')
+            return alert("The class description is empty!")
+        if(this.state.teacher === '')
+            return alert("Please, select a teacher!")
         this.props.addClass(this.state.degree, this.state.class, this.state.description, this.state.teacher)
     }
 

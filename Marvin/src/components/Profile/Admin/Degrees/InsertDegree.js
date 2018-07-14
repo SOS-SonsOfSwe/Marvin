@@ -26,6 +26,8 @@ class InsertDegree extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault()
+        if(this.state.description === '')
+            return alert("The degree description is empty!")
         if (!checkDegreeUnicode(this.state.degreeUnicode))
             return alert("The degree unicode has an invalid format")
         event.preventDefault()
