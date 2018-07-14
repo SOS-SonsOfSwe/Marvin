@@ -6,6 +6,7 @@ import ExamsStudentList from '../../../components/Profile/Student/ExamsStudentLi
 // import { readAcademicYearsFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
 
 import { readExamsNoSubFromDatabase } from '../../../redux/actions/Student/readExamsNoSub'
+import { bindActionCreators } from 'redux';
 
 // the two "map" listed here are useful to make the component "subscribe" the store.
 // how it works? See the description below!
@@ -39,8 +40,11 @@ const mapStateToProps = (state, ownProps) => {
 // used inside the component imported
 // Mind the "return" statements: we haven't done the dispatch here, neither in the action. It will
 // be done by the connect below
-const mapDispatchToProps = {
-  readExams: readExamsNoSubFromDatabase
+const mapDispatchToProps = (dispatch) => {
+  return {
+    readExams: bindActionCreators(readExamsNoSubFromDatabase, dispatch),
+    //register: bindActionCreators(/*action*/ readExamsNoSubFromDatabase, dispatch)
+  }
 }
 // const mapDispatchToProps = (dispatch) => {
 //   return {
