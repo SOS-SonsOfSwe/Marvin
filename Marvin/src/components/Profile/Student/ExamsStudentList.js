@@ -12,7 +12,7 @@ import EmptyData from '../../Loading/EmptyData'
 //     { degree: "informatica", class: "Ricarca operativa", typology: "scritto", date: "19-08-2018" },
 // ]
 
-const Row = ({ examUnicode, classUnicode, load, teacher }) => (
+const Row = ({ examUnicode, classUnicode, load, teacher, badgeNumber, hReg }) => (
     <tr className="clickable-row">
         <td>{classUnicode}</td>
         <td>{examUnicode}</td>
@@ -21,10 +21,26 @@ const Row = ({ examUnicode, classUnicode, load, teacher }) => (
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
         <td>{teacher}</td>
+        <td><fieldset><input type="button" value="subscribe" onClick={(e) => hReg(examUnicode, badgeNumber, e)} />
+        </fieldset>
+        </td>
     </tr>
 );
 
 class ExamsStudentList extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.handleReg = this.handleReg.bind(this);
+
+    }
+
+    handleReg(examUnicode, badgeNumber, event) {
+        event.preventDefault();
+        this.props.register(examUnicode, badgeNumber)
+    }
+
     componentDidMount() {
         // so we do not re load the page if the user has just deleted an academic year.
         // null is the value of the initial state and it is different from false.
@@ -57,10 +73,11 @@ class ExamsStudentList extends React.Component {
                                     <th className="title-column">Date</th>
                                     <th className="title-column">Time</th>
                                     <th className="title-column">Teacher</th>
+                                    <th className="title-column">Subscribe</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} badgeNumber={this.props.badgeNumber} hReg={this.handleReg} />)}
                             </tbody>
                         </table>
                     }

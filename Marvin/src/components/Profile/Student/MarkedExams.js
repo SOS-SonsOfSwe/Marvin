@@ -12,7 +12,7 @@ import EmptyData from '../../Loading/EmptyData'
 //     { degree: "informatica", class: "Ricarca operativa", typology: "scritto", date: "19-08-2018" },
 // ]
 
-const Row = ({ examUnicode, classUnicode, load, teacher, mark }) => (
+const Row = ({ examUnicode, classUnicode, load, teacher, mark, badgeNumber, hConf }) => (
     <tr className="clickable-row">
         <td>{classUnicode}</td>
         <td>{examUnicode}</td>
@@ -22,6 +22,9 @@ const Row = ({ examUnicode, classUnicode, load, teacher, mark }) => (
         <td>{load && load.time}</td>
         <td>{teacher}</td>
         <td>{mark}</td>
+        <td><fieldset><input type="button" value="confirm" onClick={(e) => hConf(examUnicode, badgeNumber, e)} />
+        </fieldset>
+        </td>
     </tr>
 );
 
@@ -32,6 +35,19 @@ class ExamsStudentList extends React.Component {
         // if (this.props.justDeleted !== true)
         this.props.readExams(this.props.badgeNumber)
     }
+
+    constructor(props) {
+        super(props);
+
+        this.handleConf = this.handleConf.bind(this);
+
+    }
+
+    handleConf(examUnicode, badgeNumber, event) {
+        event.preventDefault();
+        this.props.confirmResult(examUnicode, badgeNumber)
+    }
+
     render() {
         const load = this.props.loading === true ? <LoadingData label='Loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
@@ -58,10 +74,12 @@ class ExamsStudentList extends React.Component {
                                     <th className="title-column">Date</th>
                                     <th className="title-column">Time</th>
                                     <th className="title-column">Teacher</th>
+                                    <th className="title-column">Mark</th>
+                                    <th className="title-column">Confirm</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} badgeNumber={this.props.badgeNumber} hConf={this.handleConf} />)}
                             </tbody>
                         </table>
                     }
