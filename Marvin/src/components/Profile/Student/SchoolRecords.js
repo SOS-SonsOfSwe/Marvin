@@ -13,7 +13,9 @@ var arrayData = [
 const Row = ({didactiveActivity, status, date, vote}) => (
     <tr className="clickable-row" >
         <td>{didactiveActivity}</td>
-        <td style={ status===true ? {backgroundColor:'green'} : {backgroundColor:'yellow'} }>{status}</td>
+        <td>
+            <button className="point-button" style={ status===true ? {backgroundColor:'green'} : {backgroundColor:'yellow'} }>{status}</button>
+        </td>
         <td>{date}</td>
         <td>{vote}</td>
     </tr>
@@ -27,8 +29,8 @@ const Row = ({didactiveActivity, status, date, vote}) => (
 
         return(
             <main className='container'>
-                <h1>School records</h1>
-                <p className="text-center">Here there is your school records with the exams that you've already passed</p>
+                <h1 className="s_records">School records</h1>
+                <p className="text-center s_records">Here there is your school records with the exams that you've already passed</p>
                     <table className="table table-striped">
                         <thead>
                             <tr>
