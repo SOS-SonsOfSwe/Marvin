@@ -14,7 +14,11 @@ import {
   readingData,
   dataRead,
   dataEmpty,
-  errorReadingData
+  errorReadingData,
+  ipfsReadingData,
+  ipfsDataRead,
+  ipfsNetworkError,
+  ipfsErrorReadingData
 } from '../StandardDispatches/readingData'
 
 import ipfsPromise from '../../../../api/utils/ipfsPromise'
@@ -47,16 +51,21 @@ async function processIPFSLoad(payload) {
   var ipfs = new ipfsPromise()
   return new Promise(async (resolve, reject) => {
     // for(var item of payload) {
+    store.dispatch(ipfsReadingData())
     await Promise.all(payload.map(async (item, i, payload) => {
       try {
+
         return item.load = await ipfs.getJSON(item.load)
       } catch(error) {
         dError('Error during processing ipfs exam informations', error)
+        store.dispatch(ipfsErrorReadingData())
+        store.dispatch(ipfsNetworkError())
         return reject(error)
       }
       // here I overwrite the description information with the JSON returning from the ipfs
     }))
     // console.log(payload)
+    store.dispatch(ipfsDataRead())
     return resolve(payload)
   })
 }
