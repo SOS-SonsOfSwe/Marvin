@@ -12,7 +12,7 @@ import EmptyData from '../../Loading/EmptyData'
 //     { degree: "informatica", class: "Ricarca operativa", typology: "scritto", date: "19-08-2018" },
 // ]
 
-const Row = ({ examUnicode, classUnicode, load, teacher, badgeNumber, hReg }) => (
+const Row = ({ examUnicode, classUnicode, load, teacher, hReg }) => (
     <tr className="clickable-row">
         <td>{classUnicode}</td>
         <td>{examUnicode}</td>
@@ -21,7 +21,7 @@ const Row = ({ examUnicode, classUnicode, load, teacher, badgeNumber, hReg }) =>
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
         <td>{teacher}</td>
-        <td><fieldset><input type="button" value="subscribe" onClick={(e) => hReg(examUnicode, badgeNumber, e)} />
+        <td><fieldset><input type="button" value="subscribe" onClick={(e) => hReg(examUnicode, e)} />
         </fieldset>
         </td>
     </tr>
@@ -36,9 +36,9 @@ class ExamsStudentList extends React.Component {
 
     }
 
-    handleReg(examUnicode, badgeNumber, event) {
+    handleReg(examUnicode, event) {
         event.preventDefault();
-        this.props.register(examUnicode, badgeNumber)
+        this.props.subscribe(examUnicode)
     }
 
     componentDidMount() {
@@ -77,7 +77,7 @@ class ExamsStudentList extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} badgeNumber={this.props.badgeNumber} hReg={this.handleReg} />)}
+                                {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} hReg={this.handleReg} />)}
                             </tbody>
                         </table>
                     }

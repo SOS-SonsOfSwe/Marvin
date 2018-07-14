@@ -24,7 +24,7 @@ export function errorReadingData(req) {
 }
 
 export function dataEmpty(req) {
-  console.log("Blockchain vuota, e' ora di riempirla!")
+  // console.log("Blockchain vuota, e' ora di riempirla!")
   return {
     type: userCostants.FETCH_DATA_EMPTY,
     request: req

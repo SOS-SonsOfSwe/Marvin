@@ -198,24 +198,31 @@ async function removeIfBooklet(classes, studentInstance, web3, coinbase) {
 async function removeIfSubscribed(studentDataInstance, exams, badgeNumber, coinbase, web3) {
   // console.log('REMOVE IF MARKED')
   return new Promise(async function (resolve, reject) {
-    var newExams
+    // var newExams
     try {
       var subscribedExams = await studentDataInstance.getSubscribedExams(badgeNumber, { from: coinbase })
     } catch(error) {
       dError('Error while reading marks hash', error)
       return reject(error)
     }
-    for(let exam of exams)
-      for(let subExam of subscribedExams)
-        if(web3.toUtf8(subExam) !== exam.examUnicode)
-          if(newExams == null) { // first element of array
-            newExams = [exam]
-          } else
-            newExams = [...newExams,
-              exam
-            ]
-
-    return resolve(newExams)
+    var i = 0
+    var index = []
+    for(let exam of exams) {
+      for(let subExam of subscribedExams) {
+        console.log(web3.toUtf8(subExam) !== exam.examUnicode)
+        console.log(web3.toUtf8(subExam))
+        console.log(exam.examUnicode)
+        if(web3.toUtf8(subExam) === exam.examUnicode) {
+          console.log(exams.indexOf(exam))
+          index[i++] = exams.indexOf(exam)
+        }
+      }
+    }
+    for(let i = index.length - 1; i >= 0; i--) {
+      exams.splice(index[i], 1)
+    }
+    console.log(exams)
+    return resolve(exams)
   })
 }
 
@@ -227,7 +234,7 @@ function dError(text, error) {
   alert('There was an error while deploying contracts or reading infos. See the console log.')
 }
 
-export function readExamsNoSubFromDatabase(badgeNumber) {
+export default function readExamsNoSubFromDatabase(badgeNumber) {
   let web3 = store.getState()
     .web3.web3Instance
 

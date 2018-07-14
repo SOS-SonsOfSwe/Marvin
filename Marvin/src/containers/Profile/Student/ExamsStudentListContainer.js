@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 // we import the specific component we want to link to the store
 import ExamsStudentList from '../../../components/Profile/Student/ExamsStudentList'
 // we import the action (=dispatch) we want to link to the store 
-// import { readAcademicYearsFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
+import subscribeExam from '../../../redux/actions/Student/subscribeExam'
 
-import { readExamsNoSubFromDatabase } from '../../../redux/actions/Student/readExamsNoSub'
+import readExamsNoSubFromDatabase from '../../../redux/actions/Student/readExamsNoSub'
 import { bindActionCreators } from 'redux';
 
 // the two "map" listed here are useful to make the component "subscribe" the store.
@@ -43,7 +43,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     readExams: bindActionCreators(readExamsNoSubFromDatabase, dispatch),
-    //register: bindActionCreators(/*action*/ readExamsNoSubFromDatabase, dispatch)
+    subscribe: bindActionCreators(subscribeExam, dispatch)
   }
 }
 // const mapDispatchToProps = (dispatch) => {

@@ -7,6 +7,13 @@ import { addingData, errorAddingData, dataAdded } from '../StandardDispatches/ad
 
 const contract = require('truffle-contract')
 
+function dError(text, error) {
+  console.error(text)
+  console.log(error)
+  store.dispatch(errorAddingData())
+  alert('There was an error while deploying contracts or reading infos. See the console log.')
+}
+
 export default function subscribeExam(examUnicode) {
   // thinking as year = 2014-2015 we want to take only the first two int so we can send 
   // them to the solidity contract and risparmiare
@@ -25,38 +32,37 @@ export default function subscribeExam(examUnicode) {
       student.setProvider(web3.currentProvider)
 
       // Declaring this for later so we can chain functions on Authentication.
-      var studentInstance
 
       // Get current ethereum wallet.
-      web3.eth.getCoinbase((error, coinbase) => {
+      web3.eth.getCoinbase(async (error, coinbase) => {
         // Log errors, if any.
         if(error) {
           console.error(error);
         }
-
-        student.deployed()
-          .then(instance => {
-            studentInstance = instance
-
-            // dispatching action for make the reducer know we are making the transaction
+        try {
+          try {
+            var studentInstance = await student.deployed()
             dispatch(addingData())
-            //taking the first 4 numbers
+          } catch(error) {
+            dError('Error while deploying Student Contract', error)
+          }
 
-            studentInstance.subscribeExam(examUnicode, { from: coinbase })
-              .then(() => {
-                // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
-                // console.log(JSON.stringify(result))
-                dispatch(dataAdded())
-                // alert('The new academic year has been added! Wait some seconds to make it write on blockchain.')
-              })
-              .catch(error => {
-                dispatch(errorAddingData())
-              })
-              .finally(def => {
-                // console.log(JSON.stringify(def))
-                return browserHistory.push('/profile/exams-student-list')
-              })
-          })
+          // dispatching action for make the reducer know we are making the transaction
+
+          //taking the first 4 numbers
+          try {
+            await studentInstance.subscribeExam(examUnicode, { from: coinbase })
+              .then(() => dispatch(dataAdded()))
+          } catch(error) { dError('Error while subscribing exam', error) }
+
+          // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
+          // console.log(JSON.stringify(result))
+        } catch(error) {
+          dispatch(errorAddingData())
+        } finally {
+          // console.log(JSON.stringify(def))
+          return browserHistory.push('/profile/marked-exams-student-list')
+        }
       })
     }
   } else {
