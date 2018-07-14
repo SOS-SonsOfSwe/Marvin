@@ -13,23 +13,17 @@ class InsertClass extends React.Component {
         super(props);
 
         this.state = {
-            // year: this.props.year,
             degree: this.props.degreeUnicode,
             class: '',
             description: '',
             teacher: ''
         };
 
-        // this.handleChange = this.handleChange.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleChange3 = this.handleChange3.bind(this);
         this.handleChange4 = this.handleChange4.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    // handleChange(event) {
-    //     this.setState({ year: event.target.value });
-    // }
 
     handleChange2(event) {
         this.setState({ class: event.target.value });
@@ -67,12 +61,6 @@ class InsertClass extends React.Component {
                     <p>Now you can insert a new Class.</p>
                     <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>
                         <fieldset>
-                            {/* <label htmlFor="years"> Select academic year </label>
-                            <select type="text" name="years" value={this.state.year} onChange={this.handleChange}>
-                                {<option value="select year" disabled={this.state.years === "" ? false : true}> -- select a year -- </option>}
-                                {this.props.emptyAcademicYears === false &&
-                                    this.props.academicYears.map((rowData, index) => <OptionsY key={index} {...rowData} />)}
-                            </select> */}
                             <label>Degree</label>
                             <input type="text" value={this.state.degree} readOnly="true" />
                             <label>Class</label>
