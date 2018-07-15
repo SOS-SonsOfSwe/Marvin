@@ -3,16 +3,6 @@ import { Link } from 'react-router'
 import LoadingData from '../../../Loading/LoadingData'
 import EmptyData from '../../../Loading/EmptyData'
 
-// var arrayData = [
-//     { year: "2017-2018", degree: "Informatica" },
-//     { year: "2017-2018", degree: "Matematica" },
-//     { year: "2017-2018", degree: "Psicologia" },
-//     { year: "2017-2018", degree: "Ingegneria" },
-//     { year: "2017-2018", degree: "Giurisprudenza" },
-//     { year: "2016-2017", degree: "Informatica" },
-//     { year: "2016-2017", degree: "Matematica" },
-//     { year: "2016-2017", degree: "Psicologia" },
-// ]
 
 const Row = ({ year, degreeUnicode, degreeData }) => (
     <tr className="clickable-row">
@@ -74,7 +64,7 @@ class Degrees extends React.Component {
                         <main className='container'>
                             <div className="pure-u-1-1">
                                 <h1>Degrees</h1>
-                                <p className="text-center">Here there is the list of the degrees.</p>
+                                <p className="text-center">List of the degrees.</p>
                                 <form className="pure-form-stacked pure-form">
                                     <fieldset>
                                         <label htmlFor="years"> Select academic year </label>

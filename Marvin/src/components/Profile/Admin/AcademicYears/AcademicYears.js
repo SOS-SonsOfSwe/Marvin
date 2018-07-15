@@ -46,7 +46,7 @@ class AcademicYears extends React.Component {
                     <main className='container'>
                         <div className="pure-u-1-1">
                             <h1>Academic years</h1>
-                            <p className="text-center">Here there is the list of the academic years.</p>
+                            <p className="text-center">List of the academic years.</p>
                             <div className="div_insert_button">
                                 <button className="insert-button pure-button pure-button-primary">
                                     <Link className="pure-link" to="/profile/academic-years/insert-academic-year"> Insert academic year </Link>

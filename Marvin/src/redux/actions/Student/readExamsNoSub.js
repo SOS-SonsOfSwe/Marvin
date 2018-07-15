@@ -73,10 +73,9 @@ async function processIPFSLoad(payload) {
 async function readExams(classInstance, classes, web3, coinbase) {
   var payload
   return new Promise(async function (resolve, reject) { // for(let sclass of classes)
-    await Promise.all(classes.map(async sclass => {
+    await Promise.all(classes.map(async classUnicode => {
       // console.log(sclass)
       // var payloadToReturn
-      var classUnicode = web3.toUtf8(sclass)
       try {
         var result = await classInstance.getClassExamsData(classUnicode, { from: coinbase })
         // result[0] = examHashcode
@@ -131,32 +130,31 @@ async function readExams(classInstance, classes, web3, coinbase) {
 }
 
 async function removeIfBooklet(classes, studentInstance, web3, coinbase) {
-  var newClasses
   return new Promise(async function (resolve, reject) {
     try {
+      // console.log(classes)
       var booklet = await studentInstance.booklet({ from: coinbase })
-
       if(booklet[0].length === 0) {
         return resolve(classes)
       } else {
+        var i = 0
+        var index = []
         for(let sclass of classes) {
           for(let j = 0; j < booklet[0].length; j++) {
-            // var exam = booklet[2][j]
-            // var hash = booklet[0][j]
-            // var teac = web3.toDecimal(booklet[1])
-            // console.log("teacher: " + teac)
             var bookletClass = web3.toUtf8(booklet[1][j])
+            console.log(bookletClass)
             // console.error(payload == null)
-            if(bookletClass !== sclass)
-              if(newClasses == null) { // first element of array
-                newClasses = [sclass]
-              } else
-                newClasses = [...newClasses,
-                  sclass
-                ]
+            if(bookletClass === sclass)
+              index[i++] = classes.indexOf(sclass)
           }
         }
-        return resolve(newClasses)
+        for(let i = index.length - 1; i >= 0; i--) {
+          // console.log(index[i])
+          classes.splice(index[i], 1)
+        }
+        // console.log(classes)
+        if(classes.length === 0) return resolve(null)
+        return resolve(classes)
       }
     } catch(error) {
       dError('Error while removing booklet exams.', error)
@@ -209,11 +207,11 @@ async function removeIfSubscribed(studentDataInstance, exams, badgeNumber, coinb
     var index = []
     for(let exam of exams) {
       for(let subExam of subscribedExams) {
-        console.log(web3.toUtf8(subExam) !== exam.examUnicode)
-        console.log(web3.toUtf8(subExam))
-        console.log(exam.examUnicode)
+        // console.log(web3.toUtf8(subExam) !== exam.examUnicode)
+        // console.log(web3.toUtf8(subExam))
+        // console.log(exam.examUnicode)
         if(web3.toUtf8(subExam) === exam.examUnicode) {
-          console.log(exams.indexOf(exam))
+          // console.log(exams.indexOf(exam))
           index[i++] = exams.indexOf(exam)
         }
       }
@@ -221,7 +219,7 @@ async function removeIfSubscribed(studentDataInstance, exams, badgeNumber, coinb
     for(let i = index.length - 1; i >= 0; i--) {
       exams.splice(index[i], 1)
     }
-    console.log(exams)
+    // console.log(exams)
     return resolve(exams)
   })
 }
@@ -286,29 +284,37 @@ export default function readExamsNoSubFromDatabase(badgeNumber) {
         if(!thereWasAnError) {
           try {
             var degree = await studentDataInstance.getStudentDegree(badgeNumber, { from: coinbase })
-            try {
-              var classes = await degreeInstance.getClasses(degree, { from: coinbase })
-              if(classes != null) {
-                var noBookletClasses = await removeIfBooklet(classes, studentInstance, web3, coinbase)
-                try {
-                  var exams = await readExams(classInstance, noBookletClasses, web3, coinbase)
-                  if(exams == null) dispatch(dataEmpty(req))
+            if(degree[0].lenght === 0) dispatch(dataEmpty(req))
+            else {
+              try {
+                var classes = await degreeInstance.getClasses(degree, { from: coinbase })
+                if(classes[0].lenght === 0) dispatch(dataEmpty(req))
+                else {
+                  classes = classes.map(sclass => web3.toUtf8(sclass))
+                  var noBookletClasses = await removeIfBooklet(classes, studentInstance, web3, coinbase)
+                  if(noBookletClasses == null) dispatch(dataEmpty(req))
                   else {
                     try {
-                      var noSubscribedExams = await removeIfSubscribed(studentDataInstance, exams, badgeNumber, coinbase, web3)
-                      if(noSubscribedExams != null) {
-                        return doAwesomeStuff(noSubscribedExams)
-                      } else dispatch(dataEmpty(req))
+                      var exams = await readExams(classInstance, noBookletClasses, web3, coinbase)
+                      if(exams == null) dispatch(dataEmpty(req))
+                      else {
+                        try {
+                          var noSubscribedExams = await removeIfSubscribed(studentDataInstance, exams, badgeNumber, coinbase, web3)
+                          if(noSubscribedExams == null) dispatch(dataEmpty(req))
+                          else
+                            return doAwesomeStuff(noSubscribedExams)
+                        } catch(error) {
+                          dError('Error while removing subscribed exams', error)
+                        }
+                      }
                     } catch(error) {
-                      dError('Error while removing subscribed exams', error)
+                      dError('Error in readExams.')
                     }
                   }
-                } catch(error) {
-                  dError('Error in readExams.')
                 }
+              } catch(error) {
+                dError('Error while reading classes.')
               }
-            } catch(error) {
-              dError('Error while reading classes.')
             }
           } catch(error) {
             dError('Error while reading degree.\n')

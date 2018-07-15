@@ -32,7 +32,7 @@ import readStudentsContainer from './containers/Profile/Admin/AllUsers/readStude
 import ExamsTeacherListContainer from './containers/Profile/Teacher/ExamsTeacherListContainer'
 import ExamsStudentListContainer from './containers/Profile/Student/ExamsStudentListContainer'
 import MarkedExamsContainer from './containers/Profile/Student/MarkedExamsContainer'
-import SchoolRecords from './components/Profile/Student/SchoolRecords'
+import SchoolRecordsContainer from './containers/Profile/Student/SchoolRecordsContainer'
 import InsertAcademicYearContainer from './containers/Profile/Admin/AcademicYears/InsertAcademicYearContainer'
 // import ModifyAcademicYear from './components/Profile/Admin/AcademicYears/ModifyAcademicYear'
 // import DeleteAcademicYear from './component/Profile/Admin/AcademicYears/DeleteAcademicYear'
@@ -136,7 +136,7 @@ ReactDOM.render((
             <Route path="student-list" component={TeacherIsAuthenticated(RegisteredStudentListContainer)} />
           </Route>
           <Route path="exams-student-list" component={StudentIsAuthenticated(ExamsStudentListContainer)} />
-          <Route path="school-records" component={StudentIsAuthenticated(SchoolRecords)} />
+          <Route path="school-records" component={StudentIsAuthenticated(SchoolRecordsContainer)} />
           <Route path="marked-exams-student-list" component={StudentIsAuthenticated(MarkedExamsContainer)} />
 
         </Route>

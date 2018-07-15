@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 // we import the specific component we want to link to the store
 import ExamsStudentList from '../../../components/Profile/Student/MarkedExams'
 // we import the action (=dispatch) we want to link to the store 
-// import { readAcademicYearsFromDatabase } from '../../../../redux/actions/Admin/readAdminData'
+import confirmMark from '../../../redux/actions/Student/confirmMark'
 
 import { readMarkedExamsFromDatabase } from '../../../redux/actions/Student/readExamsWithSub'
 import { bindActionCreators } from 'redux';
@@ -23,11 +23,11 @@ import { bindActionCreators } from 'redux';
 const mapStateToProps = (state, ownProps) => {
   // console.error('Payload: ' + JSON.stringify(state.student.exams.payload))
   return {
-    exams: state.student.exams.payload,
-    loading: state.student.exams.loading,
-    success: state.student.exams.success,
-    empty: state.student.exams.empty,
-    justDeleted: state.student.exams.justDeleted,
+    exams: state.student.subscribedExams.payload,
+    loading: state.student.subscribedExams.loading,
+    success: state.student.subscribedExams.success,
+    empty: state.student.subscribedExams.empty,
+    justDeleted: state.student.subscribedExams.justDeleted,
 
     badgeNumber: state.user.data.payload.badgeNumber,
 
@@ -43,7 +43,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     readExams: bindActionCreators(readMarkedExamsFromDatabase, dispatch),
-    //confirmResult: bindActionCreators(,dispatch)
+    confirmResult: bindActionCreators(confirmMark, dispatch)
   }
 }
 // const mapDispatchToProps = (dispatch) => {

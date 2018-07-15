@@ -3,12 +3,6 @@ import { Link } from 'react-router'
 import LoadingData from '../../../Loading/LoadingData'
 import EmptyData from '../../../Loading/EmptyData'
 
-// var arrayData = [
-//     { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },
-//     { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },
-//     { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },
-//     { name: "Mario", surname: "Rossi", badgeNumber: "3547385", fiscalCode: "12g324hgfd4cf3", univocalCode: "124356456" },
-// ]
 
 const Row = ({ load, FC, badgeNumber, isSignedUp }) => (
     <tr className="clickable-row">

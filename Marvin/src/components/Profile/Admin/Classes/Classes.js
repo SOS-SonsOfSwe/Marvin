@@ -83,7 +83,7 @@ class Classes extends React.Component {
                         <main className='container'>
                             <div className="pure-u-1-1">
                                 <h1>Classes</h1>
-                                <p className="text-center">Here there is the list of the Classes.</p>
+                                <p className="text-center">List of the Classes.</p>
                                 <form className="pure-form-stacked pure-form">
                                     <fieldset>
                                         <label htmlFor="years"> Select academic year </label>

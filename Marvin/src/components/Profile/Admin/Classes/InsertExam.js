@@ -14,7 +14,8 @@ class InsertExam extends React.Component {
       place: '',
       date: '',
       time: '',
-      unicode: ''
+      unicode: '',
+      classUnicode: ''
     }
 
     this.handleChange3 = this.handleChange3.bind(this);
@@ -49,13 +50,14 @@ class InsertExam extends React.Component {
 
     event.preventDefault();
     let error = checkExam(this.state);
-    if(error !== null)
+    if (error !== null)
       return alert(error);
     let examData = {
       "type": this.state.type,
       "place": this.state.place,
       "date": this.state.date,
-      "time": this.state.time
+      "time": this.state.time,
+      "classUnicode": this.state.Class
     }
 
     this.props.addExam(this.state.Class, this.state.unicode, examData);

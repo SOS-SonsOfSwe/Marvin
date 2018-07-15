@@ -19,7 +19,7 @@ contract Student {
         manager = ContractManager(_contractManagerAddress);
     }
 
-    function booklet() public view returns(bytes32[], bytes10[], uint8[]) {
+    function booklet() public view returns(bytes32[], uint8[], bytes10[]) {
         uint32 badgeNumber = UserData(manager.getUserDataContract()).getRegUsersBadgeNumber(msg.sender);
         // array contenente gli uniCode degli esami confermati per lo studente chiamante
         bytes10[] memory acceptedClassUniCode = StudentData(manager.getStudentDataContract()).getAcceptedResults(badgeNumber);
@@ -30,15 +30,15 @@ contract Student {
             classHashData[i] = class.getHashData(acceptedClassUniCode[i]);
             classResult[i] = class.getConfirmedResult(badgeNumber, acceptedClassUniCode[i]);
         }
-        return(classHashData, acceptedClassUniCode, classResult);
+        return(classHashData, classResult, acceptedClassUniCode);
     }
 
     function confirmResult(bytes10 _examUniCode, bytes10 _classUniCode, uint8 _result) public {
         uint32 badgeNumber = UserData(manager.getUserDataContract()).getRegUsersBadgeNumber(msg.sender);
         ExamData exam = ExamData(manager.getExamContract());
-        require(exam.isExam(_examUniCode) && exam.isStudentSubscribed(_examUniCode, badgeNumber));
+        require(exam.isExam(_examUniCode) && exam.isStudentSubscribed(_examUniCode, badgeNumber) && (_result >= 18));
         ClassData(manager.getClassContract()).setConfirmedResult(_classUniCode, badgeNumber, _result);
-        StudentData(manager.getStudentDataContract()).addAcceptedResult(_examUniCode, badgeNumber);
+        StudentData(manager.getStudentDataContract()).addAcceptedResult(_classUniCode, badgeNumber);
     }
 
     function subscribeExam(bytes10 _examUniCode) public {
