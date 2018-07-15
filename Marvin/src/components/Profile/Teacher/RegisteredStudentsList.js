@@ -1,6 +1,5 @@
 import React from 'react';
 import LoadingData from '../../Loading/LoadingData';
-import LoadingIPFSData from '../../Loading/LoadingIpfs';
 import EmptyData from '../../Loading/EmptyData';
 
 

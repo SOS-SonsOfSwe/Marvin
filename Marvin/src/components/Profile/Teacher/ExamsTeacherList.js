@@ -1,19 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 import LoadingData from '../../Loading/LoadingData'
-import LoadingIPFSData from '../../Loading/LoadingIpfs'
 import EmptyData from '../../Loading/EmptyData'
-
-// var arrayData = [
-//     { year: "2017-2018", degree: "Informatica" },
-//     { year: "2017-2018", degree: "Matematica" },
-//     { year: "2017-2018", degree: "Psicologia" },
-//     { year: "2017-2018", degree: "Ingegneria" },
-//     { year: "2017-2018", degree: "Giurisprudenza" },
-//     { year: "2016-2017", degree: "Informatica" },
-//     { year: "2016-2017", degree: "Matematica" },
-//     { year: "2016-2017", degree: "Psicologia" },
-// ]
 
 const Row = ({ examUnicode, load, classUnicode }) => (
     <tr className="clickable-row">
