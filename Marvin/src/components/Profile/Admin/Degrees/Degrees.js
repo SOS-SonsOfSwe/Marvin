@@ -67,7 +67,7 @@ class Degrees extends React.Component {
                                 <p className="text-center">List of the degrees.</p>
                                 <form className="pure-form-stacked pure-form">
                                     <fieldset>
-                                        <label htmlFor="years"> Select academic year </label>
+                                        <label className="select-class" htmlFor="years"> Select academic year </label>
                                         <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChange}>
                                             {<option value="select year" disabled={this.state.selectedYears === "" ? false : true}> -- select an year -- </option>}
                                             {this.props.emptyAcademicYears === false &&

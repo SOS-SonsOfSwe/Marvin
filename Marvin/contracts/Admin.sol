@@ -115,12 +115,4 @@ contract Admin {
         user.deleteUserMap(_user);
         user.deleteUserArray(_user);
     }
-
-    function getClassIndex(bytes10 _classUniCode) public view returns(uint16) {
-        return(ClassData(manager.getClassContract()).getIndex(_classUniCode));
-    }
-
-    function getExamIndex(bytes10 _examUniCode) public view returns(uint16) {
-        return(ExamData(manager.getExamContract()).getIndex(_examUniCode));
-    }
 }

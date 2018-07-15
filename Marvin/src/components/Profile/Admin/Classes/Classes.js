@@ -86,13 +86,13 @@ class Classes extends React.Component {
                                 <p className="text-center">List of the Classes.</p>
                                 <form className="pure-form-stacked pure-form">
                                     <fieldset>
-                                        <label htmlFor="years"> Select academic year </label>
+                                        <label className="select-class" htmlFor="years"> Select academic year </label>
                                         <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChangeY}>
                                             {<option value="select year" disabled={this.state.selectedYears === "" ? false : true}> -- select a year -- </option>}
                                             {this.props.emptyAcademicYears === false &&
                                                 this.props.academicYears.map((rowData, index) => <OptionsY key={index} {...rowData} />)}
                                         </select>
-                                        <label htmlFor="degree"> Select degree </label>
+                                        <label className="select-class" htmlFor="degree"> Select degree </label>
                                         <select disabled={this.state.selectedYears === "" ? true : false} type="text" name="degree" value={this.state.selectedDegree} onChange={this.onSelectChangeDC}>
                                             {<option value="select degree" disabled={this.state.selectedDegree === "" ? false : true}> -- select a degree -- </option>}
                                             {console.log('this.props.degrees: ' + JSON.stringify(this.props.degrees))}

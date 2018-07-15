@@ -1,3 +1,14 @@
+.container_gif {
+  main{
+    width: 13em;
+  }
+
+  img{
+    width: 100%;
+  }
+}
+
+
 .box_pages {
   margin-bottom: 3em;
 }
@@ -11,8 +22,9 @@ code {
 
 .container {
   box-sizing: border-box;
-  width: 100%;
+  //width: 80%;
   //padding: 15px 20px;
+  margin: auto;
 }
 
 .pure-button-primary {

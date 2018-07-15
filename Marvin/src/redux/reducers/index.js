@@ -5,6 +5,7 @@ import adminReducer from './adminReducer'
 import ipfsReducer from './ipfsReducer'
 import studentReducer from './studentReducer'
 import teacherReducer from './teacherReducer'
+import costReducer from './costReducer'
 import web3Reducer from './web3Reducer'
 
 const reducer = combineReducers({
@@ -14,7 +15,8 @@ const reducer = combineReducers({
   teacher: teacherReducer,
   student: studentReducer,
   web3: web3Reducer,
-  ipfs: ipfsReducer
+  ipfs: ipfsReducer,
+  cost: costReducer
 })
 
 export default reducer

@@ -89,7 +89,7 @@ class InsertUserForm extends Component {
 
 
   render() {
-    const load = this.props.loadingDegree || this.props.loadingAcademic || this.props.ipfsLoading ? <LoadingData label='Loading...' /> : <div />;
+    const load = this.props.loadingDegree || this.props.loadingAcademic || this.props.ipfsLoading ? <div className="container_gif"> <LoadingData label='Loading...' /> </div> : <div />;
     const error = this.props.success === false ? <div>There was an error...</div> : <div />;
     const empty = this.props.emptyDegrees ? <EmptyData label='no data found on blockchain' /> : <div />
 
@@ -140,8 +140,8 @@ class InsertUserForm extends Component {
               {load}
               {error}
               {empty}
-              {this.state.tpInserted === '3' &&
-                <div className='pure-u-1-1'>
+              {this.state.tpInserted === '3' && this.props.loadingAcademic !== true && this.props.loadingDegree !== true && this.props.ipfsLoading !== true &&
+                < div className='pure-form pure-form-stacked '>
                   <label htmlFor="years"> Select academic year </label>
                   <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChangeY}>
                     {<option value="select year" disabled={this.state.selectedYears === "" ? false : true}> -- select a year -- </option>}
@@ -174,7 +174,7 @@ class InsertUserForm extends Component {
             </fieldset >
           </form >
         </main>
-      </div>
+      </div >
     )
   }
 }

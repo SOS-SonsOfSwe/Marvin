@@ -44,10 +44,6 @@ contract ClassData {
     function getHashData(bytes10 _classUniCode) public view returns(bytes32) {
         return (classes[_classUniCode].hashData);
     }
-    
-    function getNumberClassExams(bytes10 _classUniCode) public view returns(uint) {
-        return ((classes[_classUniCode].classExams).length);
-    }
 
     function getClassExams(bytes10 _classUniCode) public view returns(bytes10[]) {
         return (classes[_classUniCode].classExams);
