@@ -33,20 +33,6 @@ contract UserData {
         _;
     }
 
-    /* RIMUOVI
-    function isUniversity(address _address) public view returns(bool) {
-        return(_address == uniAddress);
-    }
-
-    function isTeacher(address _address) public view returns(bool) {
-        return(users[registeredUsers[_address]].userType == 2);
-    }
-
-    function isStudent(address _address) public view returns(bool) {
-        return(users[registeredUsers[_address]].userType == 3);
-    }
-    */
-
     function isAdmin(address _address) public view returns(bool) {
         return(users[registeredUsers[_address]].userType == 1);
     }
@@ -85,24 +71,6 @@ contract UserData {
             return(users[_fiscalCode].hashData);
         return(0);
     }
-
-    /* RIMUOVI
-    function getRegUsersFiscalCode(address _address) public view returns(bytes32) {
-        return registeredUsers[_address];
-    }
-
-    function getRegUsersUserType(address _address) public view returns(uint8) {
-        return users[registeredUsers[_address]].userType;
-    }
-    
-    function getRegUsersBadgeNumber(address _address) public view returns(uint32) {
-        return users[registeredUsers[_address]].badgeNumber;
-    }
-
-    function getRegUsersHashData(address _address) public view returns(bytes32) {
-        return users[registeredUsers[_address]].hashData;
-    }
-    */
 
     function getRegUsersData(address _address) public view returns(bytes32, uint8, uint32, bytes32) {
         return(registeredUsers[_address], users[registeredUsers[_address]].userType, 

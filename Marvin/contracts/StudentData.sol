@@ -39,13 +39,6 @@ contract StudentData {
         return(subscribedExams[_studentBadgeNumber]);
     }
 
-    /* RIMUOVI
-    // return the number of accepted student results
-    function getAcceptedResultNumber(uint32 _studentBadgeNumber) public view onlyStudentContract returns(uint) {
-        return(acceptedResults[_studentBadgeNumber].length);
-    }
-    */
-
     function addAcceptedResult(bytes10 _classUniCode, uint32 _studentBadgeNumber) public onlyStudentContract {
         acceptedResults[_studentBadgeNumber].push(_classUniCode);
     }

@@ -58,17 +58,6 @@ contract DegreeData {
         return(academicYears);
     }
 
-    /* RIMUOVI
-    function getAllIdentifiers() public view returns(bytes10[]) {
-        return uniCodes;
-    }
-
-    // return all the degrees unicodes of the year
-    function getYearDegrees(bytes4 _year) public view returns(bytes10[]) {
-        return(yearDegrees[_year]);
-    }
-    */
-
     // return all the degrees unicodes and their IPFS hash of to the year
     function getYearDegreesData(bytes4 _year) public view returns(bytes32[], bytes10[]) {
         bytes10[] memory degreesForYear = yearDegrees[_year];
