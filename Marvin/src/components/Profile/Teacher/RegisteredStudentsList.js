@@ -41,6 +41,13 @@ class RegisteredStudentsList extends React.Component {
     }
 
     handleSave(event) {
+        let flag = false;
+        this.state.votes.forEach(element => {
+            if(element.vote < 0 || element.vote > 31)
+                flag = true;
+        })
+        if(flag === true) 
+            return alert("The mark must be between 0 and 31.")
         event.preventDefault();
         this.props.setMarksData(this.props.examUnicode, this.props.classUnicode, this.state.votes)
     }
