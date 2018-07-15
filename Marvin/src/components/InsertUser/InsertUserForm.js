@@ -140,8 +140,8 @@ class InsertUserForm extends Component {
               {load}
               {error}
               {empty}
-              {this.state.tpInserted === '3' &&
-                <div className='pure-u-1-1'>
+              {this.state.tpInserted === '3' && this.props.loadingAcademic !== true && this.props.loadingDegree !== true && this.props.ipfsLoading !== true && this.props.emptyDegrees !== true &&
+                < div className='pure-form pure-form-stacked '>
                   <label htmlFor="years"> Select academic year </label>
                   <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChangeY}>
                     {<option value="select year" disabled={this.state.selectedYears === "" ? false : true}> -- select a year -- </option>}
@@ -174,7 +174,7 @@ class InsertUserForm extends Component {
             </fieldset >
           </form >
         </main>
-      </div>
+      </div >
     )
   }
 }
