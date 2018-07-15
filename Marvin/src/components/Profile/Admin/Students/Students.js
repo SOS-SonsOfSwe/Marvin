@@ -17,7 +17,7 @@ const Row = ({ load, FC, badgeNumber, isSignedUp }) => (
             <button className="delete-link">
                 <Link to=
                     {{
-                        pathname: '/profile/administrators/delete-student',
+                        pathname: '/profile/students/delete-student',
                         state: {
                             badgeNumber: badgeNumber,
                             FC: FC

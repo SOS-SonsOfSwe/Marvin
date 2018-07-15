@@ -17,13 +17,12 @@ const Row = ({ load, FC, badgeNumber, isSignedUp }) => (
             {isSignedUp !== true ?
                 <button className="delete-link">
                     <Link to={{
-                        pathname: "/profile/administrators/delete-teacher",
+                        pathname: "/profile/teachers/delete-teacher",
                         state: {
                             badgeNumber: badgeNumber,
                             FC: FC
                         }
-                    }}
-                    ><span className="X-button">X</span>Delete</Link>
+                    }}><span className="X-button">X</span>Delete</Link>
                 </button>
                 : ""}
         </td>
