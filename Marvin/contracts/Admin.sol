@@ -112,6 +112,7 @@ contract Admin {
 
     function removeUser(uint32 _user) public onlyAdmin {
         UserData user = UserData(manager.getUserDataContract()); 
+        require(user.userExistsBadge(_user));
         user.deleteUserMap(_user);
         user.deleteUserArray(_user);
     }

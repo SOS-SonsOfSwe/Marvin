@@ -137,13 +137,13 @@ contract DegreeData {
     */
 
     function deleteDegree(bytes10 _degreeUniCode, bytes4 _degreeYear) public onlyAdminContract {
+        require((degrees[_degreeUniCode].classes).length == 0);
         uint16 dIndex = degrees[_degreeUniCode].index;
         uint8 dYearIndex = degrees[_degreeUniCode].yearIndex;
         bytes10[] memory dYear = yearDegrees[_degreeYear];
         uniCodes[dIndex] = uniCodes[uniCodes.length-1];
         degrees[uniCodes[dIndex]].index = dIndex;
         uniCodes.length--;
-        
         yearDegrees[_degreeYear][dYearIndex] = yearDegrees[_degreeYear][dYear.length-1];
         degrees[yearDegrees[_degreeYear][dYearIndex]].yearIndex = dYearIndex;
         yearDegrees[_degreeYear].length--;
@@ -152,10 +152,13 @@ contract DegreeData {
     }
 
     function deleteClass(bytes10 _degreeUniCode, uint16 _classIndex) public onlyAdminContract {
+        ClassData class = ClassData(manager.getClassContract());
+        bytes10 oldClassUnicode = degrees[_degreeUniCode].classes[_classIndex];
+        require((class.getClassExams(oldClassUnicode)).length == 0);
         uint16 lastClassIndex = uint16((degrees[_degreeUniCode].classes).length - 1);
         degrees[_degreeUniCode].classes[_classIndex] = degrees[_degreeUniCode].classes[lastClassIndex];
         bytes10 newClassUnicode = degrees[_degreeUniCode].classes[_classIndex];
-        ClassData(manager.getClassContract()).setIndex(newClassUnicode, _classIndex);
+        class.setIndex(newClassUnicode, _classIndex);
         (degrees[_degreeUniCode].classes).length--;
     }
 
@@ -176,6 +179,7 @@ contract DegreeData {
     */
 
     function deleteYear(bytes4 _year) public onlyAdminContract {
+        require(yearDegrees[_year].length == 0);
         bool found = false;
         for(uint i = 0; i < academicYears.length && !found; ++i) {
             if(academicYears[i] == _year) {
