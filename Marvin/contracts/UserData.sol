@@ -77,6 +77,10 @@ contract UserData {
             users[registeredUsers[_address]].badgeNumber, users[registeredUsers[_address]].hashData);
     }
 
+    function getRegUsersBadgeNumber(address _address) public view returns(uint32) {
+        return users[registeredUsers[_address]].badgeNumber;
+    }
+
     function getUniAddress() public view returns(address) {
         return uniAddress ;
     }
