@@ -1,6 +1,6 @@
 import ethPrice from 'eth-price'
 
-export function getEurFromEth(ether) {
+export async function getEurFromEth(ether) {
   ethPrice('EUR')
     .then(ethInEur => {
       ethInEur = parseFloat(ethInEur[0]
