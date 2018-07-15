@@ -1,6 +1,6 @@
 // import AdminContract from '../../../../build/contracts/Admin'
-import Units from 'ethereumjs-units'
-import ethPrice from 'eth-price'
+// import Units from 'ethereumjs-units'
+
 import { browserHistory } from 'react-router'
 import store from '../../store'
 import { COSTS as req } from '../reducers/costants/costCostants'
@@ -61,44 +61,6 @@ export default function getAverageGasPrice() {
           return doAwesomeStuff([out]);
         })
         .catch(err => { throw err });
-    }
-  } else {
-    console.error('Web3 is not initialized.');
-  }
-}
-
-export function getEurFromEth(ether) {
-  let web3 = store.getState()
-    .web3.web3Instance
-  if(typeof web3 !== 'undefined') {
-
-    return function (dispatch) {
-      //   app.use(function (req, res, next) {
-
-      //     // Website you wish to allow to connect
-      //     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
-
-      //     // Request methods you wish to allow
-      //     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-      //     // Request headers you wish to allow
-      //     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-      //     // Set to true if you need the website to include cookies in the requests sent
-      //     // to the API (e.g. in case you use sessions)
-      //     res.setHeader('Access-Control-Allow-Credentials', true);
-
-      //     // Pass to next layer of middleware
-      //     next();
-      //   });
-      store.dispatch(readingData(req))
-      ethPrice('EUR')
-        .then(ethInEur => {
-          ethInEur = parseFloat(ethInEur[0]
-            .slice(5))
-          return doAwesomeStuff(ethInEur * ether)
-
-        })
     }
   } else {
     console.error('Web3 is not initialized.');
