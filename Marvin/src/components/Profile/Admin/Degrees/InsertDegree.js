@@ -29,7 +29,7 @@ class InsertDegree extends React.Component {
         if(this.state.description === '')
             return alert("The degree description is empty!")
         if (!checkDegreeUnicode(this.state.degreeUnicode))
-            return alert("The degree unicode has an invalid format")
+            return alert("The degree unicode has an invalid format. Must Follow this syntax: INFO18. ")
         event.preventDefault()
         this.props.addDegree(this.state.degreeUnicode, this.state.year, this.state.description)
     }

@@ -50,7 +50,7 @@ export function web3HexToInt(hex) {
 export function checkY(year) {
   let check = year.match(new RegExp('^2[0-9][0-9][0-9]-2[0-9][0-9][0-9]$'));
   if (check === null){
-    return "Incorrect format";
+    return "The year has an invalid format. Must Follow this syntax: 2018-2019";
   }
   if(new Date().getFullYear() > parseInt( year.slice(0,4), 10))
     return "Year before the current one";
@@ -86,7 +86,7 @@ export function checkExam(state){
     return "Please, insert a valid date."
 
   if(state.unicode.slice(0,6) !== state.Class && state.unicode.slice(6,9).match('^-[0-9][0-9]?$'))
-    return "Please, insert a valid unicode."
+    return "The exam code has an invalid format. Must Follow this syntax: PROG18-01."
 
 return null;
 }

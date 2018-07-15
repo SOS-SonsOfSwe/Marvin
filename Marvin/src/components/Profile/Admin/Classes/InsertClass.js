@@ -41,7 +41,7 @@ class InsertClass extends React.Component {
         event.preventDefault()
         
         if (!checkDegreeUnicode(this.state.class))
-            return alert("The class code has an invalid format")
+            return alert("The class code has an invalid format. Must Follow this syntax: PROG18")
         if(this.state.description === '')
             return alert("The class description is empty!")
         if(this.state.teacher === '')
