@@ -58,6 +58,7 @@ contract DegreeData {
         return(academicYears);
     }
 
+    /* RIMUOVI
     function getAllIdentifiers() public view returns(bytes10[]) {
         return uniCodes;
     }
@@ -66,10 +67,11 @@ contract DegreeData {
     function getYearDegrees(bytes4 _year) public view returns(bytes10[]) {
         return(yearDegrees[_year]);
     }
+    */
 
     // return all the degrees unicodes and their IPFS hash of to the year
     function getYearDegreesData(bytes4 _year) public view returns(bytes32[], bytes10[]) {
-        bytes10[] memory degreesForYear = getYearDegrees(_year);
+        bytes10[] memory degreesForYear = yearDegrees[_year];
         bytes32[] memory degreesHashCodes = new bytes32[](degreesForYear.length);
         for(uint i = 0; i < degreesForYear.length; ++i) {
             degreesHashCodes[i] = degrees[degreesForYear[i]].hashData;
@@ -114,28 +116,6 @@ contract DegreeData {
         return(uint16(degrees[_degreeUniCode].classes.push(_classUniCode) - 1));
     }
 
-/*
-    function getYearDegreeIndex(bytes10 _degreeUniCode, bytes4 _degreeYear) public view onlyAdminContract returns(uint) {
-        bytes10[] memory dYear = yearDegrees[_degreeYear];
-        for(uint i = 0; i < dYear.length; ++i) {
-            if(dYear[i] == _degreeUniCode) {
-                return i;
-            }  
-        }
-    }
-
-    function deleteDegree(bytes10 _degreeUniCode, bytes4 _degreeYear, uint _index) public onlyAdminContract {
-        uint16 dIndex = degrees[_degreeUniCode].index;
-        uniCodes[dIndex] = uniCodes[uniCodes.length-1];
-        degrees[uniCodes[dIndex]].index = dIndex;
-        uniCodes.length--;
-        
-        yearDegrees[_degreeYear][_index] = yearDegrees[_degreeYear][yearDegrees[_degreeYear].length-1];
-        yearDegrees[_degreeYear].length--;
-        delete degrees[_degreeUniCode];
-    }
-    */
-
     function deleteDegree(bytes10 _degreeUniCode, bytes4 _degreeYear) public onlyAdminContract {
         require((degrees[_degreeUniCode].classes).length == 0);
         uint16 dIndex = degrees[_degreeUniCode].index;
@@ -161,22 +141,6 @@ contract DegreeData {
         class.setIndex(newClassUnicode, _classIndex);
         (degrees[_degreeUniCode].classes).length--;
     }
-
-/*
-    function getYearIndex(bytes4 _year) public view onlyAdminContract returns(uint) {
-        for(uint i = 0; i < academicYears.length; ++i) {
-            if(academicYears[i] == _year) {
-                return i;
-            }
-        }
-    }
-
-    function deleteYear(uint _index) public onlyAdminContract {
-        academicYears[_index] = academicYears[academicYears.length-1];
-        academicYears.length--;
-    }
-
-    */
 
     function deleteYear(bytes4 _year) public onlyAdminContract {
         require(yearDegrees[_year].length == 0);

@@ -33,12 +33,9 @@ contract UserData {
         _;
     }
 
+    /* RIMUOVI
     function isUniversity(address _address) public view returns(bool) {
         return(_address == uniAddress);
-    }
-    
-    function isAdmin(address _address) public view returns(bool) {
-        return(users[registeredUsers[_address]].userType == 1);
     }
 
     function isTeacher(address _address) public view returns(bool) {
@@ -47,6 +44,11 @@ contract UserData {
 
     function isStudent(address _address) public view returns(bool) {
         return(users[registeredUsers[_address]].userType == 3);
+    }
+    */
+
+    function isAdmin(address _address) public view returns(bool) {
+        return(users[registeredUsers[_address]].userType == 1);
     }
     
     function userExists(address _address) public view returns(bool) {
@@ -84,6 +86,7 @@ contract UserData {
         return(0);
     }
 
+    /* RIMUOVI
     function getRegUsersFiscalCode(address _address) public view returns(bytes32) {
         return registeredUsers[_address];
     }
@@ -91,7 +94,7 @@ contract UserData {
     function getRegUsersUserType(address _address) public view returns(uint8) {
         return users[registeredUsers[_address]].userType;
     }
-
+    
     function getRegUsersBadgeNumber(address _address) public view returns(uint32) {
         return users[registeredUsers[_address]].badgeNumber;
     }
@@ -99,6 +102,7 @@ contract UserData {
     function getRegUsersHashData(address _address) public view returns(bytes32) {
         return users[registeredUsers[_address]].hashData;
     }
+    */
 
     function getRegUsersData(address _address) public view returns(bytes32, uint8, uint32, bytes32) {
         return(registeredUsers[_address], users[registeredUsers[_address]].userType, 

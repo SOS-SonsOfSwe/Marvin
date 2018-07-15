@@ -45,9 +45,11 @@ contract ClassData {
         return (classes[_classUniCode].hashData);
     }
     
+    /* RIMUOVI
     function getNumberClassExams(bytes10 _classUniCode) public view returns(uint) {
         return ((classes[_classUniCode].classExams).length);
     }
+    */
 
     function getClassExams(bytes10 _classUniCode) public view returns(bytes10[]) {
         return (classes[_classUniCode].classExams);

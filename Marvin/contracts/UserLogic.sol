@@ -15,7 +15,7 @@ contract UserLogic {
         UserData user = UserData(manager.getUserDataContract());
         if((user.getUsersUniCode(_fiscalCode) == _uniCode) && (user.getUsersIsUser(_fiscalCode) == false)
           && (!user.userExists(msg.sender)) && (msg.sender != user.getUniAddress()))
-			return true;
+			      return true;
         return false;
     } 
 
