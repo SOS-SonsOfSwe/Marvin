@@ -8,8 +8,8 @@ const initialState = {
   empty: null
 }
 
-const examsReducer = (state = initialState, action) => {
-  if(action.request === studentCostants.EXAMS) {
+const subscribedReducer = (state = initialState, action) => {
+  if(action.request === studentCostants.BOOKLET) {
     switch(action.type) {
       // default: in this case we tried to make a dispatch without using matching any case
       default: {
@@ -86,7 +86,7 @@ const examsReducer = (state = initialState, action) => {
           loading: false
         }
       }
-    case studentCostants.ERASE_EXAMS:
+    case studentCostants.ERASE_BOOKLET:
       {
         return {
           ...state,
@@ -100,4 +100,4 @@ const examsReducer = (state = initialState, action) => {
     }
   } else return state;
 }
-export default examsReducer
+export default subscribedReducer

@@ -12,7 +12,7 @@ import EmptyData from '../../Loading/EmptyData'
 //     { degree: "informatica", class: "Ricarca operativa", typology: "scritto", date: "19-08-2018" },
 // ]
 
-const Row = ({ examUnicode, classUnicode, load, teacher, mark, badgeNumber, hConf }) => (
+const Row = ({ examUnicode, classUnicode, load, mark, hConf }) => (
     <tr className="clickable-row">
         <td>{classUnicode}</td>
         <td>{examUnicode}</td>
@@ -20,9 +20,9 @@ const Row = ({ examUnicode, classUnicode, load, teacher, mark, badgeNumber, hCon
         <td>{load && load.place}</td>
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
-        <td>{teacher}</td>
+        {/* <td>{teacher}</td> */}
         <td>{mark}</td>
-        <td><fieldset><input disabled={mark >= 18 ? false : true} type="button" value="confirm" onClick={(e) => hConf(examUnicode, badgeNumber, e)} />
+        <td><fieldset><input disabled={mark >= 18 ? false : true} type="button" value="confirm" onClick={(e) => hConf(examUnicode, classUnicode, mark, e)} />
         </fieldset>
         </td>
     </tr>
@@ -43,9 +43,9 @@ class ExamsStudentList extends React.Component {
 
     }
 
-    handleConf(examUnicode, badgeNumber, event) {
+    handleConf(examUnicode, classUnicode, mark, event) {
         event.preventDefault();
-        this.props.confirmResult(examUnicode, badgeNumber)
+        this.props.confirmResult(examUnicode, classUnicode, mark)
     }
 
     render() {
@@ -73,13 +73,13 @@ class ExamsStudentList extends React.Component {
                                     <th className="title-column">Place</th>
                                     <th className="title-column">Date</th>
                                     <th className="title-column">Time</th>
-                                    <th className="title-column">Teacher</th>
+                                    {/* <th className="title-column">Teacher</th> */}
                                     <th className="title-column">Mark</th>
                                     <th className="title-column">Confirm</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} badgeNumber={this.props.badgeNumber} hConf={this.handleConf} />)}
+                                {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} hConf={this.handleConf} />)}
                             </tbody>
                         </table>
                     }
