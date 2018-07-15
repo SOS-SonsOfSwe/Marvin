@@ -66,11 +66,16 @@
 }
 
 .delete-form {
-  margin-left: 8% !important;
+  
 }
 
 .delete-fieldset {
-  padding-left: 1% !important;
+  margin: auto;
+  width: 20% !important;
+}
+
+.delete-fieldset p {
+  width: 100% !important;
 }
 
 fieldset input {
