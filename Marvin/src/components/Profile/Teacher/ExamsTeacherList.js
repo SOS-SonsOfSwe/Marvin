@@ -58,7 +58,7 @@ class ExamsTeacherList extends React.Component {
                                 <p className="text-center">This is the list of the exams associated to the selected class.</p>
                                 <form className="pure-form-stacked pure-form">
                                     <fieldset>
-                                        <label htmlFor="classes"> Select class</label>
+                                        <label className="select-class" htmlFor="classes"> Select class</label>
                                         <select type="text" name="classes" value={this.state.selectedClass} onChange={this.onSelectChange}>
                                             {<option value="select class" disabled={this.state.selectedClass === "" ? false : true}> -- select a class -- </option>}
                                             {this.props.emptyClasses === false &&

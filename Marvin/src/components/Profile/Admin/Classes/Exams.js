@@ -87,20 +87,20 @@ class Exams extends React.Component {
                             <p className="text-center">List of the exams.</p>
                             <form className="pure-form-stacked pure-form">
                                 <fieldset>
-                                    <label htmlFor="years"> Select academic year </label>
+                                    <label className="select-class" htmlFor="years"> Select academic year </label>
                                     <select type="text" name="years" value={this.state.selectedYears} onChange={this.onSelectChangeY}>
                                         {<option value="select year" disabled={this.state.selectedYears === "" ? false : true}> -- select a year -- </option>}
                                         {this.props.emptyAcademicYears === false &&
                                             this.props.academicYears.map((rowData, index) => <OptionsY key={index} {...rowData} />)}
                                     </select>
-                                    <label htmlFor="degree"> Select degree </label>
+                                    <label className="select-class" htmlFor="degree"> Select degree </label>
                                     <select disabled={this.state.selectedYears === "" ? true : false} type="text" name="degree" value={this.state.selectedDegree} onChange={this.onSelectChangeDC}>
                                         {<option value="select degree" disabled={this.state.selectedDegree === "" ? false : true}> -- select a degree -- </option>}
                                         {console.log('this.props.degrees: ' + JSON.stringify(this.props.degrees))}
                                         {this.props.emptyDegrees === false && this.props.successDegree === true &&
                                             this.props.degrees.map((rowData, index) => <OptionsDC key={index} {...rowData} />)}
                                     </select>
-                                    <label htmlFor="classes"> Select class </label>
+                                    <label className="select-class" htmlFor="classes"> Select class </label>
                                     <select disabled={this.state.selectedYears === "" || this.state.selectedDegree === "" ? true : false} type="text" name="class" value={this.state.selectedClass} onChange={this.onSelectChange}>
                                         {<option value="select class" disabled={this.state.selectedClass === "" ? false : true}> -- select a class -- </option>}
                                         {console.log('this.props.classes: ' + JSON.stringify(this.props.classes))}
