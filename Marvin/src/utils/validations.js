@@ -1,3 +1,13 @@
+import {syntaxYearPopup, 
+  oldYearPopup,
+  examCodePopup,
+  examDatePopup,
+  examTimePopup,
+  examPlacePopup,
+  classCodePopup,
+classDescriptionPopup,
+classTeacherPopup} from './popup'
+
 export function checkFiscalCode(fC) {
   let reg = /^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$/;
   let fiscalCode = fC.match(new RegExp(reg));
@@ -50,13 +60,13 @@ export function web3HexToInt(hex) {
 export function checkY(year) {
   let check = year.match(new RegExp('^2[0-9][0-9][0-9]-2[0-9][0-9][0-9]$'));
   if (check === null){
-    return "The year has an invalid format. Must Follow this syntax: 2018-2019";
+    return syntaxYearPopup;
   }
   if(new Date().getFullYear() > parseInt( year.slice(0,4), 10))
-    return "Year before the current one";
+    return oldYearPopup;
   return true;
 }
- 
+
 export function checkDegreeUnicode(code){
   let check = code.match(new RegExp('^[A-Z]{4}[0-9][0-9]$'))
   if(check!== null)
@@ -65,9 +75,26 @@ export function checkDegreeUnicode(code){
     return false;
 }
 
+export function checkClass(state){
+  let check = state.class.match(new RegExp('^[A-Z]{4}[0-9][0-9]$'))
+  if(check === null){
+    return classCodePopup  
+  }
+  if(state.description === '')
+  {
+    return classDescriptionPopup
+  }
+  if(state.teacher === '')
+  {
+    return classTeacherPopup
+  }
+  return null
+
+}
+
 export function checkExam(state){
   if(state.place === '')
-    return "Please, insert a valid place."
+    return examPlacePopup
     
     let year = parseInt(state.date.slice(0,4),10)
     let month = parseInt(state.date.slice(5,7),10)
@@ -78,15 +105,17 @@ export function checkExam(state){
     let currentMonth = today.getMonth()+1;
     let currentDay = today.getDate();
     let currentTimeInSeconds = (parseInt(state.time.slice(0,2),10)*3600)+(parseInt(state.time.slice(3,5),10)*60);
-    
-  if(currentTimeInSeconds<30600 || currentTimeInSeconds >63000)
-    return "The time for an exam must be between 8:30 and 17:30."
+  if(currentTimeInSeconds<30600 || currentTimeInSeconds >63000 || state.time==="")
+    return examTimePopup
 
   if(state.date === '' || currentYear > year || (currentYear === year && currentMonth > month) || (currentYear === year && currentMonth === month && currentDay >= day) )
-    return "Please, insert a valid date."
+    return examDatePopup
 
-  if(state.unicode.slice(0,6) !== state.Class && state.unicode.slice(6,9).match('^-[0-9][0-9]?$'))
-    return "The exam code has an invalid format. Must Follow this syntax: PROG18-01."
+    let regex = new RegExp('^'+state.Class+'-[0-9][0-9]?$')
+    let match = state.unicode.match(regex)
+
+  if(state.unicode === "" || match === null/*(state.unicode.slice(0,6) !== state.Class &&*/ )
+    return examCodePopup
 
 return null;
 }

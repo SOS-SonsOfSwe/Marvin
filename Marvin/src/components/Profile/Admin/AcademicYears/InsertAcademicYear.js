@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router'
 import { checkY } from '../../../../utils/validations';
+import Popup from 'react-popup'
+
+
+
 
 class InsertAcademicYear extends React.Component {
 
@@ -17,11 +21,14 @@ class InsertAcademicYear extends React.Component {
  
     handleSubmit(event){
         event.preventDefault()
-        let check=checkY(this.state.year)
-        if(check!==true)
-            return alert(check);
+        let pop=checkY(this.state.year)
+        if(pop!==true){
+            Popup.queue(pop)
+            Popup.clearQueue()
+               }
+        else{
         event.preventDefault();
-        this.props.addAcademicYear(this.state.year)
+        this.props.addAcademicYear(this.state.year)}
 
     }
 
@@ -36,8 +43,19 @@ class InsertAcademicYear extends React.Component {
 
     render() {
         return (
+            
             <main className='container' /* onSubmit={this.handleSave} */>
-                <div className="pure-u-1-1">
+                <div className="pure-u-1-1" id="popupContainer">
+                <Popup
+                    className="mm-popup"
+                    btnClass="mm-popup__btn"
+                    closeBtn={false}
+                    closeHtml={null}
+                    defaultOk="Ok"
+                    defaultCancel="Cancel"
+                    wildClasses={false}
+                    escToClose={true}
+                />
                     <h1>Insert academic year</h1>
                     <p>Now you can insert a new academic year.</p>
                     <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>

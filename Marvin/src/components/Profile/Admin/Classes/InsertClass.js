@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
-import { checkDegreeUnicode } from '../../../../utils/validations';
+import { checkDegreeUnicode, checkClass } from '../../../../utils/validations';
+import Popup from 'react-popup'
 
 
 const OptionsT = ({ badgeNumber }) => (
@@ -39,14 +40,14 @@ class InsertClass extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        
-        if (!checkDegreeUnicode(this.state.class))
-            return alert("The class code has an invalid format. Must Follow this syntax: PROG18")
-        if(this.state.description === '')
-            return alert("The class description is empty!")
-        if(this.state.teacher === '')
-            return alert("Please, select a teacher!")
-        this.props.addClass(this.state.degree, this.state.class, this.state.description, this.state.teacher)
+        let pop = checkClass(this.state);
+        if (pop !== null){
+            Popup.queue(pop)
+            Popup.clearQueue()      
+        }
+        else{  
+            this.props.addClass(this.state.degree, this.state.class, this.state.description, this.state.teacher)
+        }
     }
 
 
@@ -57,6 +58,16 @@ class InsertClass extends React.Component {
         return (
             <main className='container' >
                 <div className="pure-u-1-1">
+                <Popup
+                className="mm-popup"
+                btnClass="mm-popup__btn"
+                closeBtn={false}
+                closeHtml={null}
+                defaultOk="Ok"
+                defaultCancel="Cancel"
+                wildClasses={false}
+                escToClose={true}
+                />
                     <h1>Insert Class</h1>
                     <p>Now you can insert a new Class.</p>
                     <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>

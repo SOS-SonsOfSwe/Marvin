@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 import { checkExam } from '../../../../utils/validations';
+import Popup from 'react-popup'
 
 
 class InsertExam extends React.Component {
@@ -49,18 +50,23 @@ class InsertExam extends React.Component {
   handleSave(event) {
 
     event.preventDefault();
-    let error = checkExam(this.state);
-    if (error !== null)
-      return alert(error);
-    let examData = {
-      "type": this.state.type,
-      "place": this.state.place,
-      "date": this.state.date,
-      "time": this.state.time,
-      "classUnicode": this.state.Class
+    let pop = checkExam(this.state);
+    if (pop !== null){
+      console.log("dentro l'if")
+      Popup.queue(pop)
+      Popup.clearQueue()      
     }
-
-    this.props.addExam(this.state.Class, this.state.unicode, examData);
+    else{
+      let examData = {
+        "type": this.state.type,
+        "place": this.state.place,
+        "date": this.state.date,
+        "time": this.state.time,
+        "classUnicode": this.state.Class
+      }
+    
+      this.props.addExam(this.state.Class, this.state.unicode, examData);
+    }
   }
 
 
@@ -68,6 +74,16 @@ class InsertExam extends React.Component {
     return (
       <main className='container'>
         <div className="pure-u-1-1">
+        <Popup
+          className="mm-popup"
+          btnClass="mm-popup__btn"
+          closeBtn={false}
+          closeHtml={null}
+          defaultOk="Ok"
+          defaultCancel="Cancel"
+          wildClasses={false}
+          escToClose={true}
+        />
           <h1>Insert an exam</h1>
           <p>Now you can insert a new exam.</p>
           <form className="pure-form pure-form-stacked" onSubmit={this.handleSave}>

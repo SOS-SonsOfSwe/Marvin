@@ -1,7 +1,8 @@
 import React from 'react';
 import LoadingData from '../../Loading/LoadingData';
 import EmptyData from '../../Loading/EmptyData';
-
+import {markWrongPopup} from '../../../utils/popup'
+import Popup from 'react-popup'
 
 const Row = ({ badgeNumber, hChange }) => (
     <tr className="clickable-row">
@@ -46,8 +47,10 @@ class RegisteredStudentsList extends React.Component {
             if(element.vote < 0 || element.vote > 31)
                 flag = true;
         })
-        if(flag === true) 
-            return alert("The mark must be between 0 and 31.")
+        if(flag === true) {
+            Popup.queue(markWrongPopup)
+            Popup.clearQueue()
+        }
         event.preventDefault();
         this.props.setMarksData(this.props.examUnicode, this.props.classUnicode, this.state.votes)
     }
@@ -70,6 +73,16 @@ class RegisteredStudentsList extends React.Component {
                 {empty}
                 {(this.props.loadingStudents === false && this.props.ipfsLoading !== true) &&
                     <main className='container'>
+                    <Popup
+                        className="mm-popup"
+                        btnClass="mm-popup__btn"
+                        closeBtn={false}
+                        closeHtml={null}
+                        defaultOk="Ok"
+                        defaultCancel="Cancel"
+                        wildClasses={false}
+                        escToClose={true}
+                    />
                         <h1>Students registered to the exam with code: {this.props.examUnicode}</h1>
                         <p className="text-center">Here there is the list of the students that are registered to the X exam.</p>
                         {this.props.emptyStudents === false && this.props.success === true &&

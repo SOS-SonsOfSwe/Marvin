@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router'
 import { checkDegreeUnicode } from '../../../../utils/validations';
+import Popup from 'react-popup'
+import {degreeCodePopup, degreeDescriptionPopup} from '../../../../utils/popup'
 
 class InsertDegree extends React.Component {
 
@@ -26,18 +28,36 @@ class InsertDegree extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        if(this.state.description === '')
-            return alert("The degree description is empty!")
-        if (!checkDegreeUnicode(this.state.degreeUnicode))
-            return alert("The degree unicode has an invalid format. Must Follow this syntax: INFO18. ")
-        event.preventDefault()
-        this.props.addDegree(this.state.degreeUnicode, this.state.year, this.state.description)
+        if(this.state.description === ''){
+            Popup.queue(degreeDescriptionPopup)
+            Popup.clearQueue()
+        }
+        else{
+            if (!checkDegreeUnicode(this.state.degreeUnicode)){
+                Popup.queue(degreeCodePopup)
+                Popup.clearQueue()
+            }
+            else{
+                 event.preventDefault()
+                this.props.addDegree(this.state.degreeUnicode, this.state.year, this.state.description)
+            }
+        }
     }
 
     render() {
         return (
             <main className='container'>
                 <div className="pure-u-1-1">
+                <Popup
+                className="mm-popup"
+                btnClass="mm-popup__btn"
+                closeBtn={false}
+                closeHtml={null}
+                defaultOk="Ok"
+                defaultCancel="Cancel"
+                wildClasses={false}
+                escToClose={true}
+                />
                     <h1>Insert degree</h1>
                     <p>Now you can insert a new degree.</p>
                     <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>
