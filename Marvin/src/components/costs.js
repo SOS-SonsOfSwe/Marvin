@@ -1,22 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router'
+import LoadingData from './Loading/LoadingData';
 // import LoadingData from '../../../Loading/LoadingData'
 // import EmptyData from '../../../Loading/EmptyData'
 
-const Row = ({ qualcosa }) => (
+const Row = ({ key, safeLow, standard, fast, fastest, Operations }) => (
     <tr className="clickable-row">
-        <td>Academic year {qualcosa}</td>
+        <td>{Operations[key].name}</td>
         <td>
             <Link to={{
-                pathname: "/profile/degrees/insert-degree",
-                state: { year: qualcosa }
+                pathname: "/profile/degrees/insert-degree"
             }} > Insert degree</Link>
         </td>
         <td>
             <button className="delete-link">
                 <Link to={{
                     pathname: "/profile/academic-years/delete-academic-year",
-                    state: { year: qualcosa }
                 }}><span className="X-button">X</span>Delete</Link>
             </button>
         </td>
@@ -47,17 +46,22 @@ var Operations = [
 
 class Costs extends React.Component {
 
+    componentDidMount() {
+        this.props.getCostsJSON();
+    }
+
     render() {
-        // const load = this.props.loading ? <LoadingData label='Loading...' /> : <div />;
+        const load = this.props.loading ? <LoadingData label='Loading...' /> : <div />;
         const error = this.props.success === false ? <div>There was an error...</div> : <div />;
         // const empty = this.props.empty ? <EmptyData label='no data found on blockchain' /> : <div />
 
         return (
             <div>
-                {/* {load} */}
+                {load}
+                {error}
                 {/* {empty} */}
                 {/* executing this field only if the loading is false. Pay attention to the exact value: avoid doing "something !== false", instead use "something===true" as "null" is a third value */}
-                {
+                {this.props.loading !== true && this.props.success === true &&
                     <main className='container'>
                         <div className="pure-u-1-1">
                             <h1>Operations prices</h1>
@@ -82,13 +86,12 @@ class Costs extends React.Component {
                                 <tbody>
                                     {/* {console.log('this.props.data.load: ' + this.props.data)} */}
                                     {/* {console.log('component: AcademicYear. Data: this.props.data: ' + JSON.stringify(this.props.data))} */}
-                                    {/* {this.props.costs.map((rowData, index) => <Row key={index} {...rowData} />)} */}
+                                    {this.props.costsJSON.map((rowData, index) => <Row key={index} {...rowData} Operations={Operations} />)}}
                                 </tbody>
                             </table>
                         </div>
                     </main>
                 }
-                {error}
             </div>
         )
 

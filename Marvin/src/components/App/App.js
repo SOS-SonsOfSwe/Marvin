@@ -18,16 +18,17 @@ class App extends Component {
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal top-navbar">
           <ul className="pure-menu-list navbar-right">
+            {/* <Link to="/costs" className="pure-menu-link">Costs</Link> */}
             <OnlyGuestLinks />
             <OnlyAuthLinks />
             <OnlyUniAdminLinks />
           </ul>
-          
-            <Link to="/">
+
+          <Link to="/">
             <div className="logo_div"></div>
-              {/* <img className="logo" src={logo} alt="My logo" /> */}
-            </Link>
-          
+            {/* <img className="logo" src={logo} alt="My logo" /> */}
+          </Link>
+
           {/* <Link to="/" className="title">Marvin</Link> */}
         </nav>
 

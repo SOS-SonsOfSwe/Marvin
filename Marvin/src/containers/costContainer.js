@@ -5,7 +5,6 @@ import getAverageGasPrice from '../redux/actions/costs'
 import Costs from '../components/costs';
 
 const mapStateToProps = (state, ownProps) => {
-    console.log("eccoci" + state.cost.payload)
     return {
         costsJSON: state.cost.payload,
         loading: state.cost.loading,

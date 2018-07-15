@@ -1,7 +1,4 @@
 // import AdminContract from '../../../../build/contracts/Admin'
-import axios from 'axios'
-import Units from 'ethereumjs-units'
-import ethPrice from 'eth-price'
 import { browserHistory } from 'react-router'
 import store from '../../store'
 import { COSTS as req } from '../reducers/costants/costCostants'
@@ -10,25 +7,22 @@ import { COSTS as req } from '../reducers/costants/costCostants'
 import {
   readingData,
   dataRead,
-  dataEmpty,
 } from './StandardDispatches/readingData'
-
-const contract = require('truffle-contract')
-
 // var app = express();
 
-function doAwesomeStuff(dispatch, load) {
+function doAwesomeStuff(load) {
+  console.log(load)
   // dispatching the action and the load
-  dispatch(dataRead({ load }, req))
+  store.dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
-  if('redirect' in currentLocation.query) {
+  if ('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   } // no need for redirect anymore
   // return browserHistory.push('/profile/academic-years') //|| alert(payload.FC + " successfully logged in as " + utils.userDef(payload.tp) + " with badge number: " + payload.badgeNumber)
 }
 
-export function getAverageGasPrice() {
+export default function getAverageGasPrice() {
 
   //   app.use(function (req, res, next) {
 
@@ -48,26 +42,20 @@ export function getAverageGasPrice() {
   //     // Pass to next layer of middleware
   //     next();
   //   });
+  let url = 'https://www.etherchain.org/api/gasPriceOracle';
+  store.dispatch(readingData(req))
+  return fetch(url)
+    .then(res => {
+      console.log(res)
+      return res.json();
+    })
+    .then((out) => {
+      console.log('Checkout this JSON! ', out);
 
-  return function (dispatch) {
-    var url = 'https://github.com/ethgasstation/ethgasstation-api';
-    store.dispatch(readingData(req))
-    axios({
-        method: 'get',
-        url: url,
-        responseType: 'json',
-        mode: 'no-cors'
-      })
-      .then(res => {
-        console.log(res)
-        return res.json()
-      })
-      .then((out) => {
-        console.log('Checkout this JSON! ', out);
-        store.dispatch(dataRead(req))
-      })
-      .catch(err => { throw err });
-  }
+      return doAwesomeStuff([out]);
+    })
+    .catch(err => { throw err });
+}
 
   // thinking as year = 2014-2015 we want to take only the first two int so we can send 
   // them to the solidity contract and risparmiare
@@ -158,4 +146,3 @@ export function getAverageGasPrice() {
   //   } else {
   //     console.error('Web3 is not initialized.');
   //   }
-}

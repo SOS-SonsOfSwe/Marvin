@@ -52,6 +52,7 @@ import InsertExamContainer from './containers/Profile/Admin/Classes/InsertExamCo
 import ExamsContainer from './containers/Profile/Admin/Classes/ExamsContainer';
 import DeleteClassContainer from './containers/Profile/Admin/Classes/DeleteClassContainer';
 import RegisteredStudentListContainer from './containers/Profile/Teacher/RegisteredStudentListContainer';
+import costsContainer from './containers/costContainer'
 
 
 
@@ -61,6 +62,7 @@ import './index.scss'
 
 // Redux Store
 import store from './store'
+
 
 
 
@@ -142,6 +144,7 @@ ReactDOM.render((
           <Route path="marked-exams-student-list" component={StudentIsAuthenticated(MarkedExamsContainer)} />
 
         </Route>
+        <Route path="costs" component={costsContainer} />
         <Route path="help" component={Help} />
         <Route path="*" component={NotFound} />
       </Route>
