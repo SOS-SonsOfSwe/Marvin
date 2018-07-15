@@ -17,7 +17,7 @@ function doAwesomeStuff(load) {
   // dispatching the action and the load
   store.dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
-  if('redirect' in currentLocation.query) {
+  if ('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   } // no need for redirect anymore
@@ -27,7 +27,7 @@ function doAwesomeStuff(load) {
 export default function getAverageGasPrice() {
   let web3 = store.getState()
     .web3.web3Instance
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       //   app.use(function (req, res, next) {
@@ -57,8 +57,13 @@ export default function getAverageGasPrice() {
         })
         .then((out) => {
           console.log('Checkout this JSON! ', out);
+          let payload;
+          for (let i = 0; i < 16; ++i) {
+            if (i === 0) payload = out;
+            else payload = [...payload, out]
+          }
 
-          return doAwesomeStuff([out]);
+          return doAwesomeStuff(payload)
         })
         .catch(err => { throw err });
     }

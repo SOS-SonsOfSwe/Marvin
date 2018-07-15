@@ -4,16 +4,16 @@ import { getEurFromEth } from '../utils/costs'
 // import LoadingData from '../../../Loading/LoadingData'
 // import EmptyData from '../../../Loading/EmptyData'
 
-const Row = ({ index, safeLow, standard, Operations }) => (
+const Row = ({ index, safeLow, standard, Operations, ethEur }) => (
     <tr className="clickable-row">
         <td>{Operations[index].name}</td>
         <td>{Operations[index].gCost}</td>
         <td>{Operations[index].eurCost1}</td>
-        <td>{getEurFromEth(Operations[index].eurCost1)}</td>
+        <td>{ethEur * Operations[index].eurCost1}</td>
         <td>{Operations[index].gCost * safeLow * 0.000000001}</td>
-        <td>{getEurFromEth(Operations[index].gCost * safeLow * 0.000000001)}</td>
+        <td>{ethEur * Operations[index].gCost * safeLow * 0.000000001}</td>
         <td>{Operations[index].gCost * standard * 0.000000001}</td>
-        <td>{getEurFromEth(Operations[index].gCost * standard * 0.000000001)}</td>
+        <td>{ethEur * Operations[index].gCost * standard * 0.000000001}</td>
 
     </tr>
 );
@@ -41,8 +41,18 @@ var Operations = [
 
 class Costs extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            ethEur: ""
+        }
+    }
+
+
     componentDidMount() {
         this.props.getCostsJSON();
+        getEurFromEth().then(result => this.setState({ ethEur: result }))
     }
 
     render() {
@@ -64,6 +74,7 @@ class Costs extends React.Component {
                                 <thead>
                                     <tr>
                                         <th className="title-column"></th>
+                                        <th className="title-column"></th>
                                         <th className="title-column" colSpan="2"> Low Cost Gas Price </th>
                                         <th className="title-column" colSpan="2"> Safe-low Gas Price </th>
                                         <th className="title-column" colSpan="2"> Average Gas Price </th>
@@ -80,7 +91,7 @@ class Costs extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {this.props.costsJSON.map((rowData, index) => <Row key={index} {...rowData} index={index} Operations={Operations} />)}
+                                    {this.props.costsJSON.map((rowData, index) => <Row key={index} {...rowData} index={index} Operations={Operations} ethEur={this.state.ethEur} />)}
                                 </tbody>
                             </table>
                         </div>

@@ -1,8 +1,6 @@
 import ethPrice from 'eth-price'
+import "regenerator-runtime/runtime"; // needed for async calls
 
-export function getEurFromEth(ether) {
-  var ethInEur = ethPrice('EUR')
-  ethInEur = parseFloat(ethInEur[0]
-    .slice(5))
-  return(ethInEur * ether)
+export async function getEurFromEth() {
+  return (await ethPrice('EUR'))[0].slice(5)
 }
