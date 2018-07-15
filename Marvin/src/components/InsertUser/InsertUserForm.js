@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import * as util from '../../utils/validations'
 import LoadingData from '../Loading/LoadingData'
-import LoadingIPFSData from '../Loading/LoadingIpfs'
 import EmptyData from '../Loading/EmptyData'
 
 
@@ -90,8 +89,7 @@ class InsertUserForm extends Component {
 
 
   render() {
-    const load = this.props.loadingDegree || this.props.loadingAcademic ? <LoadingData label='Loading...' /> : <div />;
-    const ipfsLoad = this.props.ipfsLoading ? <LoadingIPFSData label='IPFS is loading...' /> : <div />;
+    const load = this.props.loadingDegree || this.props.loadingAcademic || this.props.ipfsLoading ? <LoadingData label='Loading...' /> : <div />;
     const error = this.props.success === false ? <div>There was an error...</div> : <div />;
     const empty = this.props.emptyDegrees ? <EmptyData label='no data found on blockchain' /> : <div />
 
@@ -140,7 +138,6 @@ class InsertUserForm extends Component {
                 </div>
               </div>
               {load}
-              {ipfsLoad}
               {error}
               {empty}
               {this.state.tpInserted === '3' &&

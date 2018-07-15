@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import * as utils from '../../utils/validations'
-import LoadingIPFSData from '../Loading/LoadingIpfs'
 import LoadingData from '../Loading/LoadingData';
 // import ipfsPromise from '../../../api/utils/ipfsPromise'
 

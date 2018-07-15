@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
 import LoadingData from '../../../Loading/LoadingData'
-import LoadingIPFSData from '../../../Loading/LoadingIpfs'
 import EmptyData from '../../../Loading/EmptyData'
 
 // var arrayData = [
