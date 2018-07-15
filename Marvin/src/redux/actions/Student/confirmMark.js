@@ -21,7 +21,7 @@ export default function confirmMark(examUnicode, classUnicode, mark) {
     .web3.web3Instance
 
   // Double-check web3's status.
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -34,7 +34,7 @@ export default function confirmMark(examUnicode, classUnicode, mark) {
       // Get current ethereum wallet.
       web3.eth.getCoinbase(async (error, coinbase) => {
         // Log errors, if any.
-        if(error) {
+        if (error) {
           console.error(error);
         }
         try {
@@ -43,16 +43,16 @@ export default function confirmMark(examUnicode, classUnicode, mark) {
           try {
             await studentInstance.confirmResult(examUnicode, classUnicode, mark, { from: coinbase })
               .then(() => dispatch(dataAdded()))
-          } catch(error) {
+          } catch (error) {
             dError('Error while confirming mark', error)
           } finally {
             // console.log(JSON.stringify(def))
-            return browserHistory.push('/profile/marked-exams-student-list')
+            return browserHistory.push('/profile')
           }
 
           // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
           // console.log(JSON.stringify(result))
-        } catch(error) {
+        } catch (error) {
           dError('Error while deploying Student Contract', error)
         }
       })

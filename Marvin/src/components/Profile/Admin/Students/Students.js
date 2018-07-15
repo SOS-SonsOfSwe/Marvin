@@ -13,10 +13,11 @@ const Row = ({ load, FC, badgeNumber, isSignedUp }) => (
         <td>
             <button className="point-button" style={isSignedUp === false ? { backgroundColor: 'red' } : { backgroundColor: 'green' }}></button>
         </td>
-        <td>
+        <td> {isSignedUp !== true ?
             <button className="delete-link">
                 <Link to="/profile/administrators/delete-student"><span className="X-button">X</span>Delete</Link>
             </button>
+            : ""}
         </td>
     </tr>
 );
