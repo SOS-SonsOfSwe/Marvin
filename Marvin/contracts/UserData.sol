@@ -53,6 +53,11 @@ contract UserData {
         return(registeredUsers[_address] != 0);
     }
 
+    function userExistsBadge(uint32 _badgeNumber)public view returns(bool) {
+        bytes32 CF = userIndex[_badgeNumber - 1];
+        return(users[CF].isUser);
+    }
+
     function getAllUsers() public view returns(bytes32[]) {
         return userIndex;
     }
