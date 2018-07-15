@@ -27,7 +27,7 @@ function doAwesomeStuff(dispatch, load) {
   // dispatching the action and the load
   dispatch(dataDeleted({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
-  if('redirect' in currentLocation.query) {
+  if ('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     // return browserHistory.replace('/profile')
   } // no need for redirect anymore
@@ -38,7 +38,7 @@ export function deleteUserFromDatabase(badgeNumber) {
   let web3 = store.getState()
     .web3.web3Instance
 
-  if(typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -58,7 +58,7 @@ export function deleteUserFromDatabase(badgeNumber) {
         dispatch(deletingData(req))
 
         // Log errors, if any.
-        if(error) {
+        if (error) {
           console.error(error);
         }
 
@@ -82,7 +82,7 @@ export function deleteUserFromDatabase(badgeNumber) {
 
             // console.log('yearToDelete: ' + yearToDelete)
             console.log('badgeNumber: ' + badgeNumber)
-            adminInstance.removeUser(parseInt(badgeNumber, 10), { from: coinbase })
+            adminInstance.removeUser(parseInt(badgeNumber, 10), { gas: '100000', from: coinbase })
               .then(() => {
                 return doAwesomeStuff(dispatch, badgeNumber) //Repeating because of the asyncronous promises of the functions
               })
