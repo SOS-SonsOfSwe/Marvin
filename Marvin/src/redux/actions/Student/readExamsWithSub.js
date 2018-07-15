@@ -199,7 +199,7 @@ async function removeIfBooklet(exams, studentInstance, web3, coinbase) {
             // var hash = booklet[0][j]
             // var teac = web3.toDecimal(booklet[1])
             // console.log("teacher: " + teac)
-            var bookletClass = web3.toUtf8(booklet[1][j])
+            var bookletClass = web3.toUtf8(booklet[2][j])
             // console.error(payload == null)
             if(bookletClass === sclass.classUnicode)
               index[i++] = exams.indexOf(sclass)

@@ -141,7 +141,7 @@ async function removeIfBooklet(classes, studentInstance, web3, coinbase) {
         var index = []
         for(let sclass of classes) {
           for(let j = 0; j < booklet[0].length; j++) {
-            var bookletClass = web3.toUtf8(booklet[1][j])
+            var bookletClass = web3.toUtf8(booklet[2][j])
             console.log(bookletClass)
             // console.error(payload == null)
             if(bookletClass === sclass)

@@ -2,10 +2,10 @@ import React from 'react';
 import LoadingData from '../../Loading/LoadingData'
 import EmptyData from '../../Loading/EmptyData'
 
-const Row = ({ classUnicode, classData, mark }) => (
+const Row = ({ classUnicode, load, mark }) => (
     <tr className="clickable-row">
         <td>{classUnicode}</td>
-        <td>{classData}</td>
+        <td>{load && load.classData}</td>
         <td>{mark}</td>
     </tr>
 )
@@ -43,7 +43,7 @@ class SchoolRecords extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} badgeNumber={this.props.badgeNumber} hConf={this.handleConf} />)}
+                                {this.props.classes.map((rowData, index) => <Row key={index} {...rowData} badgeNumber={this.props.badgeNumber} hConf={this.handleConf} />)}
                             </tbody>
                         </table>
                     }

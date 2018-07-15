@@ -48,7 +48,6 @@ function doAwesomeStuff(load) {
 // }
 
 async function processIPFSLoad(payload) {
-  console.log('SONO QUI')
 
   var ipfs = new ipfsPromise()
   return new Promise(async (resolve, reject) => {
@@ -114,9 +113,9 @@ export default function readBooklet() {
             else {
               var hashIPFS
               for(let j = 0; j < bookletClasses[0].length; j++) {
-                var mark = web3.toDecimal(bookletClasses[2][j])
+                var mark = web3.toDecimal(bookletClasses[1][j])
                 var hash = bookletClasses[0][j]
-                var classUnicode = web3.toUtf8(bookletClasses[1][j])
+                var classUnicode = web3.toUtf8(bookletClasses[2][j])
                 if(parseInt(web3.toDecimal(hash), 10) === 0) allIsBroken = true
                 else {
                   hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
@@ -128,11 +127,13 @@ export default function readBooklet() {
                       { load: hashIPFS, classUnicode: classUnicode, mark: mark }
                     ]
                 }
+
               }
               if(!allIsBroken) {
                 try {
                   var processedBooklet = await processIPFSLoad(booklet)
                   return doAwesomeStuff(processedBooklet)
+                  // console.log(processedBooklet)
                 } catch(error) {
                   dError('Error while processing ipfs infos', error)
                 }
