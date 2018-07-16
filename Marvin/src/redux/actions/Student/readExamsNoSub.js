@@ -284,11 +284,11 @@ export default function readExamsNoSubFromDatabase(badgeNumber) {
         if(!thereWasAnError) {
           try {
             var degree = await studentDataInstance.getStudentDegree(badgeNumber, { from: coinbase })
-            if(degree[0].lenght === 0) dispatch(dataEmpty(req))
+            if(degree.lenght === 0) dispatch(dataEmpty(req))
             else {
               try {
                 var classes = await degreeInstance.getClasses(degree, { from: coinbase })
-                if(classes[0].lenght === 0) dispatch(dataEmpty(req))
+                if(classes.lenght === 0) dispatch(dataEmpty(req))
                 else {
                   classes = classes.map(sclass => web3.toUtf8(sclass))
                   var noBookletClasses = await removeIfBooklet(classes, studentInstance, web3, coinbase)
