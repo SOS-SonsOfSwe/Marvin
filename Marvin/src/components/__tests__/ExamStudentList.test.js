@@ -9,19 +9,19 @@ import mapDispatchToProps from '../../containers/Profile/Student/ExamsStudentLis
 
 describe('<ExamStudentList/>', () => {
 
-    function setup( ex, load, succ, ipfsL, emp, bN){
+    function setup(ex, load, succ, ipfsL, emp, bN) {
         const mockStore = {
             exams: ex,
             loading: load,
             success: succ,
             empty: emp,
-            justDeleted,
-            badgeNumber:bN,
+            justDeleted: null,
+            badgeNumber: bN,
             ipfsLoading: ipfsL,
-            readExams:readStudentExamsFromDatabase
-          //readAcademicData: readAcademicYearsFromDatabase //che cazzo devo farci con questa?
+            readExams: readStudentExamsFromDatabase
+            //readAcademicData: readAcademicYearsFromDatabase //che cazzo devo farci con questa?
         };
-        return mount(<ExamStudentList {...mockStore}/>);
+        return mount(<ExamStudentList {...mockStore} />);
     }
 
     it('renders without exploding', () => {

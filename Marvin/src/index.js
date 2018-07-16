@@ -18,8 +18,6 @@ import ProfileContainer from './containers/Profile/ProfileContainer'
 import SignUp from './components/SignUp/SignUp'
 import Help from './components/Help/Help'
 
-import FillBlockchainContainer from './containers/App/FillBlockchainContainer'
-
 // import AcademicYears from './components/Profile/Admin/AcademicYears/AcademicYears'
 import AcademicYearsContainer from './containers/Profile/Admin/AcademicYears/AcademicYearsContainer'
 import DegreesContainer from './containers/Profile/Admin/Degrees/DegreesContainer'
@@ -84,7 +82,6 @@ ReactDOM.render((
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={UserDataFetching(Home)} />
-        <Route path='fill-blockchain' component={UniIsAuthenticated(FillBlockchainContainer)} />
         <Route path="insert-user" component={AdminIsAuthenticated(InsertUser)} />
         <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
         <Route path="profile" component={UserIsAuthenticated(ProfileContainer)}>

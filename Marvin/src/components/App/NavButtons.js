@@ -25,9 +25,6 @@ const OnlyUniAdminLinks = VisibleOnlyUniAdmin(() => {
                 <li className="pure-menu-item"><Link to="/costs" className="pure-menu-link">Costs</Link></li>
 
                 <li className="pure-menu-item">
-                    <Link to="/fill-blockchain" className="pure-menu-link">Fill Blockchain</Link>
-                </li>
-                <li className="pure-menu-item">
                     <Link to={{
                         pathname: '/insert-user',
                         state: { fromAdminList: false, fromProfList: false }
