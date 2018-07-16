@@ -144,7 +144,7 @@ function login(web3, dispatch) {
                       // console.log('Fail:', err)
                       dispatch(ipfsErrorReadingData())
                       dispatch(ipfsNetworkError())
-                      alert('IPFS is not able to load your data. Pay attention to your network')
+                      // alert('IPFS is not able to load your data. Pay attention to your network')
                     })
 
                 } else

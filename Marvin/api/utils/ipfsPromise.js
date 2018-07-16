@@ -1,6 +1,9 @@
 // import IPFS from 'ipfs-mini'
+import "regenerator-runtime/runtime"; // needed for async calls
 import bs58 from 'bs58'
 import ipfsapi from 'ipfs-api'
+import promiseTimeout from './timeout'
+import { browserHistory } from 'react-router'
 
 var instance = null
 
@@ -81,10 +84,19 @@ export default class ipfsPromise {
   //   })
   // }
 
-  pushJSON(jsonPARAM) {
-    var buf = Buffer.from(JSON.stringify(jsonPARAM));
-    return this.ipfsapi.add(buf)
-      .then(hash => hash[0].hash) //, function (err, data) {
+  async pushJSON(jsonPARAM) {
+    return new Promise(async (resolve, reject) => {
+      var buf = Buffer.from(JSON.stringify(jsonPARAM));
+      try {
+        var hash = await promiseTimeout(20000, this.ipfsapi.add(buf))
+        if(hash) return resolve(hash[0].hash)
+      } catch(error) {
+        console.error(error)
+        alert('It seems that IPFS has some problems... \nCheck your network firewall or try again later.')
+        browserHistory.push('/')
+        return reject(error)
+      }
+    })
   }
 
   // getJSON(hashIpfsPARAM) {
@@ -97,13 +109,28 @@ export default class ipfsPromise {
   //   })
   // }
 
-  getJSON(hashIpfsPARAM) {
-    return this.ipfsapi.cat(hashIpfsPARAM)
-      .then(buffer => {
-        return JSON.parse(buffer.toString());
-      })
-      .catch(err => console.error(err))
+  async getJSON(hashIpfsPARAM) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        var buffer = await promiseTimeout(10000, this.ipfsapi.cat(hashIpfsPARAM))
+        var json = JSON.parse(buffer.toString())
+        if(json !== null)
+          return resolve(json)
+      } catch(error) {
+        console.error(error)
+        alert('It seems that IPFS has some problems... \nCheck your network firewall or try again later.')
+        browserHistory.push('/')
+        return reject(error)
+      }
+    })
   }
+
+  //   return this.ipfsapi.cat(hashIpfsPARAM)
+  //     .then(buffer => {
+  //       return JSON.parse(buffer.toString());
+  //     })
+  //     .catch(err => console.error(err))
+  // }
 
   // pushFile(files) {
   //   var ipfs = this.ipfs
@@ -120,39 +147,46 @@ export default class ipfsPromise {
   //   }
   // }
 
-  getFile(hash) {
-    return new Promise((resolve, reject) => {
-      this.ipfsapi.cat(hash)
-        .then((result) => {
-          var blob = new Blob([result], { type: "image/jpg" })
-          console.log(blob)
-          var urlCreator = window.URL || window.webkitURL;
-          var imageUrl = urlCreator.createObjectURL(blob);
-          var img = new Image();
-          console.log(img)
-          console.log(imageUrl)
-          img.src = imageUrl;
-          console.log(JSON.stringify(img))
-          return resolve(img)
-        })
-        .catch(err => {
-          console.error(err)
-          return reject(err)
-        })
-    })
-  }
+  // async getFile(hash) {
+  //   return new Promise(async (resolve, reject) => {
+  //     try {
+
+  //       var buffer = await promiseTimeout(40000, this.ipfsapi.cat(hash))
+  //       if(buffer) { // check better!
+  //         // .then((buffer) => {
+  //         var blob = new Blob([buffer], { type: "image/jpg" })
+  //         console.log(blob)
+  //         var urlCreator = window.URL || window.webkitURL;
+  //         var imageUrl = urlCreator.createObjectURL(blob);
+  //         var img = new Image();
+  //         console.log(img)
+  //         console.log(imageUrl)
+  //         img.src = imageUrl;
+  //         console.log(JSON.stringify(img))
+  //         return resolve(img)
+  //       }
+  //     } catch(error) {
+  //       console.error(error)
+  //       alert('It seems that IPFS has some problems... \nCheck your network firewall or try again later.')
+  //       browserHistory.push('/')
+  //       return reject(error)
+  //     }
+  //     // })
+  //   })
+  // }
 
   pushFile(buffer) {
-    return new Promise((resolve, reject) => {
-      this.ipfsapi.add(buffer)
-        .then((response) => {
-          // console.log(response[0].hash)
+    return new Promise(async (resolve, reject) => {
+      try {
+        var response = await promiseTimeout(50000, this.ipfsapi.add(buffer))
+        if(response) // console.log(response[0].hash)
           return resolve(response[0].hash)
-        })
-        .catch((err) => {
-          console.error(err)
-          return reject(err)
-        })
+      } catch(error) {
+        console.error(error)
+        alert('It seems that IPFS has some problems... \nCheck your network firewall or try again later.')
+        browserHistory.push('/')
+        return reject(error)
+      }
     })
   }
 
