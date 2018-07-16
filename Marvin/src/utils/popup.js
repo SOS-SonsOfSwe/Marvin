@@ -54,7 +54,7 @@ export let examDatePopup = Popup.register(
 
 export let examCodePopup = Popup.register(
     {
-        content:"The exam code has an invalid format. Must Follow this syntax: PROG18-01.",
+        content:"The exam code has an invalid format. Must Follow this syntax: PROG18-01. The first five charac",
         buttons:{
             aligned:'right center',
             right:[{

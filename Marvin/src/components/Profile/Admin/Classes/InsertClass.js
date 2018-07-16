@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
-import { checkDegreeUnicode, checkClass } from '../../../../utils/validations';
+import { checkClass } from '../../../../utils/validations';
 import Popup from 'react-popup'
 
 

@@ -92,6 +92,13 @@
     .top_message {
         font-size: 1.2em;
     }
+
+    .pure-menu  {display:none;}
+  .pure-menu ul li     {float: none !important; display: block !important;}
+  .btn-responsive-menu{display:block;}
+  .float-left-links, .float-right-links{display: block !important;} 
+  .float-right-links ul, .float-right-links{float:none !important; padding: 0;} 
+  
 }
 
 /*--------------------------------------------------------------*/
@@ -145,6 +152,13 @@
     .float-left-links ul {
         padding-left: 0em;
     }
+
+    .pure-menu {display:none;}
+  .pure-menu ul li     {float: none !important; display: block !important;}
+  .btn-responsive-menu{display:block !important;}
+  .float-left-links, .float-right-links{display: block;} 
+  .float-right-links ul, .float-right-links{float:none !important; padding: 0;} 
+  
 
 }
 
