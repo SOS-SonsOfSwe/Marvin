@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import LoadingData from '../../../Loading/LoadingData'
 import EmptyData from '../../../Loading/EmptyData'
 
-const Row = ({ examUnicode, load, teacher }) => (
+const Row = ({ examUnicode, load, teacher, classUnicode }) => (
     <tr className="clickable-row">
         <td>{examUnicode}</td>
         <td>{load && load.type}</td>
@@ -11,6 +11,17 @@ const Row = ({ examUnicode, load, teacher }) => (
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
         <td>{teacher} </td>
+        <td>
+            <Link to={{
+                pathname: "/profile/classes/delete-exam",
+                state: { classUnicode: classUnicode, examUnicode: examUnicode }
+            }}
+            >
+                <button className="delete-link">
+                    <span className="X-button">X</span>Delete
+            </button>
+            </Link>
+        </td>
     </tr>
 );
 
@@ -131,10 +142,11 @@ class Exams extends React.Component {
                                                     <th className="title-column">Date</th>
                                                     <th className="title-column">Time</th>
                                                     <th className="title-column">Teacher</th>
+                                                    <th className="title-column"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {this.props.exams.map((rowData, index) => <Row key={index} {...rowData} />)}
+                                                {this.props.exams.map((rowData, index) => <Row key={index} classUnicode={this.state.selectedClass} {...rowData} />)}
                                             </tbody>
                                         </table>
                                     }

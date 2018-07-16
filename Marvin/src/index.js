@@ -51,6 +51,7 @@ import { DeleteStudentContainer } from './containers/Profile/Admin/AllUsers/dele
 import InsertExamContainer from './containers/Profile/Admin/Classes/InsertExamContainer'
 import ExamsContainer from './containers/Profile/Admin/Classes/ExamsContainer';
 import DeleteClassContainer from './containers/Profile/Admin/Classes/DeleteClassContainer';
+import DeleteExamContainer from './containers/Profile/Admin/Classes/DeleteExamContainer'
 import RegisteredStudentListContainer from './containers/Profile/Teacher/RegisteredStudentListContainer';
 import costsContainer from './containers/costContainer'
 
@@ -110,6 +111,7 @@ ReactDOM.render((
             <Route path="modify-class" component={AdminIsAuthenticated(ModifyClass)} />
             <Route path="delete-class" component={AdminIsAuthenticated(DeleteClassContainer)} />
             <Route path="insert-exam" component={AdminIsAuthenticated(InsertExamContainer)} />
+            <Route path="delete-exam" component={AdminIsAuthenticated(DeleteExamContainer)} />
           </Route>
 
           <Route path="exams">
