@@ -58,7 +58,7 @@ export default function getAverageGasPrice() {
         .then((out) => {
           console.log('Checkout this JSON! ', out);
           let payload;
-          for (let i = 0; i < 16; ++i) {
+          for (let i = 0; i < 17; ++i) {
             if (i === 0) payload = out;
             else payload = [...payload, out]
           }
