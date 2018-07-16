@@ -60,7 +60,7 @@ export function loginUser() {
   if(web3.eth.accounts.length === 0) {
     alert("Please login to Metamask before!")
     return function (dispatch) {
-      browserHistory.push('/')
+      browserHistory.replace('/')
     }
   } else return login(web3)
 }
