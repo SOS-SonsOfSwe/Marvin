@@ -34,7 +34,7 @@ class SchoolRecords extends React.Component {
                 {empty}
                 <main className='container'>
                 <h1 className="prof-list">Your Booklet</h1>
-                <p className="prof-list">Here there are your exams yuo've done successfully and their marks</p>
+                <p className="prof-list">Here there are your exams you've done successfully and their marks</p>
                     {this.props.empty === false && this.props.success === true && this.props.loading !== true &&
                         <table className="table table-striped">
                             <thead>
