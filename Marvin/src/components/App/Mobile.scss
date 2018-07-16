@@ -22,7 +22,7 @@
     }
 
     .float-right ul {
-        margin-right: 1.5em;
+        margin-right: 0.5em;
         margin-top: 1.5em;
     }
 
@@ -39,6 +39,8 @@
 
     .pure-form fieldset {
         width: 13em;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 
     .pure-form-message {
@@ -125,6 +127,35 @@
         float:none !important; 
         padding: 0;
     } 
+
+    //PER TABELLA IN COLONNA
+
+    td, th {
+        display: block;
+    }
+
+    tbody, thead {
+        float: left;
+    }
+
+    td, th {
+        display: block;
+        text-align: left;
+    }
+
+    td {
+        padding-left: 1em;
+        margin-right: 0em;
+        width: 100%;
+    }
+
+    thead {
+        width: 40%;
+    }
+
+    tbody {
+        width: 55%;
+    }
     
 }
 
