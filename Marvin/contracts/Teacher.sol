@@ -13,7 +13,6 @@ contract Teacher {
         manager = ContractManager(_contractManagerAddress);
     }
 
-    // permesso solo se il chiamante è il professore associato all'esame identificato da _uniCode
     modifier onlyAuthorizedExamTeacher(bytes10 _classUniCode) {
         require(ClassData(manager.getClassContract()).getClassTeacher(_classUniCode) == UserData(manager.getUserDataContract()).getRegUsersBadgeNumber(msg.sender));
         _;
