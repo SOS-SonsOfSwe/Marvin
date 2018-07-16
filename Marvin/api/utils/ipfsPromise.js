@@ -1,4 +1,4 @@
-import IPFS from 'ipfs-mini'
+// import IPFS from 'ipfs-mini'
 import bs58 from 'bs58'
 import ipfsapi from 'ipfs-api'
 
@@ -28,16 +28,16 @@ export default class ipfsPromise {
       // })
 
       // Using AWS Server Instance
-      this.ipfs = new IPFS({
-        host: "54.93.231.212", // IPv4 Public IP of the AWS Server Instance
-        port: '5001'
-      })
+      // this.ipfs = new IPFS({
+      //   host: "54.93.231.212", // IPv4 Public IP of the AWS Server Instance
+      //   port: '5001'
+      // })
       this.ipfsapi = new ipfsapi({
         host: "54.93.231.212", // IPv4 Public IP of the AWS Server Instance
         port: '5001'
       })
     } else {
-      this.ipfs = instance.ipfs
+      // this.ipfs = instance.ipfs
       this.ipfsapi = instance.ipfsapi
     }
   }
@@ -68,27 +68,40 @@ export default class ipfsPromise {
     return hashStr
   }
 
+  // pushJSON(jsonPARAM) {
+  //   var ipfs = this.ipfs
+  //   return new Promise(function (resolve, reject) {
+  //     ipfs.addJSON(jsonPARAM, function (err, data) {
+  //       // setTimeout(() => {
+  //       //   return reject("no ipfs network allowed")
+  //       // }, 5)
+  //       if(err !== null) return reject(err);
+  //       return resolve(data);
+  //     })
+  //   })
+  // }
+
   pushJSON(jsonPARAM) {
-    var ipfs = this.ipfs
-    return new Promise(function (resolve, reject) {
-      ipfs.addJSON(jsonPARAM, function (err, data) {
-        // setTimeout(() => {
-        //   return reject("no ipfs network allowed")
-        // }, 5)
-        if(err !== null) return reject(err);
-        return resolve(data);
-      })
-    })
+    var buf = Buffer.from(JSON.stringify(jsonPARAM));
+    return this.ipfsapi.add(buf) //, function (err, data) {
   }
 
+  // getJSON(hashIpfsPARAM) {
+  //   var ipfs = this.ipfs
+  //   return new Promise(function (resolve, reject) {
+  //     ipfs.catJSON(hashIpfsPARAM, function (err, data) {
+  //       if(err !== null) return reject(err);
+  //       return resolve(data);
+  //     })
+  //   })
+  // }
+
   getJSON(hashIpfsPARAM) {
-    var ipfs = this.ipfs
-    return new Promise(function (resolve, reject) {
-      ipfs.catJSON(hashIpfsPARAM, function (err, data) {
-        if(err !== null) return reject(err);
-        return resolve(data);
+    return this.ipfsapi.cat(hashIpfsPARAM)
+      .then(buffer => {
+        return JSON.parse(buffer.toString());
       })
-    })
+      .catch(err => console.error(err))
   }
 
   // pushFile(files) {
@@ -107,12 +120,9 @@ export default class ipfsPromise {
   // }
 
   getFile(hash) {
-    // var ipfsapi = this.ipfsapi
     return new Promise((resolve, reject) => {
       this.ipfsapi.cat(hash)
         .then((result) => {
-          // console.log(result)
-          // var arrayBufferView = new Array([result])
           var blob = new Blob([result], { type: "image/jpg" })
           console.log(blob)
           var urlCreator = window.URL || window.webkitURL;
@@ -121,35 +131,20 @@ export default class ipfsPromise {
           console.log(img)
           console.log(imageUrl)
           img.src = imageUrl;
-          // console.log(img.src)
-          // var blob = result.toBlob('image/jpeg')
           console.log(JSON.stringify(img))
-          // return resolve(img)
           return resolve(img)
         })
         .catch(err => {
           console.error(err)
           return reject(err)
         })
-
-      // const reader = new FileReader();
-      // reader.onloadend = function () {
-      //   const buf = Buffer(reader.result) // Convert data into buffer
-
     })
   }
 
-  // const photo = document.getElementById("photo");
-  // reader.readAsArrayBuffer(files); // Read Provided File
-  // })
-
   pushFile(buffer) {
-    // var ipfsapi = this.ipfsapi
     return new Promise((resolve, reject) => {
-      // const buffer = Buffer.from(reader.result)
-      this.ipfsapi.add(buffer, { progress: (prog) => console.log(`received: ${prog}`) })
+      this.ipfsapi.add(buffer)
         .then((response) => {
-          console.log(response[0].hash)
           // console.log(response[0].hash)
           return resolve(response[0].hash)
         })
