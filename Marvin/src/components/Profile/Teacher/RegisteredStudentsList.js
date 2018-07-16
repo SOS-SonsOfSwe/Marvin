@@ -1,7 +1,7 @@
 import React from 'react';
 import LoadingData from '../../Loading/LoadingData';
 import EmptyData from '../../Loading/EmptyData';
-import {markWrongPopup} from '../../../utils/popup'
+import { markWrongPopup } from '../../../utils/popup'
 import Popup from 'react-popup'
 
 const Row = ({ badgeNumber, hChange }) => (
@@ -44,10 +44,10 @@ class RegisteredStudentsList extends React.Component {
     handleSave(event) {
         let flag = false;
         this.state.votes.forEach(element => {
-            if(element.vote < 0 || element.vote > 31)
+            if (element.vote < 0 || element.vote > 31)
                 flag = true;
         })
-        if(flag === true) {
+        if (flag === true) {
             Popup.queue(markWrongPopup)
             Popup.clearQueue()
         }
@@ -73,18 +73,18 @@ class RegisteredStudentsList extends React.Component {
                 {empty}
                 {(this.props.loadingStudents === false && this.props.ipfsLoading !== true) &&
                     <main className='container'>
-                    <Popup
-                        className="mm-popup"
-                        btnClass="mm-popup__btn"
-                        closeBtn={false}
-                        closeHtml={null}
-                        defaultOk="Ok"
-                        defaultCancel="Cancel"
-                        wildClasses={false}
-                        escToClose={true}
-                    />
+                        <Popup
+                            className="mm-popup"
+                            btnClass="mm-popup__btn"
+                            closeBtn={false}
+                            closeHtml={null}
+                            defaultOk="Ok"
+                            defaultCancel="Cancel"
+                            wildClasses={false}
+                            escToClose={true}
+                        />
                         <h1 className="prof-list">Students registered to the exam with code: {this.props.examUnicode}</h1>
-                        <p className="text-center prof-list">Here there is the list of the students that are registered to the X exam.</p>
+                        <p className="text-center prof-list">Here there is the list of the students that are registered to the exam {this.props.examUnicode}.</p>
                         {this.props.emptyStudents === false && this.props.success === true &&
                             <div className="prof-list">
                                 <span className="float-right" href="#">Total registered students: {this.props.students.length}</span>
