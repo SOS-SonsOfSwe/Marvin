@@ -219,6 +219,9 @@ Secondo lo standard ISO/IEC 12207, il processo di sviluppo si divide nelle segue
 		\item E' opportuno commentare tutte le parti di codice non chiare o particolarmente complicate;
 		\item E' opportuno utilizzare i commenti nel caso in cui una parte di codice venga corretta in seguito a degli errori, al fine di tenere presenti errori frequenti e le possibili soluzioni da applicare.
 	\end{itemize}
+
+	\subparagraph{Ricorsione}
+	La ricorsione dovrà essere evitata ove possibile, cercando di limitarne l'uso ai casi indispensabili. Bisognerà quindi utilizzare in primis l'approccio iterativo nel risolvere i problemi, con eccezione per i casi in cui l'utilizzo della ricorsione possa fare notevole differenza in termini di costo computazionale ed efficienza. 
 	
 	
 	\subparagraph{Formattazione}
@@ -240,6 +243,26 @@ Secondo lo standard ISO/IEC 12207, il processo di sviluppo si divide nelle segue
 	
 	\subparagraph{Codice esterno}
 	Nel caso in cui si decida di utilizzare codice esterno sviluppato da terze parti, è consigliabile utilizzare lo stile e le norme di codifica degli autori di quel codice, al fine di non creare ambiguità stilistiche e facilitarne la comprensione.
+	
+	\subparagraph{Classificazione dei test} 
+	È compito dei \progs{} lo sviluppo dei test di unità e integrazione e degli \anas{} creare quelli sistema e accettazione al fine di verificare che tutti i requisiti individuati precedentemente siano stati soddisfatti. Ogni test deve essere codificato come segue:
+	\begin{center}
+		T[X][Y]
+	\end{center}
+	
+	dove:\newline
+	\begin{itemize}
+		\item \textbf{X}: rappresenta il tipo di test, e può assumere i seguenti valori:
+		\begin{itemize}
+			\item \textbf{U}: indica un test di unità;
+			\item \textbf{I}: indica un test di integrazione;
+			\item \textbf{S}: indica un test di sistema;
+			\item \textbf{R}: indica un test di regressione;
+			\item \textbf{V}: indica un test di validazione.
+		\end{itemize}
+		\item \textbf{Y}: rappresenta il codice univoco di ogni test secondo la classificazione gerarchica.
+	\end{itemize}
+	
 	
 	
 \subsubsection{Strumenti}
