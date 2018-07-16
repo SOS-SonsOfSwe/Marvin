@@ -83,8 +83,8 @@ class RegisteredStudentsList extends React.Component {
                         wildClasses={false}
                         escToClose={true}
                     />
-                        <h1>Students registered to the exam with code: {this.props.examUnicode}</h1>
-                        <p className="text-center">Here there is the list of the students that are registered to the X exam.</p>
+                        <h1 className="prof-list">Students registered to the exam with code: {this.props.examUnicode}</h1>
+                        <p className="text-center prof-list">Here there is the list of the students that are registered to the X exam.</p>
                         {this.props.emptyStudents === false && this.props.success === true &&
                             <div>
                                 <span className="float-right" href="#">Total registered students: {this.props.students.length}</span>

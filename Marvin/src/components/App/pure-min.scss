@@ -1,5 +1,9 @@
 //import book from '../../../public/media/1.jpg'
 
+.prof-list{
+  text-align: center;
+}
+
 .select-class {
   width: 12em;
 }
@@ -155,7 +159,11 @@ tr:nth-child(even) {
   
 }
 
-.div-buttons input {
+.input-stud {
+  margin-top: 0.7em;
+}
+
+.div-buttons input, .input-stud {
   border: 0.01em solid #333;
   border-radius: 4px;
   background-color: #333;
