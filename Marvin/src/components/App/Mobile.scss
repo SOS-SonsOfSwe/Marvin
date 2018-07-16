@@ -23,6 +23,7 @@
 
     .float-right ul {
         margin-right: 1.5em;
+        margin-top: 1.5em;
     }
 
     .pure-u-1-1 h1 {
@@ -93,12 +94,38 @@
         font-size: 1.2em;
     }
 
-    .pure-menu  {display:none;}
-  .pure-menu ul li     {float: none !important; display: block !important;}
-  .btn-responsive-menu{display:block;}
-  .float-left-links, .float-right-links{display: block !important;} 
-  .float-right-links ul, .float-right-links{float:none !important; padding: 0;} 
-  
+    .pure-menu-item a {
+        font-size: 0.8em;
+        margin-top: 0.1em;
+    }
+
+    .float-left-links ul {
+        padding-left: 0em;
+    }
+
+    .pure-menu {
+        display:none;
+    }
+
+    .show li {
+        float: none !important;
+        display: block !important;
+    }
+    .btn-responsive-menu {
+        display:block;
+        background-color: #333;
+        color: #fff;
+    }
+
+    .float-left-links, .float-right-links {
+        display: block !important;
+    }
+
+    .float-right-links ul, .float-right-links {
+        float:none !important; 
+        padding: 0;
+    } 
+    
 }
 
 /*--------------------------------------------------------------*/
@@ -153,11 +180,29 @@
         padding-left: 0em;
     }
 
-    .pure-menu {display:none;}
-  .pure-menu ul li     {float: none !important; display: block !important;}
-  .btn-responsive-menu{display:block !important;}
-  .float-left-links, .float-right-links{display: block;} 
-  .float-right-links ul, .float-right-links{float:none !important; padding: 0;} 
+    .pure-menu {
+        display:none;
+    }
+
+    .show li {
+        float: none !important; 
+        display: block !important;
+    }
+
+    .btn-responsive-menu {
+        display:block !important;
+        background-color: #333;
+        color: #fff;
+    }
+
+    .float-left-links, .float-right-links {
+        display: block !important;
+    }
+
+    .float-right-links ul, .float-right-links {
+        float:none !important; 
+        padding: 0;
+    } 
   
 
 }

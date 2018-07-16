@@ -196,7 +196,14 @@ display:block;
 
 .btn-responsive-menu {
   display: none;
+  padding-left: 1.1em;
+  font-size: 1.2em;
 }
+
+.btn-responsive-menu button {
+  border-bottom: 0.01em solid #fff;
+}
+
 .top-navbar{
   display: inherit !important;
 }
