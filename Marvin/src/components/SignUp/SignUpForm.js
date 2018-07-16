@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import * as utils from '../../utils/validations'
 import LoadingData from '../Loading/LoadingData';
-import Dropzone from 'react-dropzone';
 // import ipfsPromise from '../../../api/utils/ipfsPromise'
 
 class SignUpForm extends Component {
@@ -50,14 +49,6 @@ class SignUpForm extends Component {
     });
     reader.readAsArrayBuffer(file)
   }
-  // onImageDrop(files) {
-  //   let reader = new FileReader()
-  //   reader.readAsArrayBuffer(files);
-  //   reader.onloadend = () =>
-  //     this.setState({
-  //       uploadedFile: reader
-  //     });
-  // }
 
 
   handleSubmit(event) {
@@ -118,10 +109,8 @@ class SignUpForm extends Component {
               <span className="pure-form-message">This is a required field.</span>
 
               <br />
-
-              <form id='captureMedia'>
-                <input type='file' onChange={this.captureFile} />
-              </form>
+              <label htmlFor="UC">Profile image</label>
+              <input id="profileImage" type='file' onChange={this.captureFile} />
 
               <br />
 
