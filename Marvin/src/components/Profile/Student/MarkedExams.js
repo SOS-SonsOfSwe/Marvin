@@ -12,7 +12,7 @@ const Row = ({ examUnicode, classUnicode, load, mark, hConf }) => (
         <td>{load && load.time}</td>
         {/* <td>{teacher}</td> */}
         <td>{mark}</td>
-        <td><fieldset><input disabled={mark >= 18 ? false : true} type="button" value="confirm" onClick={(e) => hConf(examUnicode, classUnicode, mark, e)} />
+        <td><fieldset><input className="input-stud" disabled={mark >= 18 ? false : true} type="button" value="confirm" onClick={(e) => hConf(examUnicode, classUnicode, mark, e)} />
         </fieldset>
         </td>
     </tr>

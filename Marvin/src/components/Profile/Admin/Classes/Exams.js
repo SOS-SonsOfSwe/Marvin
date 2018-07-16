@@ -112,13 +112,14 @@ class Exams extends React.Component {
                             {this.state.selectedYears !== "" && this.state.selectedDegree !== "" && this.state.selectedClass !== "" &&
                                 <div>
                                     <div className="div_insert_button">
-                                        <button className="insert-button pure-button pure-button-primary">
-                                            <Link className="pure-link" to={{
-                                                pathname: '/profile/exams/insert-exam',
-                                                state: { Class: this.state.selectedClass }
-                                            }}
-                                            >Insert an exam</Link>
+
+                                        <Link className="pure-link" to={{
+                                            pathname: '/profile/exams/insert-exam',
+                                            state: { Class: this.state.selectedClass }
+                                        }}
+                                        >  <button className="insert-button pure-button pure-button-primary"> Insert an exam
                                         </button>
+                                        </Link>
                                     </div>
                                     {this.props.emptyExams === false && this.props.success === true &&
                                         <table className="table table-striped">

@@ -16,12 +16,14 @@ const Row = ({ year, degreeUnicode, degreeData }) => (
             }}> Insert Class</Link>
         </td>
         <td>
-            <button className="delete-link">
-                <Link to={{
-                    pathname: "/profile/degrees/delete-degree",
-                    state: { year: year, degreeUnicode: degreeUnicode }
-                }}><span className="X-button">X</span>Delete</Link>
+            <Link to={{
+                pathname: "/profile/degrees/delete-degree",
+                state: { year: year, degreeUnicode: degreeUnicode }
+            }}>
+                <button className="delete-link">
+                    <span className="X-button">X</span>Delete
             </button>
+            </Link>
         </td>
     </tr>
 );

@@ -31,9 +31,11 @@ class DeleteDegree extends React.Component {
                             <p>Degree: {this.props.degreeUnicode}</p>
                             <div className="div-buttons delete-but">
                                 <input type="submit" value="Delete" />
-                                <button className="button_cancel">
-                                    <Link to='/profile/degrees'>Cancel</Link>
+                                <Link to='/profile/degrees'>
+                                    <button className="button_cancel">
+                                        Cancel
                                 </button>
+                                </Link>
                             </div>
                         </fieldset>
                     </form>

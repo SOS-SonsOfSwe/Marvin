@@ -1,53 +1,58 @@
 import React from 'react';
-import { Link } from 'react-router'
 import LoadingData from './Loading/LoadingData';
+import { getEurFromEth } from '../utils/costs'
 // import LoadingData from '../../../Loading/LoadingData'
 // import EmptyData from '../../../Loading/EmptyData'
 
-const Row = ({ key, safeLow, standard, fast, fastest, Operations }) => (
+const Row = ({ index, safeLow, standard, Operations, ethEur }) => (
     <tr className="clickable-row">
-        <td>{Operations[key].name}</td>
-        <td>
-            <Link to={{
-                pathname: "/profile/degrees/insert-degree"
-            }} > Insert degree</Link>
-        </td>
-        <td>
-            <button className="delete-link">
-                <Link to={{
-                    pathname: "/profile/academic-years/delete-academic-year",
-                }}><span className="X-button">X</span>Delete</Link>
-            </button>
-        </td>
+        <td>{Operations[index].name}</td>
+        <td>{Operations[index].gCost}</td>
+        <td>{Operations[index].eurCost1}</td>
+        <td>{ethEur * Operations[index].eurCost1}</td>
+        <td>{Operations[index].gCost * safeLow * 0.000000001}</td>
+        <td>{ethEur * Operations[index].gCost * safeLow * 0.000000001}</td>
+        <td>{Operations[index].gCost * standard * 0.000000001}</td>
+        <td>{ethEur * Operations[index].gCost * standard * 0.000000001}</td>
 
     </tr>
 );
 
 var Operations = [
-    { name: "Add a new admin", gCost: 100000, eurCost1: 0.0001 },
-    { name: "Add a new teacher", gCost: 100000, eurCost1: 0.0001 },
-    { name: "Add a new student", gCost: 125000, eurCost1: 0.000125 },
-    { name: "Add a new academic year", gCost: 45000, eurCost1: 0.000045 },
-    { name: "Add a new degree", gCost: 110000, eurCost1: 0.00011 },
-    { name: "Add a new class", gCost: 150000, eurCost1: 0.00015 },
-    { name: "Add a new exam", gCost: 110000, eurCost1: 0.00011 },
-    { name: "Delete an academic year", gCost: 45000, eurCost1: 0.000045 },
-    { name: "Delete a degree", gCost: 65000, eurCost1: 0.000065 },
-    { name: "Delete a class", gCost: 60000, eurCost1: 0.000060 },
-    { name: "Delete an exam", gCost: 0, eurCost1: 0 },
-    { name: "Delete an user", gCost: 35000, eurCost1: 0.000035 },
+    { name: "Adding a new admin", gCost: 100000, eurCost1: 0.0001 },
+    { name: "Adding a new teacher", gCost: 100000, eurCost1: 0.0001 },
+    { name: "Adding a new student", gCost: 125000, eurCost1: 0.000125 },
+    { name: "Adding a new academic year", gCost: 45000, eurCost1: 0.000045 },
+    { name: "Adding a new degree", gCost: 110000, eurCost1: 0.00011 },
+    { name: "Adding a new class", gCost: 150000, eurCost1: 0.00015 },
+    { name: "Adding a new exam", gCost: 110000, eurCost1: 0.00011 },
+    { name: "Deleting an academic year", gCost: 45000, eurCost1: 0.000045 },
+    { name: "Deleting a degree", gCost: 65000, eurCost1: 0.000065 },
+    { name: "Deleting a class", gCost: 60000, eurCost1: 0.000060 },
+    { name: "Deleting an exam", gCost: 0, eurCost1: 0 },
+    { name: "Deleting an user", gCost: 35000, eurCost1: 0.000035 },
     { name: "User signUp", gCost: 100000, eurCost1: 0.0001 },
-    { name: "Set a valuation", gCost: 65000, eurCost1: 0.000065 },
-    { name: "Enroll to an exam", gCost: 100000, eurCost1: 0.0001 },
-    { name: "Accept a valuation", gCost: 100000, eurCost1: 0.0001 },
+    { name: "Setting a valuation", gCost: 65000, eurCost1: 0.000065 },
+    { name: "Enrolling to an exam", gCost: 100000, eurCost1: 0.0001 },
+    { name: "Accepting a valuation", gCost: 100000, eurCost1: 0.0001 },
 
 ];
 
 
 class Costs extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            ethEur: ""
+        }
+    }
+
+
     componentDidMount() {
         this.props.getCostsJSON();
+        getEurFromEth().then(result => this.setState({ ethEur: result }))
     }
 
     render() {
@@ -69,11 +74,13 @@ class Costs extends React.Component {
                                 <thead>
                                     <tr>
                                         <th className="title-column"></th>
+                                        <th className="title-column"></th>
                                         <th className="title-column" colSpan="2"> Low Cost Gas Price </th>
                                         <th className="title-column" colSpan="2"> Safe-low Gas Price </th>
                                         <th className="title-column" colSpan="2"> Average Gas Price </th>
                                     </tr>
                                     <tr>
+                                        <th className="title-column">Operation</th>
                                         <th className="title-column">Gas cost</th>
                                         <th className="title-column">Cost (ETH)</th>
                                         <th className="title-column">Cost (EUR)</th>
@@ -84,9 +91,7 @@ class Costs extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* {console.log('this.props.data.load: ' + this.props.data)} */}
-                                    {/* {console.log('component: AcademicYear. Data: this.props.data: ' + JSON.stringify(this.props.data))} */}
-                                    {this.props.costsJSON.map((rowData, index) => <Row key={index} {...rowData} Operations={Operations} />)}}
+                                    {this.props.costsJSON.map((rowData, index) => <Row key={index} {...rowData} index={index} Operations={Operations} ethEur={this.state.ethEur} />)}
                                 </tbody>
                             </table>
                         </div>

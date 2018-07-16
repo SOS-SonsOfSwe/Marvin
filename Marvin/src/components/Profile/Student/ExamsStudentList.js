@@ -11,7 +11,7 @@ const Row = ({ examUnicode, classUnicode, load, teacher, hReg }) => (
         <td>{load && load.date}</td>
         <td>{load && load.time}</td>
         <td>{teacher}</td>
-        <td><fieldset><input type="button" value="subscribe" onClick={(e) => hReg(examUnicode, e)} />
+        <td><fieldset><input className="input-stud" type="button" value="subscribe" onClick={(e) => hReg(examUnicode, e)} />
         </fieldset>
         </td>
     </tr>

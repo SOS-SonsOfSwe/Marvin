@@ -11,7 +11,6 @@ contract DegreeData {
         uint16 index;
         bytes10 uniCode;
         bytes32 hashData;
-        // codici univoci delle attività didattiche di un CDL
         bytes10[] classes;
     }
 

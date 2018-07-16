@@ -135,12 +135,15 @@ h1 {
 
   
 }
+.mm-popup__box__footer {
+  float: right;
+}
 
 
 .mm-popup__btn{
    right: 1em;
-float: right;
-position: fixed;
+//float: right;
+margin-left: 15em;
 //margin-top: -3px;
 background-color: white;
 color: #0c1a2b;
@@ -166,7 +169,7 @@ display:block;
 }
 
 .mm-popup__box__body, .mm-popup__box{
-  display: inline-flex;
+  display: inline;
 }
 
 /*** Menu ***/

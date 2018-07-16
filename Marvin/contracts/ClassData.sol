@@ -73,10 +73,13 @@ contract ClassData {
     }
 
     function deleteExam(bytes10 _classUniCode, uint16 _examIndex) public onlyAdminContract {
+        ExamData exam = ExamData(manager.getExamContract());
+        bytes10 oldExamUnicode = classes[_classUniCode].classExams[_examIndex];
+        require((exam.getExamSubscribedStudent(oldExamUnicode)).length == 0);
         uint16 lastExamIndex = uint16((classes[_classUniCode].classExams).length - 1);
         classes[_classUniCode].classExams[_examIndex] = classes[_classUniCode].classExams[lastExamIndex];
         bytes10 newExamUnicode = classes[_classUniCode].classExams[_examIndex];
-        ExamData(manager.getExamContract()).setIndex(newExamUnicode, _examIndex);
+        exam.setIndex(newExamUnicode, _examIndex);
         (classes[_classUniCode].classExams).length--;
     }
 
@@ -92,7 +95,7 @@ contract ClassData {
         return(classes[_classUniCode].index);
     }
 
-    // set the associated exam teacher
+    // set the associated class teacher
     function setClassTeacher(bytes10 _classUniCode, uint32 _teacherBadgeNumber) public onlyAdminContract {
         classes[_classUniCode].classTeacher = _teacherBadgeNumber;
         classTeacher[_teacherBadgeNumber].push(_classUniCode);

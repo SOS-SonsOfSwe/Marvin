@@ -7,7 +7,7 @@ import "./ContractManager.sol";
 
 /*
  * Functions in this contract don't require any modifier because there is an implicit  
- * check of the invoker identity in the body of the functions
+ * check of the invoker identity in the body of the functions (the msg.sender address)
  */
 
 contract Student {

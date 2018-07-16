@@ -15,15 +15,17 @@ const Row = ({ load, FC, badgeNumber, isSignedUp }) => (
         </td>
         <td>
             {isSignedUp !== true ?
-                <button className="delete-link">
-                    <Link to={{
-                        pathname: "/profile/administrators/delete-administrator",
-                        state: {
-                            badgeNumber: badgeNumber,
-                            FC: FC
-                        }
-                    }}><span className="X-button">X</span>Delete</Link>
+                <Link to={{
+                    pathname: "/profile/administrators/delete-administrator",
+                    state: {
+                        badgeNumber: badgeNumber,
+                        FC: FC
+                    }
+                }}>
+                    <button className="delete-link">
+                        <span className="X-button">X</span>Delete
                 </button>
+                </Link>
                 : ""}
         </td>
     </tr>
@@ -52,13 +54,15 @@ class Administrators extends React.Component {
                             <h1>Administrators</h1>
                             <p className="text-center">List of the administrators.</p>
                             <div className="div_insert_button">
-                                <button className="insert-button pure-button pure-button-primary">
-                                    <Link className="pure-link" to={{
-                                        pathname: '/insert-user',
-                                        state: { type: 1 }
-                                    }}
-                                    >Insert an administrator</Link>
+                                <Link className="pure-link" to={{
+                                    pathname: '/insert-user',
+                                    state: { type: 1 }
+                                }}
+                                >
+                                    <button className="insert-button pure-button pure-button-primary">
+                                        Insert an administrator
                                 </button>
+                                </Link>
                             </div>
                             {this.props.empty === false && this.props.success === true &&
                                 <table className="table table-striped">
