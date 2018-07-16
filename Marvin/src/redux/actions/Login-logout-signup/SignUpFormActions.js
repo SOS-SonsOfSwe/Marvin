@@ -17,6 +17,7 @@ import {
 const contract = require('truffle-contract')
 
 export function signUpUser(userData) {
+
   var ipfs = new ipfsPromise()
 
   let web3 = store.getState()
@@ -46,28 +47,38 @@ export function signUpUser(userData) {
             dispatch(ipfsAddingData())
             dispatch(addingData())
 
-            ipfs.pushJSON(userData)
-              .then(hashIPFS => {
-
-                dispatch(ipfsDataAdded())
-
-                var hash = ipfsPromise.getBytes32FromIpfsHash(hashIPFS)
-                universityInstance = instance
-
-                // Attempt to register user.
-                universityInstance.signUp(userData.FC, userData.UC, hash, { from: coinbase })
-                  .then(function (result) {
-                    dispatch(dataAdded())
-                    // If no error, login user.
-                    return dispatch(loginUser())
-                  })
-                  .catch(function (result) {
-                    dispatch(errorAddingData())
-                  })
+            ipfs.pushFile(userData.uploadedFile)
+              .then(hash => {
+                console.log(hash)
+                userData.uploadedFile = hash
+                return userData
               })
-              .catch(err => {
-                dispatch(ipfsErrorAddingData())
-                dispatch(ipfsNetworkError())
+              .then((userData) => {
+                console.log(userData)
+
+                ipfs.pushJSON(userData)
+                  .then(hashIPFS => {
+
+                    dispatch(ipfsDataAdded())
+
+                    var hash = ipfsPromise.getBytes32FromIpfsHash(hashIPFS)
+                    universityInstance = instance
+
+                    // Attempt to register user.
+                    universityInstance.signUp(userData.FC, userData.UC, hash, { from: coinbase })
+                      .then(function (result) {
+                        dispatch(dataAdded())
+                        // If no error, login user.
+                        return dispatch(loginUser())
+                      })
+                      .catch(function (result) {
+                        dispatch(errorAddingData())
+                      })
+                  })
+                  .catch(err => {
+                    dispatch(ipfsErrorAddingData())
+                    dispatch(ipfsNetworkError())
+                  })
               })
           })
       })

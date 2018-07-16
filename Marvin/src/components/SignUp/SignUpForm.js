@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as utils from '../../utils/validations'
 import LoadingData from '../Loading/LoadingData';
+import Dropzone from 'react-dropzone';
 // import ipfsPromise from '../../../api/utils/ipfsPromise'
 
 class SignUpForm extends Component {
@@ -12,8 +13,11 @@ class SignUpForm extends Component {
       surname: '',
       email: '',
       FC: '',
-      UC: ''
+      UC: '',
+      uploadedFile: ''
     }
+    this.captureFile = this.captureFile.bind(this)
+    // this.saveToIpfs = this.saveToIpfs.bind(this)
   }
 
   onInputNameChange(event) {
@@ -36,6 +40,25 @@ class SignUpForm extends Component {
     this.setState({ UC: event.target.value })
   }
 
+  captureFile(event) {
+    event.stopPropagation()
+    event.preventDefault()
+    const file = event.target.files[0]
+    let reader = new window.FileReader()
+    reader.onloadend = () => this.setState({
+      uploadedFile: Buffer(reader.result)
+    });
+    reader.readAsArrayBuffer(file)
+  }
+  // onImageDrop(files) {
+  //   let reader = new FileReader()
+  //   reader.readAsArrayBuffer(files);
+  //   reader.onloadend = () =>
+  //     this.setState({
+  //       uploadedFile: reader
+  //     });
+  // }
+
 
   handleSubmit(event) {
     event.preventDefault()
@@ -49,7 +72,8 @@ class SignUpForm extends Component {
       "surname": this.state.surname,
       "email": this.state.email,
       "FC": this.state.FC,
-      "UC": this.state.UC
+      "UC": this.state.UC,
+      "uploadedFile": this.state.uploadedFile
     }
 
     // var ipfs = new ipfsPromise()
@@ -92,6 +116,12 @@ class SignUpForm extends Component {
               <label htmlFor="UC">Univocal code</label>
               <input id="UC" type="text" value={this.state.UC} onChange={this.onInputUCChange.bind(this)} placeholder="Univocal code" />
               <span className="pure-form-message">This is a required field.</span>
+
+              <br />
+
+              <form id='captureMedia'>
+                <input type='file' onChange={this.captureFile} />
+              </form>
 
               <br />
 

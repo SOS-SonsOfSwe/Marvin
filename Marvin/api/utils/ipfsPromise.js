@@ -1,5 +1,6 @@
 import IPFS from 'ipfs-mini'
 import bs58 from 'bs58'
+import ipfsapi from 'ipfs-api'
 
 var instance = null
 
@@ -9,7 +10,7 @@ export default class ipfsPromise {
       instance = this
       // Using Infura node
 
-      // this.callback = new IPFS({
+      // this.ipfs = new IPFS({
       //   host: "ipfs.infura.io",
       //   port: '5001',
       //   protocol: 'https'
@@ -20,18 +21,25 @@ export default class ipfsPromise {
        * You also need to loosen your IPFS node's CORS restrictions, changing config file in your .ipfs directory
        * and setting "Access-Control-Allow-Origin": ["*"] both in "Gateway" and "API"):
        */
-      // this.callback = new IPFS({
+      // this.ipfs = new IPFS({
       //   host: "127.0.0.1",
       //   port: '5001',
       //   protocol: 'http'
       // })
 
       // Using AWS Server Instance
-      this.callback = new IPFS({
+      this.ipfs = new IPFS({
         host: "54.93.231.212", // IPv4 Public IP of the AWS Server Instance
         port: '5001'
       })
-    } else this.callback = instance.callback
+      this.ipfsapi = new ipfsapi({
+        host: "54.93.231.212", // IPv4 Public IP of the AWS Server Instance
+        port: '5001'
+      })
+    } else {
+      this.ipfs = instance.ipfs
+      this.ipfsapi = instance.ipfsapi
+    }
   }
 
   // Return bytes32 hex string from base58 encoded ipfs hash,
@@ -61,7 +69,7 @@ export default class ipfsPromise {
   }
 
   pushJSON(jsonPARAM) {
-    var ipfs = this.callback
+    var ipfs = this.ipfs
     return new Promise(function (resolve, reject) {
       ipfs.addJSON(jsonPARAM, function (err, data) {
         // setTimeout(() => {
@@ -74,7 +82,7 @@ export default class ipfsPromise {
   }
 
   getJSON(hashIpfsPARAM) {
-    var ipfs = this.callback
+    var ipfs = this.ipfs
     return new Promise(function (resolve, reject) {
       ipfs.catJSON(hashIpfsPARAM, function (err, data) {
         if(err !== null) return reject(err);
@@ -82,4 +90,89 @@ export default class ipfsPromise {
       })
     })
   }
+
+  // pushFile(files) {
+  //   var ipfs = this.ipfs
+  //   const reader = new FileReader();
+  //   reader.readAsArrayBuffer(files)
+  //   reader.onloadend = function () {
+  //     const buf = buffer.Buffer(reader.result) // Convert data into buffer
+  //     ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
+  //       if(err) {
+  //         console.error(err)
+  //         return
+  //       }
+  //     })
+  //   }
+  // }
+
+  getFile(hash) {
+    // var ipfsapi = this.ipfsapi
+    return new Promise((resolve, reject) => {
+      this.ipfsapi.cat(hash)
+        .then((result) => {
+          // console.log(result)
+          // var arrayBufferView = new Array([result])
+          var blob = new Blob([result], { type: "image/jpg" })
+          console.log(blob)
+          var urlCreator = window.URL || window.webkitURL;
+          var imageUrl = urlCreator.createObjectURL(blob);
+          var img = new Image();
+          console.log(img)
+          console.log(imageUrl)
+          img.src = imageUrl;
+          // console.log(img.src)
+          // var blob = result.toBlob('image/jpeg')
+          console.log(JSON.stringify(img))
+          // return resolve(img)
+          return resolve(img)
+        })
+        .catch(err => {
+          console.error(err)
+          return reject(err)
+        })
+
+      // const reader = new FileReader();
+      // reader.onloadend = function () {
+      //   const buf = Buffer(reader.result) // Convert data into buffer
+
+    })
+  }
+
+  // const photo = document.getElementById("photo");
+  // reader.readAsArrayBuffer(files); // Read Provided File
+  // })
+
+  pushFile(buffer) {
+    // var ipfsapi = this.ipfsapi
+    return new Promise((resolve, reject) => {
+      // const buffer = Buffer.from(reader.result)
+      this.ipfsapi.add(buffer, { progress: (prog) => console.log(`received: ${prog}`) })
+        .then((response) => {
+          console.log(response[0].hash)
+          // console.log(response[0].hash)
+          return resolve(response[0].hash)
+        })
+        .catch((err) => {
+          console.error(err)
+          return reject(err)
+        })
+    })
+  }
+
+  // console.log(reader)
+  // const reader = new FileReader();
+  // reader.readAsArrayBuffer(files); // Read Provided File
+  // reader.onloadend = function () {
+  // console.log(reader)
+
+  // let url = `https://ipfs.io/ipfs/${result[0].hash}`
+  // console.log(`Url --> ${url}`)
+  // document.getElementById("url").innerHTML= url
+  // document.getElementById("url").href= url
+  // document.getElementById("output").src = url
+  // })
+  // })
+  // const photo = document.getElementById("photo");
+  // }
 }

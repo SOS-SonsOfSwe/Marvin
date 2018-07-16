@@ -10,6 +10,8 @@ import './Profile.scss'
 class ProfileIntro extends Component {
 
   render() {
+    // const rows = this.props.authData.payload.image.map((rowData, index) => <Row key={index} {...rowData} />);
+    console.log(this.props.authData.payload.image)
     return (
       <div className="pure-u-1-1">
         <h1>Profile</h1>
@@ -23,7 +25,9 @@ class ProfileIntro extends Component {
           <br />
           Your badge number is: <strong>{this.props.authData.payload.badgeNumber}</strong>.
     </p>
+        <img className="profileImage" src={'https://ipfs.infura.io/ipfs/' + this.props.authData.payload.image} alt="" />
       </div>
+
     )
   }
 }

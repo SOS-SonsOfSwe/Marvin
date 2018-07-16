@@ -72,7 +72,8 @@ function login(web3, dispatch) {
     email: '',
     FC: '',
     tp: '',
-    badgeNumber: ''
+    badgeNumber: '',
+    image: ''
   }
 
   // Double-check web3's status.
@@ -123,8 +124,20 @@ function login(web3, dispatch) {
                       payload.name = jFile.name;
                       payload.surname = jFile.surname;
                       payload.email = jFile.email;
+                      payload.image = jFile.uploadedFile;
+                      console.log(jFile.uploadedFile)
+                      // ipfs.getFile(jFile.uploadedFile)
+                      //   .then(image => {
+                      //     console.log(image)
+                      //     payload.image = image
+                      //     return payload
+                      //   })
+                      //   .then((payload) => {
+
                       dispatch(ipfsDataRead())
+                      console.log(payload)
                       return doAwesomeStuff(dispatch, payload)
+                      // })
                     })
                     .catch(err => {
                       // HERE I CATCH THE ERROR OF THE getJSON METHOD. JUST FOR TESTING
