@@ -153,7 +153,7 @@ export function readClassesFromDatabase(degreeUnicode) {
                 }
               })
               .catch(function (result) {
-                // dispatch(errorReadingData(req))
+                dispatch(errorReadingData(req))
                 // If error, go to signup page.
                 // console.error('Error while reading infos: ' + result)
                 // console.error('Wallet ' + coinbase + 'encountered an error!')

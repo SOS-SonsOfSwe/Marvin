@@ -1,6 +1,6 @@
 import AdminContract from '../../../../build/contracts/Admin'
-import Units from 'ethereumjs-units'
-import ethPrice from 'eth-price'
+// import Units from 'ethereumjs-units'
+// import ethPrice from 'eth-price'
 import { browserHistory } from 'react-router'
 import store from '../../../store'
 
@@ -30,14 +30,14 @@ export default function addNewAcademicYear(year) {
 
       admin.setProvider(web3.currentProvider)
 
-      var gasPrice
+      // var gasPrice
 
       // admin.web3.eth.getGasPrice((error, result) => {
       //   gasPrice = Number(result)
       //   // other methods here, as it's a callback which is returning a value
       // })
       // // console.log('GasPrice: ' + gasPrice)
-      gasPrice = 1000000000
+      // gasPrice = 1000000000
 
       // Declaring this for later so we can chain functions on Authentication.
       var adminIstance
@@ -49,53 +49,53 @@ export default function addNewAcademicYear(year) {
           console.error(error);
         }
 
-        admin.deployed()
-          .then(instance => {
-            adminIstance = instance
+        // admin.deployed()
+        //   .then(instance => {
+        //     adminIstance = instance
 
-            var estimatedGas
-            var costOperationWei
-            var costOperationEth
-            var costOperationEur
+        //     var estimatedGas
+        //     var costOperationWei
+        //     var costOperationEth
+        //     var costOperationEur
 
-            adminIstance.addNewYear.estimateGas(year)
-              .then(result => {
-                estimatedGas = result
-                // console.log('GasPrice before op: ' + gasPrice)
-                costOperationWei = estimatedGas * gasPrice
-                costOperationEth = Units.convert(costOperationWei, 'wei', 'eth')
-                // console.log('estimateGas: ' + estimatedGas)
-                // console.log('Cost of the operation in Wei: ' + costOperationWei)
-                // console.log('Cost of the operation in Ether: ' + costOperationEth)
-                ethPrice('EUR')
-                  .then(ethInEur => {
-                    ethInEur = parseFloat(ethInEur[0]
-                      .slice(5))
-                    costOperationEur = ethInEur * costOperationEth
-                    // console.error('Cost of the operation in EUR: ' + costOperationEur)
-                  })
+        //     adminIstance.addNewYear.estimateGas(year)
+        //       .then(result => {
+        //         estimatedGas = result
+        //         // console.log('GasPrice before op: ' + gasPrice)
+        //         costOperationWei = estimatedGas * gasPrice
+        //         costOperationEth = Units.convert(costOperationWei, 'wei', 'eth')
+        //         // console.log('estimateGas: ' + estimatedGas)
+        //         // console.log('Cost of the operation in Wei: ' + costOperationWei)
+        //         // console.log('Cost of the operation in Ether: ' + costOperationEth)
+        //         ethPrice('EUR')
+        //           .then(ethInEur => {
+        //             ethInEur = parseFloat(ethInEur[0]
+        //               .slice(5))
+        //             costOperationEur = ethInEur * costOperationEth
+        //             // console.error('Cost of the operation in EUR: ' + costOperationEur)
+        //           })
 
-              })
+        //       })
 
-            // dispatching action for make the reducer know we are making the transaction
-            dispatch(addingData())
-            //taking the first 4 numbers
-            year = year.slice(0, 4)
-            //be careful!! This number cannot be over 4095 or it starts again from 1.
+        // dispatching action for make the reducer know we are making the transaction
+        dispatch(addingData())
+        //taking the first 4 numbers
+        year = year.slice(0, 4)
+        //be careful!! This number cannot be over 4095 or it starts again from 1.
 
-            adminIstance.addNewYear(year, { from: coinbase })
-              .then(result => {
-                // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
-                // // console.log(JSON.stringify(result))
-                dispatch(dataAdded())
-                return browserHistory.push('/profile/academic-years')
-                // alert('The new academic year has been added! Wait some seconds to make it write on blockchain.')
-              })
-              .catch(error => {
-                dispatch(errorAddingData())
-              })
+        adminIstance.addNewYear(year, { from: coinbase })
+          .then(result => {
+            // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
+            // // console.log(JSON.stringify(result))
+            dispatch(dataAdded())
+            return browserHistory.push('/profile/academic-years')
+            // alert('The new academic year has been added! Wait some seconds to make it write on blockchain.')
+          })
+          .catch(error => {
+            dispatch(errorAddingData())
           })
       })
+      // })
     }
   } else {
     console.error('Web3 is not initialized.');
