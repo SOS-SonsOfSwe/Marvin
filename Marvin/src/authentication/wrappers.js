@@ -1,18 +1,14 @@
-import {
-  connectedReduxRedirect
-} from 'redux-auth-wrapper/history3/redirect'
+import { connectedReduxRedirect } from 'redux-auth-wrapper/history3/redirect'
 import connectedAuthWrapper from 'redux-auth-wrapper/connectedAuthWrapper'
-import locationHelperBuilder from 'redux-auth-wrapper/history3/locationHelper'
+// import locationHelperBuilder from 'redux-auth-wrapper/history3/locationHelper'
 //import { replace } from 'react-router-redux'
 
-import {
-  routerActions
-} from 'react-router-redux'
+import { routerActions } from 'react-router-redux'
 
 import LoadingUser from '../components/Loading/LoadingUser'
 // import LoadingData from '../components/Loading/LoadingData'
 
-const locationHelper = locationHelperBuilder({})
+// const locationHelper = locationHelperBuilder({})
 
 // Layout Component Wrappers
 
@@ -24,9 +20,10 @@ export const UserIsAuthenticated = connectedReduxRedirect({
 })
 
 export const UserIsNotAuthenticated = connectedReduxRedirect({
-  redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/profile', //where to go if it's authenticated
+  // redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/profile', //where to go if it's authenticated
   // redirectPath: (state, ownProps) => ownProps.location.query.redirect || '/signup',
-  authenticatedSelector: state => state.user.data === null,
+  redirectPath: '/',
+  authenticatedSelector: state => state.user.data === null || state.admin.data === null,
   redirectAction: routerActions.replace,
   wrapperDisplayName: 'UserIsNotAuthenticated',
   allowRedirectBack: false
