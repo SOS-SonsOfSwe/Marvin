@@ -1,6 +1,7 @@
 import React from 'react';
 import LoadingData from './Loading/LoadingData';
 import { getEurFromEth } from '../utils/costs'
+import { round } from '../utils/costs'
 // import LoadingData from '../../../Loading/LoadingData'
 // import EmptyData from '../../../Loading/EmptyData'
 
@@ -8,33 +9,33 @@ const Row = ({ index, safeLow, standard, Operations, ethEur }) => (
     <tr className="clickable-row">
         <td>{Operations[index].name}</td>
         <td>{Operations[index].gCost}</td>
-        <td>{Operations[index].eurCost1}</td>
-        <td>{ethEur * Operations[index].eurCost1}</td>
-        <td>{Operations[index].gCost * safeLow * 0.000000001}</td>
-        <td>{ethEur * Operations[index].gCost * safeLow * 0.000000001}</td>
-        <td>{Operations[index].gCost * standard * 0.000000001}</td>
-        <td>{ethEur * Operations[index].gCost * standard * 0.000000001}</td>
+        <td>{Operations[index].ethCost1}</td>
+        <td>{round(ethEur * Operations[index].ethCost1, 2)}</td>
+        <td>{round(Operations[index].gCost * safeLow * 0.000000001, 5)}</td>
+        <td>{round(ethEur * Operations[index].gCost * safeLow * 0.000000001, 2)}</td>
+        <td>{round(Operations[index].gCost * standard * 0.000000001, 5)}</td>
+        <td>{round(ethEur * Operations[index].gCost * standard * 0.000000001, 2)}</td>
 
     </tr>
 );
 
 var Operations = [
-    { name: "Adding a new admin", gCost: 100000, eurCost1: 0.0001 },
-    { name: "Adding a new teacher", gCost: 100000, eurCost1: 0.0001 },
-    { name: "Adding a new student", gCost: 125000, eurCost1: 0.000125 },
-    { name: "Adding a new academic year", gCost: 45000, eurCost1: 0.000045 },
-    { name: "Adding a new degree", gCost: 110000, eurCost1: 0.00011 },
-    { name: "Adding a new class", gCost: 150000, eurCost1: 0.00015 },
-    { name: "Adding a new exam", gCost: 110000, eurCost1: 0.00011 },
-    { name: "Deleting an academic year", gCost: 45000, eurCost1: 0.000045 },
-    { name: "Deleting a degree", gCost: 65000, eurCost1: 0.000065 },
-    { name: "Deleting a class", gCost: 60000, eurCost1: 0.000060 },
-    { name: "Deleting an exam", gCost: 0, eurCost1: 0 },
-    { name: "Deleting an user", gCost: 35000, eurCost1: 0.000035 },
-    { name: "User signUp", gCost: 100000, eurCost1: 0.0001 },
-    { name: "Setting a valuation", gCost: 65000, eurCost1: 0.000065 },
-    { name: "Enrolling to an exam", gCost: 100000, eurCost1: 0.0001 },
-    { name: "Accepting a valuation", gCost: 100000, eurCost1: 0.0001 },
+    { name: "Adding a new admin", gCost: 100000, ethCost1: 0.0001 },
+    { name: "Adding a new teacher", gCost: 100000, ethCost1: 0.0001 },
+    { name: "Adding a new student", gCost: 125000, ethCost1: 0.000125 },
+    { name: "Adding a new academic year", gCost: 45000, ethCost1: 0.000045 },
+    { name: "Adding a new degree", gCost: 110000, ethCost1: 0.00011 },
+    { name: "Adding a new class", gCost: 150000, ethCost1: 0.00015 },
+    { name: "Adding a new exam", gCost: 110000, ethCost1: 0.00011 },
+    { name: "Deleting an academic year", gCost: 45000, ethCost1: 0.000045 },
+    { name: "Deleting a degree", gCost: 65000, ethCost1: 0.000065 },
+    { name: "Deleting a class", gCost: 60000, ethCost1: 0.000060 },
+    { name: "Deleting an exam", gCost: 0, ethCost1: 0 },
+    { name: "Deleting an user", gCost: 35000, ethCost1: 0.000035 },
+    { name: "User signUp", gCost: 100000, ethCost1: 0.0001 },
+    { name: "Setting a valuation", gCost: 65000, ethCost1: 0.000065 },
+    { name: "Enrolling to an exam", gCost: 100000, ethCost1: 0.0001 },
+    { name: "Accepting a valuation", gCost: 100000, ethCost1: 0.0001 },
 
 ];
 
@@ -75,9 +76,9 @@ class Costs extends React.Component {
                                     <tr>
                                         <th className="title-column"></th>
                                         <th className="title-column"></th>
-                                        <th className="title-column" colSpan="2"> Low Cost Gas Price </th>
-                                        <th className="title-column" colSpan="2"> Safe-low Gas Price </th>
-                                        <th className="title-column" colSpan="2"> Average Gas Price </th>
+                                        <th className="title-column" colSpan="2"> Low Cost Gas Price (1 Gwei)</th>
+                                        <th className="title-column" colSpan="2"> Safe-low Gas Price ({this.props.costsJSON[0].safeLow} Gwei)</th>
+                                        <th className="title-column" colSpan="2"> Average Gas Price ({this.props.costsJSON[0].standard} Gwei)</th>
                                     </tr>
                                     <tr>
                                         <th className="title-column">Operation</th>
