@@ -97,7 +97,7 @@ class Classes extends React.Component {
                                         <label className="select-class" htmlFor="degree"> Select degree </label>
                                         <select disabled={this.state.selectedYears === "" ? true : false} type="text" name="degree" value={this.state.selectedDegree} onChange={this.onSelectChangeDC}>
                                             {<option value="select degree" disabled={this.state.selectedDegree === "" ? false : true}> -- select a degree -- </option>}
-                                            {console.log('this.props.degrees: ' + JSON.stringify(this.props.degrees))}
+                                            {/* { console.log('this.props.degrees: ' + JSON.stringify(this.props.degrees))} */}
                                             {this.props.emptyDegrees === false && this.props.successDegree === true &&
                                                 this.props.degrees.map((rowData, index) => <OptionsDC key={index} {...rowData} />)}
                                         </select>

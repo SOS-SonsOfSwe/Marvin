@@ -13,7 +13,8 @@ import {
   ipfsReadingData,
   ipfsDataRead,
   ipfsErrorReadingData,
-  ipfsNetworkError
+  ipfsNetworkError,
+  errorReadingData
 } from '../StandardDispatches/readingData'
 
 import ipfsPromise from '../../../../api/utils/ipfsPromise'
@@ -45,7 +46,7 @@ function doAwesomeStuff(load) {
 //   for(const item of payload) {
 //     await ipfs.getJSON(item.description)
 //       .then(result => {
-//         console.log(JSON.stringify(result))
+//         // console.log(JSON.stringify(result))
 //         item.description = result.description
 //       })
 //   }
@@ -94,26 +95,26 @@ export function readDegreesFromDatabase(year) {
             // Attempt to read degrees per year
             var yearSliced = year.slice(0, 4)
             degreeInstance.getYearDegreesData(yearSliced, { from: coinbase })
-              // .then(console.log)
+              // .then(// console.log)
               .then(result => {
-                console.log('DEGREE DATA READ RESULT: ')
-                console.log(result)
+                // console.log('DEGREE DATA READ RESULT: ')
+                // console.log(result)
 
                 // checking if the blockchain is empty for this kind of data.
                 // when the blockchain is empty the first numbers it retrieves are:
                 // 0x00000. When it's full it's 0xsomething. So we check the first number
                 // after "x" to be not equal to zero.
-                // console.log(web3.toUtf8(result[0]))
+                // // console.log(web3.toUtf8(result[0]))
                 // for degree result[0] is the actual array of unicodes of the degree
                 // result[1] is the list of its respectively IPFS hash
-                // console.log('web3ToHex: ' + web3.toHex(result[0][0]))
+                // // console.log('web3ToHex: ' + web3.toHex(result[0][0]))
 
-                // console.log(result[0].length === 0)
+                // // console.log(result[0].length === 0)
 
                 if(result[0].length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
-                  // console.log('result[0] : ' + web3.toHex(result[0]))
+                  // // console.log('result[0] : ' + web3.toHex(result[0]))
 
                   var payload
                   let i = 0;
@@ -125,9 +126,9 @@ export function readDegreesFromDatabase(year) {
                   for(i; i < result[0].length; i++) {
                     var degree = result[1][i]
                     var hash = result[0][i]
-                    // console.log("degree: " + degree)
+                    // // console.log("degree: " + degree)
                     var dgr = web3.toUtf8(degree)
-                    // console.log('dgr: ' + dgr)
+                    // // console.log('dgr: ' + dgr)
                     var hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
                     // i'm storing the informations inside the description. We will retrieve them later.
                     if(i === 0) { // first element of array
@@ -153,9 +154,10 @@ export function readDegreesFromDatabase(year) {
                 }
               })
               .catch(function (result) {
+                // dispatch(errorReadingData(req))
                 // If error, go to signup page.
-                console.error('Error while reading infos: ' + result)
-                console.error('Wallet ' + coinbase + 'encountered an error!')
+                // console.error('Error while reading infos: ' + result)
+                // console.error('Wallet ' + coinbase + 'encountered an error!')
                 // dispatch(eraseAdminReducerInfo())
                 // dispatch(eraseIpfsReducerInfo())
                 return browserHistory.push('/profile')

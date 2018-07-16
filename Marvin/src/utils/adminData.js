@@ -62,99 +62,99 @@ export var signUpUsers = [
 ]
 
 // await adminInstance.addUser('AAABBB00A00B000C', '1234567890', '1', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addUser('AAABBB00A00B001C', '1234567880', '1', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addUser('AAABBB00A00B002C', '1234567870', '1', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addUser('BBBCCC11B11C111D', '1234567891', '2', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addUser('BBBCCC11B11C112D', '1234567881', '2', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addUser('BBBCCC11B11C113D', '1234567871', '2', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addUser('CCCDDD22C22D222E', '1234567892', '3', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addUser('CCCDDD22C22D223E', '1234567882', '3', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addUser('CCCDDD22C22D224E', '1234567872', '3', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 
 // await adminInstance.addNewYear(2012, { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 
 // await adminInstance.addNewYear(2013, { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // const y = '2017'
 // await adminInstance.addNewYear(y, { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 
 // await adminInstance.addNewDegree('INF17', y, 'asdasdasdasdasd', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addNewDegree('MAT17', y, 'asdasdasdasdasd', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addNewDegree('PSI17', y, 'asdasdasdasdasd', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 
 // await userLogicInstance.signUp('AAABBB00A00B000C', '1234567890', 'asdasdasdasdasd', { from: address1 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await userLogicInstance.signUp('AAABBB00A00B001C', '1234567880', 'asdasdasdasdasd', { from: address2 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await userLogicInstance.signUp('AAABBB00A00B002C', '1234567870', 'asdasdasdasdasd', { from: address3 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await userLogicInstance.signUp('BBBCCC11B11C111D', '1234567891', 'asdasdasdasdasd', { from: address4 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await userLogicInstance.signUp('BBBCCC11B11C112D', '1234567881', 'asdasdasdasdasd', { from: address5 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await userLogicInstance.signUp('BBBCCC11B11C113D', '1234567871', 'asdasdasdasdasd', { from: address6 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await userLogicInstance.signUp('CCCDDD22C22D222E', '1234567892', 'asdasdasdasdasd', { from: address7 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await userLogicInstance.signUp('CCCDDD22C22D223E', '1234567882', 'asdasdasdasdasd', { from: address8 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await userLogicInstance.signUp('CCCDDD22C22D224E', '1234567872', 'asdasdasdasdasd', { from: address9 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 
 // await adminInstance.addNewClass('INF17', 'PROGR17', 'asdasdasdasdasd', '1234567891', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addNewClass('INF17', 'ANALIS17', 'asdasdasdasdasd', '1234567891', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addNewClass('INF17', 'RETISICU17', 'asdasdasdasdasd', '1234567891', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 
 // await adminInstance.addNewExam('PROGR17', 'APP1', 'asdasdasdasdasd', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addNewExam('PROGR17', 'APP2', 'asdasdasdasdasd', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));
 // await adminInstance.addNewExam('PROGR17', 'APP3', 'asdasdasdasdasd', { from: address0 })
-//   .then(() => console.log('Line ' + line++ + ' ok'))
+//   .then(() => // console.log('Line ' + line++ + ' ok'))
 //   .catch(() => console.error('Error at line ' + line++));

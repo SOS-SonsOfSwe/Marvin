@@ -9,14 +9,15 @@ import {
   readingData,
   dataRead,
   dataEmpty,
+  errorReadingData,
 } from '../StandardDispatches/readingData'
 
-import { TEACHERS } from "../../reducers/costants/adminCostants";
+import { TEACHERS as req } from "../../reducers/costants/adminCostants";
 
 const contract = require('truffle-contract')
 
-function doAwesomeStuff(load, TEACHERS) {
-  store.dispatch(dataRead({ load }, TEACHERS))
+function doAwesomeStuff(load, req) {
+  store.dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
   if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
@@ -42,7 +43,7 @@ export function readTeachersFromDatabase() {
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
 
-        dispatch(readingData(TEACHERS))
+        dispatch(readingData(req))
 
         // Log errors, if any.
         if(error) {
@@ -55,15 +56,15 @@ export function readTeachersFromDatabase() {
 
             // Attempt to read admin classes per year
             adminInstance.getUsersBadgeType({ from: coinbase })
-              // .then(console.log)
+              // .then(// console.log)
               .then(result => {
-                console.log('USER DATA READ RESULT: ')
-                console.log(result)
+                // console.log('USER DATA READ RESULT: ')
+                // console.log(result)
 
                 if(result[0].length === 0) {
-                  dispatch(dataEmpty(TEACHERS))
+                  dispatch(dataEmpty(req))
                 } else {
-                  // console.log('result[0] : ' + web3.toHex(result[0]))
+                  // // console.log('result[0] : ' + web3.toHex(result[0]))
 
                   // SEE HERE FOR WHAT YOU HAVE TO LOOK FOR!!
                   // result is made in this way:
@@ -95,18 +96,18 @@ export function readTeachersFromDatabase() {
                   // much conversions because we can close the communication
                   // with the blockchain faster
                   for(i; i < result[0].length; i++) {
-                    // console.log('web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
-                    // console.log('ipfsPromise.getIpfsHashFromBytes32(result[0][i]): ' + ipfsPromise.getIpfsHashFromBytes32(result[0][i]))
-                    // console.log('web3.toDecimal(result[1][i]): ' + web3.toDecimal(result[1][i]))
-                    // console.log('web3.toDecimal(result[3][i]): ' + web3.toDecimal(result[3][i]))
-                    // console.log('userType: ' + userType, 'web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
-                    console.log('if result ' + (2 === web3.toDecimal(result[1][i])))
+                    // // console.log('web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
+                    // // console.log('ipfsPromise.getIpfsHashFromBytes32(result[0][i]): ' + ipfsPromise.getIpfsHashFromBytes32(result[0][i]))
+                    // // console.log('web3.toDecimal(result[1][i]): ' + web3.toDecimal(result[1][i]))
+                    // // console.log('web3.toDecimal(result[3][i]): ' + web3.toDecimal(result[3][i]))
+                    // // console.log('userType: ' + userType, 'web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
+                    // console.log('if result ' + (2 === web3.toDecimal(result[1][i])))
                     if(2 === web3.toDecimal(result[1][i])) {
                       total++
 
                       var badgeNumber = web3.toDecimal(result[0][i])
-                      // console.log("admin: " + admin)
-                      // console.log('dgr: ' + dgr)
+                      // // console.log("admin: " + admin)
+                      // // console.log('dgr: ' + dgr)
 
                       // i'm storing the informations inside the description. We will retrieve them later.
                       if(total === 1) { // first element of array
@@ -117,22 +118,23 @@ export function readTeachersFromDatabase() {
                         ]
                     }
                   }
-                  console.log('Total: ' + total)
-                  if(total === 0) return dispatch(dataEmpty(TEACHERS))
+                  // console.log('Total: ' + total)
+                  if(total === 0) return dispatch(dataEmpty(req))
                   else {
                     // this function provides a parallel loading of all the informations from ipfs. 
                     // It renders the data all together: an interesting improvement will be to load the data
                     // per parts so in case of some ipfs file failure the app is still working
 
                     // payload.sort((a, b) => b.badgeNumber - a.badgeNumber)
-                    return doAwesomeStuff(payload, TEACHERS)
+                    return doAwesomeStuff(payload, req)
                   }
                 }
               })
               .catch(function (result) {
+                dispatch(errorReadingData(req))
                 // If error, go to signup page.
-                console.error('Error while reading infos: ' + result)
-                console.error('Wallet ' + coinbase + 'encountered an error!')
+                // console.error('Error while reading infos: ' + result)
+                // console.error('Wallet ' + coinbase + 'encountered an error!')
                 // dispatch(eraseAdminReducerInfo())
                 // dispatch(eraseIpfsReducerInfo())
                 return browserHistory.push('/profile')

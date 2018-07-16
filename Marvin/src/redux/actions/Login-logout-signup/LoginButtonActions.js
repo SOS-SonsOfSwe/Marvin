@@ -111,37 +111,37 @@ function login(web3, dispatch) {
                 payload.tp = web3.toDecimal(result[1]);
                 payload.badgeNumber = web3.toDecimal(result[2]);
 
-                console.log("IPFS of the user:", ipfsPromise.getIpfsHashFromBytes32(result[3]))
+                // console.log("IPFS of the user:", ipfsPromise.getIpfsHashFromBytes32(result[3]))
                 if(payload.tp !== 4) {
                   dispatch(userLoggingIn())
                   dispatch(ipfsReadingData())
                   var ipfs = new ipfsPromise()
-                  // console.log('Waiting for the data from IPFS...')
+                  // // console.log('Waiting for the data from IPFS...')
                   ipfs.getJSON(ipfsPromise.getIpfsHashFromBytes32(result[3]))
                     .then(jFile => {
                       //dispatch(userLoggingIn()) //dispatch waiting for data
-                      // console.log("jFile:", jFile)
+                      // // console.log("jFile:", jFile)
                       payload.name = jFile.name;
                       payload.surname = jFile.surname;
                       payload.email = jFile.email;
                       payload.image = jFile.uploadedFile;
-                      console.log(jFile.uploadedFile)
+                      // console.log(jFile.uploadedFile)
                       // ipfs.getFile(jFile.uploadedFile)
                       //   .then(image => {
-                      //     console.log(image)
+                      //     // console.log(image)
                       //     payload.image = image
                       //     return payload
                       //   })
                       //   .then((payload) => {
 
                       dispatch(ipfsDataRead())
-                      console.log(payload)
+                      // console.log(payload)
                       return doAwesomeStuff(dispatch, payload)
                       // })
                     })
                     .catch(err => {
                       // HERE I CATCH THE ERROR OF THE getJSON METHOD. JUST FOR TESTING
-                      // console.log('Fail:', err)
+                      // // console.log('Fail:', err)
                       dispatch(ipfsErrorReadingData())
                       dispatch(ipfsNetworkError())
                       // alert('IPFS is not able to load your data. Pay attention to your network')

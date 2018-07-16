@@ -16,7 +16,7 @@ export function dataDeleted(load, req) {
 }
 
 export function errorDeletingData(req) {
-  console.log('reducer: adding data failed')
+  // console.log('reducer: adding data failed')
   return {
     type: userCostants.ERROR_DELETING_DATA,
     request: req

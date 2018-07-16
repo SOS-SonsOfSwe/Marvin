@@ -36,7 +36,7 @@ export default function addNewAcademicYear(year) {
       //   gasPrice = Number(result)
       //   // other methods here, as it's a callback which is returning a value
       // })
-      // console.log('GasPrice: ' + gasPrice)
+      // // console.log('GasPrice: ' + gasPrice)
       gasPrice = 1000000000
 
       // Declaring this for later so we can chain functions on Authentication.
@@ -61,18 +61,18 @@ export default function addNewAcademicYear(year) {
             adminIstance.addNewYear.estimateGas(year)
               .then(result => {
                 estimatedGas = result
-                console.log('GasPrice before op: ' + gasPrice)
+                // console.log('GasPrice before op: ' + gasPrice)
                 costOperationWei = estimatedGas * gasPrice
                 costOperationEth = Units.convert(costOperationWei, 'wei', 'eth')
-                console.log('estimateGas: ' + estimatedGas)
-                console.log('Cost of the operation in Wei: ' + costOperationWei)
-                console.log('Cost of the operation in Ether: ' + costOperationEth)
+                // console.log('estimateGas: ' + estimatedGas)
+                // console.log('Cost of the operation in Wei: ' + costOperationWei)
+                // console.log('Cost of the operation in Ether: ' + costOperationEth)
                 ethPrice('EUR')
                   .then(ethInEur => {
                     ethInEur = parseFloat(ethInEur[0]
                       .slice(5))
                     costOperationEur = ethInEur * costOperationEth
-                    console.error('Cost of the operation in EUR: ' + costOperationEur)
+                    // console.error('Cost of the operation in EUR: ' + costOperationEur)
                   })
 
               })
@@ -86,7 +86,7 @@ export default function addNewAcademicYear(year) {
             adminIstance.addNewYear(year, { from: coinbase })
               .then(result => {
                 // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
-                // console.log(JSON.stringify(result))
+                // // console.log(JSON.stringify(result))
                 dispatch(dataAdded())
                 return browserHistory.push('/profile/academic-years')
                 // alert('The new academic year has been added! Wait some seconds to make it write on blockchain.')

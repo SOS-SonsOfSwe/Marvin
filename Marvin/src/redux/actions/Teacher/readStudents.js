@@ -12,6 +12,7 @@ import {
   readingData,
   dataRead,
   dataEmpty,
+  errorReadingData,
   // ipfsReadingData,
   // ipfsDataRead,
   // ipfsErrorReadingData,
@@ -26,7 +27,7 @@ function doAwesomeStuff(dispatch, load) {
   // dispatching the action and the load
   dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
-  if ('redirect' in currentLocation.query) {
+  if('redirect' in currentLocation.query) {
     //return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
     return browserHistory.replace('/profile')
   } // no need for redirect anymore
@@ -37,7 +38,7 @@ export function readStudentsPerExam(examUnicode) {
   let web3 = store.getState()
     .web3.web3Instance
 
-  if (typeof web3 !== 'undefined') {
+  if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -50,7 +51,7 @@ export function readStudentsPerExam(examUnicode) {
         dispatch(readingData(req))
 
         // Log errors, if any.
-        if (error) {
+        if(error) {
           console.error(error);
         }
 
@@ -63,15 +64,15 @@ export function readStudentsPerExam(examUnicode) {
                 // when the blockchain is empty the first numbers it retrieves are:
                 // 0x00000. When it's full it's 0xsomething. So we check the first number
                 // after "x" to be not equal to zero.
-                if (result.length === 0) {
+                if(result.length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
-                  // console.log('result[0] : ' + web3.toHex(result[0]))
+                  // // console.log('result[0] : ' + web3.toHex(result[0]))
 
                   var payload
                   // console.error(web3HexToInt(web3.toHex(result[0])))
 
-                  for (let badgeNumber of result) {
+                  for(let badgeNumber of result) {
                     // var yy = web3HexToInt(web3.toHex(years))
 
                     // web3 offers a 8 bit return hexadecimal number. It's not needed since
@@ -83,11 +84,11 @@ export function readStudentsPerExam(examUnicode) {
                     //   .slice(0, 5) !== '0x000') {
                     // these lines was able to detect a non-resize of the array of solidity. No more need for them.
 
-                    if (payload == null) { // first element of array
+                    if(payload == null) { // first element of array
                       payload = [{ badgeNumber: web3.toDecimal(badgeNumber) }]
                     } else
                       payload = [...payload,
-                      { badgeNumber: web3.toDecimal(badgeNumber) }
+                        { badgeNumber: web3.toDecimal(badgeNumber) }
                       ]
                     // }
                   }
@@ -97,9 +98,10 @@ export function readStudentsPerExam(examUnicode) {
                 }
               })
               .catch(function (result) {
+                dispatch(errorReadingData(req))
                 // If error, go to signup page.
-                console.error('Error while reading infos: ' + result)
-                console.error('Wallet ' + coinbase + ' does not have an account!')
+                // console.error('Error while reading infos: ' + result)
+                // console.error('Wallet ' + coinbase + ' does not have an account!')
                 // dispatch(eraseAdminReducerInfo())
                 // dispatch(eraseIpfsReducerInfo())
                 return browserHistory.push('/profile')

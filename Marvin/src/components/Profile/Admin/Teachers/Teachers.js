@@ -44,8 +44,8 @@ class Teachers extends React.Component {
 
         return (
             <div>
-                {/* {console.log('this.props.loading: ' + this.props.loading)} */}
-                {/* {console.log('this.props.empty: ' + this.props.empty)} */}
+                {/* {// console.log('this.props.loading: ' + this.props.loading)} */}
+                {/* {// console.log('this.props.empty: ' + this.props.empty)} */}
                 {load}
                 {empty}
                 {(this.props.loading !== true && this.props.ipfsLoading !== true) &&

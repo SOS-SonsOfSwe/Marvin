@@ -25,7 +25,7 @@ export default function addAcademicYearcost(year) {
     //   gasPrice = Number(result)
     //   // other methods here, as it's a callback which is returning a value
     // })
-    // console.log('GasPrice: ' + gasPrice)
+    // // console.log('GasPrice: ' + gasPrice)
     gasPrice = 1000000000
 
     // Declaring this for later so we can chain functions on Authentication.
@@ -54,14 +54,14 @@ export default function addAcademicYearcost(year) {
               estimatedGas = result
               costOperationWei = estimatedGas * gasPrice
               costOperationEth = Units.convert(costOperationWei, 'wei', 'eth')
-              // console.log('estimateGas: ' + estimatedGas)
-              // console.log('Cost of the operation in Wei: ' + costOperationWei)
-              // console.log('Cost of the operation in Ether: ' + costOperationEth)
+              // // console.log('estimateGas: ' + estimatedGas)
+              // // console.log('Cost of the operation in Wei: ' + costOperationWei)
+              // // console.log('Cost of the operation in Ether: ' + costOperationEth)
               ethPrice('USD')
                 .then(ethInUsd => {
                   ethInUsd = parseFloat(ethInUsd[0].slice(5))
                   costOperationUsd = ethInUsd * costOperationEth
-                  console.error('Cost of the operation in USD: ' + costOperationUsd)
+                  // console.error('Cost of the operation in USD: ' + costOperationUsd)
                   return costOperationUsd
                 })
 

@@ -13,7 +13,7 @@ import {
 // var app = express();
 
 function doAwesomeStuff(load) {
-  console.log(load)
+  // console.log(load)
   // dispatching the action and the load
   store.dispatch(dataRead({ load }, req))
   var currentLocation = browserHistory.getCurrentLocation()
@@ -52,11 +52,11 @@ export default function getAverageGasPrice() {
       store.dispatch(readingData(req))
       fetch(url)
         .then(res => {
-          console.log(res)
+          // console.log(res)
           return res.json();
         })
         .then((out) => {
-          console.log('Checkout this JSON! ', out);
+          // console.log('Checkout this JSON! ', out);
           let payload;
           for (let i = 0; i < 17; ++i) {
             if (i === 0) payload = out;
@@ -94,7 +94,7 @@ export default function getAverageGasPrice() {
 //         gasPrice = Number(result)
 //         // other methods here, as it's a callback which is returning a value
 //       })
-//       // console.log('GasPrice: ' + gasPrice)
+//       // // console.log('GasPrice: ' + gasPrice)
 //       //   gasPrice = 1000000000
 
 //       // Declaring this for later so we can chain functions on Authentication.
@@ -119,12 +119,12 @@ export default function getAverageGasPrice() {
 //     adminIstance.addNewYear.estimateGas(year)
 //       .then(result => {
 //         estimatedGas = result
-//         console.log('GasPrice before op: ' + gasPrice)
+//         // console.log('GasPrice before op: ' + gasPrice)
 //         costOperationWei = estimatedGas * gasPrice
 //         costOperationEth = Units.convert(costOperationWei, 'wei', 'eth')
-//         console.log('estimateGas: ' + estimatedGas)
-//         console.log('Cost of the operation in Wei: ' + costOperationWei)
-//         console.log('Cost of the operation in Ether: ' + costOperationEth)
+//         // console.log('estimateGas: ' + estimatedGas)
+//         // console.log('Cost of the operation in Wei: ' + costOperationWei)
+//         // console.log('Cost of the operation in Ether: ' + costOperationEth)
 //         ethPrice('EUR')
 //           .then(ethInEur => {
 //             ethInEur = parseFloat(ethInEur[0]
@@ -144,7 +144,7 @@ export default function getAverageGasPrice() {
 //     adminIstance.addNewYear(year, { from: coinbase })
 //       .then(result => {
 //         // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
-//         // console.log(JSON.stringify(result))
+//         // // console.log(JSON.stringify(result))
 //         dispatch(dataAdded())
 //         // alert('The new academic year has been added! Wait some seconds to make it write on blockchain.')
 //       })
@@ -152,7 +152,7 @@ export default function getAverageGasPrice() {
 //         dispatch(errorAddingData())
 //       })
 //       .finally(def => {
-//         // console.log(JSON.stringify(def))
+//         // // console.log(JSON.stringify(def))
 //         return browserHistory.push('/profile/academic-years')
 //       })
 //   })

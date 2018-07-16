@@ -7,14 +7,14 @@ export function addingData() {
 }
 
 export function dataAdded() {
-  console.log('dispatch: data was added')
+  // console.log('dispatch: data was added')
   return {
     type: userCostants.ADDED_NEW_DATA
   }
 }
 
 export function errorAddingData() {
-  console.log('reducer: adding data failed')
+  // console.log('reducer: adding data failed')
   return {
     type: userCostants.ERROR_ADDING_NEW_DATA
   }
@@ -33,14 +33,14 @@ export function ipfsDataAdded() {
 }
 
 export function ipfsErrorAddingData() {
-  console.log('reducer: ipfs adding data failed')
+  // console.log('reducer: ipfs adding data failed')
   return {
     type: ipfsCostants.IPFS_ERROR_ADDING_DATA
   }
 }
 
 export function ipfsNetworkError() {
-  console.log('reducer: probably an infura problem')
+  // console.log('reducer: probably an infura problem')
   return {
     type: ipfsCostants.IPFS_NOT_RESPONDING
   }

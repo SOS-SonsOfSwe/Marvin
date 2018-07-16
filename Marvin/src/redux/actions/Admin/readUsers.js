@@ -13,7 +13,8 @@ import {
   ipfsReadingData,
   ipfsDataRead,
   ipfsErrorReadingData,
-  ipfsNetworkError
+  ipfsNetworkError,
+  errorReadingData
 } from '../StandardDispatches/readingData'
 
 import ipfsPromise from '../../../../api/utils/ipfsPromise'
@@ -77,7 +78,7 @@ export function readUsersFromDatabase(userType) {
   }
   let web3 = store.getState()
     .web3.web3Instance
-  console.error(userType, userValue)
+  // console.error(userType, userValue)
   if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
@@ -104,15 +105,15 @@ export function readUsersFromDatabase(userType) {
 
             // Attempt to read admin classes per year
             adminInstance.getUsersData({ from: coinbase })
-              // .then(console.log)
+              // .then(// console.log)
               .then(result => {
-                console.log('USER DATA READ RESULT: ')
-                console.log(result)
+                // console.log('USER DATA READ RESULT: ')
+                // console.log(result)
 
                 if(result[0].length === 0) {
                   dispatch(dataEmpty(userValue))
                 } else {
-                  // console.log('result[0] : ' + web3.toHex(result[0]))
+                  // // console.log('result[0] : ' + web3.toHex(result[0]))
 
                   // SEE HERE FOR WHAT YOU HAVE TO LOOK FOR!!
                   // result is made in this way:
@@ -144,12 +145,12 @@ export function readUsersFromDatabase(userType) {
                   // much conversions because we can close the communication
                   // with the blockchain faster
                   for(i; i < result[0].length; i++) {
-                    // console.log('web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
-                    // console.log('ipfsPromise.getIpfsHashFromBytes32(result[0][i]): ' + ipfsPromise.getIpfsHashFromBytes32(result[0][i]))
-                    // console.log('web3.toDecimal(result[1][i]): ' + web3.toDecimal(result[1][i]))
-                    // console.log('web3.toDecimal(result[3][i]): ' + web3.toDecimal(result[3][i]))
-                    // console.log('userType: ' + userType, 'web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
-                    console.log('if result ' + (userType === web3.toDecimal(result[3][i])))
+                    // // console.log('web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
+                    // // console.log('ipfsPromise.getIpfsHashFromBytes32(result[0][i]): ' + ipfsPromise.getIpfsHashFromBytes32(result[0][i]))
+                    // // console.log('web3.toDecimal(result[1][i]): ' + web3.toDecimal(result[1][i]))
+                    // // console.log('web3.toDecimal(result[3][i]): ' + web3.toDecimal(result[3][i]))
+                    // // console.log('userType: ' + userType, 'web3.toDecimal(result[2]): ' + web3.toDecimal(result[2]))
+                    // console.log('if result ' + (userType === web3.toDecimal(result[3][i])))
                     if(userType === web3.toDecimal(result[3][i])) {
                       total++
 
@@ -164,8 +165,8 @@ export function readUsersFromDatabase(userType) {
                       else hashIPFS = null
                       var badgeNumber = web3.toDecimal(result[2][i])
                       var isSignedUp = (result[4][i])
-                      // console.log("admin: " + admin)
-                      // console.log('dgr: ' + dgr)
+                      // // console.log("admin: " + admin)
+                      // // console.log('dgr: ' + dgr)
 
                       // i'm storing the informations inside the description. We will retrieve them later.
                       if(total === 1) { // first element of array
@@ -176,7 +177,7 @@ export function readUsersFromDatabase(userType) {
                         ]
                     }
                   }
-                  console.log('Total: ' + total)
+                  // console.log('Total: ' + total)
                   if(total === 0) return dispatch(dataEmpty(userValue))
                   else {
                     // this function provides a parallel loading of all the informations from ipfs. 
@@ -196,9 +197,10 @@ export function readUsersFromDatabase(userType) {
                 }
               })
               .catch(function (result) {
+                dispatch(errorReadingData(userValue))
                 // If error, go to signup page.
-                console.error('Error while reading infos: ' + result)
-                console.error('Wallet ' + coinbase + 'encountered an error!')
+                // console.error('Error while reading infos: ' + result)
+                // console.error('Wallet ' + coinbase + 'encountered an error!')
                 // dispatch(eraseAdminReducerInfo())
                 // dispatch(eraseIpfsReducerInfo())
                 return browserHistory.push('/profile')

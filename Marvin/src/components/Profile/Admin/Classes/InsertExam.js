@@ -52,7 +52,7 @@ class InsertExam extends React.Component {
     event.preventDefault();
     let pop = checkExam(this.state);
     if (pop !== null) {
-      console.log("dentro l'if")
+      // console.log("dentro l'if")
       Popup.queue(pop)
       Popup.clearQueue()
     }

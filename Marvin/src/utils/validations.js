@@ -48,7 +48,7 @@ export function userDef(type) {
 
 export function web3HexToInt(hex) {
   hex.toString()
-  console.log('hex.toString(): ' + hex)
+  // console.log('hex.toString(): ' + hex)
   var zeros = 0;
   for (let i = hex.length; i > 0; i--) {
     if (hex[i - 1] === '0') zeros--

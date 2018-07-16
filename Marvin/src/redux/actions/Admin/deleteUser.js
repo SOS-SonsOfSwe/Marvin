@@ -67,21 +67,21 @@ export function deleteUserFromDatabase(badgeNumber) {
         // degree.deployed()
         //   .then(instance => {
         //     degreeInstance = instance
-        //     console.log('Year we are looking for: ' + yearToDelete)
+        //     // console.log('Year we are looking for: ' + yearToDelete)
         //     degreeInstance.getYearIndex(yearToDelete, { from: coinbase })
         //       .then(result => {
         //         return console.error('index: ' + result)
         //         // index = web3.toDecimal(result)
         //       })
-        //       .catch(err => console.log(err))
+        //       .catch(err => // console.log(err))
         // .then(() => {
 
         admin.deployed()
           .then(function (instance) {
             adminInstance = instance
 
-            // console.log('yearToDelete: ' + yearToDelete)
-            console.log('badgeNumber: ' + badgeNumber)
+            // // console.log('yearToDelete: ' + yearToDelete)
+            // console.log('badgeNumber: ' + badgeNumber)
             adminInstance.removeUser(parseInt(badgeNumber, 10), { gas: '100000', from: coinbase })
               .then(() => {
                 browserHistory.go(-1)

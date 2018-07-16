@@ -26,7 +26,7 @@ function userInserted(YesOrNo) {
 }
 
 export function insertUser(FCInserted, UCInserted, tpInserted, degreeUnicode) {
-  console.log('Type inserted: ' + tpInserted)
+  // console.log('Type inserted: ' + tpInserted)
   let web3 = store.getState()
     .web3.web3Instance
 
@@ -57,13 +57,13 @@ export function insertUser(FCInserted, UCInserted, tpInserted, degreeUnicode) {
                 // yon.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
                 let yon = result.receipt.status;
 
-                console.log(yon);
+                // console.log(yon);
 
                 dispatch(userInserted({
                   "YesOrNo": yon
                 }))
                 dispatch(dataAdded())
-                console.log("tpInserted:" + tpInserted)
+                // console.log("tpInserted:" + tpInserted)
                 switch(parseInt(tpInserted, 10)) {
                 case 1:
                   return browserHistory.push('/profile/administrators')

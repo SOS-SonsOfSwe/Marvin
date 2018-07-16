@@ -59,7 +59,7 @@ async function processIPFSLoad(payload) {
       }
       // here I overwrite the description information with the JSON returning from the ipfs
     }))
-    // console.log(payload)
+    // // console.log(payload)
     store.dispatch(ipfsDataRead())
     return resolve(payload)
   })
@@ -78,8 +78,8 @@ async function processIPFSLoad(payload) {
 //         // result[1] = examsTeacher
 //         // result[2] = examUnicode
 
-//         // console.log('EXAMS READ RESULT: ')
-//         // console.log(result)
+//         // // console.log('EXAMS READ RESULT: ')
+//         // // console.log(result)
 
 //         if(result[0].length === 0) {
 //           return payload
@@ -90,11 +90,11 @@ async function processIPFSLoad(payload) {
 //             var exam = result[2][j]
 //             var hash = result[0][j]
 //             var teac = web3.toDecimal(result[1])
-//             // console.log("teacher: " + teac)
+//             // // console.log("teacher: " + teac)
 //             var exUni = web3.toUtf8(exam)
-//             // console.log('dgr: ' + dgr)
+//             // // console.log('dgr: ' + dgr)
 //             hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
-//             // console.log("hash: " + hashIPFS)
+//             // // console.log("hash: " + hashIPFS)
 //             // i'm storing the informations inside the description. We will retrieve them later.
 //             // console.error(payload == null)
 //             if(payload == null) { // first element of array
@@ -150,7 +150,7 @@ async function loadIPFSInfos(examDataInstance, subscribedExams, web3, coinbase) 
           { examUnicode: web3.toUtf8(subExamUnicode), load: load }
         ]
       }
-      // console.log(newExams)
+      // // console.log(newExams)
       // newExams[i].examUnicode = subExamUnicode
       // newExams[i].load = load
       // var examHashIPFS = ipfsPromise.getIpfsHashFromBytes32(examHash)
@@ -169,8 +169,8 @@ async function loadIPFSInfos(examDataInstance, subscribedExams, web3, coinbase) 
       // result[1] = examsTeacher
       // result[2] = examUnicode
 
-      // console.log('EXAMS READ RESULT: ')
-      // console.log(result)
+      // // console.log('EXAMS READ RESULT: ')
+      // // console.log(result)
 
     }))
 
@@ -198,7 +198,7 @@ async function removeIfBooklet(exams, studentInstance, web3, coinbase) {
             // var exam = booklet[2][j]
             // var hash = booklet[0][j]
             // var teac = web3.toDecimal(booklet[1])
-            // console.log("teacher: " + teac)
+            // // console.log("teacher: " + teac)
             var bookletClass = web3.toUtf8(booklet[2][j])
             // console.error(payload == null)
             if(bookletClass === sclass.classUnicode)
@@ -221,7 +221,7 @@ async function removeIfBooklet(exams, studentInstance, web3, coinbase) {
       dError('Error while removing booklet exams.', error)
       return reject(error)
     }
-    // console.log('REMOVE IF IN BOOKLET')
+    // // console.log('REMOVE IF IN BOOKLET')
 
     // newClasses = classes
     // return resolve(newClasses)
@@ -234,9 +234,9 @@ async function setIfMarked(examDataInstance, exams, badgeNumber, coinbase, web3)
   return new Promise(async function (resolve, reject) {
     for(let exam of exams) {
       try {
-        // console.log(exam.examUnicode)
+        // // console.log(exam.examUnicode)
         var hash = await examDataInstance.getResultHash(exam.examUnicode, { from: coinbase })
-        // console.log(hash)
+        // // console.log(hash)
         if(web3.toDecimal(hash) !== 0) {
           hash = ipfsPromise.getIpfsHashFromBytes32(hash)
           try {
@@ -254,7 +254,7 @@ async function setIfMarked(examDataInstance, exams, badgeNumber, coinbase, web3)
             return reject(error)
           }
         } else {
-          // console.log('No marks found!')
+          // // console.log('No marks found!')
         }
       } catch(error) {
         dError('Error while reading marks', error)
@@ -270,7 +270,7 @@ async function setIfMarked(examDataInstance, exams, badgeNumber, coinbase, web3)
 
 function dError(text, error) {
   console.error(text)
-  console.log(error)
+  // console.log(error)
   store.dispatch(errorReadingData(req))
   thereWasAnError = true
   alert('There was an error while deploying contracts or reading infos. See the console log.')

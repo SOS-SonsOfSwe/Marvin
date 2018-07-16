@@ -10,7 +10,7 @@ export default class LoadingData extends React.Component {
         return (
             <main className="container">
                 <div className="pure-g">
-                    {/* {console.log('Inside LoadingData page')} */}
+                    {/* {// console.log('Inside LoadingData page')} */}
                     <img src={loadingGif} alt='loading gif' className='loading_gif' />
                 </div>
             </main>

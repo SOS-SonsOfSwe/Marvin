@@ -63,8 +63,8 @@ class AcademicYears extends React.Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {/* {console.log('this.props.data.load: ' + this.props.data)} */}
-                                        {/* {console.log('component: AcademicYear. Data: this.props.data: ' + JSON.stringify(this.props.data))} */}
+                                        {/* {// console.log('this.props.data.load: ' + this.props.data)} */}
+                                        {/* {// console.log('component: AcademicYear. Data: this.props.data: ' + JSON.stringify(this.props.data))} */}
                                         {this.props.academicYears.map((rowData, index) => <Row key={index} {...rowData} />)}
                                     </tbody>
                                 </table>

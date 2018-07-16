@@ -49,7 +49,7 @@ class ExamsTeacherList extends React.Component {
             <div>
                 {load}
                 {empty}
-                {/* {console.log('loadingClasses: ' + this.props.loadingClasses + '\nloadingDegree: ' + this.props.loadingExams } */}
+                {/* {// console.log('loadingClasses: ' + this.props.loadingClasses + '\nloadingDegree: ' + this.props.loadingExams } */}
                 {((this.props.loadingClasses === false && this.props.loadingExams === false && this.props.ipfsLoading !== true) || this.state.selectedClass === "") &&
                     <div>
                         <main className='container'>

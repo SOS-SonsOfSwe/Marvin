@@ -49,12 +49,12 @@ export function signUpUser(userData) {
 
             ipfs.pushFile(userData.uploadedFile)
               .then(hash => {
-                console.log(hash)
+                // console.log(hash)
                 userData.uploadedFile = hash
                 return userData
               })
               .then((userData) => {
-                console.log(userData)
+                // console.log(userData)
 
                 ipfs.pushJSON(userData)
                   .then(hashIPFS => {
@@ -76,7 +76,7 @@ export function signUpUser(userData) {
                       })
                   })
                   .catch(err => {
-                    console.log(err)
+                    // console.log(err)
                     dispatch(ipfsErrorAddingData())
                     dispatch(ipfsNetworkError())
                   })

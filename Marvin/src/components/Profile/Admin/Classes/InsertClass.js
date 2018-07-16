@@ -79,7 +79,7 @@ class InsertClass extends React.Component {
                             <label>Description</label>
                             <input type="text" value={this.state.description} onChange={this.handleChange3} placeholder="Insert a description" />
                             <label> Teacher badge </label>
-                            {console.log("empty: " + this.props.empty)}
+                            {/* { console.log("empty: " + this.props.empty)} */}
                             <select type="text" name="teacher" value={this.state.teacher} onChange={this.handleChange4}>
                                 {<option value="select teacher" disabled={this.state.teacher === "" ? false : true}> -- select a teacher -- </option>}
                                 {this.props.empty === false && this.props.success === true &&

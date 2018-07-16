@@ -9,7 +9,7 @@ const contract = require('truffle-contract')
 
 function dError(text, error) {
   console.error(text)
-  console.log(error)
+  // console.log(error)
   store.dispatch(errorAddingData())
   alert('There was an error while deploying contracts or reading infos. See the console log.')
 }
@@ -59,7 +59,7 @@ export default function subscribeExam(examUnicode) {
           } catch(error) { dError('Error while subscribing exam', error) }
 
           // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
-          // console.log(JSON.stringify(result))
+          // // console.log(JSON.stringify(result))
         } catch(error) {
           dispatch(errorAddingData())
         }

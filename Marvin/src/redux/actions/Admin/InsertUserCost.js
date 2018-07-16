@@ -9,7 +9,7 @@ export default function addDegreeCost(FC, UC, tp) {
   let web3 = store.getState()
     .web3.web3Instance
 
-  if (typeof web3 !== 'undefined') {
+  if(typeof web3 !== 'undefined') {
 
     const admin = contract(AdminContract)
 
@@ -22,7 +22,7 @@ export default function addDegreeCost(FC, UC, tp) {
     var adminInstance
 
     web3.eth.getCoinbase((error, coinbase) => {
-      if (error) {
+      if(error) {
         console.error(error);
       }
 
@@ -43,14 +43,14 @@ export default function addDegreeCost(FC, UC, tp) {
               estimatedGas = result
               costOperationWei = estimatedGas * gasPrice
               costOperationEth = Units.convert(costOperationWei, 'wei', 'eth')
-              // console.log('estimateGas: ' + estimatedGas)
-              // console.log('Cost of the operation in Wei: ' + costOperationWei)
-              // console.log('Cost of the operation in Ether: ' + costOperationEth)
+              // // console.log('estimateGas: ' + estimatedGas)
+              // // console.log('Cost of the operation in Wei: ' + costOperationWei)
+              // // console.log('Cost of the operation in Ether: ' + costOperationEth)
               ethPrice('USD')
                 .then(ethInUsd => {
                   ethInUsd = parseFloat(ethInUsd[0].slice(5))
                   costOperationUsd = ethInUsd * costOperationEth
-                  console.error('Cost of the operation in USD: ' + costOperationUsd)
+                  // console.error('Cost of the operation in USD: ' + costOperationUsd)
                   return costOperationUsd
                 })
 

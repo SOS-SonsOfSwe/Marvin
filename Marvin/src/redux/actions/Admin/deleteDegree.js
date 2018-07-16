@@ -66,13 +66,13 @@ export function deleteDegreeFromDatabase(degreeUnicode, year) {
         // degree.deployed()
         //   .then(degreeInstance => {
         //     degreeInstance.getYearDegreeIndex(degreeUnicode, yearToRefer, { from: coinbase })
-        //       .then(result => console.log(result))
+        //       .then(result => // console.log(result))
         // })
         admin.deployed()
           .then(function (instance) {
             adminInstance = instance
             // var yearToRefer = year.slice(0, 4)
-            console.log('degreeUnicode: ' + degreeUnicode, 'yearToRefer: ' + yearToRefer)
+            // console.log('degreeUnicode: ' + degreeUnicode, 'yearToRefer: ' + yearToRefer)
             adminInstance.removeDegree(degreeUnicode, yearToRefer, { gas: '100000', from: coinbase })
               .then(() => {
                 browserHistory.push('/profile/degrees')

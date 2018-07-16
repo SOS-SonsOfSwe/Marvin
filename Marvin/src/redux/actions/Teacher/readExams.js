@@ -40,7 +40,7 @@ async function removeVotedExams(payload, examData, web3) {
           return examDataInstance.getResultHash(element.examUnicode)
             .then(hash => {
               if(web3.toDecimal(hash) === 0) {
-                // console.log('element:' + JSON.stringify(element))
+                // // console.log('element:' + JSON.stringify(element))
                 if(filteredPayload == null)
                   filteredPayload = [element]
                 else filteredPayload = [...filteredPayload,
@@ -56,7 +56,7 @@ async function removeVotedExams(payload, examData, web3) {
             .catch(function (error) {
               // If error, go to signup page.
               console.error('Error while getting result hash.\n')
-              console.log(error)
+              // console.log(error)
               return reject(error)
               // dispatch(errorReadingData(req))
             })
@@ -65,7 +65,7 @@ async function removeVotedExams(payload, examData, web3) {
       .catch(function (error) {
         // If error, go to signup page.
         console.error('Error while deploying examData.\n')
-        console.log(error)
+        // console.log(error)
         return reject(error)
       })
   })
@@ -115,27 +115,27 @@ export function readExamsFromDatabase(classUnicode) {
 
             // Attempt to read exams per class/class
             classInstance.getClassExamsData(classUnicode, { from: coinbase })
-              // .then(console.log)
+              // .then(// console.log)
               .then(result => {
-                console.log('EXAMS READ RESULT: ')
-                console.log(result)
+                // console.log('EXAMS READ RESULT: ')
+                // console.log(result)
 
                 // checking if the blockchain is empty for this kind of data.
                 // when the blockchain is empty the first numbers it retrieves are:
                 // 0x00000. When it's full it's 0xsomething. So we check the first number
                 // after "x" to be not equal to zero.
-                // console.log(web3.toUtf8(result[0]))
+                // // console.log(web3.toUtf8(result[0]))
                 // for degree result[0] is the actual array of unicodes of the degree
                 // result[1] is the list of its respectively IPFS hash
-                // console.log('web3ToHex: ' + web3.toHex(result[0][0]))
+                // // console.log('web3ToHex: ' + web3.toHex(result[0][0]))
 
-                // console.log(result[0].length === 0)
+                // // console.log(result[0].length === 0)
                 // console.error(result[0].length === 0)
                 if(result[0].length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
 
-                  // console.log('result[0] : ' + web3.toHex(result[0]))
+                  // // console.log('result[0] : ' + web3.toHex(result[0]))
 
                   var payload
                   var i = 0;
@@ -157,9 +157,9 @@ export function readExamsFromDatabase(classUnicode) {
                     var exam = result[2][i]
                     var hash = result[0][i]
                     var teac = web3.toDecimal(result[1][i])
-                    // console.log("teacher: " + teac)
+                    // // console.log("teacher: " + teac)
                     var exUni = web3.toUtf8(exam)
-                    // console.log('dgr: ' + dgr)
+                    // // console.log('dgr: ' + dgr)
                     hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
                     // i'm storing the informations inside the description. We will retrieve them later.
                     if(i === 0) { // first element of array
@@ -185,7 +185,7 @@ export function readExamsFromDatabase(classUnicode) {
                           .catch(function (error) {
                             // If error, go to signup page.
                             console.error('Error while reading ipfs informations.')
-                            console.log(error)
+                            // console.log(error)
                             dispatch(errorReadingData(req))
                             // return browserHistory.push('/profile')
                           })
@@ -195,8 +195,8 @@ export function readExamsFromDatabase(classUnicode) {
               })
               .catch(function (result) {
                 // If error, go to signup page.
-                console.error('Error while reading infos: ' + result)
-                console.error('Wallet ' + coinbase + 'encountered an error!')
+                // console.error('Error while reading infos: ' + result)
+                // console.error('Wallet ' + coinbase + 'encountered an error!')
                 // dispatch(eraseAdminReducerInfo())
                 // dispatch(eraseIpfsReducerInfo())
                 return browserHistory.push('/profile')

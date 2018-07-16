@@ -33,7 +33,7 @@ describe('<ExamStudentList/>', () => {
             false,
             "00",
         )
-        console.log("aaaaaaaaaaa"+wrapper.debug());
+        // console.log("aaaaaaaaaaa"+wrapper.debug());
         //expect(wrapper.find(ExamList).length).to.equal(1);
     });
 });

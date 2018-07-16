@@ -10,6 +10,7 @@ import {
   readingData,
   dataRead,
   dataEmpty,
+  errorReadingData,
 } from '../StandardDispatches/readingData'
 
 // import ipfsPromise from '../../../../api/utils/ipfsPromise'
@@ -66,24 +67,24 @@ export function readClassesFromDatabase() {
             // Attempt to read degrees per year
             teacherInstance.myClasses({ from: coinbase })
               .then(result => {
-                // console.log('CLASSES READ RESULT: ')
-                // console.log(result)
+                // // console.log('CLASSES READ RESULT: ')
+                // // console.log(result)
 
                 // checking if the blockchain is empty for this kind of data.
                 // when the blockchain is empty the first numbers it retrieves are:
                 // 0x00000. When it's full it's 0xsomething. So we check the first number
                 // after "x" to be not equal to zero.
-                // console.log(web3.toUtf8(result[0]))
+                // // console.log(web3.toUtf8(result[0]))
                 // for teacher result[0] is the actual array of unicodes of the teacher
                 // result[1] is the list of its respectively IPFS hash
-                // console.log('web3ToHex: ' + web3.toHex(result[0][0]))
+                // // console.log('web3ToHex: ' + web3.toHex(result[0][0]))
 
                 // console.error(web3.toUtf8(result[0]))
 
                 if(result.length === 0) {
                   dispatch(dataEmpty(req))
                 } else {
-                  //   // console.log('result[0] : ' + web3.toHex(result[0]))
+                  //   // // console.log('result[0] : ' + web3.toHex(result[0]))
 
                   var payload
 
@@ -146,9 +147,10 @@ export function readClassesFromDatabase() {
                 }
               })
               .catch(function (result) {
+                dispatch(errorReadingData(req))
                 // If error, go to signup page.
-                console.error('Error while reading infos: ' + result)
-                console.error('Wallet ' + coinbase + 'encountered an error!')
+                // console.error('Error while reading infos: ' + result)
+                // console.error('Wallet ' + coinbase + 'encountered an error!')
                 // dispatch(eraseAdminReducerInfo())
                 // dispatch(eraseIpfsReducerInfo())
                 return browserHistory.push('/profile')

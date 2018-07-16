@@ -60,7 +60,7 @@ export default function addNewDegree(degreeUnicode, year, degreeData) {
 
                 var hash = ipfsPromise.getBytes32FromIpfsHash(hashIPFS)
                 // var hash = 'ciao'
-                console.log('Degree ipfsHash: ' + hashIPFS)
+                // console.log('Degree ipfsHash: ' + hashIPFS)
                 adminIstance = instance
                 // dispatching action for make the reducer know we are making the transaction
                 dispatch(addingData())

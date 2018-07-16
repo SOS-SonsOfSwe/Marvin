@@ -107,14 +107,14 @@ class Exams extends React.Component {
                                     <label className="select-class" htmlFor="degree"> Select degree </label>
                                     <select disabled={this.state.selectedYears === "" ? true : false} type="text" name="degree" value={this.state.selectedDegree} onChange={this.onSelectChangeDC}>
                                         {<option value="select degree" disabled={this.state.selectedDegree === "" ? false : true}> -- select a degree -- </option>}
-                                        {console.log('this.props.degrees: ' + JSON.stringify(this.props.degrees))}
+                                        {/* { console.log('this.props.degrees: ' + JSON.stringify(this.props.degrees))} */}
                                         {this.props.emptyDegrees === false && this.props.successDegree === true &&
                                             this.props.degrees.map((rowData, index) => <OptionsDC key={index} {...rowData} />)}
                                     </select>
                                     <label className="select-class" htmlFor="classes"> Select class </label>
                                     <select disabled={this.state.selectedYears === "" || this.state.selectedDegree === "" ? true : false} type="text" name="class" value={this.state.selectedClass} onChange={this.onSelectChange}>
                                         {<option value="select class" disabled={this.state.selectedClass === "" ? false : true}> -- select a class -- </option>}
-                                        {console.log('this.props.classes: ' + JSON.stringify(this.props.classes))}
+                                        {/* { console.log('this.props.classes: ' + JSON.stringify(this.props.classes))} */}
                                         {this.props.emptyClasses === false && this.props.successClasses === true &&
                                             this.props.classes.map((rowData, index) => <OptionsC key={index} {...rowData} />)}
                                     </select>

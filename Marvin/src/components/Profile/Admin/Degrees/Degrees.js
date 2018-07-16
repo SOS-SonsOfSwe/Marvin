@@ -60,7 +60,7 @@ class Degrees extends React.Component {
             <div>
                 {load}
                 {empty}
-                {/* {console.log('loadingAcademic: ' + this.props.loadingAcademic + '\nloadingDegree: ' + this.props.loadingDegree)} */}
+                {/* {// console.log('loadingAcademic: ' + this.props.loadingAcademic + '\nloadingDegree: ' + this.props.loadingDegree)} */}
                 {((this.props.loadingAcademic === false && this.props.loadingDegree === false && this.props.ipfsLoading !== true) || this.state.selectedYears === "") &&
                     <div>
                         <main className='container'>

@@ -64,7 +64,7 @@ async function processIPFSLoad(payload) {
       }
       // here I overwrite the description information with the JSON returning from the ipfs
     }))
-    // console.log(payload)
+    // // console.log(payload)
     store.dispatch(ipfsDataRead())
     return resolve(payload)
   })
@@ -74,7 +74,7 @@ async function readExams(classInstance, classes, web3, coinbase) {
   var payload
   return new Promise(async function (resolve, reject) { // for(let sclass of classes)
     await Promise.all(classes.map(async classUnicode => {
-      // console.log(sclass)
+      // // console.log(sclass)
       // var payloadToReturn
       try {
         var result = await classInstance.getClassExamsData(classUnicode, { from: coinbase })
@@ -82,8 +82,8 @@ async function readExams(classInstance, classes, web3, coinbase) {
         // result[1] = examsTeacher
         // result[2] = examUnicode
 
-        // console.log('EXAMS READ RESULT: ')
-        // console.log(result)
+        // // console.log('EXAMS READ RESULT: ')
+        // // console.log(result)
 
         if(result[0].length === 0) {
           return payload
@@ -94,11 +94,11 @@ async function readExams(classInstance, classes, web3, coinbase) {
             var exam = result[2][j]
             var hash = result[0][j]
             var teac = web3.toDecimal(result[1])
-            // console.log("teacher: " + teac)
+            // // console.log("teacher: " + teac)
             var exUni = web3.toUtf8(exam)
-            // console.log('dgr: ' + dgr)
+            // // console.log('dgr: ' + dgr)
             hashIPFS = ipfsPromise.getIpfsHashFromBytes32(hash)
-            // console.log("hash: " + hashIPFS)
+            // // console.log("hash: " + hashIPFS)
             // i'm storing the informations inside the description. We will retrieve them later.
             // console.error(payload == null)
             if(payload == null) { // first element of array
@@ -115,7 +115,7 @@ async function readExams(classInstance, classes, web3, coinbase) {
       }
     }))
     try {
-      // console.log(payload)
+      // // console.log(payload)
       if(payload != null) {
         var newPayload = await processIPFSLoad(payload)
         newPayload.sort((a, b) => new Date(b.load.date) - new Date(a.load.date))
@@ -132,7 +132,7 @@ async function readExams(classInstance, classes, web3, coinbase) {
 async function removeIfBooklet(classes, studentInstance, web3, coinbase) {
   return new Promise(async function (resolve, reject) {
     try {
-      // console.log(classes)
+      // // console.log(classes)
       var booklet = await studentInstance.booklet({ from: coinbase })
       if(booklet[0].length === 0) {
         return resolve(classes)
@@ -142,17 +142,17 @@ async function removeIfBooklet(classes, studentInstance, web3, coinbase) {
         for(let sclass of classes) {
           for(let j = 0; j < booklet[0].length; j++) {
             var bookletClass = web3.toUtf8(booklet[2][j])
-            console.log(bookletClass)
+            // console.log(bookletClass)
             // console.error(payload == null)
             if(bookletClass === sclass)
               index[i++] = classes.indexOf(sclass)
           }
         }
         for(let i = index.length - 1; i >= 0; i--) {
-          // console.log(index[i])
+          // // console.log(index[i])
           classes.splice(index[i], 1)
         }
-        // console.log(classes)
+        // // console.log(classes)
         if(classes.length === 0) return resolve(null)
         return resolve(classes)
       }
@@ -160,7 +160,7 @@ async function removeIfBooklet(classes, studentInstance, web3, coinbase) {
       dError('Error while removing booklet exams.', error)
       return reject(error)
     }
-    // console.log('REMOVE IF IN BOOKLET')
+    // // console.log('REMOVE IF IN BOOKLET')
 
     // newClasses = classes
     // return resolve(newClasses)
@@ -168,7 +168,7 @@ async function removeIfBooklet(classes, studentInstance, web3, coinbase) {
 }
 
 // async function removeIfMarked(examDataInstance, exams, coinbase, web3) {
-//   console.log('REMOVE IF MARKED')
+//   // console.log('REMOVE IF MARKED')
 //   var newExams
 //   return new Promise(async function (resolve, reject) {
 //     for(let exam of exams) {
@@ -182,7 +182,7 @@ async function removeIfBooklet(classes, studentInstance, web3, coinbase) {
 //               exam
 //             ]
 //         } else {
-//           console.log('No marks found!')
+//           // console.log('No marks found!')
 //         }
 //       } catch(error) {
 //         dError('Error while reading marks hash', error)
@@ -194,7 +194,7 @@ async function removeIfBooklet(classes, studentInstance, web3, coinbase) {
 // }
 
 async function removeIfSubscribed(studentDataInstance, exams, badgeNumber, coinbase, web3) {
-  // console.log('REMOVE IF MARKED')
+  // // console.log('REMOVE IF MARKED')
   return new Promise(async function (resolve, reject) {
     // var newExams
     try {
@@ -207,11 +207,11 @@ async function removeIfSubscribed(studentDataInstance, exams, badgeNumber, coinb
     var index = []
     for(let exam of exams) {
       for(let subExam of subscribedExams) {
-        // console.log(web3.toUtf8(subExam) !== exam.examUnicode)
-        // console.log(web3.toUtf8(subExam))
-        // console.log(exam.examUnicode)
+        // // console.log(web3.toUtf8(subExam) !== exam.examUnicode)
+        // // console.log(web3.toUtf8(subExam))
+        // // console.log(exam.examUnicode)
         if(web3.toUtf8(subExam) === exam.examUnicode) {
-          // console.log(exams.indexOf(exam))
+          // // console.log(exams.indexOf(exam))
           index[i++] = exams.indexOf(exam)
         }
       }
@@ -219,14 +219,14 @@ async function removeIfSubscribed(studentDataInstance, exams, badgeNumber, coinb
     for(let i = index.length - 1; i >= 0; i--) {
       exams.splice(index[i], 1)
     }
-    // console.log(exams)
+    // // console.log(exams)
     return resolve(exams)
   })
 }
 
 function dError(text, error) {
   console.error(text)
-  console.log(error)
+  // console.log(error)
   store.dispatch(errorReadingData(req))
   thereWasAnError = true
   alert('There was an error while deploying contracts or reading infos. See the console log.')

@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import {OnlyAuthLinks} from '../App/NavButtons';
 // import {mount} from 'jsdom'
 import { mount } from 'enzyme'
-// console.log('LoginButton.test.js')
+// // console.log('LoginButton.test.js')
 
 describe('<OnlyAuthLinks/>', () => {
     it('renders without exploding', () => {

@@ -11,7 +11,7 @@ class ProfileIntro extends Component {
 
   render() {
     // const rows = this.props.authData.payload.image.map((rowData, index) => <Row key={index} {...rowData} />);
-    console.log(this.props.authData.payload.image)
+    // console.log(this.props.authData.payload.image)
     return (
       <div className="pure-u-1-1">
         <h1>Profile</h1>

@@ -155,14 +155,14 @@ export default class ipfsPromise {
   //       if(buffer) { // check better!
   //         // .then((buffer) => {
   //         var blob = new Blob([buffer], { type: "image/jpg" })
-  //         console.log(blob)
+  //         // console.log(blob)
   //         var urlCreator = window.URL || window.webkitURL;
   //         var imageUrl = urlCreator.createObjectURL(blob);
   //         var img = new Image();
-  //         console.log(img)
-  //         console.log(imageUrl)
+  //         // console.log(img)
+  //         // console.log(imageUrl)
   //         img.src = imageUrl;
-  //         console.log(JSON.stringify(img))
+  //         // console.log(JSON.stringify(img))
   //         return resolve(img)
   //       }
   //     } catch(error) {
@@ -179,7 +179,7 @@ export default class ipfsPromise {
     return new Promise(async (resolve, reject) => {
       try {
         var response = await promiseTimeout(50000, this.ipfsapi.add(buffer))
-        if(response) // console.log(response[0].hash)
+        if(response) // // console.log(response[0].hash)
           return resolve(response[0].hash)
       } catch(error) {
         console.error(error)
@@ -190,14 +190,14 @@ export default class ipfsPromise {
     })
   }
 
-  // console.log(reader)
+  // // console.log(reader)
   // const reader = new FileReader();
   // reader.readAsArrayBuffer(files); // Read Provided File
   // reader.onloadend = function () {
-  // console.log(reader)
+  // // console.log(reader)
 
   // let url = `https://ipfs.io/ipfs/${result[0].hash}`
-  // console.log(`Url --> ${url}`)
+  // // console.log(`Url --> ${url}`)
   // document.getElementById("url").innerHTML= url
   // document.getElementById("url").href= url
   // document.getElementById("output").src = url

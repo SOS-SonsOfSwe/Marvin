@@ -65,7 +65,7 @@ async function processIPFSLoad(payload) {
       }
       // here I overwrite the description information with the JSON returning from the ipfs
     }))
-    // console.log(payload)
+    // // console.log(payload)
     store.dispatch(ipfsDataRead())
     return resolve(payload)
   })
@@ -73,7 +73,7 @@ async function processIPFSLoad(payload) {
 
 function dError(text, error) {
   console.error(text)
-  console.log(error)
+  // console.log(error)
   store.dispatch(errorReadingData(req))
   //   thereWasAnError = true
   alert('There was an error while deploying contracts or reading infos. See the console log.')
@@ -107,8 +107,8 @@ export default function readBooklet() {
           var studentInstance = await Student.deployed()
           try {
             var bookletClasses = await studentInstance.booklet({ from: coinbase })
-            console.log("booklet from blockchain: ")
-            console.log(bookletClasses)
+            // console.log("booklet from blockchain: ")
+            // console.log(bookletClasses)
             if(bookletClasses[0].length === 0) dispatch(dataEmpty(req))
             else {
               var hashIPFS
@@ -133,7 +133,7 @@ export default function readBooklet() {
                 try {
                   var processedBooklet = await processIPFSLoad(booklet)
                   return doAwesomeStuff(processedBooklet)
-                  // console.log(processedBooklet)
+                  // // console.log(processedBooklet)
                 } catch(error) {
                   dError('Error while processing ipfs infos', error)
                 }

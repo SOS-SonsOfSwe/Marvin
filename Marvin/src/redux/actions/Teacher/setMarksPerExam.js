@@ -54,7 +54,7 @@ export default function setMarkPerExams(examUnicode, classUnicode, marks) {
 
                 var hash = ipfsPromise.getBytes32FromIpfsHash(hashIPFS)
                 // var hash = 'ciao'
-                console.log('Marks ipfsHash: ' + hashIPFS)
+                // console.log('Marks ipfsHash: ' + hashIPFS)
                 teacherInstance = instance
                 // dispatching action for make the reducer know we are making the transaction
                 dispatch(addingData())

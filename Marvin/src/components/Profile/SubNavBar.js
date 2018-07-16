@@ -10,7 +10,7 @@ export default class SubNavBar extends Component {
         this.toggleMobile = this.toggleMobile.bind(this)
     }
          toggleMobile(){
-            console.log("toggleMobile")
+            // console.log("toggleMobile")
             this.setState({mobile: !this.state.mobile})
         }
     

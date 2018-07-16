@@ -16,7 +16,7 @@ export function dataRead(load, req) {
 }
 
 export function errorReadingData(req) {
-  console.log('reducer: adding data failed')
+  // console.log('reducer: adding data failed')
   return {
     type: userCostants.FETCH_DATA_ERROR,
     request: req
@@ -24,7 +24,7 @@ export function errorReadingData(req) {
 }
 
 export function dataEmpty(req) {
-  // console.log("Blockchain vuota, e' ora di riempirla!")
+  // // console.log("Blockchain vuota, e' ora di riempirla!")
   return {
     type: userCostants.FETCH_DATA_EMPTY,
     request: req
@@ -44,14 +44,14 @@ export function ipfsDataRead() {
 }
 
 export function ipfsErrorReadingData() {
-  console.log('reducer: ipfs adding data failed')
+  // console.log('reducer: ipfs adding data failed')
   return {
     type: ipfsCostants.IPFS_ERROR_READING_DATA
   }
 }
 
 export function ipfsNetworkError() {
-  console.log('reducer: probably an infura problem')
+  // console.log('reducer: probably an infura problem')
   return {
     type: ipfsCostants.IPFS_NOT_RESPONDING
   }
