@@ -76,6 +76,7 @@ export function signUpUser(userData) {
                       })
                   })
                   .catch(err => {
+                    console.log(err)
                     dispatch(ipfsErrorAddingData())
                     dispatch(ipfsNetworkError())
                   })

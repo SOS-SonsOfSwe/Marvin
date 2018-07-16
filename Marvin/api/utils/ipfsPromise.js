@@ -37,7 +37,7 @@ export default class ipfsPromise {
         port: '5001'
       })
     } else {
-      // this.ipfs = instance.ipfs
+      this.ipfs = instance.ipfs
       this.ipfsapi = instance.ipfsapi
     }
   }
@@ -83,7 +83,8 @@ export default class ipfsPromise {
 
   pushJSON(jsonPARAM) {
     var buf = Buffer.from(JSON.stringify(jsonPARAM));
-    return this.ipfsapi.add(buf) //, function (err, data) {
+    return this.ipfsapi.add(buf)
+      .then(hash => hash[0].hash) //, function (err, data) {
   }
 
   // getJSON(hashIpfsPARAM) {
