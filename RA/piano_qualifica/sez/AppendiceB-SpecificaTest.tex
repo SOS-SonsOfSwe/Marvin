@@ -1,7 +1,7 @@
 \pagebreak
 \section{Specifica dei test}
 Questa sezione definirà i test che verranno implementati ed eseguiti dal team al fine di garantire, in seguito al loro superamento, la creazione di software di alta qualità che soddisfi le richieste ed aspettative del proponente. 
-Ogni test viene riconosciuto tramite un identificativo univoco, la cui sintassi è descritta nelle \NdP (§3.2.2) e può assumere uno tra questi stati: \Tni, \Ti, \Ts. 
+Ogni test viene riconosciuto tramite un identificativo univoco, la cui sintassi è descritta nelle \NdP (§3.2.2) e può assumere uno tra questi stati: \Ts, \Ti, \Ts. 
 Dato che il progetto è ancora alla fase iniziale, si presume che questa sezione sarà soggetta a modifiche basate sulle esigenze ed i problemi che si incontreranno durante lo sviluppo.
 
 \subsection{Test di validazione}
@@ -28,7 +28,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 		\item Verificare che \emph{metamask}\ped{G} sia attivato correttamente;
 		\item Confermare la registrazione;
 		\item Verificare che la creazione sia andata a buon fine effettuando un login;	
-	\end{enumerate} & \Tni \\
+	\end{enumerate} & \Ts \\
 	\hline
 	TV2F1.8 & L'utente non autenticato desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati per la registrazione in maniera errata. \newline \begin{flushleft}
 		Azioni:\newline
@@ -36,7 +36,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 		\begin{enumerate}
 			\item Riempire i campi dato con informazioni già presenti, non valide o nulle;
 			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 	\hline
 	TV0F2 & L’utente non autenticato desidera autenticarsi una volta registrato.\newline \begin{flushleft}
 		Azioni:\newline
@@ -45,7 +45,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Verificare che metamask sia attivato correttamente;
 			\item Cliccare il pulsante di login;
 			\item Verificare che il sistema segnali la corretta autenticazione.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 	\hline
 	TV0F3 & L'utente amministratore o l'utente università desidera aggiungere un anno accademico alla lista degli anni accademici. \newline \begin{flushleft}
 		Azioni:\newline
@@ -58,7 +58,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Inserire il nome dell'anno accademico;
 			\item Confermare l'aggiunta dell'anno accademico;
 			\item Verificare che l'aggiunta sia andata a buon fine cercando l'anno accademico appena aggiunto nella pagina dedicata alla lista degli anni accademici.
-		\end{enumerate} & \Tni \\ 
+		\end{enumerate} & \Ts \\ 
 	\hline
 	TV2F3.5 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati relativi ad un anno accademico in maniera errata. \newline \begin{flushleft}
 		Azioni:\newline
@@ -67,7 +67,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Verificare di essere correttamente autenticato come amministratore o come università;
 			\item Riempire i campi dato  relativi con informazioni errate o nulle;
 			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 	\hline
 	TV0F4 & L'utente amministratore o l'utente università desidera aggiungere un corso di laurea alla lista dei corsi di laurea. \newline \begin{flushleft}
 		Azioni:\newline
@@ -81,7 +81,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Inserire la tipologia del corso di laurea;
 			\item Confermare l'aggiunta del corso di laurea;
 			\item Verificare che l'aggiunta sia andata a buon fine cercando il corso di laurea appena aggiunto nella pagina dedicata alla lista dei corsi di laurea.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 	\hline
 	TV2F4.7 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati relativi ad un corso di laurea in maniera errata. \newline \begin{flushleft}
 		Azioni:\newline
@@ -90,7 +90,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 		\item Verificare di essere correttamente autenticato come amministratore o come università;
 		\item Riempire i campi dato con informazioni errate o nulle;
 		\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-	\end{enumerate}  & \Tni \\
+	\end{enumerate}  & \Ts \\
 	\hline
 	TV0F5 & L'utente amministratore o l'utente università desidera aggiungere un'attività didattica alla lista delle attività didattiche. \newline \begin{flushleft}
 		Azioni:\newline
@@ -106,7 +106,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Inserire il periodo all'attività didattica;
 			\item Confermare l'aggiunta dell'attività didattica;
 			\item Verificare che l'aggiunta sia andata a buon fine cercando l'attività didattica appena aggiunta nella pagina dedicata alla lista delle attività didattiche.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 	\hline
 	TV2F5.9 &  L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati relativi ad un'attività didattica in maniera errata. \newline \begin{flushleft}
 		Azioni:\newline
@@ -115,7 +115,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 		\item Verificare di essere correttamente autenticato come amministratore o come università;
 		\item Riempire i campi dato con informazioni errate o nulle;
 		\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-	\end{enumerate}  & \Tni \\
+	\end{enumerate}  & \Ts \\
 	\hline
 	TV0F6 & L'utente amministratore o l'utente università desidera aggiungere un esame alla lista degli esami. \newline \begin{flushleft}
 		Azioni:\newline
@@ -131,7 +131,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Inserire il luogo dell'esame;
 			\item Confermare l'aggiunta dell'esame.
 			\item Verificare che l'aggiunta sia andata a buon fine cercando l'esame appena aggiunto nella pagina dedicata alla lista degli esami.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 	\hline
 	TV2F6.9 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati relativi ad un esame in maniera errata. \newline \begin{flushleft}
 		Azioni:\newline
@@ -140,7 +140,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 		\item Verificare di essere correttamente autenticato come amministratore o come università;
 		\item Riempire i campi dato con informazioni errate o nulle;
 		\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-	\end{enumerate} & \Tni \\
+	\end{enumerate} & \Ts \\
 	\hline
 	TV2F7 & L'utente amministratore o l'utente università desidera modificare un anno accademico nella lista degli anni accademici. \newline \begin{flushleft}
 		Azioni:\newline
@@ -151,7 +151,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 		\item Modificare i dati desiderati (modifiche possibili: inizio e fine dell'anno accademico);
 		\item Confermare la modifica dell'anno accademico;
 		\item Verificare che l'operazione sia andata a buon fine controllando che i dati siano aggiornati secondo le modifiche appena effettuate nella pagina dedicata all'anno accademico.
-	\end{enumerate} & \Tni \\ 
+	\end{enumerate} & \Ts \\ 
 	\hline
 	TV2F7.5 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia modifica i dati relativi ad un anno accademico in maniera errata. \newline \begin{flushleft}
 		Azioni:\newline
@@ -160,7 +160,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 		\item Verificare di essere correttamente autenticato come amministratore o come università;
 		\item Modificare i dati con informazioni errate o nulle;
 		\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-	\end{enumerate} & \Tni \\
+	\end{enumerate} & \Ts \\
 	\hline
 	TV2F8 & L'utente amministratore o l'utente università desidera modificare un corso di laurea nella lista dei corsi di laurea. \newline \begin{flushleft}
 		Azioni:\newline
@@ -171,7 +171,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Modificare i dati desiderati (modifiche possibili: codice, nome, descrizione, tipologia del corso di laurea);
 			\item Confermare la modifica del corso di laurea;
 			\item Verificare che l'operazione sia andata a buon fine controllando che i dati siano aggiornati secondo le modifiche appena effettuate nella pagina dedicata al corso di laurea.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F8.7 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia modificato i dati relativi ad un corso di laurea in maniera errata. \newline \begin{flushleft}
 			Azioni:\newline
@@ -180,7 +180,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Verificare di essere correttamente autenticato come amministratore o come università;
 			\item Modificare i dati con informazioni errate o nulle;
 			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate}  & \Tni \\
+		\end{enumerate}  & \Ts \\
 		\hline
 		TV2F9 & L'utente amministratore o l'utente università desidera aggiungere un'attività didattica alla lista delle attività didattiche. \newline \begin{flushleft}
 			Azioni:\newline
@@ -191,7 +191,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Modificare i dati desiderati (modifiche possibili: codice, nome, descrizione, professore, crediti, periodo dell'attività didattica);
 			\item Confermare la modifica dell'attività didattica;
 			\item Verificare che l'operazione sia andata a buon fine controllando che i dati siano aggiornati secondo le modifiche appena effettuate nella pagina dedicata all'attività didattica.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F9.9 &  L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia modificato i dati relativi ad un'attività didattica in maniera errata. \newline \begin{flushleft}
 			Azioni:\newline
@@ -200,7 +200,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Verificare di essere correttamente autenticato come amministratore o come università;
 			\item Modificare i dati con informazioni errate o nulle;
 			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate}  & \Tni \\
+		\end{enumerate}  & \Ts \\
 		\hline
 		TV2F10 & L'utente amministratore o l'utente università desidera modificare un esame nella lista degli esami. \newline \begin{flushleft}
 			Azioni:\newline
@@ -211,7 +211,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Modificare i dati desiderati (modifiche possibili: codice, descrizione, intervallo di prenotazione, data, tipologia, luogo dell'esame);
 			\item Confermare la modifica dell'esame;
 			\item Verificare che l'operazione sia andata a buon fine controllando che i dati siano aggiornati secondo le modifiche appena effettuate nella pagina dedicata all'esame.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F10.9 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia modificato i dati relativi ad un esame in maniera errata. \newline \begin{flushleft}
 			Azioni:\newline
@@ -220,7 +220,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Verificare di essere correttamente autenticato come amministratore o come università;
 			\item Modificare i dati con informazioni errate o nulle;
 			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F11 & L'utente amministratore o l'utente università desidera eliminare un anno accademico dalla lista degli anni accademici. \newline \begin{flushleft}
 			Azioni:\newline
@@ -230,7 +230,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Entrare nella pagina della lista degli anni accademici;
 			\item Cliccare il pulsante per l'eliminazione dell'anno accademico scelto;
 			\item Verificare che l'anno accademico sia stato effettivamente cancellato dalla lista.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F12 & L'utente amministratore o l'utente università desidera eliminare un corso di laurea dalla lista dei corsi di laurea. \newline \begin{flushleft}
 			Azioni:\newline
@@ -240,7 +240,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Entrare nella pagina della lista dei corsi di laurea;
 			\item Cliccare il pulsante per l'eliminazione del corso di laurea scelto;
 			\item Verificare che il corso di laurea sia stato effettivamente cancellato dalla lista.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F13 & L'utente amministratore o l'utente università desidera eliminare un'attività didattica dalla lista delle attività didattiche. \newline \begin{flushleft}
 			Azioni:\newline
@@ -250,7 +250,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Entrare nella pagina della lista delle attività didattiche;
 			\item Cliccare il pulsante per l'eliminazione dell'attività didattica scelta;
 			\item Verificare che l'attività didattica sia stata effettivamente cancellata dalla lista.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F14 & L'utente amministratore o l'utente università desidera eliminare un esame dalla lista degli esami associati ad un'attività didattica. \newline \begin{flushleft}
 			Azioni:\newline
@@ -260,7 +260,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Entrare nella pagina della lista degli esami associati ad un'attività didattica;
 			\item Cliccare il pulsante per l'eliminazione dell'esame scelto;
 			\item Verificare che l'esame sia stato effettivamente cancellato dalla lista.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F15 & L'utente amministratore o l'utente università desidera inserire un professore associato ad un esame. \newline \begin{flushleft}
 			Azioni:\newline
@@ -273,7 +273,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Scegliere il professore;
 			\item Confermare l'aggiunta;
 			\item Verificare che il professore sia stato effettivamente aggiunto controllando la sezione relativa ai professori nella pagina dell'esame.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F16 & L'utente studente desidera iscriversi ad un esame. \newline \begin{flushleft}
 			Azioni:\newline
@@ -285,7 +285,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Cliccare il pulsante per l'iscrizione;
 			\item Confermare l'iscrizione.
 			\item Verificare che l'iscrizione sia andata a buon fine ricercando l'esame a cui ci si è appena iscritti nella pagina relativa a tutti gli esami a cui l'utente ha effettuato l'iscrizione.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV0F17 & L'utente professore desidera visualizzare la lista degli esami a lui associati. \newline \begin{flushleft}
 			Azioni:\newline
@@ -294,7 +294,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Verificare di essere correttamente autenticato come professore;
 			\item Entrare nella pagina dedicata agli esami associati all'utente;
 			\item Verificare che che il sistema visualizzi correttamente la lista di tutti gli esami a cui il professore è stato precedentemente associato.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV0F18 & L'utente professore desidera visualizzare la lista degli studenti iscritti ad un suo esame. \newline \begin{flushleft}
 			Azioni:\newline
@@ -304,7 +304,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Entrare nella pagina dedicata agli esami associati all'utente;
 			\item Cliccare il pulsante per la visualizzazione degli studenti iscritti a fianco all'esame scelto;
 			\item Verificare che che il sistema visualizzi correttamente la lista di tutti gli studenti che si sono precedentemente iscritti all'esame.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV0F20 & L'utente studente desidera eliminare l'iscrizione ad un esame. \newline \begin{flushleft}
 			Azioni:\newline
@@ -314,7 +314,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Entrare nella pagina dedicata alla lista degli esami a cui l'utente è iscritto;
 			\item Cliccare il pulsante "Elimina iscrizione" a fianco all'esame da cui ci si vuole disiscrivere;
 			\item Verificare che che l'eliminazione sia andata a buon fine controllando che l'esame non sia più presente nella lista.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV0F21 & L'utente studente desidera rifiutare il voto di un esame. \newline \begin{flushleft}
 			Azioni:\newline
@@ -325,7 +325,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Entrare nella pagina relativa al risultato che si intende rifiutare;
 			\item Cliccare il pulsante "Rifiuta voto";
 			\item Verificare che il voto sia stato effettivamente rifiutato controllando che esso non sia più presente nella lista dei risultati.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV0F22 & L'utente professore desidera modificare gli esami a lui associati. \newline \begin{flushleft}
 			Azioni:\newline
@@ -337,7 +337,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Modificare i dati desiderati (modifiche possibili: intervallo di prenotazione, data, luogo dell'esame);
 			\item Confermare le modifiche;
 			\item Verificare che il voto sia stato effettivamente rifiutato controllando che esso non sia più presente nella lista dei risultati.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F22.6 & L'utente professore desidera visualizzare un messaggio d'errore nel caso in cui abbia modificato i dati relativi ad un esame a lui associato in maniera errata. \newline \begin{flushleft}
 			Azioni:\newline
@@ -345,7 +345,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 		\begin{enumerate}
 			\item Modificare i dati con informazioni errate o nulle;
 			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV0F23 & L'utente professore desidera registrare il voto relativo ad un esame di uno studente. \newline \begin{flushleft}
 			Azioni:\newline
@@ -357,7 +357,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Inserire il voto nell'apposito campo;
 			\item Confermare le modifiche;
 			\item Verificare che il sistema visualizzi un avviso di corretto inserimento del risultato.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F23.3 & L'utente professore desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito un voto in maniera errata. \newline \begin{flushleft}
 			Azioni:\newline
@@ -365,7 +365,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 		\begin{enumerate}
 			\item Inserire il voto con un formato errato;
 			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV0F24 & L'utente amministratore o l'utente università desidera creare ed inserire un nuovo utente nel sistema. \newline \begin{flushleft}
 			Azioni:\newline
@@ -377,7 +377,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Inserire la matricola;
 			\item Inserire il codice univoco;
 			\item Verificare che l'utente sia stato effettivamente inserito ricercandolo nella pagina dedicata alla visualizzazione della lista degli utenti iscritti.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV2F24.6 & L'utente amministratore o l'utente università desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati relativi ad un utente in maniera errata. \newline \begin{flushleft}
 			Azioni:\newline
@@ -385,7 +385,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 		\begin{enumerate}
 			\item Inserire i dati in maniera errata;
 			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV0F25 & L'utente amministratore o l'utente università desidera rimuovere un utente dal sistema. \newline \begin{flushleft}
 			Azioni:\newline
@@ -396,7 +396,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Cliccare il pulsante relativo alla rimozione di un utente a fianco all'utente che si vuole rimuovere;
 			\item Confermare la rimozione;
 			\item Verificare che l'utente sia stato effettivamente rimosso controllando che non sia presente nella pagina dedicata alla visualizzazione della lista degli utenti iscritti.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 			TV0F26 & L'utente studente desidera visualizzare il proprio libretto. \newline \begin{flushleft}
 			Azioni:\newline
@@ -405,7 +405,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Verificare di essere correttamente autenticato come studente;
 			\item Entrare nella pagina dedicata alla visualizzazione del libretto dell'utente;
 			\item Verificare che il sistema visualizzi correttamente tutti gli esami sostenuti o da sostenere da parte dell'utente.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV0F27 & L'utente professore desidera visualizzare la lista degli esami a lui associati. \newline \begin{flushleft}
 			Azioni:\newline
@@ -414,7 +414,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Verificare di essere correttamente autenticato come professore;
 			\item Entrare nella pagina dedicata alla visualizzazione della lista degli esami associati all'utente;
 			\item Verificare che il sistema visualizzi correttamente tutti gli esami precedentemente associati all'utente.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 		\hline
 		TV0F28 & L'utente professore desidera visualizzare la lista degli studenti iscritti ad uno degli esami a lui associati. \newline \begin{flushleft}
 			Azioni:\newline
@@ -424,7 +424,7 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 			\item Entrare nella pagina dedicata alla visualizzazione della lista degli esami associati all'utente;
 			\item Entrare nella pagina dedicata all'esame di cui si vogliono conoscere gli studenti iscritti;
 			\item Verificare che il sistema visualizzi correttamente tutti gli studenti precedentemente iscritti all'esame.
-		\end{enumerate} & \Tni \\
+		\end{enumerate} & \Ts \\
 	\hline
 	\caption[Test di validazione]{Test di validazione}
 	\label{tabella:TV}
@@ -534,45 +534,45 @@ Questi test servono per verificare il comportamento dinamico complessivo dell'in
 	\hline
 	TS0F5 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di aggiungere una nuova attività didattica al sistema. & \Ts \\
 	\hline
-	TS0F6 &  Viene verificato che il sistema permetta ad ogni utente amministratore o università di aggiungere un nuovo esame al sistema. & \Tni \\
+	TS0F6 &  Viene verificato che il sistema permetta ad ogni utente amministratore o università di aggiungere un nuovo esame al sistema. & \Ts \\
 	\hline
-	TS2F7 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di modificare un anno accademico già presente nel sistema. & \Tni \\ 
+	TS2F7 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di modificare un anno accademico già presente nel sistema. & \Ts \\ 
 	\hline
-	TS2F8 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di modificare un corso di laurea già presente nel sistema.  & \Tni \\
+	TS2F8 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di modificare un corso di laurea già presente nel sistema.  & \Ts \\
 	\hline
-	TS2F9 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di modificare un'attività didattica già presente nel sistema. & \Tni \\
+	TS2F9 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di modificare un'attività didattica già presente nel sistema. & \Ts \\
 	\hline
-	TS2F10 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di modificare un esame già presente nel sistema. & \Tni \\
+	TS2F10 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di modificare un esame già presente nel sistema. & \Ts \\
 	\hline
-	TS2F11 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un anno accademico già presente nel sistema. & \Tni \\
+	TS2F11 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un anno accademico già presente nel sistema. & \Ts \\
 	\hline
-	TS2F12 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un corso di laurea già presente nel sistema. & \Tni \\
+	TS2F12 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un corso di laurea già presente nel sistema. & \Ts \\
 	\hline
-	TS2F13 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un'attività didattica già presente nel sistema. & \Tni \\
+	TS2F13 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un'attività didattica già presente nel sistema. & \Ts \\
 	\hline
-	TS2F14 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un esame già presente nel sistema. & \Tni \\
+	TS2F14 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un esame già presente nel sistema. & \Ts \\
 	\hline
 	TS2F15 &Viene verificato che il sistema permetta ad ogni utente amministratore o università di inserire un nuovo professore associato ad un'attività didattica. & \Ts \\
 	\hline
-	TS2F16 & Viene verificato che il sistema permetta ad ogni utente studente di iscriversi ad un esame.& \Tni \\
+	TS2F16 & Viene verificato che il sistema permetta ad ogni utente studente di iscriversi ad un esame.& \Ts \\
 	\hline
-	TS0F17 & Viene verificato che il sistema permetta ad ogni utente professore di visualizzare la lista degli esami a lui associati. & \Tni \\
+	TS0F17 & Viene verificato che il sistema permetta ad ogni utente professore di visualizzare la lista degli esami a lui associati. & \Ts \\
 	\hline
 	TS0F18 & Viene verificato che il sistema permetta ad ogni utente professore di visualizzare la lista degli studenti iscritti ad uno degli esami a lui associati. & \Ts \\
 	\hline
-	TS0F19 & Viene verificato che il sistema visualizzi per ogni operazione il costo associato. & \Tni \\
+	TS0F19 & Viene verificato che il sistema visualizzi per ogni operazione il costo associato. & \Ts \\
 	\hline
-	TS0F20 & Viene verificato che il sistema permetta ad ogni utente studente di eliminare l'iscrizione ad un esame. & \Tni \\
+	TS0F20 & Viene verificato che il sistema permetta ad ogni utente studente di eliminare l'iscrizione ad un esame. & \Ts \\
 	\hline
-	TS0F21 & Viene verificato che il sistema permetta ad ogni utente studente di rifiutare il risultato di un esame e che se il sistema accetti automaticamente il voto se esso non è stato rifiutato entro 8 giorni. & \Tni \\
+	TS0F21 & Viene verificato che il sistema permetta ad ogni utente studente di rifiutare il risultato di un esame e che se il sistema accetti automaticamente il voto se esso non è stato rifiutato entro 8 giorni. & \Ts \\
 	\hline
-	TS0F22 & Viene verificato che il sistema permetta ad ogni utente professore di modificare gli esami a lui associati. & \Tni \\
+	TS0F22 & Viene verificato che il sistema permetta ad ogni utente professore di modificare gli esami a lui associati. & \Ts \\
 	\hline
-	TS0F23 & Viene verificato che il sistema permetta ad ogni utente professore di registrare il voto relativo ad un esame di uno studente. & \Tni \\
+	TS0F23 & Viene verificato che il sistema permetta ad ogni utente professore di registrare il voto relativo ad un esame di uno studente. & \Ts \\
 	\hline
 	TS0F24 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di creare un nuovo utente nel sistema.& \Ts \\
     \hline
-	TS0F25 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di rimuovere un utente dal sistema. & \Tni \\
+	TS0F25 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di rimuovere un utente dal sistema. & \Ts \\
 	\hline
 	TS0F26 & Viene verificato che il sistema permetta ad ogni utente studente di visualizzare il proprio libretto. & \Ts \\
 	\hline
@@ -662,13 +662,13 @@ Questi test verificano il corretto comportamento di ogni singola componente e le
 	\hline
 	\textbf{Codice test} & \textbf{Descrizione} & \textbf{Stato}\\
 	\hline
-	TI1 & Viene verificato che l’applicazione Web gestisca correttamente il front end del prodotto e le sue interazioni con il back end. & \Tni \\
+	TI1 & Viene verificato che l’applicazione Web gestisca correttamente il front end del prodotto e le sue interazioni con il back end. & \Ts \\
 	\hline
-	TI2 & Viene verificato che i contratti Solidity si integrino correttamente con la componente web3. & \Tni \\ 
+	TI2 & Viene verificato che i contratti Solidity si integrino correttamente con la componente web3. & \Ts \\ 
 	\hline
-	TI3 & Viene verificato che le componenti \emph{action}, \emph{store} e \emph{reducers} di Redux comunichino correttamente tra loro.  & \Tni \\
+	TI3 & Viene verificato che le componenti \emph{action}, \emph{store} e \emph{reducers} di Redux comunichino correttamente tra loro.  & \Ts \\
 	\hline
-	TI4 & Viene verificato che le componenti visive di React si integrino correttamente con la gestione degli \emph{state} di Redux. & \Tni \\
+	TI4 & Viene verificato che le componenti visive di React si integrino correttamente con la gestione degli \emph{state} di Redux. & \Ts \\
 	\hline
 	TI5 & Viene verificato che l'immissione dei dati nel front end corrisponda ad una loro effettiva scrittura nel database del back end. & \Ts \\
 	\hline
@@ -729,7 +729,7 @@ Questi test servono per verificare il corretto funzionamento delle singole parti
 	\hline
 	TU21 & Viene verificato che il metodo \emph{render()} del component \emph{EmptyData} comporti la corretta renderizzazione del componente. & \Ts \\
 	\hline
-	TU22 & Viene verificato che il metodo \emph{render()} del component \emph{DeleteAdministrator} comporti la corretta renderizzazione del componente. & \Tni \\
+	TU22 & Viene verificato che il metodo \emph{render()} del component \emph{DeleteAdministrator} comporti la corretta renderizzazione del componente. & \Ts \\
 	\hline
 	TU23 & Viene verificato che il metodo \emph{render()} del component \emph{Administrators} comporti la corretta renderizzazione del componente. & \Ts \\
 	\hline
@@ -769,7 +769,7 @@ Questi test servono per verificare il corretto funzionamento delle singole parti
 	\hline
 	TU41 & Viene verificato che il metodo \emph{render()} del component \emph{Professors} comporti la corretta renderizzazione del componente. & \Ts \\
 	\hline
-	TU42 & Viene verificato che il metodo \emph{render()} del component \emph{DeleteStudent} comporti la corretta renderizzazione del componente. & \Tni \\
+	TU42 & Viene verificato che il metodo \emph{render()} del component \emph{DeleteStudent} comporti la corretta renderizzazione del componente. & \Ts \\
 	\hline
 	TU43 & Viene verificato che il metodo \emph{render()} del component \emph{Students} comporti la corretta renderizzazione del componente. & \Ts \\
 	\hline
@@ -815,13 +815,13 @@ Questi test servono per verificare il corretto funzionamento delle singole parti
 	\hline
 	TU64 & Viene verificato che il metodo \emph{ReadExamList(student)} legga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
 	\hline
-	TU65 & Viene verificato che il metodo \emph{ModifyAcademicData()} modifichi correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Tni \\
+	TU65 & Viene verificato che il metodo \emph{ModifyAcademicData()} modifichi correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
 	\hline
-	TU66 & Viene verificato che il metodo \emph{ModifyDidacticActivity(int,int,int)} modifichi correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Tni \\
+	TU66 & Viene verificato che il metodo \emph{ModifyDidacticActivity(int,int,int)} modifichi correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
 	\hline
-	TU67 & Viene verificato che il metodo \emph{ModifyDegreeCourse(int,int)} modifichi correttamente le informazioni e faccia il dispatch dell'operazione. & \Tni \\
+	TU67 & Viene verificato che il metodo \emph{ModifyDegreeCourse(int,int)} modifichi correttamente le informazioni e faccia il dispatch dell'operazione. & \Ts \\
 	\hline
-	TU68 & Viene verificato che il metodo \emph{ModifyExam(int,int,int,int)} modifichi correttamente le informazioni e faccia il dispatch dell'operazione. & \Tni \\
+	TU68 & Viene verificato che il metodo \emph{ModifyExam(int,int,int,int)} modifichi correttamente le informazioni e faccia il dispatch dell'operazione. & \Ts \\
 	\hline
 	TU69 & Viene verificato che il metodo \emph{OnSignUpFormSubmit(string,string,string,string,int)} inserisca un utente nel sistema registrandone i dati nel sistema e faccia il dispatch dello stato dell'operazione. & \Ts \\
 	\hline
