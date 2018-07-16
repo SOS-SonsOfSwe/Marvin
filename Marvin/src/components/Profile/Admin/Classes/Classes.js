@@ -16,13 +16,15 @@ const Row = ({ degreeUnicode, classUnicode, classData, teacher }) => (
             }}>Insert an exam</Link>
         </td>
         <td>
-            <button className="delete-link">
-                <Link to={{
-                    pathname: "/profile/classes/delete-class",
-                    state: { classUnicode: classUnicode, degreeUnicode: degreeUnicode }
-                }}
-                > <span className="X-button">X</span>Delete</Link>
+            <Link to={{
+                pathname: "/profile/classes/delete-class",
+                state: { classUnicode: classUnicode, degreeUnicode: degreeUnicode }
+            }}
+            >
+                <button className="delete-link">
+                    <span className="X-button">X</span>Delete
             </button>
+            </Link>
         </td>
 
     </tr>
@@ -104,12 +106,14 @@ class Classes extends React.Component {
                                 {this.state.selectedYears !== "" && this.state.selectedDegree !== "" &&
                                     <div>
                                         <div className="div_insert_button">
-                                            <button className="insert-button pure-button pure-button-primary">
-                                                <Link className="pure-link" to={{
-                                                    pathname: "/profile/classes/insert-class",
-                                                    state: { year: this.state.selectedYears, degreeUnicode: this.state.selectedDegree }
-                                                }}> Insert Class </Link>
+                                            <Link className="pure-link" to={{
+                                                pathname: "/profile/classes/insert-class",
+                                                state: { year: this.state.selectedYears, degreeUnicode: this.state.selectedDegree }
+                                            }}>
+                                                <button className="insert-button pure-button pure-button-primary">
+                                                    Insert Class
                                             </button>
+                                            </Link>
                                         </div>
                                         {this.props.emptyClasses === false && this.props.success === true &&
                                             < table className="table table-striped">

@@ -27,9 +27,11 @@ class DeleteClass extends React.Component {
                             <p>Class: {this.props.classUnicode}</p>
                             <div className="div-buttons delete-but">
                                 <input type="submit" value="Delete" />
-                                <button className="button_cancel">
-                                    <Link to='/profile/classes'>Cancel</Link>
+                                <Link to='/profile/classes'>
+                                    <button className="button_cancel">
+                                        Cancel
                                 </button>
+                                </Link>
                             </div>
                         </fieldset>
                     </form>

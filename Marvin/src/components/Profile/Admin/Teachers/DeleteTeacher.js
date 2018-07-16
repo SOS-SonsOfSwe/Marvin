@@ -27,9 +27,11 @@ class DeleteTeacher extends React.Component {
                             <p>Fiscal code: {this.state.FC}</p>
                             <div className="div-buttons delete-but">
                                 <input type="submit" value="Delete" />
-                                <button className="button_cancel">
-                                    <Link to='/profile/teachers'>Cancel</Link>
+                                <Link to='/profile/teachers'>
+                                    <button className="button_cancel">
+                                        Cancel
                                 </button>
+                                </Link>
                             </div>
                         </fieldset>
                     </form>

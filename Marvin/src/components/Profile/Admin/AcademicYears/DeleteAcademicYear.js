@@ -45,9 +45,11 @@ class DeleteAcademicYear extends React.Component {
                             <p>Acaddemic year: {this.state.year}</p>
                             <div className="div-buttons delete-but">
                                 <input type="submit" value="Delete" />
-                                <button className="button_cancel">
-                                    <Link to='/profile/academic-years'>Cancel</Link>
+                                <Link to='/profile/academic-years'>
+                                    <button className="button_cancel">
+                                        Cancel
                                 </button>
+                                </Link>
                             </div>
                         </fieldset>
                     </form>

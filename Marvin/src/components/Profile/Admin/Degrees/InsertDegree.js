@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router'
 import { checkDegreeUnicode } from '../../../../utils/validations';
 import Popup from 'react-popup'
-import {degreeCodePopup, degreeDescriptionPopup} from '../../../../utils/popup'
+import { degreeCodePopup, degreeDescriptionPopup } from '../../../../utils/popup'
 
 class InsertDegree extends React.Component {
 
@@ -28,17 +28,17 @@ class InsertDegree extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        if(this.state.description === ''){
+        if (this.state.description === '') {
             Popup.queue(degreeDescriptionPopup)
             Popup.clearQueue()
         }
-        else{
-            if (!checkDegreeUnicode(this.state.degreeUnicode)){
+        else {
+            if (!checkDegreeUnicode(this.state.degreeUnicode)) {
                 Popup.queue(degreeCodePopup)
                 Popup.clearQueue()
             }
-            else{
-                 event.preventDefault()
+            else {
+                event.preventDefault()
                 this.props.addDegree(this.state.degreeUnicode, this.state.year, this.state.description)
             }
         }
@@ -48,16 +48,16 @@ class InsertDegree extends React.Component {
         return (
             <main className='container'>
                 <div className="pure-u-1-1">
-                <Popup
-                className="mm-popup"
-                btnClass="mm-popup__btn"
-                closeBtn={false}
-                closeHtml={null}
-                defaultOk="Ok"
-                defaultCancel="Cancel"
-                wildClasses={false}
-                escToClose={true}
-                />
+                    <Popup
+                        className="mm-popup"
+                        btnClass="mm-popup__btn"
+                        closeBtn={false}
+                        closeHtml={null}
+                        defaultOk="Ok"
+                        defaultCancel="Cancel"
+                        wildClasses={false}
+                        escToClose={true}
+                    />
                     <h1>Insert degree</h1>
                     <p>Now you can insert a new degree.</p>
                     <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>
@@ -70,9 +70,11 @@ class InsertDegree extends React.Component {
                             <input type="text" value={this.state.degreeUnicode} onChange={this.handleDegreeUnicodeChange} placeholder="Insert the degree unicode" />
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
-                                <button className="button_cancel">
-                                    <Link to='/profile/degrees'>Cancel</Link>
+                                <Link to='/profile/degrees'>
+                                    <button className="button_cancel">
+                                        Cancel
                                 </button>
+                                </Link>
                             </div>
                         </fieldset>
                     </form>

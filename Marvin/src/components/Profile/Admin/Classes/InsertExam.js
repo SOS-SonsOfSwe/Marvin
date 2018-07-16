@@ -51,12 +51,12 @@ class InsertExam extends React.Component {
 
     event.preventDefault();
     let pop = checkExam(this.state);
-    if (pop !== null){
+    if (pop !== null) {
       console.log("dentro l'if")
       Popup.queue(pop)
-      Popup.clearQueue()      
+      Popup.clearQueue()
     }
-    else{
+    else {
       let examData = {
         "type": this.state.type,
         "place": this.state.place,
@@ -64,7 +64,7 @@ class InsertExam extends React.Component {
         "time": this.state.time,
         "classUnicode": this.state.Class
       }
-    
+
       this.props.addExam(this.state.Class, this.state.unicode, examData);
     }
   }
@@ -74,16 +74,16 @@ class InsertExam extends React.Component {
     return (
       <main className='container'>
         <div className="pure-u-1-1">
-        <Popup
-          className="mm-popup"
-          btnClass="mm-popup__btn"
-          closeBtn={false}
-          closeHtml={null}
-          defaultOk="Ok"
-          defaultCancel="Cancel"
-          wildClasses={false}
-          escToClose={true}
-        />
+          <Popup
+            className="mm-popup"
+            btnClass="mm-popup__btn"
+            closeBtn={false}
+            closeHtml={null}
+            defaultOk="Ok"
+            defaultCancel="Cancel"
+            wildClasses={false}
+            escToClose={true}
+          />
           <h1>Insert an exam</h1>
           <p>Now you can insert a new exam.</p>
           <form className="pure-form pure-form-stacked" onSubmit={this.handleSave}>
@@ -107,9 +107,11 @@ class InsertExam extends React.Component {
               <span className="exam-span">The format must be the class code plus "-" and the exam number.</span>
               <div className="div-buttons">
                 <input type="submit" value="Save" />
-                <button className="button_cancel">
-                  <Link to='/profile/classes'>Cancel</Link>
+                <Link to='/profile/classes'>
+                  <button className="button_cancel">
+                    Cancel
                 </button>
+                </Link>
               </div>
             </fieldset>
           </form>

@@ -41,11 +41,11 @@ class InsertClass extends React.Component {
     handleSubmit(event) {
         event.preventDefault()
         let pop = checkClass(this.state);
-        if (pop !== null){
+        if (pop !== null) {
             Popup.queue(pop)
-            Popup.clearQueue()      
+            Popup.clearQueue()
         }
-        else{  
+        else {
             this.props.addClass(this.state.degree, this.state.class, this.state.description, this.state.teacher)
         }
     }
@@ -58,16 +58,16 @@ class InsertClass extends React.Component {
         return (
             <main className='container' >
                 <div className="pure-u-1-1">
-                <Popup
-                className="mm-popup"
-                btnClass="mm-popup__btn"
-                closeBtn={false}
-                closeHtml={null}
-                defaultOk="Ok"
-                defaultCancel="Cancel"
-                wildClasses={false}
-                escToClose={true}
-                />
+                    <Popup
+                        className="mm-popup"
+                        btnClass="mm-popup__btn"
+                        closeBtn={false}
+                        closeHtml={null}
+                        defaultOk="Ok"
+                        defaultCancel="Cancel"
+                        wildClasses={false}
+                        escToClose={true}
+                    />
                     <h1>Insert Class</h1>
                     <p>Now you can insert a new Class.</p>
                     <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>
@@ -88,9 +88,11 @@ class InsertClass extends React.Component {
                             <br />
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
-                                <button className="button_cancel">
-                                    <Link to='/profile/classes'>Cancel</Link>
+                                <Link to='/profile/classes'>
+                                    <button className="button_cancel">
+                                        Cancel
                                 </button>
+                                </Link>
                             </div>
                         </fieldset>
                     </form>
