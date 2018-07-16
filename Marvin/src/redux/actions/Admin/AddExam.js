@@ -63,12 +63,10 @@ export default function addNewExam(classUnicode, examUnicode, examData) {
                   .then(result => {
                     // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
                     dispatch(dataAdded())
+                    return browserHistory.push('/profile/exams')
                   })
                   .catch(error => {
                     dispatch(errorAddingData())
-                  })
-                  .finally(def => {
-                    return browserHistory.push('/profile/exams')
                   })
               })
               .catch(err => {

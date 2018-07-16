@@ -88,14 +88,11 @@ export default function addNewAcademicYear(year) {
                 // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
                 // console.log(JSON.stringify(result))
                 dispatch(dataAdded())
+                return browserHistory.push('/profile/academic-years')
                 // alert('The new academic year has been added! Wait some seconds to make it write on blockchain.')
               })
               .catch(error => {
                 dispatch(errorAddingData())
-              })
-              .finally(def => {
-                // console.log(JSON.stringify(def))
-                return browserHistory.push('/profile/academic-years')
               })
           })
       })

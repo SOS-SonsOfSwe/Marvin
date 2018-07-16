@@ -52,16 +52,16 @@ export default function subscribeExam(examUnicode) {
           //taking the first 4 numbers
           try {
             await studentInstance.subscribeExam(examUnicode, { from: coinbase })
-              .then(() => dispatch(dataAdded()))
+              .then(() => {
+                dispatch(dataAdded())
+                return browserHistory.push('/profile/marked-exams-student-list')
+              })
           } catch(error) { dError('Error while subscribing exam', error) }
 
           // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
           // console.log(JSON.stringify(result))
         } catch(error) {
           dispatch(errorAddingData())
-        } finally {
-          // console.log(JSON.stringify(def))
-          return browserHistory.push('/profile/marked-exams-student-list')
         }
       })
     }

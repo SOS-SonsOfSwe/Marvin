@@ -29,7 +29,7 @@ export default function addNewDegree(degreeUnicode, year, degreeData) {
     .web3.web3Instance
 
   // Double-check web3's status.
-  if (typeof web3 !== 'undefined') {
+  if(typeof web3 !== 'undefined') {
 
     return function (dispatch) {
       // Using truffle-contract we create the authentication object.
@@ -42,7 +42,7 @@ export default function addNewDegree(degreeUnicode, year, degreeData) {
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
         // Log errors, if any.
-        if (error) {
+        if(error) {
           console.error(error);
         }
 
@@ -69,12 +69,10 @@ export default function addNewDegree(degreeUnicode, year, degreeData) {
                   .then(result => {
                     // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
                     dispatch(dataAdded())
+                    return browserHistory.push('/profile/degrees')
                   })
                   .catch(error => {
                     dispatch(errorAddingData())
-                  })
-                  .finally(def => {
-                    return browserHistory.push('/profile/degrees')
                   })
               })
               .catch(err => {

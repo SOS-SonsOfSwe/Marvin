@@ -70,12 +70,10 @@ export default function addClass(degreeUnicode, classUnicode, classData, teacher
                   .then(result => {
                     // result.receipt.status ritorna lo stato dell'operazione: 0x01 se successo, 0x00 se fallito
                     dispatch(dataAdded())
+                    return browserHistory.push('/profile/classes')
                   })
                   .catch(error => {
                     dispatch(errorAddingData())
-                  })
-                  .finally(def => {
-                    return browserHistory.push('/profile/classes')
                   })
               })
               .catch(err => {

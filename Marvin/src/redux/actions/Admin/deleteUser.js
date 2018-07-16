@@ -84,6 +84,7 @@ export function deleteUserFromDatabase(badgeNumber) {
             console.log('badgeNumber: ' + badgeNumber)
             adminInstance.removeUser(parseInt(badgeNumber, 10), { gas: '100000', from: coinbase })
               .then(() => {
+                browserHistory.go(-1)
                 return doAwesomeStuff(dispatch, badgeNumber) //Repeating because of the asyncronous promises of the functions
               })
               .catch(error => {
@@ -91,7 +92,6 @@ export function deleteUserFromDatabase(badgeNumber) {
                 // If error, go to signup page.
                 console.error('Error while deleting infos: ' + error)
               })
-              .finally(() => { return browserHistory.go(-1) })
           })
       })
       // })

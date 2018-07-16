@@ -63,6 +63,7 @@ export function deleteExamFromDatabase(classUnicode, examUnicode) {
 
             adminInstance.removeExam(classUnicode, examUnicode, { gas: '100000', from: coinbase })
               .then(() => {
+                browserHistory.push('/profile/exams')
                 return doAwesomeStuff(dispatch, classUnicode) //Repeating because of the asyncronous promises of the functions
               })
               .catch(error => {
@@ -70,7 +71,6 @@ export function deleteExamFromDatabase(classUnicode, examUnicode) {
                 // If error, go to signup page.
                 console.error('Error while deleting infos: ' + error)
               })
-              .finally(() => { return browserHistory.push('/profile/exams') })
           })
       })
     }
