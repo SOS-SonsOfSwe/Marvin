@@ -24,7 +24,7 @@ class InsertAcademicYear extends React.Component {
         let pop = checkY(this.state.year)
         if (pop !== true) {
             Popup.queue(pop)
-            Popup.clearQueue()
+            //Popup.clearQueue()
         }
         else {
             event.preventDefault();
@@ -62,7 +62,7 @@ class InsertAcademicYear extends React.Component {
                     <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>
                         <fieldset>
                             <label>Academic year</label>
-                            <input type="text" value={this.state.year} onChange={this.handleChange} placeholder="Insert a new year" />
+                            <input type="text" value={this.state.year} onChange={this.handleChange} onFocus={Popup.close()} placeholder="Insert a new year" />
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
                                 <Link to='/profile/academic-years'>

@@ -8,7 +8,7 @@ const Row = ({ badgeNumber, hChange }) => (
     <tr className="clickable-row">
         <td> {badgeNumber} </td>
         <td>
-            <fieldset><input className="input-vote" type="text" onChange={(e) => hChange(badgeNumber, e)} />
+            <fieldset><input className="input-vote" type="text" onFocus={Popup.close()} onChange={(e) => hChange(badgeNumber, e)} />
             </fieldset>
         </td>
     </tr >
