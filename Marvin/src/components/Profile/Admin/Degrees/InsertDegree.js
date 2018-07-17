@@ -38,7 +38,6 @@ class InsertDegree extends React.Component {
                 Popup.clearQueue()
             }
             else {
-                event.preventDefault()
                 this.props.addDegree(this.state.degreeUnicode, this.state.year, this.state.description)
             }
         }

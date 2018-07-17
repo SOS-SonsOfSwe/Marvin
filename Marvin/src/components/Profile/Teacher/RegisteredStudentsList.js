@@ -42,17 +42,18 @@ class RegisteredStudentsList extends React.Component {
     }
 
     handleSave(event) {
+        event.preventDefault();
+
         let flag = false;
         this.state.votes.forEach(element => {
-            if (element.vote < 0 || element.vote > 31 || Number.isInteger(element.vote)===false)
+            if (element.vote < 0 || element.vote > 31 || Number.isInteger(element.vote) === false)
                 flag = true;
         })
         if (flag === true) {
             Popup.queue(markWrongPopup)
             Popup.clearQueue()
         }
-        else{
-            event.preventDefault();
+        else {
             this.props.setMarksData(this.props.examUnicode, this.props.classUnicode, this.state.votes)
         }
     }
