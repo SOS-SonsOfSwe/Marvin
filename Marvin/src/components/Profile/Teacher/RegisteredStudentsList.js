@@ -51,8 +51,10 @@ class RegisteredStudentsList extends React.Component {
             Popup.queue(markWrongPopup)
             Popup.clearQueue()
         }
-        event.preventDefault();
-        this.props.setMarksData(this.props.examUnicode, this.props.classUnicode, this.state.votes)
+        else{
+            event.preventDefault();
+            this.props.setMarksData(this.props.examUnicode, this.props.classUnicode, this.state.votes)
+        }
     }
 
     componentDidMount() {
