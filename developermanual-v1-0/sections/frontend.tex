@@ -1,15 +1,18 @@
+\section{Esempio Javascript per giovanni}
+% \medskip
+
 \section{FrontEnd}
-This section the manual talks about about how to program some features that will make the user more comfortable with the package. By explaining how to do modify or add some functionalities, the reader will be guided into the logic of the application.
+This section of the manual regards the programming of some features that will make the user more comfortable with the package. By explaining how to do modify or add some functionalities, the reader will be guided into the logic of the application.
 Since the package has been developed using the \emph{Model View View-Model} design pattern, it is recommended to follow those guide lines, as they will help to keep the package clean and efficient. In every section there will be a quick explanation of what the user is going to do and the steps that are needed for doing the tasks.
 ~\\~\\The guide will explain how to:
 \begin{itemize}
-	\item Modify or add a \textit{dumb} page whose functionality is to render some static informations on the screen. This concerns the \emph{View} section;
-	\item Modify or add a page in which the user wants to render some \verb|store| informations by accessing its \verb|state|, maybe paying attention to which kind of visitor the user wants to render the page to. This concerns the \emph{View-Model} section as the informations are already stored into the global \verb|state| application;
-	\item Modify or add a page in which the user can update the \verb|store| informations by making the user interacting both with interface and database. This concerns the \emph{Model} section.
+	\item Modify or add a \textit{dumb} page whose functionality is to render some static information on the screen. This concerns the \emph{View} section;
+	\item Modify or add a page in which the user wants to render some \verb|store| information by accessing its \verb|state|, maybe paying attention to which kind of visitor the user wants to render the page to. This concerns the \emph{View-Model} section as the information are already stored into the global \verb|state| application;
+	\item Modify or add a page in which the user can update the \verb|store| information by making the user interacting both with interface and database. This concerns the \emph{Model} section.
 \end{itemize}
 
 \subsection{Modify or add a \emph{dumb} page}
-We can call the \emph{dumb} pages as \verb|components|, as they all extends the \verb|React| component abstract class. The only purpose of this kind of classes is to render static informations on the screen or to make the user do some in-\verb|component| tasks such as clicking a button to increase a counter.
+We can call the \emph{dumb} pages as \verb|components|, as they all extends the \verb|React| component abstract class. The only purpose of this kind of classes is to render static information on the screen or to make the user do some in-\verb|component| tasks such as clicking a button to increase a counter.
 \\To keep in mind: 
 \begin{itemize}
 	\item Each class is correlated by a \verb|constructor| to which some \verb|props| are passed by the parent \verb|component|. It is possible to define a \verb|state| with which the reader can manage the data; those are not meant to be used outside the component;
@@ -40,17 +43,17 @@ Adding a dumb component was ok, not so thrilling though. This chapter will intro
 \begin{itemize}
 	\item The Marvin package owns a \emph{Redux} \verb|/src/store.js| in which the user can redefine the behavior of the application. In this file we compose some specific methods for managing the \emph{history} of the application, the kind of \verb|dispatch|es it will have to manage and the \verb|action|s that the \verb|reducer|s will have to trigger;
 	\item Every \verb|container| should stay under the \verb|src/containers| sub folder following the rules we described above;
-	\item The \verb|container| is a special javascript class which is then \emph{decorated} by a component. In this class we can \emph{connect} a component to the \verb|store| state so it has access to the informations that are kept into it.
+	\item The \verb|container| is a special javascript class which is then \emph{decorated} by a component. In this class we can \emph{connect} a component to the \verb|store| state so it has access to the information that are kept into it.
 \end{itemize} 
-Let's say we want to make our \verb|BetterHome| component renders some user's informations, such as its own name. Then we have to follow those steps:
+Let's say we want to make our \verb|BetterHome| component renders some user's information, such as its own name. Then we have to follow those steps:
 \begin{enumerate}
 	\item Just as creating the \verb|component| \verb|BetterHome|, create a \verb|/src/containers/BetterHome/BetterHomeContainer.js| file accordingly to the rules we described above. In this class we will import the \verb|BetterHome| component. Then, we will use the \verb|connect| statement from \verb|react-redux| to connect the \verb|BetterHome| \verb|state| to the \verb|store| \verb|state.user.data|; this data is now accessible from the components via \verb|this.props.<dataNameInContainer>|;
 	\item After those steps, our \verb|container| class is a \emph{React} class, so it can be exported as an enriched component;
 	\item We should update the \verb|BetterHome| component to make it renders the name of the user which is logged in;
 	\item We have to modify the import inside \verb|src/index.js| to make the application know that we connected our component to the store. To achieve this we just switch import from the \verb|component| to \verb|container| class.
 \end{enumerate}
-With those few steps we have just connected our \emph{dumb} component to the \verb|store| \verb|state|. So every time the informations will change, our \verb|BetterHome| component will change accordingly.
-\\Remember all those "..."\verb|IsAuthenticated()| methods inside \verb|src/index.js| component? Take a deeper look: instead of managing all the authorization, the SoS team choosed to use the \verb|react-auth-wrapper| package. This tool is natively linked to the \emph{Redux} store and decouples the authentication from the components. We created a \verb|src/authentication/wrapper.js| file which can read the store informations and create some \verb|predicate|s in order to:
+With those few steps we have just connected our \emph{dumb} component to the \verb|store| \verb|state|. So every time the information will change, our \verb|BetterHome| component will change accordingly.
+\\Remember all those "..."\verb|IsAuthenticated()| methods inside \verb|src/index.js| component? Take a deeper look: instead of managing all the authorization, the SoS team choosed to use the \verb|react-auth-wrapper| package. This tool is natively linked to the \emph{Redux} store and decouples the authentication from the components. We created a \verb|src/authentication/wrapper.js| file which can read the store information  and create some \verb|predicate|s in order to:
 \begin{itemize}
 	\item Take a \emph{React} component as parameter and decide to render it or not;
 	\item Dispatch redirections in case of success/failure of the predicate.
@@ -62,7 +65,7 @@ For further explanations please refer to its \href{https://github.com/mjrussell/
 \label{IPFS}
 Connecting a component to the store state is great, but we want something more from our application. Let's say that we want to add some other profile information such as the phone number. This is the very juicy part of the application - and the most rich of notions indeed. We will have to keep in mind some things:
 \begin{itemize}
-	\item The data are stored into two different kind of database: the \emph{blockchain} and the \emph{IPFS} ones. We described what they are and which one is to be preferred for storing data in the \emph{backend} part. The \emph{IPFS} stores some informations, it retrieves an \emph{hash code} which is then written on the \emph{blockchain}. We should decide to put our phone number into \emph{IPFS};
+	\item The data are stored into two different kind of database: the \emph{blockchain} and the \emph{IPFS} ones. We described what they are and which one is to be preferred for storing data in the \emph{backend} part. The \emph{IPFS} stores some information, it retrieves an \emph{hash code} which is then written on the \emph{blockchain}. We should decide to put our phone number into \emph{IPFS};
 	\item As we are developing a \verb|react-redux| application, we have to focus on what the reducer is: the reducer is a javascript file which is responsible to update the state information on the base of the actions that are dispatched. A user can dispatch an action: this will update the store state and trigger the application to re-render. Every reducer should stay under \verb|/src/redux/reducers|;
 	\item Even if there is no need to understand what \emph{Web3} is as the settings should not be modifyed, some skilled developers would find interesting how to change the communication between the javascript part, the Metamask plugin, the \emph{blockchain} network and the \emph{solidity} contracts. \emph{Truffle} uses this package to make a comfortable adapter to the \emph{backend}, retrieving a \emph{.json} instance of the \emph{solidity} contract and making it available for interacting with javascript;
 	\item As our application will make many asynchronous calls it is suggested to use \emph{promises} instead of \emph{callbacks} so this will keep the state coherent. If your application has to call a callback then you should transform it into a promise. Please refer to the example you can find into \verb|api/utils/ipfsPromises.js| where the team has already transformed a callback call from \verb|ipfs-mini| package into a promise.
@@ -71,9 +74,9 @@ Connecting a component to the store state is great, but we want something more f
 Let's proceed.
 \\First of all the developer must have a clear idea of what he wants to add to the application. As we are updating new user's phone number we will need to:
 \begin{enumerate}
-	\item Read the informations that are already present on the \emph{blockchain} and \emph{IPFS}, so we will need the application to be aware of the reading state;
+	\item Read the information that are already present on the \emph{blockchain} and \emph{IPFS}, so we will need the application to be aware of the reading state;
 	\item Keep them temporarly to make some modifications;
-	\item Add the informations into the \emph{IPFS} network and retrieve the hash and making the application know about the adding state;
+	\item Add the information into the \emph{IPFS} network and retrieve the hash and making the application know about the adding state;
 	\item Update the hash information on the \emph{blockchain}.
 \end{enumerate}
 With those steps in mind the developer will have a clearer ideas of the following steps.
