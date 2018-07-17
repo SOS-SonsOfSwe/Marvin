@@ -54,6 +54,7 @@ class RegisteredStudentsList extends React.Component {
             Popup.clearQueue()
         }
         else {
+            alert("The marks were entered correctly!")
             this.props.setMarksData(this.props.examUnicode, this.props.classUnicode, this.state.votes)
         }
     }
