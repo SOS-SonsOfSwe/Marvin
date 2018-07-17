@@ -44,7 +44,7 @@ class RegisteredStudentsList extends React.Component {
     handleSave(event) {
         let flag = false;
         this.state.votes.forEach(element => {
-            if (element.vote < 0 || element.vote > 31 || Number.isInteger(element.vote))
+            if (element.vote < 0 || element.vote > 31 || Number.isInteger(element.vote)===false)
                 flag = true;
         })
         if (flag === true) {
