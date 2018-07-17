@@ -7,14 +7,14 @@ import { round } from '../utils/costs'
 
 const Row = ({ index, safeLow, standard, Operations, ethEur }) => (
   <tr className="clickable-row costs-table">
-    <td>{Operations[index].name}</td>
+    <td>{Operations[index].name} </td>
     <td>{Operations[index].gCost}</td>
-    <td>{Operations[index].ethCost1}</td>
-    <td>{round(ethEur * Operations[index].ethCost1, 2)}</td>
-    <td>{round(Operations[index].gCost * safeLow * 0.000000001, 5)}</td>
-    <td>{round(ethEur * Operations[index].gCost * safeLow * 0.000000001, 2)}</td>
-    <td>{round(Operations[index].gCost * standard * 0.000000001, 5)}</td>
-    <td>{round(ethEur * Operations[index].gCost * standard * 0.000000001, 2)}</td>
+    <td>{Operations[index].ethCost1} Ξ</td>
+    <td>{round(ethEur * Operations[index].ethCost1, 2)} €</td>
+    <td>{round(Operations[index].gCost * safeLow * 0.000000001, 5)} Ξ</td>
+    <td>{round(ethEur * Operations[index].gCost * safeLow * 0.000000001, 2)} €</td>
+    <td>{round(Operations[index].gCost * standard * 0.000000001, 5)} Ξ</td>
+    <td>{round(ethEur * Operations[index].gCost * standard * 0.000000001, 2)} €</td>
 
   </tr>
 );
