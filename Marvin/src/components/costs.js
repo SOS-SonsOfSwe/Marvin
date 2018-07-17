@@ -77,8 +77,8 @@ class Costs extends React.Component {
                     <th className="title-column"></th>
                     <th className="title-column"></th>
                     <th className="title-column" colSpan="2"> Low Cost Gas Price (1 Gwei)</th>
-                    <th className="title-column" colSpan="2"> Safe-low Gas Price ({round(this.props.costsJSON[0].safeLow, 0)} Gwei)</th>
-                    <th className="title-column" colSpan="2"> Average Gas Price ({round(this.props.costsJSON[0].standard, 0)} Gwei)</th>
+                    <th className="title-column" colSpan="2"> Safe-low Gas Price ({round(this.props.costsJSON[0].safeLow, 1)} Gwei)</th>
+                    <th className="title-column" colSpan="2"> Average Gas Price ({round(this.props.costsJSON[0].standard, 1)} Gwei)</th>
                   </tr>
                   <tr>
                     <th className="title-column">Operation</th>
