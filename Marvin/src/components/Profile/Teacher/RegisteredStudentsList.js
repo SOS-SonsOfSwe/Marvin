@@ -46,7 +46,7 @@ class RegisteredStudentsList extends React.Component {
 
         let flag = false;
         this.state.votes.forEach(element => {
-            if (element.vote < 0 || element.vote > 31 || Number.isInteger(element.vote) === false)
+            if (element.vote < 0 || element.vote > 31 || Number.isInteger(parseInt(element.vote,10)) === false)
                 flag = true;
         })
         if (flag === true) {
