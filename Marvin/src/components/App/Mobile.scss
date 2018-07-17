@@ -130,31 +130,35 @@
 
     //PER TABELLA IN COLONNA
 
-    td, th {
+    .table-striped td, .table-striped th {
         display: block;
     }
 
-    tbody, thead {
+    .table-striped tbody, .table-striped thead {
         float: left;
     }
 
-    td, th {
+    .table-striped td, .table-striped th {
         display: block;
         text-align: left;
     }
 
-    td {
+    .table-striped td {
         padding-left: 1em;
         margin-right: 0em;
         width: 100%;
     }
 
-    thead {
+    .table-striped thead {
         width: 40%;
     }
 
-    tbody {
+    .table-striped tbody {
         width: 55%;
+    }
+
+    .costs-table {
+        font-size: 0.75em;
     }
     
 }

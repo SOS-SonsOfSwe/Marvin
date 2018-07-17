@@ -6,7 +6,7 @@ import { round } from '../utils/costs'
 // import EmptyData from '../../../Loading/EmptyData'
 
 const Row = ({ index, safeLow, standard, Operations, ethEur }) => (
-  <tr className="clickable-row">
+  <tr className="clickable-row costs-table">
     <td>{Operations[index].name}</td>
     <td>{Operations[index].gCost}</td>
     <td>{Operations[index].ethCost1}</td>
@@ -71,7 +71,7 @@ class Costs extends React.Component {
           <main className='container'>
             <div className="pure-u-1-1">
               <h1>Operations prices</h1>
-              <table className="table table-striped">
+              <table className="costs-table">
                 <thead>
                   <tr>
                     <th className="title-column"></th>
