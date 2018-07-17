@@ -27,7 +27,6 @@ class InsertAcademicYear extends React.Component {
             //Popup.clearQueue()
         }
         else {
-            event.preventDefault();
             this.props.addAcademicYear(this.state.year)
         }
 
