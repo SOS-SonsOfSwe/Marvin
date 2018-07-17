@@ -53,6 +53,10 @@ export function signUpUser(userData) {
                 userData.uploadedFile = hash
                 return userData
               })
+              .catch(error => {
+                dispatch(ipfsErrorAddingData())
+                dispatch(ipfsNetworkError())
+              })
               .then((userData) => {
                 // console.log(userData)
 

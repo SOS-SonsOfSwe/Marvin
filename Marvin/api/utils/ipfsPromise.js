@@ -86,6 +86,7 @@ export default class ipfsPromise {
 
   async pushJSON(jsonPARAM) {
     return new Promise(async (resolve, reject) => {
+      if(jsonPARAM == null || jsonPARAM === "") return resolve(null)
       var buf = Buffer.from(JSON.stringify(jsonPARAM));
       try {
         var hash = await promiseTimeout(20000, this.ipfsapi.add(buf))
@@ -177,6 +178,7 @@ export default class ipfsPromise {
 
   pushFile(buffer) {
     return new Promise(async (resolve, reject) => {
+      if(buffer === "" || buffer == null) return resolve(null)
       try {
         var response = await promiseTimeout(50000, this.ipfsapi.add(buffer))
         if(response) // // console.log(response[0].hash)
