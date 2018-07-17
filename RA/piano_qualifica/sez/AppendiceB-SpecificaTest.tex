@@ -14,417 +14,171 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 	\textbf{Codice test} & \textbf{Descrizione} & \textbf{Stato}\\
 	\hline
 	\endhead
-	TV0F1 & Un utente non autenticato intende registrarsi creando il proprio account. \newline \begin{flushleft}
-	Azioni: \newline
-	\end{flushleft}
-	\begin{enumerate}
-		\item Entrare nella pagina di registrazione;
-		\item Inserire il nome;
-		\item Inserire il cognome;
-		\item Inserire la e-mail;
-		\item Inserire il codice fiscale;
-		\item Inserire il codice univoco;
-		\item Inserire la matricola;
-		\item Verificare che \emph{metamask}\ped{G} sia attivato correttamente;
-		\item Confermare la registrazione;
-		\item Verificare che la creazione sia andata a buon fine effettuando un login;	
-	\end{enumerate} & \Ts \\
+	
 	\hline
-	TV2F1.8 & L'utente non autenticato desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati per la registrazione in maniera errata. \newline \begin{flushleft}
-		Azioni:\newline
-			\end{flushleft} 
-		\begin{enumerate}
-			\item Riempire i campi dato con informazioni già presenti, non valide o nulle;
-			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Ts \\
+	TV0F1A & Viene verificato che un utente non autenticato visualizzi la pagina di registrazione. & \Ts \\
 	\hline
-	TV0F2 & L’utente non autenticato desidera autenticarsi una volta registrato.\newline \begin{flushleft}
-		Azioni:\newline
-			\end{flushleft} 
-		\begin{enumerate}
-			\item Verificare che metamask sia attivato correttamente;
-			\item Cliccare il pulsante di login;
-			\item Verificare che il sistema segnali la corretta autenticazione.
-		\end{enumerate} & \Ts \\
+	TV0F1B & Viene verificato l'inserimento nel campo realtivo al nome. & \Ts \\
 	\hline
-	TV0F3 & L'utente amministratore o l'utente università desidera aggiungere un anno accademico alla lista degli anni accademici. \newline \begin{flushleft}
-		Azioni:\newline
-			\end{flushleft} 
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina per l'inserimento di un anno accademico;
-			\item Inserire l'inizio dell'anno accademico;
-			\item Inserire la fine dell'anno accademico;
-			\item Inserire il nome dell'anno accademico;
-			\item Confermare l'aggiunta dell'anno accademico;
-			\item Verificare che l'aggiunta sia andata a buon fine cercando l'anno accademico appena aggiunto nella pagina dedicata alla lista degli anni accademici.
-		\end{enumerate} & \Ts \\ 
+	TV0F1C & Viene verificato l'inserimento nel campo realtivo al cognome. & \Ts \\
 	\hline
-	TV2F3.5 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati relativi ad un anno accademico in maniera errata. \newline \begin{flushleft}
-		Azioni:\newline
-			\end{flushleft} 
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Riempire i campi dato  relativi con informazioni errate o nulle;
-			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Ts \\
+	TV0F1D & Viene verificato l'inserimento nel campo realtivo all'e-mail. & \Ts \\
 	\hline
-	TV0F4 & L'utente amministratore o l'utente università desidera aggiungere un corso di laurea alla lista dei corsi di laurea. \newline \begin{flushleft}
-		Azioni:\newline
-	\end{flushleft} 
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina per l'inserimento di un corso di laurea;
-			\item Inserire il codice del corso di laurea;
-			\item Inserire il nome del corso di laurea;
-			\item Inserire la descrizione del corso di laurea;
-			\item Inserire la tipologia del corso di laurea;
-			\item Confermare l'aggiunta del corso di laurea;
-			\item Verificare che l'aggiunta sia andata a buon fine cercando il corso di laurea appena aggiunto nella pagina dedicata alla lista dei corsi di laurea.
-		\end{enumerate} & \Ts \\
+	TV0F1E & Viene verificato l'inserimento nel campo realtivo al codice fiscale. & \Ts \\
 	\hline
-	TV2F4.7 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati relativi ad un corso di laurea in maniera errata. \newline \begin{flushleft}
-		Azioni:\newline
-	\end{flushleft} 
-	\begin{enumerate}
-		\item Verificare di essere correttamente autenticato come amministratore o come università;
-		\item Riempire i campi dato con informazioni errate o nulle;
-		\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-	\end{enumerate}  & \Ts \\
+	TV0F1F & Viene verificato l'inserimento nel campo realtivo al codice univoco. & \Ts \\
 	\hline
-	TV0F5 & L'utente amministratore o l'utente università desidera aggiungere un'attività didattica alla lista delle attività didattiche. \newline \begin{flushleft}
-		Azioni:\newline
-		\end{flushleft} 
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina per l'inserimento di un'attività didattica;
-			\item Inserire il codice del corso dell'attività didattica;
-			\item Inserire il nome dell'attività didattica;
-			\item Inserire la descrizione dell'attività didattica;
-			\item Inserire il professore associato all'attività didattica;
-			\item Inserire il numero di crediti dell'attività didattica;
-			\item Inserire il periodo all'attività didattica;
-			\item Confermare l'aggiunta dell'attività didattica;
-			\item Verificare che l'aggiunta sia andata a buon fine cercando l'attività didattica appena aggiunta nella pagina dedicata alla lista delle attività didattiche.
-		\end{enumerate} & \Ts \\
+	TV0F1G & Viene verificato l'inserimento nel campo realtivo al matricola. & \Ts \\
 	\hline
-	TV2F5.9 &  L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati relativi ad un'attività didattica in maniera errata. \newline \begin{flushleft}
-		Azioni:\newline
-	\end{flushleft} 
-	\begin{enumerate}
-		\item Verificare di essere correttamente autenticato come amministratore o come università;
-		\item Riempire i campi dato con informazioni errate o nulle;
-		\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-	\end{enumerate}  & \Ts \\
+	TV0F1H & Viene verificato che \emph{metamask}\ped{G} sia attivato correttamente nel caso in cui un utente non autenticato voglia registrarsi. & \Ts \\
 	\hline
-	TV0F6 & L'utente amministratore o l'utente università desidera aggiungere un esame alla lista degli esami. \newline \begin{flushleft}
-		Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina per l'inserimento di un esame;
-			\item Inserire il codice dell'esame;
-			\item Inserire la descrizione dell'esame;
-			\item Inserire l'intervallo di prenotazione all'esame;
-			\item Inserire la data dell'esame;
-			\item Inserire la tipologia dell'esame;
-			\item Inserire il luogo dell'esame;
-			\item Confermare l'aggiunta dell'esame.
-			\item Verificare che l'aggiunta sia andata a buon fine cercando l'esame appena aggiunto nella pagina dedicata alla lista degli esami.
-		\end{enumerate} & \Ts \\
+	TV0F1I & Viene verificato che venga confermata la registrazione. & \Ts \\
 	\hline
-	TV2F6.9 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati relativi ad un esame in maniera errata. \newline \begin{flushleft}
-		Azioni:\newline
-	\end{flushleft} 
-	\begin{enumerate}
-		\item Verificare di essere correttamente autenticato come amministratore o come università;
-		\item Riempire i campi dato con informazioni errate o nulle;
-		\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-	\end{enumerate} & \Ts \\
+	TV0F1L & Viene verificato che la creazione sia andata a buon fine effettuando un login. & \Ts \\
 	\hline
-	TV2F7 & L'utente amministratore o l'utente università desidera modificare un anno accademico nella lista degli anni accademici. \newline \begin{flushleft}
-		Azioni:\newline
-	\end{flushleft} 
-	\begin{enumerate}
-		\item Verificare di essere correttamente autenticato come amministratore o come università;
-		\item Entrare nella pagina per la modifica di un anno accademico;
-		\item Modificare i dati desiderati (modifiche possibili: inizio e fine dell'anno accademico);
-		\item Confermare la modifica dell'anno accademico;
-		\item Verificare che l'operazione sia andata a buon fine controllando che i dati siano aggiornati secondo le modifiche appena effettuate nella pagina dedicata all'anno accademico.
-	\end{enumerate} & \Ts \\ 
+	TV2F1.8 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente non autenticato  riempia i campi dato relativi alla registrazione con informazioni già presenti, non valide o nulle. & \Ts \\
 	\hline
-	TV2F7.5 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia modifica i dati relativi ad un anno accademico in maniera errata. \newline \begin{flushleft}
-		Azioni:\newline
-	\end{flushleft} 
-	\begin{enumerate}
-		\item Verificare di essere correttamente autenticato come amministratore o come università;
-		\item Modificare i dati con informazioni errate o nulle;
-		\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-	\end{enumerate} & \Ts \\
+	TV0F2A & Viene verificato che \emph{metamask}\ped{G} sia attivato correttamente nel caso in cui un utente non autenticato voglia autenticarsi dopo essersi registrato. & \Ts \\
 	\hline
-	TV2F8 & L'utente amministratore o l'utente università desidera modificare un corso di laurea nella lista dei corsi di laurea. \newline \begin{flushleft}
-		Azioni:\newline
-	\end{flushleft} 
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina per la modifica di un corso di laurea;
-			\item Modificare i dati desiderati (modifiche possibili: codice, nome, descrizione, tipologia del corso di laurea);
-			\item Confermare la modifica del corso di laurea;
-			\item Verificare che l'operazione sia andata a buon fine controllando che i dati siano aggiornati secondo le modifiche appena effettuate nella pagina dedicata al corso di laurea.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F8.7 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia modificato i dati relativi ad un corso di laurea in maniera errata. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft} 
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Modificare i dati con informazioni errate o nulle;
-			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate}  & \Ts \\
-		\hline
-		TV2F9 & L'utente amministratore o l'utente università desidera aggiungere un'attività didattica alla lista delle attività didattiche. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft} 
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina per la modifica di un'attività didattica;
-			\item Modificare i dati desiderati (modifiche possibili: codice, nome, descrizione, professore, crediti, periodo dell'attività didattica);
-			\item Confermare la modifica dell'attività didattica;
-			\item Verificare che l'operazione sia andata a buon fine controllando che i dati siano aggiornati secondo le modifiche appena effettuate nella pagina dedicata all'attività didattica.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F9.9 &  L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia modificato i dati relativi ad un'attività didattica in maniera errata. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft} 
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Modificare i dati con informazioni errate o nulle;
-			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate}  & \Ts \\
-		\hline
-		TV2F10 & L'utente amministratore o l'utente università desidera modificare un esame nella lista degli esami. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina per la modifica di un esame;
-			\item Modificare i dati desiderati (modifiche possibili: codice, descrizione, intervallo di prenotazione, data, tipologia, luogo dell'esame);
-			\item Confermare la modifica dell'esame;
-			\item Verificare che l'operazione sia andata a buon fine controllando che i dati siano aggiornati secondo le modifiche appena effettuate nella pagina dedicata all'esame.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F10.9 & L'utente amministratore o università desidera visualizzare un messaggio d'errore nel caso in cui abbia modificato i dati relativi ad un esame in maniera errata. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft} 
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Modificare i dati con informazioni errate o nulle;
-			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F11 & L'utente amministratore o l'utente università desidera eliminare un anno accademico dalla lista degli anni accademici. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina della lista degli anni accademici;
-			\item Cliccare il pulsante per l'eliminazione dell'anno accademico scelto;
-			\item Verificare che l'anno accademico sia stato effettivamente cancellato dalla lista.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F12 & L'utente amministratore o l'utente università desidera eliminare un corso di laurea dalla lista dei corsi di laurea. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina della lista dei corsi di laurea;
-			\item Cliccare il pulsante per l'eliminazione del corso di laurea scelto;
-			\item Verificare che il corso di laurea sia stato effettivamente cancellato dalla lista.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F13 & L'utente amministratore o l'utente università desidera eliminare un'attività didattica dalla lista delle attività didattiche. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina della lista delle attività didattiche;
-			\item Cliccare il pulsante per l'eliminazione dell'attività didattica scelta;
-			\item Verificare che l'attività didattica sia stata effettivamente cancellata dalla lista.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F14 & L'utente amministratore o l'utente università desidera eliminare un esame dalla lista degli esami associati ad un'attività didattica. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina della lista degli esami associati ad un'attività didattica;
-			\item Cliccare il pulsante per l'eliminazione dell'esame scelto;
-			\item Verificare che l'esame sia stato effettivamente cancellato dalla lista.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F15 & L'utente amministratore o l'utente università desidera inserire un professore associato ad un esame. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina della lista degli esami;
-			\item Entrare nella pagina dell'esame scelto;
-			\item Cliccare il pulsante l'inserimento di un professore ad esso associato;
-			\item Scegliere il professore;
-			\item Confermare l'aggiunta;
-			\item Verificare che il professore sia stato effettivamente aggiunto controllando la sezione relativa ai professori nella pagina dell'esame.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F16 & L'utente studente desidera iscriversi ad un esame. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come studente;
-			\item Entrare nella pagina della lista degli esami;
-			\item Entrare nella pagina dell'esame scelto;
-			\item Cliccare il pulsante per l'iscrizione;
-			\item Confermare l'iscrizione.
-			\item Verificare che l'iscrizione sia andata a buon fine ricercando l'esame a cui ci si è appena iscritti nella pagina relativa a tutti gli esami a cui l'utente ha effettuato l'iscrizione.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV0F17 & L'utente professore desidera visualizzare la lista degli esami a lui associati. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come professore;
-			\item Entrare nella pagina dedicata agli esami associati all'utente;
-			\item Verificare che che il sistema visualizzi correttamente la lista di tutti gli esami a cui il professore è stato precedentemente associato.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV0F18 & L'utente professore desidera visualizzare la lista degli studenti iscritti ad un suo esame. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come professore;
-			\item Entrare nella pagina dedicata agli esami associati all'utente;
-			\item Cliccare il pulsante per la visualizzazione degli studenti iscritti a fianco all'esame scelto;
-			\item Verificare che che il sistema visualizzi correttamente la lista di tutti gli studenti che si sono precedentemente iscritti all'esame.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV0F20 & L'utente studente desidera eliminare l'iscrizione ad un esame. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come studente;
-			\item Entrare nella pagina dedicata alla lista degli esami a cui l'utente è iscritto;
-			\item Cliccare il pulsante "Elimina iscrizione" a fianco all'esame da cui ci si vuole disiscrivere;
-			\item Verificare che che l'eliminazione sia andata a buon fine controllando che l'esame non sia più presente nella lista.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV0F21 & L'utente studente desidera rifiutare il voto di un esame. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come studente;
-			\item Entrare nella pagina dedicata ai risultati degli esami;
-			\item Entrare nella pagina relativa al risultato che si intende rifiutare;
-			\item Cliccare il pulsante "Rifiuta voto";
-			\item Verificare che il voto sia stato effettivamente rifiutato controllando che esso non sia più presente nella lista dei risultati.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV0F22 & L'utente professore desidera modificare gli esami a lui associati. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come professore;
-			\item Entrare nella pagina dedicata agli esami associati all'utente;
-			\item Entrare nella pagina relativa all'esame che si intende modificare;
-			\item Modificare i dati desiderati (modifiche possibili: intervallo di prenotazione, data, luogo dell'esame);
-			\item Confermare le modifiche;
-			\item Verificare che il voto sia stato effettivamente rifiutato controllando che esso non sia più presente nella lista dei risultati.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F22.6 & L'utente professore desidera visualizzare un messaggio d'errore nel caso in cui abbia modificato i dati relativi ad un esame a lui associato in maniera errata. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft} 
-		\begin{enumerate}
-			\item Modificare i dati con informazioni errate o nulle;
-			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV0F23 & L'utente professore desidera registrare il voto relativo ad un esame di uno studente. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come professore;
-			\item Entrare nella pagina dedicata all'inserimento dei risultati;
-			\item Selezionare lo studente al quale si vuole registrare il voto;
-			\item Inserire il voto nell'apposito campo;
-			\item Confermare le modifiche;
-			\item Verificare che il sistema visualizzi un avviso di corretto inserimento del risultato.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F23.3 & L'utente professore desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito un voto in maniera errata. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft} 
-		\begin{enumerate}
-			\item Inserire il voto con un formato errato;
-			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV0F24 & L'utente amministratore o l'utente università desidera creare ed inserire un nuovo utente nel sistema. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina dedicata all'inserimento di un nuovo utente;
-			\item Selezionare la tipologia di utente;
-			\item Inserire la matricola;
-			\item Inserire il codice univoco;
-			\item Verificare che l'utente sia stato effettivamente inserito ricercandolo nella pagina dedicata alla visualizzazione della lista degli utenti iscritti.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV2F24.6 & L'utente amministratore o l'utente università desidera visualizzare un messaggio d'errore nel caso in cui abbia inserito dati relativi ad un utente in maniera errata. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft} 
-		\begin{enumerate}
-			\item Inserire i dati in maniera errata;
-			\item Verificare che il sistema visualizzi correttamente un messaggio d'errore.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV0F25 & L'utente amministratore o l'utente università desidera rimuovere un utente dal sistema. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come amministratore o come università;
-			\item Entrare nella pagina dedicata alla visualizzazione della lista degli utenti iscritti;
-			\item Cliccare il pulsante relativo alla rimozione di un utente a fianco all'utente che si vuole rimuovere;
-			\item Confermare la rimozione;
-			\item Verificare che l'utente sia stato effettivamente rimosso controllando che non sia presente nella pagina dedicata alla visualizzazione della lista degli utenti iscritti.
-		\end{enumerate} & \Ts \\
-		\hline
-			TV0F26 & L'utente studente desidera visualizzare il proprio libretto. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come studente;
-			\item Entrare nella pagina dedicata alla visualizzazione del libretto dell'utente;
-			\item Verificare che il sistema visualizzi correttamente tutti gli esami sostenuti o da sostenere da parte dell'utente.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV0F27 & L'utente professore desidera visualizzare la lista degli esami a lui associati. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come professore;
-			\item Entrare nella pagina dedicata alla visualizzazione della lista degli esami associati all'utente;
-			\item Verificare che il sistema visualizzi correttamente tutti gli esami precedentemente associati all'utente.
-		\end{enumerate} & \Ts \\
-		\hline
-		TV0F28 & L'utente professore desidera visualizzare la lista degli studenti iscritti ad uno degli esami a lui associati. \newline \begin{flushleft}
-			Azioni:\newline
-		\end{flushleft}
-		\begin{enumerate}
-			\item Verificare di essere correttamente autenticato come professore;
-			\item Entrare nella pagina dedicata alla visualizzazione della lista degli esami associati all'utente;
-			\item Entrare nella pagina dedicata all'esame di cui si vogliono conoscere gli studenti iscritti;
-			\item Verificare che il sistema visualizzi correttamente tutti gli studenti precedentemente iscritti all'esame.
-		\end{enumerate} & \Ts \\
+	TV0F2B & Viene verificato che, nel caso in cui l'utente non autenticato clicchi il pulsante di login, il sistema segnali la corretta autenticazione. & \Ts \\
+	\hline
+	TV0F3A & Viene verificato che l'utente amministratore o l'utente università siano correttamente autenticati rispettivamente come amministratore o come università. & \Ts \\ 
+	\hline
+	TV0F3B & Viene verificata la visualizzazione della pagina per l'inserimento di un anno accademico. & \Ts \\ 
+	\hline
+	TV0F3C & Viene verificato l'inserimento dell'inizio dell'anno accademico. & \Ts \\ 
+	\hline
+	TV0F3D & Viene verificato l'inserimento della fine dell'anno accademico. & \Ts \\ 
+	\hline
+	TV0F3E & Viene verificato l'inserimento della nome dell'anno accademico. & \Ts \\ 
+	\hline
+	TV0F3F & Viene verificata la conferma dell'aggiunta dell'anno accademico. & \Ts \\ 
+	\hline
+	TV0F3G & Viene verificato che l'aggiunta dell'anno accademico sia andata a buon fine. & \Ts \\ 
+	\hline
+	TV2F3.5 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente amministratore o università riempiano i campi dato relativi all'inserimento di un anno accademico con informazioni errate o nulle. & \Ts \\
+	\hline
+	TV0F4A & Viene verificata la visualizzazione della pagina per l'inserimento di un corso di laurea. & \Ts \\
+	\hline
+	TV0F4B & Viene verificato l'inserimento del codice del corso di laurea. & \Ts \\
+	\hline
+	TV0F4C & Viene verificato l'inserimento del nome del corso di laurea. & \Ts \\
+	\hline
+	TV0F4D & Viene verificato l'inserimento della descrizione del corso di laurea. & \Ts \\
+	\hline
+	TV0F4E & Viene verificato l'inserimento della tipologia del corso di laurea. & \Ts \\
+	\hline
+	TV0F4G & Viene verificata la conferma dell'aggiunta di un corso di laurea. & \Ts \\
+	\hline
+	TV0F4H & Viene verificato che l'aggiunta del corso di laurea sia andata a buon fine. & \Ts \\
+	\hline
+	TV2F4.7 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente amministratore o università riempiano i campi dato relativi all'inserimento di un corso di laurea con informazioni errate o nulle. & \Ts \\
+	\hline
+	TV0F5A & Viene verificata la visualizzazione della pagina per l'inserimento di un'attività didattica. & \Ts \\
+	\hline
+	TV0F5B & Viene verificato l'inserimento del codice dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5C & Viene verificato l'inserimento del nome dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5D & Viene verificato l'inserimento della descrizione dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5E & Viene verificato l'inserimento del professore associato all'attività didattica. & \Ts \\
+	\hline
+	TV0F5F & Viene verificato l'inserimento dei crediti dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5G & Viene verificato l'inserimento del periodo dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5H & Viene verificata la conferma dell'aggiunta dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5I & Viene verificato che l'aggiunta dell'attività didattica sia andata a buon fine. & \Ts \\
+	\hline
+	TV2F5.9 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente amministratore o università riempiano i campi dato relativi all'inserimento di un'attività didattica con informazioni errate o nulle. & \Ts \\
+	\hline
+	TV0F6A & Viene verificata la visualizzazione della pagina per l'inserimento di un esame. & \Ts \\
+	\hline
+	TV0F6B & Viene verificato l'inserimento del codice dell'esame. & \Ts \\
+	\hline
+	TV0F6C & Viene verificato l'inserimento della descrizione dell'esame. & \Ts \\
+	\hline
+	TV0F6D & Viene verificato l'inserimento dell'intervallo di prenotazione dell'esame. & \Ts \\
+	\hline
+	TV0F6E & Viene verificato l'inserimento della data dell'esame. & \Ts \\
+	\hline
+	TV0F6F & Viene verificato l'inserimento della tipologia dell'esame. & \Ts \\
+	\hline
+	TV0F6G & Viene verificato l'inserimento del luogo dell'esame. & \Ts \\
+	\hline
+	TV0F6H & Viene verificato l'inserimento del professore associato all'esame. & \Ts \\
+	\hline
+	TV0F6I & Viene verificata la conferma dell'aggiunta dell'esame. & \Ts \\
+	\hline
+	TV0F6L & Viene verificato che l'aggiunta dell'esame sia andata a buon fine. & \Ts \\
+	\hline
+	TV2F6.9 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente amministratore o università riempiano i campi dato relativi all'inserimento di un'esame con informazioni errate o nulle. & \Ts \\
+	\hline
+	TV2F11A & Viene verificata la visualizzazione della pagina relativa alla cancellazione di un anno accademico. & \Ts \\
+	\hline
+	TV2F11B & Viene verificata l'effettiva eleminazione dell'anno accademico qualora l'utente amministratore o l'utente università abbia cliccato sul pulsante di eliminazione. & \Ts \\
+	\hline
+	TV2F12A & Viene verificata la visualizzazione della pagina relativa alla cancellazione di un corso di laurea. & \Ts \\
+	\hline
+	TV2F12B & Viene verificata l'effettiva eleminazione del corso di laurea qualora l'utente amministratore o l'utente università abbia cliccato sul pulsante di eliminazione. & \Ts \\
+	\hline
+	TV2F13A & Viene verificata la visualizzazione della pagina relativa alla cancellazione di un'attività didattica. & \Ts \\
+	\hline
+	TV2F13B & Viene verificata l'effettiva eleminazione dell'attività didattica qualora l'utente amministratore o l'utente università abbia cliccato sul pulsante di eliminazione. & \Ts \\
+	\hline
+	TV2F14A & Viene verificata la visualizzazione della pagina relativa alla cancellazione di un'esame. & \Ts \\
+	\hline
+	TV2F14B & Viene verificata l'effettiva eleminazione dell'esame qualora l'utente amministratore o l'utente università abbia cliccato sul pulsante di eliminazione. & \Ts \\
+	\hline
+	TV2F16A & Viene verificato che l'utente studente sia correttamente autenticato come studente.  & \Ts \\
+	\hline
+	TV2F16B & Viene verificata la visualizzazione della pagina della lista di esami associati allo studente.  & \Ts \\
+	\hline
+	TV2F16C & Viene verificata la conferma dell'iscrizione all'esame da parte dello studente. & \Ts \\
+	\hline
+	TV2F16D & Viene verificato che l'iscrizione all'esame da parte dello studente sia andata a buon fine. & \Ts \\
+	\hline
+	TV0F17A & Viene verificato che l'utente professore sia correttamente autenticato come professore.  & \Ts \\
+	\hline
+	TV0F17B & Viene verificata la visualizzazione della pagina della lista di esami associati al professore.  & \Ts \\
+	\hline
+	TV0F18 & Viene verificata la visualizzazione della pagina della lista di studenti iscritti ad un esame associato al professore.  & \Ts \\
+	\hline
+	TV0F23A & Viene verificato l'inserimento di un voto ad uno studente da parte di un professore. & \Ts \\
+	\hline
+	TV0F23B & Viene verificato che l'inserimento di un voto ad uno studente da parte di un professore sia andato a buon fine. & \Ts \\
+	\hline
+	TV2F23.3 & Viene verificata la visualizzazione di un messaggio d'errore qualora un professore inserisca un voto in un formato errato. & \Ts \\
+	\hline
+	TV0F24A & Viene verificata la visualizzazione della pagina relativa all'aggiunta di un nuovo utente da parte di un utente amministratore o di un utente università.  & \Ts \\
+	\hline
+	TV0F24B & Viene verificato l'inserimento del codice fiscale dell'utente che l'utente amministratore o l'utente università vuole inserire.  & \Ts \\
+	\hline
+	TV0F24C & Viene verificato l'inserimento del codice univoco dell'utente che l'utente amministratore o l'utente università vuole inserire.  & \Ts \\
+	\hline
+	TV0F24D & Viene verificata la selezione della tipologia dell'utente che l'utente amministratore o l'utente università vuole inserire.  & \Ts \\
+	\hline
+	TV0F24E & Viene verificata la selezione dell'anno accademico relativo all'utente che l'utente amministratore o l'utente università vuole inserire.  & \Ts \\
+	\hline
+	TV0F24F & Viene verificata la selezione del corso di laurea relativa all'utente che l'utente amministratore o l'utente università vuole inserire.  & \Ts \\
+	\hline
+	TV0F24G & Viene verificata la conferma dell'aggiunta di un nuovo utente da parte di un utente amministratore o di un utente università. & \Ts \\
+	\hline
+	TV0F24H & Viene verificato che l'aggiunta di un utente da parte di un utente amministratore o di un utente università sia andata a buon fine. & \Ts \\
+	\hline
+	TV2F24.6 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente amministratore o università riempiano i campi dato relativi all'aggiunta di un nuovo utente con informazioni errate o nulle. & \Ts \\
+	\hline
+	TV0F25A & Viene verificata l'eliminazione di un utente studente da parte dell'utente amministratore o dell'utente università.	& \Ts \\
+	\hline
+	TV0F25B & Viene verificata l'eliminazione di un utente professore da parte dell'utente amministratore o dell'utente università.	& \Ts \\
+	\hline
+	TV0F25C & Viene verificata l'eliminazione di un utente amministratore da parte dell'utente università.	& \Ts \\
+	\hline
+	TV0F26A & Viene verificata la visualizzazione della pagina con la lista di esami a cui lo studente è registrato. & \Ts \\
+	\hline
+	TV0F26B & Viene verificata la visualizzazione della pagina del libretto universitario da parte dello studente. & \Ts \\
 	\hline
 	\caption[Test di validazione]{Test di validazione}
 	\label{tabella:TV}
@@ -437,79 +191,171 @@ Questi test verranno utilizzati durante la fase di collaudo finale, in presenza 
 	\textbf{Codice test} & \textbf{Codice requisito} \\
 	\hline
 	\endhead
-	TV0F1 & R0F1\\
+	TV0F1A & R0F1\\
+	\hline
+	TV0F1B & R0F1\\
+	\hline
+	TV0F1C & R0F1\\
+	\hline
+	TV0F1D & R0F1\\
+	\hline
+	TV0F1E & R0F1\\
+	\hline
+	TV0F1F & R0F1\\
+	\hline
+	TV0F1G & R0F1\\
+	\hline
+	TV0F1H & R0F1\\
+	\hline
+	TV0F1I & R0F1\\
+	\hline
+	TV0F1L & R0F1\\
 	\hline
 	TV2F1.8 & R2F1.8\\
 	\hline
-	TV0F2 & R0F2\\
+	TV0F2A & R0F2\\
 	\hline
-	TV0F3 & R0F3\\
+	TV0F2B & R0F2\\
+	\hline
+	TV0F3A & R0F3\\
+	\hline
+	TV0F3B & R0F3\\
+	\hline
+	TV0F3C & R0F3\\
+	\hline
+	TV0F3D & R0F3\\
+	\hline
+	TV0F3E & R0F3\\
+	\hline
+	TV0F3F & R0F3\\
+	\hline
+	TV0F3G & R0F3\\
 	\hline
 	TV2F3.5 & R2F3.5\\
 	\hline
-	TV0F4 & R0F4\\
+	TV0F4A & R0F4\\
+	\hline
+	TV0F4B & R0F4\\
+	\hline
+	TV0F4C & R0F4\\
+	\hline
+	TV0F4D & R0F4\\
+	\hline
+	TV0F4E & R0F4\\
+	\hline
+	TV0F4F & R0F4\\
+	\hline
+	TV0F4G & R0F4\\
+	\hline
+	TV0F4H & R0F4\\
 	\hline
 	TV2F4.7 & R2F4.7\\
 	\hline
-	TV0F5 & R0F5\\
+	TV0F5A & R0F5\\
+	\hline
+	TV0F5B & R0F5\\
+	\hline
+	TV0F5C & R0F5\\
+	\hline
+	TV0F5D & R0F5\\
+	\hline
+	TV0F5E & R0F5\\
+	\hline
+	TV0F5F & R0F5\\
+	\hline
+	TV0F5G & R0F5\\
+	\hline
+	TV0F5H & R0F5\\
+	\hline
+	TV0F5I & R0F5\\
 	\hline
 	TV2F5.9 & R2F5.9\\
 	\hline
-	TV0F6 & R0F6\\
+	TV0F6A & R0F6\\
+	\hline
+	TV0F6B & R0F6\\
+	\hline
+	TV0F6C & R0F6\\
+	\hline
+	TV0F6D & R0F6\\
+	\hline
+	TV0F6E & R0F6\\
+	\hline
+	TV0F6F & R0F6\\
+	\hline
+	TV0F6G & R0F6\\
+	\hline
+	TV0F6H & R0F6\\
+	\hline
+	TV0F6I & R0F6\\
+	\hline
+	TV0F6L & R0F6\\
 	\hline
 	TV2F6.9 & R2F6.9\\
 	\hline
-	TV2F7 & R2F7\\
+	TV2F11A & R2F11\\
 	\hline
-	TV2F7.5 & R02F7.5\\
+	TV2F11B & R2F11\\
 	\hline
-	TV2F8 & R2F8\\
+	TV2F12A & R2F12\\
 	\hline
-	TV2F8.7 & R2F8.7\\
+	TV2F12B & R2F12\\
 	\hline
-	TV2F9 & R2F9\\
+	TV2F13A & R2F13\\
 	\hline
-	TV2F9.9 & R2F9.9\\
+	TV2F13B & R2F13\\
 	\hline
-	TV2F10 & R02F10\\
+	TV2F14A & R2F14\\
 	\hline
-	TV2F10.9 & R2F10.9\\
+	TV2F14B & R2F14\\
 	\hline
-	TV2F11 & R2F11\\
+	TV2F16A & R2F16\\
 	\hline
-	TV2F12 & R2F12\\
+	TV2F16B & R2F16\\
 	\hline
-	TV2F13 & R2F13\\
+	TV2F16C & R2F16\\
 	\hline
-	TV2F14 & R2F14\\
+	TV2F16D & R2F16\\
 	\hline
-	TV2F15 & R2F15\\
+	TV0F17A & R0F17\\
 	\hline
-	TV2F16 & R2F16\\
-	\hline
-	TV0F17 & R0F17\\
+	TV0F17B & R0F17\\
 	\hline
 	TV0F18 & R0F18\\
 	\hline
-	TV0F20 & R0F20\\
+	TV0F23A & R0F23\\
 	\hline
-	TV0F21 & R0F21\\
-	\hline
-	TV0F22 & R0F22\\
-	\hline
-	TV2F22.6 & R2F22.6\\
-	\hline
-	TV0F23 & R0F23\\
+	TV0F23B & R0F23\\
 	\hline
 	TV2F23.3 & R2F23.3\\
 	\hline
-	TV0F24 & R0F24\\
+	TV0F24A & R0F24\\
+	\hline
+	TV0F24B & R0F24\\
+	\hline
+	TV0F24C & R0F24\\
+	\hline
+	TV0F24D & R0F24\\
+	\hline
+	TV0F24E & R0F24\\
+	\hline
+	TV0F24F & R0F24\\
+	\hline
+	TV0F24G & R0F24\\
+	\hline
+	TV0F24H & R0F24\\
 	\hline
 	TV2F24.6 & R2F24.6\\
 	\hline
-	TV0F25 & R0F25\\
+	TV0F25A & R0F25\\
 	\hline
-	TV0F26 & R0F26\\
+	TV0F25B & R0F25\\
+	\hline
+	TV0F25C & R0F25\\
+	\hline
+	TV0F26A & R0F26\\
+	\hline
+	TV0F26B & R0F26\\
 	\hline
 	\caption[Tracciamento test di validazione - requisiti]{Tracciamento test di validazione - requisiti}
 \end{longtable}
