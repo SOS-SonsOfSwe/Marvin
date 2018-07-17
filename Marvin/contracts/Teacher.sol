@@ -18,6 +18,7 @@ contract Teacher {
         _;
     }
 
+    // MODIFICATORE
     // students subscribed to the exam
     function examSubscribedStudent(bytes10 _examUniCode) public view returns(uint32[]){
         ExamData exam = ExamData(manager.getExamContract());

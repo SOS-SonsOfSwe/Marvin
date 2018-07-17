@@ -35,20 +35,24 @@ contract ClassData {
         _;
     }
 
+    // MODIFICATORE
     function isClass(bytes10 _classUniCode) public view returns(bool) {
         if(classes[_classUniCode].uniCode == 0)
             return false;
         return true;
     }
-
+    
+    // MODIFICATORE
     function getHashData(bytes10 _classUniCode) public view returns(bytes32) {
         return (classes[_classUniCode].hashData);
     }
-
+    
+    // MODIFICATORE
     function getClassExams(bytes10 _classUniCode) public view returns(bytes10[]) {
         return (classes[_classUniCode].classExams);
     }
-
+    
+    // MODIFICATORE
     // return all the class exams and their IPFS hashes
     function getClassExamsData(bytes10 _classUniCode) public view returns(bytes32[], uint32, bytes10[]) {
         bytes10[] memory examsForClass = classes[_classUniCode].classExams;
@@ -87,10 +91,12 @@ contract ClassData {
         delete classes[_classUniCode];
     }
 
+    // MODIFICATORE
     function setIndex(bytes10 _classUniCode, uint16 _index) public {
         classes[_classUniCode].index = _index;
     }
 
+    // MODIFICATORE
     function getIndex(bytes10 _classUniCode) public view returns(uint16) {
         return(classes[_classUniCode].index);
     }
@@ -101,20 +107,24 @@ contract ClassData {
         classTeacher[_teacherBadgeNumber].push(_classUniCode);
     }
 
+    // MODIFICATORE
     // return class teacher
     function getClassTeacher(bytes10 _classUniCode) public view returns(uint32) {
         return(classes[_classUniCode].classTeacher);
     }
 
+    // MODIFICATORE
     function getTeacherClasses(uint32 _badgeNumber) public view returns(bytes10[]) {
         return(classTeacher[_badgeNumber]);
     }
 
+    // MODIFICATORE
     // return accepted student result
     function getConfirmedResult(uint32 _studentBadgeNumber, bytes10 _classUniCode) public view returns(uint8) {
         return(classes[_classUniCode].confirmedResults[_studentBadgeNumber]);
     }
 
+    // MODIFICATORE
     // confirm student test result
     function setConfirmedResult(bytes10 _classUniCode, uint32 _studentBadgeNumber, uint8 _result) public {
         classes[_classUniCode].confirmedResults[_studentBadgeNumber] = _result;

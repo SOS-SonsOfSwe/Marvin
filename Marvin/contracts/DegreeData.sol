@@ -36,6 +36,7 @@ contract DegreeData {
         _;
     }
 
+    // MODIFICATORE
     // return true only if the year has already been registered
     function isYear(bytes4 _year) public view returns(bool) {
         for(uint i = 0; i < academicYears.length; ++i) {
@@ -45,6 +46,7 @@ contract DegreeData {
         return false;
     }
 
+    // MODIFICATORE
     // return true only if the degree has already been registered
     function isDegree(bytes10 _degreeUniCode) public view returns(bool) {
         // check if this uniCode is already assigned
@@ -53,10 +55,12 @@ contract DegreeData {
         return true;
     }
 
+    // MODIFICATORE
     function getAcademicYears() public view returns(bytes4[]) {
         return(academicYears);
     }
 
+    // MODIFICATORE
     // return all the degrees unicodes and their IPFS hash of to the year
     function getYearDegreesData(bytes4 _year) public view returns(bytes32[], bytes10[]) {
         bytes10[] memory degreesForYear = yearDegrees[_year];
@@ -67,11 +71,13 @@ contract DegreeData {
         return(degreesHashCodes, degreesForYear);
     }
 
+    // MODIFICATORE
     // return all the classes unicodes of the degree
     function getClasses(bytes10 _degreeUniCode) public view returns(bytes10[]) {
         return(degrees[_degreeUniCode].classes);
     }
 
+    // MODIFICATORE
     // return all the classes unicodes and their IPFS hash of the degree
     function getClassesData(bytes10 _degreeUniCode) public view returns(bytes32[], uint32[], bytes10[]) {
         bytes10[] memory classesForDegree = getClasses(_degreeUniCode);

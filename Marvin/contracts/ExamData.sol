@@ -37,30 +37,35 @@ contract ExamData {
         _;
     }
 
+    // MODIFICATORE
     function getHashData(bytes10 _examUniCode) public view returns(bytes32) {
         return(exams[_examUniCode].hashData);
     }
 
-    
+    // MODIFICATORE
     function getResultHash(bytes10 _examUniCode) public view returns(bytes32) {
         return(exams[_examUniCode].hashResult);
     }
 
+    // MODIFICATORE
     // return exam subscribed students
     function getExamSubscribedStudent(bytes10 _examUniCode) public view returns(uint32[]) {
         return(exams[_examUniCode].subscribedStudents);
     }
 
+    // MODIFICATORE
     function setHashData(bytes10 _examUniCode, bytes32 _hashData) public onlyAdminContract {
         exams[_examUniCode].hashData = _hashData;
     }
 
+    // MODIFICATORE
     function isExam(bytes10 _examUniCode) public view returns(bool) {
         if(exams[_examUniCode].uniCode == 0)
             return false;
         return true;
     }
 
+    // MODIFICATORE
     // return true only if the student is subscribed to the exam
     function isStudentSubscribed(bytes10 _examUniCode, uint32 _studentBadgeNumber) public view returns(bool) {
         uint32[] memory subscribedStudent = exams[_examUniCode].subscribedStudents;
@@ -87,11 +92,13 @@ contract ExamData {
     function deleteExam(bytes10 _examUnicode) public onlyAdminContract {
         delete exams[_examUnicode];
     }
-        
+    
+    // MODIFICATORE
     function setIndex(bytes10 _examUniCode, uint16 _index) public {
         exams[_examUniCode].index = _index;
     }
 
+    // MODIFICATORE
     function getIndex(bytes10 _examUniCode) public view returns(uint16) {
         return(exams[_examUniCode].index);
     }
