@@ -1,6 +1,6 @@
-const IPFS = require('ipfs-mini')
+require("regenerator-runtime"); // needed for async calls
+const IPFS = require('ipfs-api')
 const bs58 = require('bs58')
-const regeneratorRuntime = require("regenerator-runtime"); // needed for async calls
 
 /* eslint no-loop-func: "off" */
 
@@ -38,6 +38,23 @@ const address0 = '0x627306090abab3a6e1400e9345bc60c78a8bef57'
 // const address8 = '0x6330a553fc93768f612722bb8c2ec78ac90b3bbc'
 // const address9 = '0x5aeda56215b167893e80b4fe645ba6d5bab767de'
 
+async function promiseTimeout(ms, promise) {
+
+  // Create a promise that rejects in <ms> milliseconds
+  let timeout = new Promise((resolve, reject) => {
+    let id = setTimeout(() => {
+      clearTimeout(id);
+      reject('Timed out in ' + ms + 'ms.')
+    }, ms)
+  })
+
+  // Returns a race between our timeout and the passed in promise
+  return Promise.race([
+    promise,
+    timeout
+  ])
+}
+
 var ipfs = new IPFS({
   host: "54.93.231.212", // IPv4 Public IP of the AWS Server Instance
   port: '5001'
@@ -69,15 +86,43 @@ function getBytes32FromIpfsHash(ipfsListing) {
 //   return hashStr
 // }
 
-function pushJSON(jsonPARAM) {
-  return new Promise(function (resolve, reject) {
-    ipfs.addJSON(jsonPARAM, function (err, data) {
-      // setTimeout(() => {
-      //   return reject("no ipfs network allowed")
-      // }, 5)
-      if(err !== null) return reject(err);
-      resolve(data);
-    })
+// function pushJSON(jsonPARAM) {
+//   return new Promise(function (resolve, reject) {
+//     ipfs.addJSON(jsonPARAM, function (err, data) {
+//       // setTimeout(() => {
+//       //   return reject("no ipfs network allowed")
+//       // }, 5)
+//       if(err !== null) return reject(err);
+//       resolve(data);
+//     })
+//   })
+// }
+async function pushJSON(jsonPARAM) {
+  return new Promise(async (resolve, reject) => {
+    var buf = Buffer.from(JSON.stringify(jsonPARAM));
+    try {
+      var hash = await promiseTimeout(20000, ipfs.add(buf))
+      if(hash) return resolve(hash[0].hash)
+    } catch(error) {
+      console.error(error)
+      // alert('It seems that IPFS has some problems... \nCheck your network firewall or try again later.')
+      // browserHistory.push('/')
+      return reject(error)
+    }
+  })
+}
+async function pushFile(buffer) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      var response = await promiseTimeout(50000, ipfs.add(buffer))
+      if(response) // // console.log(response[0].hash)
+        return resolve(response[0].hash)
+    } catch(error) {
+      console.error(error)
+      // alert('It seems that IPFS has some problems... \nCheck your network firewall or try again later.')
+      // browserHistory.push('/')
+      return reject(error)
+    }
   })
 }
 
