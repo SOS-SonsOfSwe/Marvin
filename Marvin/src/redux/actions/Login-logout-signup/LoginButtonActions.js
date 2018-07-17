@@ -58,8 +58,9 @@ export function loginUser() {
   // check if the user is logged in to metamask
   // the function has to return a function as is invoked by a dispatch
   if(web3.eth.accounts.length === 0) {
-    alert("Please login to Metamask and reload the page!")
+    alert("Please login to Metamask before!")
     return function (dispatch) {
+      window.location.reload()
       return browserHistory.push('/')
     }
   } else return login(web3)
