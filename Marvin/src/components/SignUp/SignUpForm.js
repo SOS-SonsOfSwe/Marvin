@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import * as utils from '../../utils/validations'
 import LoadingData from '../Loading/LoadingData';
+import {signUpPopup}from '../../utils/popup';
+import Popup from 'react-popup' 
 // import ipfsPromise from '../../../api/utils/ipfsPromise'
 
 class SignUpForm extends Component {
@@ -55,22 +57,27 @@ class SignUpForm extends Component {
     event.preventDefault()
 
     if (!utils.checkFiscalCode(this.state.FC) || !utils.checkUniqueCode(this.state.UC) || !utils.checkMail(this.state.email)) {
-      return alert('Please fill in all the details correctely')
+      
+      Popup.queue(signUpPopup)
+      Popup.clearQueue()
+      return alert('ppppppppppppppp')
     }
+    else{
 
-    var userData = {
-      "name": this.state.name,
-      "surname": this.state.surname,
-      "email": this.state.email,
-      "FC": this.state.FC,
-      "UC": this.state.UC,
-      "uploadedFile": this.state.uploadedFile
+      var userData = {
+        "name": this.state.name,
+        "surname": this.state.surname,
+        "email": this.state.email,
+        "FC": this.state.FC,
+        "UC": this.state.UC,
+        "uploadedFile": this.state.uploadedFile
+      }
+
+      // var ipfs = new ipfsPromise()
+
+      // ipfs.pushJSON(userData).then(hashIPFS =>
+      this.props.onSignUpFormSubmit(userData, event)
     }
-
-    // var ipfs = new ipfsPromise()
-
-    // ipfs.pushJSON(userData).then(hashIPFS =>
-    this.props.onSignUpFormSubmit(userData, event)
   }
 
   render() {
@@ -94,18 +101,18 @@ class SignUpForm extends Component {
 
               <br />
               <label htmlFor="email">eMail</label>
-              <input id="email" type="text" value={this.state.email} onChange={this.onInputEmailChange.bind(this)} placeholder="eMail" />
+              <input id="email" type="text" value={this.state.email} onChange={this.onInputEmailChange.bind(this)} onFocus={Popup.close()} placeholder="eMail" />
               <span className="pure-form-message">This is a required field.</span>
 
               <br />
               <label htmlFor="FC">Fiscal code</label>
-              <input id="FC" type="text" value={this.state.FC} onChange={this.onInputFCChange.bind(this)} placeholder="Fiscal code" />
+              <input id="FC" type="text" value={this.state.FC} onChange={this.onInputFCChange.bind(this)} onFocus={Popup.close()} placeholder="Fiscal code" />
               <span className="pure-form-message">This is a required field.</span>
 
               <br />
 
               <label htmlFor="UC">Univocal code</label>
-              <input id="UC" type="text" value={this.state.UC} onChange={this.onInputUCChange.bind(this)} placeholder="Univocal code" />
+              <input id="UC" type="text" value={this.state.UC} onChange={this.onInputUCChange.bind(this)} onFocus={Popup.close()} placeholder="Univocal code" />
               <span className="pure-form-message">This is a required field.</span>
 
               <br />

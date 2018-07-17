@@ -153,3 +153,43 @@ export let markWrongPopup = Popup.register(
         }
     }
 )
+
+export let signUpPopup = Popup.register(
+    {
+        content:"Please fill in all the details correctely.",
+        buttons:{
+            aligned:'right center',
+            right:[{
+                text: 'x',
+                action: function(){ Popup.close();}
+            }]
+        }
+    }
+)
+
+export let FCPopup = Popup.register(
+    {
+        content:"Please fill in your Fiscal Code correctly.",
+        buttons:{
+            aligned:'right center',
+            right:[{
+                text: 'x',
+                action: function(){ Popup.close();}
+            }]
+        }
+    }
+)
+
+
+export let UCPopup = Popup.register(
+    {
+        content:"Please fill in your UC correctly.",
+        buttons:{
+            aligned:'right center',
+            right:[{
+                text: 'x',
+                action: function(){ Popup.close();}
+            }]
+        }
+    }
+)

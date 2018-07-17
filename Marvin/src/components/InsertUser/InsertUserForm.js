@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import * as util from '../../utils/validations'
 import LoadingData from '../Loading/LoadingData'
 import EmptyData from '../Loading/EmptyData'
-
+import {FCPopup, UCPopup}from '../../utils/popup';
+import Popup from 'react-popup' 
 
 //import TickButton from './radio_button/components/Application'
 
@@ -61,14 +62,20 @@ class InsertUserForm extends Component {
     event.preventDefault()
 
     if (!util.checkFiscalCode(this.state.FCInserted)) {
-      return alert('Please fill in your Fiscal Code correctly.')
+      Popup.queue(FCPopup)
+      Popup.clearQueue()
     }
-
-    if (this.state.UCInserted.length !== 10 || !util.checkUniqueCode(this.state.UCInserted)) {
-      return alert('Please fill in your UC correctly.')
+    else{
+      if (this.state.UCInserted.length !== 10 || !util.checkUniqueCode(this.state.UCInserted)) {
+        Popup.queue(UCPopup)
+        Popup.clearQueue()
+      }
+      else{
+        event.preventDefault();
+        this.props.onInsertUserFormSubmit(this.state.FCInserted, this.state.UCInserted, this.state.tpInserted, this.state.selectedDegree)
+    
+      }
     }
-    event.preventDefault();
-    this.props.onInsertUserFormSubmit(this.state.FCInserted, this.state.UCInserted, this.state.tpInserted, this.state.selectedDegree)
   }
 
   //for tick boxes
@@ -99,13 +106,13 @@ class InsertUserForm extends Component {
           <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit}>
             <fieldset>
               <label htmlFor="FC">Fiscal Code</label>
-              <input id="FC" type="text" value={this.state.FCInserted} onChange={this.onInputFCChange} placeholder="FC" />
+              <input id="FC" type="text" value={this.state.FCInserted} onFocus={Popup.close()} onChange={this.onInputFCChange} placeholder="FC" />
               <span className="pure-form-message">This is a required field.</span>
 
               <br />
 
               <label htmlFor="UC">Unique code</label>
-              <input id="UC" type="text" value={this.state.UCInserted} onChange={this.onInputUCChange} placeholder="UC" />
+              <input id="UC" type="text" value={this.state.UCInserted} onFocus={Popup.close()} onChange={this.onInputUCChange} placeholder="UC" />
               <span className="pure-form-message">This is a required field.</span>
 
               <br />
