@@ -41,7 +41,6 @@ contract ExamData {
         return(exams[_examUniCode].hashData);
     }
 
-    
     function getResultHash(bytes10 _examUniCode) public view returns(bytes32) {
         return(exams[_examUniCode].hashResult);
     }
@@ -87,7 +86,7 @@ contract ExamData {
     function deleteExam(bytes10 _examUnicode) public onlyAdminContract {
         delete exams[_examUnicode];
     }
-        
+    
     function setIndex(bytes10 _examUniCode, uint16 _index) public {
         exams[_examUniCode].index = _index;
     }

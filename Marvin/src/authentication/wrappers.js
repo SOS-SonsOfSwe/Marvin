@@ -5,7 +5,7 @@ import connectedAuthWrapper from 'redux-auth-wrapper/connectedAuthWrapper'
 
 import { routerActions } from 'react-router-redux'
 
-import LoadingUser from '../components/Loading/LoadingUser'
+import LoadingData from '../components/Loading/LoadingData'
 // import LoadingData from '../components/Loading/LoadingData'
 
 // const locationHelper = locationHelperBuilder({})
@@ -60,7 +60,7 @@ export const StudentIsAuthenticated = connectedReduxRedirect({
 })
 
 //for managing the home page
-export const UserDataFetching = (Component, FailureComponent = LoadingUser) => connectedAuthWrapper({
+export const UserDataFetching = (Component, FailureComponent = LoadingData) => connectedAuthWrapper({
   authenticatedSelector: state => !state.user.isLoading,
   wrapperDisplayName: 'UserDataFetching',
   FailureComponent

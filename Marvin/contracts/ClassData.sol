@@ -35,20 +35,25 @@ contract ClassData {
         _;
     }
 
+    modifier onlyStudentContract() {
+        require(msg.sender == manager.getStudentContract());
+        _;
+    }
+
     function isClass(bytes10 _classUniCode) public view returns(bool) {
         if(classes[_classUniCode].uniCode == 0)
             return false;
         return true;
     }
-
+    
     function getHashData(bytes10 _classUniCode) public view returns(bytes32) {
         return (classes[_classUniCode].hashData);
     }
-
+    
     function getClassExams(bytes10 _classUniCode) public view returns(bytes10[]) {
         return (classes[_classUniCode].classExams);
     }
-
+    
     // return all the class exams and their IPFS hashes
     function getClassExamsData(bytes10 _classUniCode) public view returns(bytes32[], uint32, bytes10[]) {
         bytes10[] memory examsForClass = classes[_classUniCode].classExams;
@@ -116,7 +121,7 @@ contract ClassData {
     }
 
     // confirm student test result
-    function setConfirmedResult(bytes10 _classUniCode, uint32 _studentBadgeNumber, uint8 _result) public {
+    function setConfirmedResult(bytes10 _classUniCode, uint32 _studentBadgeNumber, uint8 _result) public onlyStudentContract {
         classes[_classUniCode].confirmedResults[_studentBadgeNumber] = _result;
     }
 }

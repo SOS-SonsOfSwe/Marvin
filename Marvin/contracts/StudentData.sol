@@ -26,6 +26,11 @@ contract StudentData {
         _;
     }
 
+    modifier onlyAdminContract() {
+        require(msg.sender == manager.getAdminContract());
+        _;
+    }
+
     function getStudentDegree(uint32 _badgeNumber) public view returns(bytes10) {
         return(studentsDegree[_badgeNumber]);
     }
@@ -47,7 +52,7 @@ contract StudentData {
         subscribedExams[_studentBadgeNumber].push(_examUniCode);
     }
 
-    function setStudentDegree(uint32 _badgeNumber, bytes10 _degreeUniCode) public {
+    function setStudentDegree(uint32 _badgeNumber, bytes10 _degreeUniCode) public onlyAdminContract {
         require(studentsDegree[_badgeNumber] == 0);
         studentsDegree[_badgeNumber] = _degreeUniCode;
     }
