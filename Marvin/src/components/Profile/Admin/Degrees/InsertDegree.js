@@ -67,7 +67,7 @@ class InsertDegree extends React.Component {
                             <label>Degree description</label>
                             <input type="text" value={this.state.description} onChange={this.handleDescriptionChange} placeholder="Insert the description" />
                             <label>Degree unicode</label>
-                            <input type="text" value={this.state.degreeUnicode} onChange={this.handleDegreeUnicodeChange} placeholder="Insert the degree unicode" />
+                            <input type="text" value={this.state.degreeUnicode} onChange={this.handleDegreeUnicodeChange} onFocus={Popup.close()} placeholder="Insert the degree unicode" />
                             <div className="div-buttons">
                                 <input type="submit" value="Save" />
                                 <Link to='/profile/degrees'>

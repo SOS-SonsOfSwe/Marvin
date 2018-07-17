@@ -75,7 +75,7 @@ class InsertClass extends React.Component {
                             <label>Degree</label>
                             <input type="text" value={this.state.degree} readOnly="true" />
                             <label>Class</label>
-                            <input type="text" value={this.state.class} onChange={this.handleChange2} placeholder="Insert a Class" />
+                            <input type="text" value={this.state.class} onChange={this.handleChange2} onFocus={Popup.close()} placeholder="Insert a Class" />
                             <label>Description</label>
                             <input type="text" value={this.state.description} onChange={this.handleChange3} placeholder="Insert a description" />
                             <label> Teacher badge </label>

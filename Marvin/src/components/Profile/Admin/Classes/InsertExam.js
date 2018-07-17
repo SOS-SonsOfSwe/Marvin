@@ -103,7 +103,7 @@ class InsertExam extends React.Component {
               <label>Time</label>
               <input type="time" value={this.state.time} onChange={this.handleChange7} placeholder="Insert a time" />
               <label>Unicode</label>
-              <input type="text" value={this.state.unicode} onChange={this.handleChange9} placeholder="Insert a unicode" />
+              <input type="text" value={this.state.unicode} onChange={this.handleChange9} onFocus={Popup.close()} placeholder="Insert a unicode" />
               <span className="exam-span">The format must be the class code plus "-" and the exam number.</span>
               <div className="div-buttons">
                 <input type="submit" value="Save" />
