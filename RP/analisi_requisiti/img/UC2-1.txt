@@ -1,8 +1,0 @@
-@startuml
-left to right direction
-skinparam packageStyle rectangle
-actor studente
-rectangle UC2.1 {
-studente -- (UC2.1.1 - Pagina specifica dell'esame)
-}
-@enduml

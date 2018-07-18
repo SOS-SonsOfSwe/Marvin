@@ -1,8 +1,0 @@
-@startuml
-left to right direction
-skinparam packageStyle rectangle
-actor università
-rectangle UC4.7.7 {
-università -- (UC4.7.7.1 - Visualizzazione errore relativo alla modifica di un corso di laurea non valido)
-}
-@enduml
