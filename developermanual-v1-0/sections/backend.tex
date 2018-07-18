@@ -1,8 +1,0 @@
-\section{Backend - Model}
-The Model consists of contracts written in Solidity, located into the folder \textbf{contracts}.
-The following architectural choices have been made:
-\begin{itemize}
-	\item The logic part is divided from the one that gives a structure to the data. In this way, if we update the logical part and we deploy the updated contracts we get the durability of the data and a minor cost for the new deploy. In fact the data are located in other contracts, not in the one that contain the logical part;
-	 
-	\item The part that structures the data contains only the data and the methods that let the user to retrieve (getters) or modify (setters) them. Not all the users of the blockchain should have the right to access the data: the contracts on the blockchain are accessible by everyone. To fix this problem, the majority of the methods contains in their header an access modifier that give access only to the authorized users.
-\end{itemize}

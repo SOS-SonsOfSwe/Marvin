@@ -1,37 +1,40 @@
 \section{Requirements and development}
-\subsection{Requirements for Windows}
+\subsection{Ubuntu}
 \begin{itemize}
-	\item \textbf{Operative systems}: Windows 7, 8 or 10, 32-bit or 64-bit;
-	\item \textbf{Processor}: Intel Core 2 Duo or newer processor that supports SSE2
-	\item \textbf{RAM}: 2GB of RAM;
-	\item \textbf{HDD}: 1GB of hard drive space;
-	\item Internet connection: required for resolve dependencies.
-\end{itemize}
-
-\subsection{Requirements for Mac}
-\begin{itemize}
-	\item \textbf{Operative systems}:macOS 10.9 or higher;
-	\item \textbf{Processor}: Intel x86 processor;
-	\item \textbf{RAM}: 2GB of RAM;
-	\item \textbf{HDD}: 1GB of hard drive space;
-	\item Internet connection: required for resolve dependencies.
-\end{itemize}
-			
-\subsection{Requirements for Linux and BSD}
-\begin{itemize}
-	\item \textbf{Libraries}:
-	\begin{itemize}
-		\item GTK+: 3.4 or higher;
-		\item GLib: 2.22 or higher;
-		\item Pango: 1.14 or higher;
-		\item X.Org: 1.0 or higher (1.7 or higher is recommended);
-		\item libstdc++: 4.6.1 or higher;
-	\end{itemize}
-	\item \textbf{Processor}: Intel x86 processor;
-	\item \textbf{RAM}: 2GB of RAM;
-	\item \textbf{HDD}: 1GB of hard drive space;
-	\item Internet connection: required for resolve dependencies.
+	\item \textbf{CPU}: Intel X86 family;
+	\item \textbf{RAM}: at least 2GB of RAM;
+	\item \textbf{Disk's space}: at least 1GB.
 \end{itemize}	
 
+\subsection{Windows}
+\begin{itemize}
+	\item \textbf{CPU}: Intel X86 family;
+	\item \textbf{Operating system}: Windows 7 or superior, 32-bit or 64-bit versions;
+	\item \textbf{RAM}: at least 2GB of RAM;
+	\item \textbf{Disk's space}: at least 1GB.
+\end{itemize}
+
+\subsection{MacOS}
+\begin{itemize}
+	\item \textbf{Mac Model}: all the models sold from 2011 onwards;
+	\item \textbf{Operating system}: OS X 10.10 Yosemite;
+	\item \textbf{RAM}: at least 2GB of RAM;
+	\item \textbf{Disk's space}: at least 1GB.
+\end{itemize}
+
 \subsection{Development}
-The product has been entirely developed with Visual Studio Code v.1.20+. A beautifier file and a dedicated workspace has been created to make the code always readable and formatted for all the developers.
+The product has been entirely developed using Visual Studio Code v.1.20+. A beautifier file and a dedicated workspace has been created to make the code always readable and formatted for all the developers.
+To have a better look and feel sensation with the code, you can install the following extensions:
+\begin{itemize}
+	\item ESLint
+	\item Sass Lint
+	\item SCSS IntelliSense
+	\item solidity
+\end{itemize}
+Install an extension is very simple, all you need to do is to click on the \emph{extensions} button, located in the vertical bar at the left of the screen, then type the name of the desired extension in the search bar, and click on the \textbf{Install} button once you have find it.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.42\textwidth]{img/extensions.png}
+	\caption{Visual Studio Code extensions}
+	\label{fig:extensions}
+\end{figure}

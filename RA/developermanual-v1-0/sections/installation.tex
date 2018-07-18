@@ -23,28 +23,25 @@ After that open a new terminal in the same folder and execute the script \emph{l
 \shellcmd*{npm run start}
 
 At this point you will notice that your browser is automatically started and that it visualizes the webpage of \ProjectName{} running at the localhost address. Now you have to connect MetaMask: in your browser click on the MetaMask icon and accept the Privacy Notice and the Terms of use. Then click on \textbf{Main Network} and choose \textbf{Custom RPC}, type in the first form \textbf{http://localhost:9545} as in Figure~\ref{fig:metamask1} and click \textbf{Save}.
-
-Now as in Figure~\ref{fig:metamask2} click on \textbf{Import Existing DEN} and (as in Figure~\ref{fig:metamask3}) insert the seed phrase \textbf{candy maple cake sugar pudding cream honey rich smooth crumble sweet treat} and the password that you want to use for the account.
-
-Now you're ready to try the demo!
-
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[height=3in]{img/settings.png}
+	\includegraphics[width=0.35\textwidth]{img/settings.png}
 	\caption{Set the RPC typing \textbf{http://localhost:9545}}
 	\label{fig:metamask1}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[height=1.8in]{img/import.png}
-	\caption{Click \textbf{Import Existing DEN}}
-	\label{fig:metamask2}
-\end{figure}
+Now as in Figure~\ref{fig:metamask2a}  click on \textbf{Import Existing DEN} and (as in Figure~\ref{fig:metamask2b}) insert the seed phrase \textbf{candy maple cake sugar pudding cream honey rich smooth crumble sweet treat} and the password that you want to use for the account. Now you're ready to contribute to the development of \project!
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[height=3in]{img/stringPsw.png}
-	\caption{Insert the seed phrase and the password that you want to use}
-	\label{fig:metamask3}
+	\begin{subfigure}{0.48\textwidth}
+		\centering\includegraphics[width=0.65\textwidth]{img/import.png}
+		\caption{Click \textbf{Import Existing DEN}}\label{fig:metamask2a}
+	\end{subfigure}
+	\begin{subfigure}{0.48\textwidth}
+		\centering\includegraphics[width=0.65\textwidth]{img/stringPsw.png}
+		\caption{Metamask DEN and seed phrase}\label{fig:metamask2b}
+	\end{subfigure}
+	\caption{main caption}
+	\label{fig:metamask2}
 \end{figure}
