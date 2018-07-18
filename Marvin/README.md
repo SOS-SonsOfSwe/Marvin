@@ -43,6 +43,10 @@ Installing the Truffle package:
 ```
 npm install -g truffle
 ```
+Then, install all packages that are required for development:
+```
+npm i
+```
 
 
 ### Deployment
@@ -52,18 +56,56 @@ First of all you have to set the Metamask RPC to the local one that will be offe
 ```
 http://localhost:9545
 ```
+Remember to login it with the phrase offered by ganache-cli:
+```
+candy maple cake sugar pudding cream honey rich smooth crumble sweet treat
+```
 
 We have prepared some scripts to make the project simpler to load:
+```
+An all-in-one solution for loading the project from Ubuntu and Mac:
+```
+startOnLinux.sh
+```
+and on Windows:
+```
+startOnWindows.ps1
+```
+In case you want to test the product with some out-of-the-box informations, instead load:
+```
+startOnLinuxAndDatabasing.sh
+```
 
-This will start the local blockchain hosted in `http://localhost:9545` with the mnemonic key offered by Ganache:
+Other scripts follows:
+To start the local blockchain hosted in `http://localhost:9545`
 ```
-startBlockchain.ps1
+startBlockchain.sh
 ```
 
-This will compile, migrate and then load the entire project:
+To compile, migrate and then load the entire project:
 ```
-loadProject.ps1
+loadProjectAFTERstartingBlockchain.sh
 ```
+
+To only fill the blockchain without compiling the project:
+`databasing_(no_npm_run_start)`
+
+To fill the blockchain on loaded project:
+`databasing_(onlyFillblockchain)`
+
+To fill the blockchain and load the project (after starting the blockchain):
+`loadProjectAFTERstartingBlockchain.sh`
+
+
+Then some commands:
+To compile and start the project:
+`npm run start`
+
+To make a build of the project:
+`npm run build`
+
+To test some truffle contract:
+`npm run test`
 
 
 ## Authors
