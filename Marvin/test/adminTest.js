@@ -18,8 +18,10 @@ const address9 = '0x5aeda56215b167893e80b4fe645ba6d5bab767de' // to use as stude
 
 contract('Admin, UserData', (address) => {
   let adminInstance, userDataInstance;
-  AdminContract.deployed().then((inst) => { adminInstance = inst; });
-  UserData.deployed().then((inst) => { userDataInstance = inst });
+  AdminContract.deployed()
+    .then((inst) => { adminInstance = inst; });
+  UserData.deployed()
+    .then((inst) => { userDataInstance = inst });
 
   it('should add a new admin', async () => {
     await adminInstance.addUser('AAABBB00A00B000C', '1234567890', '1', '', { from: address[0] });
@@ -46,7 +48,6 @@ contract('Admin, UserData', (address) => {
   })
 })
 
-
 contract('Admin, UserLogic', (address) => {
 
   it('should check for a newly added admin', function () {
@@ -68,8 +69,10 @@ contract('Admin, DegreeData', (address) => {
 
   let adminInstance
   let degreeInstance;
-  AdminContract.deployed().then((inst) => { adminInstance = inst; });
-  DegreeContract.deployed({ from: address[0] }).then((inst) => { degreeInstance = inst; });
+  AdminContract.deployed()
+    .then((inst) => { adminInstance = inst; });
+  DegreeContract.deployed({ from: address[0] })
+    .then((inst) => { degreeInstance = inst; });
 
   it('should add a new year', async () => {
     await adminInstance.addNewYear(2017, { from: address[0] });
@@ -82,15 +85,6 @@ contract('Admin, DegreeData', (address) => {
     const result = await degreeInstance.isYear(2018, { from: address[0] });
     assert.equal(result, true, "Adding new year ok");
   });
-
-  /*it("should check if an existing year is correctly deleted", async () => {
-    adminInstance.addNewYear(2019, { from: address[0] });
-    const yearIndex = await degreeInstance.getYearIndex(2019, { from: address[0] } );
-    //await degreeInstance.deleteYear(yearIndex, { from: address[0] });
-    await adminInstance.removeYear(2019, {from: address[0]});
-    const result = await degreeInstance.isYear(2019, { from: address[0] });
-    assert.equal(result, false, "Year deleted successfully");
-  });*/
 
   it("should check if an existing year is correctly deleted", function () {
     AdminContract.deployed()
@@ -126,43 +120,40 @@ contract('Admin, DegreeData', (address) => {
 contract('Admin, ClassData', (address) => {
   let adminInstance
   let ClassInstance;
-  AdminContract.deployed().then((inst) => { adminInstance = inst; });
-  ClassContract.deployed({ from: address[0] }).then((inst) => { ClassInstance = inst; });
+  AdminContract.deployed()
+    .then((inst) => { adminInstance = inst; });
+  ClassContract.deployed({ from: address[0] })
+    .then((inst) => { ClassInstance = inst; });
 
   it("should check for a newly added class", async () => {
-    await adminInstance.addNewClass('INF18', 'PROGR18', 'asdasdasd', { from: address[0] });
+    await adminInstance.addNewClass('INF18', 'PROGR18', 'asdasdasd', '1', { from: address[0] });
     const result = await ClassInstance.isClass('PROGR18', { from: address[0] });
     assert.equal(result, true, "Added the new class PROGR18 ok");
   });
 
   it("should check if the previously added class is deleted correctly", async () => {
-    await adminInstance.removeClass('PROGR18', { from: address[0] });
+    await adminInstance.removeClass('INF18', 'PROGR18', { from: address[0] });
     const result = await ClassInstance.isClass('PROGR18', { from: address[0] });
     assert.equal(result, false, "Deleted the class PROGR18 ok");
   });
 })
 
-
 /*controllare con insegnanti e studenti, voti, ecc*/
 contract('Admin, ClassData, ExamData', (address) => {
   let adminInstance, ClassInstance, examInstance;
-  AdminContract.deployed().then((inst) => { adminInstance = inst; });
-  ClassContract.deployed({ from: address[0] }).then((inst) => { ClassInstance = inst; });
-  ExamContract.deployed({ from: address[0] }).then((inst) => { examInstance = inst; });
+  AdminContract.deployed()
+    .then((inst) => { adminInstance = inst; });
+  ClassContract.deployed({ from: address[0] })
+    .then((inst) => { ClassInstance = inst; });
+  ExamContract.deployed({ from: address[0] })
+    .then((inst) => { examInstance = inst; });
 
   it("should chek for a newly added exam", async () => {
-    await adminInstance.addNewClass('INF18', 'PROGR18', 'asdasdasd', { from: address[0] });
-    await adminInstance.addNewExam('PROGR18', 'PROG18_1_6_2018', 'gilbExam', { from: address[0] });
-    const result = await examInstance.isExam('PROG18_1_6_2018', { from: address[0] });
+    await adminInstance.addNewClass('INF18', 'PROGR18', 'asdasdasd', '1', { from: address[0] });
+    await adminInstance.addNewExam('PROGR18', 'PROG18-1', 'gilbExam', { from: address[0] });
+    const result = await examInstance.isExam('PROG18-1', { from: address[0] });
     assert.equal(result, true, "Added a new exam for the class PROGR18 ok");
   });
-
-  /*it("should check if the added exam is an exam of the class PROGR18", async () => {
-    const result = await ClassInstance.getClassExamsData( 'PROGR18', { from: address[0] });
-    const isExam = await examInstance.isExam(web3.utils.toUtf8(result[0][0]),  { from: address[0] });
-    assert.equal(isExam, true , "PROG18_1_6_2018 is ab exam");
-    //assert.equal(web3.utils.toUtf8(result[0]), 'PROG18_1_6_2018', "PROG18_1_6_2018 is an exam of PROGR18 ok");
-  });*/
 
   it("should check if the added exam is an exam of the class PROGR18", function () {
     ClassContract.deployed()
@@ -175,7 +166,7 @@ contract('Admin, ClassData, ExamData', (address) => {
       })
     ExamContract.deployed()
       .then(exInstance => {
-        return exInstance.isExam('PROG18_1_6_2018', { from: address[0] });
+        return exInstance.isExam('PROG18-1', { from: address[0] });
       })
       .then(res => {
         assert.equal(res, true, "Added a new exam for the class PROGR18 ok");
@@ -183,9 +174,9 @@ contract('Admin, ClassData, ExamData', (address) => {
   });
 
   it("should check if the previously added exam is deleted correctly", async () => {
-    await adminInstance.removeExam('PROG18_1_6_2018', { from: address[0] });
-    const result = await examInstance.isExam('PROG18_1_6_2018', { from: address[0] });
-    assert.equal(result, false, "Deleted the exam PROG18_1_6_2018 ok");
+    await adminInstance.removeExam('PROG18', 'PROG18-1', { from: address[0] });
+    const result = await examInstance.isExam('PROG18-1', { from: address[0] });
+    assert.equal(result, false, "Deleted the exam PROG18-1 ok");
   });
 
 })
