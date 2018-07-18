@@ -13,6 +13,7 @@ var getClientEnvironment = require('./env');
 const extractCSS = new ExtractTextPlugin('stylesheets/[name]-one.css');
 const BabelEnginePlugin = require('babel-engine-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // require('babel-preset-es2015')
 
 function ensureSlash(path, needsSlash) {
@@ -126,6 +127,7 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
+          /\.scss$/,
           /\.json$/,
           /\.woff$/,
           /\.woff2$/,
@@ -256,6 +258,13 @@ module.exports = {
       presets: ['env']
     }),
     new UglifyJSPlugin(),
+    // new MiniCssExtractPlugin({
+    //   // Options similar to the same options in webpackOptions.output
+    //   // both options are optional
+    //   filename: "[name].css",
+    //   chunkFilename: "[id].css"
+    // }),
+
     // Makes the public URL available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In production, it will be an empty string unless you specify "homepage"
