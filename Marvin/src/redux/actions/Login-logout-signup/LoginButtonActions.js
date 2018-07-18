@@ -55,6 +55,11 @@ export function loginUser() {
   var web3 = store.getState()
     .web3.web3Instance
 
+  if(web3 == null) {
+    alert('No metamask/mist detected. \nDownload the right extension to access the Ethereum Network or change browser.')
+    return browserHistory.push('/')
+  }
+
   // check if the user is logged in to metamask
   // the function has to return a function as is invoked by a dispatch
   if(web3.eth.accounts.length === 0) {
