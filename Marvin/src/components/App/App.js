@@ -33,7 +33,7 @@ class App extends Component {
         </nav>
 
         {this.props.children}
-        <div class="footer">© 2018 Marvin - <a href="https://opensource.org/licenses/MIT">MIT License</a> - Made with ❤ by Sons of SWE</div>
+        <div className="footer">© 2018 Marvin - <a href="https://opensource.org/licenses/MIT">MIT License</a> - Made with ❤ by Sons of SWE</div>
       </div>
     );
   }
