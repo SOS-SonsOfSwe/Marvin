@@ -5,16 +5,16 @@ import React from "react";
 
 // Not found page component
 export default class EmptyData extends React.Component {
-    // render
-    render() {
-        return (
-            <main className="container">
-                <div className="pure-g">
-                    {/* {// console.log('Inside LoadingData page')} */}
-                    {/* <img src={loadingGif} alt='loading gif' className='loading_gif' /> */}
-                    <h1 className="top_message">You do not have any data.</h1>
-                </div>
-            </main>
-        )
-    }
+  // render
+  render() {
+    return (
+      <main className="container">
+        <div className="pure-g">
+          {/* {// console.log('Inside LoadingData page')} */}
+          {/* <img src={loadingGif} alt='loading gif' className='loading_gif' /> */}
+          <h1 className="top_message">Nothing to show here</h1>
+        </div>
+      </main>
+    )
+  }
 }

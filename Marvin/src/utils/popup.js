@@ -2,7 +2,7 @@ import Popup from 'react-popup'
 
 export let syntaxYearPopup = Popup.register(
     {
-        content:'The year has an invalid format. Must Follow this syntax: 2018-2019',
+        content:'The year has an invalid format. Must follow this syntax: 2018-2019',
         buttons:{
             aligned:'right center',
             right:[{
@@ -54,7 +54,7 @@ export let examDatePopup = Popup.register(
 
 export let examCodePopup = Popup.register(
     {
-        content:"The exam code has an invalid format. Must Follow this syntax: PROG18-01. The first five charac",
+        content:"The exam code has an invalid format. Must follow this syntax: PROG18-01.",
         buttons:{
             aligned:'right center',
             right:[{
@@ -92,7 +92,7 @@ export let classTeacherPopup = Popup.register(
 )
 export let classCodePopup = Popup.register(
     {
-        content:"The class code has an invalid format. Must Follow this syntax: PROG18.",
+        content:"The class code has an invalid format. Must follow this syntax: PROG18.",
         buttons:{
             aligned:'right center',
             right:[{
@@ -130,7 +130,7 @@ export let degreeDescriptionPopup = Popup.register(
 
 export let degreeCodePopup = Popup.register(
     {
-        content:"The degree unicode has an invalid format. Must Follow this syntax: INFO18",
+        content:"The degree unicode has an invalid format. Must follow this syntax: INFO18",
         buttons:{
             aligned:'right center',
             right:[{
