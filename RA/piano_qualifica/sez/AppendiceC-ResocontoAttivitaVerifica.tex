@@ -61,7 +61,8 @@ Durante l'ultima verifica, sono stati rilevati all'interno dei vari documenti al
 	\label{fig:Errori_forma}
 \end{figure}
 
-Il grafico evidenzia che la il numero medio di errori di forma è rimasto sempre entro i limiti di accettabilità.
+Sempre entro i limiti di accettabilità e dopo un certo periodo si sono
+ stabilizzati sulla soglia dell'ottimalità. 
 
 \subsubsection{Indice Gulpease}
 
@@ -98,7 +99,7 @@ Il calcolo della Cost Variance sui processi di documentazione e codifica ha port
 	\label{fig:CV-Documenti}
 \end{figure}
 
-Il grafico evidenzia che la cost variance calcolata sui processi di documentazione e codifica è rimasta sempre entro i limiti di ottimalità.
+ Ha oscillato tra accettabilità e non accettabilità. Il non raggiungimento dell'accettabilita è stato comunque sempre compensato da un risparmio sul processo di verifica. 
 
 \newpage
 Di seguito vengono mostrati i risultati calcolati negli ultimi due periodi trascorsi, in cui si è iniziato ad utilizzare le metriche riguardanti la qualità del codice prodotto, al fine di evidenziare le differenze tra il codice della PoC e quello attuale.
@@ -126,7 +127,7 @@ Il calcolo della Cost Variance sul processo di verifica ha portato il seguente r
 	\label{fig:CV-VerDocumenti}
 \end{figure}
 
-Il grafico evidenzia che la cost variance calcolata sul processo di verifica, è rimasta sempre entro i limiti di accettabilità e ottimalità, tranne nell'ultimo periodo in cui l'implementazione e l'esecuzione dei test ha richiesto alcune ore aggiuntive impiegate dai verificatori.
+Nel periodo di RQ è stato presente un valore negativo causato dall'inesperienza in ambito test, che però si è riflettuto in un notevole risparmio in RA.
 
 \newpage
 
@@ -141,7 +142,7 @@ Tale metrica è stata aggiunta dopo le prime fasi del progetto, dato che il team
 	\label{fig:Rischi}
 \end{figure}
 
-Il grafico evidenzia che sono stati riscontrati alcuni rischi non preventivati, la cui causa è la scarsa conoscenza pregressa da parte del team delle tecnologie utilizzate, dato che in questo periodo si è cominciato ad utilizzarle più nel dettaglio.
+Il grafico evidenzia che nello scorso periodo sono stati riscontrati alcuni rischi non preventivati, la cui causa è la scarsa conoscenza pregressa da parte del team delle tecnologie utilizzate, dato che erano state utilizzate più nel dettaglio. I rischi riscontrati in questo periodo si sono invece affievoliti grazie all'esperienza fatta precedentemente.
 
 \subsubsection{Complessità ciclomatica}
 
@@ -199,7 +200,7 @@ Mediamente, i metodi scritti dal team sono risultati poco complessi sotto questo
 	\caption{Linee di codice per metodo, un numero basso indica meno complessità.}
 \end{figure}
 
-Mediamente, i metodi scritti dal team sono risultati non troppo complessi sotto questo punto di vista, con un numero di righe ottimali.
+Mediamente, i metodi scritti dal team sono risultati non troppo complessi sotto questo punto di vista, con un numero di righe accettabili.
 
 \newpage
 
@@ -211,7 +212,7 @@ Mediamente, i metodi scritti dal team sono risultati non troppo complessi sotto 
 	\caption{Requisiti obbligatori soddisfatti.}
 \end{figure}
 
-Il grafico mostra come nonostante la prima bozza del prodotto coprisse una percentuale esigua di requisiti, il team è risuscito a soddisfarli quasi tutti con la versione attuale del prodotto.
+Il grafico mostra come nonostante la prima bozza del prodotto coprisse una percentuale esigua di requisiti, il team è risuscito a soddisfarli tutti con la versione attuale del prodotto.
 
 
 \subsubsection{ROFS - Requisiti obbligatori e facoltativi soddisfatti}
@@ -234,7 +235,34 @@ Il grafico mostra come anche una buona parte dei requisiti facoltativi sono stat
 	\caption{Percentuale di successo dei test.}
 \end{figure}
 
-Il grafico mostra che una grossa percentuale dei test finora sviluppati hanno esito positivo, tuttavia tale risultato rimane ancora sotto la soglia di accettabilità.
+Il grafico mostra che la totalità dei test hanno esito positivo, è stata raggiunta l'ottimalità.
 
+\subsubsection{Copertura del codice}
 
+\rowcolors{2}{greySOS}{white}
+	\renewcommand{\arraystretch}{1}
+	\begin{longtable}{| c | c | c |}
+		\hline
+		\rowcolor{bluSOS}\multicolumn{1}{|c|}{\textcolor{white}{\textbf{Valore}}}&
+				\multicolumn{1}{c|}{\textcolor{white}{\textbf{Accettabilità}}} & 					\multicolumn{1}{c|}{\textcolor{white}{\textbf{Ottimalità}}} 
+\parbox{0pt}{\rule{0pt}{2ex+\baselineskip}}\\ [1.5ex]
+		\hline
+        \endhead %ripete l'header in ogni pagina in cui è presente la tabella
+        81 & 70\% &  90\% \\
+        \hline
+    \end{longtable} 
+Come si può vedere è stata raggiunta l'accettabilità.
 
+\subsubsection{Copertura dei branch}
+	\begin{longtable}{| c | c | c |}
+		\hline
+		\rowcolor{bluSOS}\multicolumn{1}{|c|}{\textcolor{white}{\textbf{Valore}}}&
+				\multicolumn{1}{c|}{\textcolor{white}{\textbf{Accettabilità}}} & 					\multicolumn{1}{c|}{\textcolor{white}{\textbf{Ottimalità}}} 
+\parbox{0pt}{\rule{0pt}{2ex+\baselineskip}}\\ [1.5ex]
+		\hline
+        \endhead %ripete l'header in ogni pagina in cui è presente la tabella
+        92 & 70\% &  90\% \\
+        \hline
+    \end{longtable}
+    
+Come si può vedere è stata raggiunta l'ottimalità.

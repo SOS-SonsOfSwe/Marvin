@@ -1,9 +1,0 @@
-@startuml
-left to right direction
-skinparam packageStyle rectangle
-actor utenteNonAutenticato
-rectangle UC2 {
-Metamask -- (UC2.1 - Login automatico)
-utenteNonAutenticato -- (UC2.1 - Login automatico)
-}
-@enduml
