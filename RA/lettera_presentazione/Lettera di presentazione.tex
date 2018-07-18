@@ -4,11 +4,18 @@
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
+\usepackage[colorlinks]{hyperref}
+\usepackage{eurosym}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+
+
 \addtolength{\voffset}{-0.5in}
 \addtolength{\hoffset}{-0.3in}
 \addtolength{\textheight}{2cm}
 
-
+\pagestyle{fancy}
+\setlength{\headheight}{107pt}
 %Variabili per ruoli
 \newcommand{\ana}{\emph{Analista}}
 \newcommand{\anas}{\emph{Analisti}}
@@ -20,26 +27,31 @@
 \newcommand{\vers}{\emph{Verificatori}}
 \newcommand{\gruppo}{\emph{Sons Of SWE}}
 %variabili per documenti
-\newcommand{\AdR}{\emph{AnalisiDeiRequisiti\_v3.0.0}}
+\newcommand{\AdR}{\emph{AnalisiDeiRequisiti\_v4.0.0}}
 \newcommand{\SdF}{\emph{StudioDiFattibilità\_v1.0.0}}
 \newcommand{\VI}{\emph{VerbaleInterno}}
-\newcommand{\NdP}{\emph{NormeDiProgetto\_v3.0.0}}
-\newcommand{\PdP}{\emph{PianoDiProgetto\_v3.0.0}}
-\newcommand{\PdPv}{\emph{PianoDiProgetto\_v3.0.0}}
-\newcommand{\PdQ}{\emph{PianoDiQualifica\_v3.0.0}}
-\newcommand{\PdQv}{\emph{PianoDiQualifica\_v3.0.0}}
-\newcommand{\G}{\emph{Glossario\_v2.0.0}}
-\newcommand{\MU}{\emph{ManualeUtente\_v1.0.0}}
+\newcommand{\NdP}{\emph{NormeDiProgetto\_v5.0.0}}
+\newcommand{\PdP}{\emph{PianoDiProgetto\_v5.0.0}}
+\newcommand{\PdPv}{\emph{PianoDiProgetto\_v5.0.0}}
+\newcommand{\PdQ}{\emph{PianoDiQualifica\_v5.0.0}}
+\newcommand{\PdQv}{\emph{PianoDiQualifica\_v5.0.0}}
+\newcommand{\G}{\emph{Glossario\_v3.0.0}}
+\newcommand{\MU}{\emph{usermanual\_v2.0.0}}
 \newcommand{\MM}{\emph{ManualeManutentore\_v1.0.0}}
 \newcommand{\VE}{\emph{VerbaleEsterno}}
+\newcommand{\MS}{\emph{developermanual\_v2.0.0}}
 
 \newcommand{\VIuno}{\emph{Verbale\_I\_1\_2018.03.05}}
 \newcommand{\VEuno}{\emph{Verbale\_E\_1\_2018.03.07}}
 \newcommand{\VIdue}{\emph{Verbale\_I\_2\_2018.03.08}}
 \newcommand{\VEdue}{\emph{Verbale\_E\_2\_2018.03.28}}
 \newcommand{\VItre}{\emph{Verbale\_I\_3\_2018.04.05}}
-\newcommand{\VIquattro}{\emph{Verbale\_I\_4\_2018.04.30}}
-\newcommand{\VEtre}{\emph{Verbale\_I\_3\_2018.04.28}}
+\newcommand{\VEtre}{\emph{Verbale\_E\_3\_2018.04.28}}
+\newcommand{\VIquattro}{\emph{verbale\_I\_4_2018.04.30}}
+\newcommand{\VEquattro}{\emph{verbale\_E\_4\_2018.07.05}}
+\newcommand{\VIcinque}{\emph{verbale\_I\_5\_2018.05.22}}
+\newcommand{\VIsei}{\emph{Verbale\_I\_6\_2018.06.20}}
+
 
 
 %Variabili generiche
@@ -72,6 +84,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 	
+
+	
 \begin{letter} {   
 	\hfill Prof. Tullio Vardanega\\
 	\hfill Prof. Riccardo Cardin\\
@@ -83,32 +97,67 @@
 
 \date{}
 \opening{Egregio Professore Tullio Vardanega, \newline Egregio Professore Riccardo Cardin,}
-	\begin{quotation}
-	
-\noindent Con la presente il gruppo \textit{\gruppo} intende comunicare ufficialmente la partecipazione alla Revisione di Progettazione indetta in data 14 maggio 2018.
-L’offerta è corredata dai seguenti documenti, comprensivi di quelli rivisti in seguito alla Revisione dei Requisiti:
-		\begin{itemize}
-			\item \AdR{};
-			\item \G{};
-			\item \NdP{};
-			\item \PdP{};
-			\item \PdQ{};
-			\item \VIuno{};
-			\item \VEuno{};
-			\item \VIdue{};
-			\item \VEdue{};
-			\item \VItre{}.
-			\item \VIquattro{};
-			\item \VEtre{};
-		\end{itemize}
-		Il gruppo stima di consegnare il prodotto e partecipare alla Revisione di Accettazione del giorno 16 Luglio 2018, con un costo preventivato per lo sviluppo software di \EUR{13.235} come descritto all’interno del documento \PdP{}.
+\begin{quotation}
+	\noindent Con la presente il gruppo \textit{\gruppo} intende comunicarVi ufficialmente che ha intenzione di partecipare alla \emph{Revisione di Accettazione} prevista per il giorno \emph{Venerdì 20 luglio}, al fine di mostrarVi il prodotto finito da Voi commissionato, denominato \textbf{Marvin: dimostratore di Uniweb su Ethereum}, proposto da Red Babel.
+	Si allegano alla presente lettera i seguenti documenti:
+	\begin{itemize}
+		\item \AdR{};
+		\item \G{};
+		\item \NdP{};
+		\item \PdP{};
+		\item \PdQ{};
+		\item \MU{};
+		\item \MS{};
+		\item \VIuno{};
+		\item \VEuno{};
+		\item \VIdue{};
+		\item \VEdue{};
+		\item \VItre{};
+		\item \VEtre{};
+		\item \emph{Verbale\_I\_4\_2018.04.30};
+		\item \emph{Verbale\_E\_4\_2018.07.05};
+		\item \emph{Verbale\_I\_5\_2018.05.22};
+		\item \VIsei{};
+	\end{itemize}
+
+	Il codice prodotto è presente al seguente indirizzo:
+	\href{https://github.com/SOS-SonsOfSwe/Marvin/}{https://github.com/SOS-SonsOfSwe/Marvin/}.\\
+	Il gruppo Sons of SWE consegna il prodotto richiesto il giorno 19/07/2018, con relativo collaudo, salvo ulteriori accordi, per il giorno 20/07/2018. Il costo finale del prodotto è di \EUR{13.239,00} come descritto all'interno del documento \PdP{}.
+	\newpage 
+	Si riportano di seguito i nomi dei componenti del gruppo:\\
+	\definecolor{greySOS}{RGB}{209, 222, 223}
+	\begin{longtable}{ c  c  c }
+		\rowcolor{greySOS}
+		\textcolor{white}{\textbf{Nominativo}} & \textcolor{white}{\textbf{Matricola}} & \textcolor{white}{\textbf{Firma}}\\
+		%\includegraphics[height=2.5cm]{immagine} aggiustare l'altezza
+		Andrea Favero & 1125545 & \includegraphics[height=0.5cm]{firme/AndreaFavero.png} \\
+		
+		Eleonora Thiella & 1099980 & \includegraphics[height=0.5cm]{firme/EleonoraThiella.png} \\
+		
+		Federico Caldart & 1097005 & \includegraphics[height=0.5cm]{firme/FedericoCaldart.png} \\
+		
+		Giovanni Cavallin & 1148957 & \includegraphics[height=0.5cm]{firme/GiovanniCavallin.png} \\
+		
+		Giovanni Dalla Riva & 1102075 & \includegraphics[height=0.5cm]{firme/GiovanniDallaRiva.png} \\
+		
+		Lorenzo Menegon & 1097596 & \includegraphics[height=0.5cm]{firme/LorenzoMenegon.png} \\
+		
+		Stefano Panozzo & 1097068 & \includegraphics[height=0.5cm]{firme/StefanoPanozzo.png} \\
+		
+	\end{longtable}
+
+Rimaniamo a Vostra completa disposizione per qualsiasi chiarimento in merito ai documenti presentati.
+
 	\end{quotation}
 \makeletterclosing{Cordiali saluti,\\}
 {
-	\setlength\parindent{24pt}
-	\indent i membri del gruppo \gruppo.
+\setlength\parindent{24pt}
+\indent i membri del gruppo \gruppo.
 }
 \end{letter}
 
 \end{document}
-%Metti come data della stesura il 9 aprile e come verifica/approvazione l'11
+	
+	
+	
+	
