@@ -4,7 +4,6 @@ import bs58 from 'bs58'
 import ipfsapi from 'ipfs-api'
 import promiseTimeout from './timeout'
 import { browserHistory } from 'react-router'
-import store from '../../src/store'
 
 var instance = null
 
@@ -14,7 +13,7 @@ export default class ipfsPromise {
       instance = this
       // Using Infura node
 
-      // this.ipfs = new IPFS({
+      // this.ipfs = new ipfsapi({
       //   host: "ipfs.infura.io",
       //   port: '5001',
       //   protocol: 'https'
@@ -25,23 +24,13 @@ export default class ipfsPromise {
        * You also need to loosen your IPFS node's CORS restrictions, changing config file in your .ipfs directory
        * and setting "Access-Control-Allow-Origin": ["*"] both in "Gateway" and "API"):
        */
-      // this.ipfs = new IPFS({
-      //   host: "127.0.0.1",
-      //   port: '5001',
-      //   protocol: 'http'
-      // })
 
       // Using AWS Server Instance
-      // this.ipfs = new IPFS({
-      //   host: "54.93.231.212", // IPv4 Public IP of the AWS Server Instance
-      //   port: '5001'
-      // })
       this.ipfsapi = new ipfsapi({
         host: "54.93.231.212", // IPv4 Public IP of the AWS Server Instance
         port: '5001'
       })
     } else {
-      this.ipfs = instance.ipfs
       this.ipfsapi = instance.ipfsapi
     }
   }
