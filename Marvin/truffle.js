@@ -1,6 +1,7 @@
-/* Rinkeby deploy
+//Rinkeby deploy
+/*
 var HDWalletProvider = require("truffle-hdwallet-provider");
-var mnemonic = "army despair twelve hand humor elder inject race test fancy swap disorder";
+var mnemonic = "glue bamboo mesh urge glimpse truly vault reunion engine uncover strong capable";
 
 module.exports = {
   networks: {
@@ -8,13 +9,14 @@ module.exports = {
       provider: function() {
         return new HDWalletProvider(mnemonic, "https://rinkeby.infura.io/LRu2EZiQXhsNHvp7SCtK")
       },
-      network_id: 3
+      network_id: 4
     }   
   }
 };
-// mnemonic address 10+ ETH Rinkeby: smooth noodle laptop april bitter steak spare elevator orbit pipe climb shine
-// mnemonic address 5 ETH Rinkeby (completato deploy?): army despair twelve hand humor elder inject race test fancy swap disorder
 */
+// mnemonic address 10+ ETH Rinkeby: smooth noodle laptop april bitter steak spare elevator orbit pipe climb shine
+// mnemonic address 0... ETH Rinkeby: army despair twelve hand humor elder inject race test fancy swap disorder
+// mnemonic address 15+ ETH Rinkeby:glue bamboo mesh urge glimpse truly vault reunion engine uncover strong capable
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
