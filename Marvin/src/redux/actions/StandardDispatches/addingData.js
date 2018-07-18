@@ -7,6 +7,7 @@ export function addingData() {
 }
 
 export function dataAdded() {
+  alert("Data have been added correctly.");
   // console.log('dispatch: data was added')
   return {
     type: userCostants.ADDED_NEW_DATA
