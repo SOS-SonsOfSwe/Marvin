@@ -14,7 +14,7 @@ Go to the site \url{https://metamask.io} .
 \end{labeling}
 Now in the browser: click on the MetaMask icon on the top right and accept the Privacy Notice and the Terms of use by clicking on \textbf{Accept}.
 
-\subsection{Creation of a digital wallet}
+\subsubsection{Creation of a digital wallet}
 Insert a new password (it is needed to unlock the account) and click \textbf{CREATE} (as in Figure~\ref{fig:password}).
 \begin{figure}[!h]
 	\centering
@@ -32,18 +32,36 @@ Now store somewhere on your drive the 12 words seed phrase (an example of seed p
 \end{figure}
 
 
-\subsection{Restore the digital wallet}
+\subsubsection{Restore the digital wallet}
 You have the possibility to restore your account if you loose the password or change the browser or even the computer. The only thing you need to do is to click on the Metamask icon and then click on \textbf{Restore from seed phrase}. Now paste inside the box the seed phrase that you have saved previously, insert a new password and click \textbf{OK}.
 
-\subsection{Connection to the application}
-\WarningSubsection{}
+\subsubsection{Transactions}
+If you write some data on the Ethereum blockchain then you're doing a transaction, so you have to pay using cryptocurrency. You need to use Metamask to confirm every transaction. 
+When you're trying to do a transaction (for example, you are the University user and you want to insert a student) than you have to wait for the Metamask window to be opened (if it does't open then click on the Metamask browser's icon to open it). The opened window is similar to the one in Figure~\ref{fig:transaction}, to complete tha transaction you have to click on the \textbf{Submit} button.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.50\textwidth]{img/transaction.png}
+	\caption{A metamask transaction window}
+	\label{fig:transaction}
+\end{figure}
 
-To use the application visit the page \textcolor{red}{	\dots}.
+\subsubsection{Network connection}
+To be able to use the site you have to configure the right Metamask network. You have to click on the Metamask browser's icon and then click on a yellow square. Choose the \textbf{Rinkeby test network} entry from the drop-down menu.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.50\textwidth]{img/rinkeby.png}
+	\caption{Selection of a Metamask network}
+	\label{fig:rinkeby}
+\end{figure}
+
+\subsection{Connection to the application}
+
+To use the application visit the page \url{http://marvinsos.surge.sh/}
 
 Now you're able to use Marvin! You should see the \project{} main page (like the one showed in Figure~\ref{fig:main}).
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/main.png}
+	\includegraphics[width=1.0\textwidth]{img/main.png}
 	\caption{The \project{} main page}
 	\label{fig:main}
 \end{figure}

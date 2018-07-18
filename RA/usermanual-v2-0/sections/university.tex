@@ -41,7 +41,7 @@ Click on \textbf{Insert degree}, you will be redirected to a page (like the one 
 
 
 \subsubsection{Deletion of an academic year}
-Click on the \textbf{Delete} button, you will be redirected to a page (like the one in Figure~\ref{fig:deleteAcademicYear}), then click the \textbf{Delete} button to confirm the deletion.
+If an academic year hasn't associated any exam yet, then you can eliminate it. To do that, click on the \textbf{Delete} button, you will be redirected to a page (like the one in Figure~\ref{fig:deleteAcademicYear}), then click the \textbf{Delete} button to confirm the deletion.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.80\textwidth]{img/deleteAcademicYear.png}
@@ -58,7 +58,7 @@ By clicking on the \textbf{Degrees} voice in the menu, you will see (as in Figur
 	\label{fig:chooseYear}
 \end{figure}
 
-After choosing the academic year you want, the page will be updated with a list of all the degrees associated with that academic year (as in Figure~\ref{fig:degreeCourses}) . For each degree you can \emph{insert a class}  or \emph{delete the entire degree and all the classes associated with it}. If you want to insert a new degree, then click on the \textbf{Insert degree} button; the procedure is the same as the one described in~\ref{sssec:degIns}.
+After choosing the academic year you want, the page will be updated with a list of all the degrees associated with that academic year (as in Figure~\ref{fig:degreeCourses}) . For each degree you can \emph{insert a class}  or \emph{delete the degree if it hasn't any associated class}. If you want to insert a new degree, then click on the \textbf{Insert degree} button; the procedure is the same as the one described in~\ref{sssec:degIns}.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1.0\textwidth]{img/degreeCourses.png}
@@ -76,7 +76,7 @@ To insert a class related to a degree, click on the link \textbf{Insert class} o
 \end{figure}
 
 \subsubsection{Deletion of a degree}
-To delete a degree, click on \textbf{Delete} button of the degree you choose. You will be redirected to a page (like the one in Figure~\ref{fig:deleteDegree}). Click the \textbf{Delete} button and confirm.% the transaction by clicking on the MetaMask's \textbf{submit} button.
+If a degree hasn't associated any class yet, then you can delete it. To delete this kind of degree, click on \textbf{Delete} button of the degree you choose. You will be redirected to a page (like the one in Figure~\ref{fig:deleteDegree}). Click the \textbf{Delete} button and confirm.% the transaction by clicking on the MetaMask's \textbf{submit} button.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.65\textwidth]{img/deleteDegree.png}
@@ -101,7 +101,7 @@ After choosing the academic year and the degree program you want, the page will 
 	\label{fig:classes}
 \end{figure}
 
-\subsubsection{Insertion of an exam} \label{subsec:exaIns}
+\subsubsection{Insertion of an exam} \label{sssec:exaIns}
 To insert an exam related to a class, click on the link \textbf{Insert exam} of the class you choose. You will be redirected to a page like the one in Figure~\ref{fig:insertExam}. Choose the type of the exam (\emph{written, oral, practice}), write the name of the place in which the exam will be helded, insert the date and the time and a Unicode. A valid Unicode consists of the class code followed by ''-'' followed by two digits between ''00'' and ''99''. The date of the exam must be later than the current day and the time must be inserted in a range between ''8:30'' and ''17:30''
 \begin{figure}[H]
 	\centering
@@ -111,7 +111,7 @@ To insert an exam related to a class, click on the link \textbf{Insert exam} of 
 \end{figure}
 
 \subsubsection{Deletion of a class}
-To delete a class click on its \textbf{Delete} button. You will be redirected to a page (like the one in Figure~\ref{fig:deleteClass}). Click the \textbf{Delete} button.% and confirm the transaction by clicking on the MetaMask's \textbf{submit} button.
+If a class hasn't associated any exam yet, then you can delete it. To delete a class of that type, click on its \textbf{Delete} button. You will be redirected to a page (like the one in Figure~\ref{fig:deleteClass}). Click the \textbf{Delete} button.% and confirm the transaction by clicking on the MetaMask's \textbf{submit} button.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.65\textwidth]{img/deleteClass.png}
@@ -119,8 +119,34 @@ To delete a class click on its \textbf{Delete} button. You will be redirected to
 	\label{fig:deleteClass}
 \end{figure}
 
+\subsection{Exams}
+By clicking on the \textbf{Exams} voice in the menu, you will see (as in Figure~\ref{fig:chooseExam}) a page that asks you to choose an academic year, a degree and then one of its classes.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.35\textwidth]{img/chooseExam.png}
+	\caption{Choice of an academic year, degree program and of a class.}
+	\label{fig:chooseExam}
+\end{figure}
+
+After choosing the academic year, the degree program and the class you want, the page will be updated with a list of all the exams (as in Figure~\ref{fig:exams}). If an exam hasn't any subscribed student yet, then you can delete it. If you want to insert a new exam, then click on the \textbf{Insert Exam} button; the procedure is the same as the one described in~\ref{sssec:exaIns}.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1.0\textwidth]{img/exams.png}
+	\caption{Register of the exams of the algorithm class.}
+	\label{fig:exams}
+\end{figure}
+
+\subsubsection{Deletion of an exam}
+If the exam hasn't associated any subscribed student yet, then you can delete it. To delete an exam of this type, click on its \textbf{Delete} button. You will be redirected to a page (like the one in Figure~\ref{fig:deleteExam}). Click the \textbf{Delete} button.% and confirm the transaction by clicking on the MetaMask's \textbf{submit} button.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\textwidth]{img/deleteExam.png}
+	\caption{Deletion of an exam.}
+	\label{fig:deleteExam}
+\end{figure}
+
 \subsection{Administrators, Teachers and Students management} \label{subsec:ats}
-When you choose a voice on the right side of the black bar located near the top of the screen, you're selecting a category between \emph{Administrators}, \emph{Teachers} and \emph{Students}.  Depending on your choice, you will see a list of administrators, or teachers or students, for example a list like the one in Figure~\ref{fig:userList}. As you may notice looking at the table in the figure, the cell of the column named ''\emph{Is signed up}'' has a green dot if the inserted user has logged in, otherwise it has a red dot. An inserted user that never signed up can be eliminated by clicking on the relative deleted button.
+When you choose a voice on the right side of the black bar located near the top of the screen, you're selecting a category between \emph{Administrators}, \emph{Teachers} and \emph{Students}.  Depending on your choice, you will see a list of administrators, or teachers or students, for example a list like the one in Figure~\ref{fig:userList}. As you may notice looking at the table in the figure, the cell of the column named ''\emph{Is signed up}'' has a green dot if the inserted user has logged in, otherwise it has a red dot. An inserted user that never signed up can be deleted by clicking on the relative deleted button.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{img/userList.png}
@@ -148,7 +174,7 @@ Inserting an user in the system is an operation that has two phases:
 	If the form has been filled correctly, then a Metamask window will be opened in front of you. Confirm clicking the \textbf{SUBMIT} button.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.65\textwidth]{img/stdSignUp.png}
+		\includegraphics[width=0.60\textwidth]{img/stdSignUp.png}
 		\caption{User Sign Up}
 		\label{fig:stdSignUp}
 	\end{figure}
