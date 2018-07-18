@@ -25,7 +25,9 @@ class ProfileIntro extends Component {
           <br />
           Your badge number is: <strong>{this.props.authData.payload.badgeNumber}</strong>.
     </p>
+      <div className="img-div">
         <img className="profileImage" src={'https://ipfs.infura.io/ipfs/' + this.props.authData.payload.image} alt="" />
+      </div>
       </div>
 
     )

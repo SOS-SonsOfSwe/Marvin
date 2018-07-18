@@ -60,7 +60,6 @@ class SignUpForm extends Component {
       
       Popup.queue(signUpPopup)
       Popup.clearQueue()
-      return alert('ppppppppppppppp')
     }
     else{
 
