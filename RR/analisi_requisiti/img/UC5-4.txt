@@ -1,7 +1,0 @@
-@startuml
-left to right direction
-skinparam packageStyle rectangle
-actor università
-rectangle UC5.4 {
-}
-@enduml
