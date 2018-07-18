@@ -62,7 +62,7 @@ class Costs extends React.Component {
     // const empty = this.props.empty ? <EmptyData label='no data found on blockchain' /> : <div />
 
     return (
-      <div>
+      <div className="body">
         {load}
         {error}
         {/* {empty} */}
