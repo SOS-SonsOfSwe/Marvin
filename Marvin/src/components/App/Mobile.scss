@@ -38,9 +38,26 @@
     }
 
     .pure-form fieldset {
-        width: 13em;
+        width: 8em;
         padding-left: 1em;
         padding-right: 1em;
+    }
+
+    .form-s fieldset {
+        border: none;
+        padding: 0em;
+        margin: 0em;
+        box-shadow: none;
+    }
+
+    .form-s {
+        box-shadow: 2px 0.5px 5px #888888;
+        width: 13em;
+        margin: auto;
+    }
+
+    .form-s label, .form-s input, .form-s span {
+        margin-left: 5%;
     }
 
     .pure-form-message {
@@ -158,7 +175,8 @@
     }
 
     .costs-table {
-        font-size: 0.75em;
+        margin-top: 4em;
+        font-size: 0.40em;
     }
     
 }

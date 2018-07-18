@@ -87,7 +87,7 @@ class SignUpForm extends Component {
         {adding}
         {this.props.ipfsLoading !== true && this.props.ipfsAdding !== true && this.props.blockchainAdding !== true &&
 
-          <form className="pure-form pure-form-stacked" onSubmit={this.handleSubmit.bind(this)}>
+          <form className="pure-form pure-form-stacked form-s" onSubmit={this.handleSubmit.bind(this)}>
             <fieldset>
               <label htmlFor="name">Name</label>
               <input id="name" type="text" value={this.state.name} onChange={this.onInputNameChange.bind(this)} placeholder="Name" />
