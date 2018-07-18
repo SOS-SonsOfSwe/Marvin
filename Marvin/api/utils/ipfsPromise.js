@@ -4,6 +4,7 @@ import bs58 from 'bs58'
 import ipfsapi from 'ipfs-api'
 import promiseTimeout from './timeout'
 import { browserHistory } from 'react-router'
+import store from '../../src/store'
 
 var instance = null
 
@@ -89,11 +90,12 @@ export default class ipfsPromise {
       if(jsonPARAM == null || jsonPARAM === "") return resolve(null)
       var buf = Buffer.from(JSON.stringify(jsonPARAM));
       try {
-        var hash = await promiseTimeout(20000, this.ipfsapi.add(buf))
+        var hash = await promiseTimeout(30000, this.ipfsapi.add(buf))
         if(hash) return resolve(hash[0].hash)
       } catch(error) {
         console.error(error)
         alert('It seems that IPFS has some problems... \nCheck your network firewall or try again later.')
+        // store.dispatch(browserHistory.push('/'))
         browserHistory.push('/')
         return reject(error)
       }
@@ -113,7 +115,7 @@ export default class ipfsPromise {
   async getJSON(hashIpfsPARAM) {
     return new Promise(async (resolve, reject) => {
       try {
-        var buffer = await promiseTimeout(10000, this.ipfsapi.cat(hashIpfsPARAM))
+        var buffer = await promiseTimeout(20000, this.ipfsapi.cat(hashIpfsPARAM))
         var json = JSON.parse(buffer.toString())
         if(json !== null)
           return resolve(json)
@@ -180,12 +182,13 @@ export default class ipfsPromise {
     return new Promise(async (resolve, reject) => {
       if(buffer === "" || buffer == null) return resolve(null)
       try {
-        var response = await promiseTimeout(50000, this.ipfsapi.add(buffer))
+        var response = await promiseTimeout(60000, this.ipfsapi.add(buffer))
         if(response) // // console.log(response[0].hash)
           return resolve(response[0].hash)
       } catch(error) {
         console.error(error)
         alert('It seems that IPFS has some problems... \nCheck your network firewall or try again later.')
+        // store.dispatch(browserHistory.push('/'))
         browserHistory.push('/')
         return reject(error)
       }
