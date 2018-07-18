@@ -102,6 +102,8 @@ In the next section, you can find more details about the contracts above.
 	\includegraphics[width=0.65\textwidth]{img/Contracts/ExamData.png}
 	\caption{ExamData Diagram}
 \end{figure}
+As you can see, like we said before, some contracts have a struct defined. This struct usually contain some common data: ad index for the array in the relative contract (in User we use badgeNumber like index), hashData that contain the hash for retrieve data from IPFS, uniCode for an indentifier of the object (note that for User struct it has a different meaning: it's just a code that the University give to you for the first authentication). All the other data in the struct is different between different contract. In the struct relative contract, there is the mapping for accessing the struct, together to other mapping and array of utilities.
+
 
 \subsection{IPFS}
 Saving data on the Ethereum blockchain is expensive and you can store only simple type data (like integer or string). To mitigate this problem external distributed database is used: we choose IPFS for it's easy of use and because it's in a pretty advanced version. 
