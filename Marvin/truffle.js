@@ -1,6 +1,6 @@
+/* Rinkeby deploy
 var HDWalletProvider = require("truffle-hdwallet-provider");
 var mnemonic = "army despair twelve hand humor elder inject race test fancy swap disorder";
-
 
 module.exports = {
   networks: {
@@ -12,7 +12,10 @@ module.exports = {
     }   
   }
 };
-/*
+// mnemonic address 10+ ETH Rinkeby: smooth noodle laptop april bitter steak spare elevator orbit pipe climb shine
+// mnemonic address 5 ETH Rinkeby (completato deploy?): army despair twelve hand humor elder inject race test fancy swap disorder
+*/
+
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!
@@ -26,9 +29,3 @@ module.exports = {
     }
   }
 };
-
-
-// mnemonic address 10+ ETH Rinkeby: smooth noodle laptop april bitter steak spare elevator orbit pipe climb shine
-// mnemonic address 5 ETH Rinkeby (completato deploy?): army despair twelve hand humor elder inject race test fancy swap disorder
-
-*/
