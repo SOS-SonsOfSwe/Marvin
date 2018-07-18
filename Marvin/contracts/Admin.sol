@@ -60,7 +60,6 @@ contract Admin {
         exam.setIndex(_examUniCode, index);
     }
 
-    // MODIFICATORE
     function getUsersBadgeType() public view onlyAdmin returns(uint32[], uint8[]) {
         UserData user = UserData(manager.getUserDataContract()); 
         bytes32[] memory allUsersCF = user.getAllUsers();
@@ -73,7 +72,6 @@ contract Admin {
         return(usersBadge, usersType);
     }
     
-    // MODIFICATORE
     function getUsersData() public view onlyAdmin returns(bytes32[], bytes32[], uint32[], uint8[], bool[]) {
         UserData user = UserData(manager.getUserDataContract()); 
         bytes32[] memory allUsersCF = user.getAllUsers();

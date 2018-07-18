@@ -1,5 +1,14 @@
 //import book from '../../../public/media/1.jpg'
 
+.profileImage {
+  height: 17em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.603), 0 6px 20px 0 rgba(0, 0, 0, 0.596);
+}
+
+.img-div {
+  text-align: center;
+}
+
 .costs-table { 
   margin: auto; 
 } 

@@ -33,66 +33,54 @@ contract UserData {
         _;
     }
 
-    // MODIFICATORE
     function isAdmin(address _address) public view returns(bool) {
         return(users[registeredUsers[_address]].userType == 1);
     }
     
-    // MODIFICATORE
     function userExists(address _address) public view returns(bool) {
         return(registeredUsers[_address] != 0);
     }
 
-    // MODIFICATORE
     function userExistsBadge(uint32 _badgeNumber)public view returns(bool) {
         bytes32 CF = userIndex[_badgeNumber - 1];
         return(users[CF].isUser);
     }
 
-    // MODIFICATORE
     function getAllUsers() public view returns(bytes32[]) {
         return userIndex;
     }
 
-    // MODIFICATORE
     function getUsersUniCode(bytes32 _fiscalCode) public view returns(bytes10) {
         return users[_fiscalCode].uniCode;
     }
 
-    // MODIFICATORE
     function getUsersUserType(bytes32 _fiscalCode) public view returns(uint8) {
         return users[_fiscalCode].userType;
     }
 
-    // MODIFICATORE
     function getUsersBadgeNumber(bytes32 _fiscalCode) public view returns(uint32) {
         return users[_fiscalCode].badgeNumber;
     }
 
-    // MODIFICATORE
     function getUsersIsUser(bytes32 _fiscalCode) public view returns(bool) {
         return users[_fiscalCode].isUser;
     }
 
-    // MODIFICATORE
     function getUsersHashData(bytes32 _fiscalCode) public view returns(bytes32) {
         if(users[_fiscalCode].isUser)
             return(users[_fiscalCode].hashData);
         return(0);
     }
 
-    // MODIFICATORE
     function getRegUsersData(address _address) public view returns(bytes32, uint8, uint32, bytes32) {
         return(registeredUsers[_address], users[registeredUsers[_address]].userType, 
             users[registeredUsers[_address]].badgeNumber, users[registeredUsers[_address]].hashData);
     }
 
-    // MODIFICATORE
     function getRegUsersBadgeNumber(address _address) public view returns(uint32) {
         return users[registeredUsers[_address]].badgeNumber;
     }
 
-    // MODIFICATORE
     function getUniAddress() public view returns(address) {
         return uniAddress ;
     }

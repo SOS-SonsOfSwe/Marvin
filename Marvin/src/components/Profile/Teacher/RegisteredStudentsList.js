@@ -54,6 +54,7 @@ class RegisteredStudentsList extends React.Component {
       Popup.clearQueue()
     }
     else {
+        alert('The votes were entered correctly')
       this.props.setMarksData(this.props.examUnicode, this.props.classUnicode, this.state.votes)
     }
   }
@@ -103,9 +104,7 @@ class RegisteredStudentsList extends React.Component {
                       {this.props.students.map((rowData, index) => <Row key={index} {...rowData} hChange={this.handleChange} />)}
                     </tbody>
                   </table>
-                  <fieldset>
-                    <input className="input-stud" type="submit" value="Save" />
-                  </fieldset>
+                  <input className="input-stud" type="submit" value="Save" />
                 </form>
               </div>
             }
