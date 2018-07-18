@@ -8,6 +8,7 @@ export function deletingData(req) {
 }
 
 export function dataDeleted(load, req) {
+  alert("Data have been removed correctly.");
   return {
     type: userCostants.DELETED_DATA,
     payload: load,

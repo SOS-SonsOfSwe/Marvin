@@ -1,6 +1,6 @@
 const AdminContract = artifacts.require('./Admin.sol')
 const DegreeContract = artifacts.require('./DegreeData.sol')
-const CourseContract = artifacts.require('./CourseData.sol')
+const ClassContract = artifacts.require('./ClassData.sol')
 const ExamContract = artifacts.require('./ExamData.sol')
 const UserLogic = artifacts.require('./UserLogic.sol')
 const UserData = artifacts.require('./UserData.sol')
@@ -22,7 +22,7 @@ contract('Admin, UserData', (address) => {
   UserData.deployed().then((inst) => { userDataInstance = inst });
 
   it('should add a new admin', async () => {
-    await adminInstance.addUser('AAABBB00A00B000C', '1234567890', '1', { from: address[0] });
+    await adminInstance.addUser('AAABBB00A00B000C', '1234567890', '1', '', { from: address[0] });
     const result = await adminInstance.getUsersData({ from: address[0] });
     assert.equal(web3.toUtf8(result[0][0]), 'AAABBB00A00B000C', "Checking fiscal code...");
     assert.equal(web3.toDecimal(result[2][0]), '1', "Checking badge number...");
@@ -30,7 +30,7 @@ contract('Admin, UserData', (address) => {
   })
 
   it('should add a new teacher', async () => {
-    await adminInstance.addUser('BAABBB00A00B000C', '1234567891', '2', { from: address[0] });
+    await adminInstance.addUser('BAABBB00A00B000C', '1234567891', '2', '', { from: address[0] });
     const result = await adminInstance.getUsersData({ from: address[0] });
     assert.equal(web3.toUtf8(result[0][1]), 'BAABBB00A00B000C', "Checking fiscal code...");
     assert.equal(web3.toDecimal(result[2][1]), '2', "Checking badge number...");
@@ -38,7 +38,7 @@ contract('Admin, UserData', (address) => {
   })
 
   it('should add a new student', async () => {
-    await adminInstance.addUser('CAABBB00A00B000C', '1234567892', '3', { from: address[0] });
+    await adminInstance.addUser('CAABBB00A00B000C', '1234567892', '3', '', { from: address[0] });
     const result = await adminInstance.getUsersData({ from: address[0] });
     assert.equal(web3.toUtf8(result[0][2]), 'CAABBB00A00B000C', "Checking fiscal code...");
     assert.equal(web3.toDecimal(result[2][2]), '3', "Checking badge number...");
@@ -52,7 +52,7 @@ contract('Admin, UserLogic', (address) => {
   it('should check for a newly added admin', function () {
     AdminContract.deployed()
       .then(adminInstance => {
-        return adminInstance.addUser('AAABBB00A00B000C', '1234567890', 1, { from: address[0] })
+        return adminInstance.addUser('AAABBB00A00B000C', '1234567890', 1, '', { from: address[0] })
       });
     UserLogic.deployed()
       .then(logicInstance => {
@@ -109,69 +109,69 @@ contract('Admin, DegreeData', (address) => {
       })
   });
 
-  it("should check for a newly added degree course", async () => {
+  it("should check for a newly added degree", async () => {
     await adminInstance.addNewDegree('INF18', 2018, 'asdasdasd', { from: address[0] });
     const result = await degreeInstance.isDegree('INF18', { from: address[0] });
     assert.equal(result, true, "Adding new degree ok");
   });
 
-  it("should check if the previously added degree course is deleted correctly", async () => {
-    await adminInstance.removeDegree('INF18', 2018, 0);
+  it("should check if the previously added degree is deleted correctly", async () => {
+    await adminInstance.removeDegree('INF18', 2018, { from: address[0] });
     const result = await degreeInstance.isDegree('INF18', { from: address[0] });
     assert.equal(result, false, "Degree INF19 correctly deleted");
   });
 
 })
 
-contract('Admin, CourseData', (address) => {
+contract('Admin, ClassData', (address) => {
   let adminInstance
-  let courseInstance;
+  let ClassInstance;
   AdminContract.deployed().then((inst) => { adminInstance = inst; });
-  CourseContract.deployed({ from: address[0] }).then((inst) => { courseInstance = inst; });
+  ClassContract.deployed({ from: address[0] }).then((inst) => { ClassInstance = inst; });
 
   it("should check for a newly added class", async () => {
-    await adminInstance.addNewCourse('INF18', 'PROGR18', 'asdasdasd', { from: address[0] });
-    const result = await courseInstance.isCourse('PROGR18', { from: address[0] });
+    await adminInstance.addNewClass('INF18', 'PROGR18', 'asdasdasd', { from: address[0] });
+    const result = await ClassInstance.isClass('PROGR18', { from: address[0] });
     assert.equal(result, true, "Added the new class PROGR18 ok");
   });
 
   it("should check if the previously added class is deleted correctly", async () => {
-    await adminInstance.removeCourse('PROGR18', { from: address[0] });
-    const result = await courseInstance.isCourse('PROGR18', { from: address[0] });
+    await adminInstance.removeClass('PROGR18', { from: address[0] });
+    const result = await ClassInstance.isClass('PROGR18', { from: address[0] });
     assert.equal(result, false, "Deleted the class PROGR18 ok");
   });
 })
 
 
 /*controllare con insegnanti e studenti, voti, ecc*/
-contract('Admin, CourseData, ExamData', (address) => {
-  let adminInstance, courseInstance, examInstance;
+contract('Admin, ClassData, ExamData', (address) => {
+  let adminInstance, ClassInstance, examInstance;
   AdminContract.deployed().then((inst) => { adminInstance = inst; });
-  CourseContract.deployed({ from: address[0] }).then((inst) => { courseInstance = inst; });
+  ClassContract.deployed({ from: address[0] }).then((inst) => { ClassInstance = inst; });
   ExamContract.deployed({ from: address[0] }).then((inst) => { examInstance = inst; });
 
   it("should chek for a newly added exam", async () => {
-    await adminInstance.addNewCourse('INF18', 'PROGR18', 'asdasdasd', { from: address[0] });
+    await adminInstance.addNewClass('INF18', 'PROGR18', 'asdasdasd', { from: address[0] });
     await adminInstance.addNewExam('PROGR18', 'PROG18_1_6_2018', 'gilbExam', { from: address[0] });
     const result = await examInstance.isExam('PROG18_1_6_2018', { from: address[0] });
     assert.equal(result, true, "Added a new exam for the class PROGR18 ok");
   });
 
   /*it("should check if the added exam is an exam of the class PROGR18", async () => {
-    const result = await courseInstance.getCourseExamsData( 'PROGR18', { from: address[0] });
+    const result = await ClassInstance.getClassExamsData( 'PROGR18', { from: address[0] });
     const isExam = await examInstance.isExam(web3.utils.toUtf8(result[0][0]),  { from: address[0] });
     assert.equal(isExam, true , "PROG18_1_6_2018 is ab exam");
     //assert.equal(web3.utils.toUtf8(result[0]), 'PROG18_1_6_2018', "PROG18_1_6_2018 is an exam of PROGR18 ok");
   });*/
 
   it("should check if the added exam is an exam of the class PROGR18", function () {
-    CourseContract.deployed()
-      .then(courseInstance => {
-        return courseInstance.getCourseExamsData('PROGR18', { from: address[0] });
+    ClassContract.deployed()
+      .then(ClassInstance => {
+        return ClassInstance.getClassExamsData('PROGR18', { from: address[0] });
       })
-    CourseContract.deployed()
-      .then(courseInstance => {
-        return courseInstance.isExam(web3.utils.toUtf8(result[0][0]), { from: address[0] });
+    ClassContract.deployed()
+      .then(ClassInstance => {
+        return ClassInstance.isExam(web3.utils.toUtf8(result[0][0]), { from: address[0] });
       })
     ExamContract.deployed()
       .then(exInstance => {
