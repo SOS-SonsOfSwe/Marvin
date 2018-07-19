@@ -210,27 +210,27 @@ var classes = [
 ]
 
 var exams = [
-  { classUnicode: 'PROG17', examUnicode: 'PROG17-1', type: 'Written', place: 'LUF1', date: '2017-06-05', time: '10:30' },
-  { classUnicode: 'PROG17', examUnicode: 'PROG17-2', type: 'Written', place: 'LUF1', date: '2017-06-30', time: '14:30' },
+  { classUnicode: 'PROG17', examUnicode: 'PROG17-1', type: 'Written', place: 'LUF1', date: '2017-07-21', time: '10:30' },
+  { classUnicode: 'PROG17', examUnicode: 'PROG17-2', type: 'Written', place: 'LUF1', date: '2017-08-07', time: '14:30' },
   { classUnicode: 'PROG17', examUnicode: 'PROG17-3', type: 'Written', place: 'LUF1', date: '2017-09-02', time: '09:00' },
-  { classUnicode: 'RETI17', examUnicode: 'RETI17-1', type: 'Written', place: 'LUM250', date: '2017-06-11', time: '10:30' },
-  { classUnicode: 'RETI17', examUnicode: 'RETI17-2', type: 'Written', place: 'LUM250', date: '2017-07-07', time: '14:30' },
+  { classUnicode: 'RETI17', examUnicode: 'RETI17-1', type: 'Written', place: 'LUM250', date: '2017-07-23', time: '10:30' },
+  { classUnicode: 'RETI17', examUnicode: 'RETI17-2', type: 'Written', place: 'LUM250', date: '2017-07-31', time: '14:30' },
   { classUnicode: 'RETI17', examUnicode: 'RETI17-3', type: 'Written', place: 'LUM250', date: '2017-09-08', time: '09:00' },
-  { classUnicode: 'CALC17', examUnicode: 'CALC17-1', type: 'Written', place: 'LUF1', date: '2017-06-06', time: '10:30' },
-  { classUnicode: 'CALC17', examUnicode: 'CALC17-2', type: 'Written', place: 'LUF1', date: '2017-06-28', time: '14:30' },
-  { classUnicode: 'CALC17', examUnicode: 'CALC17-3', type: 'Written', place: 'LUF1', date: '2017-09-07', time: '09:00' },
-  { classUnicode: 'BASI17', examUnicode: 'BASI17-1', type: 'Written', place: 'LUM250', date: '2017-06-09', time: '10:30' },
-  { classUnicode: 'BASI17', examUnicode: 'BASI17-2', type: 'Written', place: 'LUM250', date: '2017-06-27', time: '14:30' },
+  { classUnicode: 'CALC17', examUnicode: 'CALC17-1', type: 'Written', place: 'LUF1', date: '2017-07-25', time: '10:30' },
+  { classUnicode: 'CALC17', examUnicode: 'CALC17-2', type: 'Written', place: 'LUF1', date: '2017-08-28', time: '14:30' },
+  { classUnicode: 'CALC17', examUnicode: 'CALC17-3', type: 'Written', place: 'LUF1', date: '2017-09-09', time: '09:00' },
+  { classUnicode: 'BASI17', examUnicode: 'BASI17-1', type: 'Written', place: 'LUM250', date: '2017-07-29', time: '10:30' },
+  { classUnicode: 'BASI17', examUnicode: 'BASI17-2', type: 'Written', place: 'LUM250', date: '2017-08-27', time: '14:30' },
   { classUnicode: 'BASI17', examUnicode: 'BASI17-3', type: 'Written', place: 'LUM250', date: '2017-09-09', time: '09:00' },
-  { classUnicode: 'RICE17', examUnicode: 'RICE17-1', type: 'Written', place: '1C150', date: '2017-06-10', time: '10:30' },
-  { classUnicode: 'RICE17', examUnicode: 'RICE17-2', type: 'Written', place: '1C150', date: '2017-07-15', time: '14:30' },
+  { classUnicode: 'RICE17', examUnicode: 'RICE17-1', type: 'Written', place: '1C150', date: '2017-07-26', time: '10:30' },
+  { classUnicode: 'RICE17', examUnicode: 'RICE17-2', type: 'Written', place: '1C150', date: '2017-08-19', time: '14:30' },
   { classUnicode: 'RICE17', examUnicode: 'RICE17-3', type: 'Written', place: '1C150', date: '2017-09-13', time: '09:00' },
-  { classUnicode: 'MEDI17', examUnicode: 'MEDI17-1', type: 'Oral', place: 'AULA MAGNA NEUROLOGIA', date: '2017-06-07', time: '10:30' },
-  { classUnicode: 'MEDI17', examUnicode: 'MEDI17-2', type: 'Oral', place: 'AULA MAGNA NEUROLOGIA', date: '2017-06-23', time: '14:30' },
-  { classUnicode: 'MEDI17', examUnicode: 'MEDI17-3', type: 'Oral', place: 'AULA MAGNA NEUROLOGIA', date: '2017-08-30', time: '09:00' },
-  { classUnicode: 'FREN16', examUnicode: 'FREN16-1', type: 'Practice', place: 'MURIALDO', date: '2017-06-07', time: '10:30' },
-  { classUnicode: 'FREN16', examUnicode: 'FREN16-2', type: 'Practice', place: 'MURIALDO', date: '2017-06-23', time: '14:30' },
-  { classUnicode: 'FREN16', examUnicode: 'FREN16-3', type: 'Practice', place: 'MURIALDO', date: '2017-08-30', time: '09:00' }
+  { classUnicode: 'MEDI17', examUnicode: 'MEDI17-1', type: 'Oral', place: 'AULA MAGNA NEUROLOGIA', date: '2017-07-27', time: '10:30' },
+  { classUnicode: 'MEDI17', examUnicode: 'MEDI17-2', type: 'Oral', place: 'AULA MAGNA NEUROLOGIA', date: '2017-08-23', time: '14:30' },
+  { classUnicode: 'MEDI17', examUnicode: 'MEDI17-3', type: 'Oral', place: 'AULA MAGNA NEUROLOGIA', date: '2017-09-30', time: '09:00' },
+  { classUnicode: 'FREN16', examUnicode: 'FREN16-1', type: 'Practice', place: 'MURIALDO', date: '2017-07-28', time: '10:30' },
+  { classUnicode: 'FREN16', examUnicode: 'FREN16-2', type: 'Practice', place: 'MURIALDO', date: '2017-08-23', time: '14:30' },
+  { classUnicode: 'FREN16', examUnicode: 'FREN16-3', type: 'Practice', place: 'MURIALDO', date: '2017-0-11', time: '09:00' }
 ]
 
 /* added:
