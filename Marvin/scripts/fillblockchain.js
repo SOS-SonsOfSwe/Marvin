@@ -140,17 +140,17 @@ var insertUsers = [
   // { FC: 'AAABBB00A00B001C', UC: '1234567880', tp: 1 },
   // { FC: 'AAABBB00A00B002C', UC: '1234567870', tp: 1 },
   { FC: 'BBBCCC11B11C111D', UC: '1234567891', tp: 2, degree: '' },
-  { FC: 'BBBCCC11B11C112D', UC: '1234567881', tp: 2, degree: '' },
-  { FC: 'BBBCCC11B11C113D', UC: '1234567871', tp: 2, degree: '' },
-  { FC: 'BBBCCC11B11C114D', UC: '1234567861', tp: 2, degree: '' },
-  { FC: 'BBBCCC11B11C115D', UC: '1234567851', tp: 2, degree: '' },
-  { FC: 'BBBCCC11B11C116D', UC: '1234567841', tp: 2, degree: '' },
-  { FC: 'BBBCCC11B11C117D', UC: '1234567831', tp: 2, degree: '' },
-  { FC: 'BBBCCC11B11C118D', UC: '1234567821', tp: 2, degree: '' },
+  { FC: 'BBBCCC11B11C112D', UC: '1234567881', tp: 3, degree: 'INFO17' },
+  { FC: 'BBBCCC11B11C113D', UC: '1234567871', tp: 3, degree: 'INFO17' },
+  { FC: 'BBBCCC11B11C114D', UC: '1234567861', tp: 3, degree: 'INFO17' },
+  { FC: 'BBBCCC11B11C115D', UC: '1234567851', tp: 3, degree: 'INFO17' },
+  { FC: 'BBBCCC11B11C116D', UC: '1234567841', tp: 3, degree: 'INFO17' },
+  { FC: 'BBBCCC11B11C117D', UC: '1234567831', tp: 3, degree: 'INFO17' },
+  { FC: 'BBBCCC11B11C118D', UC: '1234567821', tp: 3, degree: 'INFO17' },
 
   { FC: 'CCCDDD22C22D222E', UC: '1234567892', tp: 3, degree: 'INFO17' },
   { FC: 'CCCDDD22C22D223E', UC: '1234567882', tp: 3, degree: 'INFO17' },
-  { FC: 'CCCDDD22C22D224E', UC: '1234567872', tp: 3, degree: 'MATE17' }
+  { FC: 'CCCDDD22C22D224E', UC: '1234567872', tp: 3, degree: 'INFO17' }
 ]
 
 var academicYears = [
@@ -181,10 +181,10 @@ var signUpUsers = [
   { FC: 'AAABBB00A00B000C', UC: '1234567890', name: 'John', surname: 'Smith', email: 'john@smith.com' },
   // { FC: 'AAABBB00A00B001C', UC: '1234567880', name: 'Johnny', surname: 'Reid', email: 'johnny@reid.com' },
   // { FC: 'AAABBB00A00B002C', UC: '1234567870', name: 'JohnyStecchino', surname: 'Kennedy', email: 'johnnyStecchino@kennedy.com' },
-  { FC: 'BBBCCC11B11C111D', UC: '1234567891', name: 'Jessica', surname: 'Rabbit', email: 'jessica@rabbit.com' },
+  { FC: 'BBBCCC11B11C111D', UC: '1234567891', name: 'James', surname: 'Bond 🔫', email: 'james@bond.com' },
   { FC: 'BBBCCC11B11C112D', UC: '1234567881', name: 'Marta', surname: 'Wagner', email: 'marta@wagner.com' },
 
-  { FC: 'BBBCCC11B11C113D', UC: '1234567871', name: 'James', surname: 'Bond 🔫', email: 'james@bond.com' },
+  { FC: 'BBBCCC11B11C113D', UC: '1234567871', name: 'Jessica', surname: 'Rabbit', email: 'jessica@rabbit.com' },
   { FC: 'BBBCCC11B11C114D', UC: '1234567861', name: 'David', surname: 'Jones', email: 'david@jones.com' },
   { FC: 'BBBCCC11B11C115D', UC: '1234567851', name: 'Peter', surname: 'Garcia', email: 'peter@garcia.com' },
   { FC: 'BBBCCC11B11C116D', UC: '1234567841', name: 'Patricia', surname: 'Taylor', email: 'patricia@taylor.com' },
@@ -199,14 +199,14 @@ var signUpUsers = [
 
 var classes = [
   { year: "2017-2018", degreeUnicode: "INFO17", classData: "Reti e sicurezza", classUnicode: 'RETI17', teacher: '2' },
-  { year: "2017-2018", degreeUnicode: "INFO17", classData: "Calcolo numerico", classUnicode: 'CALC17', teacher: '3' },
-  { year: "2017-2018", degreeUnicode: "INFO17", classData: "Programmazione 1", classUnicode: 'PROG17', teacher: '4' },
+  { year: "2017-2018", degreeUnicode: "INFO17", classData: "Calcolo numerico", classUnicode: 'CALC17', teacher: '2' },
+  { year: "2017-2018", degreeUnicode: "INFO17", classData: "Programmazione 1", classUnicode: 'PROG17', teacher: '2' },
   { year: "2017-2018", degreeUnicode: "INFO17", classData: "Basi di dati", classUnicode: 'BASI17', teacher: '2' },
-  { year: "2017-2018", degreeUnicode: "INFO17", classData: "Ricerca operativa", classUnicode: 'RICE17', teacher: '5' },
-  { year: "2017-2018", degreeUnicode: "MEDI17", classData: "Neurologia", classUnicode: 'NEUR17', teacher: '6' },
-  { year: "2017-2018", degreeUnicode: "FISI17", classData: "Analisi matematica 1", classUnicode: 'ANAL17', teacher: '7' },
-  { year: "2016-2017", degreeUnicode: "FISI16", classData: "Metodi matematici", classUnicode: 'METO16', teacher: '8' },
-  { year: "2016-2017", degreeUnicode: "PSIC16", classData: "French fries", classUnicode: 'FREN16', teacher: '9' }
+  { year: "2017-2018", degreeUnicode: "INFO17", classData: "Ricerca operativa", classUnicode: 'RICE17', teacher: '2' },
+  { year: "2017-2018", degreeUnicode: "MEDI17", classData: "Neurologia", classUnicode: 'NEUR17', teacher: '3' },
+  { year: "2017-2018", degreeUnicode: "FISI17", classData: "Analisi matematica 1", classUnicode: 'ANAL17', teacher: '3' },
+  { year: "2016-2017", degreeUnicode: "FISI16", classData: "Metodi matematici", classUnicode: 'METO16', teacher: '3' },
+  { year: "2016-2017", degreeUnicode: "PSIC16", classData: "French fries", classUnicode: 'FREN16', teacher: '3' }
 ]
 
 var exams = [
@@ -268,8 +268,8 @@ AdminContract.deployed()
       .then(() => {
         StudentContract.deployed()
           .then(instance => studentInstance = instance)
-        TeacherContract.deployed()
-          .then(instance => teacherInstance = instance)
+        // TeacherContract.deployed()
+        //   .then(instance => teacherInstance = instance)
       })
       .then(async () => {
         await addUsers(insertUsers)
@@ -279,7 +279,7 @@ AdminContract.deployed()
         await addClass(classes)
         await addExams(exams)
         await subscribeStudents()
-        await registerResults()
+        // await registerResults()
       })
   })
 
@@ -440,31 +440,37 @@ async function addExams(exams) {
 
 async function subscribeStudents() {
   var subscribedLine = 0
-  try {
-    await studentInstance.subscribeExam(exams[0].examUnicode, { from: addresses[10] })
-    console.log('address4 subscribed PROG17-1 ' + subscribedLine++ + ' ok')
-  } catch(error) { console.error('Error at subscribed ' + subscribedLine++) }
-  try {
-    studentInstance.subscribeExam(exams[0].examUnicode, { from: addresses[11] })
-    console.log('address4 subscribed PROG17-1 ' + subscribedLine++ + ' ok')
-  } catch(error) { console.error('Error at subscribed ' + subscribedLine++) }
+  var j = 0
+  for(var user of signUpUsers) {
+    j++
+    if(j >= 3) {
+      try {
+        await studentInstance.subscribeExam(exams[0].examUnicode, { from: addresses[j] })
+        console.log('address4 subscribed PROG17-1 ' + subscribedLine++ + ' ok')
+      } catch(error) { console.error('Error at subscribed ' + subscribedLine++) }
+      // try {
+      //   studentInstance.subscribeExam(exams[0].examUnicode, { from: addresses[11] })
+      //   console.log('address4 subscribed PROG17-1 ' + subscribedLine++ + ' ok')
+      // } catch(error) { console.error('Error at subscribed ' + subscribedLine++) }
+    }
+  }
 }
 
-async function registerResults() {
-  var addedResultLine = 0
-  var hashIPFS = await pushJSON([{
-    "badgeNumber": 10,
-    "vote": "25"
-  }, {
-    "badgeNumber": 11,
-    "vote": "21"
-  }])
-  var hash = getBytes32FromIpfsHash(hashIPFS);
-  try {
-    await teacherInstance.registerResult(exams[0].examUnicode, exams[0].classUnicode, hash, { from: addresses[4] })
-    console.log('PROG17-1 adding results' + addedResultLine++ + ' ok')
-  } catch(error) { console.error('Error adding results ' + addedResultLine++) }
-}
+// async function registerResults() {
+//   var addedResultLine = 0
+//   var hashIPFS = await pushJSON([{
+//     "badgeNumber": 10,
+//     "vote": "25"
+//   }, {
+//     "badgeNumber": 11,
+//     "vote": "21"
+//   }])
+//   var hash = getBytes32FromIpfsHash(hashIPFS);
+//   try {
+//     await teacherInstance.registerResult(exams[0].examUnicode, exams[0].classUnicode, hash, { from: addresses[4] })
+//     console.log('PROG17-1 adding results' + addedResultLine++ + ' ok')
+//   } catch(error) { console.error('Error adding results ' + addedResultLine++) }
+// }
 
 // new Promise(async function (resolve, reject) {
 //   await addUsers(insertUsers)
