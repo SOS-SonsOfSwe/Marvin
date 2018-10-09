@@ -1,0 +1,288 @@
+/*--------------------------------------------------------------*/
+/*  max  480  */
+/*--------------------------------------------------------------*/
+@media screen and (max-width:480px) {
+    .book-img {
+        margin-top: 0.5em;
+        width: 85%;
+        margin-left: 7.5%;
+    }
+
+    .top-navbar {
+        height: 5em;
+    }
+
+    .pure-menu-link {
+        padding-top: 0em;
+    }
+
+    .pure-menu-item a {
+        margin-top: 1.8em;
+        font-size: 0.9em;
+    }
+
+    .float-right ul {
+        margin-right: 0.5em;
+        margin-top: 1.5em;
+    }
+
+    .pure-u-1-1 h1 {
+        font-size: 1.4em;
+        padding-top: 1.5em;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .pure-u-1-1 p {
+        font-size: 0.9em;
+    }
+
+    .pure-form fieldset {
+        width: 8em;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .form-s fieldset {
+        border: none;
+        padding: 0em;
+        margin: 0em;
+        box-shadow: none;
+    }
+
+    .form-s {
+        box-shadow: 2px 0.5px 5px #888888;
+        width: 13em;
+        margin: auto;
+    }
+
+    .form-s label, .form-s input, .form-s span {
+        margin-left: 5%;
+    }
+
+    .pure-form-message {
+        font-size: 0.81em;
+    }
+
+    .pure-form-stacked label {
+        font-size: 0.89em;
+    }
+
+    .pure-form input[type=text] {
+        font-size: 0.9em;
+        width: 12em;
+    }
+
+    td {
+        font-size: 0.85em;
+    }
+
+    .insert-button a {
+        font-size: 0.9em;
+    }
+
+    .pure-button {
+        padding: 0.3em 0em;
+    }
+
+    .table {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .pure-u-1-1 p {
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 0em;
+        margin-bottom: 2.5em;
+    }
+
+    .pure-u-1-1 h1 {
+        margin-bottom: 0.3em;
+    }
+
+    .title-column {
+        font-size: 0.85em;
+    }
+
+    .pure-form-stacked select {
+        font-size: 0.80em;
+    }
+
+    .top_message {
+        font-size: 1.2em;
+    }
+
+    .pure-menu-item a {
+        font-size: 0.8em;
+        margin-top: 0.1em;
+    }
+
+    .float-left-links ul {
+        padding-left: 0em;
+    }
+
+    .pure-menu {
+        display:none;
+    }
+
+    .show li {
+        float: none !important;
+        display: block !important;
+    }
+    .btn-responsive-menu {
+        display:block;
+        background-color: #333;
+        color: #fff;
+    }
+
+    .float-left-links, .float-right-links {
+        display: block !important;
+    }
+
+    .float-right-links ul, .float-right-links {
+        float:none !important; 
+        padding: 0;
+    } 
+
+    //PER TABELLA IN COLONNA
+
+    .table-striped td, .table-striped th {
+        display: block;
+    }
+
+    .table-striped tbody, .table-striped thead {
+        float: left;
+    }
+
+    .table-striped td, .table-striped th {
+        display: block;
+        text-align: left;
+    }
+
+    .table-striped td {
+        padding-left: 1em;
+        margin-right: 0em;
+        width: 100%;
+    }
+
+    .table-striped thead {
+        width: 40%;
+    }
+
+    .table-striped tbody {
+        width: 55%;
+    }
+
+    .costs-table {
+        margin-top: 4em;
+        font-size: 0.40em;
+    }
+    
+}
+
+/*--------------------------------------------------------------*/
+/*  481 - 768  */
+/*--------------------------------------------------------------*/
+@media screen and (min-width: 481px) and (max-width:768px) {
+    .book-img {
+        margin-top: 0em;
+        width: 85%;
+        margin-left: 7.5%;
+    }
+
+    .top-navbar {
+        height: 5em;
+    }
+
+    .pure-menu-link {
+        padding-top: 0em;
+    }
+
+    .pure-menu-item a {
+        font-size: 1.1em;
+    }
+
+    .pure-u-1-1 h1 {
+        font-size: 1.6em;
+        padding-top: 1.4em;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .pure-u-1-1 p {
+        font-size: 1em;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+ .pure-form fieldset {
+        width: 20em;
+    }
+
+.pure-form-stacked fieldset{
+        width: 10em;
+    }
+
+
+    .pure-menu-item a {
+        font-size: 0.99em;
+    }
+
+    .float-left-links ul {
+        padding-left: 0em;
+    }
+
+    .pure-menu {
+        display:none;
+    }
+
+    .show li {
+        float: none !important; 
+        display: block !important;
+    }
+
+    .btn-responsive-menu {
+        display:block !important;
+        background-color: #333;
+        color: #fff;
+    }
+
+    .float-left-links, .float-right-links {
+        display: block !important;
+    }
+
+    .float-right-links ul, .float-right-links {
+        float:none !important; 
+        padding: 0;
+    } 
+  
+
+}
+
+/*--------------------------------------------------------------*/
+/*  769 - 1024  */
+/*--------------------------------------------------------------*/
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    .pure-u-1-1 h1 {
+        font-size: 1.7em;
+    }
+
+    .book-img {
+        margin-top: 3.5em;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+.pure-form fieldset{
+        width: 20em;
+    }
+
+.pure-form-stacked fieldset{
+        width: 10em;
+    }
+
+
+}
