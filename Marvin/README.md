@@ -62,7 +62,6 @@ candy maple cake sugar pudding cream honey rich smooth crumble sweet treat
 ```
 
 We have prepared some scripts to make the project simpler to load:
-```
 An all-in-one solution for loading the project from Ubuntu and Mac:
 ```
 startOnLinux.sh
