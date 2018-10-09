@@ -1,0 +1,15 @@
+%generare il pdf con il comando: pdflatex main.tex
+\documentclass[a4paper, oneside, openany]{article}
+\usepackage{../template/sos_verbali}
+\input{comandi}
+
+\begin{document}
+	\copertina{}
+	
+	\input{sez/RegistroModifiche.tex}
+	\newpage
+	\tableofcontents
+	\newpage
+	\input{sez/I2.tex}
+
+\end{document}

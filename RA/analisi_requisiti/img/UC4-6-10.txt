@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor università
+rectangle UC4.6.10 {
+università -- (UC4.6.10.1 - Modifica del codice del corso dell’attività didattica)
+università -- (UC4.6.10.2 - Modifica del nome dell’attività didattica)
+università -- (UC4.6.10.3 - Modifica della descrizione dell’attività didattica)
+università -- (UC4.6.10.4 - Modifica del professore associato all’attività didattica)
+università -- (UC4.6.10.5 - Modifica dei crediti dell’attività didattica)
+università -- (UC4.6.10.6 - Modifica del periodo dell’attività didattica)
+università -- (UC4.6.10.7 - Modifica dell’esame associato all’attività didattica)
+università -- (UC4.6.10.8 - Annullamento della modifica dell’attività didattica)
+università -- (UC4.6.10.9 - Conferma della modifica dell’attività didattica)
+}
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Amministratore
+actor Università
+rectangle UC4.6 {
+Amministratore -- (UC4.6.1 - Modifica del codice di un corso di laurea)
+Amministratore -- (UC4.6.10 - Visualizzazione dell'errore relativo all'eliminazione di un'attività didattica)
+Amministratore -- (UC4.6.2 - Modifica del nome di un corso di laurea)
+Amministratore -- (UC4.6.3 - Modifica della descrizione di un corso di laurea)
+Amministratore -- (UC4.6.4 - Modifica della tipologia di un corso di laurea)
+Amministratore -- (UC4.6.5 - Annullamento della modifica di un corso di laurea)
+Amministratore -- (UC4.6.6 - Conferma della modifica di un corso di laurea)
+Amministratore -- (UC4.6.7 - Visualizzazione dell'errore relativo alla modifica di un corso di laurea non valido)
+Amministratore -- (UC4.6.8 - Modifica di un'attività didattica)
+Amministratore -- (UC4.6.9 - Eliminazione di un'attività didattica)
+Università -- (UC4.6.1 - Modifica del codice di un corso di laurea)
+Università -- (UC4.6.10 - Visualizzazione dell'errore relativo all'eliminazione di un'attività didattica)
+Università -- (UC4.6.2 - Modifica del nome di un corso di laurea)
+Università -- (UC4.6.3 - Modifica della descrizione di un corso di laurea)
+Università -- (UC4.6.4 - Modifica della tipologia di un corso di laurea)
+Università -- (UC4.6.5 - Annullamento della modifica di un corso di laurea)
+Università -- (UC4.6.6 - Conferma della modifica di un corso di laurea)
+Università -- (UC4.6.7 - Visualizzazione dell'errore relativo alla modifica di un corso di laurea non valido)
+Università -- (UC4.6.8 - Modifica di un'attività didattica)
+Università -- (UC4.6.9 - Eliminazione di un'attività didattica)
+}
+@enduml

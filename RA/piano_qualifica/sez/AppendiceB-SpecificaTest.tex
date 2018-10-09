@@ -1,0 +1,889 @@
+\pagebreak
+\section{Specifica dei test}
+Questa sezione definirà i test che verranno implementati ed eseguiti dal team al fine di garantire, in seguito al loro superamento, la creazione di software di alta qualità che soddisfi le richieste ed aspettative del proponente. 
+Ogni test viene riconosciuto tramite un identificativo univoco, la cui sintassi è descritta nelle \NdP (§3.2.2) e può assumere uno tra questi stati: \Ts, \Ti, \Ts. 
+Dato che il progetto è ancora alla fase iniziale, si presume che questa sezione sarà soggetta a modifiche basate sulle esigenze ed i problemi che si incontreranno durante lo sviluppo.
+
+\subsection{Test di validazione}
+Questi test verranno utilizzati durante la fase di collaudo finale, in presenza di committente e proponente, per valutare se il prodotto è conforme a quanto specificato nel contratto.
+
+\newcolumntype{H}{>{\centering\arraybackslash}m{7cm}}
+\normalsize
+\begin{longtable}{|c|H|c|}
+	\hline
+	\textbf{Codice test} & \textbf{Descrizione} & \textbf{Stato}\\
+	\hline
+	\endhead
+	
+	\hline
+	TV0F1A & Viene verificato che un utente non autenticato visualizzi la pagina di registrazione. & \Ts \\
+	\hline
+	TV0F1B & Viene verificato l'inserimento nel campo realtivo al nome. & \Ts \\
+	\hline
+	TV0F1C & Viene verificato l'inserimento nel campo realtivo al cognome. & \Ts \\
+	\hline
+	TV0F1D & Viene verificato l'inserimento nel campo realtivo all'e-mail. & \Ts \\
+	\hline
+	TV0F1E & Viene verificato l'inserimento nel campo realtivo al codice fiscale. & \Ts \\
+	\hline
+	TV0F1F & Viene verificato l'inserimento nel campo realtivo al codice univoco. & \Ts \\
+	\hline
+	TV0F1G & Viene verificato l'inserimento nel campo realtivo al matricola. & \Ts \\
+	\hline
+	TV0F1H & Viene verificato che \emph{metamask}\ped{G} sia attivato correttamente nel caso in cui un utente non autenticato voglia registrarsi. & \Ts \\
+	\hline
+	TV0F1I & Viene verificato che venga confermata la registrazione. & \Ts \\
+	\hline
+	TV0F1L & Viene verificato che la creazione sia andata a buon fine effettuando un login. & \Ts \\
+	\hline
+	TV2F1.8 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente non autenticato  riempia i campi dato relativi alla registrazione con informazioni già presenti, non valide o nulle. & \Ts \\
+	\hline
+	TV0F2A & Viene verificato che \emph{metamask}\ped{G} sia attivato correttamente nel caso in cui un utente non autenticato voglia autenticarsi dopo essersi registrato. & \Ts \\
+	\hline
+	TV0F2B & Viene verificato che, nel caso in cui l'utente non autenticato clicchi il pulsante di login, il sistema segnali la corretta autenticazione. & \Ts \\
+	\hline
+	TV0F3A & Viene verificato che l'utente amministratore o l'utente università siano correttamente autenticati rispettivamente come amministratore o come università. & \Ts \\ 
+	\hline
+	TV0F3B & Viene verificata la visualizzazione della pagina per l'inserimento di un anno accademico. & \Ts \\ 
+	\hline
+	TV0F3C & Viene verificato l'inserimento dell'inizio dell'anno accademico. & \Ts \\ 
+	\hline
+	TV0F3D & Viene verificato l'inserimento della fine dell'anno accademico. & \Ts \\ 
+	\hline
+	TV0F3E & Viene verificato l'inserimento della nome dell'anno accademico. & \Ts \\ 
+	\hline
+	TV0F3F & Viene verificata la conferma dell'aggiunta dell'anno accademico. & \Ts \\ 
+	\hline
+	TV0F3G & Viene verificato che l'aggiunta dell'anno accademico sia andata a buon fine. & \Ts \\ 
+	\hline
+	TV2F3.5 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente amministratore o università riempiano i campi dato relativi all'inserimento di un anno accademico con informazioni errate o nulle. & \Ts \\
+	\hline
+	TV0F4A & Viene verificata la visualizzazione della pagina per l'inserimento di un corso di laurea. & \Ts \\
+	\hline
+	TV0F4B & Viene verificato l'inserimento del codice del corso di laurea. & \Ts \\
+	\hline
+	TV0F4C & Viene verificato l'inserimento del nome del corso di laurea. & \Ts \\
+	\hline
+	TV0F4D & Viene verificato l'inserimento della descrizione del corso di laurea. & \Ts \\
+	\hline
+	TV0F4E & Viene verificato l'inserimento della tipologia del corso di laurea. & \Ts \\
+	\hline
+	TV0F4G & Viene verificata la conferma dell'aggiunta di un corso di laurea. & \Ts \\
+	\hline
+	TV0F4H & Viene verificato che l'aggiunta del corso di laurea sia andata a buon fine. & \Ts \\
+	\hline
+	TV2F4.7 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente amministratore o università riempiano i campi dato relativi all'inserimento di un corso di laurea con informazioni errate o nulle. & \Ts \\
+	\hline
+	TV0F5A & Viene verificata la visualizzazione della pagina per l'inserimento di un'attività didattica. & \Ts \\
+	\hline
+	TV0F5B & Viene verificato l'inserimento del codice dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5C & Viene verificato l'inserimento del nome dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5D & Viene verificato l'inserimento della descrizione dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5E & Viene verificato l'inserimento del professore associato all'attività didattica. & \Ts \\
+	\hline
+	TV0F5F & Viene verificato l'inserimento dei crediti dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5G & Viene verificato l'inserimento del periodo dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5H & Viene verificata la conferma dell'aggiunta dell'attività didattica. & \Ts \\
+	\hline
+	TV0F5I & Viene verificato che l'aggiunta dell'attività didattica sia andata a buon fine. & \Ts \\
+	\hline
+	TV2F5.9 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente amministratore o università riempiano i campi dato relativi all'inserimento di un'attività didattica con informazioni errate o nulle. & \Ts \\
+	\hline
+	TV0F6A & Viene verificata la visualizzazione della pagina per l'inserimento di un esame. & \Ts \\
+	\hline
+	TV0F6B & Viene verificato l'inserimento del codice dell'esame. & \Ts \\
+	\hline
+	TV0F6C & Viene verificato l'inserimento della descrizione dell'esame. & \Ts \\
+	\hline
+	TV0F6D & Viene verificato l'inserimento dell'intervallo di prenotazione dell'esame. & \Ts \\
+	\hline
+	TV0F6E & Viene verificato l'inserimento della data dell'esame. & \Ts \\
+	\hline
+	TV0F6F & Viene verificato l'inserimento della tipologia dell'esame. & \Ts \\
+	\hline
+	TV0F6G & Viene verificato l'inserimento del luogo dell'esame. & \Ts \\
+	\hline
+	TV0F6H & Viene verificato l'inserimento del professore associato all'esame. & \Ts \\
+	\hline
+	TV0F6I & Viene verificata la conferma dell'aggiunta dell'esame. & \Ts \\
+	\hline
+	TV0F6L & Viene verificato che l'aggiunta dell'esame sia andata a buon fine. & \Ts \\
+	\hline
+	TV2F6.9 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente amministratore o università riempiano i campi dato relativi all'inserimento di un'esame con informazioni errate o nulle. & \Ts \\
+	\hline
+	TV2F11A & Viene verificata la visualizzazione della pagina relativa alla cancellazione di un anno accademico. & \Ts \\
+	\hline
+	TV2F11B & Viene verificata l'effettiva eleminazione dell'anno accademico qualora l'utente amministratore o l'utente università abbia cliccato sul pulsante di eliminazione. & \Ts \\
+	\hline
+	TV2F12A & Viene verificata la visualizzazione della pagina relativa alla cancellazione di un corso di laurea. & \Ts \\
+	\hline
+	TV2F12B & Viene verificata l'effettiva eleminazione del corso di laurea qualora l'utente amministratore o l'utente università abbia cliccato sul pulsante di eliminazione. & \Ts \\
+	\hline
+	TV2F13A & Viene verificata la visualizzazione della pagina relativa alla cancellazione di un'attività didattica. & \Ts \\
+	\hline
+	TV2F13B & Viene verificata l'effettiva eleminazione dell'attività didattica qualora l'utente amministratore o l'utente università abbia cliccato sul pulsante di eliminazione. & \Ts \\
+	\hline
+	TV2F14A & Viene verificata la visualizzazione della pagina relativa alla cancellazione di un'esame. & \Ts \\
+	\hline
+	TV2F14B & Viene verificata l'effettiva eleminazione dell'esame qualora l'utente amministratore o l'utente università abbia cliccato sul pulsante di eliminazione. & \Ts \\
+	\hline
+	TV2F16A & Viene verificato che l'utente studente sia correttamente autenticato come studente.  & \Ts \\
+	\hline
+	TV2F16B & Viene verificata la visualizzazione della pagina della lista di esami associati allo studente.  & \Ts \\
+	\hline
+	TV2F16C & Viene verificata la conferma dell'iscrizione all'esame da parte dello studente. & \Ts \\
+	\hline
+	TV2F16D & Viene verificato che l'iscrizione all'esame da parte dello studente sia andata a buon fine. & \Ts \\
+	\hline
+	TV0F17A & Viene verificato che l'utente professore sia correttamente autenticato come professore.  & \Ts \\
+	\hline
+	TV0F17B & Viene verificata la visualizzazione della pagina della lista di esami associati al professore.  & \Ts \\
+	\hline
+	TV0F18 & Viene verificata la visualizzazione della pagina della lista di studenti iscritti ad un esame associato al professore.  & \Ts \\
+	\hline
+	TV0F23A & Viene verificato l'inserimento di un voto ad uno studente da parte di un professore. & \Ts \\
+	\hline
+	TV0F23B & Viene verificato che l'inserimento di un voto ad uno studente da parte di un professore sia andato a buon fine. & \Ts \\
+	\hline
+	TV2F23.3 & Viene verificata la visualizzazione di un messaggio d'errore qualora un professore inserisca un voto in un formato errato. & \Ts \\
+	\hline
+	TV0F24A & Viene verificata la visualizzazione della pagina relativa all'aggiunta di un nuovo utente da parte di un utente amministratore o di un utente università.  & \Ts \\
+	\hline
+	TV0F24B & Viene verificato l'inserimento del codice fiscale dell'utente che l'utente amministratore o l'utente università vuole inserire.  & \Ts \\
+	\hline
+	TV0F24C & Viene verificato l'inserimento del codice univoco dell'utente che l'utente amministratore o l'utente università vuole inserire.  & \Ts \\
+	\hline
+	TV0F24D & Viene verificata la selezione della tipologia dell'utente che l'utente amministratore o l'utente università vuole inserire.  & \Ts \\
+	\hline
+	TV0F24E & Viene verificata la selezione dell'anno accademico relativo all'utente che l'utente amministratore o l'utente università vuole inserire.  & \Ts \\
+	\hline
+	TV0F24F & Viene verificata la selezione del corso di laurea relativa all'utente che l'utente amministratore o l'utente università vuole inserire.  & \Ts \\
+	\hline
+	TV0F24G & Viene verificata la conferma dell'aggiunta di un nuovo utente da parte di un utente amministratore o di un utente università. & \Ts \\
+	\hline
+	TV0F24H & Viene verificato che l'aggiunta di un utente da parte di un utente amministratore o di un utente università sia andata a buon fine. & \Ts \\
+	\hline
+	TV2F24.6 & Viene verificata la visualizzazione di un messaggio d'errore qualora l'utente amministratore o università riempiano i campi dato relativi all'aggiunta di un nuovo utente con informazioni errate o nulle. & \Ts \\
+	\hline
+	TV0F25A & Viene verificata l'eliminazione di un utente studente da parte dell'utente amministratore o dell'utente università.	& \Ts \\
+	\hline
+	TV0F25B & Viene verificata l'eliminazione di un utente professore da parte dell'utente amministratore o dell'utente università.	& \Ts \\
+	\hline
+	TV0F25C & Viene verificata l'eliminazione di un utente amministratore da parte dell'utente università.	& \Ts \\
+	\hline
+	TV0F26A & Viene verificata la visualizzazione della pagina con la lista di esami a cui lo studente è registrato. & \Ts \\
+	\hline
+	TV0F26B & Viene verificata la visualizzazione della pagina del libretto universitario da parte dello studente. & \Ts \\
+	\hline
+	\caption[Test di validazione]{Test di validazione}
+	\label{tabella:TV}
+\end{longtable}
+
+	\subsubsection{Tracciamento Test di validazione - Requisiti}
+\normalsize
+\begin{longtable}{|c|c|}
+	\hline
+	\textbf{Codice test} & \textbf{Codice requisito} \\
+	\hline
+	\endhead
+	TV0F1A & R0F1\\
+	\hline
+	TV0F1B & R0F1\\
+	\hline
+	TV0F1C & R0F1\\
+	\hline
+	TV0F1D & R0F1\\
+	\hline
+	TV0F1E & R0F1\\
+	\hline
+	TV0F1F & R0F1\\
+	\hline
+	TV0F1G & R0F1\\
+	\hline
+	TV0F1H & R0F1\\
+	\hline
+	TV0F1I & R0F1\\
+	\hline
+	TV0F1L & R0F1\\
+	\hline
+	TV2F1.8 & R2F1.8\\
+	\hline
+	TV0F2A & R0F2\\
+	\hline
+	TV0F2B & R0F2\\
+	\hline
+	TV0F3A & R0F3\\
+	\hline
+	TV0F3B & R0F3\\
+	\hline
+	TV0F3C & R0F3\\
+	\hline
+	TV0F3D & R0F3\\
+	\hline
+	TV0F3E & R0F3\\
+	\hline
+	TV0F3F & R0F3\\
+	\hline
+	TV0F3G & R0F3\\
+	\hline
+	TV2F3.5 & R2F3.5\\
+	\hline
+	TV0F4A & R0F4\\
+	\hline
+	TV0F4B & R0F4\\
+	\hline
+	TV0F4C & R0F4\\
+	\hline
+	TV0F4D & R0F4\\
+	\hline
+	TV0F4E & R0F4\\
+	\hline
+	TV0F4F & R0F4\\
+	\hline
+	TV0F4G & R0F4\\
+	\hline
+	TV0F4H & R0F4\\
+	\hline
+	TV2F4.7 & R2F4.7\\
+	\hline
+	TV0F5A & R0F5\\
+	\hline
+	TV0F5B & R0F5\\
+	\hline
+	TV0F5C & R0F5\\
+	\hline
+	TV0F5D & R0F5\\
+	\hline
+	TV0F5E & R0F5\\
+	\hline
+	TV0F5F & R0F5\\
+	\hline
+	TV0F5G & R0F5\\
+	\hline
+	TV0F5H & R0F5\\
+	\hline
+	TV0F5I & R0F5\\
+	\hline
+	TV2F5.9 & R2F5.9\\
+	\hline
+	TV0F6A & R0F6\\
+	\hline
+	TV0F6B & R0F6\\
+	\hline
+	TV0F6C & R0F6\\
+	\hline
+	TV0F6D & R0F6\\
+	\hline
+	TV0F6E & R0F6\\
+	\hline
+	TV0F6F & R0F6\\
+	\hline
+	TV0F6G & R0F6\\
+	\hline
+	TV0F6H & R0F6\\
+	\hline
+	TV0F6I & R0F6\\
+	\hline
+	TV0F6L & R0F6\\
+	\hline
+	TV2F6.9 & R2F6.9\\
+	\hline
+	TV2F11A & R2F11\\
+	\hline
+	TV2F11B & R2F11\\
+	\hline
+	TV2F12A & R2F12\\
+	\hline
+	TV2F12B & R2F12\\
+	\hline
+	TV2F13A & R2F13\\
+	\hline
+	TV2F13B & R2F13\\
+	\hline
+	TV2F14A & R2F14\\
+	\hline
+	TV2F14B & R2F14\\
+	\hline
+	TV2F16A & R2F16\\
+	\hline
+	TV2F16B & R2F16\\
+	\hline
+	TV2F16C & R2F16\\
+	\hline
+	TV2F16D & R2F16\\
+	\hline
+	TV0F17A & R0F17\\
+	\hline
+	TV0F17B & R0F17\\
+	\hline
+	TV0F18 & R0F18\\
+	\hline
+	TV0F23A & R0F23\\
+	\hline
+	TV0F23B & R0F23\\
+	\hline
+	TV2F23.3 & R2F23.3\\
+	\hline
+	TV0F24A & R0F24\\
+	\hline
+	TV0F24B & R0F24\\
+	\hline
+	TV0F24C & R0F24\\
+	\hline
+	TV0F24D & R0F24\\
+	\hline
+	TV0F24E & R0F24\\
+	\hline
+	TV0F24F & R0F24\\
+	\hline
+	TV0F24G & R0F24\\
+	\hline
+	TV0F24H & R0F24\\
+	\hline
+	TV2F24.6 & R2F24.6\\
+	\hline
+	TV0F25A & R0F25\\
+	\hline
+	TV0F25B & R0F25\\
+	\hline
+	TV0F25C & R0F25\\
+	\hline
+	TV0F26A & R0F26\\
+	\hline
+	TV0F26B & R0F26\\
+	\hline
+	\caption[Tracciamento test di validazione - requisiti]{Tracciamento test di validazione - requisiti}
+\end{longtable}
+\clearpage
+	
+\subsection{Test di sistema}
+Questi test servono per verificare il comportamento dinamico complessivo dell'intero sistema in riferimento ai requisiti dichiarati nel documento \AdR, come attività di controllo interna svolta dal fornitore.
+
+\newcolumntype{H}{>{\centering\arraybackslash}m{7cm}}
+\normalsize
+\begin{longtable}{|c|H|c|}
+	\hline
+	\textbf{Codice test} & \textbf{Descrizione} & \textbf{Stato}\\
+	\hline
+	TS0F1 & Viene verificato che il sistema permetta la creazione di un account permettendo di usufruire delle funzionalità del sistema, limitate dal tipo di account creato.& \Ts \\
+	\hline
+    TS0F2 & Viene verificato che il sistema permetta ad ogni utente correttamente registrato di autenticarsi automaticamente. & \Ts \\
+	\hline
+	TS0F3 &Viene verificato che il sistema permetta ad ogni utente amministratore o università di aggiungere un nuovo anno accademico al sistema. & \Ts \\ 
+	\hline
+	TS0F4 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di aggiungere un nuovo corso di laurea al sistema. & \Ts \\
+	\hline
+	TS0F5 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di aggiungere una nuova attività didattica al sistema. & \Ts \\
+	\hline
+	TS0F6 &  Viene verificato che il sistema permetta ad ogni utente amministratore o università di aggiungere un nuovo esame al sistema. & \Ts \\
+	\hline
+	TS2F11 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un anno accademico già presente nel sistema. & \Ts \\
+	\hline
+	TS2F12 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un corso di laurea già presente nel sistema. & \Ts \\
+	\hline
+	TS2F13 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un'attività didattica già presente nel sistema. & \Ts \\
+	\hline
+	TS2F14 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di eliminare un esame già presente nel sistema. & \Ts \\
+	\hline
+	TS2F15 &Viene verificato che il sistema permetta ad ogni utente amministratore o università di inserire un nuovo professore associato ad un'attività didattica. & \Ts \\
+	\hline
+	TS2F16 & Viene verificato che il sistema permetta ad ogni utente studente di iscriversi ad un esame.& \Ts \\
+	\hline
+	TS0F17 & Viene verificato che il sistema permetta ad ogni utente professore di visualizzare la lista degli esami a lui associati. & \Ts \\
+	\hline
+	TS0F18 & Viene verificato che il sistema permetta ad ogni utente professore di visualizzare la lista degli studenti iscritti ad uno degli esami a lui associati. & \Ts \\
+	\hline
+	TS0F19 & Viene verificato che il sistema visualizzi per ogni operazione il costo associato. & \Ts \\
+	\hline
+	TS0F23 & Viene verificato che il sistema permetta ad ogni utente professore di registrare il voto relativo ad un esame di uno studente. & \Ts \\
+	\hline
+	TS0F24 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di creare un nuovo utente nel sistema.& \Ts \\
+    \hline
+	TS0F25 & Viene verificato che il sistema permetta ad ogni utente amministratore o università di rimuovere un utente dal sistema. & \Ts \\
+	\hline
+	TS0F26 & Viene verificato che il sistema permetta ad ogni utente studente di visualizzare il proprio libretto. & \Ts \\
+	\hline
+	TS &  Viene verificato che il sistema offra correttamente tutte le sue funzionalità con la versione 6.0.286 o superiore di Google Chrome, utilizzando metamask versione 4.6 o superiore.  & \Ts \\
+	\hline
+	TS &   Viene verificato che il sistema offra correttamente tutte le sue funzionalità con la versione 50 o superiore di Mozilla Firefox, utilizzando metamask versione 4.5 o superiore. & \Ts \\
+	\hline
+	TS &   Viene verificato che il sistema offra correttamente tutte le sue funzionalità con la versione 52 o superiore di Opera, utilizzando metamask versione 3.13.4 o superiore. & \Ts \\
+	\hline
+	\caption[Test di sistema]{Test di sistema}
+\end{longtable}
+\clearpage
+
+\subsubsection{Tracciamento Test di sistema - Requisiti}
+\normalsize
+\begin{longtable}{|c|c|}
+	\hline
+	\textbf{Codice test} & \textbf{Codice requisito} \\
+	\hline
+	\endhead
+	TS0F1 & R0F1\\
+	\hline
+	TS0F2 & R0F2\\
+	\hline
+	TS0F3 & R0F3\\
+	\hline
+	TS0F4 & R0F4\\
+	\hline
+	TS0F5 & R0F5\\
+	\hline
+	TS0F6 & R0F6\\
+	\hline
+	TS2F11 & R2F11\\
+	\hline
+	TS2F12 & R2F12\\
+	\hline
+	TS2F13 & R2F13\\
+	\hline
+	TS2F14 & R2F14\\
+	\hline
+	TS2F15 & R2F15\\
+	\hline
+	TS2F16 & R2F16\\
+	\hline
+	TS0F17 & R0F17\\
+	\hline
+	TS0F18 & R0F18\\
+	\hline
+	TS0F19 & R0F19\\
+	\hline
+	TS0F23 & R0F23\\
+	\hline
+	TS0F24 & R0F24\\
+	\hline
+	TS0F25 & R0F25\\
+	\hline
+	TS0F26 & R0F26\\
+	\hline
+	TS0F27 & R0F27\\
+	\hline
+	TS0F28 & R0F28\\
+	\hline
+	\caption[Tracciamento test di sistema - requisiti]{Tracciamento test di sistema - requisiti}
+\end{longtable}
+\clearpage
+
+\subsection{Test di integrazione}
+Questi test verificano il corretto comportamento di ogni singola componente e le relazioni con il resto del sistema.
+
+\newcolumntype{H}{>{\centering\arraybackslash}m{7cm}}
+\normalsize
+\begin{longtable}{|c|H|c|}
+	\hline
+	\textbf{Codice test} & \textbf{Descrizione} & \textbf{Stato}\\
+	\hline
+	TI1 & Viene verificato che l’applicazione Web gestisca correttamente il front end del prodotto e le sue interazioni con il back end. & \Ts \\
+	\hline
+	TI2 & Viene verificato che i contratti Solidity si integrino correttamente con la componente web3. & \Ts \\ 
+	\hline
+	TI3 & Viene verificato che le componenti \emph{action}, \emph{store} e \emph{reducers} di Redux comunichino correttamente tra loro.  & \Ts \\
+	\hline
+	TI4 & Viene verificato che le componenti visive di React si integrino correttamente con la gestione degli \emph{state} di Redux. & \Ts \\
+	\hline
+	TI5 & Viene verificato che l'immissione dei dati nel front end corrisponda ad una loro effettiva scrittura nel database del back end. & \Ts \\
+	\hline
+	TI6 &Viene verificato che l'applicativo web mostri correttamente i dati prelevati dal back end. & \Ts \\ 
+	\hline
+	TI7 & Viene verificato che venga ritornata la lista dei corsi di laurea corretta & \Ts \\
+	\hline
+	TI8 & Viene verificato che venga ritornata la lista delle attività didattiche corretta & \Ts \\
+	\hline
+	TI9 & Viene verificato che venga ritornata la lista degli anni accademici corretta & \Ts \\
+	\hline
+	TI10 & Viene verificato che uno studente possa loggarsi premendo sul bottone di login solo dopo che questo si sia correttamente registrato & \Ts \\
+	\hline
+	TI11 & Viene verificato che se alcuni parametri non sono corretti, allora l'azione di fallimento sia controllata & \Ts \\
+	\hline
+	TI12 & Viene verificato che venga ritornata la lista di tutti gli esami presenti nell'anno accademico indicato & \Ts \\
+	\hline
+	TI13 & Viene verificato che venga ritornata la lista di tutti gli esami di un corso di laurea& \Ts \\
+	\hline
+	TI14 & Viene verificato che venga ritornata la lista di tutti gli studenti registrati & \Ts \\
+	\hline
+	TI15 & Viene verificato che venga ritornata la lista di tutti i professori inseriti nel sistema & \Ts \\
+	\hline
+	TI16 & Viene verificato che possa venir assegnato un esame presente nella lista degli esami ad un professore & \Ts \\
+	\hline
+	TI17 & Viene verificato che venga aggiunto un anno accademico & \Ts \\
+	\hline
+	TI18 & Viene verificato che venga aggiunta un'attività didattica & \Ts \\
+	\hline
+	TI19 & Viene verificato che venga effettuato correttamente il login secondo il ruolo dell'utente che accede al sistema & \Ts \\
+	\hline
+	TI20 & Viene verificato che venga lanciato un errore nel caso dell'inserimento di un voto irregolare di un esame da parte di un professore & \Ts \\
+	\hline
+	TI21 & Viene verificato che venga aggiunto un corso di laurea & \Ts \\
+	\hline
+	TI22 & Viene verificato che venga visualizzata la lista degli esami associati ad un professore & \Ts \\
+	\hline
+	TI23 & Viene verificato che venga visualizzata la lista degli esami a cui è registrato uno studente & \Ts \\
+	\hline
+	TI24 & Viene verificato che venga visualizzata la lista degli esami a cui può iscriversi uno studente & \Ts \\
+	\hline
+	TI25 & Viene verificato che venga visualizzata la lista degli esami associati ad uno studente & \Ts \\
+	\hline
+	TI26 & Viene verificato che uno studente possa iscriversi a un esame & \Ts \\
+	\hline
+	TI27 & Viene verificato che possa essere correttamente eliminato un anno accademico senza corsi di laurea al suo interno & \Ts \\
+	\hline
+	TI28 & Viene verificato che possa essere correttamente eliminato uno studente che non ha ancora eseguito il signup & \Ts \\
+	\hline
+	TI29 & Viene verificato che possa essere correttamente eliminato un corso di laurea senza che abbia attività didattiche al suo interno & \Ts \\
+	\hline
+	TI30 & Viene verificato che possa essere correttamente eliminata un'attività didattica che non abbia al suo interno alcun esame & \Ts \\
+	\hline
+	TI31 & Viene verificato che possa essere correttamente eliminato un amministratore & \Ts \\
+	\hline
+	TI32 & Viene verificato che possa essere correttamente eliminato un professore & \Ts\\
+	\hline
+	TI33 & Viene verificato che venga accettato un voto da parte di uno studente & \Ts \\
+	\hline
+		\caption[Test di integrazione]{Test di integrazione}
+\end{longtable}
+\clearpage
+
+\subsection{Test di unità}
+Questi test servono per verificare il corretto funzionamento delle singole parti del sistema.
+
+\newcolumntype{H}{>{\centering\arraybackslash}m{7cm}}
+\normalsize
+\begin{longtable}{|c|H|c|}
+	\hline
+	\textbf{Codice test} & \textbf{Descrizione} & \textbf{Stato}\\
+	\hline
+	TU1 & Viene verificato che il metodo \emph{LogoutUser()} faccia uscire l'utente dal sistema e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU2 & Viene verificato che il metodo \emph{OnInsertUserFormSubmit(string,string,int)} inserisca un utente nel sistema e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU3 &Viene verificato che dopo aver aggiunto un utente al sistema, esso sia effettivamente salvato nella blockchain assieme al suo codice univoco e codice fiscale. & \Ts \\ 
+	\hline
+	TU4 & Viene verificato che, dopo che un utente ha eseguito la registrazione tramite il codice univoco fornito dall'università ed il suo codice fiscale, immettendo i propri dati personali, esso risulti effettivamente registrato con i propri dati salvati. & \Ts \\
+	\hline
+	TU5 & Viene verificato che l'inserimento di un nuovo anno accademico sia effettivamente salvato con i dati relativi specificati. & \Ts \\
+	\hline
+	TU6 &  Viene verificato che l'inserimento di un nuovo corso di laurea sia effettivamente salvato con i dati relativi specificati. & \Ts \\
+	\hline
+	TU7 & Viene verificato che l'inserimento di un nuovo esame sia effettivamente salvato con i dati relativi specificati. & \Ts \\ 
+	\hline
+	TU8 & Viene verificato che l'associazione di un esame con un professore comporti effettivamente un collegamento tra le due parti.  & \Ts \\
+	\hline
+	TU9 & Viene verificato che il metodo \emph{RemoveAdmic(admin)} rimuova correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU10 & Viene verificato che il metodo \emph{RemoveStudent(student)} rimuova correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU11 & Viene verificato che il metodo \emph{ViewStudentList(exam)} visualizzi correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU12 & Viene verificato che il metodo \emph{LoginUser()} autentichi correttamente l'utente nel sistema e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU13 & Viene verificato che il metodo \emph{render()} del component \emph{Help} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU14 & Viene verificato che il metodo \emph{render()} del component \emph{LoginButoon} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU15 & Viene verificato che il metodo \emph{render()} del component \emph{LogoutButton} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU16 & Viene verificato che il metodo \emph{render()} del component \emph{NavButton} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU17 & Viene verificato che il metodo \emph{render()} del component \emph{Home} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU18 & Viene verificato che il metodo \emph{render()} del component \emph{App} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU19 & Viene verificato che il metodo \emph{render()} del component \emph{InsertUserForm} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU20 & Viene verificato che il metodo \emph{render()} del component \emph{InsertUser} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU21 & Viene verificato che il metodo \emph{render()} del component \emph{EmptyData} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU22 & Viene verificato che il metodo \emph{render()} del component \emph{DeleteAdministrator} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU23 & Viene verificato che il metodo \emph{render()} del component \emph{Administrators} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU24 & Viene verificato che il metodo \emph{render()} del component \emph{LoadingData} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU25 & Viene verificato che il metodo \emph{render()} del component \emph{LoadingUser} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU26 & Viene verificato che il metodo \emph{render()} del component \emph{NotFound} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU27 & Viene verificato che il metodo \emph{render()} del component \emph{ModifyAcademicYear} comporti la corretta renderizzazione del componente. & \Ti \\
+	\hline
+	TU28 & Viene verificato che il metodo \emph{render()} del component \emph{InsertAcademicYear} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU29 & Viene verificato che il metodo \emph{render()} del component \emph{DeleteAcademicYear} comporti la corretta renderizzazione del componente. & \Ti \\
+	\hline
+	TU30 & Viene verificato che il metodo \emph{render()} del component \emph{AcademicYears} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU31 & Viene verificato che il metodo \emph{render()} del component \emph{ModifyDegreeCourse} comporti la corretta renderizzazione del componente. & \Ti \\
+	\hline
+	TU32 & Viene verificato che il metodo \emph{render()} del component \emph{InsertDegreeCourse} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU33 & Viene verificato che il metodo \emph{render()} del component \emph{DeleteDegreeCourse} comporti la corretta renderizzazione del componente. & \Ti \\
+	\hline
+	TU34 & Viene verificato che il metodo \emph{render()} del component \emph{DegreeCourses} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU35 & Viene verificato che il metodo \emph{render()} del component \emph{ModifyDidacticActivity} comporti la corretta renderizzazione del componente. & \Ti \\
+	\hline
+	TU36 & Viene verificato che il metodo \emph{render()} del component \emph{InsertDidacticActivity} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU37 & Viene verificato che il metodo \emph{render()} del component \emph{DeleteDidacticActivity} comporti la corretta renderizzazione del componente. & \Ti \\
+	\hline
+	TU38 & Viene verificato che il metodo \emph{render()} del component \emph{DidacticActivities} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU39 & Viene verificato che il metodo \emph{render()} del component \emph{InsertExam} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU40 & Viene verificato che il metodo \emph{render()} del component \emph{DeleteProfessor} comporti la corretta renderizzazione del componente. & \Ti \\
+	\hline
+	TU41 & Viene verificato che il metodo \emph{render()} del component \emph{Professors} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU42 & Viene verificato che il metodo \emph{render()} del component \emph{DeleteStudent} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU43 & Viene verificato che il metodo \emph{render()} del component \emph{Students} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU44 & Viene verificato che il metodo \emph{render()} del component \emph{ExamList} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU45 & Viene verificato che il metodo \emph{render()} del component \emph{ExamPage} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU46 & Viene verificato che il metodo \emph{render()} del component \emph{ExamsProfessorList} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU47 & Viene verificato che il metodo \emph{render()} del component \emph{RegisteredStudentsList} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU48 & Viene verificato che il metodo \emph{render()} del component \emph{ExamsStudentList} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU49 & Viene verificato che il metodo \emph{render()} del component \emph{SchoolRecords} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU50 & Viene verificato che il metodo \emph{render()} del component \emph{Profile} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU51 & Viene verificato che il metodo \emph{render()} del component \emph{SubNavbar} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU52 & Viene verificato che il metodo \emph{render()} del component \emph{SubNavButton} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU53 & Viene verificato che il metodo \emph{render()} del component \emph{SignUp} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU54 & Viene verificato che il metodo \emph{render()} del component \emph{SignUpForm} comporti la corretta renderizzazione del componente. & \Ts \\
+	\hline
+	TU55 & Viene verificato che il metodo \emph{ReadAcademicData()} legga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU56 & Viene verificato che il metodo \emph{ReadDidacticActivities(int,int)} legga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU57 & Viene verificato che il metodo \emph{ReadDegreeCourses(int)} legga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU58 & Viene verificato che il metodo \emph{ReadExams(int,int,int)} legga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU59 & Viene verificato che il metodo \emph{ReadProfessorList()} legga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU60 & Viene verificato che il metodo \emph{ReadAdminList()} legga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU61 & Viene verificato che il metodo \emph{ReadStudentsList()} legga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU62 & Viene verificato che il metodo \emph{ReadExam(int,int,int)} legga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU63 & Viene verificato che il metodo \emph{ReadExamList(professor)} legga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU64 & Viene verificato che il metodo \emph{ReadExamList(student)} legga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU65 & Viene verificato che il metodo \emph{ModifyAcademicData()} modifichi correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU66 & Viene verificato che il metodo \emph{ModifyDidacticActivity(int,int,int)} modifichi correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU67 & Viene verificato che il metodo \emph{ModifyDegreeCourse(int,int)} modifichi correttamente le informazioni e faccia il dispatch dell'operazione. & \Ts \\
+	\hline
+	TU68 & Viene verificato che il metodo \emph{ModifyExam(int,int,int,int)} modifichi correttamente le informazioni e faccia il dispatch dell'operazione. & \Ts \\
+	\hline
+	TU69 & Viene verificato che il metodo \emph{OnSignUpFormSubmit(string,string,string,string,int)} inserisca un utente nel sistema registrandone i dati nel sistema e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU70 & Viene verificato che il metodo \emph{AddAcademicYear(int)} aggiunga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU71 & Viene verificato che il metodo \emph{AddDidacticActivity(int,int,int)} aggiunga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU72 & Viene verificato che il metodo \emph{AddDegreeCourse(int,int)} aggiunga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU73 & Viene verificato che il metodo \emph{AddExam(int,int,int,int)} aggiunga correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU74 & Viene verificato che il metodo \emph{RemoveAcademicYear(int)} rimuova correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU75 & Viene verificato che il metodo \emph{RemoveDidacticActivity(int,int,int)} rimuova correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU76 & Viene verificato che il metodo \emph{RemoveDegreeCourse(int,int)} rimuova correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU77 & Viene verificato che il metodo \emph{RemoveExam(int,int,int,int)} rimuova correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+	TU78 & Viene verificato che il metodo \emph{RemoveProfessor(admin)} rimuova correttamente le informazioni e faccia il dispatch dello stato dell'operazione. & \Ts \\
+	\hline
+
+	\caption[Test di sistema]{Test di sistema}
+\end{longtable}
+
+\subsubsection{Tracciamento Test di unità - Metodi}
+\normalsize
+\begin{longtable}{|>{\centering\arraybackslash}p{2cm}| p{15cm}|}
+	\hline
+	\textbf{Codice test} & \textbf{Classe:metodo} \\
+	\hline
+	\endhead
+	TU1 & $InsertUserFormAction:OnInsertUserFormSubmit(string,string,int)$ \\
+	\hline
+	TU2 & $LogoutButtonAction:LogoutUser()$ \\
+	\hline
+	TU3 & $Admin:addUser(bytes32 \textunderscore fiscalCode, bytes10 \textunderscore uniCode, uint8 \textunderscore userType)$\newline$UserData:getUsersUniCode(bytes32 \textunderscore fiscalCode)$\newline$UserData:getUsersUserType(bytes32 \textunderscore fiscalCode)$
+	\\
+	\hline
+
+	TU4 & $UserLogic:signUp(bytes32 \textunderscore fiscalCode, bytes10 \textunderscore uniCode, bytes32 \textunderscore hashData)$\newline$UserData:getRegUsersUniCode(address \textunderscore address) $\newline$UserData:getRegUsersFiscalCode(address \textunderscore address)$\newline$UserData:getRegUsersUserType(address \textunderscore address) $\newline$UserData:getRegUsersBadgeNumber(address \textunderscore address)$\newline$UserData:getRegUsersHashData(address \textunderscore address)$\\
+	\hline
+	TU5 & $Admin:addNewDegree(bytes10 \textunderscore degreeUniCode, bytes4 \textunderscore year, bytes32 \textunderscore hashData) $\newline$DegreeData:isDegree(bytes10 \textunderscore degreeUniCode) $\newline$DegreeData:getDegreeCourses(bytes10 \textunderscore degreeUniCode)$\\
+	\hline
+	TU6 &$Admin:addNewExam(bytes10 \textunderscore courseUniCode, bytes10 \textunderscore examUniCode, uint32 \textunderscore examTeacher,$\newline$ bytes32 \textunderscore examHashData) $\newline$ExamData:examExist(bytes10 \textunderscore examUniCode)$\newline$ExamData:getExamTeacher(bytes10 \textunderscore examUniCode) $\newline$ExamData:getAllIdentifiers()$\\
+	\hline
+	TU7 & $Teacher:myExams()$\\
+	\hline
+	TU8 &$ Teacher:registerResult(bytes10 \textunderscore examUniCode, uint32 \textunderscore studentBadgeNumber, bytes2 \textunderscore result)$\\
+	\hline
+	TU9 & $DeleteAdministrator:RemoveAdmin(admin)$\\
+	\hline
+	TU10 & $DeleteStudent:RemoveStudent(steudent)$\\
+	\hline
+	TU11 & $RegisteredStudentListAction:ViewStudentListAction(exam)$\\
+	\hline
+	TU12 & $LoginButtonAction:LoginUser()$\\
+	\hline
+	TU13 & $Help:render$\\
+	\hline
+	TU14 & $LoginButton:render$\\
+	\hline
+	TU15 & $LogoutButton:render$\\
+	\hline
+	TU16 & $NavButton:render$\\
+	\hline
+	TU17 & $Home:render$\\
+	\hline
+	TU18 & $App:render$\\
+	\hline
+	TU19 & $InsertUserForm:render$\\
+	\hline
+	TU20 & $InsertUser:render$\\
+	\hline
+	TU21 & $EmptyData:render$\\
+	\hline
+	TU22 & $DeleteAdministrator:render$\\
+	\hline
+	TU23 & $Administrators:render$\\
+	\hline
+	TU24 & $LoadingData:render$\\
+	\hline
+	TU25 & $LoadingUser:render$\\
+	\hline
+	TU26 & $NotFound:render$\\
+	\hline
+	TU27 & $ModifyAcademicYear:render$\\
+	\hline
+	TU28 & $InsertAcademicYear:render$\\
+	\hline
+	TU29 & $DeleteAcademicYear:render$\\
+	\hline
+	TU30 & $AcademicYears:render$\\
+	\hline
+	TU31 & $ModifyDegreeCourse:render$\\
+	\hline
+	TU32 & $InsertDegreeCourse:render$\\
+	\hline
+	TU33 & $DeleteDegreeCourse:render$\\
+	\hline
+	TU34 & $DegreeCourses:render$\\
+	\hline
+	TU35 & $ModifyDidacticActivity:render$\\
+	\hline
+	TU36 & $InsertDidacticActivity:render$\\
+	\hline
+	TU37 & $DeleteDidacticActivity:render$\\
+	\hline
+	TU38 & $DidacticActivities:render$\\
+	\hline
+	TU39 & $InsertExam:render$\\
+	\hline
+	TU40 & $DeleteProfessor:render$\\
+	\hline
+	TU41 & $Professors:render$\\
+	\hline
+	TU42 & $DeleteStudent:render$\\
+	\hline
+	TU43 & $Students:render$\\
+	\hline
+	TU44 & $ExamList:render$\\
+	\hline
+	TU45 & $ExamPage:render$\\
+	\hline
+	TU46 & $ExamProfessorList:render$\\
+	\hline
+	TU47 & $RegisteredStudentsList:render$\\
+	\hline
+	TU48 & $ExamsStudentList:render$\\
+	\hline
+	TU49 & $SchoolRecords:render$\\
+	\hline
+	TU50 & $Profile:render$\\
+	\hline
+	TU51 & $SubNavbar:render$\\
+	\hline
+	TU52 & $SubNavButton:render$\\
+	\hline
+	TU53 & $SignUp:render$\\
+	\hline
+	TU54 & $SignUpForm:render$\\
+	\hline
+	TU55 & $ViewAcademicYearAction:ReadAcademicData()$\\
+	\hline
+	TU56 & $ViewDidacticActivitiesActione:ReadDidacticActivities(int,int)$\\
+	\hline
+	TU57 & $ViewDegreeCoursesAction:ReadDegreeCourses(int)$\\
+	\hline
+	TU58 & $ViewExamsAction:ReadExams(int,int,int)$\\
+	\hline
+	TU59 & $ViewProfessor:ReadProfessorList()$\\
+	\hline
+	TU60 & $ViewAdministrators:ReadAdminList()$\\
+	\hline
+	TU61 & $ViewStudents:ReadStudentList()$\\
+	\hline
+	TU62 & $ExamPageAction:ReadExam(int,int,int)$\\
+	\hline
+	TU63 & $ExamProfessorListActions:ReadExamList(professor)$\\
+	\hline
+	TU64 & $ViewExamsAction:ReadExamList(student)$\\
+	\hline
+	TU65 & $ModifyAcademicYearsActions:ModifyAcademicData()$\\
+	\hline
+	TU66 & $ModifyDidacticActivityAction:ModifyDidacticActivity(int,int,int)$\\
+	\hline
+	TU67 & $ModifyDegreeCourseAction:ModifyDegreeCourse(int,int)$\\
+	\hline
+	TU68 & $ModifyExamAction:ModifyExam(int,int,int,int)$\\
+	\hline
+	TU69 & $InsertUserFormAction:OnSignUpFormSubmit(string,string,string,string,int)$\\
+	\hline
+	TU70 & $InsertAcademicYearAction:AddAcademicYear(int)$\\
+	\hline
+	TU71 & $InsertDidacticActivitiesAction:AddDidacticActivity(int,int,int)$\\
+	\hline
+	TU72 & $InsertDegreeCourseAction:AddDegreeCourse(int,int)$\\
+	\hline
+	TU73 & $InsertExamAction:AddExam(int,int,int,int)$\\
+	\hline
+	TU74 & $DeleteAcademicYearAction:RemoveAcademicYear(int)$\\
+	\hline
+	TU75 & $RemoveDidacticActivities:RemoveDidacticActivities(int,int,int)$\\
+	\hline
+	TU76 & $DeleteDegreeCoursesAction:removeDegreeCourse(int,int)$\\
+	\hline
+	TU77 & $DeleteExamAction:removeExam(int,int,int)$\\
+	\hline
+	TU78 & $DeleteProfessor:RemoveProfessor(admin)$\\
+	\hline
+\caption[Tracciamento test di unità - metodi]{Tracciamento test di unità - metodi}
+\end{longtable}
+\clearpage
